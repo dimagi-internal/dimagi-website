@@ -1,0 +1,330 @@
+{
+ "slug": "ep27-how-will-advances-in-ai-impact-global-health-and-development",
+ "url": "https://dimagi.com/podcast/ep27-how-will-advances-in-ai-impact-global-health-and-development/",
+ "num": 27,
+ "title": "How Will Advances in AI Impact Global Health and Development with Clayton Sims",
+ "spotify_id": "0ZEGglK4jjbPPLGILIoonb",
+ "apple": "https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000642518058",
+ "youtube": "https://youtu.be/JAAcFXFJ0FI?si=Gc3H-uRXY0UHAu2D",
+ "amazon": "https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/32ed84a0-f2e5-4c07-8a5d-0b74c47ec760/high-impact-growth-how-will-advances-in-ai-impact-global-health-and-development-with-clayton-sims-dispatches-from-the-global-digital-health-forum-2022",
+ "show_notes": [
+  "Jonathan Jackson sits down with Clayton Sims, Dimagi’s Chief Technology Officer, at the Global Digital Health Forum, to discuss the opportunities, realities & future of artificial intelligence in the global health and development space.",
+  "Some topics covered in this conversation include:",
+  "Show Notes"
+ ],
+ "transcript": [
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "We’re here on High Impact Growth with Clayton Sims Dimagi’s CTO. You’ve heard him on a previous episode talking about some of the history of CommCare and our product strategy. Uh, Clayton is always one of the fan favorites here at the Global Digital Health Forum on his talks and this year, um, he gave a great talk on AI, so I wanted to just hear more from him and share it with our listeners."
+  },
+  {
+   "speaker": null,
+   "text": "So Clayton, everybody already knows you’re a CTO, but I’m curious why AI this year and what were you thinking about, um, with respect to it when you prepared your talk?"
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "Yeah, absolutely. I think, uh, it was very timely. I think this year especially, uh, there were a lot, there’s a lot of discussion and it’s interesting to me because it’s a topic that I think was really hot maybe six years ago when we came to the Golden Health Forum, when AI was really in kind of a nascent phase and there was a lot of excitement about it, but I think there was a little bit of a, a drying period where some of that initial excitement and hype didn’t pay off."
+  },
+  {
+   "speaker": null,
+   "text": "But this year it was a huge topic and not, not kind of as a, a burgeoning technology topic, but. As some people are really excited about abstractly with not a lot of idea, but also really practically. And it was interesting to see both of those arms come up. You know, people who are really using AI every day to make decisions and then people who are still kind of stuck in like AI is just a word we associate with something that’s fancy and we don’t know what it does."
+  },
+  {
+   "speaker": null,
+   "text": "So it was cool to see both of those kind of things still exist, but also really exciting to see the maturity in the field. I think with that in mind, the big reason I kind of picked that topic is I think we’ve been making bigger jumps in AI tech, not in our. , but in the broader kind of space in consumer technology."
+  },
+  {
+   "speaker": null,
+   "text": "And I think there’s not a lot of awareness or maybe insight in how that’s going to affect the future for us as practitioners, people who use kind of normal consumer devices to do our job. So I think that was a really interesting topic for me to help people maybe get away from thinking about AI as something that’s purely beneficial to our space or negative in our space from our intent."
+  },
+  {
+   "speaker": null,
+   "text": "But it’s something that’s going to affect our lives no matter whether we want it. It’s a very eloquent way to say that. And at DGI Clayton and I speak a lot about new technologies and there’s always some positive aspects you can imagine, some negative aspects, but AI certainly seems like it’s going to be, you know, just a huge influence on so many different industries as it comes in."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "So, what did you think about, like, what was the perspective of, of what you talked about and like how is this going to impact our."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "Yeah, it’s been interesting for us because we, you know, passively have already started integrating AI, you know, people. Like, what are your big AI projects? And we say, oh, our threat detection tools for our servers, right? , like we integrate AI in all these ways, uh, kind of passively just because they’ve become the standard of delivery for a lot of really hard, you know, machine scale problems."
+  },
+  {
+   "speaker": null,
+   "text": "And along with that, we’ve actually experienced some of the challenges that I spoke about and, and my talk, which is the notion of, you know, training these models on what normal businesses. Is not always the best dressing global health. You know, we get these, these pings on our active threat detection tools that say, you know, you’re talking with sketchy servers."
+  },
+  {
+   "speaker": null,
+   "text": "Servers we think aren’t okay. Like, there’s probably an attackable look, Andre, like those are just in Africa. Like, that’s, that’s your perception of a dangerous servers, a server that’s not in like a US data center. So, you know, we’ve already started to experience that a little bit. Um, and I know we’re going to."
+  },
+  {
+   "speaker": null,
+   "text": "increasing our uptake of AI, probably because of our increased security posture and because of our need to kind of solve these global problems. So we’ve had to start being aware of that, uh, I think as DMA and as a company, and I’m excited for us to kind of be thought leaders in that space. You know, I’ve already had some of those great conversations with other leaders here about how they’re adopting AI and how they’re kind of factoring those things in."
+  },
+  {
+   "speaker": null,
+   "text": "Uh, but I’m sure it’s going to be a hot topic for us"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "so I think there’s a lot of interesting areas, uh, as, as you said, things that we don’t even think about. Like until you just gave that example, I wasn’t like, oh yeah, we use AI in our threat detection in our, our data centers. What are some of the things that people should be. Conscious of, you know, particularly like there’s a lot of excitement you can imagine using AI for diagnostic interpretation."
+  },
+  {
+   "speaker": null,
+   "text": "You can use AI for chatbots. You can use AI for maybe analytics, although we’re still trying just to get analytics to work in a lot of ways. But, you know, as you think about this topic, like what are the key things both technical specialists should be thinking about, but probably more importantly, our audience of, of non-technical specialists."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "I think probably language is the biggest one. Uh, I know we were just chatting, uh, the other day about some of the G P T language models and about some of the capabilities there. But I think as we begin kind of a journey of, of trying to communicate and engage more directly with the broader audience of kind of frontline workers rather than frontline programs."
+  },
+  {
+   "speaker": null,
+   "text": "The ability to communicate directly is going to be such a huge part of that. And knowing that there’s such a, a set of people with such a broad array of kind of communication styles and languages that we’ll need to engage with. I think knowing the state of the art in translation, translation or in chatbots or in kind of that capacity is probably going to be one of the hugest differentiators for small organize."
+  },
+  {
+   "speaker": null,
+   "text": "About their global reach, right? It’s the difference in being able to speak to a global audience or an audience that’s restricted to the three languages you have in, you have expertise on. But I think the verdict is still so far out. You know, I think we still haven’t gotten, uh, any insight on the malagasy translations that we were talking about through some of those tools recently."
+  },
+  {
+   "speaker": null,
+   "text": "And I think that’s going to be an interesting differentiator for, for our organ, for other organs, is the in-house expertise to not just kind of know the technology, but know how to. You know, like how many experts do you need on staff to know how good the tech, the language models are before you can use them."
+  },
+  {
+   "speaker": null,
+   "text": "Um, so I think language models are probably the one that’s I think we’re going to see, see the most. And then I guess there are going to be some of these kind of physical device things as tensor, uh, processes become more common on mobile devices. And as we start seeing some of those, uh, kind of GPU style pieces integrated into chips, we are going to see a lot of image processing still continue to be a big part of that."
+  },
+  {
+   "speaker": null,
+   "text": "I think a lot of those features still feel like toys right now. You know, it’s a. Editing people out of images and stuff like that. But you know, we, every two years we engage a lot more with people who are doing, uh, you know, image scanning, face scanning, those kinds of things. So I think the biometrics and the, the image processing on devices are probably going to be the other kind of burgeoning place where we’ll see a lot of this in commercial tech."
+  },
+  {
+   "speaker": null,
+   "text": "And then knowing when it’ll cross the line to be useful for us is, uh, going to be an interesting one."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "The language models is a, a great example. Um, clay and I were talking, and I, I just put into chat, G P T, which for our listeners who haven’t played with it yet, is a new model that’s gotten a ton of, um, excitement and hype and concern in the, the global community around, um, just how amazingly sophisticated it can be with certain questions and answers."
+  },
+  {
+   "speaker": null,
+   "text": "And I put in a simple prompt saying, um, you know, write an encouraging message for a healthcare worker who’s in the top third, um, performance tier. And Clayton’s like, well, can I do it in Malagasy? And so I put it in and like some Malagasy language came back out, but Clayton and I can’t read it. So, um, this is a really exciting potential area."
+  },
+  {
+   "speaker": null,
+   "text": "The ability to encourage clients or healthcare workers with natural language could be huge. Another area I’m excited about, we’ve spent a ton of time on human computer action with CommCare. Um, if we can be doing automatic, um, you know, voice to text, uh, translation, really maximizing the interpersonal time that a community healthcare worker has with the patient."
+  },
+  {
+   "speaker": null,
+   "text": "So a ton of exciting stuff. But, but to your point, Clayton, the, when it’s going to be appropriate for some of the contexts we work in is very unclear."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "When we were chatting , with some of the other AI folks in the field here, and I think one thing I’m especially, uh, I guess, uh, worried about or kind of concerned about with these things is when OpenAI release chat, G P T, one of their big goals and they’re really candid about it, kind of amusingly, was they put it out to the world."
+  },
+  {
+   "speaker": null,
+   "text": "And kind of subtly encourage people to go try to get it to do bad things, right? Like the, if you ask them internally, they’re like, no, that was the whole point, right? We put it on the internet to get people to convince it to like spit out something really bad. So we can train against that. And they know that putting that on the Internet’s the best way to get that kind of red teaming."
+  },
+  {
+   "speaker": null,
+   "text": "Um, and I, I think one thing that I’m a little concerned about with that approach is that when you get these big language models that are trained on really unintentional data sets and then try to make them safe, the easiest way to make them safe is to prevent them from. Right. So when you ask gpt P questions and it thinks you might be kind of trying to cross the line or get it to spit out something that’s violent or something that’s, you know, biased, it’ll just give you back a result that’s like, oh, I’m not allowed to talk about that."
+  },
+  {
+   "speaker": null,
+   "text": "Right? Like, I was trained on data that doesn’t let me speak to that. And in the global context, I can imagine that might end up just kind of increasingly cutting out more and more and more of the topics that it doesn’t know how to better. You know, when you, when you bias us towards that hyper conservative approach and you don’t have a realistic global kind of vetting, you know, how many Maasi speakers do they have, right?"
+  },
+  {
+   "speaker": null,
+   "text": "If they think that might spit up something bad, we may lose the ability to kind of go across some of those lines, even if it can spit them out just because they don’t know they can do it safely. So I think that’s going to be a really big test for these tools is not just whether they can kind of spit something out today, but once they’ve decided what their guiderails are, whether we’ll still even fall."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "So, we obviously spend a ton of time in the global development context, in the global health context, but you were playing around a lot with these different models and um, you know, one of the examples you gave me is a technology that can kind of deconstruct an image. And then like reconstruct the image at a higher resolution, like, kind of like that, that thing you imagine in the movie is where there’s like an outof focus license plate and then it, you click a button and it focuses."
+  },
+  {
+   "speaker": null,
+   "text": "What are some of the just really impressive technologies you have come across in the last few months as you were like, thinking about this talk and, and just looking at the landscape."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "Yeah, so I spent a lot of time on this talk, kind of digging deeper and maybe testing a lot of my own assumptions and skepticisms about, uh, some of these AI systems. And I actually had the chance to kind of contribute code back up to some of them while I was doing that to make them, uh, work on hardware that was more accessible than some of the researchers hardware."
+  },
+  {
+   "speaker": null,
+   "text": "That’s a little bit, uh, higher touch or harder to get access to these days. And I, I think the, the interesting thing. There’s this really big split in a lot of kind of artistic communities about these image processing tools because there’s, there’s a significant amount of effort going into upscaling is, is a problem you identified and kind of recreating context on image sets that are kind of weirdly represented on the internet."
+  },
+  {
+   "speaker": null,
+   "text": "Is, is a funny way to say it. Like there’s a lot of effort going into animation, scaling because there’s a lot of CorpU, there’s a huge corpus of animation data and it’s actually fairly consistent between cells or between kind of the things. Anything where there’s a big corpus of stuff that just looks similar."
+  },
+  {
+   "speaker": null,
+   "text": "Is getting this big race ahead. And that’s been really interesting to see. And I think there is just a lot of industry advantage and a lot of that, you know, I look at game designers and people who spend a lot of time doing like texture design or spend a lot of time doing really just tiny nit picky stuff that now those are real things that look pretty similar in any game design or look pretty similar in any sort of like visual processing language."
+  },
+  {
+   "speaker": null,
+   "text": "And I think that’s going to be really interesting to. What industries are just able to race ahead now because they have tools that can generate stuff that isn’t that important, right? It’s not, it’s not actually critical that if you’re going to make a game that your asset base needs to be, you know, all hand designed, you know, authentic, artisan kind of inputs."
+  },
+  {
+   "speaker": null,
+   "text": "If you can use these tools, even if they’re limited to kind of make your fancy rings or your like visual design easier, I think it’s going to expand a new set of people to technology and to like independent authorship, I guess is the way to say it, rather than needing teams or rather than needing four skillset."
+  },
+  {
+   "speaker": null,
+   "text": "I think a lot of people are going to be able to use these AI tools to kind of be a single person who can like, replicate what the internet can do and add their own kind of like piece to it. And so I think those pieces of tech I think are going to be really interesting. Um, and I am really looking forward to some of the kind of advances that we’ll get from people just having that autonomy, uh, in places that just aren’t that important."
+  },
+  {
+   "speaker": null,
+   "text": "You know, like things that are something where the consequences are lower than maybe we’re a little bit used to."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That’s great. And I think there’s, um, so much I’ve seen on the generative AI space around giving a prompt like, you know, paint me a living room with a green couch and just get this amazing image. Um, obviously there’s also been talk both with, um, GitHub’s co-generation tool and with some of this generative AI of what is it trained on."
+  },
+  {
+   "speaker": null,
+   "text": "what are the copyright implications? What are the IP implications? Um, for dgi, we obviously have a huge proponent of open source, both, um, strategically and because governments are, are going to own CommCare at the end of the day, and we want them to feel that. But with models, all this is kind of new territory."
+  },
+  {
+   "speaker": null,
+   "text": "Um, what, if anything, have you found interesting about like, just, I mean, it’s nacent obviously, but like what, what were you reading about, what were you thinking about from a model standpoint? Like how this IP might, might play out in the."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "That’s a, that’s a great question and this is definitely a super scary time. , if you are someone who’s like, livelihood, depends on those questions. You know, I mean, I think I had way fewer thoughts about this back when my exposure to it was largely the CodeDX based systems, you know, the um, GitHub style co-generation tools."
+  },
+  {
+   "speaker": null,
+   "text": "And just because that’s a domain, we’re an open source. I think we’ve always been very open. Like, we’re not particularly concerned about our, our code ip, honestly. And I think there are e there are open source contributors who want their code. But want a lot more control over it, right? They want like their three lines of contribution to an open source code base to be theirs in perpetuity, like that kind of thing."
+  },
+  {
+   "speaker": null,
+   "text": "And I, you know, I respect those, those attitudes, but I think it’s never been our kind of approach. So when you know, you see people saying like, oh, like is G P T ethical? Was it fine to trade it? I didn’t have super strong opinions. And then I saw these other generative tools doing bodies of text or bodies of like visual generation and like literally spinning out images that artists like, like the name of your artist is like in the description and it spits out something that like very clearly looks like they could have made."
+  },
+  {
+   "speaker": null,
+   "text": "And people are like, this is fine. And like that, that actually does not seem right to like, there’s clearly some IP concern here about treating fair use the way that we have. That has really made me take a a step back on some. And remember the kind of examples people have talked about with, um, the codex based systems of like spitting out code that like, obviously copy pastes from another code base that say no, it learned to spit that code back out even though it’s identical, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Like skirting those concerns I think is a really dangerous place that we have not landed on. And I’m really concerned now that we’ve got gone too far, right? That we’ve gotten so far ahead of making these tools, like generating these tools, putting them on the market that it’s going to be too hard now to go back and answer these in a hard way because, I’ve already done it, you know, and I think with, with possession being nine tenths of the law and the existence of something being nine tenths of copyright law in some ways here, I, I don’t know that we’re ever going to roll that dragon back, you know?"
+  },
+  {
+   "speaker": null,
+   "text": "So I think what we may see is actually a shift away from publicly hosting anything, right? People’s code may stop being hosted on GitHub. People may be less open with their things because they don’t want them to be in these public data sets and in these public cycles. And that’s a really scary output from my side, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Like, I don’t. I don’t want AI tools to be the reason people stop being open about what they share and that to me feels like a real."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That’s a, that’s a fascinating example where if you have enough training data and enough history at the individual level, you’re not just saying output this code or output this text. In general, you’re saying output, you know, offline, mobile first code. as, as Clayton Sims would write it. Right. And, and you’re, you do have enough training data with some individuals that you can, you can really do that."
+  },
+  {
+   "speaker": null,
+   "text": "And that obviously sounds like something that shouldn’t be free or at least not consented by these individuals who are now capable of creating these models. On flipping to, um, a more positive lens, like just within our community, you know, here at the Global Digital Health Forum, what has been exciting from your perspective around like conversations you’ve had?"
+  },
+  {
+   "speaker": null,
+   "text": "Um, tools you’ve come across are projects that, that are AI oriented."
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "I think it’s just been great. AI has put a, a renewed focus on some of the fundamental value propositions of data science, which I think has been great. You know, putting a new interest back on, understanding just how to use data is always positive and how to, uh, get confidence in what we’re kind of producing and understanding how we measure it."
+  },
+  {
+   "speaker": null,
+   "text": "And so I think that focus has just been really helpful. And I was talking, uh, with some of the folks in pa. And one of the really interesting things that they’re doing is comparing their AI outputs performance to kind of a decision tree version of their algorithms performance to just a logistical regression version of their algorithm."
+  },
+  {
+   "speaker": null,
+   "text": "And I love that concept of saying like, we’re not just using AI to like presume AI is the right output. We’re using AI to quantify the difference between IT and other decision making methods, and then give you back like confidence about which one of which you can. As an add-on to it. And I think that isn’t something we, we were doing a lot of before ai."
+  },
+  {
+   "speaker": null,
+   "text": "Right? It’s really like spurred on interest again in how you calibrate, like what your goals are, like how you’re intending to use data systems. And so I think talking to people and seeing people be interested in that level of maturity from data scientists has been really, really cool to see. And I’m, I’m glad that even if you don’t choose the neural network version of it, cuz you want more interrogation from the algorithm, I’m still really happy that we’ve."
+  },
+  {
+   "speaker": null,
+   "text": "Seen that value proposition made it intentionally and gotten that back into people’s minds."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That’s great. Um, I want to close by by nerding out on a question that that just sparked in my. , you mentioned GPUs and TensorFlow and, and some of these technologies that are pretty specific to AI. Previously, obviously our industry spent a ton of effort and time supporting governments to host on-premise if they want to."
+  },
+  {
+   "speaker": null,
+   "text": "Making sure governments feel full ownership of this. Um, from my lens, like it’s kind of converging on big tech and they’re all creating proprietary silicone and, and different ways of, of doing this where it may not be fe. To pull some of these AI models on-prem, regardless of the environment or context."
+  },
+  {
+   "speaker": null,
+   "text": "Um, as we close, like what, what are you thinking about from that perspective? What should of listeners be thinking about with like, where AI’s going to be five years from now? Like, will it be possible to host these things on prem? Like how, how do we think about that from a infrastructure standpoint?"
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "No, I mean that, that is a great question and anyone who’s been in the AI community for the last three or four years has kind of, uh, seen the reality of how tricky it is for the industry to be so dependent on a very strange set of physical hardware that there’s a lot of competition for at both kind of the consumer level because they’re using these things for GPU computation, for AI, for like block blockchain processing and for like consumer video games."
+  },
+  {
+   "speaker": null,
+   "text": "That’s such a funny set of competing incentives in terms of pricing. But I, I think anyone would tell you that realistically getting enough physical hardware to do model training for a lot of these systems on-prem is, is a huge lift, right? Like you haven’t been able to get the, uh, v a m specs on GPUs to be able to do training."
+  },
+  {
+   "speaker": null,
+   "text": "Reliably for three years now, right? Like you can get them on the cloud. It’s very, very, very difficult to get the physical hardware in your hands, and that’s going to be a huge challenge for all these systems where we know there’s going to need to be inherent training in any adoption, right? Any biometric system for the next five years that’s based on the standard state of the art that’s going to be vision based or facial based."
+  },
+  {
+   "speaker": null,
+   "text": "Those need retraining. There’s none of those algorithms that are really today responsible to roll out in a context without training against the data sets that you know are in. So I think that understanding and coming to terms with how to share data in unlimited ways and how to share de identifiable data and putting those things into the cloud just for training."
+  },
+  {
+   "speaker": null,
+   "text": "Even if you can run the practical algorithm in practice once it’s trained on lower spec hardware, I think there is going to need to be some reckoning there where we really come to grips with how to make data private, de-identify data and start thinking about our engagement not as a binary cloud or non-cloud, but as a, when do we use the cloud and how do we use the cloud?"
+  },
+  {
+   "speaker": null,
+   "text": "For those tasks so that we can then go back to the on-prem things for the actual private data."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Awesome. Lots, lots on this topic to come. Obviously we’ll have Platon on the podcast again to speak more in detail on this and other technical topics, but we really appreciate you coming by. Thank you. Yeah,"
+  },
+  {
+   "speaker": "Clayton Sims",
+   "text": "so much."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "so much."
+  },
+  {
+   "speaker": null,
+   "text": "Thanks so much to Clayton for joining the podcast for a second time. And I’m sure he’ll be back again in the future. There is a lot of density in that conversation. So I’ll share a couple of my takeaways, but I also recommend if you’re interested, listen to it again. Cause you’ll hear new things each time."
+  },
+  {
+   "speaker": null,
+   "text": "First AI is here to stay and we really can’t back that train back into the station. AI will affect us whether or not we want it to positive, negative, neutral. We’ve made huge jumps forward in technology without a lot of awareness as to the unintended consequences. We will need to be mindful and vigilant at the ways AI is developing, allow it to be useful in a global health and development context."
+  },
+  {
+   "speaker": null,
+   "text": "Second while Clayton seems overall concerned about the rest of AI. He also highlighted some of the most useful areas for our work. Including language models to help us communicate globally. Image processing and biometrics as well as clear use cases in diagnostics, chatbots, threat detection, and more."
+  },
+  {
+   "speaker": null,
+   "text": "He also talked about how AI tools. We’ll help create more autonomy and expand the skill sets of an individual, which is pretty interesting. Third, one clear drawback I heard is that AI may cause people to not want to share their stuff because AI can use all of your material, your artwork, your code, et cetera."
+  },
+  {
+   "speaker": null,
+   "text": "And forth. And finally, I think overall Clayton is worried and rightfully so. Chat GPT, for example, was put out in the world without a lot of proper guardrails. And instead. They invited the community to step in and help test it. Will the use cases that support our work and global health and development fall within those guardrails. Once they decide what those guardrails are."
+  },
+  {
+   "speaker": null,
+   "text": "That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatdimagi.com with any ideas, comments, or feedback. The show is executive produced by myself. Danielle van wick is our producer. Brenna DeRoose is our editor and cover art is by Sudan. Shrikanth thanks so much."
+  }
+ ],
+ "transcript_para_count": 77,
+ "host_amie": true,
+ "host_jonathan": true,
+ "date": "2023-02-20",
+ "spotify_unreliable": false
+}

@@ -1,0 +1,345 @@
+{
+ "slug": "ep6-developing-commcare-to-scale-ingo-impact",
+ "url": "https://dimagi.com/podcast/ep6-developing-commcare-to-scale-ingo-impact/",
+ "num": 6,
+ "title": "Developing CommCare to Scale iNGO Impact with Dev More (Exponential Growth Part 3)",
+ "spotify_id": "0mHDFeiwhJ3b4CJPQH7aSq",
+ "apple": "https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000568750048",
+ "youtube": "https://youtu.be/byz4neOmDjw",
+ "amazon": "https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/073161db-5685-4fb3-9c38-94b51ce77e93/high-impact-growth-developing-commcare-to-scale-ingo-impact-with-dev-more-exponential-growth-part-3",
+ "duration": "22 min",
+ "show_notes": [
+  "Jonathan Jackson and Amie Vaccaro speak with Dev More, Sr Director of Product at Dimagi, in part 3 of our deep dive into Dimagi’s strategy of sustaining exponential growth. A big part of exponential impact growth at Dimagi is scaling CommCare by continuing to invest in its self-service capabilities. Dev is responsible for CommCare roadmap and product development and in this episode he shares how he is thinking about scaling CommCare to 1 million users, and specifically about how we are making CommCare most useful as an enterprise technology platform for data collection and service delivery for nonprofit organizations. You’ll also hear how these same functionalities can support governments and national scale use cases of CommCare."
+ ],
+ "transcript": [
+  {
+   "speaker": null,
+   "text": "Welcome to high impact growth. I’m your co-host Amie Vaccaro. Today we are rounding out a three part deep dive into Dimagi strategy of sustaining exponential growth. So one of the key considerations for this strategy is that we’ll continue to invest in self service, our backbone for exponential growth."
+  },
+  {
+   "speaker": null,
+   "text": "When we talk about self service, we’re really talking about Commcare Dimagi is flagship offering. It’s a customizable digital platform for frontline work anywhere in the world. CommCare is available open source, and we also offer it with a software as a service or SAS subscription. Currently, there are hundreds of organizations. That are subscribing to come care on a self-service basis, which means that they can build their own applications using CommCare."
+  },
+  {
+   "speaker": null,
+   "text": "So as an example, during the early days of COVID-19. This self-service offering allowed organizations to quickly build and adapt their own COVID 19 applications."
+  },
+  {
+   "speaker": null,
+   "text": "In previous episodes, you’ve heard us talk a bit about the public sector and some of the ways that we don’t think it’s working properly, such that. The more impact you generate does not equal more revenue. But. This is actually not the case in our software as a service business. So it’s one of the few parts of our business where financial feedback loops can actually work to create more impact."
+  },
+  {
+   "speaker": null,
+   "text": "So, what I mean by that is that if CommCare actually solves. Uh, our customer’s problems they’ll buy CommCare. And this allows us to invest in things like customer success and building more impactful features. And these features can then drive more value to the people that we serve. Creating greater impact."
+  },
+  {
+   "speaker": null,
+   "text": "So for today’s episode, Jon and I talked to Dev More, senior director of product at Dimagi. Dev is responsible for the CommCare roadmap and product development. So he’s going to share how he’s thinking about scaling CommCare to a million users. And specifically about how we’re making it most useful."
+  },
+  {
+   "speaker": null,
+   "text": "As an enterprise technology platform."
+  },
+  {
+   "speaker": null,
+   "text": "For both data collection and service delivery. For large international non-governmental organizations or NGOs."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "I want to start asking you a couple of questions."
+  },
+  {
+   "speaker": null,
+   "text": "So how did you find Dimagi and what made you."
+  },
+  {
+   "speaker": "Dev More",
+   "text": "Sure. Yeah. Thanks Jamie. Thanks for having me. Yeah. So so before joining the Dimagi you know, I was a product management person. I worked mostly in the payments industry building. Products that make mobile payments easier. And I did that for about five, six years and the food apps I was, you know, in similar roles and different industries, but I got to a point where I wanted to spend all my time and effort into building tools that a."
+  },
+  {
+   "speaker": null,
+   "text": "Impact millions of users and B impact users that are doing meaningful things. So Clayton recently articulated this very well. And I use this kind of like as a part of my story where,  I wanted to work on products for not the most profitable users, but for the most important human beings."
+  },
+  {
+   "speaker": null,
+   "text": "And, and that. Propelled me into figuring out how I could do that. And Nively, I taught that, Hey, in order to, in order for me to do that, I should probably go back to school. And so I applied to a bunch of like masters in public administration and public policy program. And I got rejected by all, thankfully, but interestingly, what happened was just a month off of that."
+  },
+  {
+   "speaker": null,
+   "text": "The Magee’s job posting for a product manager popped up on my LinkedIn feed. And interestingly, the job posting was essentially the essay that I would attend to all the schools in terms of what I wanted to do with education. So I don’t know, Jon, if you remember, but I ping Jon. On LinkedIn, and then I asked him like give me a project or the weekend."
+  },
+  {
+   "speaker": null,
+   "text": "So Jon. It’s kind of old to a bunch of people asking for a project. So he did give me a project, which I had turned around or the weekend and yeah, in a week’s time I had the job. So, so yeah, it was A lot of good luck, essentially."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "That’s amazing. And I feel like that story is actually. Advice for job seekers, right. Just get in there, do a project show what you can do and let your work speak for itself."
+  },
+  {
+   "speaker": "Dev More",
+   "text": "Yeah. Cause, I was interviewing with a couple of organizations and I was, you know, going through the whole exercise of, you know, asking or fielding theoretical questions. So I just thought like, Hey, you know, it’d be nice for Jon and I to chat about something like meaningful that is relevant to the product. And also like chatter about other things. so so yeah, I would definitely recommend that."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And so I’m personally like. The longest I’ve been at one organization is I think four years. It’s embarrassing to even say I I’ve definitely done some job hopping and you’ve been here for five years now."
+  },
+  {
+   "speaker": null,
+   "text": "What’s kept you here? All those five years."
+  },
+  {
+   "speaker": "Dev More",
+   "text": "Ah, I mean the same reason that got me here, you know, we haven’t gotten into 1 million users yet, so I’m not going anywhere until we get there. Yeah. And then we just have a, you know, a fascinating culture. Everybody is like very empowered to. Push for things that they believe in and if you have an excellent leadership team Yeah, I mean, honestly, I can’t think of anything else that I could do with my time."
+  },
+  {
+   "speaker": null,
+   "text": "That would be this enjoyable. And over the last couple of years, you know, Got it into impact investing. And I support my sister’s organization in India that provides services to children with disabilities. I also advise other similar organizations in India. So I’m really happy that the field or the sector that I’m in and there’s so much to be done."
+  },
+  {
+   "speaker": null,
+   "text": "So, so Dimagi kind of fits into. That personal desire and mission really well as well."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Yeah, absolutely. And I think, yeah, Dimagi is, is quite ambitious and as are you. So I, I, I see that alignment and that kind of, you know, you mentioned the trying to get to a million users that ties nicely into the topic for today, this is a series of conversations around. Our five-year strategies."
+  },
+  {
+   "speaker": null,
+   "text": "These strategies are built on learnings and things we’ve known for a long time, but really just articulating them. So one of his strategies is sustain exponential growth. And within that, there’s a handful of considerations. And one of those is we will continue to invest in self-service our backbone for exponential growth."
+  },
+  {
+   "speaker": null,
+   "text": "And I know Dev that you really sit at the center of these efforts as has or. , So I’m curious to hear, what does, what does this consideration mean to you and what has it looked like and how has it evolved? Over the years,"
+  },
+  {
+   "speaker": "Dev More",
+   "text": "Got it. So, Amie in the past five years that I’ve been at Dimagi the most exponential growth that we have noticed is in an enterprise strategy where we enable international NGOs to adopt CommCare at a global level of, at an institutionalized CommCare in a way where to build. Central CommCare team and then V engaged with the CommCare team to unlock further capacity building and for the success, I think dot model."
+  },
+  {
+   "speaker": null,
+   "text": "Is going to be incredibly key to our success. What happens is when we build such enterprise relationships, it creates the right level of intimacy between us and our partner organizations, where we are deeply embedded in their, what short term and longterm strategy, which allows us the ability to optimize our product and services in alignment with the strategy so that we can unlock."
+  },
+  {
+   "speaker": null,
+   "text": "Success and growth efficiently. It also allows us to build capacity into that core central Kafka team. And, and they further bill capacity down to the regional or country office level. So enterprise, our enterprise strategy has a seen you know, significant growth. And like I mentioned, it is something that we’ll be heavily investing in in the next five years,"
+  },
+  {
+   "speaker": null,
+   "text": "as well. In alignment with that, a lot of our product work has been around enabling such organizations to easily adopt CommCare at the global level. So in the last five years, you know, we have essentially improved the ability for organizations to admit. Uh, The rollout of CommCare at the global level, we have doubled down on our enterprise user management capabilities through features like single sign on."
+  },
+  {
+   "speaker": null,
+   "text": "We have made it easier for organizations to deploy content solutions where they Can."
+  },
+  {
+   "speaker": null,
+   "text": "build once and deploy to many country offices. Capabilities like the enterprise release management and does a lot on the roadmap around just making it, easier and easier for organizations to truly outcome care."
+  },
+  {
+   "speaker": null,
+   "text": "Like you had email. And that is one of my. Bits to you know, to get conquered to a point where in ING Is it’s it’s as commonplace and central as using email."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Dev, is there an example you could give, what does that look like to adopt CommCare at an enterprise level? And how does that team work and how does that sort of tie into this self service?"
+  },
+  {
+   "speaker": "Dev More",
+   "text": "Yeah, I mean, I can talk about the most recent the most recent and significant example of IRC."
+  },
+  {
+   "speaker": null,
+   "text": "***"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Quick aside here for those listening who may have not heard of the IRC. IRC is the international rescue committee."
+  },
+  {
+   "speaker": null,
+   "text": "They are an NGO that helps people that have been affected by humanitarian crises, including the climate crisis to survive, recover, and rebuild their lives."
+  },
+  {
+   "speaker": null,
+   "text": "***"
+  },
+  {
+   "speaker": "Dev More",
+   "text": "So IRC before they. Establish an enterprise relationship with us. They were using CommCare across, 15, 20 countries. And of course they, they work in, 40 odd countries with, 200 plus programs."
+  },
+  {
+   "speaker": null,
+   "text": "So the other way of operating was very decentralized and there was a lot of demand internally for tools like CommCare, but but they didn’t have a central strategy to provision Comcast to all their staff. So a year and a half or two years ago when they Adopted our CommCare offering that led to creation of their own internal CommCare team which consists of folks from it folks from Morrell"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Marel stands for monitoring evaluation, research and learning."
+  },
+  {
+   "speaker": "Dev More",
+   "text": "And and once such an enterprise relationship gets established and we have a cadence of quarterly calls where we familiarize myself with, you know, what the organization is trying to do, and that was similar with IRC. So. So that translated into IRC having a lockdown pricing structure so that they know you know, what their costs are going to be today. And also, in a year’s timeline Monday have more countries using CommCare."
+  },
+  {
+   "speaker": null,
+   "text": "So, so that makes just the planning for CommCare significantly easier. Other than that, you know, they got access to all our capabilities, which does significant improvements to building into organizational capacity. Before enterprise, we used to get a lot of complaints from IRC, where somebody from HQ was responsible to blue capacity, complaining that."
+  },
+  {
+   "speaker": null,
+   "text": "That I can train people effectively because have the capabilities I want to train them on. They don’t have access to them because they are on our free software plan or, you know, a lower plan that doesn’t have those capabilities. So enterprise gave everybody access to all capabilities that just did wonders to our internal ability to bill capacity."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "What are, what are some of those capabilities? Like, what are there, like even before they came in with those enterprise plan, you’re saying that their staff were wanting CommCare?"
+  },
+  {
+   "speaker": null,
+   "text": "Like, what were they using it for?"
+  },
+  {
+   "speaker": "Dev More",
+   "text": "So most of the demand came from the monitoring and evaluation team that. Digital tools, frontline tools that actually work in the field. And specifically for longitudinal data tracking where and a numerator enrolls a beneficiary, and then that beneficiary is, is monitored over time."
+  },
+  {
+   "speaker": null,
+   "text": "And yeah, and then CommCare. Fit into those needs really well because of our case management capabilities very well known in our sector for our deep case managing capabilities, which go above and beyond just the ability to, or just to somebody and follow them over time. You know, we have a lot."
+  },
+  {
+   "speaker": null,
+   "text": "The depth of a case management capabilities is like second to none. And and that leads to the effectiveness, but a lot of, a lot of capabilities that organizations don’t realize that they would need. Like, for example, the simple ability where. Multiple frontline workers can collaborate on the same caseload."
+  },
+  {
+   "speaker": null,
+   "text": "And you know, that’s you know, bread and butter CommCare use case. And once DRC country office teams have access to that, you know, everybody started using it. So Yeah, so I would say to summarize, I mean the MNA teams, the local, I mean, the teams needed, you know, powerful frontline tools that were flexible enough to meet their specific workflows and tools that are actually effective on the field and CommCare address."
+  },
+  {
+   "speaker": null,
+   "text": "Those needs are as well."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Yeah, that’s awesome. So, so IRC, who’s serving, you know, millions and millions of people around the world with varying services, they’re able to effectively. Deliver those services to individuals track those cases over time and then collect data back on the impact of those services."
+  },
+  {
+   "speaker": null,
+   "text": "So they can then be reporting back to their, their donors and their organization on the impact that they’ve had and optimize it over time."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And for a lot of our enterprise customers like IRC, that Dev was alluding to, the amount of programming work they have is vast. I mean, the staff in countries are almost consistently under capacity, there’s always more projects and more impact. They wish they had time to create. And a lot of the work that we’ve done over the last couple of years has been to recognize, we need to minimize the amount of time it takes to build a high-impact application in CommCare, both in terms of how an entire enterprise rolls it out across the enterprise, how they support their country offices and how those country offices support their field staff."
+  },
+  {
+   "speaker": null,
+   "text": "And so a lot of those features Dev alluded to, they’re really about trying to lower the amount of total effort that has to go into creating these high-impact solutions that can really drive and amplify the impact of an IRC in the field while trying to either maintain the current effort and reach more users or lower the effort per user."
+  },
+  {
+   "speaker": null,
+   "text": "One of those two things must be true if we’re going to achieve sustained exponential growth."
+  },
+  {
+   "speaker": null,
+   "text": "So to feed into exponential growth. Improvements to CommCare either need to help our partners reach more users and create more impact with the same level of effort. Or they need to lower the effort to create impact"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And so, as we think a lot about what Deb said on the enterprise features and how to build ones deployed many or some of the data analytics tools and data pipeline tools, we just released. These all are about lowering the effort that needs to go into achieve the same impact or unlocking more impact with the same amount of effort."
+  },
+  {
+   "speaker": null,
+   "text": "And that’s really core to our strategy from a product positioning with how we’re going to achieve that. Sustained X-Men."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "What does, what does product development look like going forward as you continue to support those exponential growth?"
+  },
+  {
+   "speaker": "Dev More",
+   "text": "So, like I mentioned, I mean, we definitely gonna double down on our enterprise strategy. So I think in order to get there, we will have to continue investing in our enterprise capabilities that makes it easier and easier for organizations to adopt CommCare at a global."
+  },
+  {
+   "speaker": null,
+   "text": "Another team that is going to be of significant value towards our enterprise strategy is investing in our data and analytics ecosystem. What are the things that we have learned working with our enterprise partners is in a given organization. Staff comes in with a lot of different skillset for data use and those skillsets evolve very rapidly."
+  },
+  {
+   "speaker": null,
+   "text": "Along with that mean, For data use within an organization, also vary across teams across country offices. And those needs also evolve very quickly. Like we all know that our country offices are programs that are required to send data to DHIS too. We know that our country offices that are, that don’t want to use anything besides Excel."
+  },
+  {
+   "speaker": null,
+   "text": "And then we know that our teams that are obsessed with using power BI and, you know, how do you create an analytics ecosystem for enterprise that, that caters to these reality? And how do you create an analytic ecosystem? That allows these organizations to operate in a way where 80% of the data needs are fulfilled by self-service data tools that don’t require any it support."
+  },
+  {
+   "speaker": null,
+   "text": "And for the remainder 20% complex data needs, they have a flexible and powerful dev tools to build custom data pipelines. So our analysts, because this. Has been designed with these realities in mind and we plan to, you know, further invest into the ecosystem or the last couple of years we’ve added, you know, turnkey integrations with like power BI Tableau DHIS two."
+  },
+  {
+   "speaker": null,
+   "text": "We are actually working on adding Google sheets integration very soon. We’ll start working with. um, Adding turnkey integration with tools like Stata or SPSS. So I think our intentionality around how we build a data tooling ecosystem, such that it truly aligns with the needs of a given NGO at the global level."
+  },
+  {
+   "speaker": null,
+   "text": "I think it’s going to be very key to our success."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. Jon, what about you? What are you looking forward to in terms of product development for."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I think there’s a lot of exciting areas that that I’ve mentioned. And one of the keys, which. Something that we didn’t necessarily think was true in the last couple of years, but that just felt like it really came together. All those features that they’ve just mentioned for enterprise customers, large non-profits and for-profits that we support globally."
+  },
+  {
+   "speaker": null,
+   "text": "Those are the same features governments are now asking for because governments are deploying across tens of thousands of users and they want to have some flexibility on how the app is deployed to the district. And the district offices have different tools. They’re using the connect data pipelines too, and there’s a different ecosystem of products on the grounds."
+  },
+  {
+   "speaker": null,
+   "text": "They need more intricate API integrations. So I think our industry previously several years ago was kind of looking at these national scale programs, like a single digital solution that was going to work across the entire national workforce. And all of these features that we’ve been building in that helps enterprise scale globally, help governments scale nationally."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Just a quick sidebar here on national scale that Jon mentioned."
+  },
+  {
+   "speaker": null,
+   "text": "A national scale program would be where CommCare is used across. An entire country’s health or other frontline workforce. And we’re actually going to be talking about national scale specifically. In an episode to come. So look out for that"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And so that’s something that we’re really excited about as a lot of our government partners have started to scale. You know, thousands of users into the tens of thousands of users. And we now have that experience of running these projects, some for over a decade, but many for multiple years. And we’re seeing multiple different versions and multiple user types and multiple versions of the application for urban versus rural users and things like that."
+  },
+  {
+   "speaker": null,
+   "text": "These features are all. Coalescing in a very convenient way, that’s aligning the product roadmap. And so that’s some of the areas I’m most excited about. Also, I think the goal that we have for strategic priority, one in our five-year strategy, better jobs for better outcomes. That’s something I’ve always been excited about and is something that Dev and I have really talked about in terms of what, what creates a better job for the frontline worker."
+  },
+  {
+   "speaker": null,
+   "text": "What creates a better job for the eMoney health? , Technology is obviously only one part of that puzzle, but how does that play a role across the product roadmap? And I’ve always enjoyed, you know, when we sync on different product priorities, how we think about the impact it’s going to have. And it’s something that we’ve been very fortunate to be successful enough as an organization that we can really make core product investments."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I think just thinking that the, this notion. All of these features are coming together because there’s, there’s always this kind of like cascade of capacity. There’s a cascade of skill building. There’s increasingly complex applications and we’ve built such an amazing set of capabilities in the platform that allow us to handle, you know, five NGOs running the same app in a country that don’t share data, five districts that do share data."
+  },
+  {
+   "speaker": null,
+   "text": "One app that runs across 10,000 users, one app that’s supported by Dimagi staff and our NGO partners and all those different configurations. I think. Increasingly possible with all the capabilities we’ve added and are going to add. And I think that’s really exciting as well."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Thanks to Dev and Jon for today’s episode. I hope you found that peak under the hood of calm cares, product development. Interesting. As a quick recap. Today, we talked about how we’re building CommCare to support self service so that we can sustain exponential impact growth."
+  },
+  {
+   "speaker": null,
+   "text": "We talked about making CommCare easier to use at an enterprise level across a large I N G O. And we also talked about the ways in which we’re improving, how CommCare supports a large eMoney ecosystem of data tools."
+  },
+  {
+   "speaker": null,
+   "text": "And we also heard how those same functionalities. Can also support government and national scale use cases of CommCare. Thanks again for listening and please do follow rate and subscribe and do send any questions or ideas you have to podcast@dimagi.com. Thanks so much"
+  }
+ ],
+ "transcript_para_count": 81,
+ "host_amie": true,
+ "host_jonathan": true,
+ "date": "2022-07-04",
+ "spotify_unreliable": false
+}

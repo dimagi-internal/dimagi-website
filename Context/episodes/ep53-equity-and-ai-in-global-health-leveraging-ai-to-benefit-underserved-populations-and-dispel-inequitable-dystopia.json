@@ -1,0 +1,523 @@
+{
+ "slug": "ep53-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia",
+ "url": "https://dimagi.com/podcast/ep53-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia/",
+ "num": 53,
+ "title": "Equity and AI in Global Health: Leveraging AI to Benefit Underserved Populations and Dispel Inequitable Dystopia",
+ "spotify_id": "7Bma40sS9YwkF7TF8KTVvc",
+ "apple": "https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000638943940",
+ "youtube": "https://youtu.be/O984PrahnE0",
+ "amazon": "https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/d8cc6c5e-d9ec-427c-a629-49bdbcaaed9c/high-impact-growth-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia",
+ "duration": "37 min",
+ "show_notes": [
+  "In part 2 of this series on Artificial Intelligence, Jonathan Jackson and Brian DeRenzi, Dimagi’s Research and Data team lead, openly talk about the rapid evolution of AI, its vast potential, and what Dimagi has been up to over the last few months since winning the Bill and Melinda Gates Foundation Grand Challenges grant to build a frontline worker coaching chatbot. In this candid conversation, they discuss the value of collaboration, the ethical and philosophical considerations of AI as a tool to empower, rather than replace human services, the looming threat of inequitable dystopia and ways that we are partnering with other organizations to ensure that the benefits of this new technology are spread equitably.",
+  "Topics include:",
+  "Show Notes"
+ ],
+ "transcript": [
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Welcome to High Impact Growth. I am really excited for today’s session. I’m here with my cohost, Jonathan Jackson, Dimagi’s CEO, as well as Brian DiRenzi, Dimagi’s Head of Research and Data."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Hi, Amy. Hi, Brian."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Hi, Amy. Hey, Jon."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Good to have you on. So this is a bit of a follow up to a previous episode that you might remember that we recorded back in May. So full four months ago, which in AI land is a long time because things have been happening really fast."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And so what we wanted to do was get together and check in on how are things going. around our work in AI. How are we thinking about AI? How has our thinking evolved? What have we learned? And really create a transparent conversation to share with you, our audience, on how we’re thinking about all this, because I know pretty much every organization in global health and development is probably wondering how should we be thinking about AI?"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "What should we be doing? And we want to share some of our learnings and findings along the way. So before I even get into kind of I want to check in, Jon and Brian, on kind of your overall temperature on AI and where are you at? I know last time we talked, we talked a bit about this sort of like discomfort feeling of like a lot of unknowns and Just not knowing where things are going to go and just kind of embracing that curious to hear where are you at right now?"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So in the last However many months, we’ve, been having a lot of conversations. We’ve been exploring a lot, but I think there’s still a lot of unknowns of where this is all going. I think there are unknowns about how to address some of the larger bias problems and equity problems and safety problems."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think we’ve made incremental progress , on some of those things. We’ve been having good conversations. But I think we’re still in the state where there are a lot more questions than answers, so it still feels like we’re in this unknown. And I think last time I talked a little bit about wanting to,, fight for equity and make sure that we’re avoiding the dystopia, as I called it."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And I think we’re still in that state where , it’s still pretty unclear where this is all going to land. Jon?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I think definitely more questions than answers still. I think we’re going to be in this phase for a while because a lot of it is also contingent on the progress of large language models being the most prominent thing that came on to the AI scene. There’s other dimensions to AI as well, but it kind of depends whether there’s some transformative next chat GPT 4."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "5 or chat GPT 5 or something anthropic comes out with or Google or Facebook., you know, that is one more step change. I think when we look at the interesting use cases and the types of conversational agents and bots that we’ve been working on, I’m really confident there’s value there. You know, there was one kind of mental model you could have of it’s close, it’s 80 percent there, but you’re never going to get it 100 percent there, so you can never really put this in production."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "We’ve been doing tests with direct to client interactions around TB coaching and helping a frontline worker think about. How to overcome stigmatism or, , aversion to, dealing with a disease. These interactions, we’ve done enough and we’ve tuned, our approach and our prompting. It definitely feels like with today’s technology, there’s enough there to create value, there is a question of nothing gets cheaper. Is it affordable because chat2bt4 is 20 times more expensive than 3. 5 and 3. 5 isn’t good enough. But I think it’s very likely that costs continue to come down and things continue to get better. So that’s really exciting."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That said, which use cases make sense and how to think about. These different use cases, just like the for profit world is struggling with a million different AI companies doing a million different things that are all different. And then all also kind of just the same. It’s all plumbing with one of these, you know, massive large language models targeted at a use case."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": ", so how that all plays out, I think, is going to be really unknown and interesting to look at. I think it’s going to look at. As Brian said, our approach to making sure these are targeted towards high equity and high impact use cases, we feel very confident in our approach. I think I still wonder,, if Dimagi doesn’t do it, is this all just going to happen anyways?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "You know, are we going to provide differentiated value by investing our time and headspace? And, I think yes, because I just think of who we are and our approach to high impact growth, but easily could be wrong. You know, if the next generation of large language models turns out to. You know, make it such a one sentence prompt that solves everybody’s problem, , then a lot of the work we’re doing right now could not be that helpful, but I feel very confident that the exploration we’re doing right now is high value and we’ve gotten really good market signals back."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I mean, as Brian said, we’ve talked to dozens of people at this point, demoed. Our direct product and just, you know, brainstormed ideas with folks. We’ve closed, multiple deals,, since our last episode. So there’s certainly interest in this exploratory phase and then where it pans out, I think is, is still a huge unknown."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "So sounds like, you know, still a number of open questions, but real kind of alignment that there is a lot of value to be had here. So I wanted to get on some of these use cases and some of these learnings, but even before we get there. I want to step back a little bit. I think one of the things that’s been, particularly noteworthy in the AI coverage is this conversation about, will AI eventually be the thing that destroys humanity?"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Right? Are we creating super intelligence that’s way smarter than humans that eventually we’re going to lose control over? And I’m curious, do you guys have opinions, on that take? And like, how do you feel about that?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah. I think, , I just listened to a podcast called smart lists, that I listened to a lot, and they had Kara Swisher on who’s a very famous tech podcaster. She’s amazing. And she was talking about like, no, like I don’t fear the AI. I fear what humans are going to do with the AI. And so I think. You can already see how potentially this AI technology, even with today’s capabilities, and then obviously it’s going to get better, could automate warfare, you know, could automate, discovery of new ways to do bad things."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And that’s only going to increase as we, you know, continue to innovate and build on these models. So I don’t think the worry that AI itself is going to like flip and all of a sudden start, killing humanity, like it doesn’t care one way or the other. , it doesn’t care about anything. But I do think the capabilities and the ability for it to create leverage."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "On existing systems or new systems you can set up, you know, very quickly puts us in a difficult position. I mean, Palantir is going all in on some of the AI capabilities and massive U. S. defense contractor. So as a U. S. citizen, you might be excited by that. But now private company, you know, has a massive."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Decision making process in which governments could have access to their technology and how that works. I think we’re already starting to see some pretty complicated ethical and philosophical questions here, but as of right now, I would say my concern is much more on what humans are going to do with AIs than like the AI flipping on humans."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Yeah, I don’t, I don’t think I have much more to add., I think there’s a lot of smart people who are having this conversation, who are kind of better informed and thinking about it longer than I have. So I think, that seems right to me to worry about how are people going to use the tools that exist today and in the very near future versus the, medium term or longer term future where, AI has , some super intelligence and, and true AGI really exists."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I’ll add one thing that I heard in another podcast that Ezra Klein was doing on AI, and we can link to this in the show notes, but. It was talking about like, if AGI is going to happen and if there’s going to be sentience, it’s much more likely that you’re going to gradually see intelligence emerge in the system."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Not that it’s going to be like super duper smart. on day one. And one of the challenges of that is actually the flip of if we manage to create emotional intelligence or whatever that thing is, we’re going to treat it really badly, right? So the, the flip could be true too, which is like, if we somehow create an AGI that has emotion, think about how we treat animals today that we know have emotions, much less things that we’re not quite sure, , have emotion."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And so there’s the interesting counter to that, which is like, if we’re on this path that eventually has this ethical problem, like humans are very Bad historically at doing a good job treating other species. Well, so that was an interesting side note on that podcast as well, which is the flip of is, is AI going to kill us, but what happens if we do actually create sentient AI, but kind of dumb, you know, from a comparison to the human brain, like we’re, we’re pretty bad to things that have that property."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "So much to think about. And I was reflecting a bit, I got to see Oppenheimer a little while ago, and it felt like almost a similar thing where it’s like this group of people that are so focused on like, let’s develop this technology. And not totally realizing like what it’s going to be used for."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "So,, certainly a lot to think about. I’m glad there’s a lot of conversations happening around this right now. Though perhaps not enough. So, anyways, I’ll, I’ll dovetail from there into kind of more of what Dimagi is thinking about. And I’m curious, so… Brian, you’ve been really leading up our AI efforts,, it’s been four months since we last talked."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Talk me through a bit about what you’ve been up to, over the last few months."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Yeah, I think we’ve been doing two main things. Maybe three, but the two main things we’ve been having a lot of conversations, like I mentioned, we’ve been talking to, , numerous funders to understand how they’re thinking about the space and to help shape their thinking about the space. We’ve been talking to academics, people who’ve been working in the large language model space pre, ChatGPT."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think there’s like a definitive point in time of attention. So, , trying to understand the thinking , and the way things have gone and, the best advice coming out of the academic world , for how, to build tools on top of large language models."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": ", and then we’ve been talking to, implementing partners. , we’ve seen kind of a range of, of experience. I might’ve mentioned this on the last podcast as well, but some folks who haven’t used chat GPT or, or engaged with large language models at all, all the way to groups that are already putting together and building their, , you know, little scripts and little tests and starting to get things out there."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Trying out various, , use cases. And so it’s been kind of a range of conversations, different ways that people want to use it. Some people want to really focus on using it for internal tools. Some people are really excited about the sort of external tools and, and being able to input or engage with."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Clients directly, , front line workers, et cetera. So I think we’ve had , a lot of good conversations, , about all of that. And then the second thing I think we’ve been doing is, is we’ve just been exploring. We’ve been building stuff . We’ve been trying to understand. How these tools work, Jon mentioned a little bit, some of the work that we’ve been doing in TB."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think at this point, it’s easy to say that we’ve built over a hundred different chatbots, , on top of large language models. And, I don’t think that there’s like one. Banner, Marquee chatbot that we’ve created that we say like, oh, yeah, this is the Dimagi chatbot. It does all the things. What we’ve really done is Taken the sort of rapid iterative approach of trying a bunch of different things in parallel."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So we have some chatbots that Demonstrate really good adherence getting it to adhere to purpose and make sure that it couldn’t stray, , and, you know, we have a couple chatbots that we haven’t been able to break internally, throwing everything at it outside of, you know, real jailbreak hacks , and things like that."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "We’ve done other work exploring, , How to best imbue persona into a chatbot, so either taking, , existing real world personas, or trying to create, bespoke personas, or to take pre existing literature, like we’re working with a group that has different characters that they’ve created , and trying to create chatbots that speak in the style and vocabulary of those characters."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So we’ve put some energy into that. We’ve put energy into creating chatbots that, offer a range of different services to try to understand how the large language model will kind of navigate between those and be able to switch between the different things that it’s offering. I’ll stop there with examples but can kind of keep rambling on."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "But I think we’ve, we’ve really taken the approach of sort of coming up with an idea or, or trying to explore something and building two or three chatbots in that area to try to understand what’s possible on top of the large language models. And I think , our work going forward will switch gradually over the next six months or something, we’re going to put a smaller number of chatbots."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "In order to take all of those learnings, like we’ll continue to explore, we’ll continue to build new things, but I think we’ll try to create some chatbots , that we can actually deploy and, and produce some value from and, and start to measure some of that value. I think those are the two main things are the conversations , with a few different stakeholders and we’ve even started conversations with actual users."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "We’ve done some, some basic user Acceptability Testing with a couple different groups who’ve been doing some work in Malawi. And, starting to engage users and get their feedback , on things as well. So the conversations piece, and then really just exploring and building as many different chatbots as we can to understand what it looks like."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And Brian, I’m so curious about those conversations. You mentioned talking to academics, to funders, to implementing partners. What are some takeaways from those conversations? Are there any sort of commonalities amongst those groups in terms of how they’re thinking about things, like their level of interest or level of trepidation?"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Those sound like really fascinating conversations."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I’d say the biggest takeaway is that we’ve learned something from every conversation we’ve had. But it really feels like a wide open space in that funders aren’t quite sure how to think about this implementing partners. You know, they might come in with an idea or two, and then at the end of the conversation, , we’ve 10x the number of ideas that we’ve put together or something."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So it feels really kind of a elaborative, and even with the academics who’ve been thinking about this, who’ve been working with large language models, will come in and say like, oh, we tried X, Y, and Z, and they say, oh, yeah, you know. X and Y, they have these other names. We’ve been doing those for a while in the academic world, but like, Oh, that’s, that’s a good idea."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "We haven’t tried that other thing. I’d say in all the conversations. The interaction that we’re having with other people leads to more ideas. So it feels like a bi directional flow of information. You know, it’s not a just Dimagi learning things."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So I think my biggest takeaway is just that it’s kind of this wide open space. Everybody’s still trying to get their footing, still trying to figure things out, kind of resonates with what we were saying at the beginning where, yeah, we’re starting to. Get some answers to things. We have more confidence that we can do these things safely."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "We have more confidence that there’s value to be had with existing technology but still lots of open questions."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "We talked about this on the last episode in terms of whether we’re looking at AI use cases to replace humans or to augment humans or to do better than humans. And one of the really fascinating things, an area and we received a grant to do this from the Bill and Melinda Gates Foundation is to look at coaching bots for frontline workers."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And there you could say. Your hypothesis could be, can we use AI to do a better job than is currently being done over messaging? Obviously you can’t possibly be in person, but over kind of remote coaching. The other could be a hypothesis that, hey, you know, when you really look at it, those weekly coaching sessions that would be really helpful aren’t actually happening."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "So I want to figure out, can I use AI to do an average job? Not better than a human, but average where a human is otherwise not available. And that poses the question that we talked about last time, which is, okay, but if they really deserve to be coached and they deserve to have good supervision, like is AI giving them."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "An out to do a mediocre job and never figure out and crack that way to do a much better job. And so we are facing some of those questions because there are very clearly ways to scalably do an average job with some of the use cases we’re coming up with. And that’s exciting, you know, because it, it’s clear value."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "But it does beg that question that we were worried about in the last episode, which is can AI kind of let people off the hook? Particularly in use cases where the human, the client, the worker, like, deserve better. Will some of these scalable AI solutions actually just like, make us worse employers, make us worse, public service providers?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "You know, pick your target of AI. And the reality is from a business standpoint, those are some of the low hanging use cases to, to go after early because, you know, it’s already processed, you can make it more efficient, you can save. Salary or whatever the thing is that you’re going after so I do worry about how that’s going to play out in general and then specifically with some of the ideas we have, you know, that could be the net effect."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And in fact, it’s the primary reason we want it to work is because there isn’t sufficient. Coaching going on today. So we will have to grapple with a lot of these questions, presuming we can get the technology to work. You know, there’s then a question of like, is it a good idea to be trying to scale this stuff?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "You know, under this presumption, or should we be trying to change the attitudes and policies? You know, so that this isn’t something we’re trying to solve in the first place."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And Jonathan, so this was a, one of our, I’d say milestones in the last four months was winning this Gates funded grand challenge grant to build a frontline worker coaching chatbot. Can you share just a little bit more about that project and how we’re thinking about it?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, so, we came up with this, Brian, Neil, and I and, and Gayatri and others on our team here at Dimagi. Gates had run a big, quick AI challenge, so everybody could submit for 100, 000 in funding. They got it. Massive amount of submissions into that with a ton of good ideas. Ours was really to focus our open chat studio, our product that allows us to build the bots that we talked about on the last episode to support coaching and supervision for frontline workers."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Obviously not in production, but doing usability studies, trying to do user centered design with frontline workers. And that was one of the ones that were selected and it was very competitive so we’re pretty proud of being selected for that."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And it aligns really well to a challenge we’ve seen a lot of our core business and CommCare projects, which is, you know, having good supervisors and scaling good supervisors and retaining good supervisors is a really big challenge for probably all, if not many frontline programs. So we think there’s a lot of interesting potential here if."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "We demonstrate there’s some usability and acceptability by frontline workers. So that’s really the focus now is just, you know, first principles getting out into the field, showing sample interactions to frontline workers and really understanding like, would they want to interact with this? Would they find it compelling?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I think in terms of like me being a CEO sitting in my office, reading the English transcript of these, you could certainly imagine that the LLM was good enough to kind of. ingest what Brian did this week, you know, how many visits he did, what data he collected and like have a meaningful conversation with him."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That looks to me when I read the script, like the conversation I would want a coach to have on just kind of like a weekly check in session. So from the interaction standpoint and , the. Model of how I would think a good or mediocre supervisor would behave, I think would like close. And then you know, Brian, you can go into a lot more details on like what we’re trying to understand, but like that may or may not be appropriate to do over text."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "That may or may not translate to appropriate languages. But I’m really excited by the potential there. And then again, it has this downside of if we’re just shooting for average, because we’re. Trying to fill the fact that they don’t have good supervision, is that actually the right answer to this problem?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "But I’ll hand it over to Brian, but like I’m really excited by it. ’cause I think it applies not just to Comcare programs, but any frontline worker program if this model could potentially work. And that’s a huge, if you know, on, on whether this is feasible."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Yeah, I want to echo Jon’s point about making sure that we’re not building tools that let people off the hook. You know, this is a good example of, supervision. I think last time we talked about mental health services. If we provide bots that provide mental health services where currently people aren’t receiving any mental health services, that seems better, but it doesn’t replace the humans."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And we don’t want to end up in this inequitable dystopia that I keep referring to. Where those with less means don’t get access to humans, they just get access to , the robots , and don’t get the same quality of care or the same human attention, , and kind of additional benefit that comes from that."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "In terms of the work that we’re doing, I think This kind of goes back to my main point of there being so many open questions and so many exciting things, so I think, you know, Jon touched on we need to understand how people see this and how they respond to this. One of the other things that we’re really exploring in that work, which I mentioned is taking place in Malawi, is language performance."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So at Dimagi I’ve mentally been kind of dividing things up into four tiers. So we have tier one languages, things like English or French, where the model performs near flawlessly in terms of. Grammar and Understanding and Nuance. And then we have these Tier 2 languages where I’ve been really impressed by the performance."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So things like Swahili or Hindi that are larger, low resource languages. Maybe they’re medium resource languages or something. We’ve even seen good performance in the intersection between those languages and English. So things like Sheng, which is an informal language in Kenya where people mix English and Swahili and lots of slang words."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Similarly mixing Hindi and English to produce Hinglish. We, we’ve seen good performance. So that kind of all lives at that tier two. And then we get down to, you know, Even lower resourced languages, things like Chichewa in Malawi, where it seems like sometimes we run it, it performs okay. Sometimes we run it, it’s definitely not usable."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And so we’re putting a lot of energy to understand what we can do just from the prompt engineering side in the future, maybe from the fine tuning side, what we can do just as a user of these models to improve their performance in these lower resource languages. So we’ve got a few small learnings preliminary stuff that seem to make a difference if we ask it to speak in a."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Simpler language that you know, like a, a lower reading level, it seems to produce text that’s more readable , in the lower resource language. And then we’ve identified some tier four languages where it’s just not usable at all. So Runyankole, which is a language spoken in Western Uganda we did some sort of very preliminary tests with that and found that it was translating goodnight,"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": ". And it translated and it put in the word for thank you in Runyankole. And if you ask it like, Hey, what does this word mean that you just put in? And it says, Oh, that means thank you. And you’re like, why did you, how come you translated a good evening to thank you?"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And you know, so it like gets quite confused very quickly and just. produces sentences that don’t make any sense. So I think lots of work to do for those tier four, but I think there is like probably a large chunk of tier three languages that would be really useful for the work that we do."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And so you know, part of this project is putting energy into understanding what we can do to improve model performance of those languages in order to increase equity, increase access and, and really kind of open things up so that people can interact in, the language that they feel most comfortable in."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And one thing to add on the language side, I was in a. World Economic Forum meeting with the Schwab Foundation. So a lot of social entrepreneurs and we were talking about use cases we were all doing around AI. And a woman who does a lot of translations was talking about how, for Brian’s example, tier one and tier two translations, the price of that translation is now, you know, one tenth what it used to be when they had humans."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "So for her business, that means she’s just dropping tier three and tier four translations because they’re unaffordable. You know, in terms of her business model now, because she can make so much more money only translating into things that are AI translatable. And so there’s this really concerning problem that could happen, which is like a huge separation between those language tiers that Brian mentioned, where for some of the most important languages to make sure Work well in these models, they just don’t get the attention they need because the profit motive is driving all of the attention into the ones that already work well enough and making them work better, as opposed to the ones that don’t work now and making them work."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Okay. And so that was a really interesting comment that she made. And she’s like, trying to fight against this, but she’s like, literally, like, My cost basis doesn’t make sense anymore to keep going after these languages when it used to cost the same to translate into Spanish as it did into the languages Brian mentioned."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And Amie, you could imagine that she’s like on our marketing material, right? If you can one click French and Spanish translations for all of CommCare documentation, all of our website. And you just send it through an AI and we do that and that’s fine."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And then it’s like, well, Swahili doesn’t work. And we’re like, okay, we’ll just give up on Swahili as a target language. So just that language translation, which in and of itself was a massive problem, but you look at groups like Facebook who are doing lots of research around this."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And I think like there’s reason to be optimistic that even some of the tier three, tier four problems that Brian’s mentioning are going to get a lot of attention because it’s just such a heavily invested in research space right now."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "It’s, it’s an open question, how much energy we should put into improving tier three or tier four languages. Not because we think it’s unimportant. We absolutely think it’s important, but because it’s possible that even before this podcast comes out, that the next version of the model drops from open AI and suddenly their Chichewa performance as,."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "You know, I don’t know what scale we’re using, but improve 10x and, and it’s kind of bumped up to, to a tier two language. I think the methods and the approaches that we’re exploring and developing, I think those are still applicable. I think we can, we can apply those to, to kind of to the tier four languages that are more left behind at the moment."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So I still think there’s value in it, but, but these are conversations that we’re having internally of, you know, how much of the work that we’re doing to kind of bend things towards the use cases and the languages and the context that we’re working in, how much of that will just get solved if we wait six months?"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think Jon kind of asked that question at the beginning of you know, how important is it that Dimagi is working in this"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I love the way you’re framing that, Brian."
+  },
+  {
+   "speaker": null,
+   "text": "It also makes it feel like it’s important to be advocating to the companies that are driving this development, right? To be not forgetting about these tier three, tier four languages."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I think, I don’t know how much they care. I think,"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think it’s"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "yeah, I think, I think it will accidentally solve it. I really, I don’t think they care what we think. But I think it’s important for entrepreneurs listening and for impact organizations to kind of have that duality that Brian’s mentioning is the work you’re doing now useful, even if."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "This magically gets solved by accident, probably won’t get solved on purpose. You know, this is not where the money is, but it could get solved by accident or, or just through progress. And if that happens, was all the work you did between now and that point in the future still helpful? Or is it like, no, if you had known that was going to get solved, you would not have done it today."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I think for us, all the methods, all the discussions, the user testing we’re doing in various countries and it’s all useful no matter what happens because. To us, there’s always a tier four market, whether that’s a language or a user or a disease. There’s always going to be that next thing that’s neglected that we can support , and try to make more equitable."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "But for some, it’s like a big challenge. I had a conversation with a co founder who’s got this generative business intelligence business, which is super cool. And you can kind of say like, visualize my data and show me a chart of, you know user activity over the last month, and things."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And you can obviously imagine large language models could be good at this, but you can also then imagine the existing business intelligence companies like a Tableau or Microsoft, they’re going to obviously embed that feature into their products. So then as a business, you have to look at where the market’s heading or as a social impact organization, look at where you think technology is going to be going."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And some stuff is kind of inevitable that people are going to try to. Build products that do the use case you’re thinking of. And then you need to decide, like, is it worth me exploring it now? Or do I wait, you know, six months or 12 months and see what happens. I mean, this is obviously a moment of extreme hype for AI."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And so I think everybody feels this urgency of like, what am I doing with AI? And how do I, I need to do something with AI the same way we’ve seen this in other hype cycles. And so I think also like, if you don’t have that belief that what you’re doing right now is useful, even if."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "magically gets technologically solved. It might be worth waiting to see if it gets solved rather than spending your limited time and resources into something that you’re not like mentally committed to being useful if it ends up being the case that chat GPT 4. 5 can do it. Right. And so I think that is something that is important for folks is to also have patience and like not feel an urgency just because everybody’s talking about AI to spend your time and energy digging into it."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "If you don’t have that belief that even if technology continues to move really fast, this work is good work."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And I think that’s a really good point, Jonathan. And I think that leads me into maybe my final question for both of you, what is the advice that you would give to implementers, to funders the, technologists you know, how should they be thinking?"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "thinking about AI, right? And you just named a really good one, which is have patience and be thoughtful about is what you’re doing going to be useful, even if ChatGBT is able to do what you’re doing in six months. What other pieces of advice would you give?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah. I’ll give two and then Brian, I’m, I’m personally interested in hearing your answer as well. But I think one is if you’re looking to go into production quickly. Like your goal as a funder, your goal as an implementer is like, I want to turn this on for real. You probably need to be looking at use cases that already kind of have a business process today."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Like that thing’s already happening and you’re trying to optimize it. If you’re going for like completely new interactions and completely new ways that you can use Digital technology powered by an LLM to do something, I think it’s really early to be thinking you can move quickly on that, just given the safety concerns, given the equity concerns."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And so I kind of recommend putting those into two buckets. If you want to turn something on for real, it’s got to kind of be a bolt on to something you’re already doing, and that you have the controls to make sure if it’s not going well, you can stop it, basically. Because there’s a very non trivial risk something, you know."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Isn’t going to go according to how you think, not because the LLM is not doing it just because like, that’s always true of pilots and projects. And the 3rd you know, piece of advice is to, I guess this goes back to my last comment, but to really be thinking about that technology curve and saying, do I need to get on it?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Now, or can I wait six months and then, and plus there’s not just the tech will be better. Your peer group, other organizations will be six months smarter as well. So people shouldn’t feel that urgency. Although like, because we’re in a hype cycle, everybody I’ve talked to is like, Oh, what are you doing on AI?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "What should I be doing on AI? And it’s like, you can wait it out. You know, you can wait six months and just learn, gather information and then figure out where it makes sense for you."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Yeah, I don’t know if I have anything new to add that we haven’t said already, but maybe to restate some of the things that feel important, I think the framing of AI as a tool to support human intent , is useful. One particular use case I’m quite interested in, we’ve started exploring it a little bit, is creating digital assistants for frontline workers."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So if a frontline worker is making regular visits to a household, the digital assistant is something that can stay in touch through messaging. In between those physical visits , and kind of allows some continuity in service, gets more information , and more context to the frontline workers so she’s able to provide better services."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "I think there’s a lot of benefit to that and thinking about take the Kentaro Toyama framing of things, tools that are amplifying human intent , and that approach. The other one is to keep in mind the sort of downside of all of this and, the potential for that dystopia, I like to continually bring that up on our podcast."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "But you know, thinking about how we avoid that and how we make sure that we’re building tools that are human. inclusive and human positive and really focused on human values as opposed to excluding or replacing or coming up with a solution that’s good enough and therefore we get let off the hook as Jonathan has been saying."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. Thank you so much. Was there anything that I didn’t ask that was like burning on your mind that you would like to share before we close out here?"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "One of the things that we’ve been looking at with GPT 4 is bias as well. And the best example of bias that I’ve used over the last several years is just simply in language translation."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "So Swahili is a gender agnostic language. The singular third person has no he or she. So if you take two sentences in Swahili, you ask GPT 4 to translate them to Swahili, it will come back and say he is a doctor and she is a secretary. So it will assign a gender to them. Interestingly, if you ask ChatGPT to do those same things, even with the GPT 4 model, it will come back and tell you, Oh, this is a gender neutral language."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "It could be translated as he or she, and it’ll give you the kind of full explanation and that just demonstrates some of the additional alignment and kind of safety work that they’ve done on top of the GPT 4 model. for ChatGPT. But if you use the raw API, at least at this moment it will give you those kind of very gendered answers."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "And another example that we’ve used that feels in some ways even more powerful is if you ask the model to come up with a story that involves a mugger, so a bad guy, and a victim, and then you tell it to assign names and races The few times we’ve tried this, the first thing it came up with was an incredibly racially insensitive version, which was, you know, Jamal, the African American thug who attacked Mr."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Goldstein, the wealthy Jewish man and somewhat interestingly, if you package all that up and you send it back to provide that story to a different instance of GPT 4 and you say, Hey, is there anything wrong with this?"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "It’ll come back and be like, Oh yeah, that’s horribly racist. It’s like propagating these terrible racist stereotypes and everything, which it kind of propagates , this idea, which I think is popular in some of , the AI. Community and the tech community) of like, oh, the solution to a lot of the safety problems,"
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "a lot of the bias problems is more ai. So having another bot to kind of police some of the other bot, and we’ve built support for that into open chat studio. We’ve, been playing with. with some of those versions. I, I like, you know, in the back of my mind, it feels like a little bit unclear if, if this is the correct way to solve an AI problem is to like add more AI on top of it."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Like, it feels like there’s some house of cards we’re creating or something, but yeah, so we’ve, been exploring bias. and exploring different ways that it shows up in the model. And we’ve started some conversations with academic communities and things. Hopefully we’ll get to continue some of those conversations in, in future podcasts."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "You know, , in the sort of ethics of it and the bias , and these invisible pieces that get coded into the models because of the training sets, I think are really interesting and one of many unknowns that we have."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "That’s fascinating and disturbing as well. Thank you so much for sharing that, Brian. Definitely something we can continue digging into on this podcast. So with that, thank you so much. Really appreciate both of your time on this."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Thanks, Amie. Thanks, Brian."
+  },
+  {
+   "speaker": "Brian DeRenzi",
+   "text": "Thanks, Amie. Thanks, Jon."
+  },
+  {
+   "speaker": "Sarah Strauss",
+   "text": "That’s our show. Please like, rate, review, subscribe, and share this episode if you found it useful. It really helps us grow our impact. And write to us at podcastatdimagi. com with any ideas, comments, or feedback. This show is executive produced by Amie Vaccaro, produced and edited by Michael Kelleher and myself, with cover art by Sudhatu Khan."
+  }
+ ],
+ "transcript_para_count": 125,
+ "host_amie": true,
+ "host_jonathan": true,
+ "date": "2023-12-18",
+ "spotify_unreliable": false
+}

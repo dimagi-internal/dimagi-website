@@ -1,0 +1,45 @@
+{
+ "deck": "Four months into Dimagi's AI exploration, Jonathan Jackson and research lead Brian DeRenzi take stock: over a hundred chatbots built, a Gates-funded coaching grant won, and a hard question of how to spread these tools equitably and avoid an inequitable dystopia.",
+ "seo_description": "Jonathan Jackson and Brian DeRenzi on Dimagi's AI work: a Gates-funded coaching chatbot, language equity, and avoiding an inequitable dystopia.",
+ "og_description": "Dimagi's AI check-in: a Gates-funded coaching bot, language tiers, and keeping humans at the center.",
+ "about": [
+  "In part two of this series on artificial intelligence, Jonathan Jackson and Brian DeRenzi, Dimagi's Research and Data team lead, openly discuss the rapid evolution of AI and what Dimagi has been doing in the months since winning a Bill and Melinda Gates Foundation Grand Challenges grant to build a frontline worker coaching chatbot. They reflect on a phase that still holds far more questions than answers, from safety and bias to the affordability of running large language models at scale.",
+  "Brian describes two main threads of work: dozens of conversations with funders, academics, and implementing partners, and a rapid build-and-test approach that has produced more than a hundred experimental chatbots. The two dig into language performance across a four-tier framework, where models perform near flawlessly in English and French but break down in lower resource languages like Chichewa and Runyankole, and the risk that the profit motive pulls attention only toward languages that already work.",
+  "Throughout, the conversation returns to a core ethical concern: building AI that augments rather than replaces human services, so that those with fewer means do not end up with only the robots. They close with candid advice for implementers and funders on patience, picking the right use cases, and keeping human values at the center."
+ ],
+ "pull_quote": {
+  "text": "We don't want to end up in this inequitable dystopia that I keep referring to, where those with less means don't get access to humans, they just get access to the robots and don't get the same quality of care or the same human attention.",
+  "cite": "Brian DeRenzi"
+ },
+ "bullets": [
+  "<strong>More questions than answers</strong>: why Dimagi sees real value in conversational agents while staying honest about the unknowns in safety, bias, and equity",
+  "<strong>Over a hundred chatbots</strong>: the rapid, parallel build-and-test approach to learning what large language models can and cannot do",
+  "<strong>The Gates-funded coaching bot</strong>: using Open Chat Studio to support supervision for frontline workers, and the worry that average AI could let employers off the hook",
+  "<strong>Four tiers of language</strong>: strong performance in English, Swahili, and Hindi, breaking down in Chichewa and Runyankole, and what that means for access",
+  "<strong>Augment, don't replace</strong>: framing AI as a tool that amplifies human intent rather than substituting for human care",
+  "<strong>Bias baked in</strong>: how raw GPT-4 assigns gender and race in ways ChatGPT's alignment work catches, and whether more AI is really the fix",
+  "<strong>Advice for the hype cycle</strong>: when to move now, when to wait six months, and how to judge if your work holds up even if the technology solves it for you"
+ ],
+ "stats": [
+  {
+   "num": "100+",
+   "label": "experimental chatbots Dimagi built on top of large language models"
+  },
+  {
+   "num": "$100,000",
+   "label": "in funding offered through the Gates AI Grand Challenge that Dimagi won"
+  },
+  {
+   "num": "20x",
+   "label": "how much more expensive GPT-4 was than GPT-3.5 at the time"
+  }
+ ],
+ "guests": [
+  {
+   "name": "Brian DeRenzi",
+   "role": "Head of Research and Data, leading Dimagi's AI exploration and the Gates-funded frontline worker coaching chatbot.",
+   "org": "Dimagi",
+   "initials": "BD"
+  }
+ ]
+}

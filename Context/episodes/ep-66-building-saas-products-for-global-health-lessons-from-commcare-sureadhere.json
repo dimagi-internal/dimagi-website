@@ -1,0 +1,466 @@
+{
+ "slug": "ep-66-building-saas-products-for-global-health-lessons-from-commcare-sureadhere",
+ "url": "https://dimagi.com/podcast/ep-66-building-saas-products-for-global-health-lessons-from-commcare-sureadhere/",
+ "title": "Building SaaS Products for Global Health",
+ "spotify_id": "2D4dXUdpj7C56jG5wdXvSj",
+ "apple": "https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000680980081",
+ "youtube": "https://youtu.be/cDqfhls6fTc",
+ "amazon": "https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/7efed6b7-952b-4b21-8cb2-960ce77e5e82/high-impact-growth-building-saas-products-for-global-health-lessons-from-commcare-sureadhere",
+ "num": 66,
+ "duration": "51 min",
+ "show_notes": [
+  "In this episode, Dimagi product leaders Danny Roberts, Kai Cowger, and Matthew Hayto delve into the challenges and opportunities of building SaaS products for global health. This insightful conversation explores transitioning from donor-driven funding to a product-driven model, focusing on user needs, product sustainability, and scaling for impact. The episode highlights the complexity of aligning revenue and impact in resource-constrained settings, the importance of product marketing, and the lessons learned from scaling solutions like CommCare and SureAdhere. Tune in to discover practical strategies for creating technology that drives meaningful, lasting change in global health.",
+  "Hosts: ⁠Jonathan Jackson⁠ and Amie Vaccaro"
+ ],
+ "transcript": [
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Welcome to High Impact Growth, a podcast from Dimagi for people committed to creating a world. Where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity."
+  },
+  {
+   "speaker": null,
+   "text": "I’m Amie Vaccaro, senior director of marketing at Dimagi."
+  },
+  {
+   "speaker": null,
+   "text": "And your co-host along with Jonathan Jackson, Dimagi CEO, and co-founder. Today’s conversation is a follow-up to a recent episode. With Dr. Kelly Collins and Gillian Javetski on taking a product approach. Today we are joined by Danny Roberts. and Matthew Heto three critical product leaders at Dimagi leading our efforts. To develop CommCare and SureAdhere. Our two most mature product offerings."
+  },
+  {
+   "speaker": null,
+   "text": "We build on that first conversation and take it a few steps, deeper discussing the challenges and importance of taking a product approach in global health and development and what it means to move from a project oriented service based model to a product operating model."
+  },
+  {
+   "speaker": null,
+   "text": "And we even Wade into the world of product marketing. And the importance of it. If you’re trying to take a product model and global health, or even considering it, this episode is a must listen."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Welcome to High Impact Growth. I am really excited for today’s conversation. I am here with Jonathan Jackson."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Hey, it’s gone?"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Good, good. Today we are joined by three guests from across Dimagi"
+  },
+  {
+   "speaker": null,
+   "text": "and I’ll give a little bit of context and then I’ll ask you guys to introduce yourself."
+  },
+  {
+   "speaker": null,
+   "text": "There was an episode we did recently,"
+  },
+  {
+   "speaker": null,
+   "text": "Jon, with you,"
+  },
+  {
+   "speaker": null,
+   "text": "Kelly, and Jillian, two of our leaders at Dimagi who are leading product teams within Dimagi, and the conversation was all about building products in global health and how we might move from being driven by donors to be driven by user needs and adopting that product model and the challenges of that."
+  },
+  {
+   "speaker": null,
+   "text": "And I think Kelly spoke very passionately about moving in that direction."
+  },
+  {
+   "speaker": null,
+   "text": "Today’s conversation is with three folks at Dimagi who are also highly involved in building products. at Dimagi each of whom approached me and Jonathan after that podcast went out and said, Hey, that was a really interesting conversation. I had some thoughts. I had some feedback. It triggered some ideas."
+  },
+  {
+   "speaker": null,
+   "text": "And so Jon and I said, okay, great. Let’s, let’s have a second conversation. Let’s, let’s dig in a little bit further on this."
+  },
+  {
+   "speaker": null,
+   "text": "So really excited for today’s conversation. So I want to invite our guests to introduce themselves. I’m going to start with Danny Roberts. Danny has been at Dimagi 14 years and you’ve actually heard from him on a previous conversation, one of our very first episodes."
+  },
+  {
+   "speaker": null,
+   "text": "So excited to have you back. Welcome, Danny."
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "About to be here."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Yeah. Do you want to maybe give just like a quick intro and a little bit about like why, why you’re wanting to join for this conversation?"
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "Yeah, sure. Yeah, so, you know, I’ve, I’ve been at Dimagi for about 14 years. I’ve been lately working almost entirely on our SaaS product. And so this conversation is really near and dear to my heart. We’ve been working pretty hard to try to get of out of that world of scraping together. funding from various sources and into a world where we can sell a reusable product and kind of cover those costs and have enough leftover to keep investing in making the product better. So I think about this kind of stuff all the time. and, and yeah, excited for this conversation."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. Welcome, Dani. Next I’m going to invite Kai Calger to introduce yourself. Welcome to the podcast. ."
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "Thank you so much, Amie and Jon for the invite to the podcast. I’m incredibly excited. I thought that the podcast episode with Kelly and Jillian really resonated with me. And I was very excited to chat with you. I’ve been involved in product development side of Dimagi for about two years, but been at Dimagi for about eight and intimately involved with CommCare as a product and the field in general. Have a lot of, a lot of thoughts and a lot of opinions around product and product development, so I’m happy to, happy to chat."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. Glad that you’re here. And last but not least, we have Matthew Hayto, who is a director of product on our SureAdhere product, working closely with Kelly and has recently joined Dimagi. Matthew, over to you."
+  },
+  {
+   "speaker": "Matthew Hayto",
+   "text": "Thanks for having me. I feel so special to be on High Impact Growth podcast. Like Amie just mentioned, I’ve uh, been at Dimagi for only a handful of months. I think one of the things that attracted me to Dimagi in the first place was its commitment to the high impact growth model. And I think that’s really relevant to the conversation we’re having today."
+  },
+  {
+   "speaker": null,
+   "text": "So I’m super excited to be here. I, I spent the last few years bouncing between other NGOs and nonprofits working tangentially in this sector. So I can talk a little bit about that in our conversation. And I’ve also spent a bunch of time at at Meta, so on the, on the private sector side of things."
+  },
+  {
+   "speaker": null,
+   "text": "So hopefully I can bring some of that to this conversation as well."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. Well, good to, good to have each of you here. So I think maybe to kind of open this conversation, one thing that I think this group agrees on, but I’d love to hear the thinking behind this is that global health needs SAS products, software as a service products. There are many different models of building tech for global health."
+  },
+  {
+   "speaker": null,
+   "text": "But I think one of the things that we all believe here in this room is that. The SAS model is an important model, although quite challenging, so I’ll kick it off with that open question of like, why, why does global health need SAS?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I’ll jump in, Amie before we pass it off to amazing. Gus, I’m really excited to have you all on. As Matt mentioned in our high impact growth strategy and approach we talk about the value that products have beyond their projects. And Daniel was actually on a previous episode where we talked about this well that we can link to in the show notes. But when you look at global health and global development. The world is facing massively increasing pressures and needs with climate change, with health needs stagnant or declining budgets. So it’s imperative that money goes further. And I think one of the ways money can go further is by creating products that you build once and sell many times or give away many times can handle these use cases building a highly efficient, highly productive teams that continue to make those better. for us at a kind of. philosophical point and at a practical point, only going to be able to make massive impact with CommCare and SureAdhere and other products we hope to bring to market. both they’re really impactful today and we have teams behind them that continue to make them impactful tomorrow. that was a lot of what I wrote about in our five year strategy and what everybody who works at Dimagi hears me constantly talk about with their flywheel and the need to not just survive from a revenue base, obviously that’s table stakes for a viable business or nonprofit, but having models that let The great work Matt, Kai, Danny, and their teams work on enough revenue today that we can be confident that making it more valuable tomorrow is worth it. And the failure of the global health model and the global development model is it’s not worth it to make your projects better from a financial standpoint. You don’t get paid more money as an implementer, it’s not necessarily more likely to lead to further organizational sustainability. And that’s one of the biggest challenges we face and that’s why it’s been so challenging even at Dimagi where we’re a market leader in multiple verticals to, to figure out how to make viable product models."
+  },
+  {
+   "speaker": "Matthew Hayto",
+   "text": "I’m going to build on that really quickly. I think even without touching all of the things happening in global health right now. In my experience, this is similar to many other markets in the world in that software inherently is good at scale. So the great thing about software in any part of the world, in anywhere that software is implemented is you can build it once and then billions of people can use it. Ideally more people you use that use your software. The cheaper it is per unit to develop it for them. You know, a lot of these, a lot of big tech companies are, can be run by quite small teams and can still scale very significantly. And I think that’s one of the reasons we saw so much money get poured into Silicon Valley in the last 10 or 20 years."
+  },
+  {
+   "speaker": null,
+   "text": "So I think one of my goals in this industry has been, let’s just take advantage of the power of software where possible and where responsible in markets where we know. The need not only can scale and possibly make money for our team, but also can scale and have really, really positive health outcomes for people in the world that are often overlooked or problems that are often overlooked by technology."
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "Yeah. And when it comes to the market though, I think it’s one thing that is all has always been difficult for us as an organization, but not just unique to us is just how I’m going to use the word broken here. Which is a lot of what you heard that podcast with Jillian and Kelly about but it makes the. pursuit of a SAS software product that much more difficult when you’re living in a world in which funding is unpredictable or there’s tons of funding one year and less the next year or you have projects that are only four years with no determined lifespan past that and having to, play within that field or within that market is challenging, but also being able to project further into the future and build a sustainable business with a product like this is a second layer of complexity that has been exciting to play in, but also stressful."
+  },
+  {
+   "speaker": null,
+   "text": "And a very difficult challenge that I know Jon has lived through for, for many years. And I would love to hear more of his perspective on that as well."
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "Yeah, I’ll just add to what kind of all of you have said here and, and you know, software scales really well, and when it does scale, it’s economical, but it’s also really expensive to build, and people recognize that. And so, you get situations where. Software project is funded for a five year term to build it. People don’t always recognize that it’s also expensive to maintain over time. So software kind of rots you know, like fruit or something. In the sense that as time goes on, people discover vulnerabilities and components that you’re using and constantly have to play kind of cat and mouse. And, and people also have rising expectations about what software should do. So you also can’t just not build new features on it and expect it to continue to be useful as the world changes. and so we often struggle with the fact that we want our software to be as high quality as software that has a much larger user base. Right. And you know, we can’t, we can’t charge sort of 10 times as much to make up for the fact that we have that, smaller user base. And so we just, operate at very thin margins and we try to do, you know, the most we can with that and continue maturing the market so that it’s ready to, to pay for SaaS software instead of continually, you know, building unrepeatable solutions."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah. I’d say one, one huge aspect of some of the challenges we faced over the years is until you get Revenue high enough, your user base high enough. It’s really difficult to model what sustainability is. Every vendor working in global health and global development needs more money."
+  },
+  {
+   "speaker": null,
+   "text": "Every nonprofit needs more money. So of course you’d always take more, but only until we got to multiple million dollars of revenue. Recurring revenue on SaaS, could we begin to answer the question of how much money should go into maintenance? How much money should go into bringing ongoing infrastructure costs down? As Matt alluded to in kind of the commercial sector, you get to that multiple million. In a r you die within 12 months. So you get a very quick feedback loop because you don’t get your second round of funding in global development, it took us. Years get to that point. And that’s true of most global goods and most proprietary pieces of software and global development."
+  },
+  {
+   "speaker": null,
+   "text": "’cause it just takes a really long time to build up your revenue base. so some of the more mature, best practices that apply to all software, like how much did you put into infra? Is it better to build the next feature or bring down the cost of. ongoing spend with Amazon or Microsoft. you don’t get to those until you’re a lot further along than one might imagine a traditional Silicon Valley tech company might face. And that leads to a lack of discipline of building the right teams, building the right product management, the right design teams, the right platform teams. And so it’s been interesting as we’ve continued to mature and I would argue probably run one of the more mature SAS approaches across our product lines in the industry."
+  },
+  {
+   "speaker": null,
+   "text": "How it’s still really hard, for us to make these trade offs. So for both Matt and Kai, where you’re doing this product planning, Danny, who oversees a lot of the platform development and product development. How have you guys thought about this challenge of, how do I think about the cost to service? My user base this year, the user base I hope to have next year versus swinging for the fence with for new features that I hope can bring in, that next customer base, my current market or help me move into an adjacent market of margin so thin you need to move into those next markets, it takes so long to build up that capital base where you can make that bet that you guys are faced with, really constrained problem spaces of limited engineering to apply to."
+  },
+  {
+   "speaker": null,
+   "text": "these different domains. I’d love to just hear, you’re both in the midst of strategic planning, like how are you thinking about this with your teams?"
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "Yeah. I mean, I think that the first thing to recognize is that most of our costs don’t go into servicing new customers. So it’s not like, you know, if our customer base doubles, our costs don’t double, right? Most of our costs go into having a team that’s appropriately sized for how complex the software is. to maintain and grow upon and operate. And so, in general, we try to operate sustainable but low margins. And that essentially means that our current revenue of decides for us our team size. And then we do the most we can within that team size. Doing something, that’s not how a Silicon Valley company grows, or you, you have a huge team before you have any revenue and you, you pay for that team with the promise of huge revenue in the future. And that’s just too risky for us to do with, with the market that we’re in. And so we really, try to stay within what our current revenue is. And do the best we can with it, right? So then the question isn’t, oh, do we hire, you know, three more engineers? It’s okay. This is the team we have. Here are the skills we have. We have a great team. Do we want to do this or that? And, and in what proportion?"
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "I think this is why so much of Danny’s team’s work on the platform side was so important over the last years or so for our SAS division was, you know, part of the beauty of Dimagi and the platforms that we have are so much better. Specifically, like, CommCare is more of that blank slate. It’s not specifically for one purpose. It’s for any, like, a lot of purposes, right? It can be used for agriculture, it can be used for global health, it can be used for aid, it can be used for so many different things, cash. And so, one of the most important things for us has been focusing more on the stability, more on the reliability side of things than the chasing the next big thing."
+  },
+  {
+   "speaker": null,
+   "text": "Killer Feature at least most recently that, that might shift as we move more toward the future more of the sustainable financial side of things. But for us recently, it’s been, you know, how do we make it so that this is so stable that anybody that comes in can see themselves in the platform or if something huge happens, another COVID or, or another You know, unfortunate circumstance around the world, the climate change type stuff that results in somebody needing a tool like ours, we can step up and be there during that time. And I think that that’s been some of the most rewarding and some of the most important things for us to work on recently."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And before I throw it to Matt one thing to add there we’ve had two kind of very acute scaling phases that Danny’s been a part of on both. One was when we were going to hundreds of thousands of users in India and one was during COVID in the U. S. and they were extremely different in the case of India, it was project based funding with amazing donors, amazing partnerships, we knew every engineering hour that went into that wasn’t coming back. So it was a very difficult allocation of resources because we knew we couldn’t monetize. those engineering hours…."
+  },
+  {
+   "speaker": null,
+   "text": "…… Whereas during COVID,"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "is that, Jon? why couldn’t we monetize that?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "know, so at the end of the project we were not going to get more product revenue. We were handing the system over to the government. So it was great work and it was high impact, but from a business model standpoint or from a sustainability standpoint for Dimagi, it easier for the government engineers to maintain doesn’t, doesn’t make Dimagi more sustainable. Of course, it makes it easier theoretically for our engineers to maintain also."
+  },
+  {
+   "speaker": null,
+   "text": "So it’s not like there were no external benefits. But with COVID, had again, a huge rush of web users and contact tracers and case investigators, again, another episode on this with our hair on fire and things. there, our infrastructure costs shot up and we doubled Costs overnight. As we started to bring that cost down, there was a clear ROI. So now we were able to have very intelligent discussions internally of Danny’s team saying, look, I think I can get 20, 000 of ongoing cost out of the system. we spend two people in four months doing A, B and C and that just. makes it so much easier to make smart decisions than, hoping, Oh, maybe we’ll get this project renewed. Maybe there’ll be product funding. And so you’re able just to be a lot more disciplined with product revenue. Also. So you end up building higher quality, better software, more efficiently, in my opinion, when you have a SAS model as compared to, project based funding,"
+  },
+  {
+   "speaker": "Matthew Hayto",
+   "text": "That’s fascinating. I think the one takeaway from what you just said, Jon, is that Dimagi has delivered both of these models in the past. And I think I’m sensing some collective agreement that moving toward a SAS model where possible and where responsible. with regards to impact is probably the direction that we want to go. I think I’ll respond to a couple things that folks have said. The first one is I’ve spent some time working with the International Rescue Committee, which I know is a Dimagi client, I have definitely seen time over time, there’s a, there’s definitely a, sense that software is a thing that you build and that it exists to be used. And that is like Danny was saying previously, it’s just not the case. Not only does software cost money to maintain and make sure it’s up to date and the code is, is not deteriorating over time, software isn’t, it’s just an ingredient to actually creating a product or a thing out there. And the, the thing that, needs to change because the world changes, the needs of the customer could change."
+  },
+  {
+   "speaker": null,
+   "text": "Software is a component to building that thing, but you need to have a product that is, the world that people are, if people are paying you for it, that needs to continue to evolve and you want to continue to make it more efficient. also totally worth it to continue to invest in the product over time, because it helps you scale it."
+  },
+  {
+   "speaker": null,
+   "text": "It helps you reduce the cost of delivering that thing. I work on SureAdhere and we have a really great delivery team that spends a lot of time especially with bigger customers, ensuring that those customers are successful, calling them when we see that something is not working correctly. And if our product can start to do those things, that means that those people’s time is used more efficiently to work closely with our customers to do things that are really hard or really important. And the easy, tedious things can get automated. It’s kind of the value of software. So I’ve definitely seen this impression previously that if you pay a million dollars, you can create an amazing software product in the global health or humanitarian space. it will then exist and your impact will be done realistically that will get you version one of that thing that might help a couple of people, but version two is going to be a lot better and version three is going to be better than that."
+  },
+  {
+   "speaker": null,
+   "text": "And that’s where the actual impact of technology comes. So I think. Kind of echoing some of the points here. I do think product based investment and thinking about our services and as a product that deliver value over time is a really good way of thinking about it rather than than pure project based. course there are very good reasons for both. Of how our team thinks about investing in new things versus investing in existing things, obviously this is a, this is a challenge that we think about all the time. I also mentioned something I wanted to address here. There’s maybe a premonition that a Silicon Valley type company might get a bunch of investment and then grow very quickly. want to put a push back on that as like an inherent notion. It is in everybody’s best interest, especially if you just got millions of dollars of funding to keep your team small and make sure that you’re not growing too quickly because you don’t know if you can get that next round of funding. Instagram was 13 employees when it got acquired for a billion dollars. Like I do think that it’s possible to build really, really high scale products with really, really small teams. I’ve had some experience on very small teams doing that in the nonprofit space. And I think that there, there is definitely something to be said for rigorously prioritizing the work that you take on."
+  },
+  {
+   "speaker": null,
+   "text": "And focusing on some sort of impact framework to make sure that it is driving the most value for your customers in the long term. that comes back to Jon’s question about, do you invest in your existing services or do you invest in something brand new? On SureAdhere, we’re trying to take a really deliberate approach to that and focusing on what, on defining customer success very, very clearly. I’ve shared this with the GTD team, but we’ve identified adherence of our customers patients as the measure of success for each client. But I think that for us, we’ve seen really good customers, and we’ve seen less good customers."
+  },
+  {
+   "speaker": null,
+   "text": "The ones that are really good are the ones that are using our products to the maximum of their capacity. And, you know, I’m sure it here exists to help make sure that, that tuberculosis patients are taking their medication every day and are highly adherent to their regimen. So we can see in the data that customers that are successful with our product have really high adherence. that are not are struggling. If our product isn’t doing its job for them, they have lower adherence. By focusing on adherence as a measure of success for our team, we’re able to make those trade offs that, , do we invest in existing things like is adding your medication regimen really complex and confusing? Yes. We need to improve that to improve adherence. Or do you invest in new areas like adding video chat to our systems so that patients and providers can check in if, if they’re not taking their medication on time. So we’re trying to use the data to inform how we invest in order to maximize the impact of our work."
+  },
+  {
+   "speaker": null,
+   "text": "And as long as we’re aligned on impact, then I think we’re, we’re using our resources to the best of our ability."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I love that, Matt. And the challenge. A lot of project based funding have is that misalignment of that North Star KPI you mentioned. So for Shared here, we’re trying to improve adherence both in a clinical trial context in TB and medication assisted therapy for substance use disorder. but it can apply to, do we improve the mobile app that’s facing the consumer?"
+  },
+  {
+   "speaker": null,
+   "text": "Do we improve the features facing the provider? And you get in there. project based funding, you measure on how well you wrote your annual report, which doesn’t really tie out to any product feature per se. And that’s another reason why we’re so passionate at Dimagi about figuring out product flywheels."
+  },
+  {
+   "speaker": null,
+   "text": "It’s not that project funding isn’t necessary or even very good funding. It’s that it builds really bad software incentives. And makes for really difficult software team choices. and so that’s something that , we’ve struggled with over the years that we spent a lot of time trying to pick, know, for CommCare."
+  },
+  {
+   "speaker": null,
+   "text": "Is it active monthly users? Is it based on that? of application they built in CommCare, and we want to get really into the weeds on those things in terms of how to create the next prioritization of what to build can we figure out ways to charge less? Do we want to figure out ways to charge more? All of these questions are critical to building strong flywheels that are hopefully going to lead to our software and other people’s software impacting the largest number of people it can, but you can only do that once you have enough of a stable revenue base or enough capital in the bank, which we’re very fortunate to have both of. To ask these questions intelligently, when we were 10 years ago, trying to build these products and living paycheck to paycheck on these products, we couldn’t afford to ask any of these questions. In an intelligent way, Amie, I want to throw it to you, not with your Dimagi hat on, but you have also had a background going into product companies and global health product companies and much more traditional design."
+  },
+  {
+   "speaker": null,
+   "text": "Thank you. Commercial corporate markets. curious from your standpoint, how you saw this, particularly at the social enterprises supported in the past on these product decisions, but also just commercially, was this ever a big challenge or were you like, no, we made a ton of money and you put that money to good work,"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Yeah, it’s a good question, Jon. So in the social enterprise space, I think this is always a challenge. I spent So A number of years at another fairly large scaling social enterprise and it was, an ongoing struggle and there was, I think one of the challenges that we had was we were splitting out revenue."
+  },
+  {
+   "speaker": null,
+   "text": "There were certain features that were driving revenue and then there were features that were driving impact and those things felt separate and they actually were fairly separate. So. It was almost like an, we had like an advertising model. I think the beauty of Dimagi is that revenue and impact, like what Matthew just described, can be one and the same."
+  },
+  {
+   "speaker": null,
+   "text": "And that’s also true on the, CommCare side which I think is really, awesome. I will say, yeah, it’s absolutely much easier. in traditional for profit settings, you know, the, the large tech companies that I’ve worked at giant product teams big engineering teams, incredible product velocity."
+  },
+  {
+   "speaker": null,
+   "text": "Product marketing can be like, I’m a product marketer is my background and product marketing is super fun when you just have tons of awesome new stuff coming out from the product team."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "of a problem."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Yeah, so I’ve, I’ve chosen a much harder path by being at Dimagi, but but also like a more rewarding one too. So, you know, there’s, there’s trade offs."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And going to put you on the spot here, just cause I know you guys. I’ve recently done, actually, sorry, Matt has too, and Amie was at one of these. So you guys have both had your leadership teams together recently trying to think about what you’re going to do in 2025. And I imagine a big debate you had is how much are we putting into engineering versus sales and marketing? Product marketing, go to market. so it’s not just within the engineering teams these challenges become visible, but just within the business units and the divisions of thinking about how to take your products and reach the most impact. And we all know. We’re being at Dimagi Impacts, which drives, our flywheels, how we think about the world, but completely necessary to continue driving more impact."
+  },
+  {
+   "speaker": null,
+   "text": "And so how can you share it with a bit, like how were those discussions? What were the debates you were having around short term versus long term product versus, sales and marketing is, as you guys were prepping for what you’re going to tackle in 2025."
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "Yeah, I’m happy to take a stab and Danny, you can definitely back me up anywhere. A really interesting discussion we were having is that question you had asked earlier about how you. invest in new product features versus kind of run and maintain, keeping the system going, kind of incremental feature releases. And then how do you fold in product marketing to all of that? and you know, Danny coined an interesting phrase recently, which was that easy on CommCare, easy things are easy and hard things are possible. And it was interesting because when you think about that we’ve spent so much time over the last few years on the hard things are possible."
+  },
+  {
+   "speaker": null,
+   "text": "part of our product. So many interesting, you know, fancy integrations or tools to support more complicated workflows. the easy part is easy or easy things are easy part has been set aside a little bit. And I think like we lost our way slightly where even the easiest things on CommCare, some of them, some of our, the things that go to our roots on CommCare, the, the case management, the data management, the data exporting, all that stuff started to be not as easy. And it was through discussions with customers and through with users that Amie has been running that we started to see this very interesting trend where people were very happy with CommCare once they crested the hill of using it and learning it and investing time into understanding it at a high level. But it was that, hill that they had to crest that was so difficult for them. and it didn’t need to be. And you know, so much of that is the product marketing piece that we didn’t have and that we’re like trying to build now. But so much of it was also where we were putting our attention as an engineering and as a product team on our product."
+  },
+  {
+   "speaker": null,
+   "text": "How much were we focusing on that first? know, 24 hours of somebody in CommCare versus somebody who has been in CommCare for a long time understands it and just knows the flow throughout CommCare to get around the little micro frictions that might be annoying for people. And one thing that came up really interestingly about this was talking with our customer success team, who’s so intimately involved with a lot of our largest enterprise customers shared this new or, or this way that I hadn’t been thinking as much about when it comes to how CommCare is spread. Throughout our market. And it really is dependent so much on large champions within our field that aren’t at Dimagi, but are at the larger organizations at the headquarter level. And they go and they introduce and push and, and try to get CommCare into the hands of their local teams who are running projects. And it’s in that interaction that so much of these frictions and so much of this difficulty comes up because you have a champion who has been using CommCare for so long and believes in it. shows up to somebody who hasn’t used it before and sees it for the first time with a brand new set of eyes. And they’re like, Hey, these things are really hard to do sometimes. And for us to find ways through our product development to make that pathway easier, essentially does so much of that product marketing job for us, which would be really exciting too. And getting that And so that was a really interesting discussion that we had around where we put our engineering resources. Danny, I might toss it over to you and get your thoughts on some of the other conversations we had."
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "Yeah. Yeah. And, and it’s funny, you know, in this conversation, I might not actually talk that much about engineering. And I’ll just lay a little bit of reasons for that is that product can always improve, but it’s pretty amazing. Like the things that you can do with it. Very complex things, fairly simple things that could be used kind of everywhere. It can already do a lot and, you know, this might be kind of a hot take, but like, you know, I think we could easily support 10 times as many customers and have them, once they’re all using it, be like, where has this been for the last 20 years? You know, I have wanted to use exactly this. And so making the product better and better alone is not going to reach those people. And, and so over the last, you know, certainly over the last year I have kind of increasingly been thinking this is really marketing, right? I wasn’t super familiar with the term product marketing and what it meant, but that’s what it is, right? Product marketing. and, and that’s a huge part of you know, people think of marketing as like just a way to, dazzle people and get them to a salesperson who will dazzle you further to make a sale or something. It’s really a lot more than that. It’s setting someone up so that when they start using the product, they know how it’s for them. Like what they’re trying to do with it, right? It’s setting the right expectations for them that, oh, this is for me and here’s how. And you know, I I would say we could do a lot. How would, how would I put this? I think there’s a lot more lower hanging fruit in that category than there is in terms of. Okay, we’ll just win over people’s hearts by making this product even better. So I’m, that’s something that I’m really excited is investing more in product marketing translating from the, you know, we have, we have a fairly complex product to market it’s a generic platform. But if we put in front of someone, here’s a generic platform that can do anything you want, that doesn’t really, you know, people don’t believe that or that doesn’t really grab people because it’s not what they’re trying. don’t want a product that can do anything. They want a product that can do their thing. And so, creating those stories that people can recognize themselves in and be like, Oh, This is what I want. , I think that’s a, critical missing piece. And, and that allows us to then do a better job for our existing customers and those , new customers because we’ll have a broader user base to, to fund our operations, right?"
+  },
+  {
+   "speaker": null,
+   "text": "And then we can really make fewer of these sort of critical trade-offs and we can do , more things that we’re like, we really should be doing all of these things concurrently."
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "Yeah, I, there was an interesting conversation that we actually had pretty, pretty recently with, with a potential customer who we were on a long call with them and near the end of the call we were talking about, you know, I’ll just pull some random sectors like agriculture or something like that. And near the very end of the hour call they essentially asked, so you’re building this like agriculture tool for us, right? And we’re like, Oh, wow, that’s, you were completely misunderstanding what our platform does. And so it was interesting because we had to respond in a way where it’s, you know, this tool is not, we’re not building a bespoke tool for you, but you can build the bespoke tool you want here. within CommCare. And the fact that they, they couldn’t see themselves doing that and see themselves in, in the product in that way was another you know, signal for me that I was like, something is off in our product marketing, that that didn’t resonate with the person for, for an hour after we were talking to them."
+  },
+  {
+   "speaker": "Matthew Hayto",
+   "text": "I will only add to this that Sherid here has it a little easier because it is a very narrow product that does a very specific thing. And I think that’s one of the contrasts I’ve drawn with Kai and Danny over the past few weeks is that we kind of live on different parts of this spectrum of how productized, how off the shelf and how specific our products are. And I don’t think any one part of that spectrum is better or worse, but it makes it a little easier for us to know who our customers are obviously with, the dedicated support of product marketing, specifically as we, especially as we expand into new markets. But need is a little bit easier to articulate. Now, that doesn’t mean it’s super easy. We just had a great call with our one of the SureAdhere users in Switzerland, and they use our product. They used it in a, in a study to check its effectiveness on managing tuberculosis adherence to tuberculosis regimens. And if you are already managing tuberculosis treatment within your community, it here is a lifesaver."
+  },
+  {
+   "speaker": null,
+   "text": "It makes it so much easier for you to manage things because patients don’t have to travel to their doctor to take their medication. They can take it at home over video and that is a huge value proposition for so many of our customers. In certain parts of Switzerland in a lot of France, for example, there is no mandate or there is no established practice of having doctors actually travel to patients or vice versa for those medications. And it’s more of a pharmacy over the counter or at least prescription situation. in that case, we have, we are not yet prepared to make a marketing pitch to those people. We can’t say we’re going to change the way that you take your treatment by making you use new software, new processes, and make you call somebody every day."
+  },
+  {
+   "speaker": null,
+   "text": "Those are extra things we would be asking of them. And we haven’t yet refined our pitch. In fact, I’m very confident that we would actually drive up adherence in all of those areas. And we’d actually probably have a positive outcome in, that, demographic, but it’s a much less easier sell than to say, we’re going to save everybody a bunch of time by just giving you software to do this thing for you."
+  },
+  {
+   "speaker": null,
+   "text": "So it’s still a challenge for us in a lot of these, in a lot of these spaces to sort of find the right market and find the right messaging."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And it’s interesting how much marketing is coming up. And as Amie mentioned, she’s our global director of marketing and helping both of these teams on product marketing. One of the things I was reflecting on as you guys were all talking this huge tendency to think that having impact in global development with technology, the big gap is there’s no core funding for these platforms for the engineers to build more software. what you just heard from both of our teams is we’ve put We’ve already built pretty amazing tech that has proven impact. lot of the challenge is finding out how to explain the value it can provide. In the right way to the right customer. It’s not about building the next feature. It’s not about more engineering money."
+  },
+  {
+   "speaker": null,
+   "text": "Of course, those are huge areas and, tens of millions of dollars to build these products over the years. So I’m not undermining the fact that it takes a lot of funding to do that. But. get to a point where it’s really about finding where can we make the most impact and, who can afford our software also, and what is the value prop they’re going to get from using the software, which is quite different across market segments, across different users. if there’s not enough money for engineering in our field, there’s certainly. No money for marketing and for doing this type of user discovery work to help position this for scale. And that’s one of the other challenges. Each project is an N of 1. You write the grant, you figure out how to position it for that specific funder and that specific country for that context, it doesn’t really translate to the next project, per se, because you start all over. And so the marketing work you do on a product approach or a platform approach also has that exponential aspect to it, where if you figure out the marketing once for what Matt said, the TB customer who is not required to directly observe therapy versus the TB customer who is required to directly observe therapy, that scales to all the users that fit into one of those two buckets. Whereas if figure out the project pitch, doesn’t scale. And there’s a lot of labor and investment that goes into writing these amazing grants, but it’s incredibly cost inefficient."
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "Yeah. And, and I can maybe I, I’ll make some comments on on the cost and efficiency, you know, in, in software and sort of software competition or building very similar things multiple times. I think there’s some unintuitive things here where I sometimes hear people say, like, oh, what this field needs is more competition I think right now we compete with, you know, maybe some other software that does similar data collection things to CommCare has some features we don’t have, we have a lot of features they don’t have, when there are a lot of things like this, And then we’re also sort of competing with custom software. When there are a lot of things like this, it can kind of spoil the market, especially if some of them are funded be sold below cost. then others, you know, they kind of all have their different cost structures, but if you look at it at a whole, the one sector that could be using one or two pieces of these software is instead funding the development and maintenance of 10 pieces of software , right?"
+  },
+  {
+   "speaker": null,
+   "text": "So if those are the numbers we’re using, they’re all paying five times more than they need to, because there are so many versions of similar things. And so this is a situation where you might expect more competition leads to lower prices in this situation, I would argue more competition has led to higher prices, right? And conversely you know, if there is higher demand for these products that won’t lead to higher prices, it might lead to lower prices. Right. And so kind of, throwing a bit of, ideas about how this is supposed to work and just looking at, at some of the basic math of the huge upfront investments and ongoing large maintenance costs for each of these things. kind of turns that, story on its head."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "just add one quick thing and then Amie, I want you to jump in here. But one, one thing is that cycle that Danny mentioned, we see, CommCare is not one level of maturity. There’s feature sets that have existed forever with our mobile applications and case management that Kai answered earlier with Matthew, the core, asynchronous video recording. And then there’s new feature sets we’re building. that are competing with some other feature set that a different product built that we think is a great idea. And we’re like, we should have that too. Or one that we think we’re uniquely gonna to bring to market. And that has its own micro evolution as Danny talked about, where you bring it to market, you start to educate people, you do the product marketing Kai was talking about, you mature customer success. All of those things have to get going before you get economies of scale and create those efficiencies. And if everybody’s chasing the next feature set the Now everybody’s got to add AI to their product or now everybody’s got to do this or that. never get those cycles complete. So to your point, it ends up being more expensive, even though one thinks competition brings the price down."
+  },
+  {
+   "speaker": null,
+   "text": "It takes a while before that becomes true. And if everybody’s on these cycles of jumping to the next thing it doesn’t really allow that competition to foster the price coming down over time."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "This is fascinating. It’s cool to hear you all sort of underscoring the importance of really good um, that fall. product marketing and being able to communicate the value and find the markets and scale these products that everyone on this call has put so much time and love into."
+  },
+  {
+   "speaker": null,
+   "text": "I am curious to hear, And I know that folks in our audience are interested in this idea of like, how do you build great products in such a challenging space?"
+  },
+  {
+   "speaker": null,
+   "text": "So I wonder if maybe there’s any kind of lightning round we can do on insights, pieces of advice, learnings that you’ve had over your career, really on building great products and great product teams that you might want to leave with our audience."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I think one of the, one of the big things that I think was good business engineering on Dimagi’s part early on, we tried to build our software products using project based funding."
+  },
+  {
+   "speaker": null,
+   "text": "We would have six figure, seven figure deals. We’d explicitly charge Danny’s time, Kai’s time, Matthew’s time with the project and be like, look, we’re building features you need, but it’s going back into the product. I think that’s a. way many people in global development try to build their products. It is really critical that you know what is the true product model you hope to get to, and you measure your revenue as it’s growing against your true product revenue, and not trick yourself into thinking your project revenue Represents product demand because that project is buying a project based outcome to Matt’s point."
+  },
+  {
+   "speaker": null,
+   "text": "It’s buying, successful TV rollout in country X. It’s not buying improved adherence necessarily. And so once you figure out what you really want to be selling, splitting how you track your revenue so that you’re truly tracking it against what’s coming in for the product and the value you proposed with the product from the project, because I’ve coached a lot of social enterprises trying to build products on the specific aspect, because it can feel like you’re doing really well. When your project revenue is growing in the Silicon Valley world that Matt and Amie were talking about at various points project revenue is a bad thing. Like bringing in consulting revenue, it’s a distraction. It doesn’t count as product revenue. Like they’re very disciplined about not cheating, on thinking about that."
+  },
+  {
+   "speaker": null,
+   "text": "And global development, we’re way less disciplined about that. And it’s really important to really think about how your product revenue is growing independent of your project revenue."
+  },
+  {
+   "speaker": "Danny Roberts",
+   "text": "I might want to just add a little to what Jon just said that you know, on, on our team, on, on SAS, and when we’re thinking about it, okay, how can we make just this, this product itself, how can we make the numbers add up reliably? Okay. we found that while we do get revenue from sort of big new projects like the COVID surge and things like that, that revenue is, it’s a bit of a mirage, right?"
+  },
+  {
+   "speaker": null,
+   "text": "So it’s not, it’s not stable. It can’t fund a team that’s twice the size or something just because this year there’s twice the revenue. And so we’ve sort of categorized our revenue, not just in terms of, you know, Is it actually paying for services versus for the product, but even the product revenue itself into, you know, is this product revenue actually really going to be around for the next five years versus kind of just funding for now, that’s related to, One big project with a, with huge amounts of uncertainty for it’s, it’s continuity."
+  },
+  {
+   "speaker": null,
+   "text": "So yeah,"
+  },
+  {
+   "speaker": null,
+   "text": "sort of stability of funding is super important because you don’t, you know, to build an engineering team, you have to have people who have been there for a long time and you can’t build that when you have team, a team of people that is, you know, constantly changing size, because of changing sort of customer base sizes."
+  },
+  {
+   "speaker": "Kai Cowger",
+   "text": "Yeah, I’d love to speak a little bit about that, Danny. You know, my career started from the very beginning in using CommCare as a, user, I was out there working directly with community health workers , for a couple of years building and deploying CommCare projects."
+  },
+  {
+   "speaker": null,
+   "text": "And, You know, came back to the U. S. and felt a little disillusioned in a different job I had and, sought, a tool that I truly believed in that was making a difference where I could actually make a difference as well. And I, I thought of CommCare. And so, you know, I happened to look across the street where, where Dimagi was located and saw online that they were actually had a job and started in the customer support side of things. And so it took me on a journey from, you know, starting as a user to helping users. And then eventually after a few years, I was able to make my way over to the product side the technical leadership side. so one thing that’s been super helpful for me is just having those different aspects of what it’s like to use a platform that you believe in, but then also what it’s like to build that same platform. I think that gave me a ton of insights into, you know, where to focus a lot of our efforts, how to talk to people who use our platform and see themselves in you and, and know that you’ve gone through similar things that they’ve gone through when it comes to being frustrated with the platform or feeling as if the platform didn’t achieve what you wanted it to. And through that process, there is this, you know, when you build a team to build a product like this, it’s interesting to work within what, what I was. Considering lower resource or resource constrained environments where we don’t have the budgets to throw around salaries like Meadow or, you know, all those other companies with many with huge salaries for engineers, but you’re still able to find an amazing team of engineers who wants to be at your company."
+  },
+  {
+   "speaker": null,
+   "text": "And so much of that is anchored on. values work that we did at our company expressing those values and finding the people who believe in those values and this was something that Matthew was speaking to earlier. you could have a smaller team who are compensated fairly to build amazing products like Dimagi does. And that was a huge learning for me over time was that you, you don’t throw money in people at problems in the world. Small amounts of people can tackle huge problems like that."
+  },
+  {
+   "speaker": "Matthew Hayto",
+   "text": "Yeah, there’s a really good quote that we used to have on the wall of our meeting room it was good work sustained over a long period of time is what results in success."
+  },
+  {
+   "speaker": null,
+   "text": "But it was a good reminder that like this stuff doesn’t happen overnight. If you have a cleared Northstar, that everyone is dedicated to. Every single day of working on something that could be frustrating could ultimately lead to something that’s really impactful. think for, for my part of the lightning round here, I will just say I agree a lot with what Kai just mentioned. It does not take a giant team to deliver something that’s really impactful. I’ll reiterate that it’s so valuable for any team of any size to have a really clear vision of where they want to go and what success looks like for their team. and I’ll give an example. I, I worked at a small nonprofit called the Taproot Foundation in New York, and we built an online marketplace for nonprofits and volunteers to connect and do projects together. And we kind of built that. Product from the ground up and our goal was number of projects completed between nonprofits and volunteers and we literally had it on a big old whiteboard in the office and we would erase the number and rewrite the number every time it went up by one or two. And it didn’t matter what we built. It didn’t matter how slick the interface was. It mattered how many projects got completed. If a project wasn’t going well, we would call them, get them on the phone, tried to figure out what was going on and try to help them move towards completion. And we realized we were calling everybody after the first two weeks just to check in."
+  },
+  {
+   "speaker": null,
+   "text": "So we created in our product a reminder after the first two weeks to make sure that the call was being set up. we started to automate that we found worked. order to achieve that goal of projects completed. And we’re trying to do the same thing with SureAdhere right now. And, and adherence setting a vision that the whole team can align to and drive impact."
+  },
+  {
+   "speaker": null,
+   "text": "And it doesn’t take a giant team to do that. It takes a team that is dedicated to the best solution to a very well defined problem."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah just to add to the hustle and the longevity point. Early in my career at Dimagi, I had an amazing dedicated team as we still do today. But a lot of what we were talking about behind the scenes when we get like sad about losing project funding or, somebody else getting this or that. our answer internally was always, we just got to out hustle them. You just got to put the work in. It doesn’t take a huge team, but it is hard work at it. You have to be really productive at it, but you can do amazing things in this industry. And you don’t need gobs of money or gigantic teams to do it."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Awesome. That’s a nice, nice place to close. We can do amazing things with time and hustle and good people."
+  },
+  {
+   "speaker": null,
+   "text": "Thank you so much to Chi Danny and Matthew for joining us today. You’re a couple of my takeaways. First off, great SAS products. Don’t just appear. They must be continually improved, evolved, and maintained, and that’s only possible and cost effective when you’re building at scale. The more users you have the better, because those costs of building, maintaining and enhancing highly secure, usable, and reliable software are high. And product marketing is absolutely critical."
+  },
+  {
+   "speaker": null,
+   "text": "You’ve got to understand your market, make it crystal clear who your product is for and bring people into the product already, knowing how it’s going to make their jobs easier, faster or better. I highly recommend a book called loved on product marketing from the Silicon valley product group. You actually don’t need a product marketer to do product marketing, though."
+  },
+  {
+   "speaker": null,
+   "text": "That of course really helps."
+  },
+  {
+   "speaker": null,
+   "text": "We talked a bit about funding. If you’re working on projects with short-term funding, there’s still an opportunity to create something that delivers long-term value. The key is shifting that investment into a product mindset, thinking beyond the immediate deliverable."
+  },
+  {
+   "speaker": null,
+   "text": "Measuring success is also really important. Make sure you’re separating true product revenue from project revenue. So you’ve got a clear picture of how sustainable and scalable your product really is."
+  },
+  {
+   "speaker": null,
+   "text": "And finally teams building a strong team. Isn’t about size it’s about commitment and expertise."
+  },
+  {
+   "speaker": null,
+   "text": "A small group of focused, motivated people working longterm can make big things happen. That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. The show is executive produced by myself. is our editor."
+  },
+  {
+   "speaker": null,
+   "text": "Michael Keller is our producer and cover art is by Sudan. Shrikanth."
+  }
+ ],
+ "transcript_para_count": 111,
+ "host_amie": true,
+ "host_jonathan": true,
+ "date": "2024-12-19",
+ "spotify_unreliable": false
+}

@@ -1,0 +1,52 @@
+{
+ "deck": "Inside HEP Assist: a generative-AI call center built by Last Mile Health and IDinsight, in partnership with Ethiopia's Ministry of Health, to support the country's 40,000 health extension workers in their own languages.",
+ "seo_description": "How Last Mile Health and IDinsight built HEP Assist, a generative-AI call center supporting Ethiopia's 40,000 health extension workers, with 6,500+ AI-supported consultations and 53% of cases resolved at the community level.",
+ "og_description": "Inside HEP Assist: a generative-AI call center supporting Ethiopia's 40,000 health extension workers in local languages.",
+ "about": [
+  "In Ethiopia, more than 40,000 health extension workers are the first, and often the only, point of care for millions of people. When a question falls outside their training, the nearest expert can be hours away. This episode looks at how a coalition set out to put a knowledgeable second opinion within reach of every one of them.",
+  "HEP Assist is a generative-AI call center built by Last Mile Health and IDinsight in partnership with the Ethiopian Ministry of Health. Country Director Abraham Zerihun and Chief Data Scientist Sid Ravinutala join hosts Jonathan Jackson and Amie Vaccaro to unpack how it actually works, from the architecture under the hood to the trust it had to earn before a single health worker could use it.",
+  "At the core is a retrieval-augmented generation (RAG) system grounded in Ethiopia's national clinical guidelines, fronted by a virtual assistant the team named Hawa that answers in local languages including Amharic and Oromo. The conversation gets refreshingly practical: how they modeled the true cost of running AI at national scale, how they won government confidence on data security and patient privacy, how they designed around real health-worker personas, and how they built evaluation frameworks rigorous enough to trust on high-stakes decisions.",
+  "The throughline is a clear point of view: AI here is augmentation for frontline workers, not replacement. With more than 6,500 AI-supported consultations completed and 53% of cases resolved at the community level, the team argues that generative AI can be deployed responsibly, and effectively, in exactly the low-resource settings where skeptics assume it cannot."
+ ],
+ "pull_quote": {
+  "text": "There's a lot of skepticism that AI is not an appropriate solution. And I feel like we have disproved that.",
+  "cite": "On the impact of HEP Assist"
+ },
+ "bullets": [
+  "<strong>The RAG architecture</strong> behind HEP Assist, grounded in Ethiopia's national clinical guidelines",
+  "<strong>Meet Hawa</strong>, the virtual assistant built to respond in Amharic, Oromo, and other local languages",
+  "<strong>Costing AI at scale</strong>: modeling what it really takes to run this for 40,000 workers",
+  "<strong>Earning government trust</strong> on data security, privacy, and ministry buy-in",
+  "<strong>User-centered design</strong> built around real frontline health-worker personas",
+  "<strong>Evaluation frameworks</strong> rigorous enough for life-and-death decisions",
+  "<strong>Augmentation, not replacement</strong>: keeping the human health worker at the center"
+ ],
+ "stats": [
+  {
+   "num": "40,000",
+   "label": "health extension workers HEP Assist is designed to reach"
+  },
+  {
+   "num": "6,500+",
+   "label": "AI-supported consultations completed so far"
+  },
+  {
+   "num": "53%",
+   "label": "of cases resolved at the community level"
+  }
+ ],
+ "guests": [
+  {
+   "name": "Abraham Zerihun",
+   "role": "Ethiopia Country Director, leading delivery of HEP Assist on the ground with the Ministry of Health.",
+   "org": "Last Mile Health",
+   "initials": "AZ"
+  },
+  {
+   "name": "Sid Ravinutala",
+   "role": "Chief Data Scientist, architect of the RAG system and evaluation approach behind the AI assistant.",
+   "org": "IDinsight",
+   "initials": "SR"
+  }
+ ]
+}

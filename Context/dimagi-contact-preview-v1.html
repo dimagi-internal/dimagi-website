@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dimagi Contact Page — v1 Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Work Sans', sans-serif; color: #5F6A7D; line-height: 1.6; -webkit-font-smoothing: antialiased; background: #fff; }
+
+:root {
+  --dimagi-purple: #16006D;
+  --cc-blue: #5D70D2;
+  --indigo: #3843D0;
+  --text-grey: #5F6A7D;
+  --muted-purple: #939BC1;
+  --sa-teal: #00B6B5;
+  --sa-teal-dark: #0a7a7a;
+  --connect-green: #1D9E75;
+  --connect-green-dark: #0F6E56;
+  --light-bg: linear-gradient(180deg, #F4F6FF 0%, #FFFFFF 100%);
+  --radius-card: 20px;
+  --radius-btn: 999px;
+  --max-width: 1200px;
+  --border: #E8E8E8;
+}
+
+.section { padding: 70px 30px; max-width: var(--max-width); margin: 0 auto; }
+.section-full { padding: 70px 30px; }
+.section-light { background: var(--light-bg); }
+.section-border { border-bottom: 1px solid var(--border); }
+.center { text-align: center; }
+
+.crown { font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted-purple); margin-bottom: 12px; }
+h1 { font-weight: 800; font-size: 56px; line-height: 1.1; color: var(--dimagi-purple); }
+h2 { font-weight: 600; font-size: 32px; line-height: 1.25; color: var(--dimagi-purple); margin-bottom: 12px; }
+h3 { font-weight: 600; font-size: 20px; color: var(--dimagi-purple); margin-bottom: 8px; }
+.body-text { font-weight: 400; font-size: 18px; color: var(--text-grey); line-height: 1.7; }
+.body-sm { font-weight: 400; font-size: 15px; color: var(--text-grey); line-height: 1.6; }
+
+.btn { display: inline-block; padding: 11px 24px; font-family: 'Work Sans', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: var(--radius-btn); text-decoration: none; transition: all 0.25s ease; cursor: pointer; }
+.btn-primary { background: var(--dimagi-purple); color: #fff; border: 2px solid var(--dimagi-purple); }
+.btn-primary:hover { background: #200080; border-color: #200080; }
+.btn-secondary { background: transparent; color: var(--dimagi-purple); border: 2px solid var(--dimagi-purple); }
+.btn-secondary:hover { background: #F4F6FF; }
+.btn-tertiary { background: none; border: none; color: var(--indigo); font-weight: 500; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 0; }
+.btn-tertiary:hover { text-decoration: underline; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ========== ANNOTATION PANEL (top of page, for designer) ========== */
+.designer-note { background: #FFF8E1; border-bottom: 1px solid #F0E0A0; padding: 14px 30px; font-size: 13px; color: #6B5400; text-align: center; }
+.designer-note strong { color: #3B2D00; }
+.designer-note span.tag { display: inline-block; background: #F0E0A0; color: #3B2D00; padding: 2px 8px; border-radius: 4px; font-weight: 600; margin: 0 2px; }
+
+/* ========== PAGE HEADER ========== */
+.page-header { padding: 90px 30px 50px; background: var(--light-bg); text-align: center; }
+.page-header h1 { margin-bottom: 18px; }
+.page-header .body-text { max-width: 640px; margin: 0 auto; }
+
+/* ========== PRODUCT CARDS ========== */
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.product-card { background: #fff; border-radius: var(--radius-card); border: 1px solid var(--border); padding: 30px 28px; display: flex; flex-direction: column; transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.product-card:hover { box-shadow: 0 8px 30px rgba(22,0,109,0.08); transform: translateY(-2px); }
+.product-badge { display: inline-block; font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: var(--radius-btn); margin-bottom: 16px; width: fit-content; }
+.product-badge-cn { background: rgba(29,158,117,0.1); color: var(--connect-green-dark); }
+.product-badge-cc { background: rgba(93,112,210,0.1); color: var(--cc-blue); }
+.product-badge-sa { background: rgba(0,182,181,0.1); color: var(--sa-teal-dark); }
+.product-card h3 { font-size: 19px; line-height: 1.3; margin-bottom: 10px; }
+.product-card .tagline { font-size: 14px; color: var(--text-grey); margin-bottom: 22px; line-height: 1.55; flex: 1; }
+.product-card .card-cta-list { display: flex; flex-direction: column; gap: 10px; }
+.product-card .cta-row { display: flex; align-items: center; gap: 10px; }
+.product-card .cta-row .btn { flex: 1; text-align: center; }
+.product-card .cta-row .btn-primary, .product-card .cta-row .btn-secondary { padding: 10px 18px; font-size: 12px; }
+.form-pill { font-size: 11px; color: var(--muted-purple); margin-top: 2px; font-style: italic; letter-spacing: 0.3px; }
+
+/* ========== TEAM CARDS ========== */
+.teams-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+.team-card { padding: 38px 36px; border: 1px solid var(--border); border-radius: var(--radius-card); background: #fff; transition: box-shadow 0.3s ease; }
+.team-card:hover { box-shadow: 0 8px 30px rgba(22,0,109,0.06); }
+.team-card .crown { color: var(--indigo); margin-bottom: 10px; }
+.team-card h3 { font-size: 22px; margin-bottom: 12px; }
+.team-card .body-sm { margin-bottom: 22px; }
+
+/* ========== EXISTING CUSTOMERS ========== */
+.support-section { background: var(--light-bg); }
+.support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.support-card { background: #fff; padding: 30px 28px; border-radius: var(--radius-card); border: 1px solid var(--border); }
+.support-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.support-card-header .product-badge { margin-bottom: 0; }
+.support-card ul { list-style: none; }
+.support-card li { padding: 8px 0; }
+.support-card li a { color: var(--indigo); text-decoration: none; font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.support-card li a:hover { text-decoration: underline; }
+.support-card li a::before { content: '→'; color: var(--muted-purple); font-weight: 400; }
+.support-card li .sub { display: block; font-size: 12px; color: var(--text-grey); font-weight: 400; margin-left: 18px; margin-top: 2px; }
+
+/* ========== OTHER (press, careers, general) ========== */
+.other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.other-card { padding: 28px 26px; border: 1px solid var(--border); border-radius: var(--radius-card); background: #fff; text-align: left; }
+.other-card .icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(56,67,208,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.other-card .icon svg { width: 18px; height: 18px; stroke: var(--indigo); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.other-card h3 { font-size: 17px; margin-bottom: 6px; }
+.other-card .body-sm { margin-bottom: 14px; font-size: 14px; }
+.other-card a { color: var(--indigo); text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.5px; }
+.other-card a:hover { text-decoration: underline; }
+.other-card a + a { margin-left: 14px; }
+
+/* ========== OFFICES ========== */
+.offices-section { padding: 50px 30px; border-top: 1px solid var(--border); }
+.offices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 30px auto 0; }
+.office { text-align: center; }
+.office .city { font-weight: 600; color: var(--dimagi-purple); font-size: 15px; margin-bottom: 4px; }
+.office .addr { font-size: 13px; color: var(--text-grey); line-height: 1.5; }
+.office .phone { font-size: 13px; color: var(--indigo); margin-top: 4px; }
+
+@media (max-width: 900px) {
+  h1 { font-size: 38px; }
+  h2 { font-size: 26px; }
+  .products-grid, .teams-grid, .support-grid, .other-grid, .offices-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- DESIGNER ANNOTATION BANNER                   -->
+<!-- ============================================ -->
+<div class="designer-note">
+  <strong>Designer note:</strong> All sales CTAs link to <span class="tag">existing popup forms</span> already live on Dimagi.com product pages. Support links route to <span class="tag">existing footer URLs</span>. No new forms or destinations required.
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE HEADER                                  -->
+<!-- ============================================ -->
+<div class="page-header">
+  <div class="crown">Contact</div>
+  <h1>How can we help?</h1>
+  <p class="body-text">Whether you're exploring our platforms, need support for a product you already use, or want to talk to a specific team — start here.</p>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: EXPLORE OUR PRODUCTS              -->
+<!-- Order: Connect, CommCare, SureAdhere         -->
+<!-- (Mirrors homepage hero claim order)          -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="center" style="margin-bottom: 10px;">
+    <div class="crown">Explore Our Products</div>
+    <h2>Talk to the team behind each platform</h2>
+    <p class="body-sm" style="max-width: 580px; margin: 0 auto;">Each of our three platforms has a dedicated team. Reach the right one directly.</p>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- CONNECT -->
+    <div class="product-card">
+      <span class="product-badge product-badge-cn">Connect</span>
+      <h3>Pay for verified service delivery, not planned activity.</h3>
+      <p class="tagline">High-impact interventions delivered through a marketplace of local, government-aligned organizations — with every service independently verified.</p>
+      <div class="card-cta-list">
+        <div class="cta-row">
+          <a href="mailto:connect-info@dimagi.com" class="btn btn-primary">Request a Demo</a>
+          <a href="https://dimagi.com/connect/" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="form-pill">→ mailto: connect-info@dimagi.com (existing)</div>
+      </div>
+    </div>
+
+    <!-- COMMCARE -->
+    <div class="product-card">
+      <span class="product-badge product-badge-cc">CommCare</span>
+      <h3>The digital platform for impactful frontline work</h3>
+      <p class="tagline">Build powerful apps for frontline teams without code. Free plan available, paid plans from $100/month.</p>
+      <div class="card-cta-list">
+        <div class="cta-row">
+          <a href="https://dimagi.com/commcare/#popup_188272304" class="btn btn-primary">Talk to Us</a>
+          <a href="https://dimagi.com/commcare/cloud-location/" class="btn btn-secondary">Get Started Free</a>
+        </div>
+        <div class="form-pill">→ existing popup form on /commcare/</div>
+      </div>
+    </div>
+
+    <!-- SUREADHERE -->
+    <div class="product-card">
+      <span class="product-badge product-badge-sa">SureAdhere</span>
+      <h3>Remote treatment support through person-centered virtual care</h3>
+      <p class="tagline">The leading digital engagement platform for medication adherence and treatment support.</p>
+      <div class="card-cta-list">
+        <div class="cta-row">
+          <a href="https://dimagi.com/sureadhere/#popup_188274712" class="btn btn-primary">Schedule a Demo</a>
+          <a href="https://dimagi.com/sureadhere/" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="form-pill">→ existing popup form on /sureadhere/</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: TALK TO A SPECIFIC TEAM           -->
+<!-- ============================================ -->
+<div class="section-full section-light section-border">
+  <div class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="center" style="margin-bottom: 10px;">
+      <div class="crown">Talk to a Specific Team</div>
+      <h2>Looking for a specialized engagement?</h2>
+      <p class="body-sm" style="max-width: 580px; margin: 0 auto;">Our services teams partner with organizations on large-scale digital programs.</p>
+    </div>
+
+    <div class="teams-grid">
+
+      <!-- US SERVICES -->
+      <div class="team-card">
+        <div class="crown">US Services</div>
+        <h3>Digital modernization for the US public sector</h3>
+        <p class="body-sm">Partner with our US Services team on digital transformation, public health programs, and frontline workforce technology for state and local organizations.</p>
+        <a href="https://dimagi.com/us-health/#popup_188274136" class="btn btn-primary">Contact US Services</a>
+        <div class="form-pill" style="margin-top: 12px;">→ existing popup form on /us-health/</div>
+      </div>
+
+      <!-- GLOBAL SERVICES -->
+      <div class="team-card">
+        <div class="crown">Global Services</div>
+        <h3>National-scale deployments and global health programs</h3>
+        <p class="body-sm">Work with our Global Services team on eCHIS, national community health worker programs, and large-scale international deployments.</p>
+        <a href="https://dimagi.com/services/#popup_188272838" class="btn btn-primary">Contact Global Services</a>
+        <div class="form-pill" style="margin-top: 12px;">→ existing popup form on /services/</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: EXISTING CUSTOMERS                -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="center" style="margin-bottom: 10px;">
+    <div class="crown">Existing Customers</div>
+    <h2>Already using a Dimagi product?</h2>
+    <p class="body-sm" style="max-width: 580px; margin: 0 auto;">Find help, documentation, and community resources for the product you use.</p>
+  </div>
+
+  <div class="support-grid">
+
+    <!-- CONNECT SUPPORT -->
+    <div class="support-card">
+      <div class="support-card-header">
+        <span class="product-badge product-badge-cn">Connect</span>
+      </div>
+      <ul>
+        <li>
+          <a href="https://dimagi.atlassian.net/wiki/spaces/connectpublic/overview">Connect Help</a>
+          <span class="sub">Documentation & resources</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- COMMCARE SUPPORT -->
+    <div class="support-card">
+      <div class="support-card-header">
+        <span class="product-badge product-badge-cc">CommCare</span>
+      </div>
+      <ul>
+        <li>
+          <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/overview">CommCare Help</a>
+          <span class="sub">Documentation</span>
+        </li>
+        <li>
+          <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143950826">CommCare Support</a>
+          <span class="sub">Service desk for paid plans</span>
+        </li>
+        <li>
+          <a href="https://academy.dimagi.com/">Dimagi Academy</a>
+          <span class="sub">Self-paced training courses</span>
+        </li>
+        <li>
+          <a href="https://dimagi.com/open-source/">Open Source community</a>
+          <span class="sub">Free, community-supported users</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SUREADHERE SUPPORT -->
+    <div class="support-card">
+      <div class="support-card-header">
+        <span class="product-badge product-badge-sa">SureAdhere</span>
+      </div>
+      <ul>
+        <li>
+          <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview">SureAdhere Help</a>
+          <span class="sub">Documentation</span>
+        </li>
+        <li>
+          <a href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174470/SureAdhere+Help+Center+Resources">SureAdhere Support</a>
+          <span class="sub">Help Center resources</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: OTHER (Press, Careers, General)   -->
+<!-- ============================================ -->
+<div class="section-full section-light section-border">
+  <div class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="center" style="margin-bottom: 10px;">
+      <div class="crown">Other Inquiries</div>
+      <h2>Looking for something else?</h2>
+    </div>
+
+    <div class="other-grid">
+
+      <!-- PRESS & MEDIA -->
+      <div class="other-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+        </div>
+        <h3>Press &amp; Media</h3>
+        <p class="body-sm">Press inquiries, media kits, and interview requests.</p>
+        <a href="https://dimagi.com/press/">Visit Press Room</a>
+      </div>
+
+      <!-- CAREERS -->
+      <div class="other-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3>Careers</h3>
+        <p class="body-sm">Open roles across engineering, services, and operations.</p>
+        <a href="https://dimagi.com/careers/">See Open Roles</a>
+      </div>
+
+      <!-- GENERAL -->
+      <div class="other-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5l-1 4z"/></svg>
+        </div>
+        <h3>General Inquiries</h3>
+        <p class="body-sm">Not sure where to start? Drop us a note.</p>
+        <a href="mailto:info@dimagi.com">info@dimagi.com</a>
+        <a href="tel:+18887105830">+1 (888) 710-5830</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 5: OFFICES                           -->
+<!-- ============================================ -->
+<div class="offices-section">
+  <div class="center">
+    <div class="crown">Our Offices</div>
+  </div>
+  <div class="offices-grid">
+    <div class="office">
+      <div class="city">Cambridge, MA</div>
+      <div class="addr">245 Main Street, 2nd Floor<br>Cambridge, MA 02142</div>
+      <div class="phone">+1.617.649.2214</div>
+    </div>
+    <div class="office">
+      <div class="city">New Delhi, India</div>
+      <div class="addr">D-1/28 Vasant Vihar<br>New Delhi, India 110057</div>
+      <div class="phone">+91 1146704670</div>
+    </div>
+    <div class="office">
+      <div class="city">Cape Town, South Africa</div>
+      <div class="addr">Somerset Square, First Floor<br>Cape Town, 8001</div>
+      <div class="phone">+27 21 461 4294</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- DESIGNER FOOTNOTES                           -->
+<!-- ============================================ -->
+<div style="background: #F4F6FF; padding: 40px 30px; border-top: 1px solid var(--border);">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-purple); font-weight: 600; margin-bottom: 14px;">For the designer / Divi build</div>
+    <div style="font-size: 13px; color: var(--text-grey); line-height: 1.8;">
+      <strong style="color: var(--dimagi-purple);">Forms:</strong> All five sales CTAs link directly to existing popup forms already in production. The contact page itself contains <em>no new form logic</em>. Two implementation options for the Divi build: (A) link to the product/services page with a hash anchor that opens the popup (lowest lift), or (B) embed the same Divi popup shortcode on the contact page so the modal opens in place.<br><br>
+      <strong style="color: var(--dimagi-purple);">Support:</strong> All "Existing Customers" links are the exact URLs currently in the site footer under "Product Support." Just regrouped by product instead of mixed together.<br><br>
+      <strong style="color: var(--dimagi-purple);">Connect note:</strong> Connect currently uses a mailto rather than a popup form. This is a known gap — flag to the Connect team that they'll want a real form eventually, but not blocking for this rebuild.<br><br>
+      <strong style="color: var(--dimagi-purple);">Removed from current /contact:</strong> The single "Get in Touch" four-bucket directory (Sales / Customer Support / Community Support / General Inquiries) is replaced by product- and team-specific paths. The three offices are demoted from the page anchor to a compact bottom row.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

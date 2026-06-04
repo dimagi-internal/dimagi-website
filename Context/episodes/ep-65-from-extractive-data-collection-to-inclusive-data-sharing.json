@@ -1,0 +1,633 @@
+{
+ "slug": "ep-65-from-extractive-data-collection-to-inclusive-data-sharing",
+ "url": "https://dimagi.com/podcast/ep-65-from-extractive-data-collection-to-inclusive-data-sharing/",
+ "title": "From Extractive to Inclusive Data Sharing in Global Development",
+ "spotify_id": "4zfzbNdas9VT4Jy23rBEB5",
+ "apple": "https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000678445944",
+ "youtube": "https://youtu.be/JFaP08-V5u8",
+ "amazon": "https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/010b3409-158c-4e66-a58f-1f14c95f1e25/high-impact-growth-from-extractive-data-collection-to-inclusive-data-sharing-nora-lindstr%C3%B6m-on-the-evolution-of-ict4d",
+ "num": 65,
+ "duration": "54 min",
+ "show_notes": [
+  "In this episode, Nora Lindström, Senior Director of ICT4D at Catholic Relief Services (CRS), and Erin Quinn, Senior Director of Customer Success at Dimagi join the podcast to discuss the evolving role of the iNGO in the context of localization and advancing local leadership, the intersection of technology and localization in global development, and the ways that technologists in global development can center the people we serve in our work. In the conversation, we learn Nora’s  journey and insights into the transformative power of technology in global development. From empowering local communities with data to navigating the challenges of localization, Nora offers her thinking on balancing tech innovation with human-centered practices.",
+  "Key topics:",
+  "Tech as an Enabler, Not the Goal",
+  "Nora emphasizes the importance of listening deeply to identify real problems before introducing technology. Successful ICT4D involves tailoring solutions to local contexts and needs.",
+  "Different Approaches to Enabling Programs with Technology",
+  "Erin shares the ways that iNGOs across the sector are equipping their teams with tech tools. Nora shares how it adapts its approach based on the partner and context.",
+  "Empowering Communities with Data",
+  "Nota notes global development’s tendency towards extractive data collection practices and highlights her work making data useful for the people it’s about. For example, in Malawi, village committees use CRS-provided data to advocate for local changes.",
+  "The Evolving Role of INGOs",
+  "As localization gains momentum, CRS is evolving into a capacity-building and knowledge-sharing role, preparing local organizations to lead development initiatives independently.",
+  "Building Diverse Teams",
+  "Nora highlights the value of diversity within CRS’s ICT4D team, bringing together cross-disciplinary expertise to solve global challenges creatively and effectively.",
+  "Show Notes:",
+  "Sign up to our newsletter⁠, and stay informed of Dimagi’s work",
+  "We are on social media – follow us for the latest from Dimagi: ⁠LinkedIn⁠,X, ⁠Facebook⁠⁠⁠, ⁠Youtube⁠",
+  "If you enjoy this show, please leave us a 5-Star Review and share your favorite episodes with friends.",
+  "Hosts: ⁠Jonathan Jackson⁠ and Amie Vaccaro"
+ ],
+ "transcript": [
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Welcome to High Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity."
+  },
+  {
+   "speaker": null,
+   "text": "I’m Amy Vaccaro, Senior Director of Marketing at Dimagi, and your co host, along with Jonathan Jackson, Dimagi’s CEO and co founder."
+  },
+  {
+   "speaker": null,
+   "text": "Today we are joined by Nora Lindstrom, senior Director of Information and Communications Technologies for development, fondly known as ICT four D at Catholic Relief Services, as well as Erin Quinn ee, senior Director of Customer Success. If you’re working in an international NGO and touching technology."
+  },
+  {
+   "speaker": null,
+   "text": "You will want to listen to this conversation. Nora leads a 25 person ICT4D team at CRS that supports projects in a hundred countries that CRS operates in with technology for data collection and service delivery. CommCare, from Dimagi, is one of the tools they use, and to give you a sense of the scale of her work, on any given day, she’s got 300 to 400 projects using CommCare, with over 10, 000 active mobile users. But this conversation is not about CommCare. This conversation is about the evolving role of the INGO in the context of localization and advancing local leadership."
+  },
+  {
+   "speaker": null,
+   "text": "It’s about the intersection of technology and localization in global development. And it’s about the ways that technologists in global development can center the people we serve in our work. Enjoy."
+  },
+  {
+   "speaker": null,
+   "text": "Hello, and welcome to the High Impact Growth Podcast. So today we have a really exciting conversation. I’ve been really looking forward to this for a while now. Um, we are joined by Nora Lindstrom, who is Senior Director of ICT4D at Catholic Relief Services or CRS. One of our long standing partners, um, Nora actually I will say that you are, um, almost a legend internally at Dimagi."
+  },
+  {
+   "speaker": null,
+   "text": "Like you have a lot of clout internally. So it’s just honor to get to meet you. Um, people like drop your name, like on, it’s like a first name thing, like, Oh, Nora, this, or, and so very excited to get to learn from you a bit today. Um, welcome to the podcast."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Thank you very much. Pleasure to be here."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "and as always, I am joined by my cohost, Jonathan Jackson. Hey, John, good to see you."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Good to see you as well."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "And today we also have the pleasure of being joined by Aaron Quinn, our Senior Director of Customer Success, Aaron, welcome to the podcast."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Thanks, Amy. Great to be here."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Well, um, I’d love to start Nora, just with a little bit of, of you and your story and what brought you to this work at CRS. I know you’ve got sort of a longstanding career in the space and would just love to get a bit of a sense of who you are."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Sure. And, you know, sometimes I kind of wonder myself how I ended up here. Um, but I think, you know, it all really started, um, back when I first started my career, I was, um, I ended up in Cambodia. And I was working with a small local organization to do doing anti addiction work or urban land rights type stuff."
+  },
+  {
+   "speaker": null,
+   "text": "And, um, this was sort of 2007, 8 or so. And we started using ODK for data collections. We were working with urban poor communities. We were doing enumeration and community mapping and that kind of stuff. And, and someone came up with the idea of like, well, why don’t we collect all this data using phones, right?"
+  },
+  {
+   "speaker": null,
+   "text": "I mean, phones weren’t as good as they are now. Uh, even for data collection, but, you know, we thought it was a good idea, so we kind of ran with it. And then, um, and then we also, um, we also did a bunch of this community mapping, and so we started using sort of geospatial software as well to digitize the community maps that we would kind of sit out and draw with, with the communities to kind of show where they live and that kind of stuff."
+  },
+  {
+   "speaker": null,
+   "text": "And so that was really my first kind of touch point to using technology and programming. And that was in sort of my very first job in the sector, really. Um, so that was one. And then at the same time in Cambodia, um, what was happening is that there was an, there was an increase in access to connectivity, like the price of connectivity went down significantly, and price of devices and all of that went down as well."
+  },
+  {
+   "speaker": null,
+   "text": "Access to the internet became more available to people and through that access to information and ability to communicate between themselves. And so what you saw or what I saw being there at the time was like through this access to technology and to connectivity, That changed how people saw themselves and what they wanted from society."
+  },
+  {
+   "speaker": null,
+   "text": "So you saw like a rise in human rights activism and people demanding things from the government. And that didn’t necessarily end very well in the end after, you know, a long period, period of time. But, But what I saw there was just the power of, of technology and connectivity and how that can change, how that can contribute to change."
+  },
+  {
+   "speaker": null,
+   "text": "So, you know, two things. One is kind of, I saw how we can use technology to do our work better and faster and more accurately, like using these data collection tools, um, and digitizing some of our processes. But then also that kind of broader impact that digital transformation can have on a society. So that’s really where I started and then I went through various different roles and, and somehow."
+  },
+  {
+   "speaker": null,
+   "text": "Plop ended up, uh, leading the ICT team at CRS."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "I love that story, Nora. , I haven’t really heard someone articulate it quite that well, of like the ways that. Access to technology is enabling people to demand more and get more visibility on what’s acceptable. Um, so just really love how you framed that."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "yeah, I love that story too, Nora. And I know a lot of people, probably all of our listeners have heard of CRS. Um, it’s a huge, uh, development partner to many governments around the world. You work with many of the funders. From an ICD4D lens, um, you know, because the organization works across so many different sectors with so many funders, how do you think about your portfolio?"
+  },
+  {
+   "speaker": null,
+   "text": "How do you think about what you’re trying to advance, uh, with your digital strategy? What are priorities for you right now?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Yeah. So, so I lead a team sort of at the global level. Uh, we have 20, 25 people and, and we serve then all the hundred or so, um, countries, um, that, that CRS operates in. And essentially we try to. We try to help across, across the board on anything and everything that, that, um, that is needed. So, you know, CRS works in, in, in so many different areas."
+  },
+  {
+   "speaker": null,
+   "text": "So your standard health, education, social services, peace building. I mean, the list just goes on and on, including also CR humanitarian response, which is, which is very extensive. So, so we try to support across the board. And the way that we do that is, is one, um, and we should talk about this more when we delve into localization is that we have sort of, um, an ICT4D tools portfolio, right?"
+  },
+  {
+   "speaker": null,
+   "text": "So what my team does is we make available a lot of the, the standard tools that, um, many of our teams use. So in particular, we use CommCare at scale. Um, in our, in our M& E work, right, um, we go between 300 and 400 projects using CommCare, um, on a, on a daily basis, and sort of having over 10, 000 mobile workers, active mobile workers, right, like every day, uh, which I think is quite astounding."
+  },
+  {
+   "speaker": null,
+   "text": "Um, and, and so, so we make that available. Um, We’re trying also because because of the portfolio of the work could potentially be so broad We are looking obviously at what what are we prioritizing right now? So at the moment We have a lot of focus on on food security So with the sort of the global food crisis and all of that we’re doing a lot of work around."
+  },
+  {
+   "speaker": null,
+   "text": "How do we leverage? data better to improve our, our food security work. For example, we’re also doing a lot of work, um, in the health space. So, and this is really kind of the. Maybe the crown jewel, if you like, of our ICT4D work is our digital health work, which really started with digitizing malaria campaigns in the many countries where we where we do that."
+  },
+  {
+   "speaker": null,
+   "text": "Um, so bed net campaigns and SMC campaigns and so on. And over the past sort of 10 years, you know that That’s grown and grown and grown, and we’ve become increasingly better at not just digitizing, but also digitalizing those campaigns. And now we’re building on additional components, looking at sort of how do we do, how do we digitalize supply chain aspects in those campaigns more broadly and so on."
+  },
+  {
+   "speaker": null,
+   "text": "So, so the health space is a, is a huge area, um, for us as a team, but also for us as an agency. And then maybe the final, um, piece that I’ll, that I’ll mention is one of the things that we’re looking into right now is around, um, sort of interoperability and data sharing in the humanitarian space, because we see that as a big barrier and just something that takes up a lot of effort."
+  },
+  {
+   "speaker": null,
+   "text": "Um, so very concretely, you know, um, we have. We have folks on the ground doing double data entry into systems, right? They do data entry into a partner’s system, because the partner wants the data in this way, and then they do data entry into our system. And when we have people working on acute emergencies on the ground, I don’t think that’s a good use of their time, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Um, and so we’re putting some effort into figuring out how do we kind of ease that pain point. Um, and we’re looking at obviously getting more, more folks from across the sector engaged in that, in that dialogue."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I think, um, you know, you mentioned the 20 to 25 person as a shared services team. Um, one of the things we see with a lot of partners is there’s huge conflict at the project level or the country level because, you know, to get efficiency with shared service. You need to kind of reuse the same tools, reuse the same approach, reuse the same data entry, and then at the project level or the specific humanitarian context, of course, there’s multiple partners with multiple data needs, multiple funding reporting. And so these come into conflict and. Noren and I had the chance to be on a panel together at NetHope where we talked about this challenge with localization, um, where I think most of the ICD4D community has been behind this goal and effort for many years. Um, and now the major donors and major implementers are, are, you know, strongly behind localization. Um, but it is a challenge. It has real, um, efficiency trade offs, real security trade offs, real feasibility trade offs, because you have a team of 20 to 25 experts across multiple tools. Um, and if countries are picking 300 independent tools, there’s no way that could be as cost effective as standardizing on a few."
+  },
+  {
+   "speaker": null,
+   "text": "Obviously Very happy that we’re the beneficiaries of standardization in the case of CRS. We’re not always the selected vendor and we understand that and we kind of try to be cognizant of this as we talk to partners, understanding the country context, and whether introducing CommCare is kind of a bigger pain for everyone, you know, even if we think it can do marginally more, because there’s just not enough money to go around."
+  },
+  {
+   "speaker": null,
+   "text": "We have to also kind of look at not just Dimagi’s efficiency and revenue, but like kind of the program, the country, the industry as a whole. So when you think about that as a shared service at CRS, who’s providing this guidance, the standardization, um, I imagine this is a very challenging conflict that you’re kind of thinking through and what it means for future efforts towards localization."
+  },
+  {
+   "speaker": null,
+   "text": "I know CRS is doing a ton in this area. Um, so how do you, how do you think about that conflict, you know, within your team? How do you. Engage with the country office when you’re basically causing double data entry, but you’re like, look, we need it. We need to report up to the donor. They need it. They need to report to wherever it’s going."
+  },
+  {
+   "speaker": null,
+   "text": "Like there isn’t a solution for this or, you know, how are you thinking about that challenge?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Yeah, I mean, yeah, there’s definitely a tension there and I don’t, I don’t know that it’s a tension that we can like fully resolve by any means. and we’ve kind of gone over the past couple of years from having this incredibly strong kind of portfolio of ICTPD tools and being like, these are the ones that you should use."
+  },
+  {
+   "speaker": null,
+   "text": "It’s never been mandatory. It’s always been sort of more carrot than stick in the sense that we’ve made it as easy and affordable and all of that to our country programs to use, CommCare for example. And projects have followed suit, right? But, it’s not always the best choice for the partner. We’ve chosen our tools based on our needs."
+  },
+  {
+   "speaker": null,
+   "text": "And so we’ve engaged in a fair bit of reflection over the past couple of years. It’s like, okay, well, how do we kind of change that model? So that when we are working with partners, their starting point is like, what are their needs, right? And, and how do we cater to them? I think there are still, still sort of more internal use cases, right?"
+  },
+  {
+   "speaker": null,
+   "text": "So there are different kinds of situations where there are, it makes sense to have like, this is our standard tool, make it easy, run with it, right? You don’t always want to reinvent the wheel. So, um, But then there are other times where it makes more sense to align with whatever is happening locally, and I think this is a bit particularly At the forefront, um, in, in our digital health work, right, where we know that a lot of the, um, the health systems in, in countries where we operate are using DHIS too, right?"
+  },
+  {
+   "speaker": null,
+   "text": "And so we’ve been going through an evolution of, okay, well, what, what tools should we recommend for using in, in our digitized campaigns? And so should we, and how do we better align with DHIS? What’s in country and kind of build off of that. And I think particularly when we are working on that kind of, you know, digital campaigns and so on, where the ultimate goal of course has to be that our government partner takes on that work to do it themselves, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Um, in deciding on a tool that aligns with their strategy to the extent that what the strategy exists is has to be paramount. But then I think that there are some other contexts where. You know, that handoff isn’t necessarily going to happen, it’s, it can be more of an in and out kind of response in the humanitarian space, for example."
+  },
+  {
+   "speaker": null,
+   "text": "And there, it can make a lot more sense for us to have, like, these preposition tools and be like, you know, you run with us. So, I think we, we have to have a bit of both, but I think the important thing is that we have the reflection around what kind of situation is this, and how do I approach it?"
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Yeah, I love that. And we, have talked about this with CRS and other partners and Aaron, I’m curious to get your perspective on this and what you’re hearing, um, working with not just CRS, but many of the other major, uh, partners. Implementing Partners in Global Development. Um, but the, the need to have this language, Nora, that you’re highlighting around, given the project context and given the expectation of how digital is supposed to work within the project context and beyond the project context is so critical."
+  },
+  {
+   "speaker": null,
+   "text": "And I think across all the use cases you mentioned, I think ICT4D has not done a good job, um, of trying to be clear and articulate about the ROI, about the options. So, um, you know, yes, there might be CommCare or DHIS2 or another tool used, but it may be wildly inappropriate for this use case. And this use case may only need to last for eight months."
+  },
+  {
+   "speaker": null,
+   "text": "And so you’re actually creating more cost with zero additional benefit because the technology doesn’t need to survive. Beyond the project, or this might be a core fundamental thing that we’re using. Um, and it, it should have those. And we, um, we think a lot about this and I think, um, it’s a big challenge because if you look at, you know, global development funding, staying flat with inflation, that’s really declining budgets, we’ve got to be making these digital budgets go further and, and total budgets go further. And that requires being able to articulate this ROI, being able to make. Um, you know, smart, refined choices based on what’s already there, what’s already available at the country level, at the org level, um, and what the goals are. But I find often when we’re trying to advocate for, obviously we’re often advocating for CommCare introduction, um, but, um, it’s just really hard."
+  },
+  {
+   "speaker": null,
+   "text": "Everybody’s talking about different, um, aspects of it. Some people are talking about sustainability five years from now, which to a lot of people who are on the ground today might feel kind of ridiculous that, that anybody expects a realistic answer to what the world’s supposed to look like in five years or what a project’s supposed to look like in five years. Um, so yeah, we struggle with this a lot. Um, and I think part of succeeding at localization is going to require better common ways to talk about this, that we can kind of all agree on what do we mean? What are the metrics? What would it be? ROI calculations we’re all doing in our head when we compare these pros and cons to different approaches. Aaron, what are you, what are you hearing from other partners? I know CRS has one of the largest digital shared services team in the industry, but many other organizations are trying to build them up, trying to create these capabilities. How are they thinking about this?"
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah, it’s a great question. And I think, um, every organization approaches it a little bit differently. Um, Will from IRC, who, you know, of course was also on your panel. I think he makes a really interesting point where he says, When we come to a partnership with a local partner. What are we bringing to that?"
+  },
+  {
+   "speaker": null,
+   "text": "If not great technology, he says, you know, one of our value ads as a partner is that we have these amazing toolkits of these pre configured applications that we think are really customizable and locally relevant. Um, so of course, you know, they would, I think also never superimpose. Uh, technology on to a local team that isn’t appropriate, but I think, you know, uh, sometimes he would reject this idea that it always has to be bottom up."
+  },
+  {
+   "speaker": null,
+   "text": "He would say, look, I have this great thing. I don’t need, you know, if I, if I think you need a wheel and I have a wheel, I don’t need to ask you, how do you want to get from point A to point B? I can just say like, hey, I have a wheel. Do you think that’s going to help you? And then if that works, that works. Um, so, so I think that’s kind of one interesting perspective is. For some organizations to say, we actually do think that our biggest value add here is our, our technical progress and some of the tools that we do have. Um, so that’s certainly one, um, one way that I’ve seen organizations, uh, uh, approach this another way is, um, we’ve seen some folks who work a lot with local partners say, um, again, one of our big value ads is bringing this technology and actually what we’re going to help you do is. Uh, you have to use this tool. I mean, in our case, because we make CommCare, it’s CommCare, but you know, they say you’re going to use this tool for our project, but if you like it, we will also invest in building your capacity so you can use it outside of this. Um, so I know that Trochra does that with a lot of their local partners. Um, and of course, that brings up a whole different set of issues, right? Which is what happens then. When that large INGO goes away, who gives that capacity building and support? What does pricing look like? Is that affordable for the local partner? And those are all some, um, you know, great issues that we’re trying to really help solve for local partners in 2025. Um, but I, I think that’s another interesting way. And then I think there’s, um, maybe a third set of partners who really go in and, and what they try to do is kind of present a menu. They say, um, there’s lots of tools out there. Not all of them are on this menu. You know, some of them do not contain safe foods, and so you shouldn’t use those. Here are the ones that we think are safe and are, you know, if they’re digital public goods, you know, we’ve got that registry online. So here are all of them. Here are the ones that, that we personally use, and then you can kind of pick amongst this menu. Um, that at least makes the decision a little bit easier if you’re working with a local organization who maybe hasn’t. Um, had many forays into working with digital tools before. It does, of course, inherently limit them. You know, maybe there is a different tool that they wanted that’s not on that menu. And so you have already kind of limited them by that. But, If it does, you know, also, uh, save them from perhaps, you know, choosing a tool that you really wouldn’t want them to choose. Um, so, so I do think those are three ways, uh, that, that we’ve seen other organizations kind of deal with this. And there’s really, in my perspective, working with organizations that all approaches differently, there’s really no right or wrong reason. There’s just going to be a, uh, a right or wrong way for each individual organization, and I think it really reflects. A lot of that organization’s ethos and culture, the way that they, um, choose to do this with their local partners."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: think that’s really interesting. But I also think that particularly large organizations like CRS, we can deploy all three options, right? Because I think it’s important that we differentiate between partner and partner, right? Like, we work with so many different kinds of partners around the world."
+  },
+  {
+   "speaker": null,
+   "text": "Some of them are government partners, right? And there is, you know, There’s one way in which we might work with them, right, in terms of really leaning into their choices and, you know, their, their agency and authority. Um, but then there are, when we’re working with smaller community based partners, right, we might opt, there might be that sort of value add of like, oh, we have this and so on."
+  },
+  {
+   "speaker": null,
+   "text": "So, so I don’t think that there’s like a one approach per agency even. I think there’s a number of different approaches depending on. Um, who the partner is, what the context is. But I do think that Jonathan, you were saying earlier that we haven’t necessarily been always very good in this sector around this."
+  },
+  {
+   "speaker": null,
+   "text": "And so I do think that there’s a lot of learning for us to be more attuned to, to the context and to what that partner is. And, and I would certainly invite more, more sort of open discussion, um, around that, like, how do we approach this given. X, Y, Zed, right? Um, and recognizing that there are different ways."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": ", this conversation I think is really fascinating, , when I think about localization. We’re honing in on like one very specific and important aspect of that, right? Which is like the tech tools, um, that you might offer or support your partner in using, um, as sort of an headquarters of a large INGO. Um, Nora, I’m curious, are there like, stepping back a little bit, like, what is the sort of bigger picture on how you are thinking about or seeing localization as a trend? so much. Is there, is there any kind of like bigger, bigger context you might share there?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Well, I mean, at CRS, right, like, we fundamentally believe that, that people should be able to lead their own development. Um, and I think that’s kind of where, where it all comes from. And we’ve actually been doing, really quite holistic sort of partner capacity strengthening for, for quite a long time. And that’s taken different shapes and forms, um, but it’s really kind of focusing in on, on local leadership at the moment and, and advancing that."
+  },
+  {
+   "speaker": null,
+   "text": "And so I’ve kind of been very honed in on, on that sort of the center of a Venn diagram of like localization and ICT for DE and what are the questions that come up in, in that space. But of course there’s a whole So the localization agenda and the one interesting thing that that um, CRS is currently doing is we have this, and this links to our digital health work as well, is we have what’s called the High Performing Implementers we call it HPI. and, and what that really seeks to do is to work with government partners to prepare them to become primes. for global fund grants, right? So we work with them across sort of strengthening sort of governance, leadership, finance, meals, supply chain, digital, all of these different things so that ultimately they can be."
+  },
+  {
+   "speaker": null,
+   "text": "the primary recipients of those grants. Um, and I think this really speaks to kind of the, the changing role of, of INGOs. So when we’re thinking about the broader localization context, like as, as we increasingly prepare and help and support government partners, other partners to become prime for, for grants, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Whether it’s Global Fund, USAID, or other stuff. Where’s our money going to come from? So, so I think there’s a lot of discussion around, you know, what is the changing role of INGOs? What future role are we going to play, um, in, in the context of, of sort of advancing localization and local leadership? I think where we are landing at the moment is really around sort of having knowledge sharing role, having that capacity strengthening role, having that sort of accompaniment role and providing technical assistance."
+  },
+  {
+   "speaker": null,
+   "text": "That’s kind of where we’re, we’re not there yet by any means, let me be very clear about that, but, but that’s kind of where we’re going. And I see that sort of reflected in, in my work as well, where when we’re working with government partners, um, we’re seeking to support them from, um, Um, from sort of like a more tech agnostic approach, um, and say, you know, here are things that you would want to do and let’s work together to find the right approaches."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "I, I think that’s a huge, area. And, and as we were talking about ROI and the three different approaches that you mentioned, I often find that, you know, technology, we, as technologists, we often say like, it’s the easy part, you know, governance, people, driving outcomes, all these things are really hard. Um, and one of the things that can be, in my opinion, kind of just like a weird dichotomy that we pretend to form is like, Obviously, CRS has internal conflict with passing off priming a contract to a local partner. Like, that’s just inherently a struggle. It’s not that CRS doesn’t want to do it, but there’s a reality of, there’s thousands, tens of thousands of people employed by CRS."
+  },
+  {
+   "speaker": null,
+   "text": "They’re all doing great work. They’re all mission driven. And like, these are real conflicts. Just like Dimagi choosing not to go into a country because we’re like, look, the landscape’s crowded. We’re just going to add more noise. That’s not in our financial interest. And that doesn’t mean we don’t do it. But like, we act like these aren’t. Drivers are significant drivers in how we need to think about sustainability localization and making some of these trade offs. And so I completely agree with that. And one of these areas comes to data. Um, you know, we talked about this on the panel and you were very passionate about it and love to create some space for you to talk about it here. Um, I think we’re all in theory proponents of, of data being used to make the most good that it can, um, it takes time, effort, energy, um, to do so. You talked about a really cool program, um, that you’re supporting with respect to making sure data gets all the way back to the community. that, um, you know, can make use of it."
+  },
+  {
+   "speaker": null,
+   "text": "So I’d love for you to share a bit about that program and how do you think about the potential to use that model or to take data that we’re using for one purpose, but making sure it’s available to who we ultimately want to make primary decision makers as much as they can, whether it’s an individual or a community. Um, and yeah, I’d love to share, you know, hear about that program. And then how are you thinking about this data localization problem? Cause as we talked about, like tool selection is one thing, but that’s like, One of many things that have a role in localization."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Yeah, absolutely. And, you know, I, I think that we as a sector have for a long time been very sort of extractive in our, in our data practices, right? Like, We come in, we do baseline, end line, we get all that data and then we do something with it, report to donors and maybe, you know, potentially use it to, um, improve programming in some cases."
+  },
+  {
+   "speaker": null,
+   "text": "but in that process, I feel like we’ve often, we forget the data subject that the data comes from someone from individuals on the ground who. who we’re serving, right? And what I would like for us to do as a sector is to center those, those data subjects and really recognize. their agency. And so what we’ve done in this particular program at CRS, which is a resilience program."
+  },
+  {
+   "speaker": null,
+   "text": "where we do, we do monthly interval resilience assessments in, in communities. So we have community embedded enumerators. So these are enumerators who come from the community, um, and, and they do the enumeration. And I think a good thing, a good part of that bit of a side note is that it reduces that power differential between the."
+  },
+  {
+   "speaker": null,
+   "text": "It’s a data collector and the data subject, right? Because they’re part of the community. Anyway, so they do the data collection, um, and then that, that gets sent to, to us and we can do some various analysis using that data. But really, really importantly, we bring that data back to the community, right? And, and help them make sense of that data so that they can then use their agency to take action, um, on the basis of the insights that they have."
+  },
+  {
+   "speaker": null,
+   "text": "Um, that their data has provided, right? And we’ve actually seen some results. this program is maybe gone the furthest in Malawi, and there we’ve seen sort of community or, I think they’re called village development committees there, being able to take that data and say, So, I think it was some kind of livestock issue that they had in a particular village, and I was like, okay, the data is saying this, now we can use this to advocate for, you know, measures to address this issue, and they were successful."
+  },
+  {
+   "speaker": null,
+   "text": "And, and I think that’s what we often forget in our sector, and I would love to see us become better at sort of completing kind of the data circle of returning the insights from the data to the people."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "this is, I’ve loved hearing about this project from you, Nora, and I think this was really something that came up a lot at NetHope, and as someone who in, in my daily job gets to work with a lot of people developing apps, I think me and, and my team members are in a really unique position to kind of push a lot of our partners to be doing a lot more of this. And I’m excited about getting to do that and maybe making this a part of our, um, you know, design documentation and the way in which we encourage people to build apps. But I’m curious, um, where did the demand for this data CRS went in and said we want to be proactively sharing with us, this with the community? Or was it the community themselves that said, Hey, if you’re going to be collecting this, we need to see it as well. What did that look like when you guys went in there?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: this is one of those things where, and I think this is the beauty of, of also us having these tools that we make available within the agency. Like, We kind of govern them and we, and someone comes in."
+  },
+  {
+   "speaker": null,
+   "text": "So in the case of CommCare, you know, someone says, Hey, I need a CommCare project space. Can you set that up? And we say, okay, fine, done. Right. But then they go and they do whatever they want to go and do. Right. We don’t have visibility of that. Um, so, and that’s partly because we’ve been able to, to build up really good skills across the agency."
+  },
+  {
+   "speaker": null,
+   "text": "So again, kind of that standardization piece, like we’ve been able to build up really good skills so people can take CommCare and, and go and do. So there’s a data analytics unit on my team who’s really kind of, you know, leaned in to support, excuse me, the program with using, doing advanced analytics and getting even more insights from the data. Um, But yeah, I can’t speak to kind of where the initial idea came from."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "no, that’s, that’s good. I think one of the things that I’ve, I’ve been thinking about a little is that I think there are some communities that might, uh, by nature of like their past or their history, be more attuned to that. For instance, like, uh, I know that, like, the First Nations group in Canada actually has a whole set of data standards and principles that anyone who works with them has to adhere to. Um, but not every local community is going to have that, and so if there’s not, you know, I think it’s, it’s our responsibility as, as INGOs working with local partners or as tech providers to go in, and if there aren’t local standards like that, still feel like we’re, Um, you know, approaching those communities saying, like, you have a right to all this data."
+  },
+  {
+   "speaker": null,
+   "text": "It is your data. Um, you know, and, and, and helping further that along. Whether or not there is community demand for that or not,"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Yeah, but let’s also be clear that like, You know, data literacy is poor in many of the contexts in which we work. So you can’t just kind of like collect the data and then set up a nice dashboard and go and show it to, you know, a village development committee, for example. Like that is, that may work in some places, but it’s definitely not going to work in all places."
+  },
+  {
+   "speaker": null,
+   "text": "So I think there’s a lot of work, that needs to be put into. Building up data literacy, within the communities that we work with, but also in thinking about how do we communicate. insights from data. we face this issue in, in Madagascar in particular, where there’s a sense that, you know, just the data literacy of the communities that we worked with was so low that we were thinking about, okay, how can we use like images and pictures to convey some of these things?"
+  },
+  {
+   "speaker": null,
+   "text": "So I think that there’s also a need. It’s not just like, here’s your data or here’s the dashboard, you know, for them to be able to take action. On the basis of that data, right, there needs to be much more, much more to it."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah, absolutely. I mean, I think if you’re doing this correctly, you’re probably presenting an indicator along with an explanation of that indicator and also maybe some guidance on, like. You really want this to be high, or you really want this to be low, or what does it mean when that’s 82 percent versus 20%?"
+  },
+  {
+   "speaker": null,
+   "text": "That, that’s a"
+  },
+  {
+   "speaker": null,
+   "text": "great point. I think those two go hand in hand."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "yeah, and I think this is an interesting role, um, you know, as we talk about localization and tool adoption, um, how much AI is going to help with, some of the interpretations of issues around data training issues. but it’s not, it’s not just communities in Madagascar that have data literacy issues."
+  },
+  {
+   "speaker": null,
+   "text": "Like there’s all sorts of data inside of Dimagi that I wish I had a better handle on or knew. You know, of these seven KPIs, what is actually actionable? Like what, what’s a real choice versus just kind of like. The number is what it is, but, you know, you’re more or less powerless to change that in the short term or medium term. and so I think that that is a, a huge, cost that the systems keeps paying over and over again because we’re not, doing good reuse on, uh, the state of localization problem of like, what, what is relevant to a community? What is, what are the five things they could choose to do one of? And how do you present those choices in a way that is actionable, not just quote unquote interesting or, you know, in a dashboard. Um, so much of what we, uh, often see, you can create a really, you know, Good looking dashboard, a really, clear dashboard, but like, there’s nothing to do with it. You know, like it’s, it’s interesting, but it’s totally not helpful for actually changing decision making or impact, on the ground. And so I think that’s a really great point, Nora, and how we enable communities to engage with this data and, and ultimately make. You know, programmatic or real life decisions. That’s the whole purpose. Like the dashboard, the tech, everything else is like just a, an input that is irrelevant. If we could get it another way, you know, it’d be even better. Um, so yeah, I’m totally really excited by what, um, you’re talking about. I think that’s a big, big challenge."
+  },
+  {
+   "speaker": null,
+   "text": "You know, Aaron, you talked about interfacing with so many different partners, building apps. We’ve had a lot of thinking. At Dimagi over the years on, you know, how do we make it more reusable across the partners that we’re seeing tackle similar use cases, not identical, you know, but similar so that they’re not reinventing the wheel on, okay, there’s a new digital training program for data literacy in general, then you come in behind that three months later with, you know, The data literacy is specifically that CRS is running."
+  },
+  {
+   "speaker": null,
+   "text": "Then you follow up six months later, CRS invents that program. It takes several people, a lot of effort to do it. Then our next partner invents it. Um, and again, you know, if there was infinite money to go around, that’d be fine, but there’s not. Um, and so really thinking through how we, um, create that reuse, how we create that efficiency is, is critical to localization succeeding. Um, and, and really making sure the funding is available that we ultimately do want to shift. towards supporting those local partners."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "I’m, I’m really so glad that we’re touching on this topic of providing data back to the people that we’re collecting it from. Like to me, more and more that’s, I’m just realizing how important that is and, how important it is that Dimagi supports that and enables that. We actually had an interesting conversation recently on the podcast with Cure Violence Global. And they were speaking about how they’re enabling, they’ve got an entire network of violence interrupters that are in communities, interrupting moments of violence, using CommCare to track those moments. But within that app, they’re able to see violence hotspots, get useful data to their day to day, um, which I thought was just such a beautiful example of that. But I’m curious to hear from you, Nora, like, what’s an example of like, how does that actually work to offer that data back? Right? And I think you’ve, you’ve spoken about just like how tricky it is, right? You’ve got to factor in data literacy. , are there any , tangible examples that you could share of , what that has looked like in practice?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: so We recently did a project with young people in Senegal, basically what we were doing is a data collection project with young people, um, marginalized young people, what we tend to call opportunity youth, right? And the whole idea was that we would work with them to build their data skills and they would identify an issue that they wanted to collect data on so that they could do the work."
+  },
+  {
+   "speaker": null,
+   "text": "They could use that data to do whatever advocacy or to understand their own situation more. And it was a really interesting project. We went through sort of them, you know, training them on some basic sort of research stuff, data collection, defining what were some of the issues that they wanted to, you know, address."
+  },
+  {
+   "speaker": null,
+   "text": "to ask, um, other young people about, I think they ended up focusing in on, sort of employment opportunities and so on in the area that they were living in. And, and then they did that research and then they were involved in the, sort of the analysis of it as well. And, but the way that we positioned it was that it was as much a capacity strengthening project."
+  },
+  {
+   "speaker": null,
+   "text": "as it was about the data itself, right? So yes, we wanted to, we collectively, we wanted to know more about the employment opportunities and how young people felt about them in the area. But ultimately for us, it was, it was a project as well to build these young people’s data literacy skills and their ability to, to leverage data."
+  },
+  {
+   "speaker": null,
+   "text": "So I, I just really like that approach because it also, It seeks to kind of remove us from the equation, right? If we can work with young people, if they can kind of build their own skills and realize, Oh, actually, you know, we have this issue in, in our community, what if we were to collect data on this issue and represent it and bring that to decision makers, then we could advocate for whatever that issue is, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Um, so it kind of removes us entirely from, from that. And. and leaves it with them. And I think that’s kind of, I just find that that’s a really nice approach. I remember we did something similar, um, with an organization I worked with previously. And one of the young people in that, in that project said, you know, we complain about all of these things affecting us in the community and we complain about them to, to decision makers."
+  },
+  {
+   "speaker": null,
+   "text": "but they don’t take us seriously. They don’t listen to us. And so part of the idea behind that project was, well, okay, well, why don’t we get data? You know, you collect the data to make your case. And so then, you know, In that case, with this other organization, we were able to kind of work through that process and then we replicated a similar process with CRS."
+  },
+  {
+   "speaker": null,
+   "text": "And so I think what I’m trying to say is that I think there’s power in, in kind of building that data literacy and building that, um, capacity to use data,"
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Nora, I’m curious for our audience. You clearly just have so much wisdom. You’re running what John Frame does, probably the largest ICT4D shared services team in the world, um, possibly at CRS. What are some of the most important lessons learned? Like kind of takeaways that you’d want to share with our audience, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Which includes folks across, across the board, but definitely including folks at INGOs that are looking to just make better use of technology. be more thoughtful about how they’re approaching it,"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: I would hone in on maybe. Two things. the first one is, is just the importance of, of listening, right? Of, of not coming in tech first, not coming in with the solution, but really understanding the problem, right? And, and focusing in on, on that as a starting point. because sometimes Tech is not the solution, right?"
+  },
+  {
+   "speaker": null,
+   "text": "And I think that, you know, Jonathan, you mentioned this as well, you know, a lot of times. Tech isn’t the problem either. Texting can be the easy part, you know, it’s the people and the process and the politics and the power that are, that are the real issues. Right. So, so one, like, like listen, like actively, deeply, and the other thing."
+  },
+  {
+   "speaker": null,
+   "text": "That I think is so important and that my team benefits from is, is just having a really diverse team and having lots of people from different parts of the world, but also from different, with different experiences, right? Um, I go back to, to the fact that I’m a social scientist. leading an ICT4D team."
+  },
+  {
+   "speaker": null,
+   "text": "And, uh, when I was recruited for this role, I think it said something like, you know, we’re looking for an IT professional. And I was like, that’s not me. You don’t want me for this role, right? Um, but actually I’m a good fit for this role, right? And I think that it’s so important that we have people with these different skills and experiences um, and competencies."
+  },
+  {
+   "speaker": null,
+   "text": "For me, ICT4D is all about Translation, right? It’s about being an interlocutor between sort of program folks and tech folks, and sort of understanding both sides. to do that, to be that sort of interlocutor it’s really important to have that diversity in your team, and I’m really pleased that we have a lot of different folks with different backgrounds and experiences."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "The other benefit you get to that diversity of backgrounds and experiences and areas is also going to the earlier point that I was bringing up on. How are we thinking about the cost benefit? And if you have people all coming at it from one angle, you know, like traditional IT, where you’re like, I’m trying to bring down cost, you know, like, well, what’s the value?"
+  },
+  {
+   "speaker": null,
+   "text": "We’re like, it’s not inherently important to deploy digital just for the sake of deploying digital. And so that cross discipline, um, background that diversity, I think would help any team foster more awareness there, whereas if you have like a very, Program centric, IT, whatever centric viewpoint, you’re going to kind of get locked into one framing and given that there’s so much lack of consensus in the industry about how to think about ROI, how to think about, um, the goals that, that diversity of thought is critical because it’s so, challenging right now to, to make sure we articulate that and requires a lot of deep thinking to, to kind of understand that and tackle it."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah, Nora, I loved what you said on your first point about not coming in with like a tech first approach and, you know, really the need to, really listen when you come in, because I think that, um, you know, I also came to this industry really from a development background and a social science background, and I just love that. I kind of accidentally found my way into technology, and now I don’t think I’ll ever go back. But, um, one of my professors very famously would always say in his Intro to Development Studies class, Development is about people, and when you forget about people, you can forget about development. And I think that all the time we’re working with data and data systems and data collection, and technology, and everything is so abstracted that you can really easily Forget about the human aspect of everything that we do."
+  },
+  {
+   "speaker": null,
+   "text": "Every data point that we collect is just a part of someone’s identity. And it all goes back to the humans that we’re trying to serve. Um, and I think that’s such an important part of what you were talking about, about like the, the listening component and really making sure that, you know, all these like hyper technical things that we’re doing are really serving the humans that we’re trying to get back and serve."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: But I think let’s also be clear, like, that’s not easy, right? Um, particularly,"
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "hard. It’s super hard."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: um, and, and particularly, you know, with, with, you know, some of the, the hectic ness around, you know, business development and getting proposals in and kind of getting projects started. Like it’s very difficult to create that space, right?"
+  },
+  {
+   "speaker": null,
+   "text": "For listening, and it’s very difficult to. Be people centric, right? Um, in our work because there’s so many, you know, time pressures, cost pressures and all of these things. yeah, I think we just need to be realistic about what we can do, but, but I also think that we need to, we want to continue to find those spaces and trying to create more of them, so that we can, we can do our work and even better."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah, absolutely. I think that like, uh, everything you just said resonates. I think that the incentives are completely misaligned. It, it is costlier. It, it takes more time, all of those things to, to be more human centered. Uh, and so you’ve got to find that balance of how much can you do within your, your, um, scope and your project."
+  },
+  {
+   "speaker": null,
+   "text": "But you know, as, as much as we can do, we should be doing."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "And that Aaron, the, the takes more time is something that I think is, is often a very flawed argument with how people think about the return for ICT4D projects. You know, it definitely takes more time to do training. It definitely takes more time, um, to find amazing local partners and, and build skills in specific technologies and the data literacy points we were talking about, but the cost of not doing that is like, literally, there’s no benefit to deploying the tech in the first place. So it takes more time, but it creates more value. And so I think that going back to that value argument, Aaron, as, as you articulated both. What you were talking about from the non tech side, but also getting deeper into how we think about these, these challenges. Um, I remember an initiative we were trying to, to get off the ground over a decade ago that was trying to promote, um, you know, more budget going to local developers. And as we started to advocate for this to funders, we were starting to get some positive feedback and traction. And then we talked to partners and we’re like, yeah, this is great. They were super excited. And we’re like, cool. Now your projects take twice as long. And they’re like, oh no, you know, absolutely not."
+  },
+  {
+   "speaker": null,
+   "text": "Do we have any interest in this initiative? If the project, I’m like, how did you think this was going to work? You know, I’m like, okay, well then you’re paying us indefinitely instead of a local partner in Zambia or whatever other country that project might be in. And, um, it’s, it’s really challenging, you know, when we lack the, the foresight to really think about the problem more holistically, as opposed to just, you know, what does it cost to deploy system X is the wrong question because deploying system X in and of itself is not a goal. Deploying CommCare, deploying DHS2 has zero value in and of itself. It’s about what is the value created as a result of doing that. And the discussions we need to have need to be in that context, not just did the tool get turned on. Or not, you know, and that’s something that we, we struggle with as well."
+  },
+  {
+   "speaker": null,
+   "text": "When we talk about, um, how to think about the, the balance of a lot of these factors,"
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah. And I think even the timeframe, it’s probably more of a, like, You spend your time in different ways, you know, if you spend a ton of time in the design phase it probably saves you a ton of time in like the field testing and integration phase and You know like the more time that you invest in all these things up front and like it’s gonna save it’s gonna pay you huge Dividends three and five years down the line now if we’re only funding two or three year projects Maybe we don’t care about five years down the line."
+  },
+  {
+   "speaker": null,
+   "text": "And that’s more of a critique, I think, of the industry than of anything else. But, um, you know, that’s another point to add to it too, is that the time I think is even a little bit of a, uh, of a flawed argument too, because it’s really more about where you’re investing that time and where you see that return on investment."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "and that goes back to what Nora was first talking about in the shared services model, the reality is like, we do have constrained budgets. We do have constrained timelines. So the point is not be like, Oh, unless you’re thinking about doing a correct 18 month build for a five year project, you shouldn’t do anything."
+  },
+  {
+   "speaker": null,
+   "text": "That’s ludicrous. There’s plenty of stuff you can do in three months. that adds value, but it’s just what is the value you’re trying to create for what cost with what pathway to sustaining itself. And again, bringing that back to the options that we were talking about earlier in the podcast, it’s like, we just, we just, I like, it’s so frustrating sometimes to talk about these things abstractly with projects of like, oh yeah, you know, is this going to integrate to the national system?"
+  },
+  {
+   "speaker": null,
+   "text": "And you’re like, this is a county level project at this point. There is a pathway, but it’s so far beyond the scope of what we’re talking about. Like, it’s not an efficient use of anybody’s resources to be talking about, hypothetically, what could it look like, um, in the future, if it’s adding value today in a clear way, and everybody accepts that it might not persist beyond a certain timeframe."
+  },
+  {
+   "speaker": null,
+   "text": "So, the timeliness, or the timeframe, Aaron, that you’re bringing up and then already highlighted is, is critical. And it doesn’t mean don’t do anything. I’m not saying that because there’s lots of value and the tools have gotten a lot better. Um, so you can do really cost effective stuff that doesn’t need to be durable outside the specific context it’s used for necessarily."
+  },
+  {
+   "speaker": null,
+   "text": "It just needs to be really cheap and high value."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Exactly, and I think that goes back to what I was saying before around like, there’s not one approach fits every situation. There needs to be that flexibility and that understanding that we can’t approach every single situation in the same way."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "This is making me think of the Einstein quote, which is, if I were given one hour to save the planet, I’d spend 59 minutes defining the problem and one minute resolving it, right? Just like that importance of spending the time really deeply understanding and, and listening,"
+  },
+  {
+   "speaker": null,
+   "text": "Nora, with all of this, I’m getting such a clear picture of the ways that you’re really pushing the boundaries of ICT4D to center on individuals and uplift local organizations. Given all of this, how do you think about partnering with tech vendors or tech organizations such as Dimagi?"
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: What we’ve done with, with many vendors, um, I think, including CommCare, but also others is, is that you’ve been more than than vendors and we’re more than customers, right? I think there’s been a lot of co creation. Um, uh, along the, along the way. Um, and that is something that I really value, um, to have that sort of partnership to be able to say, okay, well, here are the issues, you know, that, that we have here are the things that, that we need, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Um, and maybe that’s why I’m, I’m a legend at Dimagi, because I come in with like, this is what we need. Um, but, but, but, you know, it’s not me telling you what to do, obviously, it’s, it’s, it’s a discussion, but it’s, it’s that ability for us to have dialogue around, you know, here are our priorities, here are our needs, here’s how we would like to use this tool, right?"
+  },
+  {
+   "speaker": null,
+   "text": "And, and can we work together to get there? Is that something that would add value to you in the way that we think that that would add to us? And, and I would venture to say that, that you have probably learned a lot from us as much as, you know, we’ve been able to, to use that tool, um, to use CommCare as well."
+  },
+  {
+   "speaker": null,
+   "text": "So, so I really appreciate that because, you know, When we’re talking about ICT4D, when we’re talking about using digital tools out, where we do programming, a lot of the time we’re not going to be able to use one of the, the big, platforms out there. They’re just not going to be appropriate, right?"
+  },
+  {
+   "speaker": null,
+   "text": "I remember a time when Microsoft was really trying to push something, for us to use something. I was just like, this is just, this is just no, no, no, like this is not going to work. You know, we don’t have connectivity. No, no, no. And, and so what I’m getting at is that there aren’t all, you know, there’s a plethora of tools out there, right?"
+  },
+  {
+   "speaker": null,
+   "text": "Nowadays in particular, but, uh, but still, I mean, we’re, we’re a small industry, um, and we can’t just kind of pick a, a, a tool from the shelf usually and be like, okay, we’re going to run with this, like one of the standard tools that are created for enterprise. And so what I really appreciate is having the vendors that are in the ICT space and being able to have dialogue with them to, to collaboratively kind of create products, um, for our sector that work for us, but hopefully also for the industry."
+  },
+  {
+   "speaker": null,
+   "text": "and work for others as well. Um, and I think that’s something that I’ve appreciated, um, in the journey that we’ve had with Dimagi."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Absolutely. And that absolutely makes CommCare stronger, right? Like that is the, something that we love about the enterprise partners that we work with is, is the ability to really be deeply listening and evolving the product to not just serve CRS’s needs better, right. But to serve. The entire industry better."
+  },
+  {
+   "speaker": null,
+   "text": "Um, so yeah, we really appreciate that partnership."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Yeah, I would just like, I can echo what Amy said and just say, you know, I think CRS in particular, I mean, I think one of the things that’s this tech stack and the economies of scale and all the. benefits you are going to get from centralization far before a lot of other folks realize that. Um, and, and because of that, I think you’re just on, on this, this kind of different maturity path. And I think we see a lot of other organizations, but, um, you know, we’ve, we’ve really grown up with you guys and, uh, you’ve pushed us, you have a great handle of, uh, Kind of what’s going on in the sector right now, what your partners are telling you, what the needs on the ground are and, um, your ability to funnel those up to us, especially because you have such a specialized team of, um, technologists, it’s actually very helpful."
+  },
+  {
+   "speaker": null,
+   "text": "You know, you’ve got such senior folks on your team that are really able to, um. you know, concretely tell us in very technical terms, what’s going wrong. They know our feature set really well, and it’s incredibly helpful to us. think some of the most helpful and, you know, for anyone who uses CommCare today, uh, some of our, our most beloved features have come out of product feedback that the CRS team has, has given us."
+  },
+  {
+   "speaker": null,
+   "text": "So. Um, you know, a lot of you who are listening today probably can thank Nora and her team for some of the things that you love about CommCare because those ideas came from them."
+  },
+  {
+   "speaker": "Jonathan Jackson",
+   "text": "Well, thanks so much for joining, Nora. It was good to have you on."
+  },
+  {
+   "speaker": "Amie Vaccaro",
+   "text": "Thank you so much, Nora. It’s been a pleasure to have you on the show and thank you, Erin and John."
+  },
+  {
+   "speaker": null,
+   "text": "Nora Lindström: Thank you so much."
+  },
+  {
+   "speaker": "Erin Quinn",
+   "text": "Thanks, Nora!"
+  },
+  {
+   "speaker": null,
+   "text": "Thank you to Nora and Aaron for joining us today. This was a really rich conversation and I want to elevate a couple of my takeaways. Nora’s journey began with a powerful realization. Increased connectivity doesn’t just improve access,"
+  },
+  {
+   "speaker": null,
+   "text": "it transforms aspirations and drives societal change. This insight has clearly shaped her career and perspectives. At the heart of CRS’s work is a belief that people should lead their own development. In response to the growing emphasis on localization in the aid sector, CRS is evolving its role to focus on accompaniment, capacity building, and knowledge sharing with local partners, paving the way for more sustainable and locally driven development."
+  },
+  {
+   "speaker": null,
+   "text": "Nora highlighted a critical challenge, the need to return data to the communities from which it is collected. She acknowledged the often extractive nature of data collection in global development programs and called for closing the loop by making data meaningful and actionable for its rightful owners."
+  },
+  {
+   "speaker": null,
+   "text": "This is no small task as it also requires addressing issues of data literacy. All, Nora emphasized the importance of listening."
+  },
+  {
+   "speaker": null,
+   "text": "We can’t come in with tech first solutions. We need to deeply understand the problems we’re trying to solve. And sometimes technology isn’t the answer at all."
+  },
+  {
+   "speaker": null,
+   "text": "And addressing these challenges effectively requires teams with diverse perspectives and backgrounds."
+  },
+  {
+   "speaker": null,
+   "text": "That’s our show. Please like, rate, review, subscribe, and share this episode if you found it useful. It really helps us grow our impact. And write to us at podcast at dimagi. com with any ideas, comments, or feedback. This show is executive produced by myself. Michael Kelleher is our producer, and cover art is by Sudhanshu Kanth."
+  }
+ ],
+ "transcript_para_count": 149,
+ "host_amie": true,
+ "host_jonathan": true,
+ "date": "2024-11-27",
+ "spotify_unreliable": false
+}
