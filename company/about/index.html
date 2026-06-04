@@ -6,47 +6,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About Us | Dimagi</title>
 <meta name="description" content="Dimagi is a global tech-for-good social enterprise enabling impactful frontline work through scalable digital solutions and expert services in 130+ countries.">
+<link rel="canonical" href="https://dimagi.com/company/about/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/company/about/">
+<meta property="og:title" content="About Us">
+<meta property="og:description" content="Dimagi is a global tech-for-good social enterprise enabling impactful frontline work through scalable digital solutions and expert services in 130+ countries.">
+<meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
+<meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Us">
+<meta name="twitter:description" content="Dimagi is a global tech-for-good social enterprise enabling impactful frontline work through scalable digital solutions and expert services in 130+ countries.">
+<meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/styles.css?v=13">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 /* ── About page ── */
 
-/* Stats band */
+/* Tighter vertical rhythm (less whitespace between sections) */
+#main .section { padding: 80px 0; }
+#main .cta-band { padding: 84px 0; }
+
+/* Hero without image — single column */
+.hero-grid--solo { grid-template-columns: 1fr; }
+.hero-grid--solo .hero-copy { max-width: 860px; }
+.hero-grid--solo .hero-sub { max-width: 620px; }
+
+/* Section anchor sub-nav */
+.about-anchors {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+.about-anchors-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 14px 0;
+}
+.about-anchors-row a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: color 160ms, background 160ms;
+}
+.about-anchors-row a:hover { color: var(--indigo); background: var(--paper-cool); }
+
+/* Stats band — Our Impact (CommCare home style) */
 .stats-band {
   background: #f5f7ff;
   border-bottom: 1px solid var(--line);
+  padding: 56px 0;
+}
+.stats-band .stats-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 32px;
 }
 .stats-band-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .stats-band-cell {
-  padding: 48px 40px;
-  border-right: 1px solid var(--line);
+  padding: 32px 24px;
   text-align: center;
+  border-right: 1px solid var(--line);
 }
+.stats-band-cell:last-child { border-right: 0; }
 .stats-band-num {
-  font-size: clamp(44px, 5vw, 64px);
+  font-size: clamp(34px, 3.4vw, 44px);
   font-weight: 200;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   font-feature-settings: "tnum";
 }
 .stats-band-num span { color: var(--indigo); font-weight: 300; }
 .stats-band-lbl {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--muted);
-  line-height: 1.5;
-  font-family: var(--mono);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  line-height: 1.4;
 }
 
 /* Mission & Vision */
@@ -79,144 +139,251 @@
   letter-spacing: -0.015em;
 }
 
-/* Pillars 2x2 */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 16px;
-}
-.pillar-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
-}
-.pillar-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px -12px rgba(10,6,32,0.12);
-  border-color: var(--indigo-soft);
-}
-.pillar-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--grad);
-}
-.pillar-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--muted-soft);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.pillar-title {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.pillar-desc {
-  font-size: 15.5px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Values */
-.values-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 48px;
-  border-top: 1px solid rgba(255,255,255,0.14);
-}
-.value-row {
+/* B Corp callout */
+.bcorp-callout {
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
+  gap: 24px;
+  margin-top: 32px;
+  padding: 28px 32px;
+  background: var(--paper-cool);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.bcorp-badge {
+  flex-shrink: 0;
+  width: 64px; height: 64px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.bcorp-badge b { font-size: 26px; font-weight: 600; }
+.bcorp-badge span { font-family: var(--mono); font-size: 8px; letter-spacing: 0.18em; margin-top: 4px; }
+.bcorp-text { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.bcorp-text strong { color: var(--ink); font-weight: 600; }
+.bcorp-text a { color: var(--indigo); font-weight: 500; }
+
+/* Pillars — light icon row */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 8px;
+}
+.pillar-card {
+  text-align: center;
+}
+.pillar-icon {
+  width: 84px; height: 84px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pillar-icon img { width: 100%; height: 100%; object-fit: contain; }
+.pillar-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+/* Centered section CTA */
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* Values — feature left + 2x2 right */
+.value-cards {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 64px;
+  margin-top: 52px;
+  align-items: center;
 }
 .value-index {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.28);
+  font-weight: 600;
   letter-spacing: 0.08em;
-  width: 32px;
-  flex-shrink: 0;
+  color: var(--indigo);
 }
-.value-text {
-  font-size: 20px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.90);
+/* Feature (Impact, team, profit) */
+.value-feature-illus {
+  max-width: 440px;
+  margin-bottom: 32px;
+}
+.value-feature-illus img { width: 100%; height: auto; display: block; }
+.value-feature .value-index { font-size: 13px; display: block; margin-bottom: 14px; }
+.value-feature-title {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.value-feature-desc {
+  font-size: 16.5px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 44ch;
+}
+/* 2x2 grid of remaining values */
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 36px;
+}
+.value-item {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--indigo-soft);
+  padding-top: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 200ms;
+}
+a.value-item:hover { border-top-color: var(--indigo); }
+.value-listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  transition: gap 200ms;
+}
+.value-listen::before {
+  content: "";
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent var(--indigo);
+}
+a.value-item:hover .value-listen { gap: 12px; }
+.value-item-illus {
+  height: 116px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.value-item-illus img {
+  max-height: 100%;
+  max-width: 90%;
+  width: auto;
+  object-fit: contain;
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+.value-item:hover .value-item-illus img { transform: scale(1.05); }
+.value-item .value-index { font-size: 12px; display: block; margin-bottom: 12px; }
+.value-item-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
   letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 9px;
+}
+.value-item-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
-/* Timeline */
-.timeline {
-  margin-top: 64px;
-  position: relative;
+/* Our Story — photo + timeline */
+.story-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: stretch;
+  margin-top: 48px;
 }
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  background: var(--line);
+.story-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--indigo-soft);
+}
+.story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Timeline — single-rail vertical, in a soft card */
+.timeline {
+  margin: 0;
+  background: var(--paper-cool);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 48px 52px;
 }
 .timeline-items {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 1fr 60px 1fr;
-  align-items: center;
-  gap: 0;
-  min-height: 80px;
+  grid-template-columns: 64px 28px 1fr;
+  column-gap: 24px;
+  padding-bottom: 40px;
 }
-.timeline-item:nth-child(even) .timeline-year { order: 3; text-align: left; padding-left: 40px; padding-right: 0; }
-.timeline-item:nth-child(even) .timeline-content { order: 1; text-align: right; padding-right: 40px; padding-left: 0; }
+.timeline-item:last-child { padding-bottom: 0; }
 .timeline-year {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--indigo);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-align: right;
-  padding-right: 40px;
-  padding: 16px 40px 16px 0;
+  padding-top: 1px;
 }
-.timeline-dot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.timeline-rail {
   position: relative;
-  z-index: 1;
 }
+.timeline-rail::before {        /* connecting line */
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 6px;
+  height: 100%;
+  width: 2px;
+  background: var(--line);
+}
+.timeline-item:last-child .timeline-rail::before { display: none; }
 .timeline-dot-inner {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translate(-50%, 0);
   width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--indigo);
-  border: 3px solid #f5f7ff;
+  border: 3px solid var(--paper-cool);
   box-shadow: 0 0 0 1px var(--indigo);
 }
 .timeline-content {
-  padding: 16px 0 16px 40px;
   font-size: 16px;
   color: var(--ink);
-  line-height: 1.5;
+  line-height: 1.55;
+  padding-top: 0;
 }
 .timeline-content strong {
   font-weight: 600;
@@ -268,34 +435,216 @@
   object-fit: cover;
 }
 
+/* Team visuals — map + photos */
+.team-visuals {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 16px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+.team-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.team-photos figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--indigo-soft);
+}
+.team-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Interactive office map — Dimagi style (deep indigo) */
+.team-map-cell {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--grad-deep, #0A0620);
+  box-shadow: 0 30px 60px -28px rgba(45,54,166,0.6);
+}
+#office-map {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  background: #0A0620;
+  z-index: 0;
+}
+/* tint the dark basemap toward Dimagi indigo */
+.team-map-cell .leaflet-tile {
+  filter: saturate(0.85) hue-rotate(8deg) brightness(0.92) contrast(1.05);
+}
+/* indigo→pink brand glow over the map */
+.team-map-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 18% 12%, rgba(56,67,208,0.30), transparent 55%),
+              radial-gradient(90% 80% at 90% 95%, rgba(154,81,131,0.28), transparent 60%);
+  mix-blend-mode: screen;
+  z-index: 400;
+}
+.team-map-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  z-index: 500;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(13,8,37,0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.leaflet-container { font-family: 'Work Sans', sans-serif; background: #0A0620; }
+.leaflet-control-attribution {
+  background: rgba(13,8,37,0.6) !important;
+  color: rgba(255,255,255,0.5) !important;
+}
+.leaflet-control-attribution a { color: rgba(255,255,255,0.7) !important; }
+/* glowing pin */
+.office-pin {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--marigold, #F2B705);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px rgba(242,183,5,0.35), 0 0 18px 4px rgba(242,183,5,0.55);
+}
+/* permanent office name labels on the map */
+.office-label.leaflet-tooltip {
+  background: rgba(13,8,37,0.78);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+.office-label.leaflet-tooltip::before { display: none; }
+
 /* Management team grid */
 .mgmt-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
   margin-top: 48px;
 }
 .mgmt-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 28px 28px 32px;
+  background: transparent;
+  transition: transform 240ms cubic-bezier(.2,.7,.2,1);
 }
+.mgmt-card:hover { transform: translateY(-4px); }
+.mgmt-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--paper-cool), var(--indigo-soft));
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 16px 32px -20px rgba(10,6,32,0.35);
+}
+.mgmt-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.02);
+  transition: transform 600ms cubic-bezier(.2,.7,.2,1);
+}
+.mgmt-card:hover .mgmt-photo img { transform: scale(1.045); }
+.mgmt-body { padding: 0 2px; }
 .mgmt-name {
-  font-size: 17px;
+  font-size: 16.5px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.01em;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  transition: color 200ms;
 }
+.mgmt-card:hover .mgmt-name { color: var(--indigo); }
 .mgmt-title {
-  font-size: 13.5px;
+  font-size: 12.5px;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.45;
+  font-family: var(--mono);
+  letter-spacing: 0.01em;
 }
 
+/* Resources grid */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px 28px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -14px rgba(10,6,32,0.14);
+  border-color: var(--indigo-soft);
+}
+.resource-icon {
+  width: 48px; height: 48px;
+  margin-bottom: 22px;
+}
+.resource-icon img { width: 100%; height: 100%; object-fit: contain; }
+.resource-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.resource-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+.resource-link {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.resource-card:hover .resource-link { gap: 10px; }
+
+@media (max-width: 1000px) {
+  .mgmt-grid { grid-template-columns: repeat(3, 1fr); }
+  .resource-grid { grid-template-columns: 1fr 1fr; }
+  .value-cards { grid-template-columns: 1fr; gap: 44px; }
+  .value-feature-illus { max-width: 360px; }
+  .story-layout { grid-template-columns: 1fr; }
+  .story-photo { aspect-ratio: 21 / 9; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; gap: 48px 32px; }
+}
 @media (max-width: 900px) {
   .mgmt-grid { grid-template-columns: 1fr 1fr; }
+  .team-visuals { grid-template-columns: 1fr; }
+  .team-map-cell { min-height: 360px; }
 }
 
 @media (max-width: 768px) {
@@ -303,16 +652,19 @@
   .stats-band-cell { border-right: none; border-bottom: 1px solid var(--line); }
   .mission-vision-grid { grid-template-columns: 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
-  .timeline::before { left: 20px; }
-  .timeline-item { grid-template-columns: 20px auto; }
-  .timeline-item .timeline-year { display: none; }
-  .timeline-item .timeline-dot { justify-content: flex-start; }
-  .timeline-item .timeline-content { grid-column: 2; padding-left: 24px; }
-  .timeline-item:nth-child(even) .timeline-year { display: none; }
-  .timeline-item:nth-child(even) .timeline-content { order: 2; text-align: left; padding-right: 0; padding-left: 24px; }
-  .timeline-item:nth-child(even) .timeline-dot { order: 1; justify-content: flex-start; }
+  .timeline { padding: 32px 24px; }
+  .timeline-item { grid-template-columns: 44px 22px 1fr; column-gap: 14px; padding-bottom: 30px; }
+  .timeline-year { font-size: 13px; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 40px; }
   .team-cols { grid-template-columns: 1fr; gap: 40px; }
-  .mgmt-grid { grid-template-columns: 1fr; }
+  .mgmt-grid { grid-template-columns: 1fr 1fr; }
+  .value-grid { grid-template-columns: 1fr; gap: 24px; }
+  .value-item { border-top-width: 1px; padding-top: 16px; }
+  #office-map { min-height: 320px; }
+  .team-visuals { grid-template-columns: 1fr; }
+  .team-map-cell { min-height: 320px; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .bcorp-callout { flex-direction: column; align-items: flex-start; text-align: left; }
 }
 </style>
 </head>
@@ -344,18 +696,15 @@
   <!-- Hero -->
   <section class="hero hero-dark">
     <div class="container">
-      <div class="hero-grid">
-        <div>
+      <div class="hero-grid hero-grid--solo">
+        <div class="hero-copy">
           <span class="eyebrow on-dark">About Dimagi</span>
-          <h1 class="hero-title">A Leading <em>Social Impact</em> Tech Company</h1>
+          <h1 class="hero-title">A leading <em>social impact</em> tech company</h1>
           <p class="hero-sub">Dimagi is a global tech-for-good social enterprise enabling impactful frontline work in locations all over the world, through scalable digital solutions and expert services.</p>
           <div class="hero-ctas">
             <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Work with us</a>
             <a class="btn btn-ghost-on-dark" href="../../company/careers/index.html">Join our team</a>
           </div>
-        </div>
-        <div class="hero-image">
-          <img src="../../assets/images/about-photo.jpg" alt="Dimagi team members working in the field" loading="eager">
         </div>
       </div>
     </div>
@@ -364,6 +713,7 @@
   <!-- Stats band -->
   <div class="stats-band">
     <div class="container">
+      <span class="stats-eyebrow">Our Impact</span>
       <div class="stats-band-grid">
         <div class="stats-band-cell">
           <div class="stats-band-num">130<span>+</span></div>
@@ -382,12 +732,11 @@
   </div>
 
   <!-- Mission & Vision -->
-  <section class="section">
+  <section class="section" id="why">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Mission &amp; Vision</span>
-        <h2 class="section-title">Driving lasting change through technology</h2>
-        <p class="section-lede">Everything we build, every partnership we form, and every program we support is guided by a clear sense of purpose.</p>
+        <span class="eyebrow">Our Why</span>
+        <p class="section-lede" style="margin-top: 8px;">At least 50% of people lack access to essential health services. Everything we build, every partnership we form, and every program we support is guided by a clear sense of purpose.</p>
       </div>
       <div class="mission-vision-grid">
         <div class="mv-card">
@@ -399,212 +748,291 @@
           <div class="mv-card-text">To build and scale sustainable, high-impact digital solutions that amplify frontline work.</div>
         </div>
       </div>
-      <p style="margin-top: 32px; font-size: 15px; color: var(--muted); line-height: 1.6;">Dimagi is a B Corp and a certified Benefit Corporation. At least 50% of people lack access to essential health services. We help bridge this gap by empowering Frontline Workers to deliver critical services to communities in need.</p>
+      <div class="bcorp-callout">
+        <div class="bcorp-badge"><b>B</b><span>CORP</span></div>
+        <p class="bcorp-text"><strong>Dimagi is a Certified B Corporation and a Benefit Corporation.</strong> We balance purpose and profit, and hold ourselves accountable to the communities we serve. <a href="https://dimagi.com/resource/annual-benefit-report/" target="_blank" rel="noopener">Read our Annual Benefit Report</a>.</p>
+      </div>
     </div>
   </section>
 
   <!-- 4 Pillars -->
-  <section class="section" style="background: #f5f7ff; padding-top: 0; padding-bottom: 120px;">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">What We Stand For</span>
         <h2 class="section-title">Our four pillars</h2>
-        <p class="section-lede">We hold ourselves to a high standard. Every product and program we work on must meet these four criteria.</p>
+        <p class="section-lede">To create and scale the most social impact through technology, we evaluate every product and program we work on against four pillars.</p>
       </div>
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-num">01</div>
+          <div class="pillar-icon"><img src="../../assets/images/about/hig-wellbeing.png" alt=""></div>
           <div class="pillar-title">Improves Wellbeing</div>
-          <p class="pillar-desc">We seek ideas that have the potential to ambitiously and provably improve wellbeing.</p>
+          <p class="pillar-desc">We seek ideas with the potential to ambitiously and provably improve wellbeing.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-num">02</div>
+          <div class="pillar-icon"><img src="../../assets/images/about/hig-inclusive.png" alt=""></div>
           <div class="pillar-title">Inclusive</div>
-          <p class="pillar-desc">We design to reach the most underserved populations, especially in technically challenging contexts.</p>
+          <p class="pillar-desc">We design to reach the most underserved populations, even in challenging contexts.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-num">03</div>
+          <div class="pillar-icon"><img src="../../assets/images/about/hig-robust.png" alt=""></div>
           <div class="pillar-title">Robust</div>
-          <p class="pillar-desc">We focus on building robust technology that meets the highest standards with a long-lasting foundation.</p>
+          <p class="pillar-desc">We build robust technology that meets the highest standards on a lasting foundation.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-num">04</div>
+          <div class="pillar-icon"><img src="../../assets/images/about/hig-market.png" alt=""></div>
           <div class="pillar-title">Market Driven</div>
-          <p class="pillar-desc">We balance merit and market. We ensure that all work has a path to scale via the market.</p>
+          <p class="pillar-desc">We balance merit and market, ensuring all work has a path to scale via the market.</p>
         </div>
+      </div>
+      <div class="section-cta">
+        <a class="btn btn-indigo btn-arrow" href="https://docs.google.com/document/d/1v_ial9hXI7Hy0c_T4A1uX-VOgx4DNeKNC_o_PZy4F2k/edit" target="_blank" rel="noopener">Read the High-Impact Growth framework</a>
       </div>
     </div>
   </section>
 
-  <!-- Values (dark) -->
-  <section class="section dark">
+  <!-- Values -->
+  <section class="section" id="values" style="background: var(--paper-cool);">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow on-dark">Our Culture</span>
+        <span class="eyebrow">Our Values</span>
         <h2 class="section-title">The values that guide us</h2>
-        <p class="section-lede">These aren't posters on a wall. They're how we make decisions, hire people, and hold ourselves accountable.</p>
+        <p class="section-lede">At Dimagi, we care deeply not only about what we do and the impact we have, but also about how we do it. Check out the following podcasts about each value, where Dimagi CEO Jonathan Jackson is joined by various Dimagi team members to discuss Dimagi's company values and what they mean to us.</p>
       </div>
-      <div class="values-list">
-        <div class="value-row" style="align-items: flex-start; flex-direction: column; gap: 8px; padding: 32px 0;">
-          <div style="display: flex; align-items: center; gap: 32px;">
-            <span class="value-index">01</span>
-            <span class="value-text">Impact, team, profit. In that order.</span>
-          </div>
-          <p style="margin-left: 64px; font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6;">This guides everything that we do as a company. We see that impact, team and profit create a virtuous flywheel.</p>
+      <div class="value-cards">
+        <div class="value-feature">
+          <div class="value-feature-illus"><img src="../../assets/images/about/value-impact.png" alt="Flywheel illustration of impact, team, and profit" loading="lazy"></div>
+          <h3 class="value-feature-title">Impact, team, profit. In that order.</h3>
+          <p class="value-feature-desc">This guides everything we do as a company. Impact, team, and profit create a virtuous flywheel, and keeping them in that order is how we make decisions, hire people, and hold ourselves accountable.</p>
         </div>
-        <div class="value-row">
-          <span class="value-index">02</span>
-          <span class="value-text">Be bold but humble</span>
-        </div>
-        <div class="value-row">
-          <span class="value-index">03</span>
-          <span class="value-text">Lead with empathy and respect</span>
-        </div>
-        <div class="value-row">
-          <span class="value-index">04</span>
-          <span class="value-text">Evolve by openly learning and sharing</span>
-        </div>
-        <div class="value-row">
-          <span class="value-index">05</span>
-          <span class="value-text">Embrace complexity for impact</span>
+        <div class="value-grid">
+          <a class="value-item" href="../../podcast/ep16-be-bold-but-humble-articulating-dimagis-culture-and-values/">
+            <div class="value-item-illus"><img src="../../assets/images/about/value-bold.png" alt="" loading="lazy"></div>
+            <h3 class="value-item-title">Be bold but humble</h3>
+            <p class="value-item-desc">We take ambitious swings while staying grounded, open, and willing to be wrong.</p>
+            <span class="value-listen">Listen to the Podcast</span>
+          </a>
+          <a class="value-item" href="../../podcast/ep18-lead-with-empathy-and-respect-articulating-dimagis-culture-and-values/">
+            <div class="value-item-illus"><img src="../../assets/images/about/value-empathy.png" alt="" loading="lazy"></div>
+            <h3 class="value-item-title">Lead with empathy and respect</h3>
+            <p class="value-item-desc">We center the people we serve and treat every colleague and partner with care.</p>
+            <span class="value-listen">Listen to the Podcast</span>
+          </a>
+          <a class="value-item" href="../../podcast/ep19-evolve-by-learning-and-sharing-openly-articulating-dimagis-culture-and-values/">
+            <div class="value-item-illus"><img src="../../assets/images/about/value-evolve.png" alt="" loading="lazy"></div>
+            <h3 class="value-item-title">Evolve by openly learning and sharing</h3>
+            <p class="value-item-desc">We learn in the open, share what works, and keep improving together.</p>
+            <span class="value-listen">Listen to the Podcast</span>
+          </a>
+          <a class="value-item" href="../../podcast/ep21-embrace-complexity-for-impact-articulating-dimagis-culture-and-values/">
+            <div class="value-item-illus"><img src="../../assets/images/about/value-complexity.png" alt="" loading="lazy"></div>
+            <h3 class="value-item-title">Embrace complexity for impact</h3>
+            <p class="value-item-desc">We lean into hard, messy problems, because that is where lasting impact lives.</p>
+            <span class="value-listen">Listen to the Podcast</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Timeline -->
-  <section class="section" style="background: #f5f7ff;">
+  <section class="section" id="story">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Our Story</span>
         <h2 class="section-title">Two decades of building what works</h2>
         <p class="section-lede">Dimagi's story on becoming a leading social impact tech company is one of resilience and well-timed pivots, combined with an unshakable commitment to positive impact on our end users and their communities. <a href="../../podcast/index.html" style="color: var(--indigo);">Hear our story on our podcast.</a></p>
       </div>
-      <div class="timeline">
+      <div class="story-layout">
+       <div class="story-photo">
+         <img src="../../assets/images/about/timeline-cake.jpg" alt="Dimagi 20th-anniversary celebration cake" loading="lazy">
+       </div>
+       <div class="timeline">
         <div class="timeline-items">
 
           <div class="timeline-item">
             <div class="timeline-year">2002</div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content"><strong>Dimagi founded</strong> based on desire to use technology for underserved populations.</div>
+            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>Dimagi founded</strong> based on a desire to use technology to serve underserved populations.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2008</div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
             <div class="timeline-content"><strong>CommCare</strong> flagship software platform created.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2010</div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
             <div class="timeline-content"><strong>Professional services team</strong> created for digital health applications.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2013</div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
             <div class="timeline-content"><strong>CommCare offered as Software-as-a-Service</strong>, making the platform accessible to organizations of every size around the world.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2022</div>
-            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
             <div class="timeline-content"><strong>CDC publishes non-inferiority eDOT study</strong> in NYC; SureAdhere acquired.</div>
           </div>
 
         </div>
+       </div>
       </div>
     </div>
   </section>
 
   <!-- Team -->
-  <section class="section">
+  <section class="section" id="team">
     <div class="container">
-      <div class="team-cols">
-        <div>
-          <span class="eyebrow">Our Team</span>
-          <h2 class="section-title">Problem solvers from every corner of the world</h2>
-          <p class="team-text">We are a diverse group of problem solvers, technologists, public health professionals, and social impact enthusiasts coming together to create a more equitable world through social impact tech.</p>
-          <div class="office-list">
-            <div class="office-item">
-              <div class="office-dot"></div>
-              Cambridge, Massachusetts
-            </div>
-            <div class="office-item">
-              <div class="office-dot"></div>
-              Cape Town, South Africa
-            </div>
-            <div class="office-item">
-              <div class="office-dot"></div>
-              Delhi, India
-            </div>
-            <div class="office-item">
-              <div class="office-dot"></div>
-              Remote-friendly global workforce
-            </div>
-          </div>
+      <div class="section-head">
+        <span class="eyebrow">Our Team</span>
+        <h2 class="section-title">Problem solvers from every corner of the world</h2>
+        <p class="section-lede">We are a diverse group of problem solvers, technologists, public health professionals, and social impact enthusiasts coming together to create a more equitable world through social impact tech.</p>
+      </div>
+
+      <div class="team-visuals">
+        <div class="team-map-cell">
+          <div id="office-map" role="img" aria-label="Interactive map showing Dimagi office locations in Cambridge, Cape Town, and Delhi"></div>
+          <span class="team-map-badge">Our offices</span>
         </div>
-        <div class="team-photo-wrap">
-          <img src="../../assets/images/about-photo.jpg" alt="Dimagi team" loading="lazy">
+        <div class="team-photos">
+          <figure><img src="../../assets/images/about/team-1.jpg" alt="Dimagi team gathering" loading="lazy"></figure>
+          <figure><img src="../../assets/images/about/team-2.jpg" alt="Dimagi colleagues collaborating" loading="lazy"></figure>
+          <figure><img src="../../assets/images/about/team-3.jpg" alt="Dimagi team event" loading="lazy"></figure>
+          <figure><img src="../../assets/images/about/field-2.jpg" alt="Dimagi team members working alongside frontline staff in the field" loading="lazy"></figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Management Team -->
+  <!-- Leadership Team -->
   <section class="section" style="background: #f5f7ff;">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Leadership</span>
-        <h2 class="section-title">Management Team</h2>
+        <span class="eyebrow">Our People</span>
+        <h2 class="section-title">Leadership team</h2>
         <p class="section-lede">The experienced leaders driving Dimagi's mission forward across technology, strategy, and global programs.</p>
       </div>
       <div class="mgmt-grid">
         <div class="mgmt-card">
-          <div class="mgmt-name">Jonathan Jackson</div>
-          <div class="mgmt-title">Co-Founder and CEO</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Jonathan Jackson</div>
+            <div class="mgmt-title">Co-Founder &amp; CEO</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Dr. Vikram Sheel Kumar</div>
-          <div class="mgmt-title">Founder and Chief Medical Officer</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/vikram-kumar.jpg" alt="Dr. Vikram Sheel Kumar" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Dr. Vikram Sheel Kumar</div>
+            <div class="mgmt-title">Founder &amp; Chief Medical Officer</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Lucina Tse</div>
-          <div class="mgmt-title">Chief Operating Officer / Co-President</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/lucina-tse.jpg" alt="Lucina Tse" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Lucina Tse</div>
+            <div class="mgmt-title">Chief Operating Officer / Co-President</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Dr. Neal Lesh</div>
-          <div class="mgmt-title">Chief Strategy Officer / Co-President</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/neal-lesh.jpg" alt="Dr. Neal Lesh" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Dr. Neal Lesh</div>
+            <div class="mgmt-title">Chief Strategy Officer / Co-President</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Clayton Sims</div>
-          <div class="mgmt-title">Chief Technology Officer</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/clayton-sims.jpg" alt="Clayton Sims" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Clayton Sims</div>
+            <div class="mgmt-title">Chief Technology Officer</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Ismaila Diene</div>
-          <div class="mgmt-title">Managing Director, Global Solutions</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/ismaila-diene.jpg" alt="Ismaila Diene" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Ismaila Diene</div>
+            <div class="mgmt-title">Managing Director, Global Solutions</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Gillian Javetski</div>
-          <div class="mgmt-title">Managing Director, CommCare</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/gillian-javetski.jpg" alt="Gillian Javetski" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Gillian Javetski</div>
+            <div class="mgmt-title">Managing Director, CommCare</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Matt Theis</div>
-          <div class="mgmt-title">Managing Director, Connect</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/matt-theis.jpg" alt="Matt Theis" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Matt Theis</div>
+            <div class="mgmt-title">Managing Director, Connect</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Lily Rush Olson</div>
-          <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/lily-rush-olson.jpg" alt="Lily Rush Olson" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Lily Rush Olson</div>
+            <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Sarah Sagan</div>
-          <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/sarah-sagan.jpg" alt="Sarah Sagan" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Sarah Sagan</div>
+            <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+          </div>
         </div>
         <div class="mgmt-card">
-          <div class="mgmt-name">Kelly Collins</div>
-          <div class="mgmt-title">Managing Director, SureAdhere</div>
+          <div class="mgmt-photo"><img src="../../assets/images/about/kelly-collins.jpg" alt="Kelly Collins" loading="lazy"></div>
+          <div class="mgmt-body">
+            <div class="mgmt-name">Kelly Collins</div>
+            <div class="mgmt-title">Managing Director, SureAdhere</div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Explore More</span>
+        <h2 class="section-title">Dig deeper into our work</h2>
+        <p class="section-lede">Guides, stories, and conversations from across our global community of practice.</p>
+      </div>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://dimagi.com/resources/" target="_blank" rel="noopener">
+          <div class="resource-icon"><img src="../../assets/images/about/icon-resources.svg" alt=""></div>
+          <div class="resource-title">Resource Hub</div>
+          <p class="resource-desc">Find the best of our guides, case studies, webinars, and toolkits.</p>
+          <span class="resource-link">Explore resources &rarr;</span>
+        </a>
+        <a class="resource-card" href="../../company/careers/index.html">
+          <div class="resource-icon"><img src="../../assets/images/about/icon-careers.svg" alt=""></div>
+          <div class="resource-title">Careers</div>
+          <p class="resource-desc">We're seeking impact-driven problem solvers to join our team.</p>
+          <span class="resource-link">See jobs &rarr;</span>
+        </a>
+        <a class="resource-card" href="../../blog/index.html">
+          <div class="resource-icon"><img src="../../assets/images/about/icon-blog.svg" alt=""></div>
+          <div class="resource-title">Blog</div>
+          <p class="resource-desc">Insights, stories, and lessons from our work across the globe.</p>
+          <span class="resource-link">Read the blog &rarr;</span>
+        </a>
+        <a class="resource-card" href="../../podcast/index.html">
+          <div class="resource-icon"><img src="../../assets/images/about/icon-podcast.svg" alt=""></div>
+          <div class="resource-title">Podcast</div>
+          <p class="resource-desc">High-Impact Growth: conversations on building for scale and impact.</p>
+          <span class="resource-link">Listen now &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -685,5 +1113,40 @@
   </div>
 </footer>
 <script src="../../assets/js/nav.js?v=4"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function () {
+  var el = document.getElementById('office-map');
+  if (!el || typeof L === 'undefined') return;
+  var offices = [
+    { name: 'Cambridge', region: 'Massachusetts, USA', coords: [42.3736, -71.1097], dir: 'right' },
+    { name: 'Cape Town', region: 'South Africa', coords: [-33.9249, 18.4241], dir: 'top' },
+    { name: 'Delhi', region: 'India', coords: [28.6139, 77.2090], dir: 'top' }
+  ];
+  var map = L.map(el, {
+    scrollWheelZoom: false,
+    zoomControl: true,
+    attributionControl: true,
+    minZoom: 1,
+    worldCopyJump: true
+  }).setView([18, 18], 2);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+  var icon = L.divIcon({ className: '', html: '<div class="office-pin"></div>', iconSize: [16, 16], iconAnchor: [8, 8] });
+  offices.forEach(function (o) {
+    L.marker(o.coords, { icon: icon })
+      .addTo(map)
+      .bindTooltip(o.name, { permanent: true, direction: o.dir, className: 'office-label', offset: o.dir === 'top' ? [0, -10] : [10, 0] });
+  });
+  map.on('focus', function () { map.scrollWheelZoom.enable(); });
+  map.on('blur', function () { map.scrollWheelZoom.disable(); });
+  // ensure correct sizing inside the flex/grid cell
+  setTimeout(function () { map.invalidateSize(); }, 250);
+  window.addEventListener('load', function () { map.invalidateSize(); });
+})();
+</script>
 </body>
 </html>

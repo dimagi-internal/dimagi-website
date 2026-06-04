@@ -47,8 +47,8 @@
   --rule: #C9CCE0;
 
   /* Muted */
-  --muted: #6B7388;
-  --muted-soft: #9DA3B5;
+  --muted: #646B80;       /* AA: 4.96:1 on #F5F7FF lavender, 5.31:1 on white */
+  --muted-soft: #6A7084;  /* AA: 4.60:1 lavender, 4.93:1 white — used for dates/labels/breadcrumbs */
 
   /* Semantic / state colors (B5) */
   --success: #358623; --success-subtle: #D9ECD4;

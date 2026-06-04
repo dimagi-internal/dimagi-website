@@ -30,7 +30,7 @@ def parse_page(slug):
     cat = g(r'<span class="article-category">(.*?)</span>')
     iso = g(r'article:published_time" content="([^"]+)"')[:10]
     desc = g(r'<meta name="description" content="([^"]*)"')
-    fig = g(r'<figure class="article-cover">(.*?)</figure>')
+    fig = g(r'<figure class="article-cover"[^>]*>(.*?)</figure>')
     src = re.search(r'src="([^"]+)"', fig)
     w = re.search(r'width="(\d+)"', fig)
     h = re.search(r'height="(\d+)"', fig)
