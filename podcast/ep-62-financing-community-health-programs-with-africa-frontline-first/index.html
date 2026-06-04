@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 62: Financing Community Health Programs in Africa | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Africa Frontline First&#x27;s Nan Chen on financing community health worker programs across Africa, the 10:1 return, and moving from policy to sustained budgets.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-62-financing-community-health-programs-with-africa-frontline-first/">
+<meta property="og:title" content="Ep 62: Financing Community Health Programs in Africa">
+<meta property="og:description" content="Nan Chen of Africa Frontline First on financing community health worker programs across Africa and making them last.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 29, 2024</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">Financing Community Health Programs in Africa</h1>
+        <p class="ep-deck">Nan Chen, Co-Executive Director of Africa Frontline First, on the financing challenge behind community health worker programs, and how better money and smarter coordination are moving them from political pilots to permanent fixtures of public health systems across Africa.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/4xJay86CJtekwJaFCvJYOo?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 62 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/4xJay86CJtekwJaFCvJYOo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000667148540" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/_OfHoi05Nk0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/247d3f87-2fae-4b7c-a326-410827da731e/high-impact-growth-financing-community-health-programs-with-africa-frontline-first" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">$219M</div>
+          <div class="ep-stat-label">allocated toward community health by countries Africa Frontline First worked with in the latest Global Fund cycle</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">11 to 1</div>
+          <div class="ep-stat-label">early refreshed return on investment for community health worker programs, up from the original 10 to 1</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">17,000</div>
+          <div class="ep-stat-label">new community health workers Burkina Faso planned to train with the new funding</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Half the world&#x27;s population lacks access to essential health services, and community health workers who bring care door to door in the hardest to reach places are an essential part of closing that gap. Yet despite a return on investment that has held at roughly 10 to 1, financing remains the primary barrier to scaling and sustaining these programs.</p>
+        <p>In this conversation, co-hosts Jonathan Jackson and Amie Vaccaro are joined by Nan Chen, Co-Executive Director of Africa Frontline First, a partnership of the Community Health Impact Coalition, the Financing Alliance for Health, and Last Mile Health. Born out of the COVID-19 moment at the urging of former Liberian president Ellen Johnson Sirleaf, the organization works to get more money to community health workers and to make existing money flow more effectively.</p>
+        <p>Nan traces the shift from arguing whether countries should invest in community health to figuring out how, and digs into the unglamorous technical assistance, resource mapping, and relationship building that puts ministries of health in the driver&#x27;s seat. The discussion also turns to the role of digital tools, payments, and Dimagi&#x27;s Learn, Deliver, Verify, and Pay model in bringing program costs down.</p>
+
+        <blockquote>
+          <p>&ldquo;Community health workers are cost effective. But they aren&#x27;t cheap. And that&#x27;s not a bad thing. Services and quality costs money.&rdquo;</p>
+          <cite>Nan Chen, Africa Frontline First</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From whether to how</strong>: over 40 African countries now recognize professional community health workers in policy, but fewer than 10 have a budget line for them</li>
+          <li><strong>The origin story</strong>: how the COVID moment and former president Ellen Johnson Sirleaf set Africa Frontline First in motion</li>
+          <li><strong>Government in the driver's seat</strong>: why resource mapping and Excel spreadsheets make ministries deal makers, not deal takers</li>
+          <li><strong>Making programs politics proof</strong>: institutionalizing community health so it survives changes in leadership and becomes routine</li>
+          <li><strong>Listening to commitment</strong>: the collective financing approach behind one plan, one budget, one M&E report</li>
+          <li><strong>Learn, Deliver, Verify, Pay</strong>: how digital tools and faster payments can lower the cost of running CHW programs</li>
+          <li><strong>Domestic ownership</strong>: the hard fiscal and political choice of moving health worker salaries onto government payrolls</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity. I’m Amie Vaccaro, senior director of marketing at Dimagi. And your co-host along with Jonathan Jackson, Dimagi CEO and co-founder.</p>
+              <p>On this podcast, we talk a lot about community health workers and how important community health programs are.</p>
+              <p>We’ve heard from a number of CHWs on this show, including Margaret Adara and Kenya. We talk on the show about the reality that 50% of people in this world lack access to essential health services, community health worker programs are an incredible way to close that gap. But the incomprehensible thing is that many governments have not been able to formalize or fully invest in these programs over time. In many cases, community health workers are volunteers. And not paid a salary.</p>
+              <p>Today we are joined by naan Chen, Chen, co-executive director of Africa, frontline first, an organization committed to increasing financing for community health to save and improve lives in Africa. We’ll get into the details about how Africa frontline first is driving the conversation forward around financing and funding, community health programs across Africa. Enjoy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Welcome to the podcast. So I am so excited today. I’m here with my cohost, Jonathan Jackson. Hey, Jon. Good to see you.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Hey everyone. Great to be here.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And we are honored to be joined by Nan Chen, who is the co-executive director of Africa Frontline First. And we are going to have an interesting conversation about the work that organization is doing. Some of the challenges they might be facing and their goals and how they’re approaching them.</p>
+              <p>So I want to start, Nan, with just a little bit of your story before we get into Africa Frontline First and what you’re working on. Tell us your story and how you came to this work.</p>
+              <p><span class="spk">Nan Chen:</span> Sure. Thanks, Amie. I have been doing this work with Africa Frontline First and with community health workers for about 10 years. But, when I am in this space, the mission driven space, I often have friends who knew exactly what they wanted to do from the get go, from when they were little or they knew they wanted to be a principal of a school or the CEO of a education rights organization.</p>
+              <p>That is not me. I think my career path here is marked by curiosity, which is what drives me, but also conundrums that I’ve run into and I’m hoping that we can find our ways out of. So when I first started work in, just after law school, I went into the policy field practice as a lawyer for some time.</p>
+              <p>And that’s where I thought that would be my career path. entry point to how we create a better world or create more justice in the world. And after doing that for some time, felt really deflated by that big gap between, What’s written on a policy and what actually happens during implementation or during interpretation of a law.</p>
+              <p>I then moved over to the social enterprise sector within Impact Investment in East Africa. I really enjoyed working there. I got to see a lot of promising practices, innovations, like how do we turn sanitation into energy products or how do we get smallholder farmers to really scale up their enterprises into cooperatives.</p>
+              <p>And then I found those bumped into this big hurdle with, or a wall with regulatory frameworks for how do we get governments to take on these really great ideas. So when I found my way eventually to working with an organization called Last Mile Health, that was a really interesting combination of the policy work and the practice work.</p>
+              <p>And Finance, where at the time Last Mile Health was growing and working with the government of Liberia to grow their community health program to take the innovative ideas, turn it into policy and get it funded. So that’s how I started coming into this work. The rest of the journey, which I can share a little bit more of is taking that idea, seeing how we can grow it in ever more complex ways.</p>
+              <p>And I think one of the things we learned, I’ve learned is as things get more complex, we need more partners and more collective action, which is where a lot of where Africa frontline first comes in.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And we’ve had the pleasure of talking several times over the years not in the work you were doing at Last Mile Health and the CHW vision that Last Mile Health had and that Africa Frontline First and many of us in the global community share. So I’d love to hear more about what is Africa Frontline First?</p>
+              <p>Why was it started? What problems are trying to solve and what is its role in the ecosystem?</p>
+              <p><span class="spk">Nan Chen:</span> Yeah. Let me share that. Let me start with. Just basics in case anybody in the audience hearing is not sure what a community health worker is. Imagine, your neighbor. Hopefully you’re good friends with your neighbor. Imagine your neighbor, you know them, they live near you you’ve had enough interactions with them that you trust them and sometimes trust their advice.</p>
+              <p>And imagine if they were able to bring you and your family, medical information, diagnoses, and health services. So you don’t have to go to a clinic, which might be close here, where I am in DC, in Arlington, Virginia, but might, for other people, might be quite far away and costly to get there. So community health workers are a solution to this access challenge, where it takes a long time to get to a clinic, it’s hard to reach there, but if you have a community health worker in your neighborhood, They are able to bring you health care right to your door.</p>
+              <p>So that’s the crux of what we do at Africa Frontline First is to take this idea of a community health worker or a CHW and find ways for it to grow in scale and get financed. The, The origin story here is in around, I think, 20, early 2020, I think the, or mid 2020 when the Covid pandemic was just rising.</p>
+              <p>Um, As I, I might have mentioned in a second earlier, I used to work with Last Mile Health in Liberia, building the community health programs there. At that time during the Ebola crisis, president’s Evelyn Jonson Sirleaf was a huge champion of rebuilding her health system and ha fast forward to 2020, she.</p>
+              <p>Is now an ex president but was also chairing the independent panel on pandemic preparedness. So she brought in and convened a few of her her colleagues, including myself, at the time I was leading health systems at Last Mile Health, and my now co executive director, Angela Kitchaga, who’s the CEO of the Financing Alliance for Health.</p>
+              <p>And what President Sirleaf essentially said to us at that moment was What I’m seeing now across the world and across the African continent with COVID 19 is what I saw a few years ago with Ebola in my country. It was a huge health tragedy, but it also created a moment and a moment of opportunity where we could reimagine and build something better, build something big.</p>
+              <p>So she said, let’s make this moment count. Give me something big on community health to champion and let’s get it done. So I think you don’t really say no to, to President Sirleaf. And so Angela and I got to brainstorming and we eventually brought back together the idea of Africa frontline first which is to really change the amount of financing and how funding and funding flows make community health workers more possible and more professionalized.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And you had mentioned policy practice, and I forgot the other um, financing is so critical to frontline programs and to CHWs. We’ve had multiple CHWs on the podcast and multiple advocates for, that are paid for CHWs, professionalization, and those areas.</p>
+              <p>So when Africa Frontline first was thinking about this big vision, was it a specific aspect of the problem that you’re thinking about tackling? Is it all of it? We Dimagi sit heavily on the implementation side of CHW programs with the technology that we support, but are tangentially involved in the policy side just as advocates supporting the amazing voices in our community.</p>
+              <p>know, But with Africa Frontline first, like where are you doing the advocacy? Where’s the fundraising? That kind of, how does it fit into the ecosystem?</p>
+              <p><span class="spk">Nan Chen:</span> Yeah, that’s a great question. Maybe I’ll start by saying it right now in 2024. It has never been a better time to be a community health worker in the policy space. If we were looking at this 10 years ago or 15 years ago, my first job at Last Mile Health was to write the investment case for the community health program in Liberia.</p>
+              <p>And as naive as I was, I thought it was a slam dunk. I thought it was a very good investment case. I would go into these like ministries of finance meetings or donor meetings with my Excel spreadsheets and my PowerPoint presentations and come out flummoxed because they’re like, no. I’m not going to pay for this. Password to now, I think over 40 countries on the continent of Africa have professional community health workers in some way in their policy or in their strategy. A lot of countries have them as remunerated. Others have them accredited. But if you ask 10 years ago, this would have been a big a big, whether or not we should do this question, not a how we should do this question.</p>
+              <p>So in terms of where the policy agenda and the vision for community health is going, that’s way ahead of the game here in terms of the countries that have this vision, but only 10 countries, In Africa right now have a budget line for community health workers less than 10 of them have a cost of plan that is part of an investment case.</p>
+              <p>So that’s where Africa frontline first comes in. Our goal is to use the tools of better financing to get more money to community health workers and to make the money that is already available. Flow flow more effectively. We do that through our main part of our work is we provide technical assistance in about 17 countries this year.</p>
+              <p>In each of those countries, we’re supporting things like the investment cases that I mentioned, or like mapping resources where, for example, I was, Literally just earlier today in a meeting with the ministers of health and one of the really jarring comments that came through it was a meeting with ministers of health and donors of the audience.</p>
+              <p>And she essentially said, don’t come into my house and tell me what to do. Don’t come into my house and mess up all of my furniture. And then and leave without, telling me what you did or giving me a voice in this. So part of the work on resource mapping, as sometimes as unsexy as Excel spreadsheets sound, it’s, it is, comes back to about how we put governments and the ministries of health in the driver’s seat to be the deal makers of, There are country agendas instead of the deal takers.</p>
+              <p>So we do a lot of technical assistance at AFF. We also provide work on the advocacy side, particularly with Africa CDC and on some of the design, financing design side.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And I think one of the things you mentioned, so there’s 40 countries that have strategies or policies that want to move towards a professionalized workforce, but only 10 that have line items. So obviously there’s a big gap to go and available funding and convincing governments that this is a a good way to spend their health systems budget.</p>
+              <p>And as you said, there’s studies that show a 10 to 1 return on the investment in CHWs. There’s studies that show even better returns. The health impacts can be outrageously positive when run well. And so I think 10 years ago, there was a journey was still out on CHW programs.</p>
+              <p>And that definitely feels like the momentum is a clear acknowledgement that. if you can get yourself into a state where you have a well run CHW program, it’s really good bang for the buck. I imagine one of the challenges at the practice level that Lasma might have contributed to in Liberia, or that many of the partners you and I know in the SHE Coalition work on in their respective regions, is an important policy to say you want a professionalized workforce, but it’s.</p>
+              <p>can be difficult to build that professionalized workforce to manage and support that professionalized workforce. And so of the, you know, your, your breadth of experience and in Liberia and elsewhere, and in the discussions you were just having with the ministers, are you seeing common approaches to, getting from that I’m one of the 40 countries that aspires to be there</p>
+              <p><span class="spk">Nan Chen:</span> Mm</p>
+              <p><span class="spk">Jonathan Jackson:</span> to, I’m one of the 10 countries that, Hopefully the 15, then the 20, then the 40 that budgeted for this, that succeeded at deploying.</p>
+              <p>Are you starting to see common strategies or themes emerge as this momentum has been building, particularly since Covid and during Covid?</p>
+              <p><span class="spk">Nan Chen:</span> That’s a really good question. I think there are commonalities that are emerging two years ago when the African Union brought together all of all member states on the community health challenge here. And part of that conversation, what I observed in that room and shared was that at this point, all countries, have a vision for universal health coverage and they know where they’re going, but everybody’s driving a different car and that’s okay.</p>
+              <p>In fact, that’s more than okay, because I think 10 years ago, you might be have looked at, oh, here, how do I replicate Ethiopia’s program or how do I replicate Rwanda’s program? Those are the programs that were had 20 or 30 years of experience, had a lot of research behind them. And they were often.</p>
+              <p>Countries are visiting Ethiopia, Rwanda, and saying what can I do this? But we, I heard from, you hear from a lot of ministers is they come back from these visits and say, you know what? I, it’s great for them, but I don’t think I can do that in my country because I don’t have the same governance system, the same institutions as a place like that.</p>
+              <p>When I think about how to let me say that I think there are common approaches, like developing the policy. There are service packages and training curriculums that are now more and more standardized, particularly with things like the WHO’s guidelines, as well as some of the work, that Africa CDC is doing we, we’re supporting them in, which is providing almost like a blueprint, technical guideline.</p>
+              <p>If I wanted a community health worker to deliver to promote COVID 19 vaccines and, or maybe deliver vaccination administration, there’s guidelines for that. I think where there isn’t a blueprint is the political and relational aspects of keeping the community health agenda high on the agenda.</p>
+              <p>mobilizing the finance behind it and keeping all the players aligned. I think there’s a lot of work to be done to figure that out. I have, I do have a suggestion on that. But let me pause to say, I think high level vision is there. There’s a lot of blueprints on the technical aspects of community health workforce development, and a lot of work to be done on the political reform aspects.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. I’d love, I’d love to hear what, what you wanted to follow up with there. And I’ll mention one thing as a lead into that. earlier in my career thought the thing that digital health companies needed to do. was build those relationships and then maintain priority, um, you know, to keep the focus, to keep getting more and more impact out of the technology.</p>
+              <p>And one of the things that Amie and I have talked a lot about over the years, as we’ve come up with our impact delivery framework and thinking through how digital health can really unlock massive impact, it’s dawned on us that our strategy should actually be like, how do you keep making sustained impact when you aren’t a top three priority?</p>
+              <p>How do you get yourself off needing to be a top priority and become routine, just become standard you know, like not not special work, not, the minister’s top priority, but just a normal level of effort gets you amazing, multiplier sustained impact. So I’d love to hear how you think about that within the CHW context and then also what you were going to say as a recommendation for that.</p>
+              <p><span class="spk">Nan Chen:</span> Yeah, I love that point about institutionalization. We used to talk about this as making the program politics proof, which is to say, as new presidents come in, oftentimes they have their own agendas. So there’s a part of this, which is how might you take the gains of a new community health program and rebrand it so that somebody else can put their stamp on it?</p>
+              <p>But I think you’re actually talking also about the. The deep level institutionalization where it’s no longer, as you said, a pilot program or a thing that anybody has to think about. It just becomes part of the culture, routine, and process of the public health system. And I think that is the goal.</p>
+              <p>I think it comes through, habit building. I’m trying to remember this, framework for habit building, but it’s something like behavior equals motivation plus. Ability and prompt or something like that. And if you take that into policy and practice world, where the early prompts might be big policy discussions, and you gotta spend lots of money convening people into one room and saying, this is our vision</p>
+              <p>In one of the places we’ve worked before, after a big policy launch, we spent the next two years doing what we call dissemination, rewriting everybody’s standard operating practices, retraining everybody on new jobs. Whether it’s a community health worker, a manager, or the district supervisor. And over months and months, those big level prompts, the big sirens and signals that say you’re in a new world, suddenly fade away, or slowly fade away, and you just realize this is the new normal.</p>
+              <p>And people’s jobs become much more routine. And so, whether it’s in community health policy, or maybe getting myself to work out a little bit more, or or in the world of, just regular old change management. I think it’s a bit of that whole. change process to get to a new normal.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. I just Googled. I think it’s behavior equals. Motivation times, Motivation times ability times prompt.</p>
+              <p><span class="spk">Nan Chen:</span> Ah, close. Yeah.</p>
+              <p><span class="spk">Jonathan Jackson:</span> formation for government as a whole to institutionalize this. And I think, one of the things we’ve, we try to think about is how does it become easier to stay in the new normal than to revert?</p>
+              <p>to the previous phase and the kind of standard people process technology like enterprise stuff. But I think that resonates a ton. And I think as we go into what you were about to discuss with your ideas for that blueprint, I think it can be I think in some ways writing the policy is easier, although it’s daunting than figuring out how to implement.</p>
+              <p>And I’m from the U. S. and we see this all the time in U. S. government with both political parties there can be great policy, but if there’s not a lot of really thoughtful muscle behind it and iteration, tuning, and continually updating it, it can, even the best policy can fail to make an impact, you know, that it had.</p>
+              <p>I’d, yeah, be curious to see, in the countries that you’re seeing really drive this, how are they, Learning as they go new evidence is coming out all the time on CHW programs, new potential diagnostics or interventions they could be doing are constantly coming out. The other thing that we feel on the tech side is often launching these big aspirational programs can feel like, okay, it’s 2020, we set up a four year goal, we have a CHW program, Non came in and wrote the policy, that’s now it. And you’re implementing that for the next four years, you’re like that doesn’t make a whole lot of sense. Like the whole benefit of CHWs are their adaptability, the, local trust and everything. I’m curious how you think about that because it’s, you can’t keep adapting it.</p>
+              <p>There’s not enough political will or capital to keep rewriting everything. At the same time, we need to be adaptive. Let you know, learn from experiences, learn from what’s working on the ground, and adapt to continually make that. An amazing experience for those CHWs, the managers, the district officers you were talking about, and most importantly, the clients.</p>
+              <p><span class="spk">Nan Chen:</span> Yeah. I want to draw back to on this idea of how perhaps it’s like how change happens or how change happens and stays or sticks. Another way to think about this that I, that might be relevant for what you’re asking is. Thinking about these centers of gravity, for what the normal is now and what are all the different pieces that you can move so that the center of gravity starts to shift.</p>
+              <p>As you were saying, so we don’t have to fall back, getting enough momentum to move out of that previous center. We think a lot about policy in these spaces, but I think perhaps something to remind ourselves of, or to remind listeners of, is there’s so many tools outside of policy. And especially when the policy window is not open.</p>
+              <p>In Uganda this is probably 2016, maybe 17, there was a lot of fervor for a new community health policy framed around community health extension workers, which was, in Uganda, there was an existing community health cadre called the Village Health Team by some estimates, almost 180, 000 of them, but they’re all spread out, pretty fragmented.</p>
+              <p>And that time there was a push to formalize. the Community Health Worker Quadra into what they were calling the CHOOSE, the CH, Community Health Extension Workers, if I remember right. That policy was developed, written, validated, went all the way up to the cabinet level in the country, and then was rejected at the presidential level.</p>
+              <p>And I remember talking to colleagues who were working on that more deeply than I was, and they were just deflated. There was even, I think, a newspaper article that outlined the loss. And so in instances like that, part of, they couldn’t move that one big node to a new gravity center. But the idea of the choose stayed in people’s minds.</p>
+              <p>Uh, They built, I think, a coalition of actors around it. Maybe the window kind of closed for a bit, but the idea stayed amongst the people. Others were piloting aspects of this better, more informed cadre, which is better training, digital tools. And now, I think as of last year, that new strategy is the policy.</p>
+              <p>A window opened again, the old ideas became new ideas, and the different coalitions came together with the policy. So I think that keeping the ideas, even if you don’t, if you lose the policy battle, figuring out the people, the practices, the pilots and the loose coalitions, I think is another way to, to think about policy change.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that story, Nan, and there’s so much rich insights from what you’re sharing. And I want to just take a moment to reflect back on some of the things that, that you both are saying of we’re, we’ve been. It sounds like there’s been an incredible arc that you’ve witnessed through your career, Nan, of moving from just trying to make the case that CHWs should be a thing to now, how do we actually do it?</p>
+              <p>And what it sounds like from what you’re sharing is Africa Frontline First is really making yourselves available, putting governments and MOHs, Ministries of Health in that driver’s seat, but making yourself available to really roll up your sleeves. Like when you’re describing the technical assistance work, it felt Yes, this is the really important, but the nitty gritty, probably non scalable work that just needs to be done.</p>
+              <p>And it’s individual for each country, right? It’s coming in and figuring out, like where are the gaps? Where are the misunderstandings? What are the resourcing guidelines that need to be in place? And it’s going to be a little bit different for each country. And I love that, that you’ve identified that as a gap and figured out ways to create.</p>
+              <p>Capacity there is that fair to just like my description of the T. A. as like this non scalable</p>
+              <p><span class="spk">Nan Chen:</span> Yeah, I think so. And it’s non scalable in the sense of it’s people and relationships which you can, we, and we want to try to accelerate that, but it doesn’t scale in the same way as other parts of like digital technology scale.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Right?</p>
+              <p><span class="spk">Nan Chen:</span> When, so last year In 11 countries, we provided that kind of technical assistance work that you were just talking about.</p>
+              <p>So last year, 2023 is when the Global Fund started their new, planning cycle. So the Global Fund is one of the biggest health funders in the world. They help fund Primarily they try to reduce the incidents of malaria, TB, and HIV. But as we know, or as many people know, those who are delivering on malaria, TB, and HIV are often the community health workers.</p>
+              <p>For a long time the Global Fund was focused and continues to be focused on these diseases, but this last year, during this funding cycle with planning, which is when they open up all the proposals for all countries, there was a a catalytic fund and a matching fund for community health workers.</p>
+              <p>And so we had worked with the Global Fund and some donors like Skoll, the Skoll Foundation and Jonson Jonson to create a bit of a window that allowed. And incentivize countries to invest more of their global fund allocations to community health workforce. So that’s the setup here, but the countries at the country level still need to make that decision of where to put their money.</p>
+              <p>And historically, for the last 20 years there was a lot of interest in malaria, HIV, and TB. And there’s almost like an existing incumbency. of all the actors who want to buy those services, pay for those services, or have a cadre of consultants write your Global Fund proposal to put this in. So in 2023, it was the first time ever that through a partnership with us, the community health directors in these countries were given basically their own set of, Actors, consultants to back them up at the table.</p>
+              <p>And there was also a lot of little process pieces where we said, you need to, there’s incentives to bring more community health to the table. There’s more incentives and we’re asking a lot more questions about that. But to your point, Amie, a lot of our, what we saw that was our teams brought data to the table, evidence and data and Excel spreadsheets.</p>
+              <p>And what they needed to learn was it’s all about the relationships.</p>
+              <p>We might have a seat at the table now, but we really need to know how to interact with those others at the table and figure out a solution that works for the country. It’s not going to be all community health workers all the time, but. And I figure out how to work the relationships there.</p>
+              <p>The end result here is at the end of the year from the countries that we have data back on, they allocated a total of $219 million towards community health. That’s as a result of some of the work that we contributed to, but really the leadership and the vision that Ministries of Health have for building their community health programs.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s amazing. And how in that of that 290M dollars. How is that getting spent? How are you seeing that playing out? And maybe it’s. too late or too soon to say, but I’m just curious, like, how are governments actually making this happen</p>
+              <p><span class="spk">Nan Chen:</span> Spending just started at the beginning of 2024. But we know how it’s being the some of the plans as well as some early results. For example, one of the countries, if I remember right, Burkina Faso is planning on spending that funding on about training about 17, 000 new community health workers, and they’re trying to, Improve their community health information systems.</p>
+              <p>So the systems and the technologies that allowed data to turn into better performance. Like they’re trying to improve that. I’ve heard just from the Zambia team not too long ago that some of the funding that is available now, they use that to create a new master lists for their community based volunteers.</p>
+              <p>The cvs. I think if I remember right, there was in Zambia at the time, there’s about 96, 000 or so CBVs in the country. But if you had asked me three years ago, I would not have been able to tell you how many there are. And so they’ve used that money to improve their knowledge of who’s out there, who ought to be trained, who have, who still needs training and who can now deliver the work.</p>
+              <p>So in general, countries are using it for a mix of remuneration and training of community health workers and system strengthening, which is the building, the data, the information systems, the supply chains that they need to really deliver.</p>
+              <p><span class="spk">Jonathan Jackson:</span> one of the things that I’m curious if you’re seeing, where the community health information system in Burkina, as you mentioned there’s other vendors out there that are supporting these on the digital side. There’s other vendors that are supporting on the training side, et cetera.</p>
+              <p>How much of their discussion, and you mentioned Africa CDC’s work on common guidelines and things. How much is there a discussion around bringing the total cost down, for countries that are trying to deploy this HW? systems and transformations, because as you said, they’re all driving different cars, but a lot of them are doing HIV, TB, malaria.</p>
+              <p>A lot of them are doing maternal and child health. A lot of them are referring to the local primary health center for issues. So there are a lot of commonalities as well. And so at the global level is there a discussion that is trying to say, okay, yeah, 200 million went in allocation so far.</p>
+              <p>We hope that’s 400 million next round and then 800 million, but. Are we getting more for each dollar going in? Are we bringing the</p>
+              <p><span class="spk">Nan Chen:</span> Yeah. Yeah, exactly. I think absolutely. Part of Africa frontline versus vision here is that not only are we bringing more money into the community health space, but that the money is being spent more effectively. I think there is a large, I would say that a large conversation around cost effective effectiveness.</p>
+              <p>I would start to say a health finance specialist once mentioned to me, community health workers are cost effective. But they aren’t cheap. And that’s not a bad thing. Services and quality costs money. So I don’t think we should, I think it’s a mistake to say that we, to race to the bottom and say we should lower, only think about lowering the cost of health services and CHWs are the way to do that.</p>
+              <p>We ought to be thinking about quality at the same time. And the fair wages and remuneration for CHWs. Now, that being said, community health workers are in fact one of the most cost effective solutions here. And I think there are ways in the future to keep, to make them even more cost effective.</p>
+              <p>Two things that do come to mind to me, and I think it’s part of the learning agenda for this sector. One is on the Use of digital technologies to decrease the running costs of the programming. So whether it’s using digital learning or blended learning to reduce the amount of training costs that you need to do.</p>
+              <p>So instead of having as many refreshers or as expensive refresher trainings you can use digital technologies to lower that cost. You can also use, there’s a lot of the work that is being done now is to identify. Bye. Where CHWs might be able to be more integrated into the system. There are, for example one of the biggest, I think, one of the biggest contributors to community health workforce is HIV services and HIV health workers.</p>
+              <p>But as. The epidemic curve for HIV becomes more sustained rather than having to do as many emergency or really reactive and responsive services. You might be able to start to routinize them a little bit more into the regular work of what other CHWs are doing. So that’s a opportunity for integration and cost savings.</p>
+              <p>There’s a lot of work to be done to optimize this, but I think there’s definitely a conversation out there and a lot of threads we can pull to reduce costs.</p>
+              <p><span class="spk">Jonathan Jackson:</span> it’s great. one of the initiatives we’re doing that we’ve talked about, which is really trying to look at can you scalably and digitally deliver, learning content, helping support delivery, improving verification of services provided, and then ultimately potentially tying that into payment.</p>
+              <p>When we think about those four, like Learn, Deliver, Verify, and Pay, as key pillars for bringing the cost down of these CHW programs. And that could be true of the kind of core service package, or also one of the things we’re really advocating for right now is, I got to this on the adaptability and resiliency, but, if you think about a lot of workforces, not everyone necessarily wants to operate at like the maximum number of hours they can bill for, or the maximum number of services they can offer.</p>
+              <p>Within a cadre, There might be, a basic package of essential services that CHW provides, and then maybe if some CHWs want to go above and beyond in their community, they can opt in to providing additional services for their community and get renumerated, additionally for that. So that you’re not having this huge one size fits all for tens of thousands of workers in disparate communities, urban, rural different, ethnicities and languages and things.</p>
+              <p>Because I just think one of the challenges like these It can feel monolithic sometimes, as we design these C HW programs, and the more technology, program, people, process, everything, not just the tech problem, can allow adaptability at the local level. I think the more efficient and cost effective these programs can get.</p>
+              <p><span class="spk">Nan Chen:</span> I 100 percent agree. And it’s similar to the point. I think I mentioned earlier where many years ago ministries would go to a place like Ethiopia or Rwanda and come back and just ask or feel a little uncomfortable. Like I can’t make, this is not the archetype of community health workforce. For my country, I might need something different, whether it’s, as you’re saying, different services or more flexible more flexible package of services.</p>
+              <p>I think we’re just on the cusp of this right now. There and I think tech technology has a big role to play in that kind of adaptability. But in the next, I would venture to say in the next probably 5 to 10 years, we’re going to see a lot more pluralism. In the community health space, you might have some countries with multiple different types of community health workers, some of them doing routine work every day and others that can be mobilized for it’s a cholera outbreak, or we’re now going to try a new, NCD, noncommunicable disease package.</p>
+              <p>It’s going to make us uncomfortable too. Because it’s going to look messy, but I think it’s also a place where technology can help create a little more sense out of all this variability we get. Oh, I should mention, as you did mention payments, just to add, I also think that’s a place where the cost curve can really go down. I worked in Indonesia before I, I joined the Last Mile Health, but coincidentally was working on a nutrition program that was using community births based midwives.</p>
+              <p>Which were similar to CHWs in a lot of ways. And Indonesia is a place where it has I think like 15, 000 islands in its geography. And the way that we were paying people, we’re just sending sacks of cash out to each island, cause we couldn’t get the mobile payment system working.</p>
+              <p>And the actual cost of delivery and the risk of delivery is enormous there.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, not just enormous it also has the potential for some of that cash to get lost. Along the way, unfortunately,</p>
+              <p><span class="spk">Nan Chen:</span> Yes.</p>
+              <p><span class="spk">Jonathan Jackson:</span> done a, yeah, we, we have a massive partnership with WHO and Gates looking at payments for health campaign workers. And the ability to, if you just think of yourself as a, the, go back to the original example you had, your neighbor is gone around the community providing services, and she doesn’t know when she’s gonna get paid by the government.</p>
+              <p>It’s often coming, months late. not a, that isn’t a recipe for building household wealth and for having economic security, which one of the huge benefits beyond just the health benefit of well funded CHW programs is you’re creating great jobs potentially for amazing community members who are pro social and helping out their community.</p>
+              <p>And if you can just get that paper transaction digital and do it in real time when they’re owed. That’s a huge benefit. And then the fact that you can then use data to know who’s owed what, and perhaps, reward different rates or have different workforce types. It just, it’s a huge game changer, but I think it’s as a global community, none of us that are respective employers worry about whether payroll gets processed, with the banking app, but like you CHW programs and there’s huge challenges of delayed payments or.</p>
+              <p>Lack of balance that CHWs have in the system. Yeah, I think payment is a massive opportunity for technology. And fortunately, a lot of stuff is moving in the right direction in terms of transaction costs from mobile money coming down, penetration of mobile money, digital banking, lots of different options here.</p>
+              <p>But that’s such an exciting area because it’s it can be transformative to just know you can rely on getting paid what you’re owed for the job that you’re doing.</p>
+              <p><span class="spk">Nan Chen:</span> it’ll be a, it is a game changer and I am looking forward to seeing where it goes.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I really appreciate it. I was going to bring us to technology, but you guys found your way there on your own, which is awesome. And I love, I actually had a bit of light bulb moment of just the way that. Jon, the new capabilities that we’re building out within CommCare Connect that Jon was describing around learn, deliver, verify, and pay, how those just play this really essential role in bringing down the cost, like creating the tech platform that brings on the cost of delivering high quality services while maintaining the quality.</p>
+              <p>Yeah, I really appreciate the ways that kind of tied back. I’m curious, Nan, and you mentioned. One trend that you’re seeing around this, like you referred to it as pluralism, right? Multiple cadres and just needing to make sense of many different groups of health workers.</p>
+              <p>What other trends are you seeing in the space? Like, where do you see things headed? And within that what excites you? What worries you?</p>
+              <p><span class="spk">Nan Chen:</span> That’s a good one. And a tough one. Predictions. you know, one Thing I think of when thinking about the, like, where the trends are going, and how do we wrestle with a complex, gnarly, emergent system here is to start with listening. So last year, 2023, I was sitting at this round table that was convened very well, convened, and we had all the right people there.</p>
+              <p>It was a round table on community health financing, and you had, private sector donors and public sector donors, CHWs, and a government representative. So you get everybody that you need, right? And as we were listening to it, everybody was saying the right things. Do you ever get that feeling, that sinking feeling that once we leave this room, nothing’s going to happen?</p>
+              <p>And so I had that feeling and I was actually luckily sitting next to a colleague from the Africa CDC. And I nudged him and I said, I wrote on my pad hey, this is going nowhere can we do something about it? And so what we did at the end of that meeting is the CDC and ourselves at Africa Frontline First committed to reconvening this group until we were able to get to a commitment.</p>
+              <p>And what we then for the rest of 2023, we conducted what we were calling a listening tour and asked everybody what’s hard about this. You are committed in principle, but why is it hard to make a choice to invest? What do you need? What is holding you back? And so this is a long way of answering your question, Amie, about a trend that I’m seeing is more coordinated and aligned financing.</p>
+              <p>That is coming out. What we heard in that group were these, I remember these kind of buzzwords or action words that kept coming through all the interviews, like gridlock or fragmentation or I’m willing to give up a little, but I need to see what’s at the end of this in terms of control.</p>
+              <p>So the elements that came out of that we, turned. We started with listening but that needs to turn into shared understanding. And so we, with the Africa CDC took, synthesize all these topics and brought together what we were trying to call, what we call it a collective financing approach.</p>
+              <p>And I won’t go through the whole thing, but it includes a lot of principles like putting government in the driver’s seat to set the agenda, but the agenda needs to also be much more clear. Costed to allow for those who are able to pull their funding to do but for others who can’t still allow, allowing them to set to invest against the same agenda and to have a lot of clarity, a lot more clarity on both the near term impact and the long term sustainability plan.</p>
+              <p>Those are some of the elements we would hear about over and over to say what can, what would get us all to the same table? And so we had shared understanding and then that next step was shared commitment, which we in the Africa CDC were able to bring about 13 institutions together in December to commit publicly to investing in a coordinated and collective way for community health behind country agendas and in favor of professionalizing community health workers.</p>
+              <p>So that’s the cycle from listening to understanding to commitment. And I think one of the big trends I’m hoping we’ll see is a lot more aligned funding, a lot more transparency in who’s funding what and the outcomes of those fundings together.</p>
+              <p><span class="spk">Jonathan Jackson:</span> hundred million dollar question I have on that cause we, we get this all the time. Now you can hear it when you’re talking to donors, their tiredness and, if I write a 10 CHWs, but I know this program costs a hundred million dollars. What’s the point? Or digital health too, is the government really going to sustain that?</p>
+              <p>So you can just like sense that tiredness in the global donor community. And I think what you’re saying is. critical aspect of how to create the enabling environment for donors to come in. One of the huge challenges of like costing is just literally like very technically difficult, are you paying 10 bucks or 20 bucks?</p>
+              <p>Like that just doubled the cost of your program, or, functions, a lot of this stuff. So how have you seen that, and then also I think putting a ton of technical effort into costing something when you’re unsure. If you can pull it off of it, it can be hard to motivate the government and its partners and everybody to come up with a realistic cost. For governments that might be listening or implementing partners or other technologists or policy folks what have you seen work there? What’s your advice on how to mobilize the resources to get far enough along on that costing It’d be credible going back to and costing evolves, right?</p>
+              <p>It’s not like a one time exercise. And we’ve just seen it is hard enough just to cost the. Digital health part of ch HW programs, which is a small percentage of the total, budget needed. So and I’m just curious what you’ve seen work there, because you’re right, like donors are constantly just like, I need, I need to see how this fits in more broadly.</p>
+              <p>Like I, I like the idea, I like digital training, or I like payments, or I like this and that, but what’s the bigger vision? What’s the bigger story? What’s the bigger price tag?</p>
+              <p><span class="spk">Nan Chen:</span> Yeah, there’s so much richness in that question. I’ll name a few themes I see. One is, and I need to remind myself this every day because I’m like a health finance nerd. We need to stop talking about just the costs. those, Those who are making decisions they need to know the benefits. And often, You mentioned that the 10 to 1 ROI report that was in, I think, in 2015, they’re actually just renewing it, refreshing it again this year.</p>
+              <p>And the early results still show an 11 to 1, I think now, ROI.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That was that, that extra one.</p>
+              <p><span class="spk">Nan Chen:</span> Yeah, exactly. Yeah. So we were totally wrong the first time. The thing is those benefits, economic analyses like that, they are not tangible for your average person. And also, if you’re a minister of finance, or you’re a budget you’re holding the budget.</p>
+              <p>You need to make decisions that are along one, two or three year timelines, not the lifetime productivity of a person who who, you know whose lives was saved. It’s a great thing, but we have to really adapt to the audience that we’re seeing. The other part of your question, which is how do we get to the big picture of.</p>
+              <p>Costs and benefits and convince people to invest in these systems in these community health programs. I think part of it is the idea of one budget, one plan, one M&amp; E report. If I were to summarize the whole listening tour that I mentioned earlier to three things, it’s this one plan, one budget, one M&amp; E report.</p>
+              <p>And so that even if I’m putting in, 500, 000 into a 100 million program, I can see. where my money is contributing as well as the full impact of the program. I think that is one way to have everybody be in this same boat. The other piece of this is transparency. I want to see what others are doing.</p>
+              <p>Not just my investments as a donor, but this whole coalition of donors is doing and to feel that impact is mine as well. Regardless of if I’m putting in 10 million or one, and I’ll name one last thing, which is maybe a trend that an emerging trend, Amie, and one that I hope will continue, which is about domestic revenues.</p>
+              <p>One of the. Biggest cost drivers for community health workers is their salaries. And there’s a lot of really good programs out there. And external funders who are now funding their salaries. When the President’s Malaria Initiative changed their policy to now fund CHW salaries, that was a game changer.</p>
+              <p>The Global Fund also funds a ton of community health workers salaries, and that’s a game changer as well.</p>
+              <p><span class="spk">Jonathan Jackson:</span> as a soapbox moment, it is ludicrous that in the first place, some of these donors policies forbid from spending money on CHW salaries. Just think about the history of, Of these programs, like the fact that was like legislatively required to not pay them salaries in some countries or in some donors.</p>
+              <p>So it’s great to see all that getting changed, but the fact that was true in the first place,</p>
+              <p><span class="spk">Nan Chen:</span> Yep. That’s work to do.</p>
+              <p>There’s definitely work to do on that front. But I think that now opened up, it’s funny because it’s now opening up a different discussion. It’s like donors are now paying for the salaries. And was just in a meeting earlier today when the Minister of Health was saying, she said, salaries, remuneration, motivation, that is the realm of national government.</p>
+              <p>We know we’re not there today. We need to start paying our own workers, and it’s a challenging, it’s incredibly challenging political decision to do that, not let alone the fiscal space. But I do think that there’s a lot of work to be done and a lot of opportunity for us to make that really hard choice of adding a community health worker to the system.</p>
+              <p>government budget to government payroll to make that hard choice a lot easier. Some of it is in the evidence and the costing that you were mentioning, Jonathan, but a lot of it is in the opening up that political space to make a hard choice a little bit easier. And I think both from a domestic standpoint, domestic advocacy and the external community health, sorry, global health community we can do a lot there to give them more openness.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Awesome. Well, We’ve had a ton of your time. We really appreciate it. The amazing work that you’re doing, that Africa Frontline First is doing, and most importantly, that all these amazing community health programs are doing. Is near and dear to our heart and this is great to connect with you and love to have you back on and hear how things are going down the road as well.</p>
+              <p><span class="spk">Nan Chen:</span> Lovely. Thanks, Jonathan. It’s really been nice to be here.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much, Nan. Appreciate it.</p>
+              <p>Thank you to Nan Chen for joining us today. Here are a couple of my takeaways from this conversation. It’s been proven that a community health worker program offers a 10 to one return on investment. Potentially even more. Conversations over time have shifted from, should we have a CHW program? To how can we have one which has solid progress.</p>
+              <p>And that’s where Africa, frontline first comes in. But moving forward from here is not easy and there’s a lot of work to be done across people, processes and technology. We talked about how hard the political reform aspect of sustaining this kind of program is. And we also talked about how might we make a community health worker program politics proof. How might we make the decision to invest in salaries, skilled, supported, and stocked community health workers in the words of community health impact coalition. Make that routine versus a political priority or pilot. Let’s make this standard work and just part of the culture so that it doesn’t get toppled.</p>
+              <p>As soon as political changes happen.</p>
+              <p>We touched on the role of digital tools and the way that digital can lower the cost. Of running a CHW program and make it easier for governments to roll it out and scale it and sustain it over time.</p>
+              <p>Jon spoke a bit about Comcare connect, which is an offering that we’re building at Dimagi.</p>
+              <p>And what you’ll hear more about on a future episode.</p>
+              <p>With Comcare connect, we’re building digital infrastructure. That can actually lower the costs of running a community health worker program. By allowing community health workers to digitally learn new skills. Deliver services verify that those services have been delivered and get paid.</p>
+              <p>We see those four components learn, deliver, verify, and pay as really key areas where technology can remove a lot of friction and make things more efficient.</p>
+              <p>And we also heard about a shift. That non CS. Towards more coordinated and aligned financing for community health worker programs.</p>
+              <p>Africa frontline. First intention is for governments to be in the driver’s seat to set the agenda on these programs. He talked about the need to create clarity. On the costing of the community health record program, the benefits and the longterm sustainability plan.</p>
+              <p>And he spoke about efforts to really listen deeply to stakeholders involved in these decisions and investments to create a shared understanding. And from there move towards a shared commitment.</p>
+              <p>If you’d like to learn more, please check out Africa, frontline first website, as well as the resources linked in the show notes. That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful. It really helps us grow our impact. And write to us@podcastatdimagi.com with any ideas, comments, or feedback. The show is executive produced by myself.</p>
+              <p>Michael Keller her is our producer and cover art is by Sudan. Shrikant.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NC</div>
+            <div class="person-info">
+              <p class="person-name">Nan Chen</p>
+              <p class="person-role">Co-Executive Director, working to increase and improve financing for community health worker programs across Africa.</p>
+              <span class="person-org">Africa Frontline First</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/4xJay86CJtekwJaFCvJYOo" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

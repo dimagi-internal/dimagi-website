@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 34: The Four Pillars of Community-Led Health: Insights from Julius Mbeya, Co-CEO at Lwala Community Alliance | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Julius Mbeya of Lwala Community Alliance on the four pillars of community-led health and reducing maternal and under-five deaths in Kenya.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep34-the-four-pillars-of-community-led-health-insights-from-lwala-community-alliance/">
+<meta property="og:title" content="Ep 34: The Four Pillars of Community-Led Health: Insights from Julius Mbeya, Co-CEO at Lwala Community Alliance">
+<meta property="og:description" content="Julius Mbeya of Lwala Community Alliance on the four pillars of community-led health in Kenya.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>April 25, 2023</span>
+          <span class="dot"></span>
+          <span>25 min</span>
+        </div>
+        <h1 class="ep-title">The Four Pillars of Community-Led Health: Insights from Julius Mbeya, Co-CEO at Lwala Community Alliance</h1>
+        <p class="ep-deck">Julius Mbeya, Co-CEO of Lwala Community Alliance, walks Jonathan Jackson through the four pillars of a community-led health model bringing quality, affordable care to the parts of Kenya that bear the heaviest burden of maternal and under-five deaths.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://www.youtube.com/embed/TNH8SIY4q3I"
+            width="100%" height="352" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="YouTube player: Episode 34 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000610617334" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/TNH8SIY4q3I?si=XyPwsz0trlRwBSyA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/f730e8f6-a16c-4781-8bf2-ff9413847a4c/high-impact-growth-the-four-pillars-of-community-led-health-insights-from-julius-mbeya-co-ceo-at-lwala-community-alliance" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">15 of 47</div>
+          <div class="ep-stat-label">Kenyan counties that account for 80% of the country&#x27;s maternal deaths</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">200+</div>
+          <div class="ep-stat-label">facilities in Migori with the government-deployed anti-shock garment for postpartum hemorrhage</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">1.4 million</div>
+          <div class="ep-stat-label">people Lwala aims to serve by making its county a model county</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In part one of a two-part series with Lwala Community Alliance, Jonathan Jackson sits down with Co-CEO Julius Mbeya to explore how a community-led health model is reshaping care in the parts of Kenya that carry a disproportionate burden of maternal and under-five deaths. Julius shares his own story, growing up in Western Kenya among the same health challenges Lwala now works to address, and what drew him to an organization founded by two young people determined to change what they saw.</p>
+        <p>He lays out the four pillars of Lwala&#x27;s community-led health model: empowering community committees, professionalizing and equipping community health workers, improving quality at health facilities in partnership with Kenya&#x27;s Ministry of Health, and generating data to demonstrate impact. Rather than spreading thin, Lwala goes deep where the need is greatest, then uses what it proves locally to inform national policy, from the non-pneumatic anti-shock garment for postpartum hemorrhage to a government-owned electronic community health information system.</p>
+        <p>Julius also describes how technology transformed the work. Moving community health workers off bulky paper records and onto CommCare by Dimagi gave Lwala near real-time data, individualized longitudinal tracking of clients, and workers who can prioritize the households that need them most.</p>
+
+        <blockquote>
+          <p>&ldquo;When we are talking about scale, we should be thinking about not just the metrically going broad, but how you changing the system in which that change is happening.&rdquo;</p>
+          <cite>Julius Mbeya, on what scale really means</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The founder story that drew him in</strong>: two young people who refused to accept the health challenges around them as the order of life</li>
+          <li><strong>The four pillars</strong> of Lwala's community-led health model: committees, professionalized community health workers, facility quality, and data</li>
+          <li><strong>Going deep, not just broad</strong>: focusing on the counties carrying the heaviest burden of maternal and under-five mortality</li>
+          <li><strong>From paper to CommCare</strong>: how digitizing community health work gave Lwala near real-time data and longitudinal client tracking</li>
+          <li><strong>Proving it locally, changing policy nationally</strong>: the non-pneumatic anti-shock garment, now recognized in Kenya's reproductive health policy</li>
+          <li><strong>Health as a global good</strong>: informing a government-owned electronic system for community health workers across Kenya</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi about the role of technology in creating a world where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost. Today we have the first part in a two part series created in collaboration with Le Walla community Alliance, an incredible organization based in LA Walla, Kenya that’s pioneering, a community led health model focused on the parts of Kenya. The bear disproportionate burdens of health challenges. If you haven’t heard of Loyola. Allah. I hope you’ll check them out after listening and part one today. My cohost and Dimagi CEO and co-founder Jonathan Jackson interviews. Luella’s co CEO, Julius Mbeya to learn more about this incredible organization and his background.</p>
+              <p><span class="spk">Jonathan:</span> Julius, thanks so much for joining us today and pleasure to get to chat with you. I wanted to start for our listeners just to hear a bit about your personal story and how you came to co-found la.</p>
+              <p><span class="spk">Julius:</span> Thanks, Jonathan also to correct the fact that I’m not really a co-founder, I’m co ceo. And That we have our founders, Fred and Milton, who founded the organization with their community in lower.</p>
+              <p>That said, like you’ve had, I am Julius . I was born in Southwest in Western Kenya, which is not very far from loa. The, the area in which LO law operates is the same, social group that I come from. And, some of the issues that Lola tries to address are the same issues that I experienced growing up, you know, like losing.</p>
+              <p>And sisters to HIV pandemic. And, seeing my older brothers and their, their, my sisters-in-law, you know, loose children at infancy, seeing my elder sister get pregnant in grade six. Those were. disheartening things, but you know, as a child you live with them. You really do not know for certain if something can be done about them or is just the order of life.</p>
+              <p>And so, I went on to, study PCO science at the University of Nairobi and, masters in same, and then really started engaging the development sector. Really, my first formal job was, Health clinics in urban, in informal settlements of Nairobi in Kibera and Corro, which are two large, SLS in Nairobi.</p>
+              <p>The whole idea was, can we offer, quality, affordable healthcare that these communities in the informal settlements could pay for? And. Even if it wasn’t to generate any income, but can it meet the cost of medicines? Can it meet the cost of salaries for nurses and really offer, basic care? The person we’re working with at that point was, some, Australian doctor who had spent years in rural Tanzania, trying to, you know, support communities there and, family believe.</p>
+              <p>It’s possible to provide some dignified care, at, at a very small cost. Anyhow, I went on to work, or spent time in international development where, I went on to work for the UN Development Program, supporting other</p>
+              <p>organizations here in Kenya and then to action Denmark in Tan. Where my role, again was capacity supports to other organizations.</p>
+              <p>Now this is where I came to meet up Lua and I made the, the decision to come to Lua based on really the first things that I talked about here was an organization really from my backyard.</p>
+              <p><span class="spk">Jonathan:</span> Wonderful. And can you speak to, now you’ve been there for seven years, obviously the organization is doing an amazing amount of work and breadth of work, but, what were the elements that really drew you to it initially?</p>
+              <p><span class="spk">Julius:</span> The two things that really made me sign up, one was, you know, our founder story, really compelling that two young people, saw a problem and decided to do something about it. Everywhere. I mean, we face challenges in life in our private spaces in public, but very few people take the step to say, Hey, this cannot go on like this. We need to do something about it. And I think. to see that come from people who are younger than me was really challenging and, and inspiring at the same time. And then secondly also, that the organization had already started seeing something happen in terms of transforming lives. And there was a desire to do this at a larger scale. and so coming in to actualize that growth strategy and to see what the organization can. More broadly.</p>
+              <p><span class="spk">Jonathan:</span> So can you tell us just a bit about what, what AL’S total areas of work are?</p>
+              <p><span class="spk">Julius:</span> Yeah. Broadly, works with communities to address the health challenges that they face. And, we do this through a model that we call the community led health model, which is essentially building community committees or working with committees. The idea that self-organizing can actually provide solutions to challenge. And so for that, we work with committees in the health system such as the community health committees and health facility management committees, and these are structures that already existed in our health system that then we empower and make function. Also, that they can play their accountability role, but also address issues that they face as communities themselves. The second bit of the pillar is professionalized community health. And the unique identifiers that lu incorporates traditional birth attendants into government, C H V or community health volunteer card. And then we train them, we equip them with tools to deliver services with digital tools to be able to, aid what they do.</p>
+              <p>And this is why it’s important talking about this. This, this podcast really is about how technology enables the work, that community health workers are able to do and the work that we’ve done with dimagi, to that effect. So, professionalization, equipping, digitizing, paying, supervising, and deploying community health workers to be able to, offer services in the homes and for those who are coming into. Contact with the idea of community health workers, are new. These are lay health people. It’s your neighbor, your auntie, your mom, but people who have actually given of themselves with basic training to be able to support families in their own health. So , they identify pregnant women early by offering pregnant pregnancy. Then they, refer these women to health clinics so that they can start their antenatal care journey. They ensure that they deliver to health clinic. And when the baby’s born, then they follow up with this mother and baby in our program. That was on up until five years when then we, know that that child has been setting a good foundation to, to grow. The third component of our pillar is work at health. Are, and so we partner there is a Lua hospital, but we also partner with the Ministry of Health in Kenya to build quality in primary healthcare facilities. And this is done with the idea that as community health workers generate demand at community level, when patients go to the health clinic, they should get the quality of care that they were promised. So how do we, train providers address provider? To make them more amenable and friendly to clients. How do we ensure that commodities are available? How do we ensure that these health facilities are well governed in doing the work that they’re supposed to do? And then the fourth and the last component of the community health model is data, which is essentially wanting to generate. That goes on to demonstrate the impact that we are creating. And that data is gathered through, methods like community health worker, mobile phone technology, which enables them to be able to collect data from the household level. We combine that with other data sets like in the health information system, the K, national Health Information System, K H I S. Or DHS tours, it’s well known elsewhere. And then other researchers so that we can at any time be able to communicate our evidence from, data informed perspective. So those are those, that’s what we do by, on a practical basis. Therefore, it is working on issues of maternal and child health, ensuring that the Are not dying or we are reducing maternal mortalities. We are reducing child and under five mortality and all other interrelated factors that contribute like, to either five and maternal deaths such as adolescent and I issues such as, teen pregnancies. So, maternal and child health being the main focus</p>
+              <p><span class="spk">Jonathan:</span> It’s wonderful to hear the breadth of work that Lo Wallo is doing and tho those pillars to your strategy. And I know we’ve worked together for years, with Comcare supporting the community health, workers, and we’ll hear from several of lo Wallo as well. , but you mentioned so much amazing work and the community led model.</p>
+              <p>How do you work with the government and those committees that you mentioned to figure out the right areas to focus on in terms of, you know, health programming or the priority areas? Because as you, as you mentioned, there’s a lot to focus on, a lot to support, and you’re one of the few organizations that, that we partner with and I think that exist, that focus both on community healthcare workers and facilities and hospitals.</p>
+              <p>So, you know, having that full vertical, health system approach where you really can target just such a huge breadth of health programming. How do you work with the communities to choose where to focus?</p>
+              <p><span class="spk">Julius:</span> Yeah. I think number one is that to note that our communities are where we are working is already, very underprivileged part of the country. This is a section of the country that bears this proportionate burden of under five and maternal mortality. And, uh, exacerbated mainly also by the predominance of hiv aids. That this is the region that was worst hit and still accounts for a lot of hiv. Deaths or, or cases because, for the counties that we focus on, we almost three times the national average in HIV infection. So the burden of hIV is still really, big. And with that Then, other components. If you look at counties that contribute to the most maternal deaths in Kenya, migo is one of those counties, 15 counties accounting for 80% of maternal deaths in kenya. The area is already under privilege and in terms of the health indicators and not doing very great in a number of health indicators, so that given therefore our role and our workers, who are, we determined that the work that we do will only go to scale if we work to governments. That’s why, for example, on matters of quality improvement or, health, work at the health.</p>
+              <p>We learned what we were able to do at the Nuala Hospital, but we were also very aware that as an organization we cannot run several other similar hospitals. But then how can we use lua Hospital as a place to learn from, as a place to test new ideas, test new technologies, and I will be talking about some of the technologies that we have tested in Lu, then use those successes to be able to inform what is happen. In the health system, when it comes to the community health piece, it, we go with the government infrastructure. We know that there are community health volunteers in various forms across the country. They are not properly organized, they’re not trained, they’re not equipped. Our role is to check that infrastructure professional.</p>
+              <p>And then deploy and then see what it can be able to do. And that is where technology then becomes very important. Then in our work, for example, what we are doing with Comcare, we are able to do individualized tracking of beneficiaries. So all the clients that we are seeing, and that longitudinal tracking allows us to be able to see if changes are actually happening at individual family level.</p>
+              <p>So we look at data. Number one, we are already in a dis disadvantaged region, but also within that, then we look at the data. Our intention is to make the entire county a model county, so the 1.1 million people. So it’s not even choosing. Where, but really how do We go deep and broad enough to be able to serve these 1.4 million people? Then for additional counties in Kenya, the things that have helped us, or we are looking at, we are looking at maternal deaths, across those counties. We are looking at under five mortality rates in those counties. And then that gives us a pattern, that we, so, like I said earlier, we already know that 15 counties, only 15 out of 47 account for 80% of maternal death ing.</p>
+              <p>If you focused on those alone, then it means that you change the worst 15 or the worst 10. Then you change the whole country because the burden is not shared equally across the country. And that is our strategy</p>
+              <p><span class="spk">Jonathan:</span> and I love that description because there’s such a. In the development sector to scale broad as opposed to going deeper. You know, where the burden is and that model that you have had for so many years, I think is, is so critical because that’s right. You know, the, the, the interventions that are partially working where you’ve invested in that government infrastructure, where you’ve built that, evidence base of being able to improve quality over time. I believe we should be doubling down in those areas, not then asking the wallet to go start a new country or start in a new county, but really make as much impact as, as you can, building on the infrastructure you’ve been building.</p>
+              <p><span class="spk">Julius:</span> Yeah. But that is not to say that, you should not go national scale, for example. And now change is political, so we also need to work at policy level so that even as we are making the efforts down here, the policy. Environment is enabling enough for that change to happen. And so that is the reason why for Lu example, we are deeply engaged with the National Ministry of Health, where we are using the lessons that we’ve learned inor in working with communities there to be able to inform national policy.</p>
+              <p>Earlier on, I talked for example, about the work we are doing, technologies that we are, we are. In supporting public health facilities. The case of one of those is what we do with in managing obstetric hemorrhage. This is bleeding excessive bleeding after birth. And, I mean, this is the number one killer of women, in our area.</p>
+              <p>And so, took up technology, simple technology that helps in managing this together with training. It’s called the Nomatic and, Shock government, and started deploying that in mior and we saw so much success. Right now, mior is having over 200 facilities with the government deployed, which means that if a woman was to go into shock, they can actually be able to get this lifesaving device as they look for advanced care.</p>
+              <p>Having done that and seeing what was possible, in McGorry, we engaged the National ministry of Health to see how this can be mainstream in policy so that other people can actually be able to use it, and we’ve succeeded in ensuring that. The Magistrate of care guidelines now has the Nomatic anti Shock Government. Our new reproductive health policy 2030 recognizes, the Antis Shock Government as a strategic commodity, for maternal and maternal neonatal health. And then we are now moving to see how government can be able to avail budgets for this commodity to be Made available and So, the essence of it is really to ensure that even as we are succeeding locally, whatever we are learning can inform national policy.</p>
+              <p>At the same time, what is happening at policy level can get to be implemented, on the ground. So it’s going full circle, And, I think that is what we should, when we are talking about scale. We should be thinking about not just the metrically going broad, but how you changing the system in which that change is happening so that it can be able to bolster the change you have created or even open opportunities for places that, you might not be.</p>
+              <p><span class="spk">Jonathan:</span> I completely love that model of, of proving it, you know, deep and what is possible. And then doing that advocacy at the national level. And the Walla doesn’t just do that advocacy at the national level. They’re a major advocate for community health workers globally as part of the Community Health Impact Coalition. One of the really interesting models I’d love to hear is the last question. Lo Walla has been able to successfully partner with the government to support workers that are part of the Walla community workforce to do even more than the standard job, that the government’s defined for a community healthcare worker quite successfully shown how much more. Capacity, capability and, service delivery capacity that really is in this workforce and being able to pay them for that additional work that they’re doing as part of your model and, and worked in partnership with the government technology, that capability. So I’d love to hear how has that partnership worked, and how might that scale to really unlock the full potential of this workforce and support them to be paid more as they deserve?</p>
+              <p><span class="spk">Julius:</span> Yeah, let me, go back a little bit, to start with how all that started. It started. Of course we were working or training professionalizing community health workers, but they still depended on paper record keeping. Now, the problem with paper record keeping is that, number one, the tools are very bulky. So even moving from place to place with those. Is very, cumbersome. They are not available. So it means that a number of community health workers would go about their work without the necessary tools, the registers or the tools themselves. If they are paper-based, it means that you cannot be nimble enough to change them, to adapt to new issues or new needs that might arise. So with all this, we started thinking. How do we digitize And then we were interested in the individual tracking in a way that you can actually be able to see the changes that are happening at household level. So the first step that we had was to see if we can build a database of our clients, that then as the community of workers do their work using paper forms, then they can be able to, we with feedback. we will fill the, the database with that, and we did that for some time, but it was apparent that any time that the most current data we had was a month or two behind because the community health workers are working for a month.</p>
+              <p>Then they submit the reports, then the reports get uploaded into Salesforce, and then we started looking for a solution that would enable us to make this happen more. And that’s how comcare came to be, that we were able to find a tool that we could quickly adapt, use it to mirror the Ministry of Health tools or the indicators that we were tracking, and then to be able to integrate that with Salesforce so that it can be able to push data more easily. And that was transformative. It was transformative in the sense that then we were having most current data, then we were. Very clear view of what our client base looks like. And then we’re able now to, community health worker would be better organized in knowing which clients are in what status because they’re now technology enabled. They will know households that are due for visits. They will know households that are priority because the system has been set to be able to do that. And as went on with this, conversations were also happening nation. In trying to address the need for an electronic system for reporting by community health workers. So landscape analysis was done and a few solutions, including Comcare, was identified, through the work that we had done with, with Comcare in Nuala as having the minimum system requirements that could actually go into this digital system. So anyway, it did inform the design of this. And I think where the country is right now is looking at a system that can be used more broadly, not just in Nigo, but in kenya as a whole. And I think that, people like DMA have a role to play, thinking about. You know, health as a global good and thinking of ways in which some of these things can be made available to countries like ours and to be able to deliver better health</p>
+              <p><span class="spk">Jonathan:</span> Thank you so much Julius.</p>
+              <p>In part two of this two-part series, you’ll be hearing from three community health workers supported by law Walla community Alliance. You’ll hear how they got into community health. What a typical day looks like the challenges and joys of their work and what messages they’d like you dear listener to hear.</p>
+              <p>Before we wrap, I’ll share a couple takeaways from what I learned from Julius. Julie’s describes the Walla is community led health model, which is built on the idea that community is self-organizing can create solutions to their challenges. It describes the four pillars of this model. One community committees to professionalize community health workers within those communities. Three. Working to improve primary health care quality at health facilities and for data and generating evidence that the model is working. Loyola is focused on reducing maternal and under five deaths and has taken a strategy that prioritizes the counties with the largest burden of these health challenges.</p>
+              <p>One key element that Julius talks about is the role of technology and really enabling the community health workers that lo Walla supports. He describes the physical burden on community health workers of using paper to do their work. And with that he shares the transformative role that technology has had</p>
+              <p>to enable the community health workers. They support to become more nimble and agile and both deliver better services as well as ensure that data is flowing for better. Decision-making.</p>
+              <p>Loyola is using CommCare by Dimagi and they are also part of a national effort to create a government owned electronic community health information system to be used by CHWs across the country.</p>
+              <p>Lastly, there’s incredible wisdom in the approach that Julius described of going deep.</p>
+              <p>And delivering more services to communities most in need. Collecting the data to create an evidence base of what works and doesn’t, and then working to advocate for broader change based on those learnings.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact and write to us as always@podcastatdimagi.com with your ideas. Uh, comments or feedback. The show is executive produced by myself. Danielle van wick is our producer. Brianna DeRoose is our editor and cover art is by Sudan, Chicano.</p>
+              <p>Thank you.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">JM</div>
+            <div class="person-info">
+              <p class="person-name">Julius Mbeya</p>
+              <p class="person-role">Co-CEO, leading Lwala&#x27;s community-led health model and its partnerships with Kenya&#x27;s government to reduce maternal and under-five mortality.</p>
+              <span class="person-org">Lwala Community Alliance</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://youtu.be/TNH8SIY4q3I?si=XyPwsz0trlRwBSyA" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

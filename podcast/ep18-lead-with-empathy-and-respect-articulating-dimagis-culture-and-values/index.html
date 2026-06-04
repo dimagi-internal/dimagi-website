@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 18: Lead with Empathy and Respect: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 2) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi&#x27;s team unpacks its second core value, lead with empathy and respect, and what caring how the work gets done looks like across a global team.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep18-lead-with-empathy-and-respect-articulating-dimagis-culture-and-values/">
+<meta property="og:title" content="Ep 18: Lead with Empathy and Respect: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 2)">
+<meta property="og:description" content="Dimagi&#x27;s team on its second core value: leading with empathy and respect across a global, remote team.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>December 12, 2022</span>
+          <span class="dot"></span>
+          <span>16 min</span>
+        </div>
+        <h1 class="ep-title">Lead with Empathy and Respect: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 2)</h1>
+        <p class="ep-deck">Part two of Dimagi&#x27;s values mini-series. Lucina Tse, Gillian Javetski, Avni Singhal, and Simon Kelly join hosts Jonathan Jackson and Amie Vaccaro to unpack what it means to lead with empathy and respect across a fast-growing, global, remote team.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/44LSfbCIhCOD6kAPnRJgg5?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 18 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/44LSfbCIhCOD6kAPnRJgg5" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000621194276" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/yB-B33JCB_o" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/0a532c9f-ed10-493c-a623-256ec6652baa/high-impact-growth-lead-with-empathy-and-respect-articulating-dimagi%E2%80%99s-culture-and-values-with-lucina-tse-gillian-javetski-avni-singhal-and-simon-kelly-part-2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">80%</div>
+          <div class="ep-stat-label">of the time it is easy to be respectful and empathetic, per Jonathan Jackson</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">20%</div>
+          <div class="ep-stat-label">the harder stretch where leading with empathy and respect truly matters</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">40 hours</div>
+          <div class="ep-stat-label">the stressful travel some trips take to reach a destination</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>“80% of the time, it’s easy to be respectful and empathetic. But that last 20% of the time, that’s where the rubber really meets the road. It’s being respectful and empathetic all of the time that really brings the team together and allows us to have these outsized, impactful outcomes… And that’s really hard in an industry that is so stressful and complex as ours.”  – Jonathan Jackson, Dimagi CEO</p>
+        <p>Co-hosts Jonathan Jackson and Amie Vaccaro are joined by fellow Dimagi team members – Lucina Tse, Chief Operating Officer, Gillian Javetski, Chief of Staff, Avni Singhal, Senior Customer Success Manager, and Simon Kelly, Director of Server Engineering – to discuss the second in Dimagi’s newly articulated values: Lead with Empathy and Respect. At Dimagi, we care deeply not only about what we do and the impact we have, but also about HOW we do it. Articulating our values has become incredibly important as we are growing quickly all over the world. Listen to the episode to hear candid reflections on what it looks like to lead with empathy and respect.</p>
+        <p>Full description of the newly articulated value:</p>
+        <p>Lead with empathy and respect</p>
+        <p>We treat each other with kindness, empathy and respect, creating space for all voices and stories to be heard. We are building an equitable, inclusive and safe environment where we can bring our authentic selves to work.</p>
+
+        <blockquote>
+          <p>&ldquo;80% of the time, it&#x27;s easy to be respectful and empathetic. But that last 20% of the time, that&#x27;s where the rubber really meets the road.&rdquo;</p>
+          <cite>Jonathan Jackson, Dimagi CEO</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The value itself</strong>: treating each other with kindness and respect, creating space for all voices and stories to be heard</li>
+          <li><strong>Why people stay</strong>: Avni Singhal on a flat organization where leaders patiently listen, and recognition comes without pressure to compete</li>
+          <li><strong>Teams as people, not org charts</strong>: Simon Kelly on managing groups of individuals and standing in the gap during family challenges</li>
+          <li><strong>Equity by design</strong>: Lucina Tse on asking whether every new benefit and process works fairly across Africa, India, the US, and beyond</li>
+          <li><strong>Money where your mouth is</strong>: Gillian Javetski on Dimagi's transparent pay scale and balancing social-impact salaries with real recognition</li>
+          <li><strong>The last 20%</strong>: leading with empathy under severe stress, and extending that respect to partners and the broader ecosystem, not just inside the team</li>
+          <li><strong>Remote and cross-cultural</strong>: why in-person summits and human connection make empathy easier when communication gets hard</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to High Impact Growth. A podcast from Dimagi about the role of technology. And creating a world where everyone has access to the services, they need to thrive. I’m Amie Vaccaro, senior director of marketing at Dimagi. And your co-host along with Dimagi CEO, Jonathan Jackson. Today we have the second and a special mini series of episodes about company culture.</p>
+              <p>We’ve just finished a process of articulating Dimagi is values. Which define how we get great work done together. We want to be as proud of how we got our work done. As we are of what we actually do. Today, Jonathan and I are speaking to Lucina Tse chief operating officer Gillian Javetski chief of staff. Avni Singhal senior customer success manager. And Simon Kelly director of server engineering to hear what the second new value means.</p>
+              <p>The second new value that we are rolling out is lead with empathy and respect, and I’m going to read through this to give a little bit of context and then can’t wait to hear from each of you on your thoughts. We treat each other with kindness, empathy and respect, space for all voices and stories to be heard. We’re building an equitable, inclusive, and safe environment where we can bring our authentic selves to work. And then within that, we’ve got four sub bullets. We work to improve equity. We challenge our biases, we champion balance, and we recognize each other’s unique strengths. So I’m gonna open this up. What does, what does this value mean to you, and why was this so important to be one of D’s for core values?</p>
+              <p><span class="spk">Avni Singhal:</span> this, This is one of the big reasons that I joined Dimagi um, right from the interview stage to just getting to know people. You could, you could always hear them. Putting themselves in your shoes. And even when I joined, I, I’d always heard that it’s a flat organization. You can reach out to people higher up in case there’s an issue. And I don’t think I truly grasped that till I saw it in action. Um, And I remember I was getting coffee with Jon on one of his visits to India when, this was a time when I was particularly demotivated to do my job. And the bulk of that coffee break was just him patiently listening to whatever I thought was going wrong. And I don’t know if a lot of companies do that because from whatever I’ve seen, there’s the best way that they think the get work done from people is by enforcing strict rules that follow this cat and stick approach, which I don’t think I’ve seen at the Margi. In the event that you do well, there’s due recognition without any pressure to compete with yourself or with anyone. But also when things aren’t so great, there’s always someone willing to just support you till you get back up.</p>
+              <p><span class="spk">Simon Kelly:</span> Yeah, definitely agree with her what Avni was saying, and I think this is one of the most important ones for me being at De Marge knowing that The company is made up of individual people. It’s not made up of, sort of corporate team structures and, organizational charts each individual, uh, ,matters and each individual has a part to play. And if those individuals aren’t functioning, and I say functioning, I mean, if they’re not happy and working well, then, then we’ve got a problem within the team or within the organization. And so I love the fact that we treat people as people and not as just part of a team or, and that we manage. Teams as groups of individuals and not just outcomes that we are trying to accomplish. and I think I’ve seen this so many times, not only like personally, but um, you know, within the teams that I’ve been part of, but personally as well, like I’ve had, um, many occasions where, um, we’ve had family challenges or, you know, other things and the company’s been very responsive to, making space for, for those things to, to be resolved and you know, standing in the gap when that’s needed. Um, and for, you know, supporting individuals when, you know, when they need support and providing that support not only in the form of sort of corporate support structures and, and organizations, but personally through the, the managers and people that we’re involved with and providing, you know, individual personal support and being empathetic to the challenges that people have, in our own lives.</p>
+              <p><span class="spk">Lucina Tse:</span> When I shared the values with the people operations team, almost every one of them was like, this is so important. This is so important to what we do. and, and it really speaks to all of that with like equity and our challenging, our biases. Like if you could listen to, to some of the people operations meetings that we have, and we are, we’re thinking about rolling out a new benefit or how we’re rolling out a new process. One of the first questions we always ask is like, oh, is this, is this equitable? Is this equitable for how our different employees experience things? How does this impact our team in Africa? How does this impact our team in India, in the US and all of the other regions that we work in? And so I, I think this is a value that is, maybe you hear somewhere else, but we really mean, and it’s so important for us to be explicit about, , in terms of like the aspects of championing balance, I, I really believe that is an area that we’re trying to lead. terms of DAU and what we’re trying to do. So in supporting out like structures, like the rest days, us that we’re really excited about, to be flexible with the team, are really, really key to what we do. One of the stories that I have in terms of how empathy and respect for each other played out for me in a big way, is how we support each other. and So I remember there was one instance, there was an urgent bug that had come up. I was on pto, I jumped back on WhatsApp. I was like, Hey, how is everything going? How are you all doing? And the team was immediately like, Lu, we got this. Like, don’t, don’t worry about it. Go take your time. And so it’s how we really support each other across the whole company and, and, and treat each other with like real respect that I think is really important for us.</p>
+              <p><span class="spk">Gillian Javetski:</span> I think for me, one thing that. Really interesting, um, with more people working remotely is a lot of the topics that lead into this, that it feels like people are talking about more like work time or um, uh, transparent pay skills. Like in New York City, for example, this past week, they just, , create a role where, um, employers have to share salaries on websites to promote pay transparency. I think there are a lot of topics now that have felt have come out a lot from Covid in other areas , that we’ve been, sort of been ingrained in our culture forever. Like I, I remember joining Dimagi at 23, living with two other good friends who are just starting their first jobs as well. One at a hospital, one at a non-profit. , Realizing for both of them the first time that they were being paid way less than male counterparts in their team. And just immediately taking that for granted, that that was something I didn’t have to worry about because since then we had a transparent pay scale because we value that equity and we put our. Literal money where our mouth is. I think there’s also something about being in social impact that has forced us to be really good at this. We know when people join, they’re not going to be paid Google level salaries as engineers, but because of that, we need to balance the incredible work that they’re doing with equity and making sure that we are recognizing people as much as we see those people as colleagues, but recognizing their lives outside of work.</p>
+              <p>Um, so this is one I’m, I’m really proud of and it’s been absolutely incredible. I think as well, Lu, as the COO, to see even more advancements we’ve made over the last year.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jon, I wanna hear from you what’s, what is your take on this one and, um, how do you see this unfolding over time? And, and why is this so important to you?</p>
+              <p><span class="spk">Jonathan Jackson:</span> We don’t always have the same priorities, but leading with empathy and respect allows us to find that common ground to, you know, achieve these impactful outcomes and have a team that that really works well together and, and really enjoys working with each other, um, a whole lot. And that that’s something that I. Can’t stress enough how important it is, you know, not to project our understanding. You know, it’s obvious for us because we work across time zones and cultures and functional roles and these things, but, um, it’s taken us a little bit longer than I’d hoped, probably starting with me, you know, to, to make sure this applies externally just as much as it does apply internally.</p>
+              <p>You know, it’s once you start playing that game of like, oh, what did, what did that person think? Or what was motivating that action? And we’ve gotten extremely, um, lucky to have such a strong culture that that minimizes that. And when it does eek out, it, it, um, gets stamped out very quickly and, um, it’s something we all.</p>
+              <p>Are fully committed to upholding internally, but it’s just as important to apply that externally as well. You know, it’s very easy to, um, believe our partners or suppliers or vendors or you know, payers and customers have, um, certain motivations that may not be in our best interest, and it’s really toxic to let that creep into how you.</p>
+              <p>Interact with the broader ecosystem and community. Um, it’s really important to understand, like you don’t know where they’re coming from. You don’t know what their priorities are. We need to find a partnership that’s win-win.</p>
+              <p>And so when I saw this and I’m like, yeah, this definitely resonates in land. Um, and, and It was one of those, and all of our values, you know, apply both internally and externally.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, this value to me is super important. Everything that folks have shared really, really resonates and I think because the work we do is so hard and requires so much of us we need to feel safe and we need to feel respected. And I think it’s, it’s just a beautiful thing to have that kind of woven into our structure as a company. I think a few thoughts that I have on this one is, one of those sub bullets is around challenging our biases, ? And I think there’s into Jon’s point, we’re not perfect, We’re, we’re all humans coming from very specific parts of the world and backgrounds, and we all bring our biases to work, it’s, we can’t say we’re not biased , because it’s inherent in, in each of It’s really about being on a journey to kind of understanding, acknowledging, and even challenging our own biases, right? I think the other thing that I think about a lot with this value is that, you know, our big, one of our big goals is to improve frontline worker jobs, to improve outcomes, ?</p>
+              <p>And we’re, we’re all about creating equity in health and health access in pay um, in the communities that are using our products. And so to do that, we absolutely have to be championing equity internally too, right? So we need to have these structures in place to support a feeling of being respected, and understood internally.</p>
+              <p>And so I’m, I’m really grateful, to the, you know, pops team for just putting so much love and thought into how Dimagi’s policies and structures can, can support this. And just also knowing that we’re on a journey of, of trying to get continually better at it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And add to that, Amie, the work that we do at Dimagi that many in our industry do is like incredibly stressful, you know, and having the. empathy and respect for your teammates at those moments of severe stress. You know, whether it’s making sure we ship something on time or responding to changing government needs or, you know, as we’ve recently had a lot of travel, just, stressful travel plans that take 40 hours to get somewhere.</p>
+              <p>These all just add a lot of stress to our minds, to our bodies. It makes it difficult to be your best self some of the time, and that’s when it’s really critical. 80% of the time, it’s easy to be respectful and empathetic. But that last 20% of the time, that’s where the rubber really meets the road.</p>
+              <p>It’s being respectful and empathetic all of the time. That really brings the team together and allows us to have these outsized, impactful outcomes because it’s all in that last 20%. You know? It’s, are you able to be respectful and empathetic all of the time? And that’s really hard in an industry that is so stressful and complex as ours.</p>
+              <p>And that’s something that I’m, I’m just super proud to work on a team where we value that and try to strive for that everyday.</p>
+              <p><span class="spk">Simon Kelly:</span> Yeah, I was just thinking, one of the other reasons I really like that we have this value is because with the move to being a lot more remote, I think it’s sometimes it makes it harder to be empathetic and respectful, particularly with team members you haven’t met in person. Um, and so you don’t know who they are, you don’t know what they like, they potentially from a different culture group that you don’t, so you don’t necessarily understand all the nuances and the differences in communication style and these kinds of things. So having this as a, as a core value, I think is so important because without that baseline, that that starting point, it’s, it makes it really hard , I’ve certainly experienced this where, Uh, you know, cross-cultural communications. It’s easy to have misunderstandings, particularly when it’s over text, over chats, things like that. And to make the effort to get to know somebody to jump on a call, you know, get a little bit more personal context so you can be empathetic and so you have some more respect for that person as an individual. you’re not just seeing them as, you know, somebody who needs something from you or wants something from you, I think is so important and critical particularly in this sort of post covid remote environment where we find ourselves in.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And on that too. Um, you know, for our listeners, one of the things that’s also critical is not just to be able to do that remotely, but to invest, to get everybody together. Um, Gillian and I were just able to go to, uh, South Africa for Summit with one of our divisions, and it was. Just so enjoyable to get that human connection face to face.</p>
+              <p>Um, and doing that in a non-professional setting where you like truly get to know people and their families and their side hustles, um, is something that I think makes it that much easier, Simon, to be empathetic and respectful. All that time, all the rest of the time. And so, uh, you know, we’re fortunate to be able to, to fund these things, but I think it’s just so critical to know people on a human level.</p>
+              <p>That way when things do get stressful and there is a music communication or sometimes an intentional communication, you know, that increases the stress. You have that human connection to, to back up and resolve it. And you also. You know, the moments of the human connection that you experience in side conversations in these other times, they’re also kind of what, makes it so fun to have these shared successes.</p>
+              <p>You know, it’s, it’s one thing to have a shared success with an abstract team. It’s another thing to take the hill with five year friends, and it makes the, the winds that much better.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s all for today. Thanks so much to Lucina, Gillian, Simon and Avni. for joining us today to unpack. Our second new value lead with empathy and respect. I also want to give a shout out to Dimagi values council who crafted these values. Avni and Simon, who you heard from today, as well as Clara Kim, Candice Kodu, Kai Zoho habe one and Olivia.</p>
+              <p>A few other notables on this journey are Michelle Melendez. Shane Metcalf, Catherine Turner. Dimagi is diversity equity and inclusion council. And many other demand gears who gave input along the way. That’s all for today on the next episode, we’ll continue with Dimagi is third value, which is evolved by learning and sharing openly.</p>
+              <p>And unpack what that means. Please remember to like rate, review, subscribe, and share this podcast. If you’ve found it helpful. It really helps us grow our audience and our impact and write to us at podcast@dimagi.com with any ideas or questions. We’d love to hear from you. Thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LT</div>
+            <div class="person-info">
+              <p class="person-name">Lucina Tse</p>
+              <p class="person-role">Chief Operating Officer, focused on equity, balance, and people operations across Dimagi&#x27;s global regions.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GJ</div>
+            <div class="person-info">
+              <p class="person-name">Gillian Javetski</p>
+              <p class="person-role">Chief of Staff, reflecting on Dimagi&#x27;s transparent pay scale and long-standing commitment to equity.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">AS</div>
+            <div class="person-info">
+              <p class="person-name">Avni Singhal</p>
+              <p class="person-role">Senior Customer Success Manager and member of the values council, sharing why the culture drew her to Dimagi.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SK</div>
+            <div class="person-info">
+              <p class="person-name">Simon Kelly</p>
+              <p class="person-role">Director of Server Engineering and member of the values council, on treating teams as groups of individuals.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/44LSfbCIhCOD6kAPnRJgg5" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

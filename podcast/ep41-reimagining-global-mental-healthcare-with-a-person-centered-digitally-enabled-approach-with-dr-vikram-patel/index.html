@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 41: Reimagining Global Mental Healthcare with a Person-Centered, Digitally-Enabled Approach with Dr. Vikram Patel Co-Founder of Sangath and Successor to Paul Farmer at Harvard Medical School | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dr. Vikram Patel on person-centered mental healthcare, training frontline workers, and using technology to amplify providers rather than replace them.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep41-reimagining-global-mental-healthcare-with-a-person-centered-digitally-enabled-approach-with-dr-vikram-patel/">
+<meta property="og:title" content="Ep 41: Reimagining Global Mental Healthcare with a Person-Centered, Digitally-Enabled Approach with Dr. Vikram Patel Co-Founder of Sangath and Successor to Paul Farmer at Harvard Medical School">
+<meta property="og:description" content="Dr. Vikram Patel on scaling mental healthcare through frontline workers and tech that amplifies, not replaces, the provider.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>June 12, 2023</span>
+          <span class="dot"></span>
+          <span>49 min</span>
+        </div>
+        <h1 class="ep-title">Reimagining Global Mental Healthcare with a Person-Centered, Digitally-Enabled Approach with Dr. Vikram Patel Co-Founder of Sangath and Successor to Paul Farmer at Harvard Medical School</h1>
+        <p class="ep-deck">Dr. Vikram Patel, psychiatrist, Sangath co-founder, and Paul Farmer&#x27;s successor at Harvard Medical School, on scaling mental healthcare beyond specialists, the active ingredient in therapy, and using technology to amplify the frontline worker rather than replace them.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/059kME4ZKCogPsm2KUivRI?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 41 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/059kME4ZKCogPsm2KUivRI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000616658014" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/vyZUXD0BLKY?si=_NdEJwPqmPPcnBA0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/5112ed18-c295-4aa7-93f8-d50a5ac9521b/high-impact-growth-reimagining-global-mental-health-care-with-a-person-centered-digitally-enabled-approach-with-dr-vikram-patel-successor-to-paul-farmer-at-harvard-medical-school" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">6 sessions</div>
+          <div class="ep-stat-label">the depression treatment delivered by non-specialists, about two and a half hours of therapy</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">Two thirds</div>
+          <div class="ep-stat-label">of psychiatric morbidity that does not need a specialist and can be handled by frontline workers</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">20,000+</div>
+          <div class="ep-stat-label">mental health apps on the Google Play store, most that few people can even name</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Dr. Vikram Patel is a psychiatrist, researcher, and co-founder of Sangath, an award-winning Indian NGO, and the incoming chair of Harvard Medical School&#x27;s Department of Global Health and Social Medicine, where he succeeds the late Dr. Paul Farmer. He traces his path from training as a psychiatrist in London to working in Zimbabwe in the mid-1990s, where he found a country of roughly 9 million people served by only nine or ten psychiatrists and realized that almost everything he had learned was impossible to practice. That experience, set against the HIV pandemic in Southern Africa, began his journey into global mental health.</p>
+        <p>Across decades of field-defining research, Patel has shown that community-based resources and non-specialist frontline workers can meet a growing burden of mental illness. He explains the distinction between mental health and mental illness, why there is no health without mental health, and how his team distilled complex psychotherapy down to a single active ingredient, building a six-session depression treatment delivered by people with no prior mental health training. The conversation covers his push away from a rigid diagnostic model toward person-centered, staged care, and the measurement-based peer supervision approach developed with Dimagi to scale quality, not just training. Patel closes on why the future of technology in mental health is amplifying the human provider, not replacing them.</p>
+
+        <blockquote>
+          <p>&ldquo;The mental health app industry is a graveyard, a graveyard of beautiful ideas. Very strong commitment, a real mission, but sadly missing the most important ingredient, which is the provider.&rdquo;</p>
+          <cite>Dr. Vikram Patel</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>There is no health without mental health</strong>: why poor mental health drives mortality in young people and feeds a vicious cycle with chronic disease</li>
+          <li><strong>From London to Zimbabwe</strong>: how a country with a handful of psychiatrists reshaped Patel's entire approach to care</li>
+          <li><strong>The active ingredient</strong>: distilling complex psychotherapy into a six-session depression treatment delivered by non-specialists</li>
+          <li><strong>Beyond the diagnosis</strong>: moving from the DSM toward person-centered formulation and cancer-style staging of mental illness</li>
+          <li><strong>Measurement-based peer supervision</strong>: the Dimagi-built Peers App quantifying the quality of therapy, not just training frontline workers</li>
+          <li><strong>Amplify, don't replace</strong>: why 20,000 mental health apps failed and the human provider remains the irreplaceable ingredient</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth. I podcast from Dimagi about the role of technology in creating a world where everyone has access to the services they need. To thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi. And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder. Today we have the honor of speaking with Dr. Vikram Patel, a renowned global mental health expert. Who told us before we started recording this podcast, that he’s just been named the new chair of global health and social medicine at Harvard medical school, filling a role previously held by Paul Farmer who recruited him to Harvard back in 2017. He begins this new role in September.</p>
+              <p>Dr. Patel’s groundbreaking work focuses on the burden of mental health problems across the life course.</p>
+              <p>Their association with social disadvantage. And the use of community resources for prevention and treatment. In this episode. Dr. Patel shares his journey from training as a psychiatrist in London. To working in Zimbabwe and co-founding sangath and award-winning Indian NGO. He also discusses the importance of deploying community health workers, and other frontline workers to address the crisis of human resources.</p>
+              <p>And healthcare and mental health.</p>
+              <p>Dr. Patel’s insights will inspire you to rethink mental health support and its integration into universal health coverage. I hope you enjoy this episode as much as I did.</p>
+              <p><span class="spk">Amie:</span> All right, Dr. Vikram Patel, we are so excited to have you here on the podcast. We’ve been hearing a lot about your work and some of our work together and really excited to dig in with you today. Before we jump in, we’ve got so many, hopefully rich questions for you, but I’d love to start with a little bit about your story and how did you get into global mental health.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, that’s a long time ago. But I have a good recollection really of that history. So I trained as a psychiatrist. In one of the world’s leading, psychiatric residency programs in the Mosley Hospital in London. And soon after I completed my training, I had the wander lasts and there was an opportunity, for me to spend a few years working in Zimbabwe.</p>
+              <p>Both as a psychiatrist, but also beginning, research on understanding better how mental health problems were experienced, by people in this very different, cultural context. And also addressed in that context, I had not adjust, done psychiatry, but had also trained in medical anthropology. So I was really interested in those sorts of questions.</p>
+              <p>So when I landed in Zimbabwe, I certainly found myself, as a foreigner who didn’t speak the local language, as one of just nine or 10 psychiatrists in a country, that had about 9 million people and about eight of us lived and worked in the capital of, Harari, leaving a roughly, I think one or two psychiatrists for about seven or 8 million people.</p>
+              <p>Uh, it struck me at that time, you know, that there were more psychiatrists in my, corridor of my hospital, in London than there were in the whole of the nation, that I was, working in. And of course, the fact that I couldn’t speak the local language like most of my other colleagues who were also expatriates, meant that we were not even really able to have a conversation, with our patients.</p>
+              <p>And, and it dawned on me that really. Almost everything I had learned in those hallowed corridors of my residency program actually was impossible to practice, in Zimbabwe. You know, it was like I had to almost park everything and start from scratch. And thus began my journey of learning from frontline workers, nurses, uh, nurses were the main, providers who ran primary health centers in Zim, but also traditional healers.</p>
+              <p>I spent a lot of time with traditional healers and I think I really date the onset of my journey into global mental health with those formative, experiences outside the hospital in community settings. But there was another very important, historical event that was happening, unfolding tragically, at that very time.</p>
+              <p>The mid nineties were perhaps amongst the worst years of the HIV pandemic in Southern Africa. And of course, the HIV pandemic was the crucible in which the discipline of global health was forged. And, the whole idea of human rights and social justice words that now we take for granted , as you know, key principles of global health.</p>
+              <p>Let’s not forget, these were really not part of the lexicon of international health back then. And it was really the argument about access to life-saving treatment and the rights of black and brown people to receive the same. Quality of care as white people did. These were all arguments that were really forged in that period, and I was very deeply influenced by that as well, because I was actually in that context at the time.</p>
+              <p><span class="spk">Jonathan:</span> And you mentioned, Doing that work that was forged in the crucible of hiv. And so many global health leaders had gotten, a lot of prominence back then. Dr. Paul Farmer, Dr. Jim Kim, a lot of people who are major, people in the two thousands working in this field and yourself.</p>
+              <p>We’ve actually had the joy of working together for over a decade, um, at this point between yourself and Dimagi. And back then when HIV was, You know, being such a targeted global health burden, mental health wasn’t really on many people’s radar. Now I think there’s a huge awareness of the importance of mental health treatment, the crisis that faces so many populations and so many different categories.</p>
+              <p>But as a, you know, global leader in this field, how do you kind of define and think about mental health? These days, in the context of just how it’s clinically defined, how it’s used in general populations, as you just think about it as a, practitioner and leader in this field, like what would you define mental health as today?</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, Jonathan, you’re absolutely right. Back then, there was almost no importance given to mental health in the context of poor people in poor countries. And maybe we can return back to that question, later on, but let me turn to the question you asked me about what is mental health? You know, honestly, Even in your question, there was a conflation of mental health with mental illness.</p>
+              <p>And when I use the word mental health, actually what most people automatically think about is mental illness. But actually mental health is a very positive state of being. You know, I often use the w h O definition of mental health, with my students, for example.</p>
+              <p>And the W H O simply describes mental health as an integral and essential component of our health. It is a state of wellbeing. Is not just the absence of a mental illness. It is in fact a positive state of wellbeing in which an individual realizes his or her own abilities can cope with the normal stresses of everyday life, can work productively and is able to make a meaningful contribution to their own lives and their communities.</p>
+              <p>This is an all encompassing definition. It’s not about a diagnostic condition or or the presence of absence of a diagnostic condition. It’s actually being able to fully embrace all our mental faculties, to be able to think clearly, to be able to act in a purposeful way, and to be able to feel.</p>
+              <p>Positive emotions. And I’d like to think of mental health in that, in that broadest, sense. Mental illness, of course is when these faculties are impaired in a significant sustained way, you know, leading to a sustained impact on our day-to-day functioning. So I do see a distinction between mental health and mental illness.</p>
+              <p>Most of my work, it has to be said, has focused primarily on the prevention and treatment of mental illness as opposed to the broader area of mental health and wellbeing. Which, you know, I believe, is not just. Going to be addressed by prevention and treatment of mental illness. It’s gonna require many more kind of strategies, many of which are actually quite structural, strategies that lie in the realm of the way we organize our societies.</p>
+              <p>Which in turn, of course, is so ideologically, rooted and determined very much by political forces</p>
+              <p><span class="spk">Jonathan:</span> And within that work that you mentioned that You’ve been directly supporting and thinking about there’s a huge body of work you’re underway with in India that I would, I would love to get into, but first I want to touch back on what you were saying. I was conflating kind of mental illness and mental treatment with mental health.</p>
+              <p>And I think one of the things DOMA has focused on mental health the last several years, and it’s gonna be an increasingly large part of our focus for impact is because we do view this now as inseparable with goals for universal health coverage and the need to, integrate both. I guess what would kind of.</p>
+              <p>In my head at least be inflated with public health and the prevention side and then healthcare and the treatment side. But how do you think about mental health and its importance as we make these lofty goals for achieving UHC and achieving health as a right. How do we think about mental health in that context and, what do you think about in your work with regards to these structural implications you were mentioning and how we make sure people all have access to positive mental health?</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, first of all, you know, there’s an old slogan. Maybe it’s a little cliched, I should say it here, there is no health without mental health. And I guess, it’s important for me to explain why that is not just a slogan, but that it is in fact a statement that summarizes a very large body of science, that has demonstrated the impact of poor mental health, on physical health and on wellbeing more generally.</p>
+              <p>So let’s just take one example of that. When mental health is impaired in young people, for example, it leads to a range of behaviors that can harm that individual’s wellbeing and indeed, their life. Suicide as the most extreme example and substance use related mortality are now the leading causes of death.</p>
+              <p>We’re not talking of an intangible. Sort of problem in which we say, oh, he’s got an internal, he’s struggling internally with his mood. No, we’re talking about mortality, which has often been the most important driver of global health priority setting. If it is, then mental health should be right at the top of the priority list for young people, because suicide and substance use related mortality is the leading cause of death in almost every country around the world for young people.</p>
+              <p>Let me take another example. Mental health problems are inseparable from chronic diseases such as, for example, diabetes and cardiovascular disease, and we have a lot of evidence, empirical evidence from around the world that they feed off each other, you know, when your mental health is impaired.</p>
+              <p>Your the risk of, developing myocardial disease is increased, and when you have cardiovascular disease, your mental health is worsened and they feed off each other in a vicious cycle. In other words, if you really want to address cardiovascular disease in a sustainable way, you’ve gotta also attend to the mental health, of the individual.</p>
+              <p>I could give plenty more examples, which prove that. There can be no help without mental health, and thus mental health must be integrated as part of a comprehensive package of services that people will receive when they access the healthcare system</p>
+              <p><span class="spk">Jonathan:</span> That’s, very well spoken and I, am now wanting to bring that package of services to work that you’ve been doing. We have seen in the United States and in our global health work, a huge shortage. Of specialists available to support the increasing burden of mental illness and positive mental health.</p>
+              <p>And you’ve been working with an amazing organization in India called Sangath, on how do we ramp up a, workforce that can support. Mental health through non-specialist providers. And so can you speak a little bit about how this idea came to be one of your focused areas of research and why? This is, a, potential very positive model for how to create packages of mental health support that can integrate into a U H C agenda.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Jonathan, you know, my first experience about the crisis of human resources, for healthcare came in Zimbabwe, as I mentioned earlier, and that actually continued when I returned to India in 1995 and set up Sangat. At that time there was also a great shortage and continues, even right to this day, are skilled, human resources to deliver.</p>
+              <p>Mental healthcare in most parts of the country. And what I did again, was to be inspired by global health. By that time, one of the most important innovations that was emerging from the global health, smorgasboard of innovations, was the deployment of community health workers and other frontline workers who all shared in common.</p>
+              <p>One thing, they hadn’t been to university. They tended to live in the communities which they served. They tended to belong to the same social and cultural group, of that community. And they were unlikely to immigrate, to another, a more privileged, setting. There was this enormous movement of science and practice, in India, for example, which is.</p>
+              <p>One of the crucibles really of this innovation, and particularly in those early days, for maternal and child health, back then maternal and infant mortality were amongst the leading causes of death, premature death in India, and, innovators in India had begun to utilize frontline workers, for example, to motivate women, to engage with antenatal care and to provide lifesaving treatment.</p>
+              <p>For newborn babies in the home. When the newborn baby, developed sepsis, for example, and this was of course, because there was no neonatal services available in so, many parts of the country. And then of course, the real, remarkable thing about these global health, icons was that they then would conduct.</p>
+              <p>Empirical experiments in the form of randomized control trials in some of the most difficult environments on the planet, to then as attest to the safety and effectiveness of this approach. So this is an am amazing source of inspiration for me, and it kind of struck me. That if such approaches could be used to save the lives of mothers and their newborn infants, then surely they could also play a role in supporting the recovery, process of people struggling with their mental health problems.</p>
+              <p>At the same time, of course, Paul Farmer and p i h and others were demonstrating how, the idea. Of, community health workers could be extended, to the idea of accompaniment. This was a word that Paul Farmer had coined the idea that, you know, you need to often accompany a person on their journey to recovery.</p>
+              <p>And he uses this concept in Haiti. I think the idea is a beautiful one. It’s, it, it really describes in many ways, What community health workers do, which physicians in their hospitals are actually fundamentally unable to do. And I think so, people often ask me, is this innovation, a substitute for the fact that you don’t have physicians?</p>
+              <p>And I now know that that is not the case. In fact, this innovation is relevant. In all parts of the world because in all parts of the world, when you’re living with a chronic condition like H I V or heart disease or or depression or schizophrenia, what you need is something more than just a prescription from the physician that you might see once every few months, and that can.</p>
+              <p>Only be provided by a provider who is connecting with you in your context, meeting you where you are speaking your language, and addressing a range of psychological and social needs,</p>
+              <p>Dr. Patel, , I’m just like eating up every single word you’re sharing. And this is really fascinating. And, to me, it gets at this idea that like, the connection between humans is what’s so important in that healing journey, right? For, so many cases of, of mental illness And I would even argue that even with complex illnesses, there’s a real important role to be had for that human connection.</p>
+              <p><span class="spk">Amie:</span> Although probably more intervention is needed. I’m curious, Dr. Patel, to go back to something you said at the very beginning of this conversation when you spoke about, you know, when you got to Zimbabwe and you realized everything you’d learned in becoming a psychiatrist, you couldn’t even use it.</p>
+              <p>And then kind of hearing this sort of. Scientific journey through figuring out like what is it that is actually needed to help support health. And I’m curious if you talk to us a little bit about like your journey as a psychiatrist, going from that moment of like, shoot, I have to throw away all my clinical experience and trying to figure out what really works and your own personal journey with this work.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Yeah. I’ll give you some practical examples, right. One of the most important lessons, in psychiatric residency is, at least back then and continues till now, is the fundamental importance of diagnosis. And the diagnostic process is like making a sausage. You never know what goes into it.</p>
+              <p>And we don’t know that the diagnostic process in psychiatry, unlike most other branches of medicine, is still a very subjective process. It’s at times it requires a lot of, intuition and at times it’s almost a mechanical, kind of a dumb down process of a checklist and an algorithm.</p>
+              <p>But it isn’t based in biology, unlike almost any other , health problem. And thank God it isn’t, I’m not suggesting it should be based in biology, because mental health is way, way more complex than the narrow reductionist approach that unfortunately has dominated, clinical psychiatry, for the last five decades.</p>
+              <p>Which by the way, on an aside, I think is one of the major reasons why we have not made progress, in the mental health space. I mean, if you look at every branch of medicine, the mental health space is sadly the one that has made the least progress in the last five decades. And I believe that the most important reason for that is our embracing of this diagnostic approach, which was embraced for good reason.</p>
+              <p>But it’s now time for us to really, explore actively alternatives to characterize mental health because that diagnosis based approach hasn’t led us, into any dramatic new understanding, either by the nature of a mental health problem or indeed any new therapy or target for prevention.</p>
+              <p>So back in the mid nineties when I was actually working in primary healthcare centers and the traditional leaders, I discovered. The diagnoses had no meaning for patients. Leave aside that in now we know. It had no real grounding in science. It had actually no meaning for patients, and that began my whole journey to move away from having to pigeonhole individuals into these diagnostic categories that had no meaning, into being able.</p>
+              <p>To provide person-centered care to be able to characterize a person’s mental health in their own language and try and place it within the social and cultural worlds, that they themselves understood, as being very relevant And as we now know from epidemiology is very relevant, to their mental health.</p>
+              <p>Here I was very heavily influenced by medical anthropology, particularly, scholars like Arthur Kleinman who’d written beautifully about the importance of the illness narrative. You know, how people understand their, their suffering is deeply important for us to be able to engage with that suffering.</p>
+              <p>And of course today, it’s now part of everyday practice, but, back then this was a very novel way of thinking about, about mental health problems. So that’s just one example in which my journey has gone. So none of my research has required a diagnosis. Almost all my research is focused really on identifying people on the basis of two very important dimensions.</p>
+              <p>First of all, their suffering. In this case psychological suffering. And the second is impairment. How the suffering is interfering with an individual’s day-to-day life. So these are just a couple of examples. Another good example, really of my journey has been, as I mentioned earlier, and this again is partly, it’s a question of ideology and values as well.</p>
+              <p>Is a pushback against the almost irresistible force of the medicalization, the hyper medicalization of all health. But particularly mental health and deeply intertwined with that is the medical industrial complex. A complex that was very visible during the emergence of global health with the hiv aids story.</p>
+              <p>You know, the, that was the first time we really saw how. Physicians and pharmaceuticals and governments colluded with each other. Also, they, amplified existing historical colonial, inequalities, really for profit. There was no question. It was always, it was always, couched in all kinds of other language.</p>
+              <p>You know, resistant infections will emerge if we can’t get treatment, because people in Africa don’t know how to take treatment regularly, et cetera. All these sorts of prejudices, were deployed. But, at the heart of it, we really knew what it was, that these different stakeholders were trying to protect.</p>
+              <p>And for me, the leveraging of resources in the community, things that every community owns and possesses, like social connectedness, providers who live within those communities. These were also . As scientific as they were, as justice oriented as they were, they were also very ideological. And that’s, for me, a core principle, of global health as well.</p>
+              <p><span class="spk">Amie:</span> That’s just so well put. And I’m interested, in my own experience, I, I had a brother who suffered from schizophrenia and he hated that diagnosis. Like, he just hated the word schizophrenia. He never owned it. Right. And as a family, we always were trying to encourage him to embrace it in some way, but like, it didn’t work for him.</p>
+              <p>Right. And I really resonate with this idea of like, what does it look like to shift away from this kind of diagnostic model that is so, One to zero when people are so complex and gray. I’m curious to just hear a bit more from you on that, Dr. Patel. Like what would that look like to shift away from a diagnostic model?</p>
+              <p>You spoke about kind of looking more at levels of suffering and impairment, but what would that take . , To do away with the dsm?</p>
+              <p>The DSM is the diagnostic and statistical manual of mental disorders.</p>
+              <p>And it seen in the us and much of the world as the authoritative guide</p>
+              <p>to diagnosing mental illness.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Wow. That is the biggest question of our times, right? . It’s important for us to recognize that, you know, the DSM has been almost, uh, you know, like a biblical, , book, you know, like the and it’s been with us for five decades. , and it is unlikely that we can just simply replace it.</p>
+              <p>With, with something else that we don’t currently have, which is greater utility and more scientific validity. We don’t have that yet. It’s only been a decade since. For example, the N I M H, recommended something called r o, which is an acronym, as a replacement for the D S M, but it is still very much an experimental.</p>
+              <p>Way of characterizing mental health in a number of different dimensions in the absence of something that, as I said, has more validity, scientific grounding than dsm. We have to now ask the question, how can we adapt the dsm, to be more person-centered? How can we balance off, the need for a diagnosis with something that is more tailored to the individual’s personal characteristics?</p>
+              <p>Because a personal’s mental health, Is deeply shaped by personal factors. And you know, one example is your early life experiences. Your early life experiences will shape. Your mental health across your life course, and by early life, I mean, not just the first few years of life, but also the period of adolescence.</p>
+              <p>So how can we do that? Well, back when I trained in psychiatry, the diagnosis was only one part. Of how you characterize a person’s mental health, you would have something called a formulation. This was really describing the story of that individual in a few sentences, but that captured the essence of the uniqueness of that individual, and you would then use that formulation to formulate a care plan.</p>
+              <p>A care plan that could include something. That was targeted at a diagnosis, but also took care of other things. For example, if the person had abusive early life experiences, that the person might also get psychological support to address those. If the person was unemployed, or had some other significant social issues.</p>
+              <p>You also deployed social workers to help address those. It was a multi-component package rather than what we currently do, which is only simply give them a prescription. So I think being more person-centered is one practical example. The other important practical example comes from the staging work.</p>
+              <p>Staging, of course, is a concept that’s been widely used. For example, in oncology, in cancer care. So we never tell a person, you have breast cancer. What we often say, what we say is you got breast cancer, but this is the stage. Of breast cancer you’re at, and the stage of this illness will then define what kind of intervention you receive.</p>
+              <p>There is an application of that to mental health. So for example, it isn’t the case. You only have schizophrenia or not. What you have is a stage of the illness. It might be incipient, it might be prodromal, it might be an acute episode, it might be a recurrent episode, episodic course, or you might be left with dis disabilities on account of that illness.</p>
+              <p>With each of these stages, you would need to deploy a different set of interventions. Sometimes more medical, sometimes more psychosocial, and so again, it is person-centered, but you’re still here only focusing on the nature of the condition</p>
+              <p><span class="spk">Jonathan:</span> And I love the way you articulated that. You have, seen some really exciting results in the work in India that you’ve done and different scale models. Can you take us, through how it is the case that you’ve been able to support these frontline workers, community healthcare workers in India called ASHA’s and other countries, used by different terminology, but these amazing community-based, providers to deliver.</p>
+              <p>Mental health support and what you’ve learned through your research over the years with respect to the challenges and successes with training them, with supervising them, with ensuring quality. Just give us a sense of the context of the program and the work that you’ve been doing in India, because I find it incredibly inspiring and incredibly important that you’ve shown that there is, very strong evidence that these frontline workers can provide excellent mental healthcare for certain populations.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> So Jonathan, it’s important to remember that one of the reasons why governments did very little about mental health until about a decade ago was the idea that mental healthcare was so complex. That you could only address it in the hands of highly trained mental health professionals like psychiatrists and psychologists.</p>
+              <p>And because this particular, human resource was very scarce and fabulously expensive, to train, basically we could do nothing about mental health, as recently back as two decades ago, if I had to stand up and say we were going to use community health workers to treat mental illness as opposed to what they were usually say, the, the general acceptance was they can raise mental health literacy and awareness, but basically their main role was to, funnel people to the specialists, but they themselves could not be really providers of clinical interventions.</p>
+              <p>Remember, just two decades ago this, I would’ve been shouted out of the hall as proposing something that was. Downright, dangerous actually. So it required you to build the science, of this approach in much the same way as people did in other areas of global health.</p>
+              <p>Like maternal health. And so the first step had to be to redesign the interventions because the interventions that were being used were fabulously complex. And there’s no question that the psychotherapies, for example, which is the main area I work in, as they were practiced back up until the early two thousands were.</p>
+              <p>You know, 16 to 30 session, long hour long treatments involving very many moving parts. In those interventions, you never really knew what was making a difference. We knew it made a difference, but we didn’t know what, and there was by then already a movement even amongst mental health professional communities, psychological scientists interrogating what aspects of these very complex interventions are actually making the difference.</p>
+              <p>Because if we can identify those, we can strip away. All the fluff and leave only what we might call the active ingredient of the intervention. And that is quite a fundamental clinical science approach, because you’re really trying to identify the active ingredient of the mechanism, of the intervention.</p>
+              <p>And so I spent a long time. Starting with depression in exactly that kind of a scientific endeavor to identify the active intervention or ingredient that not only was likely to produce most of the benefit of psychological treatments, but by being a single ingredient was easier to learn, easier to therefore practice, and easier for a patient to master because all psychological interventions are skills building, at their heart.</p>
+              <p>And so my work, with the depression intervention began with that process. We ultimately, nailed down a six session treatment, which was at the time the shortest treatment for severe depression. I think it remains one of the shortest treatments available in the global literature based on the active ingredient called behavioral activation, which is a technique that was. Part of a very complex suite of, techniques that fall under the umbrella of cognitive behavior therapy. We then adapted this treatment for delivery by people who had never had any mental health training. And then we tested it in a randomized controlled trial in routine primary care with patients with severe depression, and demonstrated not only short-term effects, but more recently we followed up those trial cohorts.</p>
+              <p>Five years later and continued to see statistically significant and clinically meaningful differences in depression, remission rates five years after the individuals received. What is effectively about two and a half hours of therapy over six to eight weeks by a non-specialist provider. So that’s the foundation of science and you know that particular pro Jonathan now.</p>
+              <p>Was then replicated in Nepal. It’s just been replicated in a trial, that just got unblinded in Uganda with people with H I v, and, adapted now for, for delivery even in the US and, and you know, and Canada. And we can talk about that too. So that intervention, that’s science, the clinical science.</p>
+              <p>And then the implementation science of the delivery of that intervention are really key foundations to the work that you referred to, which is now deploying the science in practice by applying, a range of digital tools to enable Asher’s, to learn, master, and deliver this treatment to people in the communities that they serve.</p>
+              <p><span class="spk">Jonathan:</span> I love that concept of the active ingredient, and we’ve been working together. As I discussed for many years, and I’m still kind of surprised that the active ingredient is, as you described, two and a half hours of discussion by a non-specialized provider. What. Do you think accounts for that disconnect?</p>
+              <p>You know, two decades ago we thought you needed these highly complex, incredibly specialized approaches and you were able to distill down among, with many others who have, have been in the field of, of cognitive behavioral therapy and these areas. Like what is it that that is causing that to be the active ingredient?</p>
+              <p>Like why, why does this work, for lack of a better way to ask?</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, it’s first of all, important to, Give credit to the kind of original thinkers here. You know, psychological science is perhaps one of the most important foundational science of mental health. Along alongside neuroscience, I consider and developmental science, you know, these are the foundational sciences that help us understand what shapes our mental health.</p>
+              <p>Why our mental health can be impaired and how we can promote recovery. You know, these, these are foundational sciences. and psychological science itself is extremely old. It’s one of the oldest we have you, or the, the behavioral experiments, you know, the Pavlovian experiments, for example. Actually, these are the origin stories of psychological science.</p>
+              <p>And behaviorism was a, was a foundation of science within the psychological science field. Back in the sixties, a new generation of psychological scientists, led by people like Beck, began to ask questions whether there were more complex processes that could actually be, leveraged, in our minds to help understand mental health problems and how we could address them beyond behaviorism, which was seen as being very crude and, almost sort of primal rather than involving the higher executive functions, that human beings, enjoy.</p>
+              <p>So you, got. An addition of more and more techniques as cognitive scientists, interpersonal scientists, and others began to interrogate how the mind, works. This led not to the, not to the the giving up of older approaches, but the adding of more and more approaches so that the intervention packages became more and more complex.</p>
+              <p>In part, it has to be said, Jonathan, because these were being tested in specialized hospital settings. The kinds of individuals that they were being tested on were people with very cr. I’d say far more complex mental health problems than what I see in primary care. And so in fact, they may be very relevant for people with very complex kinds of mental health problems, but they are not the kinds of interventions that,</p>
+              <p>the everyday kind of mental health problem that you see in primary care needs. That has been the fundamental error. The idea that what was designed in a tertiary setting for people who are attending tertiary facilities were the same interventions that needed to be applied in primary care was simply an error of scale, and I think we needed to understand that one size does not fit all.</p>
+              <p>Those complex packages probably still have an important role to play, but what we need to do is have a step care approach in which people receive the care they need according to where they are and the severity and nature of their mental health problem. And when you do that, I would say that about two thirds.</p>
+              <p>Of all the psychiatric morbidity in a population does not need to be actually addressed by a specialist, and those frontline workers that we work with are really primarily delivering these brief interventions for that two-thirds of the morbidity. There is no question. That the more specialized care is needed, but it is needed for those at the more extreme end, as it were, of the severity, of, it’s a spectrum, right?</p>
+              <p>Most mental health problems are really spectrum. There isn’t a binary here. And so we need to approach, the care of people with mental health problems, with a similarly, a complex, approach that provides a continuum of care</p>
+              <p><span class="spk">Jonathan:</span> . And going to the, the diagnosis question, and you mentioned earlier, roughly two thirds of the population can be handled by a non-specialist group of providers, potentially. We’ve seen a lot of community health worker interventions, frontline worker based interventions, where that active ingredient works extremely well at a small scale.</p>
+              <p>And then you try to scale it up and it gets extremely diluted. And for some reason you don’t see that same effect at larger scale. You’ve been. Looking at very innovative and exploratory ways to successfully train frontline providers, to supervise them and to figure out how this could be scaled up, recognizing the healthcare shortage, not just of specialized providers, but even within the non-specialist workforce and supervisors.</p>
+              <p>Can you talk to us a bit about the experiments and the program designs you’ve been testing out in India to truly make these programs scale with quality, which has been a huge problem for a lot of community-based programming in global health.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Jonathan, the word you used in your last, part of your question is the key word, and that is quality. , almost all efforts of scaling up, in the mental health space in particular has focused only on training. And one of the earliest lessons I had from training interventions was really over a period of time how useless they were.</p>
+              <p>You would get an immediate post-training effect. Of course you would, but you went back even just three months after the training had been completed and you saw no evidence that that training was having any effect on day-to-day practice. And it became very clear that training is only the first step in a journey through which an individual learns a particular new skill.</p>
+              <p>And it’s not just for mental health, by the way. I think this is the way all health professions, learn. It’s not unique to mental health. You’ve gotta be trained in, in some knowledge-based, aspects of that skill. But the actual competencies, To deliver that knowledge, in a way that is, has fidelity with the original, treatment requires continued supervision and support.</p>
+              <p>And ideally this is done with, assessment of the quality of what you’re doing, both in a narrative way, but also in a quantifiable way. And so the innovation that we’ve developed, in fact, with Imagi, has been, What we call measurement based peer supervision. So measurement based peer supervision has two different components in this.</p>
+              <p>You know, first of all, peer supervision, and that is to say you are supervised by your peers. This is also another important way to empower frontline workers. You don’t have a expert who comes and supervises you, but you supervise one another, and there is a rich literature now demonstrating that when you do that, you actually become more responsible because you’re also receiving feedback from your peers as much as giving it, but you’re also constantly learning.</p>
+              <p>When you’re supervising others. Moreover, peer supervision turns out to be as effective as expert supervision, when it comes to the rating of quality. But the second piece is measurement based. And this, I think, is pretty novel. The idea that you can quantify, the quality of psychological and social interventions is pretty novel.</p>
+              <p>And this requires. Again, to move from the active ingredient of that intervention to a set of quality metrics that reflect how well that active ingredient is delivered. So there isn’t a single quality scale for every psychosocial intervention much in the same way. There won’t be a single quality scale for different surgical procedures.</p>
+              <p>And so each intervention will have its own quality scale. And what we’ve really demonstrated is that peers, Can use the recordings of therapy sessions and then rate those therapy sessions using a scale that is tailored for that intervention, and that provides the frontline worker with a quantifiable rating of their therapy session, which can of course be then tracked over time.</p>
+              <p>You know, how is your quality doing over time? But also then can be supplemented with narrative feedback. What we’ve done with you, with the Margi is to translate this process into a digital tool, an app, which is called the Peers App. And we’re currently testing it with ASHA’s in Mother Pradesh in Central India.</p>
+              <p>To examine how this process that was. Traditionally done in an in-person format can now be done in a digital format that allows ushers to connect with each other remotely. And also, all the steps are all done in a very secure way. Cause we’re talking about oftentimes confidential patient information.</p>
+              <p><span class="spk">Jonathan:</span> I don’t know that I’ve heard the specific term measurement based peer supervision, as you said, I think that can apply to so many different. Types of interventions if this could scale. And the objective quantification, I think is also critical.</p>
+              <p>I heard you speak and talk about that issue where training’s kind of useless if it’s not put into, a supervision structure, that translates that knowledge into higher quality delivery. And for our own staff, I kind of had an aha moment where I was like, yeah, if we taught people how to do project management, There’s no test you could possibly give people that would convince me they were then a good project manager.</p>
+              <p>It would come down to having a good manager who over time viewed whether you did the proper project management best practices, did the follow up, took notes, et cetera. And so over time you would get that feedback. But I think the objective quantification is so critical because you get that instant feedback and you as a provider can learn.</p>
+              <p>Whether you’re delivering with quality and improve that quality over time. And I would think that that doesn’t just apply to the work you’re doing in India, but could also be in higher income markets as well. And I’m aware of work that you’re starting to look at here in the United States, and I imagine in in other countries as well.</p>
+              <p>But, um, what is the, the type of reception you’re getting to this argument that you can measure quality at the interventional level and you can drive that up over time through this peer supervision method.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, honestly, it is challenging. When you work in a system where quality assessment, and using those quality data is used to actually feedback not just to providers, but also to the system. When that’s. Not been part of routine, practice. You know, there will always be, it’s a disruption.</p>
+              <p>It’s a new way of doing things. And it’s time consuming, by the way, , to actually meet regularly and listen to people’s audio tapes of sessions and rate them. This requires time. And so it, is also a question of whether your employer is going to factor that into your work plan.</p>
+              <p>, it is a process right now. Jonathan, we’re insisting. That it is not possible to achieve task sharing of mental health care without supervision and support. By the way, the other word is support. I shouldn’t minimize the import. That’s not the same as supervision.</p>
+              <p>This is about supporting frontline workers who are doing sometimes. Really quite, stressful, things, you know, working with mental health is also involves a lot of stress. And so we really have to see this as a process of avoiding burnout as much as, , improving quality.</p>
+              <p>And it’s not just improving, it’s also monitoring. How do we know anything we’re doing? It’s actually making any difference. And so I do think. We have to, engage with, program managers, because ultimately these program managers who hold, the keys to success here, because the program manager has to make it mandatory to engage with supervision, but also make it possible for them to do so, by giving the time that is needed to do so.</p>
+              <p>And so we are in that process both in India as well as in the US where our first steps to try and work with community health workers to deliver, this depression treatment that I talked about earlier is currently in its pilot stages. And again, that is another collaboration we also have with the Margi.</p>
+              <p>And we’re very excited about that. I know there’s a couple of experiments going on in the US with community health workers and and so these are very early days. And I’m absolutely certain we are going to experience different kinds of challenges. This being one, another big challenge is the payment model.</p>
+              <p>In the US this is a very important issue that one has to engage with. So there are a number of challenges, that we need to deal with or address, but I am very optimistic. We will, and I’ll tell you why. I have never seen as much demand for alternative ways of thinking about mental healthcare and as much.</p>
+              <p>Interest in diversifying the workforce, which is really a euphemism for building out a community workforce, that can deliver frontline interventions. This is on every policymaker’s agenda and even in the professional guild, which historically might have been seen as being resistant to this kind of diversification, there is now a broad acceptance that business as usual.</p>
+              <p>Is failing and it will not work in the future. And what we do need now is to embrace the new science that comes from global mental health into policy and practice</p>
+              <p><span class="spk">Jonathan:</span> Well, I think that’s a great call to action for a lot of how. People need to be thinking about the value that community health workers can be providing into these, mental health contexts. The work that you’re doing with Sunga and the exciting research we have coming out together, I’m gonna be very keen to use that to advocate for, but you know, we’re one of a ton of people trying to tackle this problem.</p>
+              <p>There’s a lot of funders who listen to this, a lot of technologists who listen to this podcast. What problems are you excited to see, maybe that you’re not directly addressing, but that you’re excited to see people? Tackle and think through. You mentioned payments, obviously there’s a huge explosion of ai, potential out there.</p>
+              <p>I’m curious, you know, you have a, huge scope of research and leadership throughout the industry. Like, what else are you seeing out there that’s exciting you these days in terms of potential ideas?</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> So, you know, I want to turn back, to what Amy said, to respond to your question, there is a huge amount of interest in the tech world. And, Amy said something important. You know, the essentiality of having a skilled human being. When you’re struggling with your mental health.</p>
+              <p>So one of the important lessons I’ve taken away is by just simply understanding what impact tech innovations have had on mental health. And remember the tech, boom on mental health is in recent. It actually began, you know, 15 odd years ago, if not longer. And it was also to address exactly the same problem we are at today, which was to address the unmet needs for care, particularly psychosocial interventions.</p>
+              <p>People prefer psychosocial interventions and yet when they go for mental health care, they get a prescription. So the system is actually. Not only delivering only a part of the evidence base that we have, but in fact it’s delivering the part that most people don’t want, which is, it’s like mind boggling.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> What a non-person centered mental healthcare system we’ve built out. So the tech industry wanted to correct that and its way of correcting that was to address the human resource shortage by replacing. The human resource, and trying to make C B T packages, you know, psychological treatments, evidence-based treatments available through guided, or self, delivered, apps.</p>
+              <p>And these apps were very well designed. You know, there’s no question I’ve tested so many of them, but here’s the thing. There are more than 20,000 mental health apps. Take my word for it. One of my students has counted them. They’re on the Google Play store, 20,000 plus. Can you even remember one of them?</p>
+              <p>Maybe you do because you’re in the industry, but you know, you ask most people in the general population, can you name one mental health app? The odds are the vast majority can’t even name one. And yet how many taxi apps are there? So the point I’m making here is that there is the mental health app industry is a graveyard, a graveyard of beautiful ideas.</p>
+              <p>Very strong commitment, a real mission, but sadly missing the most important ingredient, which is the provider. So for me, the, the future of the tech industry isn’t replacing the provider, but actually catalyzing the provider, amplifying the provider. And you can do this in many ways. One is, as we discussed earlier, using technology for training.</p>
+              <p>Supervision and quality assurance. And there’s are many ways in which digital technologies might have a role there. The second is, is supporting the patient in practicing the skills that they’ve learned in between sessions. And again, we have a collaboration, with de Margi on that again, for the behavioral activation treatment.</p>
+              <p>Developing a conversational agent, for example, that the provider can give the patient, that the patient can then use. In between sessions to practice and master the skills that they’ve learned in the session. A third example is digital tools that a patient can use to self-monitor their mental health.</p>
+              <p>Such as, for example, the mind lamp plan for a platform that’s been developed by John Turo at Harvard Medical School, and which is now being used by Sangat, but particularly focused on, for people with psychosis. You know, the platform picks up behavioral biomarkers, for example, sleep and social engagement.</p>
+              <p>, and. Uses that, information in a person-centered way to predict the early signs of relapse so that that individual can either reconnect with their provider soon, or the provider can actually access that information from a dashboard which can enable the provider to contact the patient. So here are just three examples, but you notice in all three there is a range of different technology applications, but there is a provider.</p>
+              <p>Involved in, in deploying, mental healthcare. And I think that to me, that hybrid approach is the approach for the future.</p>
+              <p><span class="spk">Jonathan:</span> I just wanna thank you for your time and wisdom that you’ve been able to share here today with us on the podcast. all of your leadership in the field and look forward to seeing. More of what’s to come with all the research that you mentioned on this podcast.</p>
+              <p><span class="spk">Dr. Vikram Patel:</span> Well, thank you Jonathan. And let me tell you, I’m also looking forward very much to our collaboration with the Margi. It’s, been one of the only tech collaborations I’ve had where it’s been with folks who understand our mission and who share our values, and I very much. look forward to a long collaboration going forward.</p>
+              <p>Thank you to Dr. Patel for joining us today. My takeaways. First mental illness and mental health are different. Dr. Patel describes mental health as an integral and essential component of our health. It’s not just the absence of a mental illness.</p>
+              <p>It’s a positive state of wellbeing.</p>
+              <p>Second. There is no health without mental health, mental health impacts, physical health and wellbeing. And it’s inseparable from chronic disease. Third. We are facing a global mental health crisis, suicide and substance abuse are the leading causes of death. And almost every country for young people.</p>
+              <p>Fourth. The diagnostic system is broken. Dr. Patel talks about the need to make diagnosis, more person centered. Through a formulation or narrative that includes individual experiences, especially from early childhood,</p>
+              <p>as well as laring and staging like we do for cancer diagnosis, for example.</p>
+              <p>Fifth, Dr. Patel is leading the charge and evolving how we think about mental health care. Shifting from a model where we thought that mental health care. Could only be delivered by the most skilled and expensively trained professionals.</p>
+              <p>To a model where community health workers and other frontline workers can handle mental illness. Building on the in-company. Model that Paul Farmer originated. We need to expand our community health workforce to support the growing burden of mental illness. And if we take a step to care approach,</p>
+              <p>Six. Training is not the be-all and end-all.</p>
+              <p>And if you’re scaling a new program with just training. It will likely fail. You need to add in supervision. And Dr. Patel, especially recommends measurement based peer supervision.</p>
+              <p>Seven. The promise of digital in all of this is an amplifying the provider not replacing the provider. Some of the areas where Dr. Patel sees this working. Is in training supervision and quality assurance. Supporting a client to practice between sessions.</p>
+              <p>And offering tools to self monitor mental health. None of these replaced the provider as the human to client relationship is so essential to healing.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode. If you found it valuable, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. The show is executive produced by myself danielle sheldon is our producer brianna deroose is our editor and cover art is by Sudan, Chicana.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">VP</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Vikram Patel</p>
+              <p class="person-role">Psychiatrist and global mental health researcher, co-founder of Sangath and incoming chair of Harvard Medical School&#x27;s Department of Global Health and Social Medicine, succeeding the late Dr. Paul Farmer.</p>
+              <span class="person-org">Sangath and Harvard Medical School</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/059kME4ZKCogPsm2KUivRI" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

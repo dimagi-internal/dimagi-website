@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 30: How to Double the Impact of Your Team with Liz Wiseman, Author of Multipliers | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Liz Wiseman, author of Multipliers, on multiplier leadership, the accidental diminisher, and getting twice as much from your team in global health and development.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep30-how-to-double-the-impact-of-your-team-with-liz-wiseman-author-of-multipliers/">
+<meta property="og:title" content="Ep 30: How to Double the Impact of Your Team with Liz Wiseman, Author of Multipliers">
+<meta property="og:description" content="Liz Wiseman on multiplier leadership and why mission-driven teams are most prone to accidentally diminishing their people.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>March 15, 2023</span>
+          <span class="dot"></span>
+          <span>45 min</span>
+        </div>
+        <h1 class="ep-title">How to Double the Impact of Your Team with Liz Wiseman, Author of Multipliers</h1>
+        <p class="ep-deck">Liz Wiseman, author of the bestseller Multipliers, joins Amie Vaccaro and Jonathan Jackson to unpack the leadership research behind getting twice as much from your team, and why mission-driven organizations are especially prone to accidentally diminishing the people they lead.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/1huF1YgOaWSfryMs2bvMRQ?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 30 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/1huF1YgOaWSfryMs2bvMRQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000655418390" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/nb06FleV5lA?si=AsQB7x4eX_687eUb" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/66f0bf60-20f0-46d7-828e-0fe3414dca80/high-impact-growth-how-to-double-the-impact-of-your-team-with-liz-wiseman-author-of-multipliers" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">2x</div>
+          <div class="ep-stat-label">more capability multiplier leaders draw out compared to diminishers, who get about half</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">3x</div>
+          <div class="ep-stat-label">the diminishing effect in high power distance cultures with strong deference to authority</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">17 years</div>
+          <div class="ep-stat-label">Liz Wiseman spent at Oracle, where her leadership research began</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Jonathan Jackson and Amie Vaccaro sit down with Liz Wiseman, researcher, executive advisor, and author of the New York Times bestseller Multipliers, to explore what she calls multiplier leadership. Drawing on research that began with her years at Oracle, Liz explains the difference between diminishers, who run a one big brain model and access only about half of their people&#x27;s intelligence, and multipliers, who invite and amplify the intelligence of those around them.</p>
+        <p>Much of the conversation centers on the accidental diminisher: the well-meaning, hyperactive leader whose strengths, like optimism, responsiveness, and a need for speed, end up crowding out the contributions of their team. Liz offers practical ways through this, from the player coach lesson she draws from Magic Johnson to sizing challenges smaller for newcomers and naming the difference between freeways and playgrounds where mistakes are safe.</p>
+        <p>The hosts press Liz on how this applies in resource-constrained global health and development work, where leaders are often both managing and contributing as individuals. Her research finds the diminishing dynamic can be even stronger in sacred and mission-driven organizations, where noble intent justifies hyperactive leadership. Her counterintuitive remedy: make your accidental diminisher tendencies a public, even laughable, conversation so the whole team helps keep them in check.</p>
+
+        <blockquote>
+          <p>&ldquo;Most diminishing is coming from what I call the accidental diminisher. The person who really wants to be a good boss, who wants to use people&#x27;s strengths, but yet even with the best of intentions and with seemingly good leadership strategies are having a diminishing effect.&rdquo;</p>
+          <cite>Liz Wiseman</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Diminishers vs. multipliers</strong>: why the one big brain model gets half of people's intelligence, while multipliers get twice as much</li>
+          <li><strong>The accidental diminisher</strong>: how strengths like optimism, responsiveness, and high standards quietly shut down the people around you</li>
+          <li><strong>The player coach problem</strong>: Liz's Magic Johnson story on how to play big in a way that lets everyone else play big too</li>
+          <li><strong>Multiplying newcomers</strong>: smaller two-week bites instead of two-year projects, and naming where it's safe to experiment</li>
+          <li><strong>Why speed diminishes</strong>: the do-it-yourself tendency, and the upfront investment in defining what good looks like that pays time rebates later</li>
+          <li><strong>The mission-driven trap</strong>: why diminishing runs strongest in nonprofits, schools, and churches where noble intent excuses hyperactive leadership</li>
+          <li><strong>A culture fix</strong>: making your diminisher tendencies public so your whole team helps keep them in check</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to high impact growth, a podcast from Dimagi about the critical roles of social enterprise leadership and technology and creating a world. Where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi. And your co-host along with Jonathan Jackson.</p>
+              <p>Dimagi CEO and co-founder. Today we have a really special episode. A conversation with one of my favorite researchers and authors. Liz Wiseman.</p>
+              <p>Liz is the author of four incredible books, multipliers, the multiplier effect, impact players and rookie smarts. Multipliers changed my approach to leadership. And I think it might do the same for you today.</p>
+              <p>And I think it’s safe to say that Jonathan and I are both coming to grips with our own accidental diminisher tendencies. After reading this book. And in today’s conversation with Liz, we get some incredible advice as she answers some of the hardest, most nuanced questions about the multiplier style of leadership and how to apply it.</p>
+              <p>Within global health and development, you’ll also find out how diminishing behaviors are even stronger at mission-driven organizations. I really hope you enjoy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Okay. Welcome to the podcast, Liz. We are so glad to have you here. I am a huge fan of your work and I learned about you through my coach, Christie, Nick Bloomer. I don’t know if you’ve ever met her. Um, who suggested I read Multipliers about a year ago, I’ve been a mid-level people manager for the last six years of my career and. really always had this thirst to become a better leader.</p>
+              <p>One that really builds on the strengths of their people as opposed to really trying to root out weaknesses. And since I read your book, I literally won’t stop talking about it. Because I just think the framework has been so, so helpful for me, and really impactful.</p>
+              <p>But I’d love to , start with you and hear a little bit about your story.</p>
+              <p><span class="spk">Amie:</span> Um, so how did you come to sort of focusing your career on researching and teaching on, on leadership?</p>
+              <p><span class="spk">Liz Wiseman:</span> First of all, thanks for having me. It’s a delight to be here with with both of you, and I really love the way you put this kind of desire to be a leader who builds on the strengths of others rather than roots out their weaknesses. It really resonated with me, which is fundamentally what multiplier leaders do, and it also gave me just this pang of.</p>
+              <p>Oh, I think I find myself trying to like remove weakness rather than build on strength. So it was aspirational for me as well. Jonathan, I don’t know if you felt that same little pang of guilt of, oh, it’s so easy to get yourself oriented that way.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Totally. Amy and I talked about this before, and I have to admit, she was, asking me to read this book for many months before I finally did, and then after I did, we had our entire management team, read it. So thank you for writing such a compelling piece and , really speaks to. the, the period we’re in right now and would love to, to get back to your story in just a second, but absolutely, like, I think as managers and a lot of my career I spent, you know, really focused on, oh, you’re not good at email.</p>
+              <p>Like, I need to get you, you know, better at emailing or you’re not good at presenting. Let’s figure, you know, figure out your presentation skills as opposed to, you are an amazing. , you know, programmer or communicator or whatever. Let’s double down on your strengths and figure out how to create a role that’s really gonna make you shine and multiply.</p>
+              <p>So absolutely love the, the content that you share.</p>
+              <p><span class="spk">Liz Wiseman:</span> Great framing and it is this nerve that I think drives me in my work. And I think, um, Amy, the other thing you said kind of hit me like that really was what led me to this work was this thirst, you know, sort of a desperation to be a better leader myself. And you know, kind of how I got to this work was joining a young high growth.</p>
+              <p>Tech company out of school, and it was early days in Oracle and you know, no one knew what Oracle was. It was still this emerging giant. It wasn’t the giant it is today. And. It was rapidly growing. So, you know, I had a pulse and a brain, and so , I just kept getting thrown into these big jobs, and I kept saying yes.</p>
+              <p>And I find myself with sig significant managerial responsibility, significant budget responsibility, and I have no idea what I’m doing. And I feel like I still need adult supervision, and yet I find myself in charge and I’m trying to figure out how to be a good leader. I’m watching a really interesting dynamic play out in this organization and I felt like I just won the jackpot joining Oracle outta college because they had this really interesting hiring profile of, they hired people they thought were this kind of trifecta of talent, which was really smart, really.</p>
+              <p>And nice sometimes they compromised on nice. I think I might have got into the organization more on nice than, than the other two. But what I found is I was working with all these brilliant people and I felt so lucky to get to work with them. But then I watched what happened to these really smart people that Oracle worked so hard to, hire.</p>
+              <p>I watched as. , like their intelligence would wane around certain kinds of leaders. Like they were smart and brilliant around some, but then around others I would watch these brilliant people kind of hold back and stammer and play it safe. And that’s observation is what led me. , to the research, and then eventually to the book.</p>
+              <p><span class="spk">Jonathan:</span> I think You spent something like 17 years at Oracle. So, you know, at the, the first part of your career there, was there a single moment or moments that really kind of caused you to be a. Like, oh, there’s, you know, I really wanna figure out what’s going on here as I look around.</p>
+              <p>Cause I think a lot of people when they’re in organizations kind of like get a sense of, oh, this organization is changing. Or, you know, different dynamics play out. You’re like, okay, but I’m just gonna do my job, you know, I’m gonna focus on my career growth at, at this company. What kind of made you take that leap or jump jumper?</p>
+              <p>You know, really wanna focus on this full-time coming from what I imagined. Pretty fun, pretty amazing team at the time that, that you left Oracle.</p>
+              <p><span class="spk">Liz Wiseman:</span> Well, you know, Oracle was really, was not my first choice job for some reason, and I think it was because the power of a great mentor. I left college wanting to do leadership development. and I knew nothing about that at the time and, but I, had this internship with a man named Carrie Patterson, who was the author of a series of phenomenal books,</p>
+              <p>and it just kind of lit a fire in me to see good leadership. In organizations and in the world. So I tried to get a job working for a management training company right outta school. I kind of. Marched myself into the office of the president of some company got ahold of him and, you know, announced my intent to work for him and fully expected him to say, wow, we’d like to hire you.</p>
+              <p>And what he said was, wow, you seem great, but. , if you wanna develop leaders, like maybe you should go get some leadership experience, like maybe before doing management training and development, maybe you should go try your hand at managing. And so I had this opportunity to go work for Oracle, and it was not the job I wanted, but I thought, Hmm, well okay, it’s a growing company.</p>
+              <p>Maybe I’ll get some management experience. And boy did I ever, and for me, the work I do now is, is returning to the work that I think I’ve always wanted to do, but now understand</p>
+              <p>After years and years of challenge and trial and growth as a leader, I now study this with an empathy that I don’t think I, I would’ve had. Had somebody let me do what I wanted to do straight.</p>
+              <p><span class="spk">Jonathan:</span> That’s, really fascinating to hear and I, I can definitely empathize with the perspective of. Both what you said around, this is what I wanna be passionate about, this is what I want to do, I wanna jump into it now. And then also potentially the wisdom of, of trying it first, you know, and, and getting that experience so that, that experience led you to write four amazing books.</p>
+              <p>And, and the one that I wanted to to hear more about, right now was multipliers, which as I mentioned, Amy had read and shared with me. And, to give the audience, a background on this, I’ll just hand it over to Liz to speak to it. First wanna plug it. This book was amazing and I think really speaks to the time you wrote this after the financial crisis, in the us.</p>
+              <p>But a lot of those elements of needing to do more with less resources, needing to maximize the potential of your team completely resonates with this time period that we’re in. right now, I think across all industries, but especially the ones we work in, in public health and global development, which have always been resource constrained and fortunately are only getting worse, you know,</p>
+              <p>with with the crisis we see.</p>
+              <p>So I’ll hand it over to you to give an overview of the concept and I’d love to dig in on, on some specifics.</p>
+              <p><span class="spk">Liz Wiseman:</span> Well, the idea is that a lot of leaders are really smart and capable, and you know, people who are smart and capable tend to rise in organizations. We put our trust in them. We put them often at the top of organizations. , but a lot of those smart, capable leader  use their intelligence and capability in a way that shuts down intelligence and capability in other people.</p>
+              <p>And those are the leaders that I call Diminishers. They’re smart, but people around them aren’t as smart as they can be and need to be. You know, it’s, it’s kind of the one big brain model of leadership and there are a lot of leaders who are working under this model. Works great in a few conditions. If you’re in a really stable environment, if you have a lot of resources or if you’re truly like one of the world’s true geniuses that maybe it’s so much smarter than everybody else, you can kind of afford to just bark orders and tell everyone what to do.</p>
+              <p>They’re not a lot of those kind of people in the world. Then there’s the other leaders that I call multipliers who use their intelligence and talent and insights and capabilities in a way that invites and grows and amplifies the intelligence of others, their leaders around whom we get to be. I, I like to think of it as just all the way smart , you know, as smart as we can.</p>
+              <p>and their leaders were at our best around, and they’re leaders that we grow around and they’re leaders that create a work experience that people describe as a little bit exhausting because man, I’m like firing on all cylinders here. I’m using like every IQ point like that I’ve been given and then more, but they say it’s a little bit tiring, but totally exhilarating.</p>
+              <p>versus the diminishing leader creates an experience that’s just frustrating and draining and, and exhausting, and one that leads to burnout. That’s really the core idea. And, what I would add to that is we find that these diminishing leaders tend to get half of people’s available intelligence, whereas the multiplier leaders get.</p>
+              <p>which has huge implications for how we utilize resources and budgeting and, growth. And then the second big surprise of the research was that most of the diminishing isn’t, coming from the tyrannical, narcissistic, bully hotheaded know-it-all, it all smarter than everyone, kind of boss those people.</p>
+              <p>and they have a diminishing effect for certain. But most diminishing is coming from what I call the accidental diminisher. The, the person I think like those of us assembled here who are trying to be good leaders, who really want to, to be a good boss, who want to use people’s strengths, but yet even with the best of intentions and with seemingly good leadership strategies are having a diminishing effect.</p>
+              <p>And that’s what I found most fascinat.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think, Amy, this is something that you shared with me when you were taking the accidental diminishers quiz and you’re like, oh, no, I, I have a lot of these. And then I took it. I’m like, I have all of them. You know, I think there were like two I didn’t have. And one of the really fascinating things that you mentioned is it’s accidental.</p>
+              <p>You know, there’s intentional diminishers, but the, those pretty obviously don’t align to our culture and I think a lot of companies cultures. But this notion of. Intent versus outcome. And I, I heard you speak Liz previously and it sounds like one of your superpowers. Maybe kind of being able to decouple people’s intent, from the actions they’re taking or how they’re managing, which I found fascinating because this is such a critical thing that resonates with me around.</p>
+              <p>if you’re offering everybody, you know, help and solving their problem or providing the the ideas and meetings all the time. It doesn’t draw the best out of people and doesn’t train people to create the muscle memory to keep doing that. And yes, maybe you’re getting to a quicker answer and I’ll get into this in a second cuz it, it also feels like there’s a ton of trade offs, to being a good multiplier.</p>
+              <p>And I’m really curious to dig in there, but that accidental aspect resonated so much with Yeah, you’re not. to undermine your team. You’re not trying to get less outta your people, but that’s the net effect of some of the behaviors that you see that are often associated with high. Intelligence high, you know, effort managers in terms of some of the topics that you brought up, in your book.</p>
+              <p>So that, that accidental component really resonated a ton with me because I think everybody aspires to be a good manager. Early in my career, one of my mentors had said, you want to be. a manager who, when somebody gets their next job, talks about you and how fantastic you are as a manager. And like, that should be what you aspire to be as a, as a good manager.</p>
+              <p>And that, that can be really hard, you know, when you’re, when you’re trying to get the job done. Often, some of the managerial skills don’t get developed or, or, are very challenging to put into practice. And so Amy, I just wanted to. Have you shared kind of how you felt taking that quiz and reflecting on how you’re leading your team with respect to some of those diminishing characteristics?</p>
+              <p><span class="spk">Amie:</span> Yeah. I mean a lot of them resonate for me and I feel like I have to kind of actively push myself to kind of back off a little bit and give the things back because I love the work I do. I love my team. and I love to dig into to the work itself. But I realize that, creates this dynamic where, people become maybe kind of dependent on me and then they stop kind of, thinking for themselves.</p>
+              <p>And I’ve had that dynamic with, with managers before where I end up in this position of. just trying to get something approved by them, and kind of deferring to them as opposed to driving my own work. And, you know, as a manager, I want people to feel like they’re driving and they’re empowered. But it is so easy to fall into that.</p>
+              <p>Yeah. Liz, I’m curious your thoughts on kind of like, how do you disentangle like that propensity to be an axial diminisher as it almost relates to like just being a really good, hyperactive individual contributor.</p>
+              <p><span class="spk">Liz Wiseman:</span> Well, I do think that’s how people end up accidental diminishers is, you know, they’ve been a hyperactive contributor. And in sort of a language that I use in another body of research, they’re an impact player. Meaning they’re the kind of people who are like stepping up, taking charge, making things happen.</p>
+              <p>And then you get put into a management role and you keep doing that and you go down this path of modeling the right behavior. Like, I’m gonna model initiative, I’m gonna model responsiveness, I’m gonna model, optimism, hope. and, and you think by modeling this, it’s contagious and you’re going to replicate it.</p>
+              <p>That’s your intent. But what often happens is you’re doing those things while other people are watching you do those things and letting you take initiatives so they end up. falling back, you know, you’re so optimistic like, Hey, we got this, we can do it. I’m feeling good about this. Other people are like, well, I’m not feeling good about it because like, can we talk about the dangers here?</p>
+              <p>Can we talk about what goes wrong? Or people are so convinced, Hey, we’re gonna win. I see victory people like, do you see my struggle in this? Like what we’re doing is really hard and, and. , like these accidental diminisher tendencies are so tricky because most of them come from strengths. Now, a few of ’em may come from insecurities, like, oh man, if I don’t prove, like, I gotta prove myself here.</p>
+              <p>But a lot of ’em just come from strengths that are overplayed or misdirected, but like they’re all virtue. wanting to be helpful, wanting to be, achievement oriented. You know, wanting to be agile, move fast, have high quality standards, but they’re all strengths. But the problem is when the leader over exemplifies these, or over activates these strengths, other people don’t have to.</p>
+              <p>And so it’s about utilizing our strengths, but learning to temper them to create room for other people’s strength.</p>
+              <p><span class="spk">Jonathan:</span> I love that tempering, and one of the things. We talked about as a management team after reading multipliers was that balancing of, you know, how do we as, in our industry, it’s extremely low margin. So there’s a lot of organizations, ares included, where leaders aren’t just leading, they’re not just managing.</p>
+              <p>They’re often doing a lot of work as an IC and, individual con. and we, really struggled with that concept of trying to figure out what is that right balance. You know, like clearly sometimes you, you have the right perspective and you should offer it. Other times you’re going to, you know, disempower your team and, and diminish your team by, by bringing that forward too quickly.</p>
+              <p>And I, I really wanted to hear your perspective on this. Cause I read it and I’m like, yeah, my full-time job was just enabling others and leading others. This would. , you know, obviously the right way to deal it. But in a world where you also have to be an impact player and you also have to contribute as an individual, how do you think about that balance and how do you try to find that right path?</p>
+              <p>As a manager,</p>
+              <p><span class="spk">Liz Wiseman:</span> Oh goodness. I love this question, and I hate this question because this is my struggle as well. You know, I, I lead a team, but I’m also the lead researcher and author and teachers, so, Of my, my contribution job and my leadership job and they’re commingled and this player coach brackish waters role that so many of us find ourselves in is really tough because you do have to do your work extremely well.</p>
+              <p>I wanna go to, a story that I go back to often as I’m grappling with this and seeing other people grapple with this, and it is the story told by. Magic Johnson. And so he’s this young, phenomenally talented athlete growing up in the state of Michigan. And there was something his coach said to him that really, affected him.</p>
+              <p>And his coach said to him, every time you get the ball, I want you to take the. . Now you might think his coach said, I want you to like pass, find someone open. See the best opportunity on the team. His coach said, take the shot.</p>
+              <p>And so he does, and he takes a lot of shots and he scores a lot of points. The coach is happy because he’s not only the super talented kid, he’s you know, he’s coachable and the other players love it because they’re winning and nobody can beat them with this phen. on their team, and it’s going on game after game</p>
+              <p>they win. But everyone loves it. And then they get to this one game and they win. The celebration has come to an end. Young Irvin notices the faces of the parents, who of course came there to see their kid play.</p>
+              <p>You know, I don’t know what he saw on their faces. I don’t know if it was just disappointment or resentment or anger at him, but it got inside of him, he’s like, wow. Like, yeah, like I am playing big, but nobody else gets to play big. And I don’t know how he framed this in his mind, but what I do know is that he made a decision that he.</p>
+              <p>Use his God-given talent to help everyone on the team be a better player. And it was actually this orientation. Of course, for him, it’s this reorientation that earns him this nickname of magic. You know, it was given to him by a Michigan sports writer who said he raises the level of play of every team that he plays on.</p>
+              <p>Here’s why I think this is really important, is I think it. Helps us see how to navigate this tension. So he didn’t decide like the way forward was just to pass the ball. He played huge. He scored a lot of points, but he plays big in a way that allows other people to play big.</p>
+              <p>Like maybe they’ll never be as good as he is. But he doesn’t dominate to the point where nobody else has to show up and play at their best. He’s creating space for that and room for that, and maybe even demanding it. Like, Hey, if you wanna play on a team with me, you, you gotta show up.</p>
+              <p>You’ve gotta play big. So that, I think, shows this path forward. It’s not about playing small as a leader. It’s not about, Hey, well golly, shucks, I don’t have any ideas. What do you guys think? It’s not about neutralizing yourself. It’s, you know, multiplier leadership is using all of the brain power. You have access to the people who work for you.</p>
+              <p>The people who don’t work for you but are in proximity to you. You know your stakeholders, constituents, like you know the people that you serve. It. Gathering in all that intelligence, including your own  sometimes these come into friction points on any given day, but I think, like I always go back to this anchor, how do you play big but play in a way that everyone else is invited to and has to play as big as they possibly.</p>
+              <p><span class="spk">Jonathan:</span> And that, is such a cool model, that player coach phrase I really like, as, as how to think about that trade off.</p>
+              <p>And one of the things that he was so well known for, as you highlighted, was getting more out of his teammates. And I think. That was one of the biggest things that resonated with me in the book. You know, the, the point that, you researched and I’d love to hear more about how you did this and, was it a huge aha moment for you as well, but when you were like, yeah, you know, if you are diminishing people, you get 50% of their potential and if you multiply them, you get over a hundred percent.</p>
+              <p>And so in this world where we have to figure out how to. resources go further to serve the underserved and in these areas. I was like, that is such an important driver, you know, for all of us working in this industry to get the most out of each other and the most out of ourselves. And that was, you know, bordering on Unbelievable to me when I was reading that.</p>
+              <p>So I’m curious, a, how did you do that research and then were you surprised by those findings or were you kind of like, this, this makes sense based on what I observed, you know, earlier in my career, but I would love to hear more about that, cause that that really resonated a lot with why this is so important.</p>
+              <p><span class="spk">Liz Wiseman:</span> Well, I was surprised and I, I could see clearly just from observation that leaders who I then later came to call multipliers got more from people, like I could see it. I think I maybe put a hypothesis down when I started the research, like 20% more or something, you know, I wasn’t expecting this. X kind of effect.</p>
+              <p>I was surprised by that. But, we find that finding is repeated over and over as we continue to ask this question. The way we did the research is we simply asked the people to identify two kinds of leaders and then to quantify, like how much of your intelligence did they get? Like they’re the only people who would know, and it’s one of the things that we find with accidental diminishers and with maybe abject diminishers, is they have no clue how much more people could be doing.</p>
+              <p>When I ask people like, what was the assumption that that diminishing leader held, you know, they believed they had all the answers. They believed they needed to have all the answers they believed. You know, I couldn’t get it done without them. I often hear people say they believed that what they were getting from me was all I had to give.</p>
+              <p>But you know, we are the only people who know what capability lies under the surface or unused. So when we ask this question, and we’ve asked it in every continent, almost every country, across every industry, we find this two x difference. remains. Yet when we go into organizations where there’s a lot of hierarchy in the culture.</p>
+              <p>Cultures with a lot of power distance where there’s a lot of respect for authority. We find that diminishing dynamic is. , that it ends up being not a two x effect.</p>
+              <p>It can be a three x effect. And it comes from just the, the respect and deference for authority. So this is where we need to be extremely mindful I’ll tell you another thing that really surprised me in the research was, you know, I kind of expected that the corporate world would have the greatest diminishing dynamic, but we also did the research in schools.</p>
+              <p>In nonprofits, in churches, and what we find is the diminishing dynamic tends to be greater in our sacred organizations, we tend to see a of significance and sometimes greater diminishing presence. You’re like, how could that be like churches?</p>
+              <p>charities, philanthropic organizations like wait a minute, like this is where we’re trying to do good. But what happens is we find the accidental diminisher tendencies kick in where there is noble intent. I’m on a mission and this is a cause and this is a worthy cause. So like we activate and we get a little hyperactive as leaders.</p>
+              <p>It’s sometimes in those places that we can have our greatest diminishing effect.</p>
+              <p><span class="spk">Jonathan:</span> Well, and I think, you know, you mentioned the sacred organizations and the mission driven organizations were a social enterprise. I spent a lot of time with other social impact organizations, as did Amy. And it that it is so dangerous, as you mentioned, like if you can justify any behavior or any management tactic as, oh well, you know, we’re trying to help people so like, get on board.</p>
+              <p>It, it can be really damaging. And I think, academia has this problem. in a huge way given kind of the, the brokenness of that market as well. And, and, corporate in, in some ways a little bit more pure, like, we’re trying to make money and nobody’s claiming that’s, you know, this, this, great motivation.</p>
+              <p>You know, you can at least have a slightly more honest conversation about that. and the this point that you’re making on the. accidental diminishers, elevating. I’m, I’m curious to dig into this one because this is something that, you know, in our industry, we face a lot at our organization. We always wish we had more resources, more time, more energy.</p>
+              <p>And for the listeners, I really want to, stress, what Liz was highlighting in her research, like we’re talking about a two x difference in what people are giving and bringing to work, and we are working on some of the most challenging complex problems, whether that’s climate change or healthcare and low resource settings or improving agriculture outcomes.</p>
+              <p>These are way harder, in my opinion, than, you know, high performance software and in some cases or or ad optimization, and it’s so critical that we figure out how to unlock. This two x. One of the things I’m curious about though is when you have people who are early in their career, you know, they’re learning some of the skills both on how to execute their job or how to grow as a, as a new manager or a young manager, there’s often a long apprenticeship period.</p>
+              <p>And in some ways, apprenticeship felt a little bit like it had the characteristics of accidental diminisher. When, when you’re. Model. So I was wondering if you could speak a bit about that, you know, as you’re gaining those skills early in your career, or you’re managing a team and you’re teaching and building those skills, like how do you do that in such a way that avoids some of those accidental, diminisher steps?</p>
+              <p>Because it, it felt in particular like that, that phase of somebody’s career and that management relationship felt kind of hard to apply some of these, accidental diminisher tactics and unsuccessfully cool.</p>
+              <p><span class="spk">Liz Wiseman:</span> Yeah, let me offer a couple thoughts around this topic. It’s an entire book’s worth of research, the book’s called Rookie Smarts. But the point is that I found in this is that there’s a lot of intelligence that comes when we’re new to something and what I found in studying how experienced people, versus newcomers, that when it comes to like, obviously you don’t wanna have like a rookie out there.</p>
+              <p>Doing open heart surgery or you know, engineering the bridge by themself. But when it comes to knowledge work, that often being inexperience is a huge advantage. And we often are at our very best when we know the very least, you know, when we’re new, when we’re naive, when we’re inexperienced, and, and I think it’s easy for managers to overlook the contribution that can be made when people.</p>
+              <p>Are new to an organization, whether they’re new because they’re new in their career, or just a newcomer, you know, a newbie to that organization. And, yes, when someone’s new, they need more guidance. But they don’t need micromanagement and they don’t ne necessarily be told how to do something. You know, I remember my very first job and I was lucky I landed into Oracle with a, a wise and mature and thoughtful boss who would tell me what needed to be done, but never told me how to do it.</p>
+              <p>and I kept thinking, surely he’s gonna tell me how I’m supposed to do this. But he never did. He just let me figure this out myself. And I probably made mistakes along the way. I probably did things in some optimal ways. But what I gained from this was this mindset, which is don’t wait around for someone to tell you what to do.</p>
+              <p>If you see something, do something about that. So, You know, I don’t think we need to fill up empty vessels just because they’re new Now. There are some things people need when they’re new. We found when people are in this like rookie mode, they need challenges sized smaller. . So rather than give them like a two year project, like, okay, over the next two years, this is what we hope to happen.</p>
+              <p>It’s like when you’re new, you need like a two week size bite, which is, Hey, here’s the thing that we need to do. So they have enough autonomy to try something, but then can share a deliverable. So size those bites smaller. The other thing people need when they’re in that apprentice phase is they need extra safety guidance.</p>
+              <p>They need to know where it’s okay to experiment and where it’s not okay. One of my favorite of the, the multiplier practices is to make space for mistakes. And, I’m coming at you right here from the heart of Silicon Valley where we say stupid things like innovate, break things, move fast.</p>
+              <p>You know, just like, fail and learn. And honestly, it’s such a naive fiat, Into an organization, smart leaders will say, you know what? These parts of the business, these parts of our operation, we cannot fail. We have fiduciary responsibilities. We are holding people’s lives in our hands.</p>
+              <p>Like we have to get these just right and I’m gonna be a little more directive here, like these are freeways. You make a small mistake and it could have really severe consequences. Over here. These are playgrounds. This is where you can experiment, try things and recover.</p>
+              <p>Like there may be some consequences, but they’re not these kind of operation ending, kinds of consequences for people. I think it’s one of the powerful things. Leaders can do when, for their whole team, but particularly for people who are, who are newer and may be less experienced.</p>
+              <p><span class="spk">Amie:</span> Liz, I’m curious as you’re talking through all of this, I’m like nodding. I’m like, yes, yes, yes. And then as I’m thinking about the reality of like what your manager did for you at Oracle, where they said what they wanted done, but not how like that probably took. , it probably meant that you took longer on it and it probably cost the organization more time.</p>
+              <p>Like how do you, how do you think about that? Right? Like I feel like there’s the fast way and then there’s the multiplier way and how do I, how do I square those two away? And maybe it’s really about short term versus long term thinking, right? Like, we need to be thinking about people over the long arc and therefore it’s worth giving them that extra time.</p>
+              <p>But I’m curious to hear your, your take on.</p>
+              <p><span class="spk">Liz Wiseman:</span> I. , the desire for speed is probably the, sort of a universal diminishing tendency. Like I, I kind of articulate these nine accidental diminisher tendencies. I’ve often thought of adding a 10th, which is, I don’t know, like the do it myself. And you know, we all know that feeling where you’re like, okay, I could give this to someone else to do, but it’s just gonna be faster for me to do it.</p>
+              <p>I’ll just do it. Everyone’s gonna be better off. Let me just do it myself. So it’s a do-it-yourselfer. Who’s got a need for. And I mean, I, I have these moments, like every day I have one of these moments and it’s this desire to do things fast that tends to put us in diminishing mode. But what it means is it keeps us entangled in the work at levels that we need to move beyond.</p>
+              <p>Being a multiplier leader is not more. , it’s absolutely less work for the leader. It’s liberating for the leader. And let me, let me come back to that. But it does involve an upfront investment. It does involve, like when you delegate a piece of work to someone to stop and go, have I given them a visual?</p>
+              <p>Some sort of criteria about what a great job looks like. See, we end up micromanaging cuz we’re like, Hey, you know what, Amy, can you do this? And then Amy does it and you’re like, eh, she didn’t do it the way I wanted it done. She misunderstood the assignment like she did a great job, but she did the wrong job.</p>
+              <p>Ugh. Frustration. Like, let me not give that to Amy again. And what, what I didn’t do in that case is say, Amy, hey, you know, can you do this? And then take a moment to say, you’ll like, here’s how you’ll know you’re done with it.</p>
+              <p>Here’s how you’ll know it’s a great job. And give people that sense of like, here’s what great and good looks like. And that takes a few moments. But when we make this upfront investment, it’s liberating. But it involves like this upfront time and upfront discipline to say, well, instead of just giving a fast. Let me stop myself and ask a thoughtful question. Usually we can give an answer faster than we can ask a thoughtful question, but when we do, we get huge time rebates back later.</p>
+              <p>I know for some, they, they have a hard time breaking out of that cycle.</p>
+              <p><span class="spk">Jonathan:</span> So that, advice is, is fantastic. And one of the things that also it reminded me of was, the book on Amazon that talked a lot about working backwards, like setting the, the kind of press release memo of what a successful product would look like and then getting out of the way so the team could, could own it and run with it.</p>
+              <p>And I think that setting up. Expectation allows for accountability that can really let you trust in your team and, and trust in, in the process. And what I’ve found is sometimes it’s really hard to, even if you’re willing to put in the work, you just, you actually don’t know, you know, you don’t know what success looks like.</p>
+              <p>And it’s hard to articulate and I, I’m sure I’ve never done this to, to Amy on the marketing side of course, but you know, it can be really annoying when I’m like, Hey, I want, I want. Document like this, and then you’re like, oh no, it turns out I don’t want that. Or, you know, the next step. So how do you do that in a supportive way when you, you legitimately don’t know what you’re looking for.</p>
+              <p>It’s not a lack of effort and you know, you’re gonna go 10 rounds and still do that in a non diminishing way that, that, causes success to happen.</p>
+              <p><span class="spk">Liz Wiseman:</span> You know, once again, you’re asking this question that I love and hate because it is a challenge and it’s a challenge for me as well. When you’re out there like doing new research and trying to like find answers to questions that have not been asked yet, I don’t know what good looks like. I haven’t done this before, so how could I possibly guide you as to what the final outcome should be like?</p>
+              <p>And I think in those cases what we need to do is recognize that like, we haven’t done this before. There will be missteps and mishaps and I don’t quite know what it is we need. I think it might be like this. But then to maintain this posture. . It’s like to admit what we don’t know that we’re in exploratory mode and that we’re gonna figure this out together.</p>
+              <p>See, and when you say it like, I don’t know enough to even know what to ask for, and we’re gonna figure this out together, what it does is it allows people to not play this guessing game.</p>
+              <p>It’s just establishing this tone of like, we’re out in a liminal space and, and it’s kind of fun to figure things out.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s, really everything you’re saying is extremely motivating and, Makes me wanna go try all these things immediately. One of the things though, that I think there’s a common critique of business books I bring into the organization or others is, is you know, oh, that that works when you’re in a high profit company or like, you know, Adobe can do that.</p>
+              <p>They print money or Google can do that. But like in the nonprofit sector, in the development sector, like margins are too thin. None of the supplies, we just have to like do whatever we can get a grant for whatever we can get funding for and we don’t have time for this. And I obviously, I think that that’s a false.</p>
+              <p>right? You don’t have time not to do this because you’re, you’re wasting your talent and your opportunity and you’re going to go into a death spiral with the staff you can attract and the, the outputs you can have. But given that you’ve done this research, not just in the corporate world, in all the other sectors that you mentioned previously, like is there any advice or ways to think about this for organizations that are like, You know, to Amy’s point earlier, like, I don’t have the time to make this transition.</p>
+              <p>I don’t have the time to figure out how to make my managers become these types of leaders. And again, I think it’s a false trade cuz you don’t have time not to, you know, given the, the crises that we’re facing. But you’ve coached so many organizations, you’ve supported so many organizations. Like how do you embark on this journey of trying to shift the culture and the, the management approach to, to do this, particularly when you’re not working in a high profit business?</p>
+              <p><span class="spk">Liz Wiseman:</span> So let me kind of take from that. Let me take it out of, we’re different because we’re nonprofit, and let me take what I think is the fundamental issue there, which is there’s too much pressure on me and I don’t have time to do this. . You know, when you go down this pressure route, it’s like forcing yourself like, okay, I have to combat the pressure to do with like a habit to step back and think about what it takes to be a good leader and you can go down that path, but when that like the pressure, the tight margins will kind of keep pulling you into a diminisher space.</p>
+              <p>So I don’t wanna. Futile, but there will be this strong undertow towards diminishing. Here’s a way that I think people can counter this, that doesn’t require some like delusional sense that that’s not your reality and, and that is to get more people working toward. Effort as a multiplier. Here’s what I mean.</p>
+              <p>So if you say like, okay, I’m gonna hunker down. Like I agree with what Liz is saying. I want more capability for my people, so I’m gonna do all of these things and I’m gonna like keep a journal and notes and put post-it notes and remind myself you’ve now got one already overworked, overstressed leader trying to be a multiplier.</p>
+              <p>So I wanna. An easier way. I think it’s a more powerful way. Instead of trying to discipline yourself to work this way, let everyone on your team know your accidental, diminish your tendencies, make them a public conversation, make them laughable even. Cuz what happens is once everybody knows your accidental diminisher tendencies, you now have those people helping you to avoid them. If your team knows about them and they feel comfortable talking about it.</p>
+              <p>Happens when you feel comfortable talking about it and they can tease you about it. Then you now have 10 people who are keeping your accidental diminished tendencies in check, and it requires no awkward conversations, no awkward feedback.</p>
+              <p><span class="spk">Amie:</span> Yeah, yeah. You’re creating that shared language so that people can point it out when they see it, and it can becomes part of the culture.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s, that is a great, thing that. Lot of people forget, when they’re, when they’re leading and managing people. It’s like your, your team wants you to be a better leader than you, yourself want to, no matter how motivated you are. It’s affecting them a lot more.</p>
+              <p><span class="spk">Liz Wiseman:</span> Yeah, and I think it’s one of the things that I really understood when I was doing a second edition of the book, I really wanted to understand how people deal with diminishers. And one of the things that I learned, I, I underst. , the intellectual effect diminishing leaders had on people. Like, oh, you know, it suppresses ideas and people stop contributing and thinking and just doing.</p>
+              <p>And I think, I wanna go back, Jonathan, to your original question about, you know, some of the challenges in, in, in the nonprofit sector. Some of it I think just comes down to. , how do you wanna be remembered as a leader? Like of course, you know, there’s the, the mission that, of the work that you’re doing, but there’s also your legacy as a leader and, you know, do you wanna, do you wanna be seen as sort of a brilliant thinker, an activist didn’t change?</p>
+              <p>or can you also be that in being seen as a leader who people grew around, that people were at their best around, and I don’t know, maybe it just comes down to that.</p>
+              <p><span class="spk">Jonathan:</span> Well, that’s a wonderful way to close. Thank you so much, Liz, for your time.</p>
+              <p><span class="spk">Liz Wiseman:</span> Well, thank you for the invitation, the conversation, the hard and vital questions and, and mostly for the work you do.</p>
+              <p>Thank you so much to Liz Wiseman for joining us today. Wow. I’m definitely going to listen to this episode regularly because there’s so much useful advice for me in it. And I hope you got a lot of value from it as well. Before we close, I’ll share six of my takeaways. So one. As a recap multiplier leadership is really using all of the brain power of the people you have access to multipliers, ended up getting twice as much from their people. Whereas diminishers get just half of their capacity.</p>
+              <p>This idea on its own is just so critical, especially in global health and development where resources are incredibly constrained and especially in 2023. As we head into uncertain times. Second. Many of us are player coaches, and I love that story. That Liz shared of magic Johnson. He was a star player, but he made this conscious choice to use his talent, to make everyone on the team, a better player. He raises the level of play for every team he plays on.</p>
+              <p>So I’ll leave you with the question of how can you play big in a way that allows others on your team? To play as big as they possibly can. In your organization or your company?</p>
+              <p>Third. Accidental diminishing can be even worse where there is noble intent. So in nonprofits, philanthropic organizations, schools, social enterprises, like Dimagi. You can justify any behavior or management tactic when you’re convinced of your cause. So that’s really something to be aware of.</p>
+              <p>Fourth. We talked about how to be a multiplier for younger talent. Newcomers and younger hires are fully functional whole human beings. Who we need to point and direct. Rather than fill up with information. Liz’s advice is, is give them smaller bites. Two week long projects versus two year long projects. And guide them on where they can experiment.</p>
+              <p>Give them a clear understanding of where the areas of the business, where we just really cannot mess up and other areas where we can experiment and learn.</p>
+              <p>Fifth. The desire for speed is a universal diminishing tendency. And I definitely can do this myself. Being a multiplier leader. Is less work and it’s liberating, but it involves an upfront investment in describing what good looks like. And when you don’t know what good looks like. Admit that you don’t know that and that we’ll figure it out together.</p>
+              <p>One universal multiplier behavior. That Liz talks about. Is asking questions rather than giving quick answers. So even though it might take a little bit longer to ask a question and sort of probe for what your team member. Thinks is the best approach it’s going to result in better results because they’re going to feel more empowered.</p>
+              <p>The sixth and final point I want to share. Is Liz’s idea of how to shift your culture. And how to improve your management approach. And she’s adjusted to let everyone on your team know what your accidental diminisher tendencies are. So then your team can call you out and hold you accountable.</p>
+              <p>That’s our show. Hope you enjoyed it, please like rate, review, subscribe, and definitely share this episode. If you’ve found it useful. It really helps us grow our impact and write to us@podcastatdimagi.com. If you have any ideas, comments, or feedback. This show is executive produced by myself.</p>
+              <p>Danielle van wick is our producer. Brianna DeRoose is our editor and cover art is by Sudan. Shrikanth. Thank you.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LW</div>
+            <div class="person-info">
+              <p class="person-name">Liz Wiseman</p>
+              <p class="person-role">Researcher, executive advisor, and New York Times bestselling author of Multipliers, The Multiplier Effect, Impact Players, and Rookie Smarts.</p>
+              <span class="person-org">The Wiseman Group</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/1huF1YgOaWSfryMs2bvMRQ" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

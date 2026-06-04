@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 52: Category Design and Why It Matters for Global Health and Development Organizations Engaged in Breakthrough Work | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Category Design pioneer Chris Lochhead on why NGOs and impact organizations win by naming a new problem and category, not competing for market share.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep52-category-design-and-why-it-matters-for-global-health-and-development-organizations-engaged-in-breakthrough-work/">
+<meta property="og:title" content="Ep 52: Category Design and Why It Matters for Global Health and Development Organizations Engaged in Breakthrough Work">
+<meta property="og:description" content="Chris Lochhead on Category Design: why breakthrough impact means creating a new category, not competing in an old one.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>November 20, 2023</span>
+          <span class="dot"></span>
+          <span>54 min</span>
+        </div>
+        <h1 class="ep-title">Category Design and Why It Matters for Global Health and Development Organizations Engaged in Breakthrough Work</h1>
+        <p class="ep-deck">Category Design pioneer Chris Lochhead joins our co-hosts to explain why breakthrough impact comes from creating a new category, not competing in an old one, and how NGOs can make their problem the world&#x27;s problem.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/7l3HEC8wgMbDeUSCkSgjTK?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 52 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/7l3HEC8wgMbDeUSCkSgjTK" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000635414377" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/vKMa1xbbkoY" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/7da6de82-1272-4a8a-b4ec-ec7099cbda34/high-impact-growth-category-design-and-why-it-matters-for-global-health-and-development-organizations-engaged-in-breakthrough-work" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">20 years</div>
+          <div class="ep-stat-label">Dimagi&#x27;s experience in the digital health space, as described by Jonathan Jackson</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10 times</div>
+          <div class="ep-stat-label">more impact Dimagi&#x27;s impact delivery category aims to unlock with the same investment</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">50 years</div>
+          <div class="ep-stat-label">the span of the coastal restoration plan behind the Save West Cliff initiative</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Our co-hosts are joined by Chris Lochhead, a thirteen-time number one bestselling co-author and a pioneer of Category Design, to unpack what the discipline is and why it matters for NGOs and social impact organizations. Lochhead traces his path from getting thrown out of school at 18 to three turns as a Silicon Valley CMO and co-founding Play Bigger, the category design consulting firm behind the book that named the field.</p>
+        <p>The conversation centers on a core idea: everything is the way it is because someone legendary changed the way it was. Category designers do not compete in an existing market, they create a new one by naming, framing, and claiming a problem so compellingly that other people come to see it as their own. Lochhead argues impact organizations too often pitch their solution and ask for money, when the unlock is to make the audience care about the problem first.</p>
+        <p>Through stories ranging from the women&#x27;s movement and its rally cry of equal pay for equal work to the Save West Cliff coastal restoration effort in Santa Cruz, Lochhead and the hosts explore rejecting the premise, standing in the future to pull the present forward, and the power of new language. Jonathan Jackson connects it all to Dimagi&#x27;s own category of impact delivery and the challenge of leading a field you helped build toward a new point of view.</p>
+
+        <blockquote>
+          <p>&ldquo;When you market your product, I think you want my money. When you market my problem, I think you want to help me.&rdquo;</p>
+          <cite>Chris Lochhead</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>What Category Design is</strong>: a management discipline for anyone doing breakthrough work, premised on the idea that everything is the way it is because someone legendary changed it</li>
+          <li><strong>Creating, not competing</strong>: why legendary change agents from Martin Luther King to Bob Marley fought the status quo rather than a rival</li>
+          <li><strong>Market the problem, not the product</strong>: making your problem the audience's problem so they are compelled to act</li>
+          <li><strong>Equal pay for equal work</strong>: how a single provocative point of view turned a women's issue into a human one and changed the law</li>
+          <li><strong>Save West Cliff</strong>: reframing a fight over a road into a 50-year plan for natural feature restoration on the Santa Cruz coast</li>
+          <li><strong>Reject the premise and back-cast</strong>: standing in a radically different future and pulling the present forward, rather than forecasting from today</li>
+          <li><strong>The power of language</strong>: why you cannot describe an exponential future with words from the past, from Starbucks to impact delivery</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right, welcome to the high impact growth podcast. I am so excited for today’s conversation. I am here with Jonathan Jackson, my co host, and we have an incredible guest here today, Christopher Lockhead. Chris, I want to hand it to you to do a bit of an intro. I think you’ve got a really incredible story that I’ve heard across a number of mediums, and I want to make sure the audience gets a sense of , your journey and how you came to this work of category design.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Great. Well, uh, Jonathan, Amy, thank you again for having me. It’s a wonderful privilege to be here. I think my story is not unlike that of many entrepreneurs. , I got thrown out of school at 18. I found out at 21 that I have four or five different, uh, learning differences today, what we call neuro differences, including ADHD, dyslexia, dyscalculia, and I call it dysfucklia, put it all together.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so like a lot of entrepreneurs, I was faced with a choice and I grew up with a very, you know, in a very modest situation. My, uh, I grew up with a single mother and my sister and we didn’t have much. We had a lot of love, but not much else. And so for me, like many, many other entrepreneurs, entrepreneurship was not a way up in the world.</p>
+              <p><span class="spk">Christopher Lochhead:</span> It was a way out way out of a life of struggle. And so, when I got thrown out of school, my choices were really manual labor or, start a company. And my mom worked in a hospital and she got me a job as an orderly when I was a teenager. And so there I was working full time in the hospital. And, my choice was, um, start a company or shave guys balls.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So I decided to start a company and, we did really well for a while and then we did really not well for a while. And then at 21, I found myself, with a, broken company and during a recession and had to look for work and so forth. [00:03:00] And so I joined another startup and then another startup after that.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And then I started another company. Ultimately, um, was in Toronto. I was born and raised in Montreal, Canada, and then moved to Toronto with my third startup, I think it was, and sold that company to a U. S. based software company. And so at 28 years old, uh, 10 years after I started, I found myself in Silicon Valley, uh, as they had a marketing for a publicly traded, CRM software company.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And then subsequent to that, I did two more tours of duty as a C M O. Um, took another company public from, from a startup all the way to 2000 people, and then was the C M O. My last C m O gig was for a company named Mercury, mercury Interactive, and we sold that company to HP for, uh, $5 billion back when that was a lot of money.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And that made HP my favorite company of all time. And, uh, then I retired, uh, I was 38 at the time, so I had a, a really big. And then I retired and thought about, you know, [00:04:00] maybe I won’t do anything, or maybe I, I don’t know what are we going to do. And I skied for about 120 days a year and surf for about 80 days a year and had a really good time for a while.</p>
+              <p><span class="spk">Christopher Lochhead:</span> But, you know, like many, many people who love, startups, who love business, who love entrepreneurship, who love technology. Uh, it’s hard to walk away from all that stuff when, when you’re really deep into it. And so I started advising companies and then doing some investment. And then I started another company, uh, with my brother from another Alramadan.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Uh, the company’s called Play Bigger. And today play bigger is the preeminent, category design consulting firm. I actually retired from play bigger, when our first book came out, which was about seven years ago. I’m still very close to everybody there and , I still do, some insulting every once in a while to, their clients.</p>
+              <p><span class="spk">Christopher Lochhead:</span> But today mostly I’m focused on writing and podcasting, and a little bit of advising and investing and spending a tremendous amount of time with my family.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s an awesome, awesome intro. Thank you so much, Chris, for, for sharing all [00:05:00] of that. I have to say that the, the book Play Bigger that Chris just mentioned is incredible and has really shaped some of the ways that I think about the world and I know Jonathan as well. So we’re going to, we’re going to get into some details there.</p>
+              <p><span class="spk">Amie Vaccaro:</span> , but first I wanted to share a little bit, Chris, about our audience and who you’re speaking to on this podcast. I think it’s possibly a slightly different audience than the audience you, you often speak to. So we’re really in this global health and development space, speaking with funders and foundations, so like USAID and Bill and Melinda Gates Foundation, and also non governmental organizations, um, and implementers that are really working on these large scale, critical development efforts, um, to help digitize health systems and other systems to better improve care delivery.</p>
+              <p><span class="spk">Amie Vaccaro:</span> We also work closely with governments across mostly low and middle income countries, also within the U. S. in the last couple of years. So I think, you know, category design, which was this concept that really came to the forefront, I’d say, in Play Bigger, the book that you authored seven years ago, [00:06:00] has really become mainstream, I think, in the tech world, but I’m willing to guess that in the world that we operate in, it’s a fairly new concept.</p>
+              <p><span class="spk">Amie Vaccaro:</span> , so I’d love to hear from you a bit about what… What is category design, , and why does it matter?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Well, thank you for that. And by the way, the folks that you work with and who listened to this podcast are near and dear to my heart, I’ve done a lot of work in the healthcare space, uh, primarily healthcare tech and, uh, believe it or not, we’ve done a whole bunch of category design in the NGO nonprofit world, I’m actually, working with four, NGOs right now, all on a volunteer basis, I’ll have, you know, one of them that’s trying to create, Completely different environmental future here in the Santa Cruz area, another is trying to save wild horses.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Another one’s focused on justice and crime. And so, I love talking about category design outside of the world of Silicon Valley because it really applies. So category design is a management discipline and, it [00:07:00] really is one that is for anybody. Who is doing what they consider to be breakthrough work, and it’s premised on a couple of foundational ideas one of them we love to talk about is Everything is the way that it is because somebody legendary Changed the way that it was Everything is the way that it is because somebody legendary changed the way that it was.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so the question becomes if you want to be that kind of person, if you want to create what you could think of as a different future, what do you do? Well, it turns out there’s about 60 or 70, 000 management strategy books on Amazon, and there’s about 100, 000 marketing books on Amazon. And me and my collaborators and co conspirator pirates have not read all those books, but we’ve read most of the most influential ones that many of us in business have read.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And virtually all of [00:08:00] them are about the same thing, which is how do we compete? With a better product and or brand in an existing market to take market share to quote unquote, disrupt the market. There’s no such thing as market disruption. We’ll talk about that in a second. It’s bullshit. And that’s what they do.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so there is an unquestioned, undialogued, unconsidered, unthought about, uh, assumption that gets plugged in, which is we are going to compete in a market. And so books are about how to win, uh, what you might think of as the competition game. Well, that would be great, except nobody legendary ever did that.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Martin Luther King was not competing with an entity. He, like all category designers, was competing against the status quo. Bob Marley was not competing against Led Zeppelin.[00:09:00] Bob Marley was playing his new category new to those of us who didn’t grow up in Jamaica of reggae, and he was not having a zero sum game with hard rock or any other form.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so category designers are the people who break and take new ground. They’re the people who move us to a different future. And when you really start to think about it, Amy. Most people get paid to extend the past, or if you will, the way that it is. Very few of us are actually in the business of making things different.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Many of us are in the business of improving the way that it is, and that’s great. And there’s a lot of domains where improving the way it is, is exactly what we want them to do. I don’t want to get, onto a plane that is being managed by a breakthrough innovation air traffic control system.[00:10:00]</p>
+              <p><span class="spk">Christopher Lochhead:</span> I want them to use the current air traffic control system. I think it’s great that hopefully they’re trying to continuously improve it in incremental ways over time. And when I say incremental, I don’t mean pejorative. Incremental, very powerful. And small incremental changes over an extended period of time can be incredibly powerful.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Very, very important. And that’s not what category designers do. Category designers work on making the exponential different future happen. And it turns out, when you study what the greats did, and you look You know, from our backgrounds, being in the technology world, startup world, my partner in crime, Eddie Yoon is the category design, Obi Wan Kenobi to the fortune one, 500 on the consumer side.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And we all work with companies who are trying to do something [00:11:00] exponentially different, and therefore they’re not competing, Amy, they’re creating. And so anybody who wants to spend their career doing incremental improvement stuff, managing stuff and competing, that’s great. That’s not who we’re for. And there between marketing and strategy books, there’s 160, 000.</p>
+              <p><span class="spk">Christopher Lochhead:</span> You can go read and away you go. We are for the people category design is for the people. Who want to do the radically different, who aren’t interested in becoming the 4, 037th Van Gogh, but want to become the first Picasso.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Love that description, Chris. And one of the things that struck me when I read Play Bigger, um, that, that Amy made me read, uh, over the holidays last year,</p>
+              <p><span class="spk">Jonathan Jackson:</span> um,</p>
+              <p><span class="spk">Christopher Lochhead:</span> about that, John.</p>
+              <p><span class="spk">Jonathan Jackson:</span> put us on, that was a great book. I really recommend it. Um, you know, I’ve been a social entrepreneur for 20 years and, and I’ve helped advise a lot of companies and the phrase that we use in the [00:12:00] social sectors, systems change, right?</p>
+              <p><span class="spk">Jonathan Jackson:</span> You have these big systems thinkers and systems innovators and they want to disrupt the system. The same way we talk about disruption of the market and a lot of the times we’re kidding ourselves, you know, we’re talking about these big complex systems, but we’re really just fighting over market share, fighting against the other non profit, doing something similar.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so the category design really struck me with having a lot of parallels and that terminology that we use in the impact space around how we think about, how are we changing to a new future state? How are we not just competing against what we’re doing today? Trying to. Let funders do more of it ourselves, but do completely differently.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Do it in a way that has exponential impact. And that’s, in fact, one of Dimagi’s core strategies around exponential growth. But in the market driven systems that we operate in, particularly on the consumer side, as you mentioned, once you crack that amazing thing that somebody’s willing to pay for, that they didn’t know they needed yesterday, but as soon [00:13:00] as you see it, you’re like, I gotta have it, there’s a really quick flywheel that can spool up.</p>
+              <p><span class="spk">Jonathan Jackson:</span> When we’re talking about impact though, when you mentioned the four that you’re working with, there isn’t necessarily that really fast feedback loop of more revenue or more funding once you crack it, even if you’re right, you know, everybody can look at your solution to homelessness or your solution to the environment and say, that’s amazing.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. But I’m not going to fund it directly or I don’t need to buy it. And I’m curious how you think about category design in that context when there’s kind of a market. Yeah. Not gap. I mean, the market just doesn’t work the same way when the people that you’re trying to create that exponential change for are not necessarily the buyer, right?</p>
+              <p><span class="spk">Jonathan Jackson:</span> They’re the user of that new category that we want to create, but we’re convincing multiple parties all at the same time. How do we think about category design? And with that lens,</p>
+              <p><span class="spk">Christopher Lochhead:</span> Yeah, it’s a great question. So one of the things in category design is this idea of, okay, so it all starts with the problem. [00:14:00] What problem are we solving? Why does that problem matter? Are we reframing an existing problem? Are we evangelizing a new and different problem? And what kind of solution are we proposing for the problem?</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so nonprofits and NGOs and social organizations, impact organizations fall prey to the same thinking that entrepreneurs and CEOs fall prey to. Which is They have a product conversation with the world. And when you market your product, I think you want my money. So whenever I get contacted by any kind of an NGO, very quickly, there’s going to be a request for money.</p>
+              <p><span class="spk">Christopher Lochhead:</span> When you market my problem, I think you want to help me. And so the unlock for, NGO [00:15:00] leaders, impact leaders, nonprofit leaders, governmental leaders, is how do you think about the problem that you’re trying to solve? And can you create a provocative and engaging point of view that Speaks to the audience that you care about what in category design, we call the super consumers, the top 8 to 10% of people who are in this world.</p>
+              <p><span class="spk">Christopher Lochhead:</span> How do you activate them by naming, framing and claiming a problem via a powerful point of view and make me care about that problem? Because when I care about that problem, it becomes My problem and when it becomes my problem, I’m compelled to take action and the organization who’s educating me about this problem becomes an ally for me in executing some goodness in the world that I wouldn’t be able to execute [00:16:00] on my own.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So if you take a horrible situation that’s just happened in Lahaina. Many of us want to do something. Uh, I would go there if I could, but they’ve told us not to go. Um, I have friends who live on Maui. And so immediately when the crisis happens, I start looking, first by calling my friends there, and second by kind of opening the aperture, where, what are the things I could do, and where could I do them that would help the people of Lahaina and Maui more broadly.</p>
+              <p><span class="spk">Christopher Lochhead:</span> As powerfully as possible. Now, when an event like that happens, that creates an opportunity for NGOs. To, um, tap into that desire that we have. So when, you know, the day or two after it happened, I go to Habitat for Humanity. I’m aware of their work. I admire them. I have donated to them in the past and [00:17:00] sure enough, there they are.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Donate here to help support Hawaii. And so I make a donation. Um, and so what NGOs, nonprofits, impact organizations of all kinds have to realize is. No one gives a shit about your solution, and the only way they’re going to care about the problem that you solve is make it my problem, or in other words, make me care about it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And I care about Lahaina because I’ve been there, I have friends there, I have godchildren who live on Maui, and so it’s not an image on a television. And so, ultimately, category design in the impact world… makes a big mistake in, um, overwhelming people. And in, in other words, take global warming, climate change is a great example.</p>
+              <p><span class="spk">Christopher Lochhead:</span> I was on the board of, uh, Climate Change[00:18:00] , Foundation for a long time. It’s a very well known one. And they’re very good. This is what they told me. We’re very good at talking to people who already believe.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And they kind of get an F. at trying to communicate to people who don’t believe. And that’s because we either A, go to the solution very quickly, or B, in our effort to market the problem, we don’t create a POV that speaks to the individual. We overwhelm them. With the problem. And then we go, Oh, fuck climate change.</p>
+              <p><span class="spk">Christopher Lochhead:</span> I don’t know what to do. Maybe I’ll use less toilet paper. Oh, fuck it. Right. And I feel overwhelmed by the size of it or whatever. I use that, of course, as an example, right? Or I don’t know what to do about Hawaii. It’s terrible. And for whatever reason, I don’t do the research to figure out what are the top NGOs you could support that would make a difference for the people in Maui.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so in the nonprofit world, we want to differentiate the category of nonprofit that we [00:19:00] are. With a radically different POV that makes the problem that you’re solving a problem I want to help you solve. Thus, it becomes my problem.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I love that. that was one thing that struck me so much when I read play bigger and heard. You know, you speak, Chris, around this fact that we all just pitch our products, right? We’re pitching our solution, we’re pitching our product, we skip over making sure that we’ve gotten the government, the funder, the customer to agree to the problem and crafted the problem with a point of view, to your point, that’s interesting and compelling in such a way that we’ve now convinced them This is their problem and they need to care and they need to solve it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And a lot of nonprofits and social enterprises and us, frankly, make the mistake, like I built this great thing, this great thing that does this amazing, impactful thing. If you will just do it correctly and nobody cares, the government’s [00:20:00] busy. They’ve got a million things to do, you know. Everybody’s busy.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Why is my problem worth caring about? Why is it important that you agree about this problem? Then I can partner with you on the journey to solve that problem. But I first better be able to convince you of that problem, or I better assume you’re already totally convinced you have a problem you have to solve.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And then I can pitch you my product.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Yes, and if you like, I’d love to give you a couple examples.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, love it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> I’ll give you one from history and one that’s happening right now. Um, so my mom’s name is Jackie. And she’s in her 70s and, uh,</p>
+              <p><span class="spk">Amie Vaccaro:</span> Mine too, Jackie and also in her 70s.</p>
+              <p><span class="spk">Christopher Lochhead:</span> You, you have a Jackie mom named, you have a mom named Jackie in her 70s?</p>
+              <p><span class="spk">Amie Vaccaro:</span> I do, do indeed, yep.</p>
+              <p><span class="spk">Christopher Lochhead:</span> swap photos if they look like each other.</p>
+              <p><span class="spk">Christopher Lochhead:</span> It’ll be even weirder. And, um, my Jackie got her first summer job when she was 16 years old, working in a factory in Montreal, Canada, a balloon factory on an assembly line. And [00:21:00] I forget what the exact numbers are., but I’ll be directionally right. She was working on assembly line with mostly boys, young men.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And if the boys were making a dollar an hour or 75 cents an hour, she was making 50 cents an hour. And the law in the United States and in Canada at the time was men made more money than women. That was the way it was. Everything is the way that it is because somebody changed the way that it was. So what happened?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Well, first I said to my mom. What was the line of bullshit that women were fed back then to make this seem okay? And she said, well, the point, she didn’t say point of view, but the point of view, the social category of thinking around pay, the agreed upon context. The agreed upon point of view went something like this, men have to support a family.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so because they’re making money for a [00:22:00] family, they have to make more money. Women on the other hand are not going to be in the workforce for very long. They’re just going to be around in their twenties or whatever, and then they’re going to get pregnant and then they’re going to go home and be homemakers.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so they don’t need as much money as men because they’re not providing for a family when men are. That was the thinking and for a long time, not very many people thought much about that and certainly complained about it. And then what happened? A group, you could think of as category designing women, said, by the way, most thought leadership comes from the movie The Big Lebowski.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So, they said what The Big Lebowski said, which is, This aggression will not stand, man. And they got busy to change it. And how did they change it? Well, the success of the woman’s [00:23:00] movement, or the equal rights movement, In North America is one of the most extraordinary social change, um, uh, category design and category design we talk about from twos or Frodo’s for short, it is one way and we want to want to move it from the old way to a new way.</p>
+              <p><span class="spk">Christopher Lochhead:</span> There was no massive civil war. There was no massive amount of death. There were no attacks of consequence against people. But there was something incredibly powerful, something that Victor Hugo said, no army can stop an idea whose time has come and the women who led the women’s movement made it their time with a provocative and engaging point of view that could be summed up in what in tagline and that tagline was equal pay.[00:24:00]</p>
+              <p><span class="spk">Christopher Lochhead:</span> For equal work and enough women and wisely. This is something, a lot of social change. Uh, this is a big mistake that DEI has made wisely. Women didn’t make it anti men. Sure, were they pissed at men? They were. And rightfully so. And burning bras and all that shit. And did they call some men out? Yes. However, equal pay for equal work applies to everybody.</p>
+              <p><span class="spk">Christopher Lochhead:</span> It’s about equality and so they also, uh, made it a rally cry, a point of view for them and for all others who believed that that point of view made sense. Translation, men who wanted to stand with them and say, you know what, I never really thought about or maybe I did or whatever, whatever. You’re right.</p>
+              <p><span class="spk">Christopher Lochhead:</span> This is bullshit. I’m part of the program. And [00:25:00] so when that happened over a period of time Laws changed and what was the law is now? illegal Seriously illegal and if it can be proven that a company discriminates on pay against women or any other group They’re going to suffer serious consequences for it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And the entire contextual, uh, framework, the lens people apply to work and value moved from the old way to the new way, because enough women With some men stood up under the mantra, equal pay for equal work, and it all changed.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Love that. And you said you had one from, uh, from current time as well.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So, um, we have a crisis going on [00:26:00] here on the California coast. Um, and what’s going on is, as uh, global climate change continues, storms get more powerful and where the storms occur in the ocean. Is also different. So in other words, the waves hit the coast at a different location. So in Santa Cruz, by way of example, in January of 2023, we had some of the worst storms in modern history hit Santa Cruz.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And it blew up West Cliff Drive, and I’ll explain to you where that is in a second. But it’s a national treasure. think Yosemite in the ocean. And that’s what that area of Santa Cruz is like. And it destroyed West Cliff Drive. And more importantly, it caused a group of us to start really engaging with the problem.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So what’s really going on here? And what emerged in Santa Cruz was an inane conversation [00:27:00] about a road. So the framing of the problem was, should we or shouldn’t we fix West Cliff Drive? Because big chunks of it went away and There were a lot of people and still are a lot of people who say, we shouldn’t do anything.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We should let mother nature do her thing. And we’re going to practice this approach called managed retreat. That is to say, as the ocean destroys the coastline, we’re going to let it happen. And we’re just going to move everything back. And if that happens to be an important road or an important beach or an important surf break or somebody’s house or whatever, well, fuck it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Mother nature is doing what she wants. That’s that. Well, it seemed like a radical oversimplification to a group of us, and it also seemed like a bit of a false choice. Yet this had been the debate, essentially, manage retreat or not? And so the argument [00:28:00] becomes, should we or shouldn’t we fix the road? So led by my brother from another mother, co author of Play Bigger, Al Ramadan.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We start asking some questions. We start talking to scientists and we go, we have U. C. Santa Cruz here with some of the smartest scientists in the world and marine biologists. And, uh, there’s more focus on ecology and environment and the ocean and Monterey Bay as a certified marine sanctuary.</p>
+              <p><span class="spk">Christopher Lochhead:</span> It’s one of the most powerfully managed, uh, marine areas in the world, et cetera, et cetera. So there’s a lot of smart people on this. And Al and I are certainly not experts on any of it, but we Go to school. And here’s the a ha. I can walk you through it at any level, but here’s the a ha. If we do managed retreat.</p>
+              <p><span class="spk">Christopher Lochhead:</span> In the case of Santa Cruz specifically, much of what humans value around this coastline will go away. So beach breaks, are getting destroyed. The reefs themselves are getting [00:29:00] destroyed. The beaches are moving further and further south, so the sand is actually moving. So beaches are moving and or changing and or going away.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Surf breaks are going away. Um, and access to the ocean is actually going away because as this happens, being close to the ocean gets to be more and more dangerous. Last night I was with some friends in Capitola and we were going for a walk along the bluff and it’s probably, I don’t know, 25 feet, 30 feet up from the ocean and there’s a beautiful walkway and there is a new fence there that is eight feet further inland than it was last year because so much of that coastline is gone.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And if you don’t move the fence and the walkway, people are going to fall and die. So this is what’s going on. So we go and we talked to all the scientists. We figure out what the ramifications are. I roughly outlined them for you. Then we also do some of the, uh, social [00:30:00] and economic implications. Okay. So if these key beaches are gone.</p>
+              <p><span class="spk">Christopher Lochhead:</span> If these surf breaks go away, if the lighthouse falls into the ocean at lighthouse field, which is absolutely going to happen, the last two storms have destroyed that rock and the reef around it, um, et cetera, et cetera, et cetera. What is a rough assessment of the economic impact to Santa Cruz?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Okay, well, it’s really bad. So here’s what we discover. The question is, are we going to let the coastline go away? or not. And we went to work on that. And most people didn’t want to do what was called, quote unquote, hardening the seawall because it’s counter to Mother Nature. So what we did was we went back and found out how Santa Cruz looked.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Al got the first aerial photos of Santa Cruz from the 1920s. He got the first maps of Santa Cruz from much further before that, so that we could study [00:31:00] what the coastline used to look like. And here’s the aha. We can either do what today we call natural feature restoration, which is in part supporting what’s there, and in part adding to what’s there to restore it to its prior glory.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Or we can let these natural features continue to dissipate and the environment won’t be the way that it was in the ocean, and it will dramatically affect the environment on the land, and it will dramatically affect local quality of life and the economy. And so we started an organization called Save Westcliff, and as I sit here and speak with you right now, every Major social organization, every major environmental organization, the city, the county, neighboring cities have all signed on to develop a plan for Take care.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Natural feature [00:32:00] restoration, and that was not going to happen before what was going to happen before is an argument about should we or shouldn’t we fix the road? And as part of what we’re proposing, we’re proposing a 50 year plan because we want this area. I had this guy on my podcast a while back called Xander Rose and Xander is the head of the Long Now Foundation.</p>
+              <p><span class="spk">Christopher Lochhead:</span> they’re building this massive clock and he asked me a question that stopped me in my tracks Which is are we being good? Ancestors and what Alan I realized is And we’re environmentalists. We understand the managed retreat discussion.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We also understand the fact that for 14, 000 years since we became, we moved from hunter gatherers to farmers, human beings have been modifying planet Earth for their benefit and for other benefits. So there’s a trade off to be done here. And the aha we had… Which is now [00:33:00] the more common thinking in our region is we want to be great ancestors.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We want to preserve the natural features of Santa Cruz that had been there for, we know for sure, hundreds of years and probably thousands. But because of global climate change, are radically going away. And so… We’ve now gotten a situation where most people were radically, opposed to doing anything.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And now there’s a massive movement afoot that includes all of the major agencies and local governments, including the state government and the California state government has now signed up to say, yes, we support this idea of natural feature restoration and putting together a 50 year plan for the coastline of Santa Cruz and the Northern Monterey Bay.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And six months ago, nine months ago. People were having an , idiotic conversation about a road.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, I love that, uh, narrative and congrats on, you know, the, that hard work of, of thinking that problem. And, and you had a key phrase [00:34:00] here, which goes to the category that Dimagi is working on, but this false choice. You know, often we look at problems and they’re framed in a way that you’re choosing between two things that are not the most important things to be choosing between or even…</p>
+              <p><span class="spk">Jonathan Jackson:</span> actual challenges or opposition to each other. In fact, you often need to figure out a solution that does both those two things and maybe a third and a fourth thing. For us, we’ve been in the digital health space for 20 years. We believe deeply in the potential for technology. We’ve seen the impact it can make.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We’ve researched it. We’ve proven it. Yet so many of the digital projects we see in the United States and abroad are just garbage. You know, they’re digitizing an existing broken program. They’re getting data back to a broken administrative structure. They’re reinforcing inefficient, bloated programmatic activities.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And we believe technology can be doing so much more. And so for our category, which we call impact delivery. Our focus is really on how we [00:35:00] unlock 10 times more impact with the same investment we’re making today. There’s plenty of money going into digital systems. It’s only been growing. It exploded during COVID.</p>
+              <p><span class="spk">Jonathan Jackson:</span> But ultimately, unless we can create more impact, better impact, and sustained impact, we’re never going to have the impact we need to for the people we’re trying to serve. And the problems we’re trying to face are getting more complicated. The stakeholders and the dynamics and the ecosystems we’re supporting are getting more complex with humanitarian crises, food crises, and so many additional issues.</p>
+              <p><span class="spk">Jonathan Jackson:</span> You can’t just address, you know, a software solution for one problem anymore. It’s not sufficient. You need to be addressing… Approaches that can really create a whole capability for these amazing frontline workers, whether that’s on the coastline of Santa Cruz in a clinic in Zambia or anything in between.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And ultimately, we really chose to anchor our organization around this notion of using technology to create better jobs. If I look at the technology I’ve forced on our staff at Damagi, the technology we’ve built for [00:36:00] others, so many different software solutions make jobs worse. Whether that’s, uh, CRM solution that makes your sales team less efficient, but gives the sales manager better visibility or, you know, software testing solutions that slow down engineers.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I really deeply believe we can do both. It’s a false trade that you can’t create great empowering technology for individuals and get all that data back that the executive team or the government need. And it’s about really convincing the market of this problem that we are just screwing up. How we’re spending digital money right now.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We are wasting at digitizing these vertical programs that are really challenged to begin with, but that are missing this amazing opportunity to create better jobs. And so that’s really what we’re trying to convince people of with our problem. One of the interesting challenges with our point of view is we’ve been one of the market leaders for the last 20 years.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Reinforcing the way the world currently is. And we want to turn the way world currently is [00:37:00] into a was. But as somebody who’s been a leader in this field for 20 years, we’re also trying to figure out what is the appropriate way to articulate this problem, given that we’ve been a huge part of getting the industry to where it is.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so my question for you, or just to hear your response, Chris, is, you know, as a company that’s been in this field that was viewed as an innovative leader when digital health didn’t exist, when mobile technology wasn’t yet exploding all over the globe. You know, we used to be the small, the small, new, you know, innovative group.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Now we’re mature and one of the bigger kids. And now we want to come and say like, Hey, we’ve done amazing work. We’ve got a lot of stuff. Right. But we got some of this wrong. We really need to think about a new different approach and a new way to think about the problem. And so what advice do you have, you know, for us specifically, but also for, I, I, I talk with so many social entrepreneurs, so many founders who are 10 years in 20 years in, and they’re like, Oh man, like my point of view for these last 10 years was only half right.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I need to now convince the world of [00:38:00] this new point of view, but I contributed to the current one. And I’m just curious to get your take on all of this.</p>
+              <p><span class="spk">Christopher Lochhead:</span> You know, we’re so fucked up in our country that when somebody changes their mind, we call it flip flopping. When for the course of history, that’s been called learning. So that’s the first piece. The second piece is, of the 22 laws of category design. Law number one is thinking about thinking is the most important kind of thinking.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Thinking about thinking is the most important kind of thinking. And as part of that, one of the things we teach category designers is this concept, John, called reject the premise. And reject the premise is I’m presented with a situation, like the one that you just described. And if I want to fresh think about it, I have to reject the entire premise, so I reject the way the problem is framed, I reject the solution, I reject the thinking, I reject the research, I reject the frameworks, [00:39:00] fuck it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And here’s why, because if I accept it, I’m immediately in the past again. And my dear brother from another mother of the legendary venture capitalist, Mike Maples Jr. has this concept. He’s at a company called floodgate. He has this concept that he teaches entrepreneurs. He calls it back casting as opposed to forecasting.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And here’s how it works in category design. So reject the premise, fresh thinking about all of it. And we ask ourself the question it’s 10 years from now, we’ve created a radically different future that produced exponential results. Even beyond our wildest dreams. We’re standing 10 years in that future.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Describe it, describe it in detail, write that down. Brainstorm that out. Don’t think about being right about it. Who gives a shit? I [00:40:00] had these two unbelievable Berkeley professors on my podcast. They wrote a book called, uh, two beats ahead, Berkeley music. guys. And it is a book for business people where they went and interviewed all of the top artists of the day, musical artists, to ask them how they create music and what learnings could be brought into the business world.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And there’s many of them in the book. I highly recommend it. It’s two beats ahead, but the one that stuck with me the most. Is Justin Timberlake said to them, that when he’s in the studio with his band, they just jam that shit out. They don’t edit anything. They just fucking jam. And they let it go. They just keep going, somebody plays a riff, somebody plays a beat, somebody sings something, something, whatever, and they start going.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And maybe it sounds completely stupid, I don’t know. But they just keep going. They don’t edit shit. My Bielenberg, he teaches kids… [00:41:00] Uh, design and creativity at all the universities. One of the exercises he does with them, John. He gives, I forget how long it is, several week exercise. You have to go build a bike.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And there’s only one design point for the bike. Only one. It cannot be fucking rideable. So, these kinds of ideas. When, thought of. Standing, let’s just say 10 years, 20 years if you want, you take it out however long you want or not long you want, but standing in that different future that you’re committed to, where the different future that you see is possible, not only have you and your group achieved it, but it’s beyond your wildest dreams.</p>
+              <p><span class="spk">Christopher Lochhead:</span> What does it look like? Make that as real as possible. Let yourself dream the undreamable. And then say, Hmm, okay, stand back and look at it and go, Well, shit, if that happened, then what else would be possible? And what else would be possible? And what else? [00:42:00] Okay, great. And then we don’t do what most people do.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Which is when most people embark on a legendary project. They start with, we’re here now, and we want to be there in the future. What do we do from here to get to there? Category designers, legendary pirate streamers and innovators throughout time live in the future. Mike says they’re visitors from the future telling us how it’s going to be and many of them You know if you think about a musk or a jobs or a Sarah Blakely They’re they’re irascible and part of why they’re so irascible is The present is so not the future that they see it pisses them off And so legendary category designers stand in the future and they pull the present forward [00:43:00] now this might all sound like psychobabble mumbo jumbo It’s not because how we think about things is very different.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So for, I’ll give you one right now. Most people think what Rivian and Tesla are doing is building EVs. And if your objective is, how do I build electric cars and how do I become a category dominating company, electric cars, there’s a set of things you’re going to go do. And what all the other auto manufacturers are doing right now is they’re saying, Oh, we need to convert to EVs and we’re now going to chase Tesla.</p>
+              <p><span class="spk">Christopher Lochhead:</span> What if I told you that Tesla and Rivian are doing no such thing as building EVs? What they’re building are human assisted robots.</p>
+              <p><span class="spk">Christopher Lochhead:</span> And soon, those human assisted robots won’t [00:44:00] need the human assistance. That’s what a driverless car is. It’s a humanless, it’s an unhuman assisted robot.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Okay, well if you built the first Unhuman assisted robot at scale what else could you do so Ford and Chrysler and GM? They’re going to go build EVs and Tesla and Rivian are building robots that currently are human assisted. And so the lens that you use to look at anything, scientists have known this for years, changes the thing.</p>
+              <p><span class="spk">Christopher Lochhead:</span> If you tell your developers you’re building EVs, they’re going to go build EVs. If you tell your developers you’re building human assisted robots, they’re going to go build human assisted robots. And so it is very important for people who want to impact the future To start in the future, [00:45:00] paint a picture of that future in category design, we teach people to build ecosystem diagrams that show how this world is going to look, the partnerships around it, how it’s all going to come together.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We teach them to write, create and publish manifestos. One of the things that made Save Westcliff go. We produced this giant coffee table book with incredible pictures going back through the history of Santa Cruz Showing you what’s happened showing you all the major storms over time showing you how they’ve increased It’s beautifully laid out and we handed this you know, you know how quickly the mayor found out we were doing these And wanted one?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Everybody wanted that thing and we’ve had to do two runs of them right now. And in category design, we call that a manifesto. And what’s a manifesto? A manifesto is a document or a presentation of any kind that brings to life the different future that you’re trying to [00:46:00] create. And often, in the case of the Save Westcliff initiative, frames it with what got us to here that requires The different future, but the only way you can consider it was inconceivable nine months ago that we would have every major, radically conservative, environmental group in this area supporting this kind of initiative because they’ve always said, leave it alone and whatever happens, happens, manage retreat and now they’re saying, wait a minute, maybe there is a way to do natural feature restoration where we harness the way nature is now and we add some of the things that she was before.</p>
+              <p><span class="spk">Christopher Lochhead:</span> a radical idea and you can only do that if you start in the future, you reject the premise. This disruption word is a stupid word because the minute I say disruption, you’re already in the past because the thing you’re disrupting is the way it is. Well, your mission is not to [00:47:00] disrupt the way it is.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Your mission is to create a different future. The impasse is on the wrong syllable. We don’t care about the way that it is. And the more you say disruption or anything else that, that reinforces the way that it is, the more you’re not creating a radically different future.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that, Chris. I think that really, really resonates about just like starting in the future and not being quite so tied to the present. , And that kind of resonates a bit with sort of where we’re at in some ways. And I’m curious, this is maybe like a little bit more more tactical, but as you’re standing in the future and trying to pull people there, how do you think about languaging the old way?</p>
+              <p><span class="spk">Amie Vaccaro:</span> And also, like, how, how should we think about I think something that we, we wonder about is just like alienating those people that have been with us for the last 20 years. Right? And now we’re sort of saying, okay, now there’s this whole new way. Any, any guidance around that?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Yes, yes, yes, yes. So there’s a [00:48:00] big, most of what we’ve been taught about business is actually fucking wrong as hell. And one of them is people don’t like change. Nobody likes change. Oh, really, really? We’re doing a podcast. Okay. Podcasts have been around for, I don’t know, probably 20 years. If you want to go that far back.</p>
+              <p><span class="spk">Christopher Lochhead:</span> But really have exploded in the last decade. Millions and millions and millions and millions of people listen to podcasts. I’ll never forget when my producer called and said, We just crossed a million downloads. I was like, Are you kidding me? Right? , and, Our podcast, like yours, is in a hundred and ninety countries.</p>
+              <p><span class="spk">Christopher Lochhead:</span> I didn’t, I don’t even know some of the countries. Where we have listeners, but nobody knows you get it in the podcast. The truth is human beings love change They love it if they are taught why it matters Aka somebody frames claims and [00:49:00] names a problem and presents a non obvious solution to that problem And there’s even we’ve studied the noises.</p>
+              <p><span class="spk">Christopher Lochhead:</span> We want people to make we want them to go, huh?</p>
+              <p><span class="spk">Christopher Lochhead:</span> And so You spoke about languaging. Here’s another big mistake that people make. You can’t describe an exponentially different future exclusively with words from the past.</p>
+              <p><span class="spk">Christopher Lochhead:</span> So when Starbucks starts, and I’m going to be directionally right and, uh, empirically wrong, but let’s say a coffee at the time was a quarter in most diners, coffee shops. They said, well, we don’t want to sell coffee for a quarter. We want to sell coffee for three bucks. Okay, well, here’s the first thing.</p>
+              <p><span class="spk">Christopher Lochhead:</span> You can’t call it a coffee. Because coffee’s a quarter. So what do they do? They create a whole new languaging lexicon for coffee. A [00:50:00] tall, a grande, a vente, a king kong, or whatever. I don’t know all the names. But grande and vente and tall are the ones that I remember. And so, when you walk into a Starbucks, you don’t ask for a coffee.</p>
+              <p><span class="spk">Christopher Lochhead:</span> You ask for a double grande latte or whatever you ask for and that’s why it’s three bucks and the language they created is so powerfully different That now when you walk into a non Starbucks you walk into you know We have some local unbelievable super ding dong where they paint the Mona Lisa and the thing and you know, all the cool hippie dudes Dudettes with their fucking Birkenstocks and all their hip shit happening, right?</p>
+              <p><span class="spk">Christopher Lochhead:</span> Alvo toast and everything And people walk in there and say, I’d like a double grande latte, please. And if you go into one of those hipster places and ask for that, they can always kind of look at you with a bit of a snarl, like, eh, right? Because they know that you’ve accepted their [00:51:00] competitor’s languaging as the language for the category.</p>
+              <p><span class="spk">Christopher Lochhead:</span> In the case of Save Westcliff, what people were rejecting. What people were upset about was what historically was called seawall hardening. And for good reason! Hardened seawalls are just this concrete thing. First of all, they look terrible. And second of all, just a giant piece of concrete doesn’t behave.</p>
+              <p><span class="spk">Christopher Lochhead:</span> environmentally, like anything, like the, the natural features that were there before. So in, in doing our research and in talking to us, we’ve talked to scientists who’ve been working on this for 30, 40, 50 years. The aha in learning from them was what they were trying to do. And they had some very professorial scientific languaging that meant nobody understood it and I don’t even [00:52:00] remember it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> But as we looked at what they were talking about, and we looked at what had been successful in some other parts of the world, what we realized was, and this, John, goes back to the false choice thing, what the most advanced people in the world who were having success with coastlines were doing was they were studying what it was like, the natural features, then the destruction to those natural features, and they were asking themselves, how can we use the environment, A, and B, man made things?</p>
+              <p><span class="spk">Christopher Lochhead:</span> To restore those natural features that they didn’t use any of these words. They used all this scientific carpetingulation. I don’t know what words. And the minute we said frame claim and name natural feature restoration, everything changed.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Just like when it’s a woman’s issue and they’re screaming, we want more money. Everybody goes, eh, it doesn’t everybody else . [00:53:00] But when it’s not a woman’s issue anymore, when it’s a human issue and it’s equal, pay for equal work. All of a sudden, people go, Hmm, tell me more about that.</p>
+              <p><span class="spk">Christopher Lochhead:</span> That’s what we’re looking for. And so, in the impact space, more than any other really, it’s important to think about how we frame, name, and claim a problem, and therefore, a solution.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, thank you so much, Chris. Um, wonderful advice for our audience. And it was awesome hearing all of your learnings and story. Can’t recommend the book play bigger enough, and we’ll put that in the show notes, but really appreciate your time here with us, Chris.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much, Chris. I we could go on for hours and hours, but this was such a such a great conversation, and I’m excited to share this out with our audience and also re listen to it myself. So really appreciate it.</p>
+              <p><span class="spk">Christopher Lochhead:</span> Thank you. Bless you both. And thank you so much for the incredibly important work that you’re doing.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Chris.</p>
+              <p><span class="spk">Sarah Strauss:</span> That’s our show. Please like, [00:54:00] rate, review, subscribe, and share this episode if you found it useful. It really helps us grow our impact. And write to us at podcastatdimagi. com with any ideas, comments, or feedback. This show is executive produced by Amy Vaccaro, produced and edited by Michael Kelleher and myself, with cover art by Sudhatu Khan.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CL</div>
+            <div class="person-info">
+              <p class="person-name">Chris Lochhead</p>
+              <p class="person-role">Thirteen-time number one bestselling co-author and a pioneer of Category Design, former three-time Silicon Valley CMO, and co-founder of the category design firm Play Bigger.</p>
+              <span class="person-org">Play Bigger</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/7l3HEC8wgMbDeUSCkSgjTK" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

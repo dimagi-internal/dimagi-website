@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research &amp; Data | Dimagi</title>
+<meta name="description" content="The Dimagi Research and Data (RAD) team conducts mixed-methods research on digital solutions to improve health in low-resource communities, with peer-reviewed publications across more than a dozen universities and academic medical centers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<style>
+/* ── Research & Data ── */
+
+.rad-intro p {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+.rad-intro p:last-child { margin-bottom: 0; }
+
+/* Hero meta chips */
+.rad-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+.rad-meta span {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+}
+.rad-meta span strong { color: var(--marigold); font-weight: 700; }
+
+/* What we study */
+.rad-focus-band {
+  padding: 76px 0;
+  background: var(--paper-cool);
+  border-bottom: 1px solid var(--line);
+}
+.rad-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 44px;
+}
+.rad-focus-item { position: relative; padding-top: 22px; }
+.rad-focus-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 34px; height: 3px;
+  background: var(--grad);
+  border-radius: 2px;
+}
+.rad-focus-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--indigo);
+}
+.rad-focus-item h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  letter-spacing: -0.015em;
+  margin: 10px 0 8px;
+}
+.rad-focus-item p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Selected Publications */
+.pubs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 52px;
+}
+
+.pub-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.pub-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.pub-card:hover {
+  border-color: var(--indigo);
+  box-shadow: 0 14px 40px -22px rgba(56,67,208,0.45);
+  transform: translateY(-3px);
+}
+.pub-card:hover::before { opacity: 1; }
+
+.pub-year {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  padding: 4px 11px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.pub-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+
+.pub-authors {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 22px;
+  flex: 1;
+}
+
+.pub-link {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  transition: gap 0.2s ease;
+}
+.pub-link:hover { gap: 11px; }
+.pub-link .arr { font-size: 13px; }
+
+/* Collaborations */
+.collab-band {
+  background: #f5f7ff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.collab-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.collab-inner p {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 20px 0 32px;
+}
+
+@media (max-width: 1040px) {
+  .rad-focus-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
+  .pubs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .rad-focus-grid { grid-template-columns: 1fr; }
+  .pubs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html" class="nav-active">Professional Services</a>
+        <a href="../../company/about/index.html">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section id="main" class="hero hero-dark on-dark">
+  <div class="container">
+    <div style="max-width:880px;">
+      <span class="eyebrow on-dark">Dimagi Research</span>
+      <h1 class="hero-title">The Research &amp; Data Team</h1>
+      <div class="rad-intro" style="margin-top:24px;">
+        <p>The Research and Data (RAD) team conducts research on digital solutions intended to improve the health and quality of life of individuals living in low-resource, underserved communities around the world. Utilizing a mixed-methods approach, we build and evaluate digital tools and data analytics to inform our understanding of how digital tools are used and/or generate useful insights for improving healthcare programs.</p>
+        <p>Our research aims to advance the field of digital development through rigorous investigation of how current and emerging technologies, including AI and Large Language Models, are used and how they can be improved. Progress in digital development depends not only on validating digital technologies but also the generation of programmatic insights that can go towards the improvement of digital solutions.</p>
+      </div>
+      <div class="rad-meta">
+        <span><strong>12+</strong>&nbsp; Academic partners</span>
+        <span>Peer-reviewed publications</span>
+        <span>Mixed-methods research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── WHAT WE STUDY ───── -->
+<section class="section rad-focus-band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">Focus</span>
+      <h2 class="section-title">What we study</h2>
+    </div>
+    <div class="rad-focus-grid">
+      <article class="rad-focus-item">
+        <span class="rad-focus-num">01</span>
+        <h3>Digital health tools</h3>
+        <p>Designing and evaluating mobile and web solutions built for low-resource, underserved communities.</p>
+      </article>
+      <article class="rad-focus-item">
+        <span class="rad-focus-num">02</span>
+        <h3>AI &amp; large language models</h3>
+        <p>Investigating how emerging AI can be applied responsibly and improved for global health.</p>
+      </article>
+      <article class="rad-focus-item">
+        <span class="rad-focus-num">03</span>
+        <h3>Data &amp; analytics</h3>
+        <p>Turning program data into insights that strengthen healthcare delivery and outcomes.</p>
+      </article>
+      <article class="rad-focus-item">
+        <span class="rad-focus-num">04</span>
+        <h3>Mixed-methods evaluation</h3>
+        <p>Rigorously assessing the usability, feasibility, acceptability, and impact of digital tools.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───── SELECTED PUBLICATIONS ───── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">Publications</span>
+      <h2 class="section-title">Selected Publications</h2>
+      <p class="section-lede">RAD collaborates closely with subject matter experts across a variety of public health domains, from more than a dozen universities and academic medical centers. Together we study the use and impact of digital technology on health and related socio-behavioral outcomes. Through these collaborations, RAD seeks to share learnings and research studies with the broader health, ICT4D, and informatics communities.</p>
+    </div>
+
+    <div class="pubs-grid">
+      <article class="pub-card">
+        <div class="pub-year">2024</div>
+        <h3 class="pub-title">Designing an App to Support Measurement-Based Peer Supervision of Frontline Health Workers Delivering Brief Psychosocial Interventions in Texas: Multimethod Study</h3>
+        <p class="pub-authors">Gibson DG, Muyoyeta M, Simulundu E, Mukusya S, Banda R, Chavula C, Mutale W, Biemba G, and Yeung S</p>
+        <a class="pub-link" href="https://formative.jmir.org/2024/1/e55205/" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2024</div>
+        <h3 class="pub-title">Journal of Medical Internet Research – Chatbots That Deliver Contraceptive Support: Systematic Review</h3>
+        <p class="pub-authors">Dulli LS, Ridgeway K, Govindasamy D, Saidu Y, Pillay D, and Bekker LG</p>
+        <a class="pub-link" href="https://www.jmir.org/2024/1/e46758/" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2024</div>
+        <h3 class="pub-title">Development and Pilot Testing of PracticePal, a Conversational Agent to Support the delivery of a brief behavioural activation treatment for depression in rural India</h3>
+        <p class="pub-authors">Tripathy JP, Singh B, Walia K, Jeyashree K, Lakshmi K, Mishra J, Makkar N, Lesh N, and Sinha DN</p>
+        <a class="pub-link" href="https://www.researchsquare.com/article/rs-5426475/v1" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2024</div>
+        <h3 class="pub-title">Human Review for Post-Training Improvement of Low-Resource Language Performance in Large Language Models</h3>
+        <p class="pub-authors">Rao G, Kumar R, Aggarwal A, Sharma R, Pal A, Lesh N, and Bhargava A</p>
+        <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10628927" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2022</div>
+        <h3 class="pub-title">How a Digital Case Management Platform Affects Community-Based Palliative Care of Sub-Saharan African Cancer Patients</h3>
+        <p class="pub-authors">Vasan A, Palazuelos D, Delaire T, and Dworkis D</p>
+        <a class="pub-link" href="https://www.thieme-connect.com/products/ejournals/html/10.1055/s-0042-1758223" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2021</div>
+        <h3 class="pub-title">A Mobile App to Improve Symptom Control and Information Exchange Among Specialists and Local Health Workers Treating Tanzanian Cancer Patients: Human-Centered Design Approach</h3>
+        <p class="pub-authors">Morse RS, Lambden K, Quinn E, Ngoma T, Mushi B, Ho YX, Ngoma M, Mahuna H, Sagan SB, Mmari J, Miesfeldt S</p>
+        <a class="pub-link" href="https://doi.org/10.2196/24062" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2021</div>
+        <h3 class="pub-title">A Mobile Health Tool for Peer Support of Individuals Reentering Communities After Incarceration</h3>
+        <p class="pub-authors">Fuller, JM, Ho, YX, Morse, R, Fix, G, Cutrona, SL, Gaziano, T, … McInnes, DK.</p>
+        <a class="pub-link" href="https://doi.org/10.1353/hpu.2021.0055" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2016</div>
+        <h3 class="pub-title">Closing the Feedback Loop : A 12-month Evaluation of ASTA, a Self-Tracking Application for ASHAs</h3>
+        <p class="pub-authors">DeRenzi B, Wacksman J, Dell N, Lee S, Lesh N, Borriello G, and Ellner A</p>
+        <a class="pub-link" href="https://dl.acm.org/doi/10.1145/2909609.2909652" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-year">2016</div>
+        <h3 class="pub-title">Effect of Performance Feedback on Community Health Workers’ Motivation and Performance in Madhya Pradesh, India: A Randomized Controlled Trial</h3>
+        <p class="pub-authors">Kaphle S, Matheke-Fischer M, Lesh N</p>
+        <a class="pub-link" href="https://doi.org/10.2196/publichealth.3381" target="_blank" rel="noopener">View Publication <span class="arr">↗</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───── COLLABORATIONS ───── -->
+<section class="section collab-band">
+  <div class="container">
+    <div class="collab-inner">
+      <span class="eyebrow muted">Collaborations</span>
+      <h2 class="section-title">Collaborations</h2>
+      <p>The RAD team actively seeks new collaborations to design and develop innovative digital health solutions and rigorously study and evaluate the usability, acceptability, feasibility, and impact of digital tools, ranging from AI-powered chatbots to advanced health data analytics tools. If you are looking for a strong research and implementation partner to work with on a small- or large-scale research project:</p>
+      <a class="btn btn-indigo btn-arrow" href="mailto:rad@dimagi.com">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

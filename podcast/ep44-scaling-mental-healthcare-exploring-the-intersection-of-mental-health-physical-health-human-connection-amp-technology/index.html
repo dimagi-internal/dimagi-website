@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 44: Scaling Mental Healthcare: Exploring the Intersection of Mental Health, Physical Health, Human Connection &amp; Technology | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi experts on scaling mental health care in lower and middle income countries through frontline workers, self-help groups, and digital tools that keep humans central.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep44-scaling-mental-healthcare-exploring-the-intersection-of-mental-health-physical-health-human-connection-amp-technology/">
+<meta property="og:title" content="Ep 44: Scaling Mental Healthcare: Exploring the Intersection of Mental Health, Physical Health, Human Connection &amp; Technology">
+<meta property="og:description" content="Scaling mental health care through frontline workers, self-help groups, and digital tools that keep human connection central.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>July 10, 2023</span>
+          <span class="dot"></span>
+          <span>44 min</span>
+        </div>
+        <h1 class="ep-title">Scaling Mental Healthcare: Exploring the Intersection of Mental Health, Physical Health, Human Connection &amp; Technology</h1>
+        <p class="ep-deck">Three of Dimagi&#x27;s mental health experts join Jonathan Jackson to unpack the global mental health gap, the power of frontline and self-help group models, and where digital tools can scale care without losing the human connection that makes it work.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2VXwuwK1tDSRH7e9SKMtiV?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 44 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2VXwuwK1tDSRH7e9SKMtiV" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000620579478" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/osXI6onfiII?si=Sl9nuFNo__WSvn9c" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/5a415941-0efa-4ca3-8243-858840e0b508/high-impact-growth-scaling-mental-health-care-exploring-the-intersection-of-mental-health-physical-health-human-connection-technology" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">75%</div>
+          <div class="ep-stat-label">of people in lower and middle income countries who do not receive any treatment for depression</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">1.4%</div>
+          <div class="ep-stat-label">of government funding committed to mental health each year in Ghana, per a WHO report</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">14 million</div>
+          <div class="ep-stat-label">TB infections that could be reduced by 2030 if mental health care were integrated into TB care</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Depression alone is projected to be the third leading cause of disease burden in lower and middle income countries by 2030, where 75% of people don’t receive any treatment.</p>
+        <p>In this episode we delve into the escalating global issue of mental health care. Jonathan Jackson speaks with three of Dimagi’s experts: senior health strategy specialist Lauren Magoun, senior project analyst Anaba Sunday Atua, and senior mental health strategy consultant Christie Civetta. Gain insights from the team’s diverse experience and learnings in project analysis and the implementation of mental health initiatives, as well as approaches to combating the barriers to mental health care delivery and the grave lack of funding. You’ll walk away from this episode with a clear understanding of the role of Frontline Workers in providing intervention, the need for human connection in digital solutions, and the positive impact of integrating mental health care into broader health strategies. This episode challenges funders, implementers, and technologists working in the mental health space to consider the intersection between mental and physical health in developing solutions that create lasting impact and achieve holistic health outcomes.</p>
+        <p>Topics include:</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;When you&#x27;re looking at trying to treat tuberculosis, you can&#x27;t just treat the disease, you have to treat the person as well.&rdquo;</p>
+          <cite>Christie Civetta, on integrating mental and physical health</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A stark inequity</strong>: why depression is projected to be the third leading cause of disease burden in lower and middle income countries by 2030, with most people receiving no treatment at all</li>
+          <li><strong>The view from Ghana</strong>: Anaba Sunday Atua on stigma, cultural barriers, and the limited resources that keep mental health relegated to the background</li>
+          <li><strong>Self-help groups that work</strong>: peer led community models that build social support, fight stigma, and connect people back to formal care</li>
+          <li><strong>Frontline workers at the center</strong>: training community health and lay workers to deliver brief, evidence-based psychological interventions</li>
+          <li><strong>Mental and physical health intertwined</strong>: how integrating mental health into TB, HIV, and maternal care improves adherence and outcomes</li>
+          <li><strong>Digital with a human touch</strong>: where self-guided apps, chatbots, and AI can help, and why personal connection still cannot be replaced</li>
+          <li><strong>Unlocking scale</strong>: using digital tools to ease the training and supervision bottlenecks that have held quality interventions back</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Christie:</span> So today on the podcast we’re gonna be talking about mental health, and very specifically, the intersection with physical health and in physical health programming. And to be clear, when we’re talking about mental health, we are talking about things that include emotional and psychological and social wellbeing.</p>
+              <p>So a full spectrum of mental health. I think it’s useful for us to establish that, like within this podcast and how we’re gonna talk about it is really around, you know, anxiety and depression. We’re not gonna dive too much into things like psychosis, or kind of psychosocial disorders. We’ll really kind of stay on that spectrum.</p>
+              <p>And I think it’s really useful for us to set a bit of context. So the reason we’re talking about this is Dam Monge over the last couple of years has really been investing a lot more into thinking about and figuring out what is its offering as it relates to mental health and what can it do to help increase equity and access to mental health, really specifically in like lower and middle income countries</p>
+              <p>and I think the real crux of it is that there is a huge lack of mental health services in lower mid income countries, and it’s one of the most stark inequities in the world. Depression alone is projected to be the third leading cause of disease burden in lower middle income countries by 2030, where 75% of people don’t receive any treatment.</p>
+              <p>So it’s a really important thing for us to be talking about today. We’re gonna be talking about how. We can potentially look at supporting mental health and working with mental health and integrating that in physical health programs.</p>
+              <p><span class="spk">Lauren:</span> Great, thanks Christie. I’m Lauren Magoon and I’m the Senior health Strategy Specialist here at Dimagi on our research and data team. And my work particularly advances dimagi’s overall mission of improving frontline services, to all people around the world, specifically around mental health and how we can use dimagi’s current digital tools and also develop new ones, to support mental health programs to improve..</p>
+              <p>Access and equity to care, which are both, crucially important as, we all know there’s a huge gap in care access, but also the disparities of who gets that limited care are great as well. I have a public health background and healthcare management and operations</p>
+              <p><span class="spk">Christie:</span> awesome. Thanks Lauren. Anaba, do you wanna introduce yourself?</p>
+              <p><span class="spk">Anaba:</span> So my name is Sandy Atto. I am a senior project analyst working with Dimagi. I’ve had prior experience working in Ghana, mental health field I also have a public health background and. Also by experience. I’ve worked with people with lived experience of mental illness in the communities and they’re mobilizing support for them in Ghana.</p>
+              <p><span class="spk">Jon:</span> Well, welcome to the pod, Christie. Lauren and Inva, before you go on, Christie, you wanna introduce yourself real quick.</p>
+              <p><span class="spk">Christie:</span> Thanks John. So my name is Kristi Sveta and I’ve been working alongside Dimagi for the last, couple years supporting their team as. They build out mental health offerings, and supporting the development of Dimagi’s newest initiative called Comcare Connect and figuring out how those two potentially could intersect.</p>
+              <p>My background is a mix of crisis counseling and wellbeing and the tech for dev and global development sector. And I’m excited to be here today to talk a bit more about mental health and how we think about integrating that into physical health services that are more commonly, supported in global development settings.</p>
+              <p><span class="spk">Jon:</span> Thank you so much, excited to have this conversation and nav to start with you. You spent nearly a decade, before joining dgi, working at an organization in Ghana supporting mental health at the front lines in a lower and middle income country. I’d love to hear from your perspective, just an overview of mental health and mental health care in LSCs.</p>
+              <p>Mental health in low middle income countries actually is challenge with a lot of issues. We have a system where there is a lot of limited resources. And due to these limited resources, there is low funding, committed to mental health. In Ghana where I’ve worked in, there is a report by W H O that every year, 1.4% of government funding is committed to mental health.</p>
+              <p><span class="spk">Anaba:</span> And this makes this willfully inadequate. , as a result, about 85 to 98% of the population who needs mental health care do not usually find it. We usually have just 2% of the population who are able to get access to mental health in our country By research. The research I have soon, these are some of the challenges.</p>
+              <p>We also have stigma and discrimination. In low middle income countries. There’s still as a high level of stigma in discrimination in the mental health sector. And this is coupled with the fact that people do not have the awareness. They do not even understand what mental health is. We have a situation where when people even have mental health conditions, they are afraid to say that they have mental illness because they’ll be stigmatized, they’ll be discriminated against, and because of that they keep it.</p>
+              <p>So issues like anxiety and depression are not usually things that are discussed until we see people with the likes of schizophrenia, which are the mainstream mental health conditions. Before we are able to know that these people are suffering from mental illness. So due to this stigma and discrimination, people don’t want to be associated.</p>
+              <p>And so they don’t report some of these early signs and then it gets deeper. And then we have all kind of, severe mental health conditions happening. We also have our cultural barriers, the issues of technology. When it comes to cultural barriers, there are a lot of issues that are embedded in our culture that affects people mental health.</p>
+              <p>So for instance, we have people in my system where they say, when you are mentally ill, you may not even be able to vote. There’s also another issue that says that people who are mentally ill, they have one name. They describe all of them in the culture, in the language setting. And so, if you are describing one name, you don’t even know the spectrum of mental illness from mild, moderate, and severe.</p>
+              <p>And so until you are described with that word, you don’t go and seek for treatment. And then we also have conflict and violence in low middle income countries. Conflict and violence actually leads to a position where people who have experienced this conflict and violence, get a bit of traumatized. There is no care system that supports them.</p>
+              <p>And so they go and develop some of these depressive episodes and it becomes a problem. And then we have issues of substance abuse. Substance abuse is actually very much profound in low and middle income countries. For many reasons people result to taking a lot of substances and then that leads to having an effect in their mental health conditions.</p>
+              <p>We also have the health system not being able to provide the needed personnel. The human resources needed to be able to support mental health services in lower and middle income countries. All these have led to the challenges over the years, and we still haven’t gotten to where we are supposed to get to when it comes to mental health.</p>
+              <p>The other issue is that we struggle with a lot of multiple disease burdens. You look at even the problem of integrating mental healthcare at the primary he healthcare level. And there’s a lot of multiple disease better in low middle income countries. And so it becomes very difficult for, policy makers to concentrate on mental health.</p>
+              <p>And so mental health is actually relegated to the background, in low middle income countries. And these all culminate to what we, have today where many people do not get the services they need. When they require it, when it comes to mental health. So these are some of the challenges I’ve seen</p>
+              <p><span class="spk">Jon:</span> you for that great overview, Anaba, and we’ve seen, that challenge across all. Income levels in all countries, I think, and many countries are recognizing a, a massive global mental health crisis. Right now. You mentioned only about 2% of people seeking care or who need care receive it. So it’s a, incredibly, challenging statistic to face when trying to support mental health, but we have seen some interesting attempts over the last couple decades and some things that really do work, and you were part of one of those interventions. So can you share a bit about, the specific model that you worked on in Ghana, but also what you’ve seen in the industry with attempts to improve access, to supportive mental healthcare?</p>
+              <p><span class="spk">Anaba:</span> Thank you Jonathan. I was privileged to have worked with a mental health organization called Basic NI Ghana, who implemented a model for mental health and development that look at all the challenges facing mental health in low middle income countries, and then came up with a solution to support or, help these, mental health challenges.</p>
+              <p>So, for instance, they looked at access to services, looked at, livelihoods for people with mental illness looked at building capacity to be able to, create awareness of mental health and also looked at, collaborations and research. So first of all, the work we concentrated on was to see how we can build the social support system so that we start from there so that people who are mentally ill, even if the services are not available because of lack of resources.</p>
+              <p>Us at the community level, the social support system should be able to help the person to go through something we call psychotherapy, by just having peer led or peer support groups in the community. So the first point of contact was to get mental health service users. Their caregivers come together and form what we call the self health groups, where they come together, meet, discuss among themselves, and then be able to fight stigma at the community level, using themselves as an example.</p>
+              <p>Then through that, they’re able to learn, build their capacity , and then together they’re able to access services. And then we also worked on creating demand, supply for the services. Working with policy makers, working with, let’s say the, Ghana Health Services to see how they’ll be able to position mental health services at those steps of people who need the, the services.</p>
+              <p>So based on these, through advocacy with other organizations that came being of the mental health authority. Which is overseeing all mental health related issue in Ghana and then having a whole CEO and then under the Ministry of Health just dedicating their services to just mental health. And this actually worked because there have been a lot of,</p>
+              <p>Community, mental health unit that has been established as a result of mental health authority work so that people who need services do not need to go to one psychiatric hospital. Get admitted, stay there for a month, return home and seen as a stranger, and stigma increases. But then they’re able to stay at home, visit, take services, go back to a group level, participate in meetings, and then see that they also have their peers who are able to share their experience together. And then come back to the hospital when they have to come back for review or refill of their medication. Together they are able to. Advocate for services at the community level to the district level and then to regional and national level. So these are some of the interventions that, basic needs. Ghana, put together to be able to, meet the mental health care needs of the country we also have a situation where we have global partners coming up with a lot of programs and initiatives. For instance, we had the W H o coming up with the Quality Rights Initiative, which supported people including service users to be able to train, to understand their rights, to understand what kind of services they need and what actually mental health is and the community support systems available that can help them to be able to live independent lives. And this has actually also empowered a lot of people</p>
+              <p><span class="spk">Jon:</span> Thank you, Nava. That’s excellent. And I think that self-help group model is, So powerful, and we’ve seen that in multiple countries. Lauren and Christie, you’ve been both part of additional programming models and also exploring some pure digital, applications, which tri controversial, in terms of, the view in the industry. But can you share some of the models you’ve been exploring and in some cases directly supporting through dma?</p>
+              <p><span class="spk">Lauren:</span> Sure John. Thanks. And thanks for that Anaba. That was such a wonderful overview of what, basic needs, basic rights has been working on, which is a wonderful model and actually, works in a number of countries. And I was actually just speaking to someone from Kenyan basic needs, basic rights the other day, who does similar work in, in their region. And there are a number of other related models I would say, that work in the community, which is so important, particularly in areas with high stigma. I actually think it’s important. Everywhere because it’s just easier for the client. But particularly in areas where stigma is an issue, I think, those community based approaches are particularly helpful cuz you’re working with a trusted member of your community Often.</p>
+              <p>And the way that this often plays out in some of the groups we work with is by using frontline workers, community health workers, lay counselors or peers in either a self-help group and or a. Slightly more formalized, brief psychological or low intensity intervention. They sometimes call them, to support people with sort of common mental disorders.</p>
+              <p>And one of the groups we work with, um, in India called, which is related to also the Empower Program here in the US out of Harvard Medical School, has a number of such approaches where they’ve trained frontline workers, people like community health workers, ASHA workers, to deliver one of these low intensity.</p>
+              <p>Brief psychological interventions with people for people with common mental disorders, or in some cases substance use disorders. And in these programs, there’s a lot of wonderful things about them. First of all, they are usually part of the community. The Asher social Workers, usually someone you know from their, ethnic or population or regional background, which could be helpful and are normally close to home, which is also helpful for participants.</p>
+              <p>And they have really. Wonderful evidence behind them. Many have RCTs published in peer review journals of their effectiveness and improving improving care. So those sort of, frontline worker led approaches are something we work with regulate tamagi and we support them through digital in a number of ways from using Comcare, our digital platform or case management data collection, to support, the frontline workers themselves to deliver care more effectively.</p>
+              <p>Also in providing some supervision support in a variety of capacities, to collect data for quality and quality assurance. And then also, John, as you alluded to some direct to client sort of self-help programs through digital alone. or as a hybrid approach, I think you’re right John, that there is reticence of, pure digital approaches to helping people with mental health support. And rightly so. , the personal connection really is important in improving outcomes, that said, one way I’d like to explain it is we’ve had self-help books and self-guided therapy for. Decades, if not longer, that do help some people. And I think the trick is to figure out who digital only solutions may help greatly and who need either a hybrid approach both and or who the digital approach doesn’t work for it all.</p>
+              <p>So in my personal view, I think there is, a triage needed of for whom, which programs work and why. And I do think there is. Probably a space for, digital only care for certain people. Just like self-guided internet therapy has shown to be effective for some people over the years. And the social connection and the personal touch is also critically important, and there’s different ways to achieve that as</p>
+              <p><span class="spk">Jon:</span> That’s, a great summary and I agree. I think the potential for digital to increase access is massive and can be incredibly amplifying. But so much of it is that human to human connection, I think. And Christie, you were direct practitioner, in this field at one point in time. I’m curious to get your take on what are you excited about with digital? What are you a little bit worried about, perhaps? And then also, the self-help groups. This community-based cares absolutely wonderful. But we do need to have those use cases that can escalate, that can combine physical and mental health.</p>
+              <p>So we need to think about how these amazing interventions that are incredibly impactful, incredibly cost effective, integrate back into the broader healthcare system. And not just healthcare system, but public health promotion system. So Christie first would love to hear, as a practitioner, how are you feeling about technology and where it can amplify, or concerns you have about it. And then how do you think about this integration back to the broader ecosystem?</p>
+              <p><span class="spk">Christie:</span> Wow. Two really awesome and very big questions. Thanks for that. So I’d say on the first, lens, I think Lauren really hit the nail on the head. Mental health is a real spectrum. Everything from positive psychology all the way over to psychosocial disorder and so many spaces in between.</p>
+              <p>And there’s so many needs. Just like in physical health, there are a lot of needs. And if you think about our physical health system, you have so many different ways of interacting with individuals that can support you on your physical health journey, whether it’s nurses, general practitioners, whether it’s even just.</p>
+              <p>Going to a pharmacy, for instance, to pick up medications or band-aids, all the way to, you know, surgeons that perform some of the most complex, you know, surgeries on the planet. And so if you think about that whole spectrum, the same needs to be true for mental health. Because mental health is just as important and it’s just as, it’s something to elevate in.</p>
+              <p>In the same way that physical health is elevated, similar to how sanitation and nutrition are. You know, it’s important for everything and we need to really make sure we take it seriously. So when I’m thinking about digital, of course there are tons of, you know, worries swirling around around privacy and data security and ensuring that there are, the individuals that do need that, that human care, that do need that elevator, that, you know, that escalation and or don’t sit well with digital, are able to receive that.</p>
+              <p>But I think there’s some really interesting places for digital to play. I think, as Lauren said, those, those self-guided apps do work for some people. You know, when we’re talking about. The global burden of mental health. There’s a huge burden of, individuals within the anxiety and depression spectrum who, are a part of that major burden that really is elevating this mental health crisis that we’re experiencing.</p>
+              <p>And a large percentage. Those people can be supported by, I think, lighter touch methods and really help themselves kind of work through the issues they’re experiencing. And some of those could be self-help models, that could be conversational chat bots that are rolled out. Whether it’s, direct with an individual on the other side, or you’re utilizing some of the language models that are kind of floating around the internet at the moment and taking over the world, if you will. How do you, you use those and, and think about using digital in a way that doesn’t eclipse the care that’s needed for the individuals that require it. But does provide, I think that that open door for people that haven’t had access before. So using. AI and artificial intelligence to, triage patients to potentially support and training in order to help train other individuals to potentially, support on some of the low, you know, lighter spectrum, , mental health.</p>
+              <p>, Tools that we use. So talking about behavioral activation and cognitive behavioral therapy cannot be something that is, you know, programmed into an application that helps a person do things like set smart goals and remind themselves to make sure that they’re meditating or going off for a walk or talking to families. So I think there’s a lot of potential there. We don’t wanna over-index on it, but we don’t wanna ignore it, so there’s a real fine balance. So I’d say that’s, that’s definitely what we’re looking at.</p>
+              <p><span class="spk">Jon:</span> That’s an amazing summary, Christie. And that’s. Spectrum that we heard. Dr. Rick and Patel in a previous episode talked that about that as well. And I wanna highlight one thing you said, which is, on that spectrum, mental health should not be about the absence of mental health illness, it should be about positive mental health.</p>
+              <p>In the same way that we’re recognizing healthcare on physical health is not. And should not be focused at the absence of illness, but positive, physical status. So you’re getting ahead of preventing diabetes or adult onset diabetes. You’re getting ahead of cardiovascular disease, which is, going to add life expectancy to the individual. Mental and physical health interact with each other in such a way that both have positives. So I really just love the way you articulated that spectrum because we need to not just be focusing on the absence of illness, but on positive outcomes. And that is something where, you know, public health and healthcare need to come together, in this integrated approach. So we’d love to go to that second question about how do we integrate these things into, new care models.</p>
+              <p><span class="spk">Christie:</span> I’m just sitting here nodding my head and kinda like shaking my hands up and down, like, yes, that’s exactly it. That’s exactly it. Let’s focus on prevention and reaction. This is amazing. I think, with the integration piece, just kind of setting it up and then I’d love to hear what other other folks think.</p>
+              <p>So we know that mental health doesn’t exist in isolation. We’ve established that, right? It’s cross-cutting like we talked about as it relates to, you know, Similar to sanitation, nutrition as it relates to other health indicators. Some interesting examples of that, which I think might help ground us is you have, you know, pregnant individuals who are depressed are less likely to adopt healthy behaviors for, you know, their children and for themselves, which usually leaves to worse newborn health and nutrition, right?</p>
+              <p>So that’s like one really critical, you know, concrete example. Another could be, you know, individuals that are. Being treated for HIV and tuberculosis, which are inherently incredibly stigmatized, are less likely to take their medications if they’re suffering from anxiety. And so if you kind of drill into, let’s say, the tuberculosis use case, as we know, TB is the world’s second leading cause of death due to infectious diseases.</p>
+              <p>It. Every two years, TB kills as many people as Covid 19 did in 2020 alone, right? So there’s a growing awareness that tuberculosis is, is a huge issue. We’re trying to kind of cramp down on it, and mental health often coexist. The mental health disorders often coexist with patients who are experiencing tuberculosis and a number of reasons relate to, you know, there are a number of reasons for this.</p>
+              <p>Things like social isolation. You know, patients are often excommunicated from their family. They’re made to eat. And sleep separately. There’s also an underlying fear of transmitting the disease to individuals. People are often not able to work. They might lose their jobs, they might already be economically insecure, and this makes it even worse.</p>
+              <p>The treatment can also cause side effects, you know, which reduces quality of life, and your quality license is already reduced because of everything already shared. So you kind of have this like, compounding experience. And so you, you’re not only just experiencing tuberculosis and working through that, but now you’re experiencing.</p>
+              <p>A huge change of your mental status in terms of anxiety or depression. So you, you have these kind of co-occurring experiences all at once. And so when you’re looking at trying to treat tuberculosis, you can’t just treat the disease, you have to treat the person as well, right? You have to focus on making sure that that person is receiving the psychosocial support that they need, whether it’s through, you know, accompanied models, which I know has been championed for, for some time.</p>
+              <p>And Lauren. Knows quite a bit about, or through, dedicated mental health support services. Whether it is, you know, interpersonal therapy groups that are directly targeted towards individuals, you know, who have experienced tuberculosis or experiencing it at that moment. Maybe it’s digital support systems, maybe it’s self-guided applications.</p>
+              <p>Maybe it’s genuine psychotherapy that, you know, for some reason in this instance, we’re able to afford and triage and drive and have those specialist providers, you know, be a part of. But I think at the end of the day, like addressing mental health, is as important as addressing physical health, and the two of them are so closely linked. It’s very difficult to, you know, treat one without, without treating the other.</p>
+              <p><span class="spk">Jon:</span> Thank you, Lauren Anaba. Anything to add to that?</p>
+              <p><span class="spk">Lauren:</span> Yeah, I do Thank you Christie. And just to build a little bit of numbers on some of what Christie said, I pulled up facts and numbers around this and United for global mental health, which is a large advocacy group to promote, mental health care, both, preventative and, treatment across the world. Put out, I think last year or the year before, a statement around the intersection of mental healthcare and HIV and TB and some of the numbers they came up with are really startling, pulled from other literature as well, that if we as a global community integrated mental health services into TB care, it could reduce.</p>
+              <p>As many as 14 million TB infections by 2030, which is about the number of new infections in a year. So you could basically reduce a whole years of new infections if over the next, you know, 10 years-ish. We actually integrated mental health care into that, and that’s, I think, through a number of mechanisms as Kristi indicated.</p>
+              <p>Folks living with TB who may have co-occurring mental health disorders are less likely to adhere to their meds, which potentially leads to more infections. They’re also more likely to, people with, anxiety, depression, whatnot, are more likely to, engage in high risk behaviors, which they know they maybe aren’t supposed to be around communi diseases, which also may lead to new infections.</p>
+              <p>And the numbers for HIV are also would reduce if we integrated mental health into HIV care, it would reduce. New infections by almost a million people by 2030, which is also a huge number. And also sort of same mechanisms around medication adherence, high risk behaviors and whatnot. And there is, you know, a cost benefit to this.</p>
+              <p>Of course, you’re preventing all these new infections, you’re helping achieve better outcomes for the client themselves. And then also to a little bit further build, just about the importance of mental health, mental resilience and coping around all of these intersectionalities is folks who are struggling with their mental health. Are more likely to engage in unhealthy behaviors to begin with, which also leads to more infections to start with. So not only are the people living with some of these communicable diseases, at risks for all sorts of mental health issues because of their disease, the stigma, all those things Christie talked about.</p>
+              <p>People who don’t have the diseases yet are actually more likely to get them if they have mental health issues. So the preventative approach, John, that you mentioned before, is critical on multiple levels. It can prevent some of these physical diseases as well, hypothetically, which is so important.</p>
+              <p><span class="spk">Anaba:</span> Another intersectionality, I want to add, is, issues of pregnancy, postpartum, depression and postpartum psychosis if we want to treat, pregnancy and then delivery as a way that we want to achieve these indicators. We need to also look at mental health because, a woman giving birth to a healthy child must first of all, , have to be depression free to go through the nine months in a way that they will end up delivering children and they’re not having two issues of mental illness.</p>
+              <p>There have been instances where women delivers and then end up even not knowing that that is their children and refuse to breastfeed them just as a result of, postpartum depression issues. So, pregnancy and mental health is another point of intersectionality. And then we also have TRO tropical, neglected tropical diseases.</p>
+              <p>These are diseases such as, Tuma. Uh, Leprosy and all the other neglected tropical diseases. These are areas that people who suffer from them, they are families, they also have some stresses. Then those who suffer from them also have some kind of. Issues to deal with. So if we are able to integrate mental health across all these disease burdens, then it becomes easier.</p>
+              <p>We are able to treat these diseases holistically and then, people are able to adhere to treatment because, we are able to screen their mental health, know when to. Cancel them, know when to provide treatment, and then they’re able to access treatment holistically, and then they’re able to get well</p>
+              <p><span class="spk">Lauren:</span> there’s also an educational component to this. We’ve seen increasingly, I would say, and I wonder if Naba has examples from Ghana, school-based approaches to doing mental health. Education, teaching people resilience and coping skills at the adolescent level, partially because of course, adolescence is a stressful time for anyone around the world. And, of course within schools who have a bit of a captive audience to teach these skills and mechanisms by which to hopefully increase mental resilience, mental health, hopefully across the life course. So there’s actually an, a lot of these community based approach actually also tied to the educational system.</p>
+              <p><span class="spk">Jon:</span> Yeah, I think, school-based therapy is something that I think, has shown a lot of promise in certain areas. You mentioned some incredible statistics there in terms of the potential outcomes of adding mental health. One of the challenges we’ve seen, in we talked about this in an episode with Dr. Vic patel as well, is just scaling quality interventions is incredibly challenging. You know, I think a lot of people recognize the potential benefit of mental health for these comorbidities with hiv, with tb, adolescent mental health crisis. And so there’s a lot of interest in it, but there’s also a lot of, challenges and not knowing how to scale high quality interventions. And in Nava, you were part of doing this, in Ghana. So I’d love to hear from your perspective, like why do you think it was successful? Why were you able to scale, and then how did that framework help support broader integration to the healthcare system?</p>
+              <p><span class="spk">Anaba:</span> Why I think this was, an intervention that we can describe as success is that, in Ghana here, we have a lot of challenges when it comes to our mental health sector where there’s limited resources. There’s limited number of psychiatric nurses. There’s limited number of community mental health nurses. And so, it’s very difficult to treat mental health as an isolation and still be able to reach out to people who have mental health challenges.</p>
+              <p>So the intervention looked at how to include, general nurses and give them some training using, people like the psychiatrists. Who will come and give a t o t to, let’s say, some number of psychiatry nurses, community psychiatric, um, community mental health offices, and there some number of volunteers</p>
+              <p>It was more about the scaling up aspect. People who have come to these facilities, And reports of having mental health condition are not turned away to the limited psychiatric hospitals, but are seen in the general hospital by the frontline workers who have some big training in mental health and be able to see to them and then make some kind of referrals to the appropriate places for further assessment.</p>
+              <p>We also looked at. Not just mental health in isolation, but mental health in schools looking at how to use school-based clubs, mental health clubs as a point of contact, reaching out to them there, giving them the kind of intervention they needed.</p>
+              <p>And then giving them education and from that point, they’re able to advocate or be able to come out with certain ideas that will help promote mental health among the youth.</p>
+              <p>We are also looking at the self-help group concept. Which looked at community-based grouping, where people come together, discuss their conditions, understand what somebody else is going through, be able to look at the way forward among themselves and be able to challenge stigma within the communities and then live a healthy life.</p>
+              <p>Now, what happens is that all these things were good. But when you look at having, let’s say, digital tools incorporated where mental health learning events are into their smartphones, or let’s say even voice messages are put into their feature phones, people will be able to sit together as a group and listen to be able to have a leader who should be able to lead them to learn sessions and be able to understand mental health better.</p>
+              <p>When you look at the schools, young people are already people who are technologically inclined, and this presents an opportunity to see how school mental health, or school-based learning should be able to incorporate digital tools, where students who are very much interested in program to mental health can always sit together and learn an event of mental health using the digital tools.</p>
+              <p>Now, looking at mental health into other areas, even in TB care, we are looking at people who have similar conditions, such AST who might be going through some kind of depression, if you have anything for them where they can be able to assess services together. And they also learn to be able to challenge or assess mental health services together. It’ll help them to even. Be able to adhere to treatment modalities within the TB that they have. We have another condition, which is hiv. There’s a group of people who also go to assess services together, and this looks at the integration. We always have to look at the services or the condition as a whole, instead of just looking at it as hiv. And if you look at it that way, and then incorporate mental health learning into this. People who assess these services are able to, learn more about mental health and what they can do to support themselves. It’ll help in the integration of mental health the bottom line here is that mental health should be treated not as a standalone, but should be treated, , together with other conditions and incorporated into other conditions.</p>
+              <p>For me, I think digital tools is the future of, treatment because the number of frontline workers, especially in low and middle income countries, keep reducing. And then we will need to have technology which can be able to extend services to people wherever they need it to be able access it.</p>
+              <p>The integration of these, disease verticals, as a novel just stated is, something that we focus a lot on with digital technology and, Lauren, you’ve been supporting some self-help groups, and different interpersonal care therapy models, both in the United States and abroad.</p>
+              <p><span class="spk">Jon:</span> And Christie, you’ve been thinking about scalable digital applications, to support expansion of these with quality assurance and, with the ability to support the providers and those self-help groups. So I’m curious from your perspectives, like what are you optimistic about with where we’re at as a industry right now in terms of the scalability and, and, you know, We keep seeing this proven evidence.</p>
+              <p>Dr. Vic Patel, again on our previous episode, talked about this. You guys have been researching it as well and participating. So like, we kind of know these work and then we kind of don’t scale them. So you know, what are we excited about right now? What are we concerned about right now?</p>
+              <p><span class="spk">Christie:</span> From a general perspective, I’m excited about the fact that these things work. Like we have some pretty incredible mental health interventions that are out there that are relatively simple.</p>
+              <p>Straightforward to deliver and can be delivered by individuals who aren’t necessarily considered specialized. So, you know, frontline workers, for example, who are trained, and skilled up on, healthy activity programs, or interpersonal therapy groups, which are often delivered by non-specialist facilitators and frontline workers.</p>
+              <p>We have the tools, right? It’s about that scale piece as you were saying. And one of the challenges, that we’ve often seen is we do have these tools, but often the cost and, usually the overhead that comes along with delivering these interventions in such a localized context and with individuals that should be delivering it.</p>
+              <p>So normally, frontline organizations, frontline actors, people are truly embedded in their communities can be pretty high. The cost can be a bit of a barrier for individuals to adopt these techniques. When you’re a frontline actor thinking about, okay, this is a problem I’m experiencing. My community is, let’s say postpartum depression. For women who’ve recently given birth. Thinking about how do I address that? You’re looking at training, you’re looking at potentially you might think, specialized providers, bringing them in, looking at supervision methodologies, looking at follow up, looking at referral pathways, and, and it adds up to have all of these significant barriers.</p>
+              <p>And so I think there’s a real cool potential for. Something like a digital solution to come in to support with things like digital training, to support with stuff like quality assurance, to support with stuff like supervision. And there are a number of ways that this can be done, where you can actually deliver, a program in a community in a way that is cost effective, and helps kind of remove some of those barriers.</p>
+              <p>To scale. And one cool thing we’re doing at the moment, Dimagi, is we’re we’re figuring out how can we digitally equip and create digitally supported interpersonal therapy groups. And we’re working with two very cool groups in Uganda. One doing community-based I P T G and one doing school-based I P T G.</p>
+              <p>And we’re trying to figure out, you know, Can we, can we build the tools? Can we deliver the tools that will actually remove some of these barriers? So things that, a delivery application that allows a frontline worker to do group management. Attendance checklists, task checklists, job counseling and job aids, as they move through their sessions, tracking data so that you’re able to look.</p>
+              <p>At past records of individuals and say, okay, this person’s depression score has changed over the last six weeks. That’s great. What else do we need to do? So, being able to provide these tools and try to remove those berries are something that we’re actively exploring. And it’s, it’s definitely something we’re super excited about. Cause there’s a lot of potential there and I think it’s just about how do we unlock it?</p>
+              <p><span class="spk">Lauren:</span> Yeah, I agree, Christie. I think there’s a number of bottlenecks to scaling that we’ve seen so far, many of which can be ameliorated with some digital tools. The challenge of course, always. Sometimes it’s getting the startup capital to do that, or implementing them in practice. But I do see great hope in the potential of these tools being able to help scale.</p>
+              <p>So one of the bottlenecks traditionally has been training, right? There’s only so many people who’ve been . Who are like trained, the trainers, that are capable and trained to train other folks, they’re not always, of course, geographically dispersed appropriately. And how do you get to the people there paid to show up and get the, get everyone trained?</p>
+              <p>So the training has been a bottleneck and I think we’ve seen through, the Empower Program with Veteran Patel and Harvard Medical School. They’ve, invested a lot in creating digital platforms to train frontline workers, both in India and now we are working with them to do that in the United States as well.</p>
+              <p>And that is, Quite scalable. They have really, good pedagogy. They have really good content. And they’re testing it in a highly, research based rigorous way to make sure that this is effective for training. So that I think is one way to help scale the training part. Another bottleneck has been sort of ongoing supervision.</p>
+              <p>So traditionally people think, so we’ve trained these non-specialist providers, these frontline workers. Who’s gonna supervise them ongoing? And does that person need to be a specialist? Because of course, if you start training 10,000 frontline workers and you need a specialist to oversee them, you run into the same problem,</p>
+              <p>so the Empower Program has been looking at using digital tools to support, the frontline workers. Being able to do a ongoing quality assurance and support system facilitated, greatly by a digital tool which allows workers to record their sessions and then rate them on a validated checklist of what a good session should be, as well as having their peers do so.</p>
+              <p>And over time people get. Really quite good at recognizing what a quality session is and implementing a quality session, which helps, make it a more scalable intervention. We’ve also been talking with, a group at Columbia University who works in Mozambique, and they’re also thinking of new ways to, help support the scale up of supervision through digital tools.</p>
+              <p>Going forward to that. They recognize that as a bottleneck it well. And while digital probably won’t completely eliminate that bottleneck, it certainly can help support, by, creating slightly less work for the supervisor so they can oversee more people and create those tools to sort of allow frontline workers to, provide some peer supervision.</p>
+              <p>And to be clear, peer supervision is actually, something that’s used in high income countries and in all settings for therapists. Of the specialist sort and the non-specialist support. So there isn’t anything actually radical about a peer supervision model. It is new to do it digitally supported and with frontline workers as well though.</p>
+              <p>So that’s a wonderful sort of tool to help that bottleneck,</p>
+              <p><span class="spk">Jon:</span> Well, Christine, Lauren, those were two, amazing summaries of the potential for a lot of these interventions that can be performed by non-specialist providers that sound like they could be scaled very cost effectively.</p>
+              <p>And I think one of the elements that’s critical to, changing policy, changing funding and making the scale is one the points that you mentioned, Christie, around that whole person care. And the positive benefits that this has. Lauren, you mentioned some of the massive benefits this can have to where a lot of funding currently goes into tb, into HIV and, into other diseases.</p>
+              <p>And increasingly with non-communicable diseases, mental health is gonna be a big challenge. I mean, getting, diagnosed with obesity or adult onset diabetes or cardiovascular disease, these are very challenging from a mental health perspective as well. And I think one of the things that is gonna be really critical is we try to scale out these, frontline worker led models.</p>
+              <p>Is that there is the ability to refer the cases that need it back into the healthcare system to receive, whether that’s, medicines or pharmacological interventions, specialist interventions or inpatient care. It’s not to say that we don’t need all of those to be strengthened as well, but I think there’s just this huge potential at the front lines to do this community-based, self-help group or individual-based care.</p>
+              <p>And we know it can be done because we see study after study after study demonstrating massive outcomes, with these programs that are done, very effectively. And so I’m really excited about the potential that we’ve seen through our partnerships to date and the potential digital can offer groups who maybe are not mental health.</p>
+              <p>Groups, today, but recognize the need in the communities they’re already serving and can add that to the services they’re then offering. Um, so really excited about all the work that you’re doing and to hear about it. And Christie, Lauren and Nava, thank you so much for coming on the pod.</p>
+              <p>Thank you to Anaba Kristi and Lauren for joining us today. Here’s what I’m taking away from this conversation. Mental health is cross-cutting similar to nutrition and sanitation. It affects all other health outcomes. And just like with physical health, we need a broad spectrum of services to support mental health.</p>
+              <p>And mental health is painfully underfunded. In Ghana, Anaba shared that only 2% of people who need help get it. And there are many barriers to getting mental health care and LMI sees. Another paints a picture from his experience, working in mental health care delivery in Ghana.</p>
+              <p>He shares how to stigma and discrimination, lead people to not share that they’re suffering. And some cases, people who are labeled mentally ill are not able to vote. There’s a lack of language to describe the variety of experiences of mental illness, which means that everyone with a mental illness gets lumped together. Despite the incredible variation and complexity.</p>
+              <p>And mental health challenges.</p>
+              <p>Violence and trauma plays into it all leading to substance abuse. And worsening mental health conditions. And of course there’s a staggering lack of human resources to support mental health building on what we heard from Dr. Patel. In a previous episode.</p>
+              <p>And we also heard about some of the solutions that are out there gaining traction and evidence to support their use.</p>
+              <p>Uh, Nava described the work he was involved in, in Ghana. Where they developed a robust social support system and peer led self-help groups to create supply for mental health care. And also found strategies to drive demand for services.</p>
+              <p>We heard more about the ways that we can train and up-skill frontline workers to deliver highly impactful. Brief psychological interventions. If you didn’t hear episode 41 with Dr. Vikram Patel. Check that out for more on why this pathway has so much potential.</p>
+              <p>We discussed how digital only interventions such as self guided mental health care apps. Certainly have a place and hold potential to help some people, but should absolutely not be considered some kind of panacea. That human connection is so essential. And lastly, we heard how digital tools hold incredible promise when it comes to overcoming key bottlenecks and scaling mental health care delivery, such as training and supervision.</p>
+              <p>My number one takeaway for you is that if you’re working. In health. And not considering mental health as a core component of your program.</p>
+              <p>You will limit your impact.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LM</div>
+            <div class="person-info">
+              <p class="person-name">Lauren Magoun</p>
+              <p class="person-role">Senior Health Strategy Specialist on the research and data team, advancing mental health programs through digital tools.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">AA</div>
+            <div class="person-info">
+              <p class="person-name">Anaba Sunday Atua</p>
+              <p class="person-role">Senior Project Analyst with a public health background and nearly a decade supporting mental health at the frontlines in Ghana.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CC</div>
+            <div class="person-info">
+              <p class="person-name">Christie Civetta</p>
+              <p class="person-role">Senior mental health strategy consultant with a background in crisis counseling and tech for development, supporting Dimagi&#x27;s mental health offerings.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2VXwuwK1tDSRH7e9SKMtiV" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

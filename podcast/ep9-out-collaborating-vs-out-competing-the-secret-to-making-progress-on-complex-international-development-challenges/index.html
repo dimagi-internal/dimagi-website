@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 9: Out-collaborating vs Out-competing: The Secret to Making Progress on Complex International Development Challenges with Gillian Javetski | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Gillian Javetski and Jonathan Jackson on why out-collaborating beats out-competing in global development, and what makes a collaboration good or bad.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep9-out-collaborating-vs-out-competing-the-secret-to-making-progress-on-complex-international-development-challenges/">
+<meta property="og:title" content="Ep 9: Out-collaborating vs Out-competing: The Secret to Making Progress on Complex International Development Challenges with Gillian Javetski">
+<meta property="og:description" content="Why out-collaborating beats out-competing in global development, and how Dimagi picks its partnerships.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 15, 2022</span>
+          <span class="dot"></span>
+          <span>33 min</span>
+        </div>
+        <h1 class="ep-title">Out-collaborating vs Out-competing: The Secret to Making Progress on Complex International Development Challenges with Gillian Javetski</h1>
+        <p class="ep-deck">Dimagi Chief of Staff Gillian Javetski joins Jonathan Jackson to unpack why global health and development reward out-collaborating over out-competing, and what separates good collaboration from bad.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2duBHlCSCYmCypfxM5RjDt?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 9 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2duBHlCSCYmCypfxM5RjDt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000576120276" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/5faW2EJS-70" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/0a21c077-43cf-4775-a649-8e388a1033d3/high-impact-growth-out-collaborating-vs-out-competing-the-secret-to-making-progress-on-complex-international-development-challenges-with-gillian-javetski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">30</div>
+          <div class="ep-stat-label">people at Dimagi when Gillian first joined in 2012</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10 years</div>
+          <div class="ep-stat-label">Gillian&#x27;s tenure connected to Dimagi as a boomerang employee</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">decade</div>
+          <div class="ep-stat-label">since the Open Rosa and JavaRosa open source collaboration began</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Jonathan Jackson and Gillian Javetski, Dimagi&#x27;s Chief of Staff, sit down with Amie Vaccaro to discuss why making progress on complex international development and global health challenges depends on collaboration rather than competition. With resources scarce and projects involving many stakeholders, governments, funders, and implementing partners, they argue your core skill becomes how well you collaborate, not how well you compete.</p>
+        <p>Drawing on decades of Dimagi experience, including the COVID vaccine response work with Ona and Medic and the early Open Rosa and JavaRosa open source communities, the conversation unpacks what distinguishes good collaboration from bad. The healthiest collaborations, they argue, are selfish and built around a shared problem both organizations genuinely need to solve, and the strongest ones level up from the transactional task to the higher level outcome the public sector and patients actually want.</p>
+        <p>Gillian and Jonathan also confront a paradox: despite a deeply collaborative culture, people have called Dimagi uncollaborative. They draw a line between knowledge sharing and true collaboration toward a shared goal, explain why Dimagi declines meetings that exist only for status updates, and reflect on when to re-evaluate or end a collaboration that has run its course.</p>
+
+        <blockquote>
+          <p>&ldquo;Collaboration for the sake of collaboration is a terrible idea. It never works. So the healthiest collaborations are selfish. Your organization was going to try to solve this problem anyways, and you are selfishly coming into the collaboration, recognizing you have a big thing you want to gain from it.&rdquo;</p>
+          <cite>Jonathan Jackson</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Out-collaborating vs out-competing</strong>: why scarce resources and complex projects make collaboration, not competition, the core skill in global development</li>
+          <li><strong>Good vs bad collaboration</strong>: the difference between advocating for shared change and just showing up to a working group to give status updates</li>
+          <li><strong>The selfish collaboration</strong>: why the healthiest partnerships start from a problem your organization genuinely needs to solve</li>
+          <li><strong>Leveling up</strong>: stepping above the transactional task to the higher level outcome the public sector and patients really want</li>
+          <li><strong>Collaboration in action</strong>: the COVID vaccine response with Ona and Medic, and the Open Rosa and JavaRosa communities that had a healthy beginning, middle, and end</li>
+          <li><strong>Why some called Dimagi uncollaborative</strong>: knowledge sharing versus working toward a shared goal, and the meetings worth declining</li>
+          <li><strong>Knowing when to stop</strong>: spotting cultural misalignment, auditing long running collaborations, and recognizing that a failed one is not personal</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth. A show from Dimagi about the role of technology. And creating a world where everyone has access. To the services they need to thrive. I’m Amie Vaccaro today, you were talking about collaboration. And global health and development. Resources are extremely scarce and the challenges are complex.</p>
+              <p>Collaboration is essential to make any kind of progress. But not all collaboration is created equally. Today. Gillian Javetski joins Jonathan Jackson and I to discuss questions, like what makes a good collaboration? What makes a bad collaboration? How is Dimagi going about building a collaborative culture? And despite that, why have people called Dimagi uncollaborative. Enjoy</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Welcome to high impact growth. I am super excited about today’s episode. We’re trying a slightly new format today where we’ve got Jonathan Jackson here, as well as Gillian Javetski. And we are going to be chatting about some of the things that have been coming up recently at Dimagi, as we’ve been thinking a lot about Dimagi is culture, our values, who we are as a company. I’m really excited to have Gillian here. Gillian, you are our chief of staff. You’ve been at Dimagi a long time.</p>
+              <p>Worn many different hats. , what made you join Dimagi in the first.</p>
+              <p><span class="spk">Gillian Javetski:</span> I first came across Dimagi, actually walking around in my neighborhood in central square in Cambridge, Massachusetts. I had heard of Dimagi. I at the time was studying, , for my master’s of public health and was focusing on global health and technology. So really founded to be incredibly fortuitous that there was this organization.</p>
+              <p>Right, right. In my literal backyard that I had heard about that I’d followed from a. I think I reached out to them and offered to do literally anything. Um, at the time they were hiring, uh, for people who spoke hi, and I even considered trying to learn to get a job at tamagi, but, uh, luckily, and this is a real Testament to demo’s flexibility.</p>
+              <p>They were able to come up with a role, um, where I joined early on.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s actually, it’s funny. Cause we’ve definitely heard that sort of theme of people being in touch with Dimagi a long time before joining. So for anyone listening, who’s curious about working at Dimagi it’s worth it to be persistent. Sometimes the journey is blinding and Julian that was 2012 it’s 10 years later.</p>
+              <p>Why, why are you still here?</p>
+              <p><span class="spk">Gillian Javetski:</span> My story at Dimagi is not unlike a lot of colleagues, which is that I’m a boomerang employee. So I first joined Dimagi in 2012, we were about 30 people and I ended up playing a bit of a Jack of all trades role, um, supporting projects, business development, setting up some operational process. Five years in.</p>
+              <p>I found myself on the marketing team, which I, which I had a lot of respect for now, but at the time realized this may not be for me. Um, in staring down Twitter, one day I realized like SEO was, was not my thing. Um, so I, I left Amma. I went to work for two years at a robotics company’s in house corporate social responsibility arm learned a lot and then had a great opportunity to go and actually start a company with a former tamagi colleague.</p>
+              <p>The company’s still running. They’re based out of Bogota, Columbia, they’re called Ude. I, I highly encourage anyone who works in Latin America doing social impact technology to check them out. , and at some point I, I got a call from John Jackson who was really excited and said, listen, I, I know that you thrived in Jack of all trades roles.</p>
+              <p>And we weren’t able to offer that to you when you were at de Maggy. I think I have one. Now, would you like to come back as my chief of death?</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much for sharing that. And I, I love hearing those boomerang stories. I think it really speaks to. Dimagi openness to support folks along their career journey. And when it makes sense to be here, it’s great. And you can leave and come back and also just the, the way that you’re able to kind of come back in a role that really capitalized on your strengths and what you love doing most.</p>
+              <p>I’m excited to have you as part of this conversation because you are one of many cultural champions, I think at Dimagi really invested in making Dimagi an incredible place to work and one of the best places to work. So, the first thing I wanted to talk about today was around collaboration versus competition. Jonathan, you talk a lot about out collaborating versus out competing, which for me, as someone coming from enterprise SaaS type companies, that’s really unused. I do think maybe in the development open source space, it’s, it’s, it’s more common, but to me it really stands out and I think it’s something that makes the money pretty special. How did you know that this stance of collaboration was, was important for, to be.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Amie. I am also excited to have Gillian on the podcast today. We, we get to work a lot together every day, but we haven’t been on our podcast together yet. So welcome Gillian and without competing versus out collaborating, this was pretty. early on in our experience where we came to this thesis similar to how we started an open source as a beginning point, largely due to looking at the system dynamics we were working in within global development.</p>
+              <p>And when you have limited resources, everybody kind of needs to be in a mindset of how do we make these resources go further? And so competition can be extremely healthy when there’s plenty of profit and you wanna let the best firm win and you wanna just drive price down. but with global development, we’re both running extremely challenging projects.</p>
+              <p>You have many different stakeholders and partners, and you’re constantly trying to innovate as well. So you’re not, just selling widgets. And when you add all that together, your core skill is much more, how do you successfully collaborate versus how do you successfully compete? And that’s something that we talk a lot about.</p>
+              <p>It, it also is something I think we’re, we’re very good at. And we attracted a lot of team members who want to be in a more collaborative environment, both within the company and. But when you’re in the open source community, when you’re trying to do these complex system change and digital transformation projects, you need to successfully collaborate with the government, with implementing partners, with funders and with many other people. And if you take a competitive mindset to it you’re gonna fail. And one of the things that I reflected on early in my career, which was interesting I think some of the nonprofits we work with in the development sector are more competi. Than a lot of the, for profits I have friends at, or you know, have, have partnered with in the past in terms of how they behave because the margins are so razor thin that it kind of forces everybody to be extremely focused inward on their own organization, focused on sustainability. And so it is very difficult to keep this mindset of out collaborating rather than out competing. But it really does. Serve both the organization and our, our goal for impact much better in the long run.</p>
+              <p><span class="spk">Gillian Javetski:</span> One change that’s been really great to see in our industry is definitely seeing more common advocacy on behalf of the same issues among tech organizations. So, as an example, I think five years ago, if you went to a conference in our industry, you would frequently see different tech organizations on panels, talking about why their tech was better than another tech organization.</p>
+              <p>In the last few years, there’s been a bit of a change. I think there’s more of a recognition among our partners and other tech organizations that we work with, that we all are facing similar challenges, that there are limited resources in our industry. And we would do better off to advocate for similar shifts that we wanna see in the industry as opposed to competing against each other.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And add the ability to recognize there is competition. I mean, we are all trying to secure funding for our organizations. We’re all thinking we’ve built pretty good technology, or at least I hope we all think that. And we think it adds a lot of value to government. So there is some aspects of competition that are zero sum and it’s important to not pretend like those don’t. But there’s plenty of other areas that to Gillian’s point are positive some, and I think one shift that’s happened over the last five years in the sector is the recognition of there is just so much work to do here, and it’s so hard and creating sustainability for public sector projects in particular and any market, whether it’s Heim coming low income, it is so challenging that you can’t succeed at these projects.</p>
+              <p>If you take a highly competitive mindset to it. And one really great experience we had over the last couple years with COVID was partnering with Ona and medic to organizations that from the outside, you’d probably think we compete with. And there’s certainly countries where you’re only gonna pick one of our, our systems, but for COVID and particularly in COVID vaccine response we all recognized our digital systems had key roles we could play together. That there’d be a lot of opportunity to potentially support countries who are wanted to digitize their vaccine roll. And we quickly came together to try to make that as efficient and collaborative as possible and jointly try to fundraise to push that out. And while we weren’t that successful in, in raising central funding, I think that collaborative spirit was very helpful and is something that also creates a really positive feedback loop for the next collaboration. And so we’ve been working with medic on multiple different projects. We, we talk with own a good. And that collaboration then will pay dividends, hopefully at the country level where public sector projects can have an easier time unlocking more and more value from the components they’re deploying. And one of the things from a collaboration standpoint that Gillian was highlighting on is like, it, it is really important to bring that mindset of this is positive. ,you know, there’s collaboration where you’re doing it because you’re supposed to, or, you know, that’s what funders or governments want to see. But most , collaborations truly are positive. Some when you are picking a topic that both the organizations are, are facing and are challenged by, and that creates a really exciting opportunity to learn from others outside your organization, to recognize you don’t know everything and you know, to be. And to try to jointly solve a problem that a lot of us are facing. And I think we’ve all realized the just enormity of the problems face in the world with climate change and healthcare and pandemics and all these areas and how much work and how much potential we have, that collaboration’s really the, the only feasible way you could imagine trying to attack some of these problems.</p>
+              <p><span class="spk">Gillian Javetski:</span> Jon. I love that. I think that brings up a really good point around what may define good collaboration and bad collaboration. Like good collaboration may come from when you actually are advocating for something right. Versus bad collaboration comes. When, you know, you may find yourself on a working group meeting, meaning giving updates, but you’re not necessarily advocating for something or there isn’t something that’s bringing you together that you wanna change or advance towards.</p>
+              <p>You’re mostly updating that to me, feels like bad collaboration.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, exactly. In collaboration for the sake of collaboration is a terrible idea. It never works. So the, the collaboration, I think the healthiest collaborations are selfish. You know, your organization was going to try to solve this problem anyways, or needed to find a solution to this problem anyways, and you are selfishly coming into the collaboration, recognizing you have a big thing you want to gain from this collabo. When everybody is able to be selfish and still find a very healthy collaboration that has a very high likelihood of success when you’re going into a collaboration offering your time or other areas. But you’re not really feeling like you’re benefiting from it. I think that’s a really challenging collaboration to have you know, last productively for a very long time.</p>
+              <p><span class="spk">Gillian Javetski:</span> This is also a theme that comes up a lot in Jon’s and my conversations. So in addition to being the CEO of Dimagi, Jon is also a member of two boards for social impact organizations. And so something that he has to do a lot as CEO is not only lead our organization, but then also be able to switch his hat when he’s advising another organization in our industry that we may overlap with.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, and I, I am so fortunate to be able to serve on these boards with some amazing people and, and help support amazing leadership teams at both. And I also advise a lot of other social entrepreneurs in the community at various stages. And one of the pieces of advice that I’m constant. Giving on this point of collaboration is to be authentic, you know, like enter, cause there’s a lot of questions of like, oh, is it worth developing this relationship?</p>
+              <p>And like, if that’s how you’re thinking about it, that may not be a good sign. It’s is this in a priority given what you’re trying to achieve as an organization? And that’s the key question to ask yourself, and there can be very painful collaborations where you’re working with people that may be quite frustrating to work with.</p>
+              <p>And it’s sometimes life too short. Often you know, collaborations, aren’t always easy. They take a lot of work, they take a lot of mutual understanding and empathy but they can result in amazingly positive outcomes. And the more you practice a collaborating, the more you can sense very early on whether this is going to be a healthy collaboration or one where one or more the parties isn’t really aligned to what the collective needs to get out of that collaboration.</p>
+              <p>And I think we’ve got tons of failed collabo. But it’s great because we can, we can recognize it pretty quickly and we can shut it down pretty quickly now. I think that’s something that has come from the, you know, probably hundreds of collaborations. We’ve tried to run at this point.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s, that’s so interesting. These kind of themes of what makes a good collaboration and just actually having, having a shared problem and really knowing that this is a problem your art needs to solve, and you can do it better with this other organization, as opposed to the situations where it feels like, yeah, these organizations that should collaborate let’s get together and see what’s possible.</p>
+              <p>And then it maybe leads nowhere and can waste people’s time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And exactly in building on that. One of the things that I I find is really important is the step above the transactional nature of the collaboration. You know, what’s the immediate problem you’re trying to solve- whether that’s integrating two digital systems or aligning on the national CHW framework -to the higher level problem. What is the public sector really trying to get out of this project? What do patients really want to see from a change in terms of the healthcare services they’re experiencing? How can you really make somebody’s job better? And when you level up to that problem statement, it’s actually a lot easier to find common ground on what’s driving a collaboration.</p>
+              <p>And so it’s important. Obviously the transactional and operational work needs to happen. But when you can align to that bigger level question, both organizations or many organizations are struggling with, it creates a lot more room for alignment that you can then bring down into the more transactional and operational work.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What’s an example of a, of a really successful collaboration that you’ve used.</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the, one of the most successful collaborations that we’ve been a part of was over a decade ago at this point. And it was the open Rosa and Java communities. So this was coming at a time when a lot of the initial mobile data collection and case management tools didn’t yet exist. CommCare didn’t. But we were all sensing. We were heading towards this shared goal. And so we got together and I remember we had everybody to our office in Cambridge and we said, we’re all doing the same thing. Can we collaborate and build an open source project together? And so Java Arosa was born. And this was a piece of software technology that was designed to be the engine inside a lot of these mobile data collection projects.</p>
+              <p>And that was then used by CommCare open data kit, epi survey. And many other products at the time. It’s not instead of Cobo and, and Ona. And so that, that collaboration led to many successful digital open source products being created 10 years ago. And the interesting thing is I think it had a really healthy end to it as well. So we built this mobile library and platform that was incredibly powerful for collecting data and driving mobile applications on J two. And then people had different goals. Some people wanted to go Android only. Some people wanted to stay on lower end phones. Other people wanted to build different tools, some wanted to do case management like us and others were just trying to stick to data collection. And we kind of all recognized that the collaboration had run its course. And so we kept the mobile collaboration going and then everyone went off and built their own back ends with the server part of the. and it was great. And like, that’s exactly what should have happened. We found the common ground, we built it. And I think there were some frustrations in the community at the time that we couldn’t align on one common back end. But I think it’s a much healthier ecosystem. Now there’s multiple products out there. People can choose, they do different things. They’ve focused on different things. And I think there’s a great example of both a healthy collaboration, a healthy implementation of the collaboration and a healthy end to the collaboration.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s such a, such a good story. And. It touches on all those key points you came together when you had a shared problem. And then when you’re like the problems you were trying to solve, actually diverge, do you, you parted ways and left a key piece of it in play?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think we’re, we’re talking a lot about collaboration externally and I think it. we’re,, we’re, we’re having the positive sides of it. I mean, collaboration’s also very hard you know, you do have to have, you have to take the time to create shared goals to create that alignment, or you’re, you’re likely to have a very difficult time executing successfully on a collaboration, a lot of collaborations fail, and you shouldn’t get discouraged by that.</p>
+              <p>You should keep trying, but the, collaboration is just a difficult thing to pull. But ideally it’s giving you, you know, perhaps a lower probability, but of a higher impact or a higher outcome. So it’s still worth doing, and I think it’s also important to recognize when collaborations won’t work.</p>
+              <p>You know, you can have a shared problem but there’s just cultural mis- alignment between teams or organizations. Prioritization can be a huge issue. Timelines can be a huge issue. So while we are huge advocates of out collaborating over competing, Collaborations are certainly difficult. And it does take a lot of skill and muscle building, both as an individual and as a team and as an organization to get good at this. And one important thing that we talk about internally is you know, if you don’t have the time to invest in a healthy collaboration, don’t try, you know, you, you can’t do everything. You have to pick the areas of focus. We talk about this in the context of doing fewer things. and there’s way more possible collaborations out there for any individual team or organization than they’re gonna have time to do well. And so you really have to focus on the ones that make sense to invest in that are aligned to your priorities and that, that have a good chance of success because these are so difficult.</p>
+              <p>I’m sure other boomerang employees can relate to this, but as lots of people know, one funny thing happens when you leave a company, which is that all of a sudden, you hear from colleagues in your industry, what they actually thought about the company you worked for. . And so I remember, um, when I left Maggie one very common theme I heard from people in our industry was people saying, you.</p>
+              <p>Oh, Dimagi like great organization does really great work, not collaborative. Like we never hear from them. We never, you know, we don’t see them in the same circles that we’re in at conferences at DC. Like we have no idea what Dimagi’s doing and it’s funny. Like, I think we’ve gotten a lot better at that in the last few years, in no small part due to our marketing team and even just better understanding the value in storytelling and, and updating partners.</p>
+              <p>But I think one thing that I also taken away from that is understanding a key difference between. knowledge sharing and collaboration being very different. So understanding what someone is up to, or, , getting a sense of like the projects they’re work they’re working on to me is, is more communication or knowledge sharing versus collaboration, which is when you are working towards a shared goal.</p>
+              <p>And so it’s interesting. I think that’s something that in the past, I’d say we, we haven’t been great at knowledge sharing, but as an organization. And I think our partners would say this we’re, we’re very collaborative.</p>
+              <p>Jonathan Jackson:</p>
+              <p>Yeah, it’s a great point, Julian. I think there’s, there’s certainly the way I’m using the word. Collaboration is not necessarily how everybody would use the word collaboration. You know, I’m talking about collaborating in the context of, of driving a project to a shared goal. There’s lots of other ways to be collaborative.</p>
+              <p>As Jo mentioned, with knowledge sharing and research, and we do a ton of that as well. But I certainly, I agree that there’s many different ways to be collaborative and we would not claim to be checking the box on other people’s definition of collaboration necessarily. I also, want to hear what you</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. Me too.</p>
+              <p><span class="spk">Jonathan Jackson:</span> other people and, and who said it name?</p>
+              <p><span class="spk">Gillian Javetski:</span> Yeah. Uh, people really don’t think CommCare is open source. It’s, it’s really funny. And it’s like very commonly held. And maybe even in that, that’s an example of collaboration versus just making sure accurate information is available and, and clear. But yeah, people, people really don’t think it is. Uh, it is, it is open source everyone.</p>
+              <p>Yeah.</p>
+              <p>Amie Vaccaro:</p>
+              <p>Yes. Good. Thank you for clarifying. Yeah, I think the thing I’m reflecting on is it’s it’s. Relative to, right. Like for me coming into Dimagi, , I’ve been so amazed by the level of communication that we offer. Right? Like even just the fact that we wrote you know, the five-year strategy document, which is 20 something pages.</p>
+              <p>I can’t remember. We just, we just started that externally, right. This is like an internal strategy document and we just put it out in the world and people can read it. So. Yeah, I feel like, and maybe that’s, again, there’s, there’s distinctions there, right? There’s like transparency in terms of sharing what you’re thinking versus like working together on shared goals versus showing up for the working groups every week that, you know, feel like kind of putting in that FaceTime.</p>
+              <p>And there are different ways that Dimagi has different things that Dimagi, I think has prioritized when it comes to collaboration.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I, I think we, we definitely have prioritized certain things and one of them has not been putting in the FaceTime in collaborations. I think there’s. Plenty of valid reasons to do that. But for us, there’s just so much change in our industry and it changes so fast that it’s really difficult to share knowledge in an efficient way other than by doing projects together.</p>
+              <p><span class="spk">Gillian Javetski:</span> I think our partners that we work on projects with, they would call us very collaborative in terms of also just being very present and working very hard and, and really going above and beyond working on the scope of projects and supporting our partners goals that they have.</p>
+              <p>And I think that informs a lot of our third strategic priority around not just meeting, but exceeding market expectations and what our partners expect of us.</p>
+              <p>Yeah, I think, I think the thing about Dimagi is we care most about moving things forward, right. And the collaboration that helps make that happen is great. But if we feel like a recurring working group meeting, isn’t necessarily the most productive use of time, we won’t, we won’t join it for the sake of joining.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And, and that actually ties a little bit. I’d love to talk a bit about collaboration internally at Dimagi. One of the things that I remember when I first started, Dimagi reading a confluence page that Jon or you Gillian wrote around meetings and how to not have the meeting and just feeling so excited by seeing that.</p>
+              <p>We’re not trying to give status updates for the sake of giving status updates and , looking like we’re doing the work. Right. We actually really prioritize that focus time to do the work on our own. .</p>
+              <p><span class="spk">Jonathan Jackson:</span> .</p>
+              <p>Yeah, I think the, the the status updates, the meetings, all these things should be a means to achieving the impact or the outcome that you’re seeking to have. You know, when we talk about out collaborating president out, competing, it’s in service of creating the impact for frontline programs that we’re trying to do, you know, achieving our mission and our. and if we could do that through better competition, I would switch my claim right away. Right. This is all just our belief and the best way to achieve the outcomes that we’re going for and doing collaboration to check the box and reporting out on knowledge or internally on status updates or meetings. If this is achieving our goal. Great. Let’s do it very frequently though. Organizations, as they grow in particular, you know, you get bogged down by these processes and status updates and all these things, and they’re not serving anybody. They. Moving the ball forward. They’re not helping anybody do their work or collaborate or execute more efficiently.</p>
+              <p>And that’s really what we strive to, to keep in mind. I’m sure there’s people who currently are used to work at the Maggy and will come and join us, who are like that. That’s crazy. You guys have a million meetings. But we try to really minimize them to the means we have, we try to be as efficient as we can both to respect our own time and everybody else’s time. But I think we have successfully Inculcated, our goal, that this is really all in service of how we’re gonna create the best outcome on the project we’re working on together, whether that’s an internal project or with a client or with you know, an external collaboration. And there can be a massively and efficient way to do a lot of this, you know, like over updating people, having meetings, just for the sake of meetings, having FaceTime talking, just so you’re heard in a meeting and all these things have negative help. A shared goal that you might be doing. And that’s really important to keep in mind. I think one of the reasons to Gillian’s point of why some people who work directly with us on projects might think we’re incredibly collaborative. And then some people who don’t get to work with us on projects might think we’re less collaborative is we spend a lot of time and effort making sure we’re delivering on the work um, that we’re doing a lot of collaborations, but we really try to align those collaborations to concrete projects we’re doing on the ground as opposed to. More theoretical projects because we just haven’t found that meets our staff collaboration as well. But that’s, you know, you don’t have to agree with me, but that’s certainly what we found our our efficiency and, and I would claim that applies to many other organizations as well.</p>
+              <p><span class="spk">Gillian Javetski:</span> Jon can attest to this, but one of my favorite things that will pop up. Only when we introduce new processes that make a better experience for our employees. But when we revisit and get rid of things that we were doing before, when we were like at this report out, it was like really great when we were trying to stand this up and we don’t need it anymore.</p>
+              <p>And it’s, it’s a good way to continually revisit how we’re collaborating in the.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And that’s a great point, I think for long running collaborations, both internally and externally, and the applies to not just collaborations, but doing work in general. Constantly auditing what you’re doing. And does it still make sense since should we retire process or an update or an information share? Because as collaborations move in the maturity, you need a very different set of processes and cadence and awareness at the early phases of a collaboration versus at the later phases. And, you know, in reference I gave around open rose. So you certainly saw that we were getting together in person. We were highly collaborative and talking all the time and had a shared chat and all these things. And then as the project got more mature, a lot of. It went away and, and should have, because it was no longer efficient or necessary. And that’s something that I think is really important to being good at collaboration because collaboration can start to feel like a chore when it’s got all these additional processes and things that are requirements. And it’s not just about getting the work done together. And it’s constantly important to go back and evaluate whether what you’re doing is maximumly efficient. Because nothing, nothing, can kill a collaboration faster than people feeling like it’s a waste of time. It could be a good use of time, but that inefficiency makes it certainly feel like it.</p>
+              <p>The other reason why we’re so fortunate that we out collaborate rather than not compete is because we have built so much muscle memory around doing this. Like, we are very thick skinned about why non collaborations that don’t work internally or externally or within, or across teams here. And that’s really healthy and the second’s not working. You kinda regroup and be like, okay, this isn’t working, let’s kill it. And that’s, that’s really important. And, and the more you do that, the more you recognize these things, aren’t personal. It’s just not working. And you could take the time to diagnose the problem, or you could say like, it’s not working.</p>
+              <p>We can’t figure out why, but like, this is clearly not productive. Nobody’s enjoying this. We’re not gonna achieve our shared goal here. Let’s move.</p>
+              <p><span class="spk">Gillian Javetski:</span> On a related note, that is definitely something that we encourage our employees to do. If they find all of a sudden that they are in a meeting that doesn’t feel valuable anymore. We encourage people to, to speak up and, you know, kindly, but, but bring up, maybe there’s a different way to repurpose this meeting.</p>
+              <p>Or maybe the meeting has evolved in a way that isn’t useful anymore. And it’s funny. I think one thing I consistently hear from new hires when they joined Dimagi is that we do tend to warn people. Making sure they’re not overwhelmed by the number of meetings and, and being cognizant of their time and, and pushing back on those things.</p>
+              <p>And I think one thing we, we keep hearing back, um, from our new hires when they join is they say for some reason, like everyone keeps morning me that there are a lot of meetings at this organization. And there, there really aren’t like, have you ever worked anywhere else there way more meetings than other companies in here.</p>
+              <p>So I think another point as part of this too, is just being aware of, of how you may stack up against other companies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s definitely something that I noticed joining. I think the thing I’ve noticed with the meetings at Dimagi is that it’s a lot of one-on-ones right? Like highly productive one-on-ones and there’s a real sort of standard for how those one-on-ones should go, where we have a shared Google doc.</p>
+              <p>Anyone can add to the agenda, it’s clear what you’re going to cover. You take notes, there’s clarity after. And you can get through a lot of work in those one-on-ones, but there’s very few kind of standing large group meetings. Which I, which I think is pretty awesome.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And building on that, Amy, the. if you have more than two people in a meeting, somebody better on that meeting and they better be bringing in agenda, or you should decline that meeting. And I think that’s also really important is like meetings for the sake of meetings driving crazy. We do have a lot of meetings, but I would agree with you. I think on net, they’re very productive, but I’m sure we still have a handful of unproductive meetings. And those are usually multi-person meetings where nobody really owns it and is driving the agenda and making sure it’s efficient. And so I would encourage you if you’re listening to this and work at Dimagi or anywhere else decline that meeting, unless you have a clear agenda and owner for that.</p>
+              <p><span class="spk">Gillian Javetski:</span> Love it.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love it. .</p>
+              <p><span class="spk">Jonathan Jackson:</span> We’ve been very fortunate to have people who are just exceptional collaborators, join our organization from the executive level, all the way down to new hires who are straight outta college. And. Had a very collaborative culture early on, but I think that bred into attracting a team of highly collaborative people who are not just interested in being collaborated, but really skilled at doing collaborations. And I think that has been a really positive and fortunate environment of just how our culture grew over time. But I think we now recognize what good collaborations look like, and we have the skills to go implement those collaborations when we see them. And that’s something that’s really.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jon, when you say an , exceptional collaborator, what does that look like?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think it’s both the ability to create shared goals, to be efficient with meetings to manage people’s time while to respect people’s time and to demand that are respecting your time. Also to be able to play like a pseudo mediator role when there is conflict and the goals are feeling misaligned, or people are not necessarily bought into what was agreed. And a lot of that comes through just a huge amount of client engagement, where, you know, effectively, every project we sell is a collaboration. We’re working with our partner to, to design something. They’ve hired us to support them on or bought our product. And so we have a huge amount of collaboration because we’re a professional services organization.</p>
+              <p>In addition to our product sales that build these skills and that are really required in the work we do. And then for the more traditional collaborations of open source communities or others, we’re able to bring that skill to those areas as.</p>
+              <p><span class="spk">Gillian Javetski:</span> One thing that definitely happens a lot. And I’m sure a lot of our program delivery teams can relate to this is because we, we prioritize and are so into collaboration at demo AGI we’re often tapped by our clients to be a collaborative mediator on projects. So that can be, if we’re working on a project with five or 10 vendors, all of a sudden you may see a DMA project manager who’s in the middle helping mediate and, um, create better collaboration among all, all teams, even if we’re not potentially the leader of the project.</p>
+              <p>same thing may happen where we’re sometimes asked to mediate between two separate teams on the same client side. So you may see this for a nonprofit that we’re working in, where they may have a monitoring and evaluation team and a service delivery team that may not be seeing eye to eye on a topic. And we’re asked as Tomo to, to, to come in the middle and, and help mediate between the two.</p>
+              <p>Sometimes that can be great. Like it can lead to better communication collaboration, all working towards that shared. And then sometimes it may not go well. Um, it may reflect a bigger communication issue within the organization that that should be addressed.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Just so I don’t overstate this, we’re bad at this all the time, too. So it’s not by no means saying we’re perfect. I mean, collaborations are really hard. And we, we struggle with ’em as many as most, I think we do care more than a lot of people though, to try to resolve them and try to make sure. We have healthy and productive collaborations with our partners. And I think they feel that a lot of the time too. It’s something we’re really proud of.</p>
+              <p><span class="spk">Gillian Javetski:</span> Definitely.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I hope you enjoyed today’s show. We talked about a lot today, but I wanted to share a couple of my key takeaways. One. There are different types of collaboration and people’s definitions may vary at Dimagi. We’re really focused on jointly working together on a shared goal. Too. Collaboration for the sake of collaboration is a waste of everyone’s time.</p>
+              <p>The best collaborations are selfish and driven by mutual interest. Three exceptional collaborators create shared goals, respect people’s time with efficient use of meetings. And play a mediator role in mining for misalignment. Four. You should always decline a meeting. If there’s more than two people, I know agenda. Five collaborations evolve. And come to an end and it’s not personal. But we each need to be constantly evaluating. If the collaborations that we’re working on are actually helping us achieve our goals. And six winter tackling a challenge as hard as the ones that we are looking at at Dimagi. There’s no room for competition. Collaboration is absolutely essential.</p>
+              <p>That’s our show. Please take a moment to share, like subscribe, leave us a review. It really, really helps. And do you feel free to email us at podcast@dimagi.com? If you have any questions or ideas thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GJ</div>
+            <div class="person-info">
+              <p class="person-name">Gillian Javetski</p>
+              <p class="person-role">Chief of Staff and a longtime cultural champion, a boomerang employee who first joined in 2012 and supports projects, business development, and operations across the company.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2duBHlCSCYmCypfxM5RjDt" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

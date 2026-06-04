@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 10: Solving Hard Problems, Designing Under the Mango Tree, and Taking a Product Approach: Lessons Learned from the Making of CommCare featuring Dr. Brian DeRenzi, Clayton Sims, Cory Zue and Dr. Neal Lesh | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Four early Dimagi builders on the making of CommCare: designing under the mango tree, learning from users, and the shift from custom projects to a product.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep10-solving-hard-problems-designing-under-the-mango-tree-and-taking-a-product-approach-lessons-learned-from-the-making-of-commcare/">
+<meta property="og:title" content="Ep 10: Solving Hard Problems, Designing Under the Mango Tree, and Taking a Product Approach: Lessons Learned from the Making of CommCare featuring Dr. Brian DeRenzi, Clayton Sims, Cory Zue and Dr. Neal Lesh">
+<meta property="og:description" content="The making of CommCare: designing under the mango tree and the shift from custom projects to a product.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 29, 2022</span>
+          <span class="dot"></span>
+          <span>68 min</span>
+        </div>
+        <h1 class="ep-title">Solving Hard Problems, Designing Under the Mango Tree, and Taking a Product Approach: Lessons Learned from the Making of CommCare featuring Dr. Brian DeRenzi, Clayton Sims, Cory Zue and Dr. Neal Lesh</h1>
+        <p class="ep-deck">Four early Dimagi employees most involved in building CommCare join Jonathan Jackson to retrace the 14-year journey from bespoke projects to a low-code platform, and the design under the mango tree philosophy that grounded it all in real users.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/3o1OgdUMBnUcZlerJkSUwl?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 10 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/3o1OgdUMBnUcZlerJkSUwl" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000577661491" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/B_tXOgWIApA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/97bd7d4c-c039-4e9b-82d0-347a508127be/high-impact-growth-solving-hard-problems-designing-under-the-mango-tree-and-taking-a-product-approach-lessons-learned-from-the-making-of-commcare-featuring-dr-brian-derenzi-clayton-sims-cory-zue-and-dr-neal-lesh" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">1 million</div>
+          <div class="ep-stat-label">people who have used CommCare all time</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">130+</div>
+          <div class="ep-stat-label">countries where CommCare has been used</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">14 years</div>
+          <div class="ep-stat-label">span of the journey to create CommCare</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In part one of a five-part series marking Dimagi&#x27;s 20th anniversary, Jonathan Jackson sits down with four early employees who were most involved in creating CommCare, the low-code platform that lets NGOs and governments build applications for their frontline teams. Used by a million people across more than 130 countries, CommCare was built over 14 years through an unusual story of tenacity, humility, and continuous learning from users.</p>
+        <p>The conversation traces Dimagi&#x27;s earliest wild west days of bespoke, custom-coded projects, the realization that every one of those projects created a long maintenance burden, and the gradual, often skeptical shift toward a repeatable product. Along the way the team unpacks the move from windows mobile PDAs to Nokia brick phones, the offline-first instincts forged by building software in remote settings, and the participatory design sessions held literally under a mango tree south of Dar es Salaam.</p>
+        <p>You will hear how multimedia features added so low-literacy users could use CommCare were unexpectedly turned by health workers into behavior change tools, how case management and tracking data over time set CommCare apart from peers, and how it eventually became a product that non-engineers could build on. Speaking are Dr. Neal Lesh, Dr. Brian DeRenzi, Cory Zue, and Clayton Sims, sharing the pivots, disagreements, and lessons from the making of CommCare.</p>
+
+        <blockquote>
+          <p>&ldquo;We Dimagi calls it design under the mango tree, and there&#x27;s actually a mango tree. We&#x27;d grab a bench and pull it out outside of the health center and sit literally under a mango tree and have these feedback sessions.&rdquo;</p>
+          <cite>Dr. Brian DeRenzi, on design under the mango tree</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The wild west years</strong>: how Dimagi's early bespoke projects each became a long-tail maintenance burden that made a product approach feel necessary</li>
+          <li><strong>Design under the mango tree</strong>: participatory design sessions held literally under a tree south of Dar es Salaam, with users driving the decisions</li>
+          <li><strong>Feeling the pain of users</strong>: building offline-first because the team faced the same connectivity limits as the field, sharing code over a local repo</li>
+          <li><strong>Underestimating users</strong>: the client who noticed a swapped phone and asked where his data went, a lasting lesson on privacy and sophistication</li>
+          <li><strong>Multimedia's surprise</strong>: audio and images added for low-literacy workers became behavior change tools when health workers showed them to clients</li>
+          <li><strong>From config files to a product</strong>: the long, nonlinear path from hand-built XML forms to an app builder anyone could use on CommCare HQ</li>
+          <li><strong>Going deep to go wide</strong>: why tracking data over time and case management, hard problems most products would skip, became CommCare's secret sauce</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth. A show from Dimagi about the role of technology in creating a world where everyone has access. To the services they need to thrive. I’m Amie Vaccaro, your cohost. Today, you’re going to hear from five of the people, involved in the creation of CommCare the leading platform for impactful frontline work everywhere.</p>
+              <p>CommCare Allows NGOs and governments to build applications, to enable their frontline teams. To deliver impactful services and collect data. Today, it would be considered one of an emerging category of low-code or no-code application builders.</p>
+              <p>But we got started down the path of allowing anyone to build applications when this category was really just a nascent academic idea. And the journey to create calm care is quite unusual. So I’m going to go out on a limb to say that the CommCare creation story that you’re going to hear today has never been told in this way by the people you’ll hear from today. It’s a story of tenacity. Humility and continuous learning first and foremost from our users. But before we jump in, I wanted to share a couple of caveats. So first. Today’s show is a bit more technical than others, but I will try to break it down as we go.</p>
+              <p>And second, I want to preemptively point out something that I’m sure you’ll notice. , in today’s episode, you’re going to hear from five north American men of a similar age who studied computer science and engineering at elite US-based institutions. This reflects the reality of Dimagi is early days, the company was founded out of Massachusetts Institute of technology or MIT, and the earliest employees tended to be friends of the founders.</p>
+              <p>Dimagi is on its own diversity equity and inclusion journey, which is a topic that I would love to dig in on, in a future episode. But needless to say, as someone who studied psychology, not computer science and someone who identifies as a queer female, I can attest to the progress that Dimagi has made</p>
+              <p>And continues to make. since our early days. And becoming a more diverse and inclusive organization. One voice you won’t hear from today is Gaia Mila who was working for international. In the early days of CommCare and did a lot of the early work. I’m hopeful. We can get him. As well as some of the original community health workers involved in CommCare’s creation. To join on a future episode. So look out for that.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Really excited for our show today. We’ve got an all-star lineup. , I would usually do intros for our podcasts for each person that’s speaking, but we’ve got a lot to cover today. So I’m just going to do a super brief intros. We’ve got Nilesh Amongus chief strategy, officer Brian DeRenzi Dimagi is global director of research strategy. Cory Zue, who served as Dimagi CTO from 2007 to 2017 Clayton Sims, who is Dimagi is second CTO and current CTO.</p>
+              <p>And Jonathan Jackson, Dimagi CEO.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So each of these folks were key players in the development of CommCare today. CommCare is the platform for impactful frontline work, anywhere in the world.</p>
+              <p>It’s been used by a million people all time across 130, probably more countries. And it was really developed over time through the needs of many varying. By leveraging project based funding to create a high value product today.</p>
+              <p>We’re going to stock through the stories of some of the formative projects that were involved in the creation of CommCare and then we’ll also talk through some of the learnings. So I want to start at the very beginning. I want to talk about the earliest days of Dimagi. So Dimagi was founded in 2002 and. From the very beginning, we were focused on developing custom coded projects and software for specific projects. So you’ve heard on previous podcast episodes about of the very first projects we worked on, which was national medical record system for Zambia. , I want to hear from this group, what were, what were those earliest days like, are there any kind of anecdotes you can share with us from, from those days?</p>
+              <p>Cory, why don’t you start us off?</p>
+              <p><span class="spk">Cory Zue:</span> I kind of think of those days as, almost like a bit of like a wild west period.</p>
+              <p>I think Dimagi, we were not all that discriminating in terms of the work that we took on. It was kind of like technology generally oftentimes mobile, but not always.</p>
+              <p>Oftentimes usually in sort of like developing world context, but not always. And so, you know, I remember just in a span of like four or five years, I did, you know, SMS projects in like Jordan and Zambia and Nigeria. And I was doing a health record system in Zambia and we were doing these QR code projects in the U S but it was a little bit all over the place.</p>
+              <p>And every project was different. Every project was sort of like a bespoke technology application written by software developers, usually to McGee software developers and and delivered to our, our partners and our clients for sort of the needs of a very specific project in a, in a very specific context.</p>
+              <p><span class="spk">Clayton Sims:</span> Looking back on those, just the wild west analogy. It definitely feels super, correct. I think there was a very undefined. Scope where we were trying to work, especially, know, we had like these windows EMR…</p>
+              <p>This is Clayton Sims speaking and EMR is our electronic medical records.</p>
+              <p>…that Cory and the team were building with a lot of maturity on There are these huge kind of national scale SMS projects. We, at one country that I worked in were in Zimbabwe and we were building like a monitoring IVR platform</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s interactive voice response.</p>
+              <p><span class="spk">Clayton Sims:</span> based on stuff we found two weeks before the trip and then and then left and hope that that project for w there wasn’t really like a focus.</p>
+              <p>We weren’t really trying to set like a specific course. So I’m like mobile or on SMS or on kind of touch the, like, we didn’t really know exactly where we had to focus. We’re just trying to do, do good technology for people who are doing a good job without any sort of direction or long-term plan.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What point did you start to think that you needed to shift approaches to be more, more product focused, right.</p>
+              <p>And thinking more about how do you take a kind of repeatable approach to project?</p>
+              <p><span class="spk">Clayton Sims:</span> W, well, I think what’s interesting is that I wouldn’t say CommCare was really the initial focus on that. I mean, I think Cory and the team that was working on the wrapping SMS platform were probably the earliest folks on the team who are really trying to shift Dimagi focus away from kinds of bespoke, very small , oriented projects onto something that was kind of like a foundation we were building on as part of the bigger symbol we moved out of that the crutch of the Zambia was we didn’t see a direction there.</p>
+              <p>And I think the bigger reason then was that the SMS tech was maybe the most scalable. But yeah, I think Cory can probably speak pretty well to how we were thinking about that shift to the.</p>
+              <p><span class="spk">Cory Zue:</span> Yeah. I mean, I think it sounds so dumb and obvious now, but at the time we would, we would build these projects and, you know, someone would say, could you build this thing? And we could, yeah, we could build that thing. And then we build it. And then like a year later they would come and they would say, oh, can you modify this thing?</p>
+              <p>And at that point, you know, maybe the developer who had written it had, had moved on from the company and nobody really understood how it worked or, even even worse case scenarios, you know, like a server goes down and nobody knows how to fix it. And so for me, a large part of the impetus was not really realizing that, you know, as, as people say, sort of like 95% of the life cycle of a technology project happens in maintenance.</p>
+              <p>And so with every single one of these little custom projects that we were building We were creating these 95% long tail maintenance burdens. And so, they were, they were quick and easy to build. And then, and then a year later you’re kind of supporting, you know, 15 of them. And each one kind of might draw on your time at, at various points.</p>
+              <p>And we realized that this, this is a totally unsustainable way, both, both for Dimagi and for these organizations to, to be working the organizations, like in order for us to fix the system, they would have to pay us. And and software developers are expensive. And so we just kind of realized, I think for, for both Dimagi and for our partners, that, that, that, that model wasn’t going to be a sustainable one.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that makes, that makes a ton of sense. So you’ve all these custom systems and then you’ve got these organizations that are relying on us to fix them over time and maybe can’t afford to. And it creates a huge burden for, for both us and the organizations. So one of the first projects where you really started to take that more product approach a project in Tanzania in 2008. And curious to hear what was this project about? were we trying to do?</p>
+              <p>Let’s start with you, Neal.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Well, I think a lot of the work that we did that led to CommCare actually started out more of a project style work, similar to the other work we had done.</p>
+              <p>in fact, I was, I came into this through a organization that wasn’t Dimagi through, through Dimitri international, founded by Mark Mitchell and had this big vision of using Computers or handheld computers PDA’s personal digital assistants back then improve the care that nurses and facilities were given.</p>
+              <p>And he well, he and I got some grants to start this work. Actually, the first grants were in South Africa and we subcontracted out to Dimagi to build those and those original projects which were done on PDAs were really just, you know, I’d say like they were projects demonstrating the idea of walking health providers. Digitally through protocols in remote settings to improve the quality of care. And then during that work, we started to see the potential of applying that same idea to a community health worker. So the first sort of CommCare project was, in Tanzania where Detroit eventually, or had up its headquarters. And it was to a similar idea except not with nurses and facilities, but with community health workers doing home to home visits. but even then I would, I mean, curious how others remember it, but I would say it started out as, as kind of just a or a cool thing to try. And at least from my perspective and Brian worked on a bunch of the early stuff.</p>
+              <p>It didn’t like yet have a product focus that came a little bit later. Once we saw.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah. So just from a, from the tech side, one funny thing that jumps out is, you know, just how much to our uncertainty about whether this was like the longterm plan. When we did all those older projects that, you know, was mentioning the PDAs. You know, we have these windows mobile PDAs that really were like very mature, very like advanced, like little computers.</p>
+              <p>Right. You know, and I were kind of working in an flora, I think, you know, but we were like one time of this project site. was like clinical protocols that were used by like doctors, like in a clinical setting. And it was like a real thick computer that had to plug it in at the end of the day.</p>
+              <p>And then I remember we were in a car talking about shifting over to like mobile. And the drop in technical sophistication that we had to eat from these like windows mobile PDAs that like you programmed like a first class device that felt like it was like really something like a doctor could use to these little phones.</p>
+              <p>Like I was talking to Jon, I was looking to deal on it. We’re like, all sure that like, this is the trade we want to, we want to make we’re, we’re losing 80% of like the, the user interface of like the, the memory, like all these things. And they’re like, phone talk to like the internet?</p>
+              <p>Can like data signals? You know, with the time it was like really novel. And it was like, yeah, kind of like, there’s like a little bit of data on the device that we can get out, but like, it doesn’t work super lively and they’re like, that’s it like, that’s, that’s what we need to plan around. That’s we need to build around, like, these are, if you can get them where we’re going and I could talk to the internet, like that’s, what’s important.</p>
+              <p>And I was like, all right, you guys are in charge. I don’t, I don’t know if that sounds like the right decision as a, as a coder, but like it turned out that that was a pretty big trip.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, no, it, it, it sounds like it. So these were these Nokia, like flip phones at that point in time, or of phones?</p>
+              <p><span class="spk">Jonathan Jackson:</span> They were they were 2000 models, I think.</p>
+              <p><span class="spk">Amie Vaccaro:</span> This is Jonathan Jackson. Dimagi CEO speaking.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I remember everybody in our field sites had the exact same Nokia brick phone at the time. There’s just like one model that, that we all had. But there, there was a long knowledge base inside of Dimagi like by every single Nokia model and what type of apps it could run on it because it was so specific back then and what the, what those ones were capable of.</p>
+              <p>But those models were great. Like those phones where they lasted forever, the batteries were amazing. The really that general phone extremely.</p>
+              <p><span class="spk">Amie Vaccaro:</span> yeah, I remember though. I think I had one of those as well. So continuing with You’re talking about sort of this, the technology that you had to shift to. I think you also, you talked a lot about the learnings from that period around the challenges of working in a remote setting, and really kind of feeling the pain of users.</p>
+              <p>Can you tell us a little bit more about what, what was that like kind of building technology in, in , really remote places.</p>
+              <p><span class="spk">Clayton Sims:</span> When we were building CommCare back in like 2009, the way we were building the tech had a lot of the same technical limitations as the context that users run. Right. You know, we were in this house, in dark that we were building the software end with withdrew and Brian and Joe cumin guy.</p>
+              <p>And so he spoke some tree we were some of the earliest adopters of distributed version control systems, like get, because we had to share code with each other instead of house on our wifi, we had to do our own kind of like get pushed or repo because we didn’t have the ability to kind of like go up to like a S a server outside of the room.</p>
+              <p>Anytime we hit. An image to a server outside of the house, it was like super annoying. Like we have to add an image to the repository. We’re like, all right, everybody like stop using the internet for 25 minutes. Cause we have to like upload this one file to our distributed version control server. And I think like that really like shaped a lot of how we kind of think about like a phone that needs to be able to do what it needs to do without the internet and then use it when it has it available.</p>
+              <p>Like we, we learned a lot from that. And I think we also learned a little bit how hard it is to. Socialize that for people who haven’t had that experience. Right. So I remember, a researcher that came to work with d’etre and they, you know, we used to buy our internet on these like dongles that we’d like share with the cops around.</p>
+              <p>And like, one of us use them at a time they had one of these dongles that we bought 500 megs a month on or something like that. And they didn’t really understand this work to like, they came to the house the first night, watch the daily show for like an hour and then came like, Hey, we like this, like stopped working.</p>
+              <p>Do you know why? We’re like, oh, can you blew through the entire month’s internet, like allocation in the last 45 minutes? Like, it’s very hard when you haven’t had that kind of intuitive experience to like really understand it. So I think that really like shaped a lot of how we think of complicated. We think about offline and it was really carried forward.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, no, that’s, that’s such a hilarious story. And yeah, I do see that to today. Like that’s one of our key differentiators is the fact that CommCare is, is so, so usable, offline and on. So Brian, I wanted to ask you a bit about, you were obviously there in those early days in Tanzania what were, what were the first CommCare users like and what did you learn from them</p>
+              <p><span class="spk">Dr. Brian DeRenzi:</span> so I did a lot of the field work for CommCare.</p>
+              <p>I spent a lot of time. I spent a few months in Uganda. I spent at a Fulbright in Tanzania where I was there for a year. And then I spent a few months on, on kind of either side of that. There was, there was a time in CommCare where I had a personal relationship with every single CommCare user which was really, it was really nice.</p>
+              <p>Like they were all, you know, for probably the first 40, 50 users I had, I had some. Deep connection to them. We would talk about their kids when we got together and sit down, you know, our, my time in 2008, 2009, doing a lot of this, this field work. And it, it, was impressive how much people cared about the work that they were doing. You know, the digital support tool was important. We were trying to make their, their, their job easier. But it, it was just a small, small part of the, the larger mission and, and the larger work that they were doing. mean, I remember you know, walking, home visits with a community health worker, We were walking through these mountains, going from, from house to house and he would just sit down and talk to people and, and that social connection and that social presence was, was the most important thing.</p>
+              <p>And so our job, I think, we were building the tool was to a tool that, that could enable them to collect and organize the information and, and support the work that they’re doing, but do it in a way that that was as, as close to invisible as possible. So that the, the important social connection pieces really, really still showing.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really powerful what you just shared brand. And I feel like that kind of underscores. Humility with which we, we have had to and have approached our work. And just really knowing that yeah, the, the app that a community health worker is using is just a fraction of their experience.</p>
+              <p>Right. And it needs to be as seamless as possible and actually contribute to making their, their days easier and better.</p>
+              <p><span class="spk">Clayton Sims:</span> Do you want to call it a little bit? You know what I mean? I can’t speak enough to, if there’s a lot of discussion about the concept of participatory design and kind of inclusive design and I can’t articulate enough how Having that kind of formative experience, that relationship really was for us because we it’s a huge draw on those people’s time, in that period to kind of of their way.</p>
+              <p>We tried to kind of schedule around meetings that we’re already having, but, you know, brand would schedule time with those folks. We would out from, you know, further and dark and like sit down and do, you know, design sessions, do paper prototyping sessions, do physical feedback sessions. I know a huge amount of the design.</p>
+              <p>We finally landed on really came from being able to get hours and hours of those folks time kind of contributing and giving their experience about how it went to use something and like their ideas about what to shift and how to, how to work on things. And I think we’ve had the chance to have that experience.</p>
+              <p>You know, a number of times in the, in our kind of history building CommCare and designing. But it, it really is, you know, a participatory design session that it, that was a draw from those people’s time. And they, want a credit for contributing to that and being willing to work with us and kind of contributing to that and, and, and driving that forward for other users in our other.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And to build on that Clayton. I think the other major factor that, that participatory design caused was increasing our confidence that our users actually, one of this you know, this was 2008, 2009. We were already gaining a lot of concern and skepticism on the value of some of our work and the industry’s work was providing to providers. And so when I went to Tanzania and I was talking to Brian and just tell by talking to Brian and he’s like, I know we’re onto something here. Like these users really. Want this and are excited by technology and it’s helping them like, yes, there’s a huge amount of work we have to do to improve the software and make this better.</p>
+              <p>But like at its core, this is a user base that like, I really think we should be on in this technology where they of make an impact. Whereas when we’d go to visit some of the clinics we were supporting or other use cases where like, huh, this, this may not be the most desired solution and design work we’re doing in that, that you wouldn’t know that unless you are deeply in the field doing this participatory design.</p>
+              <p>And as Brian mentioned, like having deep personal connections with these users to understand, is this actually making their jobs better?</p>
+              <p><span class="spk">Dr. Brian DeRenzi:</span> Another design point. I think there’s the academic side. There’s, there’s lots of different names and they they’re all slightly different, you know, there’s participatory design and there’s a user centered design and human centered design. And then design thinking and there’s a co-design , point is there, there are all these different types of design and, and they’re all, they’re all slightly different takes on the same thing, which is you, you have to engage with the user, you have to have that personal connection. And as, as we were kind of exploring and doing this, and we used a bunch of different techniques, whether it was focus groups or, you know, Clayton mentioned some of the paper prototyping that we did All of these, these techniques, you kind of pulled together and, and you, you try to engage the user engaged the, the human of the user in, in this process in a way to, to create something that’s actually useful for them. And we used to, we Dimagi calls it design under the mango tree, and there’s actually a mango tree. We had this site in Southern, just south of, of Doris salon that we would go to once a week. We’re working with these community health workers and we meet up at this, at this health center. And in order to make sure we weren’t in the way we’d, we’d grab a bench and pull it out outside of the health center and sit literally under a mango tree and, and have these feedback sessions and talk to them about the work that they’re doing.</p>
+              <p>Talk to them about the tool, try to, you know, give them an updated version, to their feedback, get their input, have them really drive a lot of the decisions that we were making in terms of. Of how to create this tool. So when Clayton talks about the importance of, of those users and just the sheer number of hours that they’ve put in that, that have, have created this tool, that’s become for people and health workers and frontline workers more generally all over the world. You know, there’s, there’s a huge debt of gratitude that we all go to to those, those initial users. I look back on it, very fondly that really fantastic time with, with, you know, Gaiam Heela we mentioned was, was a huge part of all of this under, under that</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> I don’t know if we were aware of it at the time, but there’s one element of, of our term design under the mango tree, which is missing from the other, terms that people use for something similar, which is the context and situation upon under which you’re doing this work. just reading this book called the extended mind by I think, any Murphy Paul. And it talks about how people think differently in different environments. You think differently in an office room than you do out under a mango tree.</p>
+              <p>I’ll note that other methodologies do include this notion. They just don’t call it out quite as much as design under the mango tree. Does.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> And in hindsight, I think that element of doing the work in the context, that’s kind of close to or closer to the setting in which the systems will be used really is an important part of our approach.</p>
+              <p><span class="spk">Amie Vaccaro:</span> , thank you so much, Brian and Neal for sharing that I the designer to the mango tree philosophy is, is one of the things that actually attracted me to Dimagi when I was first considering Dimagi. And so it’s just so cool to hear that origin story. And also just to know. That, that same approach.</p>
+              <p>Um, Continue to, to apply that same approach as we’ve been designing over the last 15 years. So one other question around the Tanzania time. So Neal, you, you started an interesting story , from that time when you had an aha moment about just how sophisticated our users were. Can you tell us a little bit about , that learning that you had.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah. And I’d like to say it was a mistake we only made once, but I think we were, we were very often reminded of various ways, which might underestimate. Our users or our clients or various people in the, in the system. And one of them was days working in Tanzania and there some different phone models we could run CommCare on and we wanted to test out different ones.</p>
+              <p>So we bought like three or four different phones, and then we had a few users and we had them swap each, use one phone for a few weeks and then swap it, then use the other one to see which was best. And then one of them came back. One of the people using it came back, we’ve been out using CommCare in going from house to house. And he reported that one of the clients, an man, as I recall, was upset when the client saw that the user had a different phone than the previous visit and the concern that. Okay. I said was that, oh, you typed my data into that other phone. Whereas where’s that other phone? Where’s my data. And I think our first reaction was just kind of like kind of amusement or bemusement that like, that had, you know, we hadn’t seen it at all. and then realize that, oh yeah. Like people have a more sophisticated attitude towards, towards data towards privacy concerns than we expected, especially, basically back then.</p>
+              <p>Now that might not be surprising. But think back when we were doing this, we thought, oh, like we’re, we’re bringing this very new kind of magical technology in, and hadn’t realized how quickly people would, would understand it. And how think about all these different aspects themselves. It was a good, good reminder, which happened many, many times in different ways.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, thinking Yellen. I think that’s you know, that, that theme of like taking data, privacy and security really seriously is something that sticks with us to today. It probably would have come about anyways, but it’s, it’s just interesting to hear. The ways in which those early, early conversations have really like set us up and created certain underpinnings of how we approach our work at Dimagi.</p>
+              <p>And I imagine Clayton will have a future episode where we really dig in on data security and privacy. Cause that is something we think about a lot. Just to kind of recap where we’ve been. We talked a little bit about very earliest days. We had of projects. We were kind of approaching each project with sort of bespoke software. started shifting into more of a product approach with CommCare and kind of testing that out, both in Uganda, as well as, Tanzania. Do you remember, was there like a moment in time when you really like made that decision to switch from custom to software and how did you, how did you think about that?</p>
+              <p>And I guess this is a question for Cory</p>
+              <p><span class="spk">Cory Zue:</span> I don’t think I’m the right person to answer this question because I think I was at the time I was the. The skeptic that this could ever possibly work. And I, well, I mean, I, I, you know, I’d had so much experience building these custom projects and they all seemed very complex.</p>
+              <p>Everybody’s workflows were different as, as we just heard you know, we want it to do a lot of user centered, centered design , and really create, you know, the right solution for the right context. Then it it just didn’t strike me as realistic that, that we’d be able to pull off building a product that, that could actually sort of provide the right value for for the people on the grounds without sort of like an infinite budget and an infinite amount of time, but I was very happy to be wrong.</p>
+              <p>And so probably someone who was, who was making the case for, for doing that should, should answer this question properly.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah I think there was a lot of skepticism Cory wasn’t alone. Cause it was one of the strengths we had at that time as an organization was this massive amount of customization we were doing on all of our. Um, To make them successful, but there, there wasn’t a moment in time, this was around 2008, 2009 we’re starting to get going with this.</p>
+              <p>And so there was two events and trends that, that we were, were experiencing at the time. was, it was kind of obvious mobile phones were going to explode, not smart phones yet, but just Nokia device. Like, so it was very obvious. there’s gonna be a huge adoption of mobile phones and that they were going to be internet enabled. The second was the United States at the time was going through the great recession. So we’re looking around and kind of everybody’s rethinking, what does, what is work mean to them? What’s going to happen in this economy? Like everything had just crashed and I pulled the team together and I was kind of like, look, we’re, we’re going all in on having a scalable pathway to impact.</p>
+              <p>And at that point I wasn’t saying that means product, but we kind of knew what we were doing these massive custom solutions that users kind of wanted to. Wasn’t necessarily the path to massive impact. And we, we knew we were gonna, you know, or die trying and finally particularly in the great recession, I think less so currently was very countercyclical.</p>
+              <p>So ton of funding came out from donors and governments to push aid and global development. So recession was good for a lot of the, the smaller players in the sector. And we really, I made a conscious decision and we all executed it to really push and say, what does that path, the scale. That’s why we started doing a lot of open source products at the same time. So it wasn’t this kind of SAS product vision yet, but it was, need to pick fewer platforms, focus more on those and see if we can create scalable enduring value into Courtney’s point. Like this was not obvious that it was going to work, but what was obvious was the current path we were on.</p>
+              <p>Wasn’t going to lead to reach a billion new users or. Clients. And so that was where a lot of this came from and we didn’t completely focused on CommCare right away. was one of several open source bets we were making. But then very quickly we completely aligned, ongoing all in on CommCare and the next.</p>
+              <p><span class="spk">Clayton Sims:</span> And one thing that really jumps out to me about that kind of period in that transition, you know, to, to Cory’s point, I think took a while for any of us to be super convinced that there was going to be like a or like a concept of something that was totally reusable. so much of the foundations that we were building that eventually became the kind of inlets to product and to kind of assess, you know, user self-service model came from tools that we built to. Make our lives a little bit easier. You know, we, we built these external specifications for being able to codify or protocols or codify what not can do not to make it so we could build an app builder on a website, but because didn’t want to have to go change code over and over, you know, Brian and I were building the protocols and I’m Tara, back on those windows mobile devices, the whole protocol was in code.</p>
+              <p>So every time we had to change it, we had to do a whole new build, which is a very different thing from putting a new file that was, you know, your textile that represents the protocol. So, you know, that’s the kind of stuff that really ended up eventually transitioning and blooming this product driven approach.</p>
+              <p>But I’d say it was very, it was very incremental and it was opportunistic that we eventually were able to leverage that into that product, different approach, but we always did have a little bit of a focus. I guess almost think of it like a pyramid of how difficult each part of the problem is you know, we wanted to make it the case that someone like Brian, who’s really an expert on the protocol on what the users need, could go make that change without needing to recompile the code.</p>
+              <p>Cause I think at the time tech challenges were way harder than they are now to just get something that could run on a mobile device. So, you know, we’re trying to like the, putting the right problem in the hands of the right people was always part of our technology goal, but the notion you can turn that into something that was end user serviceable still felt like a decade away or something like that.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> And if I could add the, you know, in addition to it being kind of a wild west mood back then, it was a really idealistic time. We were, there’s a lot of interest of people forming open-source communities. I think the idea of like a big vision was, was like, even though we were like tiny and just starting, the idea of having your system used everywhere was like kind of easy or common or natural to think about.</p>
+              <p>Like with very ambitious, very bold, And, you know, a lot of reality and maturity has set in over the last decade, but back then, I think we had that kind of big vision for Brett. And I think that was, was there before, like the idea of achieving it through a product or a no-code platform,</p>
+              <p><span class="spk">Amie Vaccaro:</span> So when was the first time said CommCare, like, how did. Come about.</p>
+              <p>We had decided to do a retreat 2009 over the holidays with Neal and I, and some others that had worked on this. And I think Brian was still in Tanzania. So was iterating on a document with us remotely. And I just remember like, okay, I think we’re going to do this product thing with this technology that Clayton and Brian and Detroit and Dimagi and others have been working on where we didn’t have a name for it yet. And then I just remember seeing the title of the document switch one day. And I don’t remember it was Brian or Neal who title. but it was like CommCare and I was like, oh, that’s perfect. That’s it? So my vantage point of it was just one day, the title of this document, that was the preread. I was like a 13 page document and we were going to go spend all day talking about it. Just switch one day. And then that was the name of the product. I have a very funny story about my ability to name things that Jillian stopped that we’ll we’ll share in a later brand.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Oh boy, looking forward to that one.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, I’ll see if anybody else has an earlier story, but I think. Jon described was I was writing a proposal to Microsoft for a hundred thousand dollars that was going to be submitted by Gaetano. Borriello our at the university of Washington and writing up a few page thing. I believe I was in east Africa somewhere, kind of like writing it up quick to send off then realized there’d just be simpler to describe all this if I gave it a name. And so into that document, I wrote CommCare, I believe, I think in that first version with just one M and sent it off. And I think that’s the, that’s the first time I ever wrote down that, that word. That’s my.</p>
+              <p><span class="spk">Clayton Sims:</span> And Neal has a history of prolific names, Farrah call. Cause I know that we also one of the early. What we thought was going to be disruptive. Innovations of CommCare was an interface where you would answer questions and the history of the, your kind of question answering would stay the screen and kind of, you know, float up almost like a, like a chat interface. we probably argued think we would have argued for years about the name CommCare or something like that. We actually spent probably seven months arguing about what we were going to call that interface. And I think Neal, at some point flippantly called it chatter about. And Jon, and we’re like, that’s the worst name in the world.</p>
+              <p>We’re not calling this thing chatterbox. That sounds like juvenile. It’s like really silly. We’d argue. And we’d be like, we went to this, there’s a really big Java Rosa refute. This was the name of the group that we worked with at the time, which is a bunch of great people who all have kind of produced really good artifacts into the space and in the cab.</p>
+              <p>I think on the way to there, we were arguing with that. We finally decided like, Neal you’re right. It’s chatterbox. And then of course, chatterbox turned out to be the least good design principle of the entire thing. And we spent the next three years, like dialing it back little by little by little until everybody got the one question on the screen they wanted.</p>
+              <p>But you know, at least we, at least we had that, that prominent name finally.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I love productizing everything. And actually, Cory, as you were talking, it reminded me like, you know, we, have this narrative that we just made this great bet on CommCare and it worked out perfectly, but like I tried to productize everything we were doing at the time much to all of the engineers, like dismay and horror at a lot of that didn’t work and caused a lot of extra churn.</p>
+              <p>Some of our supply chain capabilities some of our SMS projects at the time. And so that we had that notion of wanting to productize stuff, but. Fairly indiscriminant at that period of time of trying to just find anything we could productize. Cause I did have a pretty strong notion that that was going to need to be part of our path to success. But what Courtney was alluding to earlier on me need to customize that was also very true. We kept running and supporting, massive custom projects for quite some time after that there were legacy projects and one of them is still running today at national scale powering of supply chain. It’s great.</p>
+              <p>And cost-effective, and is, is amazing technology.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Okay. I just learned Dale that you named CommCare and nobody pushed back on it. It just happened.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Brian. Thank you. Awesome.</p>
+              <p><span class="spk">Dr. Brian DeRenzi:</span> I might’ve added the um, I was definitely, I was part of the proposal, the university of Washington, Microsoft research</p>
+              <p>proposal that that Neal is was mentioning I might’ve</p>
+              <p>I often fix Neal typos and documents and. Uh, improved spelling here and there. So I might’ve added an…</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah I appreciate you adding that out I think</p>
+              <p>it would really bother me if there was just one app. So.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Cory. I want to ask you then, but you were a skeptic and makes sense. Cause you and I were actually much more on the customer side of the house at this time. What, what kind of experiences or. You know, learning is, did you have, at that time, that kind of made you think, okay, maybe Jon’s not crazy, or maybe this get.</p>
+              <p><span class="spk">Cory Zue:</span> Yeah, it’s a good question. I mean, So this is, this is maybe skipping around a little bit now. But so, I mean, so for a long time, Brian and and Clayton were doing a lot of, I don’t know if you’d call it product position, but kind of making the mobile side of the house require a lot less software development and, and kind of more configurability.</p>
+              <p>But, and I was mostly focused on the server side where we didn’t have a lot of that stuff. And I remember I remember at one point during my skepticism, we got donated or, or something, there was some Google engineer, I think his name was Ross. And he had, he had like a three or four week hiatus from Google and he wanted to do some do Giddings.</p>
+              <p>So we were like, okay, let’s, let’s give this guy a project. And in that period, he built this sort of like website where you can. I think he added it to, to whatever we were doing on our servers, but where you could basically go in and you could sign up for an accounts and you could choose a project name, we called it a domain.</p>
+              <p>And, and and then you could just kind of have this place where you still couldn’t really like build a CommCare app, but you could at least have this little place where you could then upload some CommCare configuration files and have your data go there. And, and I remember just thinking like, oh my God, this is such a waste of time and money.</p>
+              <p>Like why, who like, like the number of people that are going to sign it, like, like nobody is going to sign up for this. How could this possibly be a good idea? We got this Google engineer and we’re like wasting his time doing this stupid. And and then I remember, like we had a, I don’t even know if we had a mailing list at that point, or it might’ve been sort of one of the more general mailing lists for the open source community, but someone, someone was sort of like, I want to do something kind of exactly like what, what Ross had, but, you know, I, I want to like host this application, how do I do that?</p>
+              <p>And then I was like, whoa, like there are people out there in the world that, that want to do this and maybe be able to help them in it. You know, I think for a long time, we probably, you could count on maybe one hand or two hands for years. The number, the number of projects that were, that we were using this thing.</p>
+              <p>And, you know, every time someone signed up, it would be like, you know, fist pumping in the office and we’d go follow up with them on email and find out all about their projects and stuff like that. But you know,</p>
+              <p><span class="spk">Amie Vaccaro:</span> HQ</p>
+              <p><span class="spk">Cory Zue:</span> Yeah, concrete key was what we were calling. The website of CommCare where you would send your data and you could have maybe some really basic reports and download it to Excel. And eventually we added you know, the application build there and, and all these other no-code tools, so that, so that you could actually author and manage country applications on there.</p>
+              <p>But at the time it was, yeah, it was, it was basically a place to sort of like upload your configuration files and download your data</p>
+              <p><span class="spk">Clayton Sims:</span> And one thing that is kind of funny to think back to you know so the the previous</p>
+              <p>cue was something called data HQ, has done several, we were running before. That was just for receiving data that was in Jon’s HQ phase, where all of our products that have HQ at the end I think there was like carriage queue, data HQ, and then something else HQ that never was a</p>
+              <p>real product</p>
+              <p>And what what’s funny about it is they get, it seems so obvious and intuitive that like you’d have like an end-to-end experience through this, where you could like build an app or deploy an app. And it would be like a SAS product. The problems that we had to solve in between data HQ and like something on a phone that you could do end to end where like almost insurmountable, like I think Jon paid people to build like the form builder, the form builder that like everybody uses now that we take forgiven granted as like a thing you could obviously build that worked fine. the old versions of the form builder, where like like a literal joke, like there were pages on our Wiki that were like, what could go wrong with the form builder. And it would outline like, if you like move a question, the wrong way everything’s broken, you have to start over. So I copy and paste everything every four minutes in the form, like it was a total of like, I think that’s one thing that’s really funny to think about from the product path. It was a little bit of initiative and a little bit of aspirational, kind of like thinking to get each of those little pieces in place. You know, Danny Roberts who’s now are kind of like the leads are our SAS technology team. you know, he built the app builder kind of over in the corner without like telling anyone like in like that are like, Hey, like we’re going to go.</p>
+              <p>Like, what if we could like go design menus and like forums, like on our own, like in the website, like, can you like go try to do that? And he’s like, yeah, I’ll try to do that. And like, not tell anybody, cause like, this seems crazy. Like if you’re trying to do this and it doesn’t work, it’s like, I think that’s one thing that really jumps out to me is that so many of these problems were so hard to solve.</p>
+              <p>And now we take it as a grant forgiven that you could solve them. But I don’t think that was true at the, at the time. And I think Jon would reflect that back on the fourth person, he paid to get the four builder to work.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, I think that the interesting thing, I was just meeting with a bunch of our partners over the last couple of days in Washington, DC. And I talked a lot about those. So now this whole industry vertical multi-billion dollar companies building low-code no-code platforms exists because everybody recognizes the potential power and efficiency of non-engineers being. Apps for themselves or for their companies back then nobody was doing this. So I think it’s interesting to reflect on know, how early that was, because that term low-code, no-code came up much later in the 2010s as a, as a whole big genre of software. Now it’s massive and exploding. back when we were first doing this, this wasn’t even a thesis that necessarily everybody agreed with was, was something that could work. and I think that that was a huge undertaking, a challenge for us that I think we, did to Clayton’s point Underestimate how hard it would be to build some of these tools and technologies. also this interacted with our open source participation in a very interesting way, because this is one of the key areas that a lot of the community diverged in our opinions of what was the right path to scale, know, should it be the case that we’re building open source libraries that engineers can use? it be the case that we’re building open source apps that software engineers can use, it be the case that we’re building products non-engineers can use? And we all have different opinions on it. And therefore it really started to diverge where the different companies that were collaborating at that time wanted to take things.</p>
+              <p>And I think that was a really healthy debate and it actually solidified a lot of our opinions and made us realize what we did disagree and it was great because then we all realize we needed to take different technologies.</p>
+              <p><span class="spk">Clayton Sims:</span> I think one thing that jumps out to me as we talked about this kind of product versus kind of custom debate, you know, I think one thing that’s kind of funny to reflect on is I think how much the non productized approach took in the beginning here was really kind of important to the product that we eventually made. Because when we take for granted, now this idea that, you know, we have to, we have like these cases, we have the ability I remember in the. Capabilities we needed at the time with Steph cases and referrals, In the, in the early projects that were kind of Pathfinder there were cases that represented people who were receiving services.</p>
+              <p>And then there was another model that we tracked that managed when somebody had to get referred to a clinic and that had its own life cycle. so the notion, you know, we worked with big consortium, this Java Rosa consortium, when we were all working on X forums, X form is a specification used to represent a data collection form.</p>
+              <p><span class="spk">Clayton Sims:</span> that we’re all collaborating on, being able to use this. Open-source engine that we were trying to work on between a couple of partners and us, and I think the big differentiating factor for at the time, wasn’t no, no-code, low-code it wasn’t our product. It was we were tracking data over time we needed to do this for these Pathfinder projects.</p>
+              <p>And it wasn’t just one piece of data. It was going to be multiple pieces of data. We needed both a person and a referral. as we shifted into the product world, we had to retain things that we were doing. We had to still be able to do this really complicated thing of tracking this data and tracking it over time.</p>
+              <p>And all the other partners were like, you guys are crazy. Like we get our form, we send it off the device. We’re done. Like, you’re never going to be able to like scale, being able to track the data. Cause like you have to, you have to migrate it. When you have to update the device. I sat at like 2:00 AM, one time with this guy from Grameen, who’s using CommCare because he needed to update the data on his phones and he had to send me the files so, you know, it’s one of these sort of like things were really hard to do and we never would have done them. If we’re trying to build a product, we would never have like taken on that much complexity. So I think we really benefited from this really Daniel’s point, ambitious, very aspirational approach, not being very product focused initially because we bid off a problem that was so hard. never would have been enough if you’re trying to do an MVP or if you’re trying to like, you know, do use modern techniques, techniques to kind of build something. And I think that’s worth kind of like reflecting on an appreciating how much it was, the of those two kinds of approaches of doing something really ambitious, really aspirational, really complex, and then also to, to productize it.</p>
+              <p>And I think that that’s been the big. Kind of secret sauce or kind of theory of like what drove, what, but eventually was something so powerful and so unique. But I think it took a lot of skill to get there cause he needed Simon. So you need, you needed these very skilled people who could take, what were all of us kind of set up for them and then turn it into something that’s viable.</p>
+              <p>And that, that was a, we got lucky candid that we could find such, such intelligence, such great people who were actually able to turn that into something like a product.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Because we were focused on these specific projects with really hard challenges, we were able to go super deep on those specific projects and then bring that over into this product approach over time. And we just started with like, yeah, we want a product that’s going to serve all NGOs and governments.</p>
+              <p>We would’ve built something way, way more lightweight that wouldn’t have been able to handle the complexity that we were able to handle and still are. I think that’s super cool. So we’ve, we’ve talked a lot about kind of the, the, the very earliest days, the shifting to a more product approach, the, even sort of starting to shift from just a product to a product that would actually allow folks to build right.</p>
+              <p>Non-technical folks to build. the next moment in time I wanted to speak about was a project with world vision. This was in Afghanistan in 2011. Clayton, can you tell us a little bit about this project? What was it about kind of set the scene for.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah, sure. So I think, yeah, this is a really interesting example of some of the growing pains. I think for us in that transition from. Trying to solve the hardest problems and trying to work directly with people into realizing that maybe we need to take a step back. we needed to kind of like generalize a little bit about where we were headed.</p>
+              <p>So we were working with world vision in in Iraq and Afghanistan. We were trying to build a system for, community members who are to be healthcare workers who are trying to screen for high risk pregnancies. So we had a tool that kind of bench uh, members of the community and help them do a screening and then give them an outcome and then help them do referrals to kind of get folks who, who were at higher risk during delivery to get pre preemptive care. And it was a really challenging environment because the, community health workers we were working with were illiterate and innumerate. So, you know, couldn’t, couldn’t read what was on the phone. And then also couldn’t kind of use numbers to kind of track things. And so we wanted to adapt the interface all the way down to the editor.</p>
+              <p>You know, comfort works for everyone no matter who you are. So we built this very multimedia. Have you interfaced? So Rowena um, and Jerome and I, who. Each did a trip. So it’s three people go out for weeks at a time to kind of do user design, to sit down with folks. And we built this whole interface where everything was audio driven.</p>
+              <p>You know, there was no, you didn’t press up and down Ethan because the, a lot of our community health workers are older and they didn’t have kind of the dexterity to only press the button on the phone. They accidentally also press the bottom button that would like change what they did accidentally. we like spent just weeks and weeks and weeks kind of iterating and like turning off like navigation on the phone and locking it down. And it, so every prompt, like read an audio, prompt out loud and there was an image on the screen and then you press the center button to advance and it was kind of onerous, but like people used it.</p>
+              <p>Yeah. I’m very, you know, I think I come from a human computer, extra background, and I think it’s probably one of our biggest successes at making our technology reach all the way down to the hardest kind of like last mile kind of setting. And our goal was to, we were like, this is amazing. We did such great work.</p>
+              <p>It’s so cool. The users actually use that app. I think for two years after the project ended, like I would go look HQ and see that people still submit forums. I was like super, super excited and super proud of it. And so Neal was like, we’re going to get like, Neal was like, we’re gonna, this is a product like this CommCare sentence.</p>
+              <p>Like this is going to reach the last mile. It’s going to get out there. Everyone’s going to love it. They want this multimedia. We’re like, we really built something amazing here. we have these other projects in with vision in listen beak. And then I think maybe in India, And we’re like, just come to your sentence.</p>
+              <p>It works for people who like have low literacy populations. those little populations kind of looked at it like, this is really clunky. It’s like super hard to use, like how come these up and down buttons don’t work. And we’re like, it’s cause that’s a good thing. People of our ourselves like would have a hard time with this at all.</p>
+              <p>Like we just want the images. So we like scale back, like incrementally just like took away all of the surveys that were created, like piece by piece by piece until conquer sense mode was just like images now or like this audio. Cause like these people are super savvy. They use phones all the time.</p>
+              <p>They just like, couldn’t read a lot of the text on the screen and like that, that’s why, and that wasn’t an issue they had. So I think we learned a little bit about, you know, kind of like we can solve her problems. We can get all the way down. We can like do these really tricky things, but like that it’s not really not all these, these are populations at the same, not all forms of literacy are the same, not all use to have the same such challenges.</p>
+              <p>Like we really, it was a real wake up call that we needed to kind of like think through a little more generally, like which hard problems are important to solve and like, which, what is the work general thing that we need to do if we’re going to take this from something. So one really hard problem to something that helps us solve, you know, a thousand or a million really hard problems around the world.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> And my memory, I think has been a little bit selective, but the, what I really took away from that whole story was the element of CommCare sense that survived really this big breakthrough that exploded kind of the range of what CommCare can do, is because we where we picked up idea of adding in multimedia and audio clips to the CommCare app.</p>
+              <p>And the, and the motivation was to allow the local literate users to be able to use CommCare. Like they just couldn’t use it when it was all text-based and this was like a way to let them use it. And then when. Deployed that in India the Dimagi team using it kind of came back. It was like, I’m, we’re like these kind of frenzied emails.</p>
+              <p>It’s kind of confused emails and saying like, oh, the, the community health workers, I think we were working with ashes in India. They’re showing their phone to their clients. Like they’re playing the audio for them, for the clients they’re playing, they’re showing those images to the clients to like their behavior change communication. That really wasn’t on our radar prior. Uh, Way to come here, we’re gonna be used as much more like a paper form that we were digitizing, where like, you know, I can imagine like a paper form on a clipboard. Somebody is asking questions, but they’re not like showing that form to the clients. and it’s really opened up a lot of possibilities, that least I hadn’t seen coming, took us a while to come to grips with it.</p>
+              <p>It was only because we were working closely enough with the users that we even understood. This was happening. questions about like how, what kind of audio and images do you want to use that are going to be most as behavior change tools for the clients. so there, there are many dimensions to</p>
+              <p><span class="spk">Amie Vaccaro:</span> really cool. I mean, so that’s a story of basically learning from our users. Right. We, we were thinking about multimedia and one before. And then we saw how users were actually using it to help inform their conversations with their clients. And that opened the door to how multimedia is even used in CommCareto, to this Day.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Exactly. And from my memory, it took us, it was like a bit of a slow learn. Again, we were first went through confusion and then learning seeing how they were our users were, were realizing use, these.</p>
+              <p><span class="spk">Amie Vaccaro:</span> We’ve heard such, such incredible stories today. Kind of along the, the journey of learning from our users and developing CommCare and, you know, of next phase on this arc was really opening up CommCare so that it, know, it could be that no-code low-code platform that, that Jon was talking about. , everyone on this call here where you guys are all computer scientists, I believe and sort of taking comm care forward so that non CS folks can build on CommCare. When was the first time that you saw someone without a CS background, able to build an app on CommCare.</p>
+              <p>And tell us a little bit about that journey.</p>
+              <p><span class="spk">Dr. Brian DeRenzi:</span> I think in the very early. We were I’m curious to hear what other people say to this, but I think in the very early days, we were quite keen to get non computer science, but still technical people. So people who didn’t have a strong coding background, but still had some, some technical expertise to get them to build applications.</p>
+              <p>And, and we did it by, I, I remember running a bunch of trainings sometimes with Clayton, sometimes with drew drew, is another, another Dimagi employee at the time, or, or by myself and, and running these trainings, explaining how to manually, you know, how to open up notepad and manually create an X form manually add. Different questions and question types and how to implement, skip logic and, you know, make sure that your data model is updated correctly. All of these things. And, and we, I felt like we got to a point where, like we had kind of a standard training and a standard set of slides. At least I did that I would run through and, and, and try to get people kind of upskilled.</p>
+              <p>And, know, this was long before the XLS to export or any of the, the, you know, the CommCare app builder or anything like that. And so I think even from those early days, our intention and it was our desire to empower people, to build applications, to solve their own problems. and, you know, we didn’t have the, the no-code offering tools at that time, but we still had that intention and we still tried to, to give people the skills and the ability to, to do.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And building on what Brian said, going back to the open source point, everybody in the community at this time had a thesis of like, you know, less hardcore engineering needs to happen in order for more adoption to happen.</p>
+              <p>And the question was like, where you were drying out. And as we mentioned earlier, like a lot of us internally had very different lines of what we thought was feasible. but we also went through a big organizational change at around those time when our backend was starting to get good enough that people could build apps completely within the CommCare ecosystem. And we had built out a new program within Dimagi called their field manager program. And this was hiring people to be full-time in the field, working directly with our projects and programs and users and building concrete apps on their own. And this was when they had a lot of rough edges that they were hitting as Cory and Clayton were talking about earlier. But we’re able to, you know, start to build their own apps. And that also unlocked a different business model for dialoguing. Because up until that point in time, would typically hire Dimagi because you wanted to buy our software engineering And then we would use those budgets to piece together, the budget to build CommCare and it flipped so that you could actually hire our team to help you implement a solution, but not pay French in any, any engineering costs you were just paying. I support and building your app and that positive feedback loop for us as an organization cause our internal users to start to become our customers too. So our field managers who are using CommCare, we’re driving a huge amount of their requirements what we needed to make possible on the vocal application and what we had to improve in the backend they were out in the field, working with our partners and running into all these issues or opportunities to make more powerful.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah. And resonates a lot with me. Brian kind of said about the, some ways it feels like. More aspirational our use. This can do anything kind of approach in the past. Then we kind of landed on eventually when we product diced a little bit more. And we, we thought of it a little bit more as an end-to-end experience because we were really focused on. Reaching folks who work technically inclined or who just had expertise in general providing them with a way to something, you know, anything that was, that was the big goal of the entire kind of diverse consortium and about, or And it was the entire kind of motivation for almost everyone.</p>
+              <p>Who’s kind of working in the space at the time. That was. The goal was really to kind of like get that expertise in people’s hands. That was very aspirational at the time. it was a very nonlinear path to us being able to reach that to fully web based experience. I mean, for years we had end-to-end experience in concrete HQ where someone could build an app in CommCare, but where are our most serious apps or our most like advanced apps are our flagship programs.</p>
+              <p>They were still built by, Matt Thiess or, you know, someone in the company, Amelia, you know, people who we had these employees of the company who were still building manual X forms, and we’re still building these kinds of XML documents to like make these more complicated experiences for our big flagship programs.</p>
+              <p>Chiming in here to define XML, which stands for extensible markup language. It’s a text-based and human readable file format for moving data around.</p>
+              <p><span class="spk">Clayton Sims:</span> And it was actually a really, really big transition. of the biggest ones that jumps out for me was when we launched our biggest flagship program for the very first time. Fully on Concord queue, not with an app that somebody kind of like then the hard-coded and then customized, and then like gone that extra 10% to make it in, in an X forum.</p>
+              <p>That was for me, the really big transition. And that didn’t happen for four or five years after we’d kind of launched the idea of this product and that intent experience. Well, it’s just a large program in India. That was based on what we used to call it previously were remote applications which were what we called when somebody would link over to the hard-coded XML, which is our, like, that was a real app in our mind.</p>
+              <p>You know, there was like this stuff you can build in HQ and Linda’s a remote app or about app. So like the real thrill business. And I think Matthew said spent and months and months transitioning an app. We had previously made as a remote app into an app. We built HQ fully. for me, that was probably around 2016, something like that.</p>
+              <p>Like that was probably the first real time. I was like, oh, this is like a product. Like, what we build now is the first-class thing. And we can kind of like take a step back and like stop as engineers feeling like we’re really in the loop for our biggest program. Now, now, like now I really believe that like the people who can build the biggest programs or the most scalable programs are among his most important programs not engineers.</p>
+              <p>Now. Now we’ve kind of pushed that down one level, but that was, you know, eight years after, you know, we were already having folks in the field doing that for the first time on our next month.</p>
+              <p><span class="spk">Amie Vaccaro:</span> felt like somebody could actually build on CommCare, which just to me speaks to like the level of effort that has gone into CommCare.</p>
+              <p>Right. In terms of , going back to what you were saying earlier, Clayton around products that come out these days that are, you know, trying to compete with CommCare they’re, they’re being built as MPPs right. These lightweight things meant to solve one specific problem. And you know, the beauty of CommCare is that it was built, solving really hard problems over time.</p>
+              <p>And today like people to solve a host of problems.</p>
+              <p><span class="spk">Cory Zue:</span> And in a way you could kind of describe the entire history of like the CommCareproduct as just transitioning pieces of the stack from developers. To like highly technical users, making config files to like really hard to use interface, to like usable. And we, we started with just the bare bones and the whole product.</p>
+              <p>And, you know, even, even today, there’s, there’s features looking in there that that you probably can’t use unless you’re in one of the modes that’s below sort of like usable interface on the website. But over time, we’ve, we’ve transitioned more and more of the products through that cycle up to to a point where, where anybody can build off it.</p>
+              <p>And, and I think now you know, when we’re building new things where I think we’re kind of a lot more disciplined about sort of staying in that higher world because we recognize that that’s where the overwhelming majority of the value gets created for, for our users and for our customers. But it took a long time before.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> The point I remember is I’m writing a proposal proposal. I think this time it was to development, innovation ventures program. I think it was the first round and we were quickly submitting a short proposal. And we said, we were trying to figure out like what to propose.</p>
+              <p>And we said, we’ll propose launching five CommCare projects in India in a year. And we submitted it knowing, or rather we submitted it no idea how we would do it is my memory. Like, we didn’t know how we would get the partners. We didn’t know how we would do the tech. We didn’t know who would implement it. And back then, that was, that was the kind of way we were operating in general was to, was uh, crash land ourselves into certain big projects and push forward goals. And then I think that forced a lot of. The productization or early stages to like, do something that would allow us to launch five projects in such a short time back.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So as I’m just reflecting on this, this journey, I feel like the other thing that, that came out of, you know, making CommCare buildable right.</p>
+              <p>Was, was, and this was started with that field manager program that Jon mentioned is that Dimagi today is, is unique in that it has both the, this really strong tech team, but also a really strong we call it our solutions delivery team. And these are folks that are building on CommCare. And at the same time we heard it in previous episodes from Brewarrina about sort of our partner ecosystem too, right. Where we’re, we’re really trying to and empower the tech ecosystem to build on CommCare. so just kind of multiple layers of ways that we’re hoping that this technology can be. Have as much impact as possible. . Now I think what you just said is actually a really good segue cause cause next the next episode, we’re going to be digging in on . The USAID dev work. for folks in the audience you’ll be hearing more about that story of, of some of that early funding and we’re able to test and prove outcome care through that funding. I know that Clayton also mentioned some work in India and we’ll also have a future episode kind of digging in on some of that work in India and of the learnings and the heartbreaks there. before I wrap, is there anything that didn’t get to say that they wanted to say</p>
+              <p><span class="spk">Dr. Brian DeRenzi:</span> as we were talking about this episode in this conversation, I was reflecting back on some of the earliest iterations on the idea of CommCare. And I remember being a grad student sitting in Seattle, supervising a couple of undergrads and I was like, oh, we have this idea of CommCare.</p>
+              <p>And why don’t you guys a mock-up of it and do some, some kind of initial iterations. And there was even some design work that we did with, with some other academics. At some point we had all of these, these, these incredible ideas, this grand ambition about how it was going to be this tool that health worker was going to pull out and use to plan her whole day.</p>
+              <p>And she’s going to schedule all these different things, prioritize this and prioritize that. And then when we got to the field. You know, w we’ve already talked about this, but we we had this like, you know, one and a half inch by one and a half inch screen and some Katy clackety buttons to try and do all of this work.</p>
+              <p>And it was totally unreasonable. And you know, th that, that sort of broader vision of, of the digital support tool that CommCare could become, I think it’s only being realized now, you know, 15 years later or something. So, so that lesson of the ideas in Seattle and in Boston, and in, in sort of the kind of planning mode, they just didn’t really translate once we got to the field and, and having that sort of field first and having that field experience, I think that’s, I think we’ve heard it from all the stories today.</p>
+              <p>Like, it’s just, it’s so important in a grounded us so much in the work and, and, and allowed us to create something that’s, actually functional actually usable and, and, and can help people solve problems.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah, I think as a technologist, the thing that’s really stuck with me over time , what I love about this space is how and how kind of like in it, everybody is working together.</p>
+              <p>Like it’s not just or design. And so we get something great from it. It’s the idea that, you know, when people really want to solve a problem, like we’re willing to do really hard things. Right. And, you know, so like we, we didn’t go out to the field and build things with the form builder because like made us write like all of our early users, like we were building that form builder and kind of using it because it helped us, even though it was a hard problem, even though it didn’t work great all the time, like it was something, it was like, something were pushing for. There’s something really powerful about our kind of end users and our app builders and the developers, and like the kind of organizations we were working with, all kind of being it together and being able to push through the hard things together and being able to design together and find what’s the hardest problem.</p>
+              <p>And I think that’s really what has come through from this community. And I think it’s a really special thing about the monkeys approach and about how we’ve been able to work together able to kind of go to the field and like with the end users and figure out, okay, we don’t, we can’t do all this.</p>
+              <p>What’s the most important thing to work on. And it’s the same kind of feedback is, well, the form builder is a disaster. We can’t can’t fix everything. Like what, what’s the most important thing to work on. And I think being able to kind of have that experience and feel like it’s not vendor relationship or like academic relationship and that we’re all trying to do it together.</p>
+              <p>I think. Has been a really important, powerful part of getting there across all these pieces of the tech. And we couldn’t have succeeded without it and every area. So I really relished that that’s something we still will be able to maintain. And it still feels true with our users today, both kind of in our app builders and all the way down to the folks who are using the phones in the field.</p>
+              <p>So multiple that’s something that we can keep carrying forward. As we up these bigger technology problems.</p>
+              <p><span class="spk">Amie Vaccaro:</span> all right. Y’all thank you so much. This is. Honestly, really inspiring to me to hear these early stories. And I feel like I’ve, I’ve learned a lot. So I’m excited to share this with our audience and thank you, Clayton and Brian, Neal, Cory, Jon. Really appreciate your time.</p>
+              <p>I hope you enjoyed that deep dive into some of the stories, iterations, and learnings that have made calm care what it is today.</p>
+              <p>I’ll share a quick recap of some of the phases of CommCare is development. So we heard about those earliest years, 2002 to 2008, roughly, which are really kind of the wild west of Dimagi, where we were trying to build bespoke technology for various projects we got pretty good at this, but found that it wasn’t sustainable for us or our partners then we have 2008 and 2009, which was really a turning point moment for Dimagi. And these were the earliest days of working on CommCare, starting in Tanzania and a few other places. This was a time of deep learning with our users. And during this time, the team began to evolve from.</p>
+              <p>A focus on bespoke technology. Shifting towards more of a product approach. And then in 2016, reaching a place where. Applications could be built directly on CommCare HQ, which is our web based application builder. And this is where you heard Clayton share that he reached a point where it felt like what we had created actually was a first-class product.</p>
+              <p>So I’m sure that there’s many lessons you’re taking away from this. I wanted to share a few of mine so one. Design in context and learn from your users. This is the design under the mango tree approach and has been an essential ingredient to creating something of value at Dimagi. To feel the pains of your users. CommCare was developed in remote low connectivity settings. And so the need for it to be offline capable was built in from day one.</p>
+              <p>Three. Pay attention to shifts and technology Dimagi was able to pivot from PDAs to Nokia brick phones, and then to smartphones based on the levels of penetration with our users.</p>
+              <p>Four. Embrace the opportunity to go deep. The fact that we built CommCare to meet the needs of hundreds now, thousands of projects. Means that it brings with it. The benefits of that deep work case management workflows are an example of a really complex thing to build that we may not have created. Had we gone for a minimum viable product approach?</p>
+              <p>And five lean into collaboration. CommCare is the result of many different types of collaborations between external organizations, between Dimagi team members and CommCare users. These were groups of people coming together and willing to do the hard work needed to solve a shared problem. That’s all. Please take a moment to share the show, follow or leave a rating. It really helps us grow our audience and our impact. Thank you so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NL</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Neal Lesh</p>
+              <p class="person-role">Chief Strategy Officer, who helped lead the early work that became CommCare and coined the name in a proposal.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">BD</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Brian DeRenzi</p>
+              <p class="person-role">Global Director of Research Strategy, who did much of the early CommCare field work and ran the design sessions under the mango tree.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CZ</div>
+            <div class="person-info">
+              <p class="person-name">Cory Zue</p>
+              <p class="person-role">Dimagi CTO from 2007 to 2017, an early skeptic of the product approach who built much of the server side that became CommCare HQ.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CS</div>
+            <div class="person-info">
+              <p class="person-name">Clayton Sims</p>
+              <p class="person-role">Dimagi&#x27;s second and current CTO, who led much of the early mobile engineering and offline-first design of CommCare.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/3o1OgdUMBnUcZlerJkSUwl" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

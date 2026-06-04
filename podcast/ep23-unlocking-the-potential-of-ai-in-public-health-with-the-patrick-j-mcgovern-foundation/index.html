@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 23: Unlocking the Potential of AI in Public Health with Rebecca Distler of the Patrick J. McGovern Foundation | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Rebecca Distler of the Patrick J. McGovern Foundation on AI, digital public infrastructure, and putting health workers and people at the center of public health.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep23-unlocking-the-potential-of-ai-in-public-health-with-the-patrick-j-mcgovern-foundation/">
+<meta property="og:title" content="Ep 23: Unlocking the Potential of AI in Public Health with Rebecca Distler of the Patrick J. McGovern Foundation">
+<meta property="og:description" content="Rebecca Distler of the McGovern Foundation on AI, digital public infrastructure, and people-centered public health.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>January 30, 2023</span>
+        </div>
+        <h1 class="ep-title">Unlocking the Potential of AI in Public Health with Rebecca Distler of the Patrick J. McGovern Foundation</h1>
+        <p class="ep-deck">Recorded at the 2022 Global Digital Health Forum, Jonathan Jackson and Rebecca Distler of the Patrick J. McGovern Foundation explore what it really takes to turn AI and digital public infrastructure into lasting public health impact.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2wPKBF8HRirohrpLekzOQg?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 23 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2wPKBF8HRirohrpLekzOQg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000628251157" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/_6-o1ONAwDU?si=ioKfC63IEC0Ot63z" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/fe02bcdf-9839-4d07-97cf-9436dba58628/high-impact-growth-unlocking-the-potential-of-ai-in-public-health-with-rebecca-distler-of-the-patrick-j-mcgovern-foundation-dispatches-from-the-2022-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">70%</div>
+          <div class="ep-stat-label">of clinical care outcomes are estimated to come from outside the provider and patient context</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Recorded at the 2022 Global Digital Health Forum, this episode features Jonathan Jackson in conversation with Rebecca Distler, Strategist for AI, Data and Digital Health at the Patrick J. McGovern Foundation, an organization focused on advancing artificial intelligence and data science for public good and social impact.</p>
+        <p>Their conversation moves past the AI hype to the enabling environment underneath it: the decision making cultures, data standards and interoperability, and digital public infrastructure that determine whether innovative tools ever create real value. Distler and Jackson dig into why success is less about reaching scale and more about operating and improving at scale, and why architectural choices made up front matter so much more than a successful pilot.</p>
+        <p>Throughout, they keep returning to people. Health workers need to be paid, motivated, and supported, with digital woven into a real career pathway, and health systems need to put the person at the center rather than the disease. They close on a hard truth: surfacing an AI insight is only the first step, and impact depends on whether someone has the systems, the time, and the pathway to act on it.</p>
+
+        <blockquote>
+          <p>&ldquo;Success is not necessarily about getting to scale, but about operating and improving at scale.&rdquo;</p>
+          <cite>Rebecca Distler, on what to design for</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Invest in the enabling environment</strong>: why decision making, data standards, and interoperability matter more than any single tool</li>
+          <li><strong>Operating at scale, not just reaching it</strong>: the architectural choices that have to be made up front</li>
+          <li><strong>Digital public infrastructure meets health</strong>: lessons from COVID-19 vaccine certificates and digital ID</li>
+          <li><strong>Thinking about day 2000 on day one</strong>: building for the long run instead of the pilot</li>
+          <li><strong>Health is digital</strong>: why digital health should not be treated as separate from healthcare</li>
+          <li><strong>People at the center, not the disease</strong>: building disease-agnostic, health-sensitive infrastructure</li>
+          <li><strong>AI for public health, not just medicine</strong>: surfacing an insight is only useful if a health worker can act on it</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Hi, welcome to the High Impact Growth podcast. I’m here with Rebecca Distler, who’s currently at the McGovern Foundation, and we have known each other for several years, so really excited to be having this conversation. Rebecca, do you just wanna share a little bit about your background and what your current role?</p>
+              <p><span class="spk">Rebecca Distler:</span> . Thanks so much, Jonathan. It’s always so much fun to spend time with you, so thanks for inviting me. Um, yes. So I serve as strategist for AI Data and Digital Health at the Patrick J. McGovern Foundation. Our foundation broadly focuses on advancing artificial intelligence and data science for public good and social impact.</p>
+              <p>ymy background is in global public health. Um, I’m an mph. I’ve spent the last decade kind of, of this nexus of partnerships, programs, and policy all around, early stage innovation in health. Um, but then in the last few years, more specifically around that nexus of digital technology, artificial intelligence, a fair amount of work on digital id, um, and largely in the digital health ecosystem.</p>
+              <p>I get to speak with so many folks I admire at organizations like MU and you, Jonathan. Um, but then also think about the conversations we’re having here at the Global Digital Health Forum and the conversations that are happening a little bit outside of that community and what are the things that we can do to kind of bridge those, um, communities that practice</p>
+              <p><span class="spk">Jonathan Jackson:</span> Awesome. And within the, uh, strategy and, and what you’re interested in or, or looking at or funding, How are you thinking through the role the foundation is having? Any areas that you think can create the most impact? Obviously these are all, you know, very sought after topics. These are all things that people are really excited about, but what’s your kind of perspective on, on where the good bets are to make and like, how are you thinking about that?</p>
+              <p><span class="spk">Rebecca Distler:</span> I think something that you’ll, you’ll hear us talk about quite frequently is if we want to realize the impact of AI and advanced analytics and health, and that is that broad mandate of the foundation, right? We work on that across health and climate change, education, workforce, social justice, um, but particularly in the health space.</p>
+              <p>I think there’s this really. Healthy recognition across our organization that if we want to realize the impact of those innovative technologies, we actually need to invest in the enabling environments. And so a lot of the conversation and the. Uh, that learning journey that we had been on and the work that we’re doing with this community is to really understand what are the enablers of being able to effectively use these digital tools and platforms.</p>
+              <p>And so that’s led us to some really interesting conversations and, uh, focus areas around decision making. So what are the things that we can do to support decision makers in making decisions with or about AI and data? And we’ve been thinking of that and from everywhere from, uh, government and policy.</p>
+              <p>Down to community health workers and health practitioners. And I think with that, building cultures of data use, um, sort of increasing digital skills, that’s sort of where that’s, um, I think starting to come through in the portfolio. I think also thinking a little bit about the underlining underlying data infrastructure, um, I feel like enterprise architecture has been the name of the game in, in this conference and, we keep hearing it come up again and again, but really thinking.</p>
+              <p>You know, investing in standards and interoperability. What does that mean? How do we sort of build communities of practice around that? And thinking about that, that as a pathway to making, uh, resilient data infrastructure that’s actually useful in trying to solve the health challenges we wanna solve.</p>
+              <p>And then I think it’s about the, the kind of product and platforms and how do you introduce innovations into that ecosystem if we can focus on those enablers. So that’s how it’s showing up across the portfolio. Um, and makes. Particular event, kind of a fun place to be because it comes up in lots of different conversations.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great and one of the areas that has received a lot. Of, um, increasing prominence is around digital public infrastructure and thinking about those foundational components, whether that’s identity or payments. And one of the things I was actually just reflecting on was how we balance the policy enablers, the decision making enablers, the infrastructural components, and make sure all that comes  about  to create real tangible value for providers and clients in the healthcare.</p>
+              <p>And if we look at other markets that we’ve seen, whether it’s the United States pouring a ton of money into health information exchanges that may or may not have, you know, had the value they purported to have or medical record systems. So how do you think about that strategically in terms of making sure each part of that equation moves forward fast enough that the whole is kind of unlocking this value at the end. I love that question. And I think it’s something that we’re gonna dig, uh, even deeper to, into, the coming year. Jonathan, I actually wanna share something that you’ve shared with me across some of our conversations that I continue to be inspired by, which was, uh, we were talking about, market shaping on digital tools, and I think that you were the one who had shared.</p>
+              <p><span class="spk">Rebecca Distler:</span> You know, success is not necessarily about getting to scale, but about operating and improving at scale. And I think that’s, when you’re talking, when you’re talking about payments, when you’re talking about digital identity, those are where we have seen success is around that operating and improving at scale.</p>
+              <p>And those are architectural choices that get made up front. Not to show success in a pilot, but to able to build a platform and an enterprise architecture that can scale and can operate and improve in sort of the ecosystem. People and technologies and business processes and operational processes around it that enable it to effectively run.</p>
+              <p>So I think about that a lot and, and from our previous conversations, I think this intersection of digital public infrastructure and global goods right, is, is really interesting cuz I think Global Goods is particularly within the global digital health community. And of course the excellent work of Comcare in many ways was really leaving that conversation.</p>
+              <p>Open source platforms on, uh, you know, building platforms that, that can be used, um, for public services, for public health, let’s say. Um, and I think it’s been interesting to see how folks in the digital, public infrastructure are coming to the table around health, right?</p>
+              <p>They’re coming into it through this lens of look at, you know, the Covid 19 vaccine certificates are a really great example of this, right? Being able to deploy that on top of an identity system, served this health outcome. And now they’re having conversations of, oh, interesting, we were able to do this digital ID at scale.</p>
+              <p>How do we then actually turn that into a vaccine record? But this community has had so many conversations around existing vaccine records. And so it’s been interesting to watch those entry points. And I think something we’re going to need to figure out is, you know, can we identify what are effective entry points?</p>
+              <p>Where and how we introduce that infrastructure. I think particularly in dpi there’s been this really interesting conversation around countries who are building their own dpi, who then are like, we want to share this with the world. And I think there’s this question of infrastructure that’s built in one country.</p>
+              <p>Does another country want to adopt that? Do they want to build their own? And this gets back to this kind of question of platforms and products versus like, standards, right? I’m hoping I’m, I’m kind of triangulating that some of that Well, um, but I think that’s where some of the, the rubbers going to really hit the road is can we look at what are countries building?</p>
+              <p>What are they investing in, what’s been successful for them outside of the health sector as they think about how to apply that within the health sector, what are the existing products and platforms? And then as they think about how they start to take that to other countries, is it that product and platform, is it a common data standard that they’re building around?</p>
+              <p>And how do we ensure that that conversation doesn’t kind of fragment a space that you know, historically has been fragment?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, that’s a, that’s a great example with the Covid vaccine certificates because there was a lot of exciting work done. You saw how fast these things could move  when there was a real impetus. Um, and then also some challenges around, you know, how do we think about long term adoption? Do people really want these in the first place?</p>
+              <p>You know, are they, Being used in the way that we had anticipated. And then how do you build on both the successes and learn from the failures? So that all resonates a lot with, , how to think and, and move this. And one of the themes that I’ll be speaking about on another panel is, is thinking about day 2000 on day one and you know, sustainability is the word that we all think about and use, and it’s extremely challenging and we’re still trying to prove that these systems are worth the investment and the value. We need our workers to believe they’re gonna have a better job tomorrow than they do today, because we’re gonna keep investing in the systems we’ve provided.</p>
+              <p>We need the clients to believe they’re gonna have better services tomorrow as a result of these digital investments, and me, the governments and policy makers, to have a pathway to unlocking more and more value over time without accosting a lot more money. And so that’s the beauty of this in theory. But in practice, it can be very difficult to kind of prove this.</p>
+              <p>As you think about having these discussions with policymakers, how much are you having to sell the vision versus how much are people already convinced by it, and you’re really helping them craft a roadmap to achieve that vision?</p>
+              <p><span class="spk">Rebecca Distler:</span> Another really great question. I think before digging into sort of where and how we engage with policy makers around it, I just wanna name that, that dynamic that you talked about thinking about day 2000 right from day one.</p>
+              <p>I think in general, one of the things that we’ve seen generally in the global health community right, is there’s a lot of building those historically, a lot of building digital tools. To support those pilots and programs so that you can scale, so that you can get to day 2000. And when you think about day 2000, there’s the thinking about day 2000 in terms of the health outcomes and the health challenges that you’re trying to solve.</p>
+              <p>And then there’s the day 2000 around, well, what is the infrastructure you actually need to invest in to get there? And I think there is some tension in, you know, you don’t necessarily wanna do all that upfront infrastructure investment for something that’s not going to be useful. But it is very difficult to build enterprise digital technology starting from that kind of pilot phase, right? You need to think about that architecture over the long run.  And this is, that’s a conversation that we have with partners, conversation we’re having with multiple partners here, where it starts to intersect with conversation with policy makers.</p>
+              <p>I think that, you know, we’re, and there’s been a couple of conversations around this, you know, this is a global digital health. But we keep talking about digital health as if it’s separate from healthcare, right? And, and it’s not. There are certainly folks and there are absolutely communities, there’s countries and communities and areas of low resources, where that is true, where the digital infrastructure maybe isn’t there.</p>
+              <p>It isn’t as mature. But I think there’s a healthy recognition that health is digital or is going to be digital. Um, and so I think it’s a little bit less. , the need for that kind of infrastructure and kind of what we’re talking about with that intersection of DPI and global goods, which is, well, how do we get there?</p>
+              <p>How is that funded? How is that, that stand over time? And I think something that’ll be really interesting is to think about as countries start to think about their own DPI initiatives, and they’re thinking about this across multiple sectors, turning to folks within their countries that understand both the challenges of the countries and the technical opportunity.</p>
+              <p>A lot of the work, it’s, it’s interesting when we start to engage with countries, it’s not always just about the kind of technical choices they’re making around those products or platforms, but really about, well, what is the ecosystem that you are trying to seed that can support that kind of architectural over time?</p>
+              <p>The engineers, the developers, like what is the community like? Who are the folks within your communities that can help? Vision, you know, vision this and adopt it and use it and sustain it, um, and refine it over time. And I think that’s a really interesting conversation. I think it ties really well. Um, there’s sort of a parallel to kind of your, your, the excellent work that you’ve all been doing and thinking around health worker jobs, right?</p>
+              <p>And the fact that in order for this digital technology, you know, for all of the excellent products and platforms that, that you all build and these partners. They need to be in the hands of health workers who are paid, who are motivated, um, who have a career pathway, and where digital is part of that career pathway, right?</p>
+              <p>That it’s not just about ensuring that they can use the digital tool that’s critically important, but about ensuring that use of that digital tool is, you know, deeply tied to their success and their, their job satisfaction. And so I think that’s where it then starts to intersect with interesting, you know, policy level conversations around workforce.</p>
+              <p>Right. Um, and how we invest yes, in our health workforce, um, but in workforce and data and digital skills more.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I love that you tied that back. That’s obviously something that’s a huge part of our five year strategy, and we are thinking through that approach to how digital contributes to better jobs. You mentioned that digital is always part of the healthcare ecosystem and it’s sort of taken for granted. I completely agree with that.</p>
+              <p>And I also want to encourage our community to think not just about healthcare though. Um, you know, we want to look at how to avoid healthcare in the first place, how to promote public health, um, and not just help people once.</p>
+              <p><span class="spk">Rebecca Distler:</span> My background is in public health, right? Not necessarily medicine. And it’s been really interesting actually from this lens of artificial intelligence where there’s a lot of really interesting innovation and excitement around AI and medicine and AI and healthcare.</p>
+              <p>And I think that those are, they’re separate sets of conversations and we’re talking. Uh, AI or let’s say digital and public health. Um, and, you know, the, the purpose of public health is very much around, social determinants, it is prevention of disease. It is thinking about, uh, population level health, like the things that led us lead healthy lives.</p>
+              <p>And I think, um, you know, oftentimes health systems put the disease at the center of those systems. You know, we, we still continue to fund someone into disease silos. Um, that is certainly starting to shift over time. Um, but the truth is that, you know, a woman who’s in a maternal health program, let’s say, may also be thinking about diabetes, may also be thinking about their partner’s.</p>
+              <p>Hypertension may also be thinking, or there’s any number of other things that they may be thinking about. And it makes it very hard to put that disease or that illness at the center of the system versus the person and the people journey. Um, it’s why I’m really excited to see, you know, Dr. Toand. Of speech or in his opening remarks yesterday was talking about the importance of primary healthcare, right?</p>
+              <p>Like it’s taken a while for us as a community to say we need investments in that because that is not just about sick care. Um, there was a fantastic panelist yesterday who was talking about aging, right? That the, you know, and the benefits of having a healthier society is that we’re going to have older populations.</p>
+              <p>And so thinking about what that kind of care looked like, which may also not be sick care, or it may be, but it may be, you know, wellness, um, and. I, I bring up all of this kind of constellation of, of factors and, and ideas because I do think, you know, we, there’s a lot of really good focus on digital tools for specific, let’s say health areas or digital tools, um, for healthcare and thinking a little bit about the digital infrastructure that’s needed to power our public health systems, um, and the things that we can do to put people at the center of those health systems and not their diseases.</p>
+              <p>Um, and that comes from building. disease agnostics, but health sensitive digital infrastructure. Um, and that is not, oh, you know, and , I think when we think about how that gets funded, that’s not always the way those digital platforms get funded.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I love that you brought up AI for medicine because that’s where a lot of the efforts are going into diagnostics or decision support or looking at text resolution of medical records. But AI for public health, as you know, may be much higher value when you’re looking at population densities or disease burdens.</p>
+              <p>We saw huge elements of this with Covid 19 in many environments across the world. We started using wastewater data as a proxy for individualized test results, and looking at that aggregate could be much more. then trying to aggregate the individual test results, which may or may not be available and people may or may not be getting tested, but all of that data was showing up in the wastewater.</p>
+              <p>And because we have seen so many of these large scale systems, we’re also trying to think about this in the context of CHW service delivery. Where is it happening at the aggregate level and is it happening relative to population densities or rural areas? And then within that service delivery, which exact services are being provided?</p>
+              <p>Is it maternal child health or TV screen, or hiv? So I completely agree with what you were discussing. I also think the, a application of AI into public health is equally, if not more important than the application of AI into medicine. When you think about livelihoods and cost savings and return on value, something I’m reminded of is up to 70% of the outcomes for clinical care are estimated to come outside of the context of the provider and the patient.</p>
+              <p>So it’s not just what happens to you in the hospital or. But whether you have diet and exercise and sleep and housing stability can be way bigger determinants of the outcome of a disease. And so it’s not just even healthy lives that are affected by this, but the built environment and social determinants and when you’re sick and whether you can get back to the doctor or whether you have the drugs you need in stock and whether you can afford them or whether you have that food, nutrition, and sleep along the way.</p>
+              <p>These are all critical factors, and AI in a traditional medical sense is never going to. These types of systemic issues, they’re very point solutions. So it requires us to think more holistically. And you mentioned this across the foundation, not just when in the healthcare vertical, but you’re looking at how the applies to the other work you’re doing.</p>
+              <p>How are you thinking about the intersection of these other areas with the healthcare domain, which has typically been pretty solid above, but is obviously part of this much broader ecosystem.</p>
+              <p><span class="spk">Rebecca Distler:</span> What I might do is actually sort of sit squarely within health for a moment and then kind of share a little bit more about where and how this cuts across our different portfolio areas. Um, I just wanted to riff on what you were just sharing, right? Because. You know, at the end of the day, AI it’s an approach, right? And when we think about that approach, and we think about what we talk about, the benefits of that approach, the potential to improve quality of care, to improve efficiency, effectiveness, uh, quality and accuracy, right? Of, of like, of certain. Um, there’s all of the work that goes into that kind of outcome of that model. And then there is the what do we do with it, right? And so I love the examples that you brought up around wastewater surveillance, around, um, you know, sort of the, the AI and kind of public health and perhaps more traditional epidemiological work.</p>
+              <p>Um, and then how does that intersect with like a community health worker? And so it is this fascinating question. If you can uncover those insights, um, how does that then, like how does that then get communicated to that community health worker? How does the community health worker use that information to take a differentiate, to take a different decision, right, or a differentiated care pathway that’s going to lead to a different outcome.</p>
+              <p>Right? Because being able to say or to predict a risk of an outbreak in that area is one part of the problem. The second part of the problem is what do you do with that inform. Um, and maybe that is from like a, a programmatic, uh, level, if you will. And then the third piece is, how does that change our behavior</p>
+              <p>Everybody assumes if we surface this insight or we can predict a bad outcome, that obviously that’ll be helpful. While we’re in all markets, in all resource settings, dealing with a burned out workforce, we’re dealing with an increasing shortage of healthcare professionals across every doctor, nurse for un worker.</p>
+              <p>And so surfacing this amazing AI answer that requires some human intervention to go do something about, it’s not a given. And so we can do all these models, all these predictions. If we don’t have the systems in place or, you know, end to end automation of these things, which is dangerous for all sorts of reasons, then are we really benefiting that?</p>
+              <p>So I love the way you broke that down. And I think people, um, I think in some ways the AI hype has died down a bit, but, um, it’s still really critical that we all ask ourselves that. And whether it’s, you know, advanced AI or just much more simple business intelligence, you know, standard reports and charts, who’s looking at this, who’s responding to it, and do they have time to actually, at the end of the day, change?</p>
+              <p>Come for the client.</p>
+              <p>Something we talk about quite frequently in our work is the potential of this technology, as you said, not. , uh, re you know, replace or fully automate right? But to actually make our choices more human. Right. And I think, I mean, healthcare is about as human as it can get, right?</p>
+              <p>In terms of our own health, in terms of the health of our loved ones, um, in terms of the health of the folks and the communities in which we serve. Um, and so, so much of our. There’s so much of the way in which we think about the design and implementation of that top technology needs to, you know, I, we keep, I sound like a broken record, right?</p>
+              <p>But it has to be around the people who are sitting at the center of the health system. That is the client. That is the patient, but as you also shared it, is the community health worker and ensuring that with that tool in hand, they have a pa, like they have the pathway to take that decision. I can’t tell you how many times we have a conversation and they say, great, like with a partner or a potential partner.</p>
+              <p>You know, we could do this risk stratification model or we can do this, and if we take this decision, it’s going to lead to X amount in cost savings. Right? And we’re starting to get some of that data. But that’s a big if, and that’s a big behavior change. And we need to think about not just how we design models that are solving real challenges that we wanna, like, is that a challenge that we actually need to solve that is gonna help, you know, to the work in your strategy, is that gonna help the health worker have a better job and help them better serve their clients?</p>
+              <p>Or are we gonna kind of fall off that cliff of well, we’re not going to do it because we’re kind of stuck on that. Well, if this happens, you know, then we, then we have this outcome. Um, to pull it back to, um, you know, the, kind of the second part of your original question, right?</p>
+              <p>Which is how we start to think about this across the foundation. Um, I think that this is where there was so much potential, um, in terms of where health data, Set where climate data sets sit. And you know, and this is where I think some really interesting, important work around understanding social determinants of health.</p>
+              <p>There’s really excellent piece around how digital itself becomes a determinant of health and sort of our access and use of digital technology. And so I think there was so much. , but it comes back to the, and what do we do with those insights unlocked? How do we ensure that it’s not research for the sake of research, but actually research that can lead us to, and this is something that we can uncover and use and incorporate into our decision making, into the design of our systems, into the design of our platforms and programs.</p>
+              <p>So it’s a kind of a lofty vision, but I think that pathway, that chain is like, that’s the kind of thing that I, I hope will continue to ask across all.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I wanna put a plug in for the way that you articulated that and think about how, and we make sure that when we’re building these systems as a community and working about, how we’re defining this shared success so that we’re claiming that this combination of data sets across health and climate can lead us to predict food insecurity, which can then lead to malnutrition.</p>
+              <p>If that’s the claim, what are all the pieces that have to happen and how much do they fit into the existing system, and how much do they require change to the existing? In order to create the outcome that we’re claiming is potentially possible with technology, and I’ve said this in other environments, we are often constantly talking about how important it is to fit technology into existing workflows, existing processes, and that is sound advice and critical in some environments, but to do types of interventions that are productivity enhancing for an existing workflow, that’s a incremental and change many of the.</p>
+              <p>if what we need to do as a community is look for these step changes, 10 x outcomes, 10 x impact for the same cost. That doesn’t always allow you to keep the system the way it is for technologies that we’re trying to deploy and in fact may often not allow you to keep systems the way they currently are set up to leverage these new technologies.</p>
+              <p>It requires changing the process, changing the way the job functions, and this is critical that we don’t often know how to talk about that. Trade off many systems, whether it’s a company or a government or a combination of public and. Aren’t set up or don’t have the interest in doing a large change management and digital transformation project, but that’s often critical to leverage some of the claims we’re making about how these technologies can have these outcomes.</p>
+              <p><span class="spk">Rebecca Distler:</span> So this morning I had, um, it was real privilege. I, I, I got to do the opening remarks for day two of the Virtual Global Digital Health Forum. And in my opening remarks, I talk about how one of the questions we frequently get asked in this work is, how can we support low and middle income countries in adopting and using artificial intelligence for health?</p>
+              <p>And in my remarks, I share that. Last week I plugged that question into chat, G B T, and I don’t know if you’ve engaged with or played around with chat g b. Um, but uh, and then what I did is I read that response, which was an extraordinary response, the way in which that system comprehended what is a political, technical, um, technically fraught question and was able to kind of come up with.</p>
+              <p>Like truly identifying some of what we think of in terms of the underlying enablers around infrastructure, around workforce, around, research and development around funding. And then I sort of talk about some of the areas that it, it missed, like people, which is bit a center of our conversation, but I share it because technology often outside of this particular community is evolving so rapidly, has accelerated so quickly.</p>
+              <p>And I bring it back to your point on workflow. , there’s the ex, there’s the workflows as they exist today, and those, there’s the workflows as they can exist tomorrow or with the introduction of this kind of technology, and some of it is when we talk about, I think, introducing technology into existing workflow, perhaps it’s a little bit less about the existing workflow and a little bit more about the existing ways in which human beings solve problems, right?</p>
+              <p>Workflows come about because we have decided, we have articulated that in order to solve this particular challenge or reach this, This is, you know, this is how we’re going to do it. And, and you know, and so it exists and people are comfortable with it. The real question is, what do we do when we have technology that disrupts or changes or accelerates that workflow?</p>
+              <p>And how do we ensure that those who would be using that technology have a seat at the table and ensuring that the design of it is, is actually going to help them, you know, do their jobs better. And particularly in health lead. Better health outcomes.</p>
+              <p>Thank you so much for listening. And thanks to Rebecca Distler for joining us today. Here are a couple of my top takeaways from that conversation. So one digital health is not separate from health. Health is digital and increasingly, so. Too. We really need to invest in digital public infrastructure in the longterm.</p>
+              <p>To power our health systems and get benefit from all of the digital health investments that we’re making. It can be tempting to focus on short-term pilots. And quick hit results, but we really need to think longterm.</p>
+              <p>Three. None of the technology and infrastructure matters. If we neglect our health workers. Digital tools need to be in the hands of health workers who are paid, motivated, supported. And digital needs to be part of their career path. For. Regardless of advances in AI, we need to put people at the center of healthcare, not their disease, not their data.</p>
+              <p>And with all the technical advances, we need to be really thoughtful that the changes we’re making actually result. And people being able to make different, more informed decisions in their day-to-day interactions.</p>
+              <p>Please like rate, review, subscribe, and share this episode. If you found it useful. It really helps us grow our impact. And write to us@podcastatdimagi.com with any ideas, comments, or feedback. The show is executive produced by myself. Danielle van wick is our producer. Briana DeRoose as our editor cover art by Sudan. Shrikanth. Thank you so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">RD</div>
+            <div class="person-info">
+              <p class="person-name">Rebecca Distler</p>
+              <p class="person-role">Strategist for AI, Data and Digital Health, focused on advancing artificial intelligence and data science for public good and social impact.</p>
+              <span class="person-org">Patrick J. McGovern Foundation</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2wPKBF8HRirohrpLekzOQg" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

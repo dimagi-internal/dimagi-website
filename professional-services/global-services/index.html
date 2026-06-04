@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Global Services | Dimagi</title>
+<meta name="description" content="Dimagi's Solutions Delivery Team helps governments, ministries of health, and implementing partners launch, grow, and scale frontline programs. 20+ years of experience across 80+ countries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<style>
+/* ── Global Services ── */
+
+/* Stats band — matches the Dimagi home page treatment */
+.stats-band { background: var(--indigo-soft); }
+.stats-band-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(45,54,166,0.16);
+}
+.stats-band-cell {
+  padding: 48px 28px;
+  border-right: 1px solid rgba(45,54,166,0.14);
+  text-align: center;
+}
+.stats-band-cell:last-child { border-right: 0; }
+.stats-band-num {
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 200; line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-2);
+  margin-bottom: 12px;
+  font-feature-settings: "tnum";
+}
+.stats-band-num span { color: var(--indigo); font-weight: 300; }
+.stats-band-lbl {
+  font-size: 14px; font-weight: 400;
+  color: rgba(20,16,58,0.62); line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .stats-band-grid { grid-template-columns: 1fr 1fr; }
+  .stats-band-cell:nth-child(2) { border-right: 0; }
+  .stats-band-cell:nth-child(n+3) { border-top: 1px solid rgba(45,54,166,0.14); }
+}
+
+/* How we help */
+.gs-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.gs-help-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px 34px;
+  background: #fff;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.gs-help-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -10px rgba(10,6,32,0.12);
+  border-color: var(--indigo);
+}
+.gs-help-step {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 18px;
+}
+.gs-help-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--deep-purple);
+  margin: 0 0 12px;
+}
+.gs-help-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+/* eCHIS */
+.gs-echis-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.gs-echis-panel {
+  background: linear-gradient(135deg, var(--deep-purple) 0%, var(--indigo) 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px 44px;
+  color: #fff;
+}
+.gs-echis-panel .row {
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+}
+.gs-echis-panel .row:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+.gs-echis-panel h4 { font-size: 16px; font-weight: 600; color: #fff; margin: 0 0 8px; }
+.gs-echis-panel p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; margin: 0; }
+
+/* Sectors */
+.gs-sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.gs-sector-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.gs-sector-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -10px rgba(10,6,32,0.12);
+  border-color: var(--indigo);
+}
+.gs-sector-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #eef0ff 0%, #f5f7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gs-sector-icon svg { width: 23px; height: 23px; stroke: var(--indigo); fill: none; stroke-width: 1.8; }
+.gs-sector-name { font-size: 18px; font-weight: 600; color: var(--deep-purple); letter-spacing: -0.015em; margin: 0; }
+.gs-sector-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; flex: 1; }
+
+/* Tech vendor / ally */
+.gs-ally-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.gs-ally-check {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gs-ally-check li { display: flex; gap: 14px; align-items: flex-start; }
+.gs-ally-check .tick { color: var(--indigo); font-weight: 700; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.gs-ally-check span.t { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.gs-ally-check span.t strong { color: var(--ink); }
+.gs-ally-card {
+  background: var(--deep-purple);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  color: #fff;
+}
+.gs-ally-card .big {
+  font-size: clamp(52px, 6vw, 76px);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+  font-feature-settings: "tnum";
+  margin: 0 0 10px;
+}
+.gs-ally-card .big span { color: var(--marigold); font-weight: 300; }
+.gs-ally-card .cap { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.55; margin: 0 0 28px; }
+.gs-ally-card .mini { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin: 0; }
+
+/* Testimonials grid */
+.gs-tgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.gs-tcard {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gs-tcard .mark { font-family: var(--mono); font-size: 40px; line-height: 0.6; color: var(--marigold); font-weight: 700; }
+.gs-tcard .q { font-size: 14.5px; font-weight: 300; color: rgba(255,255,255,0.88); line-height: 1.7; font-style: italic; flex: 1; margin: 0; }
+.gs-tcard .attr { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; }
+.gs-tcard .who { font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 3px; }
+.gs-tcard .role { font-size: 12px; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.4; }
+
+/* Explore cards */
+.gs-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.gs-explore-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.gs-explore-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -10px rgba(10,6,32,0.12);
+  border-color: var(--indigo);
+}
+.gs-explore-name { font-size: 19px; font-weight: 600; color: var(--deep-purple); letter-spacing: -0.015em; margin: 0; }
+.gs-explore-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; flex: 1; }
+.gs-explore-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--indigo);
+}
+
+@media (max-width: 900px) {
+  .gs-help-grid { grid-template-columns: 1fr; }
+  .gs-echis-layout { grid-template-columns: 1fr; gap: 40px; }
+  .gs-sectors-grid { grid-template-columns: 1fr; }
+  .gs-ally-layout { grid-template-columns: 1fr; gap: 40px; }
+  .gs-tgrid { grid-template-columns: 1fr; }
+  .gs-explore-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html" class="nav-active">Professional Services</a>
+        <a href="../../company/about/index.html">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section id="main" class="hero hero-dark on-dark">
+  <div class="container">
+    <div style="max-width:880px;">
+      <span class="eyebrow on-dark">Solutions Delivery Services</span>
+      <h1 class="hero-title">Services for sustainable program impact</h1>
+      <p class="hero-sub">When it comes to ICT4D programs, our experience can't be beat. No matter how complicated it seems, you can trust Dimagi's Solutions Delivery Team to help you launch, grow, and scale your program.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to Our Team</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="../../professional-services/case-studies/index.html">View Case Studies</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── STATS BAND ───── -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band-grid">
+      <div class="stats-band-cell">
+        <div class="stats-band-num">20<span>+</span></div>
+        <div class="stats-band-lbl">Years of experience</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">80<span>+</span></div>
+        <div class="stats-band-lbl">Countries reached worldwide</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">3,000<span>+</span></div>
+        <div class="stats-band-lbl">Projects deployed globally</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">Millions</div>
+        <div class="stats-band-lbl">Of frontline workers reached</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── HOW WE HELP ───── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">HOW WE HELP</span>
+      <h2 class="section-title">Services you need to build successful programs at scale</h2>
+      <p class="section-lede">Our focus is on delivering services for sustainable program impact. We'll help you build both the internal capacity and the maintainable systems you need to ensure your impact continues long after our partnership ends.</p>
+    </div>
+    <div class="gs-help-grid">
+      <div class="gs-help-card">
+        <div class="gs-help-step">Step 01</div>
+        <h3 class="gs-help-name">Launch</h3>
+        <p class="gs-help-desc">We design and configure your solution around real frontline workflows, then get it into the hands of workers quickly. App design, data architecture, and rollout planning are handled by specialists who have done it hundreds of times before.</p>
+      </div>
+      <div class="gs-help-card">
+        <div class="gs-help-step">Step 02</div>
+        <h3 class="gs-help-name">Grow</h3>
+        <p class="gs-help-desc">We help you turn a working pilot into a maturing program, iterating on the application, strengthening data quality, and training your teams so adoption deepens and your evidence base grows.</p>
+      </div>
+      <div class="gs-help-card">
+        <div class="gs-help-step">Step 03</div>
+        <h3 class="gs-help-name">Scale</h3>
+        <p class="gs-help-desc">We build the internal capacity and maintainable systems your teams need to own, run, and sustain the program, so impact continues long after our partnership ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── eCHIS ───── -->
+<section class="section cool">
+  <div class="container">
+    <div class="gs-echis-layout">
+      <div>
+        <span class="eyebrow muted">NEW OFFERING</span>
+        <h2 class="section-title">The next generation electronic Community Health Information System</h2>
+        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 28px;">A more affordable, scalable model for governments' digital community health systems, built on a proven platform that already scales to millions, and designed for government teams to own, run, and sustain.</p>
+        <a class="btn btn-indigo btn-arrow" href="../../contact/index.html">Explore eCHIS</a>
+      </div>
+      <div class="gs-echis-panel">
+        <p style="font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin:0 0 26px; font-family:var(--mono);">Why eCHIS</p>
+        <div class="row">
+          <h4>Affordable by design</h4>
+          <p>A lower total cost of ownership than custom-built systems, so ministries can invest more in frontline delivery.</p>
+        </div>
+        <div class="row">
+          <h4>Proven at national scale</h4>
+          <p>Built on CommCare, a platform that already supports community health programs reaching millions.</p>
+        </div>
+        <div class="row">
+          <h4>Government-owned</h4>
+          <p>Designed so government teams can run and sustain the system themselves over the long term.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── SECTORS ───── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">SECTORS WE SERVE</span>
+      <h2 class="section-title">Our range of services for frontline worker programs</h2>
+      <p class="section-lede">For over 20 years we have supported a diverse portfolio of social impact programs across 80+ countries, providing technical support and professional services to governments, ministries of health, and implementing partners.</p>
+    </div>
+    <div class="gs-sectors-grid">
+      <div class="gs-sector-card">
+        <div class="gs-sector-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="gs-sector-name">Maternal &amp; Child Health</h3>
+        <p class="gs-sector-desc">Mobile tools help monitor and improve maternal, antenatal, natal, and postnatal care.</p>
+      </div>
+      <div class="gs-sector-card">
+        <div class="gs-sector-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="gs-sector-name">Agricultural Extension</h3>
+        <p class="gs-sector-desc">Support and improve farmer training programs with mobile data collection.</p>
+      </div>
+      <div class="gs-sector-card">
+        <div class="gs-sector-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3 class="gs-sector-name">Financial Inclusion</h3>
+        <p class="gs-sector-desc">Extend access to and delivery of basic banking services to everyone in the population, especially those below the poverty line.</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:36px;">
+      <a class="gs-explore-link" href="../../professional-services/index.html" style="font-size:13px;">See all sectors &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<!-- ───── MORE THAN A TECH VENDOR ───── -->
+<section class="section cool">
+  <div class="container">
+    <div class="gs-ally-layout">
+      <div>
+        <span class="eyebrow muted">MORE THAN JUST A TECH VENDOR</span>
+        <h2 class="section-title">Experience that achieves global impact is your ally</h2>
+        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 0;">We're a team of physicians, software engineers, and health system architects with unrivaled experience in delivering services for sustainable program impact. For you, we will be partners and collaborators, ready to work alongside you every step of the way.</p>
+        <ul class="gs-ally-check">
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Domain and engineering under one roof.</strong> Clinical, public health, and software expertise on the same team.</span></li>
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Capacity building, not dependency.</strong> We transfer skills so your teams can run the system themselves.</span></li>
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Maintainable systems.</strong> Built to keep delivering impact long after our engagement ends.</span></li>
+        </ul>
+      </div>
+      <div class="gs-ally-card">
+        <p class="big">80<span>+</span></p>
+        <p class="cap">Countries where Dimagi has supported social impact programs across two decades of frontline work.</p>
+        <p class="mini">From maternal health to agricultural extension to financial inclusion, our teams have launched, grown, and scaled programs in some of the world's most challenging settings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PARTNERS BAND ───── -->
+<div style="background:#f5f7ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:40px 0;">
+  <div class="container">
+    <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:28px; font-family:var(--mono);">Trusted by partners around the world</p>
+    <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
+      <span style="font-size:16px; font-weight:600; color:var(--muted);">TechnoServe</span>
+      <span style="font-size:16px; font-weight:600; color:var(--muted);">IDB</span>
+      <span style="font-size:16px; font-weight:600; color:var(--muted);">RTI</span>
+      <span style="font-size:16px; font-weight:600; color:var(--muted);">One Acre Fund</span>
+      <span style="font-size:16px; font-weight:600; color:var(--muted);">Rockefeller Foundation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ───── TESTIMONIALS ───── -->
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow on-dark">What our partners say</span>
+      <h2 class="section-title">Frontline programs leading the way</h2>
+      <p class="section-lede">Governments, research institutions, and implementing partners trust Dimagi to translate strategy into effective implementation on the ground.</p>
+    </div>
+    <div class="gs-tgrid">
+      <div class="gs-tcard">
+        <span class="mark">&ldquo;</span>
+        <p class="q">Dimagi continues to be our main partner in the coordination, development, and maintenance of mHealth activities within the PMI VectorLink Project. This partnership has ensured that evidence-based decision-making and strategic planning are translated into effective implementation on the ground.</p>
+        <div class="attr">
+          <p class="who">Albert Acquaye</p>
+          <p class="role">Sr. Associate, Abt Associates</p>
+        </div>
+      </div>
+      <div class="gs-tcard">
+        <span class="mark">&ldquo;</span>
+        <p class="q">From the onset, Dimagi has been a critical partner, providing the support we needed. Their willingness to share knowledge and build capacity in our digital transformation process has been exemplary.</p>
+        <div class="attr">
+          <p class="who">Michala Mackay</p>
+          <p class="role">Director &amp; COO, Directorate of Science, Technology &amp; Innovation, Sierra Leone</p>
+        </div>
+      </div>
+      <div class="gs-tcard">
+        <span class="mark">&ldquo;</span>
+        <p class="q">Dimagi has been responsive, flexible, and easy to work with as we've been building an application for our organization's use. They've adapted well by providing the remote and virtual support we need.</p>
+        <div class="attr">
+          <p class="who">Drew DeVries</p>
+          <p class="role">Data Analyst, World Renew</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── EXPLORE ───── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">KEEP EXPLORING</span>
+      <h2 class="section-title">Learn how CommCare can amplify your program</h2>
+    </div>
+    <div class="gs-explore-grid">
+      <a class="gs-explore-card" href="https://dimagi.com/commcare/" target="_blank" rel="noopener">
+        <h3 class="gs-explore-name">CommCare</h3>
+        <p class="gs-explore-desc">Build secure, customizable apps that enable your frontline teams to collect actionable data and amplify your organization's impact.</p>
+        <span class="gs-explore-link">Explore CommCare &rarr;</span>
+      </a>
+      <a class="gs-explore-card" href="../../professional-services/case-studies/index.html">
+        <h3 class="gs-explore-name">Case Studies</h3>
+        <p class="gs-explore-desc">See how mobile tools are used across regions and sectors to strengthen frontline programs.</p>
+        <span class="gs-explore-link">View case studies &rarr;</span>
+      </a>
+      <a class="gs-explore-card" href="../../professional-services/research-data/index.html">
+        <h3 class="gs-explore-name">Research &amp; Data</h3>
+        <p class="gs-explore-desc">Explore the evidence behind our approach and the sectors that leverage CommCare.</p>
+        <span class="gs-explore-link">See our research &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA BAND ───── -->
+<section class="cta-band">
+  <div class="container">
+    <div class="section-head centered on-dark">
+      <h2 class="section-title">Ready to build at scale?</h2>
+      <p class="section-lede">Connect with our Solutions Delivery Team to discuss your program goals and get a tailored proposal.</p>
+      <div style="margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Contact Us</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="../../professional-services/research-data/index.html">View Our Research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

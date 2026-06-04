@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 8: Why Improving Frontline Worker Jobs is Critical to Improving Health Outcomes with Dr. Neal Lesh | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jonathan Jackson and Dr. Neal Lesh on why Dimagi believes improving frontline worker jobs is essential to better health outcomes and universal health coverage.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep8-why-improving-frontline-worker-jobs-is-critical-to-improving-health-outcomes/">
+<meta property="og:title" content="Ep 8: Why Improving Frontline Worker Jobs is Critical to Improving Health Outcomes with Dr. Neal Lesh">
+<meta property="og:description" content="Why Dimagi believes you can&#x27;t improve health outcomes without first improving frontline worker jobs.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 1, 2022</span>
+          <span class="dot"></span>
+          <span>36 min</span>
+        </div>
+        <h1 class="ep-title">Why Improving Frontline Worker Jobs is Critical to Improving Health Outcomes with Dr. Neal Lesh</h1>
+        <p class="ep-deck">Dimagi puts a stake in the ground: you cannot reach universal health coverage until the jobs of frontline workers get better. Jonathan Jackson and Dr. Neal Lesh on the strategy of improving jobs to improve outcomes.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2hxhsd7x7hUrcOnY8g7fUa?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 8 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2hxhsd7x7hUrcOnY8g7fUa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000574635413" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/vTIvCHToavQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/4407cb9c-b5ed-4a0e-82a8-c582a0c73faa/high-impact-growth-why-improving-frontline-worker-jobs-is-critical-to-improving-health-outcomes-with-dr-neal-lesh" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">70%</div>
+          <div class="ep-stat-label">of frontline workers are women</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">86%</div>
+          <div class="ep-stat-label">of frontline workers are not fully salaried</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10+</div>
+          <div class="ep-stat-label">countries where Dimagi supports digitized vaccinator payments</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Dimagi has put a stake in the ground that to improve health and development outcomes and reach universal health coverage, we NEED to improve Frontline Worker jobs. Frontline Workers such as Community Health Workers are a critical part of health service delivery and many studies have proven just how impactful they are. We are facing a massive healthcare provider shortage globally which will likely be filled by Community Health Workers and non-specialized providers in a lot of contexts. But, they are underpaid, under-supported, and under-recognized. 70% of Frontline Workers are women, 86% are not fully salaried, and they deal with massive burnout. To improve outcomes, we need to improve the jobs of the people who create those outcomes. Jonathan Jackson and Dr. Neal Lesh share how this strategy came to be, why it’s become so important, and how we are working to reach it.</p>
+        <p>This is the final in our series exploring Dimagi’s 5 Year Strategies, focusing on Strategic Priority 1: Improve Jobs to Improve Outcomes.</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;Before you can improve outcomes you have to improve the jobs of the people who create those outcomes.&rdquo;</p>
+          <cite>Jonathan Jackson</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A stake in the ground</strong>: why Dimagi will not consider its vision realized until frontline worker jobs are improved and they are supported to be paid more</li>
+          <li><strong>From usability to the whole job</strong>: how the early focus on making apps less burdensome grew into improving pay, support, and career growth</li>
+          <li><strong>Jobs vs. productivity</strong>: the decision point between making workers more productive and making their jobs genuinely better, and why Dimagi chose the bolder goal</li>
+          <li><strong>Roots back to 2016</strong>: Neal surfaces an old memo where the strategy was already taking shape, long before it was urgent</li>
+          <li><strong>When digital made jobs worse</strong>: vivid examples of redundant reporting tools and growth charts that added burden instead of removing it</li>
+          <li><strong>Aligned work today</strong>: digitizing vaccinator payments across 10+ countries and building resilience skills with health workers</li>
+          <li><strong>Better jobs, better outcomes</strong>: framing improved jobs as synergistic with data, coverage, and other priorities rather than in competition</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Hi, everyone. Welcome back to High Impact growth. I’m Amie Vaccaro, your co-host for today’s show.</p>
+              <p>We’ve got a really exciting episode today. We are wrapping up our series about Dimagi is five-year. Strategies. Today, we’re focusing on our first strategy, which is. Improved jobs to improve outcomes. And in some ways we saved the best for last. This is one of the bolder strategies that we have laid out, and I’m really excited to talk through it with you today. With Jonathan Jackson and Dr. Neal Lesh, our chief strategy officer.</p>
+              <p>To set the tone. I’m going to start by reading an excerpt from this strategy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So it says to get to quality and equitable care for all, we need to further professionalization of frontline worker roles and integration into our greater systems and the ability to have career growth over the next five years Dimagi will expand upon our historical.</p>
+              <p>By deepening our commitment to frontline workers and by actively contributing to the improvement of their jobs. So this strategy has been a long time in the making and actually dates back. I would argue to sort of the earliest days of Dimagi. So I want to today talk about the story of how the strategy came to place, why it’s so important, why Jon and Neal are so passionate about it.</p>
+              <p>And really kind of start at the beginning. I want to first go to you, Jon. From the very beginning at Dimagi and believe it was episode two, where you tell the story of our first project in Zambia, which was a national medical record system. And you talked about really focusing on how can we make sure what we’re doing is actually helping the workers that are having to do extra work.</p>
+              <p>Right? If we’re, if we’re building up a digital tool to allow. Data collection, making sure that data actually benefits the people collecting it. Can you say a little bit about , those early days and, how you’ve been thinking about making users jobs?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think the original way in which this manifested in our early work was not on an absolute scale, which is what our current strategy is talking about. And I’ll, I’ll get to that later in the episode, but was just relative to other digital.</p>
+              <p>We were out there in the field, seen a lot of people create software solutions that were purely data collection and given to users without a lot of thought or care as to how it might alter their job, how big of a burden it was to do the data entry and what the ask was on the frontline worker and my early personal experience, along with many others in the field of research at that time, but also at Dimagi we’re witnessing this and you could already tell, .</p>
+              <p>That you were making the job of the worker worse, you know, they, they still had to fill out the paper forms. They still had way too many patients to see. And you were adding this digital tool, which maybe theoretically would help, you know, as decision support, organized as the job a little bit, but you weren’t actually doing the hard work to get rid of paper.</p>
+              <p>You weren’t actually doing the hard work to make it more usable and save that person time. And so that’s where a lot of my early philosophy came on how we need to think just about a design process at Dimagi . But that was from a lens of, can we make Dimagi software sustainable? Right. It was like starting with a focus on us and figuring out, well, what needs to be true about the world in order for our software to create impact and be sustained.</p>
+              <p>And over the years, we worked a lot, you know, with his honor the mango tree, and that’s really our philosophy about getting out to the front lines and helping users and watching them use our software. But. More recently has, has really flipped that. And it’s a much better articulation and philosophy aligned to what we always had, but, and getting back to our roots, but really focusing on the worker as the, the end goal, right?</p>
+              <p>Like, can we make her job better? And if we’ve done that we’ve done enough. And then there’s all these other things that are going to be great. Primarily creating butter impact, but if her job gets better, there’s a really strong correlation. Given the workforce, as we go after targeting community health care workers, agriculture extension needs.</p>
+              <p>Primary care, providers, nurses, doctors, et cetera. If their jobs become better, we strongly believe there’s a high likelihood that directly leads to more impact. And we’ve proven that in a lot of our research as well. So that’s where a lot of this came from and I want to think, Neal when she saw Gela, certainly chief of staff, Jillian for when we were doing this work together last.</p>
+              <p>They have the joy of working with me a lot on written documents. And sometimes I will have an idea in my head that I can’t quite get out. They’ll take a pastor document and like, no, that’s not it or this isn’t that. Or they’re like, I have no idea what you’re talking about. And we were talking a lot about the frontline worker. You know, it’s always been, our focus, always been what we wanted to prioritize.</p>
+              <p>And then through series of conversations, back in August, one of them, and I can’t remember who it just kind of landed on, are you talking about their job or impact? And like it’s both it’s it’s we have got to make better jobs because that’s what’s going to make better impact. And if people don’t want these jobs, We’re kidding ourselves that we can scale these health systems with jobs that are undesirable unrespected and underpaid.</p>
+              <p>And that’s really what this came from. And that’s why we’re so excited and proud to be carrying this message forward. And it’s something that we’ve always felt, but not something we’ve been able to articulate I think this clearly.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s great. And Neal, I want to hear from you, how did, how did you come to this realization as well? I think you you’ve had your own journey with this particular strategy.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, echoing the points that Jon made in the early days there was a lot of focus around making. Usable apps for frontline workers. Like one of the early formative examples was I think in Uganda and we were digitizing a home visit form.</p>
+              <p>And the first question on the paper form was about the sanitation of the house. And it would say like, is your toilet. And so we digitized that and I was like the first thing that pops up on the mobile app. And then the users give us very immediate feedback that this was totally unusable. Cause that’s an incredibly rude question to start a conversation about.</p>
+              <p>And you know, we said, well, what’s the first question on the paper form. And they’re like, yeah, that was designed in Washington DC. And we just skip it and we ask it last week, you know, in a paper form you could jump around. Digital app, you can’t jump around that way. So that was an example where, you know, a simple example of the, kind of like creating a usable app that isn’t, isn’t obvious just from digitizing, given up, even when you have like a paper form that’s the starting points.</p>
+              <p>And we argued a lot with partners, like the people paying us to build these apps to give us more time for that iteration. And we said, you’ve got to try it, see what works doesn’t work. Get feedback, build trust with the users, have them see that the suggestions they make go into the app the next time they use it, which will spark more ideas.</p>
+              <p>And we’d kind of negotiate for as much of that iteration time as we can get. So on that part, this was sort of like a point that really connects to the current focus on, on improving jobs. But some parts were really, really new back then. There were. Areas that were clearly of high concern to the workers that were totally out of our jurisdiction stuff.</p>
+              <p>Like we would start usability sessions with, with workers and we’d kind of like try to get a sense of how we can help them do their jobs better. And we try to frame the question to like, avoid what we knew was going to be the first thing people would talk about is like, we need to be paid more or we need better supplies.</p>
+              <p>And then we. Acknowledged that and say, yeah, we’re sorry that we can’t help with that. We’re just like seeing whether we could help with better digital tools. And you know, it’s really very exciting now to be taking a wider scope and think about thinking about making the whole job, better growth opportunities, opportunities to get paid more.</p>
+              <p>That’s, that’s really a big change. The current state that we’re going to save like that, that is now in our jurisdiction and things that we’re going to try to do.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s great. So I want to kind of dig into some of the ways that we’re making the jobs better, but before we get there, I did want to share Neal, you found a really interesting document from 2016, where. It looks like you and John were starting to really articulate the strategy before it was external in any ways.</p>
+              <p>And you wrote, you know, we want frontline workers delivering services in the most challenging areas of the world to be better supported. And then you talk about ways that we can, you know, could we help them with better supervision? Could we help them with automating some of the decisions, support.</p>
+              <p>Are there ways to, create an identity for a frontline worker so that we can be adding new services and new tools to their arsenal? Can you talk a little bit about that , early thinking around , this strategy?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I, I had a lot of fun Nielsen this, this morning, actually, when we were pulling back on the turtle for this podcast and it was a memoir, I wrote to the management team before our management summit back in 2017, I believe. And 2016 was a pretty substantial year.</p>
+              <p>It’s when a lot of our national scale were kicked off and was causing a lot of stress at the company and we. New from our experience, even back then. And certainly that’s, what’s driving part of the strategy now, and we’ve talked about in prior episodes, the demands on frontline workers are, are substantial.</p>
+              <p>And people just seem to keep adding more work to their plate without offering more pay and without offering more training and more supervision. And we knew even as we were going towards national scale, that it was going to be really important to figure out once at national scale, what are we doing?</p>
+              <p>And how are we going to support the government to support the frontline workers? And that’s where a lot of these ideas around what does a better job for better outcomes look like? And one part of that stuff is going to be paid. One part of that is going to be better digital support. One of the part of that is going to be better human support.</p>
+              <p>And that’s really what I was trying to think about as we were heading into that management team meeting because our, our entire year had been consumed by prepping to go to huge scale. And we then spent five years from 2017 going to huge scale and continuing to. And we still, at the same time also recognize how busy governments are, how overloaded frontline workers can be.</p>
+              <p>And I’ve been seeking different ways and different ideas to, to do that. And I’d say even before 2017, we had different members of our, our team trying to crack this as well. Whether that was offering direct to frontline worker educational applications, to help with their own family planning or their own household engagement or.</p>
+              <p>Financial planning, which we’ve done a lot of work around chat bots and conversational agents to support digital financial literacy, which is critical. So we’ve always had these different elements. We wanted to say, how can we be even more valuable to that frontline worker? She’s got a smart phone, she’s got internet she’s already familiar with CommCare.</p>
+              <p>And that, you know, was always in the back of our heads. And now certainly a core part of our strategy going forward is thinking about like, what more can we be doing to support frontline workers and so that they can create better outcomes.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Now did you want to jump in on that one?</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah. I went looking for that document because I know that Jon’s been in particular kind of pushing this vision of what we need to do and what we need to get beyond for a long time. And it’s been very salient that if we just stick with what our, known mandate is with workers, that will be.</p>
+              <p>Probably not enough to like really make it all work and definitely leaving a lot on the table in terms of what we could do. And so I think this is a case of something that has always felt you know, really important but not urgent or at least not addressing. In the short term, like this is like a little striking to me to see so much of this articulated in a 2016 document.</p>
+              <p>And I think what’s, what’s exciting now is that now, like we’re able to take it on. So now it feels like both, both important. I think, I think more urgent and definitely something that we’re gonna put our stake in the ground and, and raise the urgency and like the immediacy of it. Partly by force of will to make sure that we don’t let another five years go by with with the ideas that we’ve, we’ve seen and known about from.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, absolutely. And I’m, I’m feel really grateful that I have joined Dimagi at a moment when we’re actually in a place to really prioritize that. I think it’s, it’s pretty special. So that brings. You know, roughly obviously there’s way more to the story, but to today, right where we’ve actually laid this out in our five-year strategy.</p>
+              <p>I want to read just a sentence from that strategy. So it says we will organize our work around the assumption that our vision, which is to create a world where everyone has access to the services they need to thrive will not be realized until frontline workers, jobs are improved and we support them to be paid more.</p>
+              <p>So. I want to , ask you, Neil. I know you were really central in, in writing this , as we’ve discussed. And it’s quite a bold goal for a lot of reasons. I think I want to hear how you’re thinking about it. Why do you see this as such a bold goal for.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, one thing I’ll say is. I miss my broad, broad background on the type of goal it is, is that , there’s a lot of really essential things that we need to attend to, to make a working product and services. And there’s only, you know, one or two that you can champion. And if you look at industry that are coming.</p>
+              <p>That champion customer satisfaction. Not because that’s like the thing they really care about. It’s, it’s the way they focus on that. That’s their plan for getting to profitability and there might be other organizations , or just companies that really focus on high quality. Like when, in doubt, we’ll just make high quality products and that will lead eventually to longterm profitability.</p>
+              <p>And for. You know, impact saving lives and helping people thrive is ultimately what we champion and pursue, but it doesn’t help you make day-to-day decisions. You can’t decide this thing or that thing. And you’ll really kind of like wreck yourself. If you try to say, well, like should this decision, which one is going to save more lives in the next 10 years.</p>
+              <p>And so I think, you know, the choice to figure out what to rally around and to go, you know, was pretty obvious and just like true to our. A whole approach and everything we’ve done to centered around the frontline worker. They’ve always been the hero of our story. We’ve always focused a lot on them.</p>
+              <p>That’s always been a lot of our skill is, is our understanding and ability to equip and empower frontline workers. And then, to the points that I was making earlier, it was just kind of exciting and felt right to , take that up to a level and really say not that it just, rang really true.</p>
+              <p>I don’t believe you can get to universal health coverage, meet other development goals unless these jobs get better. And I think you can’t …there might be like other important statements like that one can make on other parts of the industry or global development, but tackling this one in particular and saying we’re going to focus on it and use that to guide a lot of our decisions and what we’re going to champion and put our energy towards really, really rang true.</p>
+              <p>And it gives us, it gives us a place to focus on something that we really believe needs to change in order for any of our goals to be, to be achieved.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And if you look at some of the stats estimates show about 70% of frontline workers are women. 86% are not fully. salaried study after study shows massive burnout among this workforce, like 50% or higher in Malawi study that I saw and I think similar results in many other areas. So you have a gender issue because these are largely women, a fairness issue because they’re not paid for critically important work and then a retention issue because they’re all burning out and that was probably pre COVID data.</p>
+              <p>And so you can imagine it as probably gotten a lot worse. So these are all factors that, that make this community health system, which has been proven time and time again, to being incredibly high impact and incredibly high ROI when done well to be incredibly difficult to do without improving a job. And I, I always give this analogy of looking at different educational systems.</p>
+              <p>And when you look at trying to improve educational outcomes, you know, you’re very dependent on the classroom setting and that’s very dependent on the teacher. And so you have all of these goals to improve educational attainment. But if that teacher doesn’t want that job and not only do they not want that job today, but they want that job less tomorrow doing an intervention to improve educational outcomes without fixing that problem seems very misguided to me.</p>
+              <p>So if the job of teaching, isn’t a desirable job and teachers don’t walk their jobs, any intervention, you roll out that doesn’t actually make that work better. It’s unlikely to have the impact you want. Before you can improve outcomes you have to improve the jobs of the people who create those outcomes</p>
+              <p><span class="spk">Jonathan Jackson:</span> and similarly in the healthcare systems that we work in, when you have this proven high impact worker, who’s doing this job because she’s, pro-social, she’s trying to have effect in her community. She’s already underpaid and overworked and still doing that. Not trying to leverage that person to get her more earning potential and more ability to make impact is to me, it really flubbed strategy in what is widely now recognized as a critical pillar in universal health coverage, which is enhancing these community health care.</p>
+              <p><span class="spk">Amie Vaccaro:</span> One thing I remember from this strategy was kind of going back and forth around, do we make. The frontline worker better at their job and more productive, or do we make their jobs better? And I think, I remember you saying, like, this is a really big decision point, right?</p>
+              <p>Between those two. And this was actually when I was, I think I had just joined, so I was still rubbing my head around it all, but I, I love that we actually landed on the Boulder goal. When it would be easier to focus on productivity, right. To look at.</p>
+              <p>Are we making her more productive?</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah. Yeah. Now that we’re here, it seems kind of obvious, , but I remember wrestling with that as well, and the. More straightforward thing is indeed to make workers more productive. And , there are plenty of tools out there that make, make your job, you know, annoying to use. Probably make your job worse, but increase productivity.</p>
+              <p>And in our context, that’s like, you know, you could do a lot of good through productivity improvements. And I think we really came to land on the short-term ness of that kind of approach. I, going back to Jon’s point where we were thrashing on the ideas, you know, one thing that kinda came up a bunch where we’re tying.</p>
+              <p>We’re not sure that like our intervention makes jobs better, you know, where like the app is slow to use or they’re doing paper and digital still. And on some level , depending on your goals, you can say, well, that’s just part of like making progress towards our ultimate.</p>
+              <p>Goals and improving global development, but this really gave us a chance to push against that and to say , our goal is to make that intolerable and to say , no, we can’t allow that. Just, just like other, in other industries you might say , no, we can’t have unsatisfied customers or we can’t have low quality products.</p>
+              <p>This really kind of , let us. Have a lot more solidarity with the user is by really just saying like, no, we really want to make sure our jobs , always make things more productive also. Like we’re not losing that, but in addition to actually make the jobs better. So I think we didn’t have to go the end up there.</p>
+              <p>But now that we have, it really feels really.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Is there an example. Now you can give of a time when an intervention we’ve worked on actually made jobs worse, and we kind of realized that</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> I’ll give one example. Jon May have others. There are. Times when we’ve built systems that we intended to be used during service delivery, during like people’s you know, delivery of, of care and then found out they weren’t like exclusively a reporting tool and a redundant reporting tool, even ones that were like, really didn’t feel like they would be.</p>
+              <p>So we had done some work where we had growth monitoring charts enabled in. You could build in CommCar so you can enter a child’s height and weight, and then we’d automatically produce these charts showing the growth trajectory of the child and whether it was matching expectations. And then to our alarm, we did some field work and found out that of a variety of, of kind of horrifying things in the usage of it somewhere that like.</p>
+              <p>Use at the very end of the process, the people that already were doing the paper charts, like all their, all this manual work. And then we’re entering this in later. Other times where people hadn’t realized that they, that you could actually see the charts in the app, but that part hadn’t been made clear as a misstep of, of training, those kind of went together.</p>
+              <p>And so we realized that like, oh, this was like just an added burden against that part of it to people. Another one is we had tools, I guess this wasn’t, this wasn’t. CommCar, but we work like building electronic part of grass for managing a birth at delivery. And a real challenge for those systems is that , they’re designed like they’re built to like do the early warning systems and realize that, oh, like somebody needs to go seek more care than they have at the current facility.</p>
+              <p>But they get filled in only at the end, after a child is born just for reporting, which really defeats the whole purpose. So that’s an area where we tried to build a system in advance to , avoid, avoid that problem of just adding reporting.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Those are both really helpful vivid examples. What scares you about the stress?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, I think that’s big and bold. And ambitious. And so what scares me is not succeeding in that. And I, I think there’s lots of ways to accomplish what we’re trying to do and it’s going to be through collaboration. I mean, that’s one of the best things about the fact that we’re open source and the community that we work in is everybody is highly collaborative.</p>
+              <p>And I think everybody mostly agrees with, with our premise. The question is, do they agree with it more than the other. So, I don’t think anybody’s opposed to better jobs and everybody will gladly champion jobs becoming better. If they don’t have to do anything, what is going to be hardest for us to build our part of the problem, which is how do we make our technology amazing at supporting this so that the people who do need to make the decisions on priorities can opt into it and can invest the right amount of time to make better jobs for better outcome.</p>
+              <p>Given all we’re going to invest in technology and exponential growth. And so I think that’s something that is incredibly powerful and, but is going to be hard. And it’s also though I think necessary. We look at some of the healthcare fractioning we’ve had over COVID is not gonna be the last pandemic, the world.</p>
+              <p>NTDs are growing chronic diseases growing. There’s just huge healthcare burden all around the world in all markets. And there’s a massive provider shortage between million by some estimates. So the gap is going to be filled by community healthcare workers and non specialized providers in a lot of contexts.</p>
+              <p>And those workers can’t have a static job, right. They can’t have an app. Be running five years later without having been changed, the rules going to dynamically change the needs of the communities are going to dynamically change. And it’s hard enough just to get these systems stood up and then not change them after you scale them.</p>
+              <p>And so we not only have to do, what’s been difficult historically within our industry to get digital transformation achieved, but then immediately make it responsive, which is not even true of most of the project designs today. So this is a big And big health and take ahead of us, but I’m really excited that we have the strategy people and resources that, that we really think we can, we can do it.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, I think it we’re setting ourselves a a really high standard that we have to hold ourselves to in a way that is different than I think kind of the early usability work. Like in the end we knew if we just built a unusable system, people wouldn’t use it and we’d fail pretty quickly. And so it wasn’t.</p>
+              <p>We didn’t have to look that far into the future or, you know, take a stand on something that, that we knew wouldn’t be immediately necessary when we insisted on techniques that would let us make an app that could actually be usable. But here we’re going beyond that. And I think it is necessary in the long-term.</p>
+              <p>But we’re really going to , have to hold ourselves to this standard and, and push for improving the. And the ways we hope to , and I think that part like is, is of it all daunting as well as.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s and that’s such a great tee up to kind of where we’re at today. In terms of what does this strategy actually mean for Dimagi his work? And I want to read a little bit from the strategy. This will become a more prominent consideration in how we pitch projects. Design apps, prioritize product features and advocate within our professional communities. Dimagi is not the first or , most eloquent organization to champion frontline workers needs.</p>
+              <p>We will continue to engage with organizations like the community health impact coalition chick that embodied many of these principles, as well as leverage and contribute to larger. I would like to hear from both of you, and I know that this will be kind of a, a series. So this isn’t a one and done conversation. We’re going to keep digging in on this, right. Cause there’s a lot of work underway on this strategy, but I want to hear What are some of the ways that we are working on this today?</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the things that’s really cool about the strategy that we rolled out is it already aligns to a ton of work that’s been going on that. Fully aligned to what we were doing prior to the strategy shipping. So we have one project where we’re supporting campaign workers for vaccination drives and over 10 countries.</p>
+              <p>And the whole purpose of that project with the gates foundation is to digitize healthcare worker payments because that’s a more real-time payment for them. And so that already has all the pieces you need. And so focusing on learning, how do you maximize the speed at which they get paid? How do you mean.</p>
+              <p>As easy as possible to enroll and receive those payments and really get that digital money into their hands. As soon as they’re out, it is a great example where that alone makes a better job. So there’s lots of projects that already have alignment, which is really cool. And then there’s a lot of projects that we do need to figure out how do we advocate for different application features or different program designs that can make that job better to drive better outcomes.</p>
+              <p>One of the areas that we’re really excited and putting a lot of research into in 2022 is digital. So looking at different ways to use our conversational agent technology or CommCar itself to build apps and ways that healthcare workers can upskill themselves. And one of the projects I’m super excited about is our resilience skill building work that we’re doing with Johnson and Johnson.</p>
+              <p>And so this is taking content that they’ve been working on with many different folks for years now that help frontline workers build resiliency skills. Obviously as I talked about previously, the burnout rate in the healthcare workforce in all environments is, is way too high, right? And we’re trying to see, can we digitize that and still have it be effective for building that resilience skill and if so, just making that widely available to all users and then they, if they want to out there and could have access to content that can help increase resiliency in themselves.</p>
+              <p>And that’ll obviously directly lead to better outcomes given how effective they already are. So there’s a lot of those really exciting projects. And then there’s a lot of important work we have to do ourselves. One of the things that. Soapbox about that. I’m hoping to make progress on is how do we have a discussion with our partners about when they can get off paper and what would be the criteria for getting off paper?</p>
+              <p>So this still happens in a ton of projects where you deploy digital solution. Everybody is like, okay, yeah, they’re on paper and both for a little bit, but then they’ll get off paper, but it’s like, what under what condition are these users able to drop paper? What exactly needs to be true and doing a better job, making sure we support whoever the decisions makers.</p>
+              <p>To have the data, they need to make a go, no, go decision on that and being much more rigorous on our end of saying, well, wait a minute. If there’s no path to getting off paper, what are we all doing here? Because any usability study we do where the worker doesn’t say, I hate that application. It’s just adding work.</p>
+              <p>Probably just asked the wrong questions. Cause that’s what they should think. And so that’s another area that we’re trying to really infuse into our thinking. And that’s a collaborative process. That’s not our decision, but it’s making sure that the government has the data. They need to decide whether they can go paperless.</p>
+              <p>And that, that to me is a critical factor. Early on in decreasing the overall time that the community healthcare workers invested in data systems in general, whether it’s data or digital so that she can maximize the time she’s spending with their clients. And that that’s something that we’re also trying to make a lot of progress on.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s great. You’ve just highlighted a few, few different. One where we’re actually helping health workers get paid for the work that they’re doing around vaccination campaigns. Another that’s really digging in on training and supporting frontline workers , to build their resiliency.</p>
+              <p>And then additional ones where we’re really having those hard conversations about just because you’re launching a digital solution for a certain workflow Isn’t going to make things better unless you’re actually taking away the paper-based workflow that already was in place. Neal, anything you would add to that around what are some of the things we’re doing today that you’re excited about for this strategy?</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah. As Jon said, it has a lot to do with like prioritizing elements of projects that we’ve already done. Like making sure the apps perform well pushing for going off paper harder than we might’ve before. And looking for opportunities to add an elements that are good for the workers. So combining two of the things that Jon said, we’re going to be offering that resilience building app to some of the polio vaccinators who were, who we were brought in to do helping to digitize the payments for.</p>
+              <p>And so that’s an example where we Are like adding in elements that we hope will build resilience, make jobs better. And that’s really guided by our, our focus on this priority.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Jon, you, you talked about the importance of collaboration, right? This is a scary goal, scary that if we fail and, but you also said that there’s just a really strong community around this work. It’s not just us. Can you say more about some of those other.</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah, we mentioned the community health impact coalition that contains a lot of people who are implementing amazing community health care programs. There’s a lot of governments and the global goods community that we see.</p>
+              <p>Quick sidebar.</p>
+              <p>Global goods are open source digital health tools that are adaptable to different countries and contexts and commcare is one of those</p>
+              <p><span class="spk">Jonathan Jackson:</span> So a lot of folks are not opposed to better jobs. As I said, I mean, in fact champion on the question is how to create better jobs along with all the other priorities we have.</p>
+              <p>And I think that’s where the conflict could come in. And that’s really where we’re trying to be a loud voice in the community advocating for ways in which better jobs can lead to better. That don’t necessarily have to compete with other priorities, but are synergistic and accomplish both at the same time.</p>
+              <p>If you care more about data than better jobs will making the app better, solves both. If you care more about health system covers the better jobs, well, paying more for more service delivery solves both. So there’s a lot of ways to accomplish both goals. And I think that’s something maybe that we can hopefully uniquely bring value to both as a technology platform, but also just as a philosophy in the way that we’re trying to add.</p>
+              <p>But there’s a lot of people out there who are very strongly champion for community health care workers and healthcare professionals in general, in fact, most people in our industry. So we’re, we’re assuming not going down this path alone. But I think among the digital technologists we are bringing that unique voice and are very excited to.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, I’ll say one of the things about this is that we’re really doubling down on a theme. That’s getting more and more records. Attention. So I think , just even very, very broadly, there’s more appreciation for the roles of essential workers across all parts of society than there were a few years ago.</p>
+              <p>And a sense that it’s something you can’t just totally neglect and that we all depend on a lot of people and , this fits into. You know, really broad kind of trends in society, as well as I think it’s, it’s more and more commonplace to say we can’t just keep piling more and more responsibilities on the frontline workers that that’s gonna that’s at the breaking point that I think , is a well understood and recognized aspect of things.</p>
+              <p>So I think we’re part of a general trend and a lot of getting a lot of support from the community, as well as trying. Play a leadership role to really like accelerate an emphasize.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you both for this conversation. I think this was really insightful. For me and hopefully the audience as well.</p>
+              <p>In the very first episode of this podcast, our teaser trailer episode, at the very end, I mentioned something about, , , new things we’re working on that are going to change the world. And that ties into this conversation. So there is a lot of work happening today, and a lot of thinking going into this today and beyond just the projects that Jon and Neal.</p>
+              <p>How can we really make an impact on improving frontline worker jobs? So I’m really excited to in future episodes to share a bit more about some of that thinking and some of that very, very early work</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah, I think there’s a lot of exciting ideas we have been thinking about previously that are now in a really fortunate position to build out around how do you support a frontline worker to choose her own activities and how she can best contribute to her? And we kind of call this director frontline worker in terms of enabling the government or enabling a funder or enabling a local NGO to create the autonomy and ability for a frontline worker to opt into the activities they want to provide to a community.</p>
+              <p>And I may not be all of the activities she’s doing. Maybe, you know, half of the job is prescriptive and as standard, but for the other half, maybe some communities want to focus more on diabetes screening, or some communities are focused more on TB cases. Where other communities are doing vaccine drives and the way that we designed current systems with this big one size fits all approach at national scale doesn’t allow us to be responsive and adaptive as we talked about earlier.</p>
+              <p>And so I think this notion of how do we unlock the choice and the power of frontline workers. Can be a great way to both scale health systems reaching universal health coverage and improved jobs to improve outcomes. So there’s a lot of thinking we’re doing around that area and we’ll hopefully have some exciting research and, and technology to talk about in future episodes.</p>
+              <p><span class="spk">Dr. Neal Lesh:</span> Yeah, we have some really new and interesting innovation ideas that we’re formulating, and I’m really glad that we spent so much time on the kind of strategy. Goals last year before, landing on these particular innovations, one of the common kind of critique of our kind of work is that you build hammers in search of nails and you get really attached to the, to the innovation or the hammer, and then want to apply it to everything.</p>
+              <p>And I think in this case we really did define the goals and what we were trying to do, knowing we didn’t quite have the, the full innovation we were going to try to go after it with last year and having done all that work it gives me kind of more, more comfort and confidence that we’re doing it for the right reasons and to really try to attain important goals rather than just getting kind of caught up in the, the cleverness and the fun of the new innovation.</p>
+              <p>I hope you enjoyed that. I’ll share a couple of my key takeaways.</p>
+              <p>So today we heard about. What’s so unique and bold about Dimagi strategy of improving jobs to improve outcomes. You heard the story of how we came to the strategy. How it was part of Dimagi is. Thinking from day one. And how we decided to prioritize it now. One of the things that I think is so exciting about this strategy is just how fundamental it is to achieving universal health coverage.</p>
+              <p>Frontline workers are becoming more and more overburdened, and they’re a really critical part of health service delivery globally.</p>
+              <p>But they are underpaid. Under supported under recognized. It’s really, really tough work and it’s getting harder and harder. And frontline workers. In particular community health workers are an essential component to. Getting everyone access to the care they need to thrive.</p>
+              <p>And so if we want to expand that workforce, And expand what they’re capable of. We need to make those jobs better.</p>
+              <p>You heard a little bit about some of the projects that we’re working on that touch on this. So we’re working on digitizing healthcare worker payments in 10 countries with support from the gates foundation we’re working with community health workers. To help build resilience skills with support from Johnson and Johnson foundation.</p>
+              <p>And you also heard a teaser for some work that we’ll talk more about in future episodes that we’re working on now. Where we’re thinking more deeply about how can we more directly. Improve frontline worker jobs.</p>
+              <p>In our next episode, you’re going to hear a deep dive on collaboration. How we approach it at Dimagi what does it look like to do collaboration? Well,</p>
+              <p>What does it look like to fail at collaboration? What does that look like internally for how Dimagi operates? And we’ll be joined by Dimagi’s Chief of Staff, Gillian Javetski for that episode. Thank you so much for listening. Please take a moment to rate, review, subscribe, and share. It really, really helps us grow our audience and our impact. And if you have ideas, feedback, questions, anything, send them to us podcast@dimagi.com.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NL</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Neal Lesh</p>
+              <p class="person-role">Chief Strategy Officer, central to writing the Improve Jobs to Improve Outcomes strategy and Dimagi&#x27;s early frontline worker usability work.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2hxhsd7x7hUrcOnY8g7fUa" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 81: Thinking About Individual Giving? Start Here | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Donate.ly's Javan Van Gronigen on why storytelling beats technology, the 'random acts of marketing' trap, and building individual giving that actually scales.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/podcast-nonprofit-individual-giving/">
+<meta property="og:title" content="Ep 81: Thinking About Individual Giving? Start Here">
+<meta property="og:description" content="Donate.ly's Javan Van Gronigen on building sustainable individual giving: storytelling over tech, escaping random acts of marketing, and AI's new role in fundraising.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>February 20, 2026</span>
+          <span class="dot"></span>
+          <span>46 min</span>
+        </div>
+        <h1 class="ep-title">Thinking About Individual Giving? Start Here</h1>
+        <p class="ep-deck">Donate.ly's Javan Van Gronigen on why storytelling beats technology, the &lsquo;random acts of marketing&rsquo; trap, and building individual giving that scales.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/21rz7VigCwuVsNVZO4lDYi?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 81 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/21rz7VigCwuVsNVZO4lDYi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000750679781" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/7a975412-46d3-4157-943a-3ac35e004967/high-impact-growth-thinking-about-individual-giving-start-here" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>As traditional funding sources shift, many nonprofits are asking a hard question: can individual giving become a meaningful and sustainable revenue stream? Javan Van Gronigen, founder of Donate.ly, sits down with Amie Vaccaro and Jonathan Jackson to unpack what it really takes to make that work.</p>
+        <p>Drawing on more than a decade in digital fundraising, Javan argues that storytelling, not technology, is a nonprofit's most critical asset, and explains why so many organizations sabotage themselves by committing what he calls random acts of marketing. The conversation explores how to move from one-to-one fundraising toward scalable one-to-many models without burning a limited budget, and why testing small bets is essential.</p>
+        <p>They also dig into the evolving role of AI in fundraising, from speeding up content creation and analysis to raising new questions about authenticity and trust. It is a grounded, honest roadmap for a more crowded and uncertain funding landscape.</p>
+
+        <blockquote>
+          <p>&ldquo;Random acts of marketing.&rdquo;</p>
+          <cite>Javan Van Gronigen, Donate.ly</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>Can individual giving become a sustainable revenue stream?</li>
+          <li>Why storytelling, not technology, is your most critical asset</li>
+          <li>Escaping the trap of &lsquo;random acts of marketing&rsquo;</li>
+          <li>Moving from one-to-one to scalable one-to-many fundraising</li>
+          <li>Testing small bets without burning your budget</li>
+          <li>AI in fundraising: speed, authenticity, and trust</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://www.fiftyandfifty.org/services/engagement-os" target="_blank" rel="noopener">Engagement OS by Fifty &amp; Fifty</a></li>
+          <li><a href="https://www.donately.com/" target="_blank" rel="noopener">Donately</a></li>
+          <li><a href="https://www.charitywater.org/" target="_blank" rel="noopener">charity: water</a></li>
+          <li><a href="https://invisiblechildren.com/" target="_blank" rel="noopener">Invisible Children</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to High-Impact Growth, a podcast from Dmgi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amie Vaccaro, senior Director of Marketing at dgi, and your co-host, along with Jonathan Jackson dgi, CEO, and co-founder. Today we’re diving into a challenge. Many of you may be facing the scramble to diversify revenue streams in a changing funding landscape. If you’ve traditionally relied on grants or high net worth donors, how do you successfully pivot to individual giving and the one to many model of fundraising?</p>
+              <p>We’re joined today by Javin Van Grogan, founder of Donate to Explore the Art and Science of Digital Fundraising. We discuss why storytelling is your most critical asset, how to avoid random acts of marketing, and the evolving role AI plays in donor engagement. If you’re working in the nonprofit sector trying to figure out if you should be chasing the consumer dollar and how to test that water without sinking your budget, this episode offers the roadmap you need.</p>
+              <p>Enjoy.</p>
+              <p>All right. Welcome to the podcast. We are so excited today. ~Uh, ~I’m here with Jonathan Jackson as always. Hey, John. Good to see you.</p>
+              <p><span class="spk">Jonathan:</span> Great to see you as well.</p>
+              <p><span class="spk">Amie:</span> And we are excited to be joined by Javin Van Brogan, who is the founder and creative director at Donate Lee. ~Um, ~and here to share some of his wisdom with us.~Um, ~we are in a. A very interesting moment in time where organizations all over are scrambling to figure out fundraising. And some organizations that may not have done it before or considered it ~um,~ or testing out individual giving. ~Um, ~so we’re really excited to kinda share a bit of your story and also gather some of your advice for organizations including ourselves,~ um,~ today. So Devin,~ um,~ welcome. ~Good to, ~good to see you./</p>
+              <p><span class="spk">Javan:</span> Yeah, thanks for having me. It should be fun.</p>
+              <p><span class="spk">Amie:</span> Yeah. So you’ve been in the digital fundraising space for over a decade, and can you take us back to the origin story for Donate Lee? ~Um, ~what was the problem or friction in giving that you saw that convinced you that you wanted to build a new platform from scratch?</p>
+              <p><span class="spk">Javan:</span> Yeah, well, I’ll I’ll try to be quick, but I’ll go back ~a, ~a step before that as well, which was,~ uh,~ being originally in the,~ uh,~ digital agency world,~ uh,~ and really wanting to believe in what I was building and, my heart was connected to the nonprofit space and so that first kind of inkling towards, hey,how do we take digital services into the nonprofit world and was started with an organization called Invisible Children. I moved from the agency world over and worked on the nonprofit side of things. You really fell in love with this idea of bringing top-notch quality agency work into the nonprofit space, and so. Started that in 2009, built 50 and 50, which is a creative agency,~ uh,~ branding, web marketing, really just saying, Hey, how do we take this,~ uh,~ for-profit world of digital and fundraising,~ um,~ or,~ uh, ~e-commerce,~ uh,~ into the nonprofit fundraising space. And then as we did that, there was a glaring gap in the technology side of things. So what organizations needed,~ uh, you know. ~On the face was just a really simple and clean donor experience, right? Forms, simplified data going where it needs to go. And really the tools at the time ~were not, ~were not cutting it. And so we built, donate really to solve,~ um,~ that first problem, which is to build really simple,~ uh,~ embedable giving experiences that donors . Could do much easier,~ um,~ could,~ uh,~ enjoy. And then the data on the backside of that,~ uh,~ was really tricky for a lot of organizations and still is that market has evolved over time. But that’s why we started in the first place is donor data needs to move somewhere valuable. You need to be able to make data informed decisions on that information, and it doesn’t need to be rocket science. It was really a,~ um,~ at the time, a gap that. ~Uh, ~needed to be filled in terms of,~ uh,~ integrations and connections and keeping it really simple for the donor. So we originally used language at Donor first, and that was really the ethos is like, let’s not build from the backend forward, let’s build from the donor experience side of things and then figure out the data behind that. And, ~um. ~That kind of brings us, not necessarily all the way to today, but really why we started donate and why we’re still trying to solve those problems today. Right? There’s a lot that’s changed, but we’re still trying to solve that beautiful, engaging kind of story driven donor experiences on the individual level, and then how do we move that ~Uh, ~into the data tools that are out there. And for me personally, more the for-profit tools. I think they’re ~the, ~the most powerful, their roadmaps are the quickest. How do we take those tools and make them work for nonprofits and make it work so that we don’t put any friction in that donor experience?</p>
+              <p><span class="spk">Jonathan:</span> That’s awesome. And just sounds like, ~um, you know, ~part of it is,~ uh,~ building just amazing software for ~a, ~a really important use case. Around driving donations. And ~ um,~ de Margie kind of aspired to do the same thing ~with, ~with how we built Comcare ~and, ~and our new Connect platform. And I’m really excited to hear,~ um,~ less on the technology side of,~ um,~ where Donate We is now ~and, ~and ~you know, ~has been a market leader ~in, ~in driving individual giving and campaigns and donations and all these tooling and, ~ and, ~and things. You’d run a sophisticated digital campaign. Going back to first steps, you mentioned you had crossed from agency into the nonprofit world and the programmatic side. How did that other experience shape the platform? And also like what makes for a good story, what makes for a good, ~you know, ~fundraising push ~at, ~at a very macro level, you know this, as our listeners are hearing, we’re all struggling with revenue streams now. We’re all struggling with ~the, ~the changes to the ~and, ~and global health landscape. So. We just think a step back and go to the technology, ~you know, ~what made invisible children work well as a story, as a narrative, and how do you think about the potential for nonprofits to tell their story and to be compelling in what is increasingly crowded. ~Um, you know, ~like lots of people are trying to figure out how to do this. So how do you think about what makes for organizations that can be successful with the type of approach that donate enables?</p>
+              <p><span class="spk">Javan:</span> Yeah, I’m glad you asked that. ’cause I think as we build the technology, then we ask all these people, Hey, what are we struggling with? Story keeps coming up and it’s such a subjective term. ~Uh, ~so where I would land with that is really,~ uh, an, ~an organization’s brand. ~Um, uh. ~What they’re doing, what the problem is that they’re solving. There’s probably a handful of pieces that need to be dialed in. So when we look at brand and brand messaging, we’re looking at, first off, who you’re speaking to, really understanding your target audience,~ um,~ and then what pulls on the heartstrings there. ~Right? ~So. What do they care about? And if they’re coming to you, they obviously care about something, ~you know, ~at least in the ballpark of what it is that you’re communicating in terms of your mission and your vision. And then you need to be really articulate about that, right? What is that problem? Which a lot of organizations skip over. They assume that the problem that they’re addressing is really well known, and I. They just want to talk about what they’re doing and all these problems, they’re solved. But you have to start with like, what is the need? ~Uh, ~and then connect that to specifically how you do the work that you do,~ uh,~ and then,~ uh,~ invite people into it, right? If you talk about it being a story, what’s great about the nonprofit world is it is The ending is not there yet. ~Right. ~And a lot of people wanna be invited into that story. So, so much of what you need to do is say, Hey, here’s where we are. We are hitting a very critical point where this either becomes tragedy or a success,~ and, and, ~and so you invite people into that. But in order to do so, you have to be very clear, right? People need to understand exactly what it is you’re asking them for. And so ~the, ~the technology and the story kind of come together at that point where you say, okay, great. We’ve told you the problem. ~We, we ~we’re talking to the right person. That right person has been,~ uh,~ explained what the problem is and we’ve now said, Hey, we’ve got an, amazing solution. This organization does this amazing thing, and here’s where we want you to come in. And that’s where those two things come together because now you can. Explain all the options and give them options, whether that’s,~ uh,~ peer-to-peer fundraising, whether that’s a specific campaign like a,~ uh,~ crowdfunding campaign for a specific project. ~Um, ~there’s a ton of things that you can do, and I think will kind of maybe get into the conversation around what trends we’re seeing stuff, but you gotta test the water,~ see,~ see what’s resonating, get it out there,~ uh,~ and let people hear it. ~Right. ~So I would say ~that’s, ~that’s kinda what we’re seeing. Maybe a trend right now is, like you said, it’s getting so saturated. So you have to make sure ~that ~that story gets out there. And I think that we see a lot of organizations struggling. You got a lot of AI content, a lot of stuff kind of, ~um, ~overwhelming people in different social channels and in your blog just ~you’re, ~that message is not getting out as much as it was. So I see people trending towards solving the story and then getting it out there and even repeating it, just pushing it out and making sure people have access to it.</p>
+              <p><span class="spk">Amie:</span> No, this is,~ this is, ~like such a timely conversation because I think, ~you know, ~as DGI we’re,~ um, you know, ~we’ve been navigating all of the funding changes that have unfolded over the last year. ~And, ~and one thing that we are starting to just dip our toes into ~is, ~is individual giving. ~Um, ~and what could that look like? But I think we do have. A really strong story for individual giving,~ um,~ perhaps for the first time ever. ~Um, ~so yeah. I don’t know. John, do you wanna share just a little bit about ~what, ~what we’ve been working on ~with, ~with Connect and kind of get Evans. Thoughts there?</p>
+              <p><span class="spk">Jonathan:</span> Yeah,~ I’d,~ I’d love to. ~Um, and, ~and that connection between the brand and the tech and the story is something we’ve been thinking a lot about because, ~you know, ~we’ve,~ um,~ made various press pushes ~at, ~at different points when we were the biggest frontline worker platform in the world and still are. When we broke into the US market during COVID and ~these, ~these kind of, ~you know, ~transition points for the organization, were like, okay, maybe this story could finally break through. It been really tough, ~you know, ~to figure out is it us? Are we. Able to tell our story in a compelling way that it can get picked up ~and, ~and kinda break through the noise. But our latest foray into this is really about trying to connect individual givers directly to funding frontline worker activity. And ~the, ~the first time we’re trying this is with kangaroo mother Tara, we’re for $37, you’re able to fund a frontline worker to provide home-based,~ um,~ kroo mother care coaching. To a small and vulnerable newborn, right? So it’s like a, an infant in rural Africa who’s getting care and your donation is going to pay the frontline worker to provide that coaching for the household. And so from like a cost effectiveness argument, from all the like technical terms we think about that we know are not necessarily compelling consumer terms, we’re like, this is a home run, ~you know?~ And so we’re starting to try to be like, if we can’t pull it off with this. Then every other idea we have is kind of worse than this one in terms ~of, ~of we think,~ uh,~ reading a compelling story. So we have a lot of fun trying to figure it out. But part of the reason I’m also excited to, to have you come on ~and, ~and hear from you is,~ um, you know, ~as organizations who might be trying to think about this for the first time,~ um, you know, ~maybe they were funded traditionally by high net worth individuals or foundations or going after competitive grants and think that maybe they have elements that could be appealing to. The consumer market, but have no experience doing it, ~you know, ~to individual giving. ~Um, how, ~how can they use your platform ~and, ~and your methodologies to like test, ~you know. ~Is it there? What should success look like the first time you try to do this?, that was one of the big debates we had, Amy, when we were trying to think about this. I’m like, is raising, ~you know, ~a thousand dollars from a cold start good? ~You know, ~would that be like, oh, if ~you, ~you raised a thousand from a cold start, like you definitely have something like ~your, ~your expectation should be zero, ~you know, ~net new donations, or should we like, no, no, no. If you can’t get 5K the first time you try this, there’s nothing there. So I’m curious, like, as people try to think about this,~ what, what do you, how do, ~ how do you recommend they break down the problem, ~you know, ~and use your platform to test.</p>
+              <p><span class="spk">Javan:</span> Yeah, I mean the testing, kind of gave a bit of the answer there and just the question, which is, I think testing is absolutely critical, right? You have the data, the tools that you use should give you the data to recognize what’s working, what’s not working, and you gotta be testing messaging. You have to be testing the types of fundraising you’re doing. Everything from galas to, ~you know. ~Two or $3, ~you know, ~asks on social media, like there’s a lot of ways you can do it. And so first off, having the backbone of data that can tell you, Hey, we ran this, here’s how much we put into it. Here’s our internal costs, here’s what it generated. Especially early on, once you’ve found traction, then you can start to hold onto those techniques. But if you are currently in a space of having never done it before, I would say be ready to try a handful of things,~ uh,~ that maybe don’t work right. If you’re gonna run some paid media, don’t expect that to be. ~Uh, ~you know, you’re gonna have some big return on ad spend. Like that’s a really tricky thing to figure out. The perfect messaging, the perfect audience, and the perfect segments. And so testing is key. ~Um, ~and I think you have to recognize the big shift when you talk about one-to-one fundraising versus one to many. And that’s a shift that a lot of people underestimate the level of work that it takes, right? So if you go back to the idea of ~uh, ~let’s say Charity Water, or Invisible children, or to write love on our arms, any of these organizations that have really done well at that kind of micro giving level, you have to recognize. There’s a lot of work in that, right? This is a demographic that is eager for information, eager for connection, eager for assistance, right? You don’t do a peer-to-peer fundraising campaign without dipping in and trying to nurture some of those, ~you know, ~peer-to-peer campaigns that are doing well or really pushing that towards influencer. So it is a decent amount of work, and that’s why I go back to that idea of testing, and you put too much in without realizing what’s working or what type of individual fundraising is gonna be successful for you, ~you can, ~you can burn a lot of money that lot of organizations don’t have, right? So test the water, start small, ~you know, uh, ~a lot of tools, ~you know, ~including donate. We launched,~ uh, you know. ~Card items this past year, which gives you the ability to do event registrations. You could do virtual products, you could do actual products, you could do,~ uh,~ events. Like there are a lot of things that you can try, build a simple page, get it out there and see what’s happening, and then build from there. And going back to. You as an organization, ~you know, ~as you dip in a big question is, do you have the right people at the table? Is your email list gonna have the right people who are gonna wanna fund these things? ~Um, ~and you gotta look at that too. This might be a whole new market, right? So you have to go all the way back to the beginning and say, how do we target, how do we move from the one to one large donors? Do they seed this out and maybe get some kind of. B2B relationships or rhythms going where you get them fired up in pitching that mission. Or do you have to find new markets? And that’s,~ that’s, ~something too that I think a lot of organizations need to recognize is you probably in the marketing perspective have to do a little bit of phishing before you can shoot out emails that are gonna get people giving those smaller gifts.</p>
+              <p><span class="spk">Jonathan:</span> I love that terminology. ~Um, ~and one thing I wanna call out is, we talk a lot about this one-to-one versus one to end on product development. So a lot of the global development sector is one-to-one projects. You do the super custom thing, it’s works in that country, but it’s not particularly scalable. And it’s great if it is funded well. But in this new era, a lot of people need to shift from one-to-one project styles to one to end project styles,~ um,~ as well. And so that giving mindset has a lot of parallels. I assume I’m like one-to-one giving versus one to I’m giving.</p>
+              <p><span class="spk">Javan:</span> Absolutely. I mean that it’s like product and services, right? Like when you’re providing services, like I said earlier, we still have agency services ~in, ~in our organization, and yeah, you can build amazing things when the funding is there. You can build very customized,~ uh,~ experiences, data ~and, ~and with the integrations, right? We could customize everything. You may get exactly how you want it to move, but then that’s dead in the water for our next client. And it’s kind of similar. You can nurture a relationship with a high net worth donor, and that’s very important. But that doesn’t scale, right? So trying to get that sweet spot where there’s high enough dollar amount with your donors, high enough conversion rate, but now you’ve got this pool where you can do the one to end or one to many,~ uh, and, ~amplify that kind of base.</p>
+              <p><span class="spk">Jonathan:</span> Yeah. I, so I’m gonna, ask for some free consulting for,~ um,~ not for Algi, but for ~our, ~our listeners who are running, let’s say, a one to $5 million business. Never done their nonprofit. They’ve never done,~ um,~ one that and fundraising before. They do amazing work. ’cause everybody listens to the podcast, does amazing work. So they got the story. ~Um, ~but they’re used to one-to-one fundraising. Like it’s all high net worths individuals, it’s all foundations. ~Um, ~they want to figure out like, who are they competing against? Like, that’s one of the things I have a trouble my head around. So like,~ you’re, you’re great.~ You’re doing amazing work. You’re cost effective, it works, it’s proven. But like, who does your story get put next to in the potential giver’s mind? And ~how do you, ~how do you like, kinda look at those other stories and be like, ah,~ I, I, ~I would give to myself, I’d give to that other one. That’s a better story. So I,~ I, you know, ~need to really appreciate that. I don’t know how I would come up with a better story than that. ~Um, ~you know. Water is pretty compelling, like education, pretty compelling. Like, there’s some things that are extremely compelling. Like do you literally have to be able to get a better story than water.org, ~you know, ~in order to get,~ to get, ~consumer funding? So I think like how do you just think about comparing yourself to the market? I’m like, is this compelling? ~Like should I, ~should I go down this track of a lot of iteration? Amy and I debate this a ton with inbound marketing, ~you know, ~for com fair. Over the years it’s like. ~Who, ~who are people searching for? ~The, ~the traditional agency work that just takes a ton of iteration and outside help ’cause it’s a whole discipline unto itself. So, ~you know, ~imagine one of your points is gonna be like, you need to get help people understand this market. But if you’re the CEO listening right now, what are the first couple steps you recommend they take to wrap their head around like, could you even play in this space successfully?</p>
+              <p><span class="spk">Javan:</span> ~Yeah, ~yeah. reminds me of some of the SEO and ~um. The, ~the large language model research that we do right now that it really has sped up our ability to recognize that because you can just ask those tools. ~You know, ~doing deeper research. ~Um, ~who are the organizations? If people are looking at us, who else are they looking at? ~Who, ~who else talks like us? And it’s a, really good tool to get some homework done. Okay. And then how are we different? And you might have to pressure test that, right? We keep using this term like vet and validate, ~you know, ~AI gets it wrong a lot. I think the glory days where we’re just like, oh, this is just gonna be this rocket shift to the moon of like value. We’re kind of hitting like a little bit of like a slop scenario where like, okay, it’s a lot of data. We need to clean it up and we need to understand like what’s actually correct in there, but it’ll give you a ton of that research much faster than you could of two years ago. ~Um, ~or I don’t know what timescale to give it. It’s all been changing so fast, but Asking it and giving it, Hey, here are people that say they do the same things as us. Let’s talk about how we’re different, what we’re leaning towards. This idea of a unique value proposition, which is critical, right? If you’re gonna go out with the same exact model as charity water, that’s a pretty hard sell, right? Because they’ve got the dollars down, then you know exactly where your money went. You get a project email that shows you, you know, then if you get to the high net worth donors, some of then their galas are topnotch, right? So what you have to do in that moment. ~Um, ~is find how you’re different. One of those ways is to verticalize and say, well, hey, we’re better than them at this specific thing. And you go after that specific market, right? So that’s kind of a high level idea, is you have to find your way to scoot to the side and be better in some specific area in that story. ~Um. ~Then there’s even techniques and channels to do that, right? So every organization can’t dominate every channel, right? So if you’re trying to do this and you’re trying to throw better galas, and you’re right down the street ~from, ~from charity water, that might be something you need to consider doing different, right? And so you’ve got SEO, and you’ve got paid, and you’ve got social and you’ve got influencer marketing, you’ve got different channels. You can go after I mean, I feel bad for people who are just stepping into this because technology. Has really opened up so many different ways that you can scale your business, but you gotta find the ones that work, goes back to that testing idea, right? So, ~um, ~I think in those moments, it’s not necessarily, like you said, that you have to find,~ um,~ a way to be better. You just have to find a way to be different and then find a place that you can sell that different message.</p>
+              <p><span class="spk">Jonathan:</span> Okay. So ~I’m, ~I’m convinced I’m different. I’m verticalized, I’m better at something. How do I understand? Is there really a market of consumers who want to give to the thing I’m claiming them different at? That’s the thing that I struggle with is I know we’re different in a lot of amazing ways. I don’t know if we’re different in ways that anybody cares about. And so ~how do you, ~how do you start, to play with that ~and, ~and understand like, yeah, you’re different, but like, not in a good way, you’re just different.</p>
+              <p><span class="spk">Javan:</span> I think this market research you can get to, and then again, there’s a lot of this stuff is public knowledge. When you look at what people are searching for, ~you know, ~we have a whole team of people that do some of this kind of search engine optimization work, and the first thing that they do is say, Hey, like, what are people looking for and what’s the volume of those searches? ~Um, and you know, this, that,~ that’s one of many. Channels to getting data, but I think the data is out there. So again, going back to those language models and asking questions,~ um,~ really to understand like what types of stuff are people searching for, ~what type of, ~what types of information do they need in order to get involved with what you’re doing. It’s all out there. ~Um, ~and again, like not ~to, ~to push the businesses too much in the podcast,~ that,~ that, that is something that we do right. Is help people understand this is what you’re saying. ~Even,~ I’ll maybe twisted towards our businesses, right? We can talk about Donate Lee as a fundraising software or as a donation platform ~and, ~and just simple changes in the way that we talk about it totally shifts the algorithms for how people find us in something like a search engine. And it starts to get in different people’s mindsets. I might be talking to a marketing person and now I’m talking to a fundraising person, but they’re all blended in, right? So just little shifts in the way you talk. Can change who’s listening can change, who’s showing up at your content. ~Um, ~and so you have to kind of think of all of that. ~You know, ~I haven’t touched on it yet, but we do push pretty hard on this idea of holistic. So we touched on brand. Brand needs to then, come to life in your web and in your websites and your technology and your tech stack, and then your marketing rhythms. I think you have to look at all of it together and really put together a package where you’re kind of doing all of it. ~Uh, ~otherwise you’re gonna, ~you know, ~have that opportunity to veer off or just talk to a room where nobody’s listening.</p>
+              <p><span class="spk">Amie:</span> So, ~I’m, ~I’m curious, you’ve mentioned like a handful of the different channels and sort of that organizations need to sort of test,~ um,~ and see which one’s gonna work for them. I’m curious, like ~what are you, ~what are you seeing working? Like, what are some of the channels that you feel like are up and coming and ~where, ~where do you recommend people?</p>
+              <p><span class="spk">Javan:</span> ~Um, ~look, I probably couldn’t say there’s ~a, a, ~a winner that’s kind of fitting for everybody. But I would say that there are a handful that people are trying that I think ~are, ~are finding success in. ~Uh, ~I do think what a lot of organizations are recognizing right now is it’s a lot easier to fundraise when you have. ~Uh, ~something in it for the final donor, right? So that’s kind of like that what’s in it for me? Angle that you take from the donor side of things. We’ve seen a lot of,~ um,~ virtual campaigns where you’re giving back, you’re getting products, you’re getting access, you’re getting. Membership kind of behind the scenes. So you have a recurring program or maybe you’re inviting people into a deeper connection to the cause, to the CEO, to ~the, ~the mission. You have opportunities to take people on trips. Like we have to recognize that we’re competing for our donors. Wallets and they’re tighter right now. ~Uh, you know, the, ~the economy and,~ um,~ cost of living, like, there’s so much going on and so we have to recognize where people are at and recognize we have to give them something back. So I think ~those are, ~those are valuable. I think the influencer space, I think we’ve seen that growing over the last three or four years. Just finding individuals who want to build into what they’re doing. Some portion ~of ~of social impact. I think we’ve seen the for-profit world be asked to be more philanthropic. ~Um, ~and from that you then see corporate giving, growing, corporate platforms growing. So your ability to tap into maybe local businesses, business partners to help jump in and like cottell that story, that becomes a good funding mechanism. So we’re seeing that kind of allowing. ~Uh, ~the for-profit world to kind of, ~uh, ~share ~in the, ~in the impact that you’re doing. ~Um, and, ~and I’ll touch on too the idea that trust has shifted,~ uh,~ to corporations. So what we’re seeing in like the Edelman studies is people trust. Corporations now over nonprofits, over,~ uh,~ faith-based organizations. Like, like they’re all kind of taking a hit. We’ve had a lot of press,~ um, you know, ~politically, ~you know, ~defunding, USAID gives people this idea that nonprofits may not be trustworthy and somehow brands have surfaced as like, oh, we trust brands. We trust these big logos that we see on TV and, you know, in the news every day. And so. That’s just where consumers are at. So if you can tie in with ~those, ~those reputable organizations and kind of be their philanthropic arm, we’ve seen a lot of success there. ~Um, ~and then maybe just a simple one is the,~ is the, ~clarity of where the money goes, right? Everything down to the fees and program expenses and the admin expenses. I think donors today, they don’t want it oversimplified. I think they appreciate the clarity. the honesty with where money goes, they know it’s happening. And I think there’s been enough in the news over the last few years around like the need for those costs. And so, ~uh, ~if you’re not gonna run a new program or dive into influencer or corporate partners, just be honest and clear on where the money’s going. I think that’s really helpful for people to just see that and understand what they’re giving to.</p>
+              <p><span class="spk">Amie:</span> ~, Thank,~ thank you for that. I think this is, ~um. ~Giving me like a lot of food for thought and John, some things that we might wanna chat through ~and, ~and think through. Like even with the kangaroo mother care. Like~ what is, ~what is the experience that somebody might want to feel like they were kind of on the inside ~of, ~of that program. ~Um, ~and ~you know, ~literally just last week I got to tour around with one of our partners delivering one of these campaigns and it was like the experience of a lifetime, right? ~Um, ~and not ~that ~that’s something we want to be. Selling, but like, how do you give people ~a, ~a taste of the impact that they’re having because ~it’s, ~it’s incredible. ~Um, ~and that can really converse someone,~ um,~ to be more of an e evangelist. I mean, it has for me at least.</p>
+              <p><span class="spk">Javan:</span> Yeah, yeah. And to be able to package that up so that a gift, a small gift, they can recognize exactly what that is, what that care is for that individual in that location. You feel like you’ve bought something tangible, right? Like I was just ~um. ~Trying to get in the mindset with my kids this week around like, Hey, you guys are all asking for Christmas stuff. Like if I gave you. Some money, like where would you want it to go? And looking through just ~ a, a, ~a little like, marketplace package of like, oh, like you could buy a backpack or you could buy a soccer ball, or you could give supplies that, that resonates at that level. And I think it resonates, ~you know, ~even to adults, right? Like, I wanna understand exactly what this purchase is going to do. And I think you have something really cool there where you’re saying like, this is an individual person getting this care over this much time that we kinda call it a dollar handle. ~Um, ~that helps people feel like they’re getting that kind of tangible object with their investment.</p>
+              <p><span class="spk">Jonathan:</span> Yeah. That’s great. ~Um, that ~that’s what we’re hoping. ~And, ~and one of the, things that I have very,~ um,~ low confidence in. My understanding was just like,~ what,~ what are people thinking in those moments of potentially giving, ~you know, ~like are they Google searching ~you know, ~do they become interested in water and then we’re looking at different ways to contribute to water? I’m sure the answer is like a million different things, right? In terms ~of, ~of how it works. But you mentioned influencers, you mentioned the AI swap we have coming, SEO is gonna change as a result of all this AI stuff. So for people who. don’t wanna say just starting, but like there’s just so much out there. ~You know, it’s, ~even just like web digital management’s its own like massive hard problem and then you add on top of that, like figure out the channel where you can be unique and vertical and this and that. ~Um, uh, how do you, ~how do you do it, ~you know, ~in terms of figuring out where an investor time as a leader who doesn’t know the space well, knows there could be something here. But, ~you know, ~wants to adopt a platform like yours with Don, but there’s so much beyond just the tech piece that you need to wrap your head around. ~Um, you know. ~</p>
+              <p><span class="spk">Javan:</span> Yeah. So, ~uh. I, ~there’s two sides of the house, right? We have our technology platform and then we have agency services. And on the agency service side of things, I think it’s best to just explain how we would solve that problem there. And then whether you use us as an agency or you just recognize this is the journey you should go through,~ um,~ I think it’ll give some insight. So, ~um, ~anytime you’re in a spot like this where you need to strategize. pivot or shift. I think ~it’s, ~it’s smart to take a moment to audit where you’re at and understand what it is you’re trying to accomplish, what your goals are, what your KPIs are gonna be, how much you’re willing to invest,~ uh,~ and really put together a plan. ~Uh, we, ~we have a process called an engagement operating system. For us, it’s really just audit. Look at what it is you find and build out what we call our roadmap, which is the steps you need to be taking to get closer to where it is trying to go, and then the rhythms that it, it takes to get there. So I’ll kind of unpack that a bit. So the audit’s gonna tell you a. Whether the audience is shifting, it’s going to tell you where you are today, where you can rank, where you can’t rank. ~Um, ~from like that kind of SEO perspective, ~, you know, ~what’s your internal team’s capacity? There’s a lot to cover and we have some resources on our site and some ability to, you know, email people if they wanna reach out. But,~ um,~ getting like laser focused on that plan. And what that roadmap does is it tells you, Hey, these are all the projects you need to be working on. And it’s kind of a step-by-step process, right? So you can’t boil the ocean, right? You’re gonna get in there and you’re gonna wanna do that. ~Um, tomorrow, right? Have some money, ~you know, ~rolling in tomorrow from these smaller donors. But it takes some time, right? So the first step might just be getting ~a, ~a digital platform running. Second might be some keyword,~ uh,~ strategy around like, Hey, look, if you want to go after this audience, here’s some keywords you need to be able to rank for, and you have potential for that. You have domain authority in that. So let’s get five to 10 blog posts out the door. Then let’s run a campaign at the end of year. Like you have to start to break it down into. ~You know, ~a larger strategy, a larger plan, and then what can you be doing every quarter? And then once you’re in that quarter, what are you doing monthly? Because a lot of it just then becomes, ~you know, ~driving that car, right? What are you doing on ~as, ~as monthly and even weekly rhythms, right? Are we getting a blog post out a month that’s in that keyword focused area? you know, are we getting enough people to that campaign page? Then hyper-focusing on that landing page, right? Is it converting? Is the form too low? Is it too high? Like, ~You know, um, ~and I would say if you’re not ready to put. Metrics and goals on your leadership around. Succeeding here, then I would be curious if you’re ready to do it right. I think a lot of bigger businesses that say, Hey, look, we’re all about,~ uh,~ giving back. And you go, okay, cool. Where’s your leadership’s goals on it? And they don’t have any. Then nobody’s accountable. Nobody’s actually really moving the needle there. ~You,~ may just want good PR and you’re recognizing people want you to do it, but you’re not measuring it. So set some goals. Go through a process of really recognizing what you’re gonna do, what you’re committed to, how much you wanna raise. ~Uh, ~and then ~I, ~I’ll go back to that. Boil the ocean. That’s the problem we see most organizations making is they come to us and they want everything. Hey, take over, our marketing and oh yeah, our messaging’s not great. Take over the marketing. Our website’s broken. We’ve got 2,500 bucks a month. And you go, okay, you can’t do, that’s not a budget for that. So ruthless prioritization. Build that strategy and then one thing at a time. And if you’re doing the right things, you’ll start to stack and stack and stack. You’ll start to see those results coming in.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. Yeah. I think one of the,~ um,~ things you said, right, we’re at the end on the stacking. We’ve definitely seen that,~ um,~ on the inbound marketing side where we try to, ~you know, ~a million different things. No one thing was a home run, but now you build a bunch of content, you are raking for a bunch of keywords. It’s taking longer to convert than we would like, but that’s then reinforcing, ~you know, ~our enterprise customers. So what we noticed too was even though no one weekly task or monthly task was like, okay,~ that’s,~ that’s the 200% ROI, we were looking for Amy go spend half a million dollars and gimme $2 million in 12 months. But,~ um,~ it all reinforced. And so by having the discipline to try to stack ~and, ~and get better at it, everything kind of became easier, ~you know, ~six months later. But it was so. Annoying to start and be like, we want everything to be better. We want a new website. We wanna write for these keywords, we need these blogs, et cetera. And Amy can empathize with it with wanting to pull the ocean ~when, ~when she came.</p>
+              <p><span class="spk">Amie:</span> No, but I, I do think it’s a good example, John, where work over many years, across many different marketers that came for me, like have paid off such that I think we’ve got a pretty reliable kind of, this is our, on the Comcare side,~ our,~ our inbound engine there. With this individual giving push, my worry is that we’re gonna do this little test that’s like, 20% of one person’s time going towards it and it won’t have results we thought. And then we’ll just, we’ll drop it because I do think this is probably the case where we need to be investing, ~you know, ~systematically over time and, to Gavin’s point. ~Um, ~really coming up with that plan, putting, ~you know, ~the weekly, monthly, quarterly rhythms in place, right? It can’t just be. A one off. ~Um, ~so</p>
+              <p><span class="spk">Jonathan:</span> I think, Well, that’s why I’m asking all these questions. I’m so interested in getting Java’s perspective on because,~ um,~ if it’s going to work, we’d be happy to put the capital against it. But the huge risk, I don’t know, is like what level of risk should we take on? And I’m well aware, ~you know, ~based on literally 20 years of marketing experience that these things take time. You can’t roll the air and you gotta sequence ’em, you gotta take shots on goal that are gonna miss. ~Um, ~and you gotta find the right audience and you definitely have to be different, you know, I think like that’s a huge thing for me is like, is there a story compelling, ~you know, ~like I deeply believe in our story, but like I don’t necessarily know if a random consumer on the internet,~ um, you know, ~it does. And I it’s okay if they don’t. Like, I think that’s the other thing too, is like, it is not the case that everybody’s gonna be able to be successful as an individual fundraising organization. And,~ And, ~how do you think about that? So, Joan,~ if,~ if. Degi or somebody else is coming to you and like, ~you know, ~they, maybe they got more than 2,500 a month, but like, ~not, ~not a substantial budget they can afford to lose, but today’s markets,~ um, how do you, ~how do you think about taking that leap and being like, look, ~you can’t, ~you can’t just do it for one month. You gotta really go for it. ~Um, ~and ~how do you, ~how do you recommend people think about that trade off ~and, ~and whether to go for.</p>
+              <p><span class="spk">Javan:</span> Yeah. Well first off, I appreciate you guys just opening up to the struggles that you guys are having and deciding to do a new venture, because ~that’s, ~that’s really where a lot of organizations are, is trying to just figure this out. ~Um, ~and you touched on something around the idea ~of, ~of taking, you said 20%, which is perfect because, in our heads, when we build out plans, we wanna say, Hey, if you find something that works, operationalize that. And that should be 80% of your budget. But you should be retaining 20% of your budget. To try new things to find that next thing, right? ~And, ~and I would say try to make that a part of your business model or part of your marketing budget permanently, because if this doesn’t work, that’s okay, as long as you’re testing the next thing and the next thing and the next thing. So I think that what you guys are touching on there,~ I,~ I would hope you could move into being something permanent. And it is, it’s always hard. I mean, it’s. The minute your budgets get cut, the first thing you cut is the testing because it’s the stuff that you don’t know is working. And you all pull down into, okay, well we know this is working, so we’re gonna focus over here. It’s just, it’s human nature, right? To not wanna be testing the water ~when you’re, ~when you’re tight. And every organization we’re working with right now is trying to do more with less, right? They’re larger budgets are cut and, they’re trying to figure that out. So, ~um~ I think trying to. Come at it with the idea that you’ve got a little budget that you’re willing,~ and,~ and I don’t even say willing, you have to have, in order to succeed, you have to have that piece of your budget and invest in things because the world is changing around you, right? Like, we can’t stop AI from changing things. I just heard a couple weeks ago,~ uh, uh, ~chat generated content ~or, ~or, ~uh. ~AI generated content has surpassed human content already. So ~if you, ~if you don’t have at least a little budget to recognize how are people doing that? How are they pumping out 10 or 20 blog posts a week with one part-time person and keeping it high quality? At least be asking yourself that and at least be thinking through how are we going to compete in that new space. ~Um, ~it has to be part of that,~ uh,~ regular. Budget. ~Right. ~So I think a lot of people think it’s kind of optional, but I think ~to ~to an organization like yourself, you have to be thinking that it’s, mandatory to just keep up.~Right? ~So I know it’s scary and I know, ~you know, ~like I said earlier, I started by saying, Hey, it’s not easy going one to many. It’s a lot of handholding for a lot of small gifts, right? So I think,~ um,~ spending the time making sure that you can get to that market and making sure you’ve got a little bit of a budget to test that,~ uh,~ once you’ve decided on that and you have enough data behind it, then I think ~there are, ~there are places to go, there are agencies to go to, there are people to hire. There’s a lot of options. But I would start by just making sure it’s the right investment. And then,~ um,~ agencies like ourselves, I think are a great place to start to be able to,~ uh,~ understand ~the, ~the play and where you should be putting your efforts. Jonathan: You mentioned the lack of KPIs at the leadership level. What, like, what would make you say just don’t try, like, based on what you told me, don’t try this right now. ~You know, you, ~you don’t sound ready, you don’t sound committed. ~Um, ~’cause I think a lot of times good agencies, good, like our services part of the business, I’d say we’ve created more value in the world by turning people down and convince them not to do the project, as much as we’ve, ~you know, ~helped because. You can’t just throw money at this problem, like, ~you know, ~need to, or maybe you can, I don’t know. But like, typically you can’t just throw money at the problem. You have to decide is it really a priority? And so, ~um, from your, ~from your mindset, like ~what, ~what do you see where you’re like, Nope. Like, you guys should not try it this year. You should focus on what you’re doing. And,~ And, ~if AB and sea True. Come back.</p>
+              <p><span class="spk">Javan:</span> Yeah. It’s pushing, ~you know, ~I think usually organizations have come to us with the decision to do it. I think ~that’s, ~that’s kind of a business strategy that comes before ~our, ~our work. But maybe I could speak to like when it works and when it doesn’t. ~Right. ~And we’ve seen that ~we, ~we worked with for-profit organizations launching, ~uh. Uh, ~social impact campaigns. We’ve worked with nonprofits trying to sort out entire fundraising ecosystems and partnerships, ~you know, ~partnering,~ um,~ with organizations like Salesforce to build out better technology,~ uh,~ for nonprofits or for-profit companies. Qualcomms and Sony’s of the world. to, ~uh. ~to. Build the right mission into the work that they’re doing and kind of put that out there. ~And, ~and the reason I said is there a KPI is because sometimes you’re jumping in ~uh. ~For the wrong reasons. And I think you need to make sure that you’ve set a goal that’s intentional, either to actually make an impact or to find a new revenue stream that’s gonna be $200,000 or a million dollars. ~Um, ~and stick to that, right? So if I were to go back to. The gamut of, ~you know, ~for-profit to non-profit and when they succeed,~ um,~ I would say you have to be committed to it. You have to be committed to living it out. And I think that’s why I want that metric at that leadership level is if you don’t have buy-in,~ uh,~ it’s gonna quickly come and go.~Right? ~So a metric that’s saying, Hey, over the next two years, right? You look at the,~ uh,~ maybe a good example is like either the ESG scores ~for ~for profit organizations or. This idea of corporate social responsibility, you set those goals and you say, Hey, we wanna have this engagement,~ uh,~ give back with our employees, or we wanna raise this much money. They have big budgets, so it’s a little bit easier for some of those large organizations to say that we wanna give back X amount. There’s a lot of great, ~you know, ~banks that give back to the United Ways and things like that, and they can say, Hey, we wanna see this much money invested back in the community. I think maybe think of that, but maybe a little bit smaller, right? What is our organization’s goal? How many people do we want to impact? How much do we wanna raise either for our community or for whatever? And then. ~Um, ~ensure that that’s tracked,~ um,~ all the way to the top right. ~Um, ~and that’s, always done and you got the nonprofit level. But if you’re in that social enterprise space where you maybe are doing a little bit of both, that’s where you see it. ~Uh, ~you don’t wanna let the greenwashing happen. You wanna make sure there’s metrics that are going all the way to the top for those organizations to make sure that that’s happening. So, ~uh, ~trying to sum that up, I think you have to make sure that you ~are, ~are setting goals for yourself, that you are prepared to put in the effort. To go after that new market. ~Um, ~and then the rhythms,~ right,~ that you do it over time. Give yourself a runway that you can actually,~ uh,~ find those results versus, hey, like, you know, the expectations, we’re gonna see this next month. Awesome.</p>
+              <p><span class="spk">Amie:</span> I think that means Don, we should go for it. That’s the answer I’m hearing. ~Um, ~so you, you mentioned Javin a little bit about. Ai, you were talking about slop coming out. Also AI enabling orgs to be able to put out like, ~you know, ~10 posts with a part-time person each month. ~Um, ~I’m curious to hear like, where do you see AI creating real value in a nonprofits fundraising strategy? ~Um, ~and like, ~what are you, ~what are you looking out for in the next year or two?</p>
+              <p><span class="spk">Javan:</span> Yeah, I mean, for today, I think the way I’m seeing organizations use it, like ~there’s, ~there’s a lot of cutting edge stuff, a lot of bleeding edge stuff. And I think nonprofits, I always typically say like the best place they could be is cutting edge. Like, don’t go too far into the gambles. ~Um, ~I think what I’m seeing it do ~is, ~is a lot of. Speeding up of production work, being able to get a lot of ideation and iteration out there. ~Uh, ~but I will warn people that you have to be still doing the due diligence and the work to make sure that what’s being created is the right value, right? You could create. Seven different versions of an email. You can, ~you know, ~help it build the automations. You can tell it, Hey, this is what I want. I want a five email series. Gimme some ideas. And again, the better you are at chat prompting, the better you can get that content back. Ensure that it knows your brand and your brand values and ~it, ~it’s a great tool to just be to just. I catch myself just talking, communicating, putting prompts in and getting back, just ideas and then taking that over or giving it ideas, right? It has to be your thought. Tell it to write the blog post. Say, Hey, ~this is, ~this is the way we’re thinking and what we’re doing. I wanna write this. How should I structure it? ~You know, Uh, ~it can create a lot of garbage, but it can also create a lot of really valuable content if you use it well. So I see that being really valuable. I see it being really valuable at analyzing data. Donate. Lee has tons of donor data ~at the, uh,~ At the client level to be able to ask, Hey, what is changing? What are our donors doing? ~, You know, ~what is the platform doing? Are we seeing larger gifts, smaller gifts? So it’s ability to analyze data. ~Uh, ~I think today is fantastic ~and, ~and where you put it, be careful where you put that data, but the insights that you can get from it,~ uh, ~really, really powerful. I mean, where it’s going. ~Um, ~I just see it doing more and more of that, more and more of the storytelling. I think there’s almost, we’re getting to an ethical. A dilemma here with like, how much do we let it tell our story? Because it could easily fake it, right? If you have a story you want to tell, we can make a photo of that person, we can animate that, we can make it feel so real. ~Um, ~and we’re doing it for good. So I don’t know that I I haven’t decided where those boundaries are ~for, ~for me personally. ~And it’s, ~and it’s interesting to have those conversations with clients ’cause you have. We work with organizations that are journalism centric, right? ~Um, ~and ~they’re, ~they’re a hard no, right? Like, these are real stories. We do not use AI at all. But then you have the small, ~you know, ~nonprofit organizations that are like, Hey, we did this. It’s just we didn’t have a camera crew to film it. So how can we make this in a world of visuals, make this come to life? And it’s like, well, these tools ~are, ~are now available. We can make video content that emulates exactly what happened. ~Um. ~And we’ve never had problems with reenactments and documentaries, ~you know, ~doing, ~you know, um, the, visualizations of those stories after the fact. And I think that, ~you know, ~we’re gonna see more and more of that, that every organization can really build an emotional connection. We have to decide,~ um, how, ~how honest we want to be with utilizing AI for that. ~Um, ~what else is AI doing?</p>
+              <p><span class="spk">Jonathan:</span> I’m curious,~ um,~ you just mentioned that shift into, ~you know, ~such a visual world now, whereas maybe 10 years ago blogs ~and, ~and written text had a lot more,~ um,~ strength. I’m curious, like, have you seen channels start to decay way faster than anybody had thought? Have you seen new channels pick up? ~Um, ~I often wonder, like, does anybody read anything anymore? ~Um, you know, like what, what, ~what is putting out a good blog a good blog article worth versus a good video? And like, how are you just seeing the, I mean, the landscape just wants to be shifting like crazy for your customers in terms of what’s working, what’s not working, and</p>
+              <p><span class="spk">Javan:</span> Yeah. I mean, video content ~Uh, ~is dominating. ~Uh, ~you still do get value. I mean, long form content. There are still, ~you know, ~articles and everything else ~that are, ~that are really creating a lot of value, a lot of lead generation, a lot of conversion. ~Um, ~but you create that article, you also have to turn that thing into 10 to 20 different social posts and yes, building videos into that, whether it’s a little segment that you want somebody to speak to it, Short form. It’s a lot of work. ~Uh, ~AI is making it easier, but taking that and getting it out there, you have to be part of the conversations and part of the conversations in more and more places. What I do think ~is, ~is, I don’t wanna say it’s dying, but ~it’s, ~it’s for the same value. There’s also this idea that it’s creating,~ um,~ noise. I think a lot of the tools out there are figuring out how to stop that noise. So you start using it to make content, and that content is not additive. You’re getting flagged for that. ~Right? ~So I think that world of like, oh, we’re just gonna pump out a bunch of blog content, like that’s actually hurting a lot of people because it’s starting to, it make your domain talk about too many different things. You’re no longer an expert. Like, we’re even looking at some of the stuff for our agency today, and we use some language on our homepage. We,~ I, I, I, ~I’m trying to balance out the like, tech and the like. The style, I wanted use the term musings, right? I wanted to use, it’s like, Hey, this is stuff we’re thinking about. And then all ~the, ~the bots look at you go, no, no, no., Now you’re being flagged as like not technical enough, not a, ~not ~data driven. Like there’s just so many ways that we have to be cautious of how those tools are being,~ uh,~ utilized. So again, I think we gotta watch how. Content creation and how we use these tools to put content out there. ~Um, ~I think a lot of people pump the brakes there ’cause they’re just realizing it’s not doing what we thought it’s gonna do. But ~ um, uh,~ AI’s helping put a lot of content out there. I’d say the social channels, the video stuff, video’s been big. I would definitely push into figuring out how you can just, even conversations like this, be open. Be honest. People need to know that there are individuals behind the organization. ~Uh, ~try to balance that out, balance the functionality, the AI with ~the, ~the human-centric side of things, video, be my lean in there.</p>
+              <p><span class="spk">Amie:</span> ~Um, ~awesome. Well, Javin, I’m mindful of time here and we’re just ~at, ~at the top of the hour. If you had to leave ~our, ~our audience with one action that you’d hope they might take as a result of this conversation,~ uh,~ what would that be? ~ can, ~</p>
+              <p><span class="spk">Javan:</span> Yeah. ~Um, ~maybe I would,~ I would, ~throw the idea. ~Uh, I, ~I’ll think it maybe two. One is this term we use a lot because it seems so common when we talk to people ~is, ~is random acts of marketing. ~Uh, ~and ~to, to, ~to try to avoid that. I think ~it’s, ~it’s kind of an epidemic. Because we see all these shiny toys and shiny tools, and so we’re jumping on a data tool, and then we’re finding this thing that, quadruples ~our, ~our, ~you know, ~social posts. And then, like I said earlier, we got this tool writing a bunch of blog content. ~We’re, we’re, ~we’re spreading ourselves out too far. We’re doing everything 75%. ~Um. ~I think it’s important for people to go back, take a hot second, and really figure out what it is you are doing to put your message out there and make sure that it’s working. ~Uh, ~and to get a system in place that can tell you whether it’s working or not. And on the data side of things, I would push people to make,~ uh,~ a successful, what we call a composable tech stack. ~Uh, ~something that is. The technology is out there now where you don’t have to have this big, giant, expensive, all-in-one technology platform. I would encourage people to find the tools that work for them. Tools like donate, leak and help you glue the data together so the data can move around and don’t pay for a bunch of technologies that are doing the same things. I see a lot of the CRMs in the nonprofit space that are trying to be everything to everybody. And they’re not, and we’re still integrating to Salesforce or to HubSpot or to this larger tools. ~Uh, ~just be aware that I don’t think you need as many of those tools as you may have today, and to consider building a system that’s easier to plug and play smaller things to get things done.</p>
+              <p><span class="spk">Amie:</span> Awesome. Thank you so much, Devin. We really, really appreciate your time and your expertise on this show.</p>
+              <p><span class="spk">Jonathan:</span> We’ll definitely be in touch on the agency side. I have a bunch of questions.</p>
+              <p><span class="spk">Javan:</span> All right. Let’s keep the conversation going. Thanks so much for having me.</p>
+              <p><span class="spk">Jonathan:</span> Thanks.</p>
+              <p><span class="spk">Amie:</span> A huge thanks to Javin Van Grogan for joining us and sharing his wisdom on navigating the complex world of digital fundraising. I loved his honesty about the work required to shift from one to one major donors to a broad consumer base. Here are a couple key takeaways from our conversation. First, clarity is critical. You have to articulate the problem and invite the donor into the story. If they don’t know exactly where their money is going down to the dollar handle, they won’t give. Second, embrace the test and learn mindset. Javin suggests aiming for an 80 20 split. Operationalize what works, but keep 20% of your budget for testing new channels so you don’t get left behind. Finally, stop committing random acts of marketing. Success isn’t about chasing every shiny new tool or channel. It’s about building a tech stack that fits your needs, setting clear leadership KPIs, and sticking to consistent rhythms in your outreach. That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. Write to us@podcastatdgi.com with any ideas, comments, or feedback. This show is executive produced by myself, Ana Baar and Michelle Lencia are our editors. Natalia Gki is our producer, and cover art is by Sudan Shant.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">JG</div>
+            <div class="person-info">
+              <p class="person-name">Javan Van Gronigen</p>
+              <p class="person-role">Founder of Donate.ly, with more than a decade in digital fundraising and nonprofit storytelling.</p>
+              <span class="person-org">Donate.ly</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/21rz7VigCwuVsNVZO4lDYi" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

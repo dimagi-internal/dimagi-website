@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 4: Prioritizing Platforms Over Projects with Danny Roberts (Exponential Growth Part 1) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Danny Roberts and Jonathan Jackson on why Dimagi prioritizes platforms over projects, turning project-based funding into a global good like CommCare.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep4-prioritizing-platforms-over-projects/">
+<meta property="og:title" content="Ep 4: Prioritizing Platforms Over Projects with Danny Roberts (Exponential Growth Part 1)">
+<meta property="og:description" content="Danny Roberts and Jonathan Jackson on prioritizing platforms over projects to sustain exponential impact.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>June 6, 2022</span>
+          <span class="dot"></span>
+          <span>29 min</span>
+        </div>
+        <h1 class="ep-title">Prioritizing Platforms Over Projects with Danny Roberts (Exponential Growth Part 1)</h1>
+        <p class="ep-deck">Dimagi&#x27;s Director of Engineering Danny Roberts joins Jonathan Jackson to unpack Strategic Priority #2, sustaining exponential growth by prioritizing platforms over projects, so impact can scale without scaling Dimagi&#x27;s headcount.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2Vm5h2s3k0YAuW2aX124P3?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 4 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2Vm5h2s3k0YAuW2aX124P3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000565522441" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/tDk-xi236uM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/ee154a70-adbe-43f2-868c-05c346f581ad/high-impact-growth-prioritizing-platforms-over-projects-with-danny-roberts-exponential-growth-part-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">100,000+</div>
+          <div class="ep-stat-label">active CommCare users in 2021</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10 million</div>
+          <div class="ep-stat-label">frontline workers Dimagi is ultimately trying to support</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">500,000</div>
+          <div class="ep-stat-label">active users Dimagi aims to reach in the next five years</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Dimagi recently published its five-year strategy for high-impact growth. In this episode, the first in a series on Strategic Priority #2, Sustain Exponential Growth, Jonathan Jackson is joined by Dimagi&#x27;s Director of Engineering, Danny Roberts, to unpack a defining ethos: Dimagi prioritizes platforms over projects.</p>
+        <p>Amie Vaccaro frames why exponential here means exponential impact and not revenue. With CommCare already the largest frontline worker platform at just over 100,000 active users, but 10 million frontline workers still to reach, linear growth will not get there. The answer is setting partners up to scale on their own without needing Dimagi staff, and treating a frontline workforce as a delivery platform rather than a set of one-off, disease-specific projects.</p>
+        <p>Danny shares his 11-year journey from joining a small consultancy to helping build CommCare into a recognizable product, and explains how Dimagi&#x27;s best features have come from individual projects that pushed the platform to its limits. The team accepts that most funding in global development is project based, then designs its approach to turn that funding into open-source global goods every partner can build on.</p>
+
+        <blockquote>
+          <p>&ldquo;All of our best features and kind of most innovative changes to CommCare over the last 10 years, have all come from working on individual projects and realizing that even if we stretched the existing functionality of the platform to its limit, it just wasn&#x27;t going to be able to do it.&rdquo;</p>
+          <cite>Danny Roberts</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Impact, not revenue</strong>: why exponential growth for Dimagi means reaching far more frontline workers, not growing the top line</li>
+          <li><strong>The platform analogy</strong>: organizations buy paper rather than run their own paper mill, and CommCare aims to be that always-available blank canvas</li>
+          <li><strong>Setting partners free</strong>: designing projects so they can scale from 1,000 to 10,000 users without Dimagi staff or extra headcount</li>
+          <li><strong>Custom versus product</strong>: the recurring trade-off between building one project's feature and investing 10x to make it useful for everyone</li>
+          <li><strong>From custom reports to a mature ecosystem</strong>: how data extraction and integration tools ended the cycle of writing one-off reports</li>
+          <li><strong>Open source as strategy</strong>: accepting that most funding in the field is project based, then turning it into global goods every partner benefits from</li>
+          <li><strong>Platforms for health systems</strong>: treating the frontline workforce as a delivery platform across HIV, TB, and maternal and child health, not siloed projects</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome back to High Impact Growth. I’m Amie Vaccaro, a co-host of this podcast. And today we are kicking off a series of episodes digging into Dimagi five-year strategy for high impact growth. So if you’re following Dimagi really closely, you may have noticed that we released our five-year strategy on the Dimagi blog.</p>
+              <p>Early may of 2022. The blog links to a 15 page strategy document. That is the result of a lot of work from Dimagi leadership. And across Dimagi’s divisions, looking at where we want to go. It’s an extensive document and it reflects many hard learned lessons from the past 20 years. But personally I learn best through stories and spoken content. So I wanted to unpack these strategies with some of the key figures from across Dimagi.</p>
+              <p>First here’s a quick snapshot of Dimagi is three strategic priorities for the next five years. One improve jobs to improve outcomes. Two. Sustain exponential growth and three. Exceed market expectations today we’re going to start in the middle with strategic priority to sustain exponential growth and in particular, we’re going to understand. An ethos that I think sets us apart from many of the technology players in global development. Which is that we prioritize platforms over projects.</p>
+              <p>In this episode, you’ll hear us reference CommCare Dimagi is flagship offering. It’s a customizable digital platform for frontline work anywhere in the world. We offer CommCare on a software as a service model to nonprofits and governments. And the way that we’ve approached building CommCare really embodies this focus on platforms over projects.</p>
+              <p>I’ll also mention that Dimagi has a sizeable and incredibly talented professional services team called our solutions delivery team. Which we’ll implement CommCare as well as other digital platforms. For partners on specific projects all over the world. You’ll hear these projects referenced as well in this episode.</p>
+              <p>So I started the exploration of this strategy with Jonathan Jackson.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What does exponential growth mean to you? And when I hear exponential growth, I think of revenue and that’s actually not what we mean here. So share a bit about your thinking in these words.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. So I think if we look at all the success we’ve had over the last 20 years, and we are the largest frontline worker platform, we’re just over a hundred thousand active users in 2021. And while we’re incredibly proud of that, 10 million frontline workers out there that we’re trying to support. And so we have a long way to go and we’re up for, making this a focus for the next 20 years, but linear growth just isn’t going to get us there.</p>
+              <p>And so when we came up with this, it was really a focus on thinking about what is going to work to have gotten us here for the last 20 years was great, but we need to potentially be thinking about new pathways to get us there tomorrow. That’s going to maintain that exponential growth rate. And as you said, that’s exponential impact, not exponential revenue is what we’re looking for.</p>
+              <p>And the reason why it’s So important to make sure we’re still on that path is again, we’re trying to reach a lot of users improve their jobs and improve the outcomes. And we’re only going to do that if we think we have models and pathways to growing exponentially, because I just don’t think there’s a path to get there going linearly.</p>
+              <p><span class="spk">Amie Vaccaro:</span> How are you thinking about achieving exponential growth? Both on the side of. Sassy users of CommCare, but also thinking about some of these major projects that we’re involved in implementing, how do we ensure those are sustainable? Long-term.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, we spent a lot of time thinking about our business model and sustainability for Dimagi, but increasingly also at the project level in order to achieve that exponential growth, we need it to be the case that we’re setting our partners and projects up for success without. Needing Dimagi staff or even wanting Dimagi staff.</p>
+              <p>Because we’re not planning to grow our head count exponentially. We’re 250 people now and , we will continue to grow into the future years, but we’re not expecting or projecting to grow exponentially. So each hour we spend supporting our projects and clients needs to turn into eventually.</p>
+              <p>Zero for that particular project so they can scale and grow the impact on their own, both in terms of user account. And in terms of making that solution more impactful over time. I think lots of projects have various states. Sometimes we do stay engaged in the project indefinitely, but other times they’re either starting on their own without us in a SAS environment or they’re building with us.</p>
+              <p>But then taking over the solution. And I think those are both great outcomes. And that’s, what’s gonna allow us to grow exponentially. And that’s also why we’re growing our ecosystem quite heavily in terms of partners who can implement CommCare that are not just our organization to continue , that growth to the best extent that we can.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Is there a, a project or a partner that you could speak to. That’s been able to either we worked with them really closely early on, and now they’re sort of scaling on their own or where we’re seeing this, this work because of. This is like the crux of it, right?</p>
+              <p>It’s, it’s easy for us to, work with the partners, scale something together, but then once you walk away, seeing that it continues to grow is really</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And I think it’s interesting. It’s not often, this question is posed as in, you know, does the team have the skill or the resources and things and. We’ve gotten to work with amazingly talented people. It’s like, that’s not the issue. It’s a question of whether the project is going to still be prioritized and whether they’re going to still be wanting to invest the effort into the project and whether that project is going to grow and bring more users on or have more impact.</p>
+              <p>Again, the issue with us having a fixed head count. Well, the government also the fixed. And so to our implementing partners. And so does public health departments in the U S and so they also need to go from 1000 users to 10,000 users without needing more than two people.</p>
+              <p>Because all of those organizations are also not trying to grow their head count exponentially. And so I think for a lot of those projects, we try to do as good of a job as we can setting up, you know, how are you going to sustain that project? How are you going to take advantage of the fact that CommCare is a low-code application platform that you can continue to improve and modify over time?</p>
+              <p>And it’s a, it can be a challenge because that requires capacity building on our plan. And that is often trading off with speed of the project. So a lot of our projects that we start on you know, there’s a lot of excitement and we want to get moving as fast as we can. And that’s great. But we also tried to concurrently make sure.</p>
+              <p>Aligning interest with the partner, understanding when do they want to build capacity on what timeframe? And we have a whole delivery methodology that helps support this process. So we typically are building hand-in-hand with the client and the partner, and then training them to be able to take over the solution at the rate they want some partners don’t want us to exit and do want us to stay indefinitely, but a lot of partners do want to be trained up and understand how to maintain and manage the solution on their own.</p>
+              <p><span class="spk">Amie Vaccaro:</span> One of the things that I’ve really admired about Dimagi and CommCare is that CommCare came from project funding, but building a platform through all that project funding. So it’s, it’s cool to see this articulated explicitly in this strategy.</p>
+              <p>What do you see as key for this strategy in the next five years?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think the biggest key is we have to get people bought in that they want to make those trade. And so one of the most difficult things early on when we were building CommCare as an open source platform was convincing each individual project that it was in their interest to fund their pet feature into the open source.</p>
+              <p>Because they were getting the benefit of everybody else who had agreed to that before them. And it’s not just about software sharing, but open-sourcing content or open-sourcing training materials or best practices or data use or supervision approaches, and convincing our partners that by contributing these assets and supporting what their knowledge base that they’re contributing to The community, they’re in fact getting much more out.</p>
+              <p>As well, and I think that’s how you create that really positive community aspect of how you move everybody together. And I think that’s what we have to keep making the case for and keep demonstrating that value. Otherwise, why would you listen to our argument, right? That you should want to prioritize platforms, not just software platforms, but all of these different delivery platforms over the specific interests of any given project.</p>
+              <p>And we also need to get better at articulating this. Isn’t just true. This is also something that health systems need to do in general is prioritize health system delivery platforms over specific projects. So we think about our frontline workforce as a platform for delivery, you may be deploying an HIV intervention or TB intervention or maternal and child health intervention through that frontline workforce, but they need to be thought of as a platform and optimized as a delivery platform of these health system interventions.</p>
+              <p>And so it doesn’t just apply to how we want to think about it. We also think this is how health systems should be thinking about their problems as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> This is a really important point and I want to take a moment to underscore it. As a side note, I’m relatively new to global health and development. So I’m learning as I go here. And from what I’m learning, it’s really common for funders to fund a specific program associated with one disease, vertical like HIV, for example.</p>
+              <p>And if an HIV program is funded, health workers are often hired for that individual project or campaign. Rather than investing in them as a network of frontline health professionals that can outlive every project and can be tapped into for any new intervention. Imagine the potential of a health workforce that’s supported at the quote unquote platform level so that they can support all the various programs.</p>
+              <p>You’ll hear a lot more from us about supporting health workers as it ties into our first strategic priority, improve jobs to improve outcomes. In any case this platform approach is similar to how we think about CommCare. We don’t want to build a feature into CommCare that’s particular to one and only one project we want to build functionality that goes into our open source code base and can support every single frontline worker using CommCare across many many projects and programs</p>
+              <p>Okay. So that was a pretty good intro. But I was still really craving to know a bit more about what does this actually look like in practice? So i brought in danny roberts who is dimagi he’s director of engineering for our software as a service team</p>
+              <p>So before Danny, we jump into a bunch of questions about our strategies. I want to hear a little bit about your story. So you joined Dimagi 11 years ago, which is amazing. , what made you join.</p>
+              <p><span class="spk">Danny Roberts:</span> When I was first looking for a job out of college I didn’t really know what I was looking for exactly, but I had some vague ideas, you know, I wanted it to be something meaningful. I didn’t really know what one could do in the world with an engineering degree in computer science.</p>
+              <p>what I was seeing was my peers were kind of going in. Finance and consulting where like by far the two big things. Right. And then there was sort of big tech, you know people talking about, oh, who got an internship at Google or Facebook or something like that. And I, I kinda looked at those things and they’re, they’re great jobs.</p>
+              <p>Company is doing a kind of really interesting technical things, but it wasn’t really speaking to me as a, as a career. Right. , I was kind of floating, right. I, I didn’t really know what I was going to do. And I was looking at various various emails you know listservs of kind of job, job postings.</p>
+              <p>People are sending out. And I got one that I think was from probably Jon wrote about Dimagi and it was. Half a paragraph long, it was super short. But it was just sort of basically like, come code with us and do great things in the world.</p>
+              <p>And I was like, okay, I’ll try this out. So yeah, I showed up for a few interviews. It was a really small team at the time. Maybe 10 people or something. And I talked to a few of the engineers, got through the interviews, got the offer. And I didn’t really think twice. I was just like, okay, this sounds way better than anything else I’ve heard.</p>
+              <p>So let’s, let’s jump into this maybe for a year or two. See how it goes.</p>
+              <p><span class="spk">Amie Vaccaro:</span> awesome. And what’s kept you here? 11 years later.</p>
+              <p><span class="spk">Danny Roberts:</span> Well, yeah, I mean, at no point did we continue to be the company that we were. The year before a couple of years before. Right. So, you know, when I joined, it was already a time of rapid change, right? We were, sort of in this like inflection point between being a like a software consultancy where we did sort of project by project to being a product company. Just sort of in the infancy of that. The name CommCare existed, the mobile side of that had already been built out to some extent, there was a long way to go. It was sort of at the stage of being like, oh, we’ve done a few things, few different projects that had some things in common and we’ve consolidated some of that code.</p>
+              <p>So it’s reusable and the journey was to get from there to, , a product that somebody could recognize. And go online and use, and that was a long journey. And so every year it was really quite different. Every time I think, oh, maybe I’m kinda reaching the limit of what I want to do here.</p>
+              <p>There’s just, there’s a new challenge and it sort of feels like we’re in a different era.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that story, Danny. Thank you. So, as you know, today, we’re talking about our exponential growth strategy. And one of the considerations, which is that we will prioritize. Platforms over projects. What does this mean to you in your role as director of engineering</p>
+              <p><span class="spk">Danny Roberts:</span> Yeah. So like at a really high level when somebody uses CommCare and they’re kind of program makes it into the news, let’s say it’s a really big deal. It makes it into the, the local paper for the country or, or international news or something like that. Often the word CommCare or Dimagi or whatever, it doesn’t even show up in the article.</p>
+              <p>Right. So, we’re not , the main story for any of the projects that we . Work on you know, whether it’s small enough that you might call it a project or, or like large enough that you might call it a national scale program or something like that. And that by itself that the program administration and the project administration is an enormous amount of work.</p>
+              <p>A lot of which has nothing to do with tech. And even the parts that do have to do with tech, they’re really very detailed about like what questions are going to be asked in this part of the. Right. And, the team that I work on is really quite removed from that. What we’re doing is saying we want every project team is trying to do something new and creative or take an existing approach and scale it up massively.</p>
+              <p>We want them to have the best possible tools to do that. . So, an analogy I like to think of is back when everyone was using paper, You never really expected. When you’re starting a new project to test out an intervention, you wouldn’t expect that organization to also run its own paper mill</p>
+              <p>. They would buy paper and print out the forms on them. Maybe they wouldn’t even come up with the interventions. Maybe they’re. CDC or governmental body that’s coming up with what the procedure should be, and what they’re doing is really focusing on the implementation. And so, now that paper, isn’t the thing that people need, but rather sort of tools that emulate in a, in a much better way , what we used to do with paper.</p>
+              <p>Like we want to be that that provider that provides the blank canvas that people can write on. And as stable as highly available as, , paper is, which is, is always there.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. I remember we would email everybody in the company with what we learned interacting with users. And, and Danny wrote this email that was saying, Hey everybody, you know, this is a super cool project, but the organization couldn’t have done this without.</p>
+              <p>And then it kind of bolds it and repeats the sentence. He’s like the organization couldn’t have done this without me. That’s terrible. You know, we need to be able to provide a better experience, but our tools and this was very early on in CommCare. You know, when we were really bootstrapping in the platform, but Daniel has kind of brought that ethos to the table of like the way we’re going to get huge impact here is really unlocking the full potential.</p>
+              <p>Of what digital can do, what the applications can do to our clients and customers and I think that’s something that we’re really shooting for when we talk about exponential growth and, is making sure each individual project can do what it needs to do, because we’re really focused on making a highly scalable, highly configurable experience for them.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Danny or Jon, I’m curious, is there an example that comes to mind of how this has played out? Like any specific story of when we’ve really prioritized that platform mentality?</p>
+              <p><span class="spk">Jonathan Jackson:</span> well, I’ll give it an experience when we didn’t and then Danny can, can talk about how we do it. I think a lot of the times we hear a requirement from a customer. Uh, New reports or new way the mobile app could be used. And in our heads we’re like, oh, that’s kind of general. Everybody should want that.</p>
+              <p>Let’s go in and build that generically. And then you get into the details and timelines get shorter and you know, more urgent. And so by the time we’re done, we build it just for that one. And we’re having excited to do that because that’s really what the impact happens is as Danny mentioned, like at the front lines, but it isn’t scalable.</p>
+              <p>And so then we try to go back and make that more generic and retrofit it into something that can be used by way more customers. And our engineering division has been exceptionally good at this over the years, but as we continue to grow and as Danny mentioned, we’re not the same. You know that we were last year we’ve really changed our discipline over time and thinking about the best way to balance great ideas coming up from what our customers are trying to do with the platform and how to make sure that scales across now hundreds of thousands of users and tens of millions of form submissions.</p>
+              <p>And our thinking has really evolved on this since the early days</p>
+              <p><span class="spk">Danny Roberts:</span> yeah, and that’s exactly right. And we often think of working on a project as sort of a liability, something we don’t want to be doing because It takes a lot of time and resources away from working on the thing that thousands of customers could use. But the flip side is true too, right?</p>
+              <p>So all of our, our best features and kind of most innovative changes to CommCare over the last 10 years, have all come from working on individual projects and realizing that even if we stretched the existing functionality of the platform to its limit, it just, wasn’t going to be able to do it. .</p>
+              <p>And so. In each of those cases, we see you, we had all of these trade-offs do we just implement it for this one project? Or do we take a longer view and do maybe 10 times as much work and get this to something that now, a hundred different people could kind of do their own thing with and come up with solutions that they can build on top of this that we would never even dream of.</p>
+              <p>And that’s always sort of the. The thing that we have in the back of our minds, when we’re saying, you know what, like right now the most important thing is that we somehow stretch the platform’s capabilities to meet the immediate requirements. But can we do that where we are actually stretching the platform and not just building a stop gap between what the platform can do and what we need.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What does it feel like as an engineer to, to be thinking in this way?</p>
+              <p><span class="spk">Danny Roberts:</span> Yeah. So, you know, over the years, this has changed a lot. There used to be things that we would just accept. We’re going to do on a project by project basis. Like a really persistent example of that was. expected that you know, we’re going to try to make everything as generic as possible in terms of the app building and all of that.</p>
+              <p>But at the end of the day, people wanted to see the data and our, our data reporting tools just weren’t there. And so engineers and subcontractors and our project management time, a lot of it went into writing custom reports that kind of showed up in our product.</p>
+              <p>For every individual customer who wanted it. And we didn’t really have a great answer for that for a long time. . We’d say, well, we don’t, we don’t want to do this, but people need it. So if we can’t push back on it and say, why don’t you just export your data and use Excel to create graphs?</p>
+              <p>If none of those things work, then we just had to fall back on. Okay. In order to get this project, we’re going to spend a bunch of time writing custom reports for you. And, and a number of things over the last five years have really changed that specific one our internal reporting tools and our data extraction tools.</p>
+              <p>And that whole ecosystem has, has gotten a lot more mature since then to the point where I can’t remember a single example in the last five years, let’s say where we were backed into a corner of how having to write customer for reports for people. So, so that’s like a really clear example of a long cycle we were in where we couldn’t get out of it.</p>
+              <p>We’re finally, we, we did take that engineering time to invest in it and it has really paid off. .</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really cool Denny. And I think where. The learning from our customers from specific project needs, applying that , to scale them to all of our customers. And it’s interesting, cause this is, how many product companies work.. But it’s very unusual for the field that we’re in.</p>
+              <p>Right. Which is international development where we’re getting contracted for the specific project.. So I think it’s just been this incredible discipline that Dimagi has had to push ourselves to think like a product company, even though we’re getting paid like a. Tech vendor on a contract basis.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And I’d say, this is part of why. We are so proud of our open source approach is I think one of the unique things we bring to the market, and one of the things that’s critical to achieving exponential growth is the recognition that most of the funding in this industry is project based. And we don’t think it’s likely to be changeable.</p>
+              <p>And so we’ve designed our approach to accept that reality and then create global goods. Even with that being true. And I think that’s something that’s amazing about how our engineering team thinks about the world and being able to take these project by project funding or features and create this amazing platform that creates this value.</p>
+              <p>And then we’ve been fortunate that as the business has grown, we’ve been able to under Denny’s leadership and other. Um, Really turn some elements of that global good into full cost centers that we just, you know, can afford to pay for it. And definitely and that’s been a step change and the productivity and the mindset that we can bring to the table in terms of further unlocking that exponential growth with our tech investments.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What are some of the benefits you see of this approach? And maybe also, are there any challenges that you see?</p>
+              <p><span class="spk">Danny Roberts:</span> Yeah, I mean, so I think for benefits, it really it depends on who you’re talking to. . There are benefits for Dimagi and their benefits for our customers. The benefits for our customers. I think unequivocally, I would say it’s it’s, at least 10 times cheaper. Then trying to get the same quality from, building on top of other existing tools that aren’t, aren’t specialized for this.</p>
+              <p>And for us it’s it’s yeah. It’s, I mean, being able to have that reach where we know that we’ve built something that’s so generally useful that people can build things on top of it that we may never have even thought of.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And I’d say one of the drawbacks that Daniel alluded to is every individual project feature requests that comes up is valid. You know, so like they they’re asking for it because they really want it, whether that’s a custom report or a custom feature. And part of who we are as a company is really wanting to meet that need, because presumably we, we did the project with them in the first place, because we were optimistic that their intervention was going to have a big impact</p>
+              <p>and so obviously this is the classic trade between custom versus product, but it is still unfortunate sometimes when we’re like, yeah, that is a really great idea and we can’t help you do it. In the platform. But one of the really cool things that we’ve spent a lot of time on over the years is making sure you can get data in and out of our system.</p>
+              <p>So even if CommCare doesn’t do it, maybe another piece of software can. And so you can still solve your problem even if we’re not necessarily at the entire solution for a given use case.</p>
+              <p><span class="spk">Danny Roberts:</span> Yeah, I want to extend that. A bit that that’s been a huge focus in the last few years, I would say is going from that, you know anything custom has to be built into the tool as sort of separate custom code in the same code base to taking it one step further to say.</p>
+              <p>Our platform allows you to integrate with so many different things that it’s up to you to look at our ecosystem and figure out how to solve your problem. By building your own tools on top of CommCare, rather than asking us to build , new custom tools into CommCare. And we’re not the only developers in the world, right?</p>
+              <p>There are, there are great teams of and, and some programs have those sort of resources to do their own in-house development. And sometimes that’s the appropriate solution to bridge a gap between a super powerful generic solution. And The exact thing that , your project.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I think that really speaks to the benefits of building a platform that other people can build onto. Right. And really creating a, more of an ecosystem than just like everyone depends on CommCare to build what they need.</p>
+              <p><span class="spk">Danny Roberts:</span> I also wanted to say, we have taken over the years of the. Flexible approach, like every customer that comes to us as a, as a bit different. And they may need a lot of help using our software or they may need almost none . So a team that has more technical expertise or wants to own that content creation part of the process they can do.</p>
+              <p>So by signing up with us in a, in a fairly low touch way through sort of a sales process and then on the other extreme, we will go in with large organizations or even smaller organizations on a contract bid and be there with them every step of the way, building out the final sort of product that they are looking for.</p>
+              <p>And those are kind of two really different ways to engage with customers. And they’re both really appropriate for the right customer. And if we had decided, you know, we’re only ever going to do one or the other, we would have lost a lot of that. That chance to build out the tools for one set of customers that also improves the way they work for the, for the other set.</p>
+              <p>I think that flexible approach to, , how closely do we want to work with the partner on the content creation has been also really key to our platforms development.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Thank you to Jon and Danny for a fantastic episode. Before we close. I wanted to share some of my key takeaways from this episode. So Dimagi is really here to grow exponentially. And when we talk about growth, we’re not talking about revenue, we’re talking about impact and the number of users of CommCare and our offerings.</p>
+              <p>We’re currently at over a hundred thousand active users.</p>
+              <p>But there are 10 million frontline workers who could benefit from our products. And in the next five years, we’re aiming to get to 500,000. Our platform mentality is key to helping us get there. It means that we consider adding features and functionality to our offerings that will help every single user.</p>
+              <p>Over custom functionality for one specific project. It’s a trade-off that can be challenging to message with partners who care deeply about the one project. But the benefit is that every partner we work with benefits from every single partner that has ever come before them. And this mindset applies to global health at large as well. We’re taking a platform approach to health system strengthening.</p>
+              <p>We’ll allow scarce resources to go further than investing in programs for one specific vertical.</p>
+              <p>In an environment where funds are limited like global public health. We have to think in this way. And this is at the heart of how Dimagi has been able to build a robust global good light CommCare with project based funding. And it’s how we’re able to offer solutions at a fraction of the cost. So in the next couple episodes, you’re going to hear from a few other Dimagi gears.</p>
+              <p>About other aspects of exponential growth. You’ll hear from our chief connector, Rowena, Luk, about growing the ecosystem.</p>
+              <p>As well as our senior director of product, Dave More about improvements to CommCare that allow us to scale. Stay tuned and thanks so much for joining</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">DR</div>
+            <div class="person-info">
+              <p class="person-name">Danny Roberts</p>
+              <p class="person-role">Director of Engineering for the software-as-a-service team, who joined Dimagi 11 years ago and helped build CommCare from a consultancy&#x27;s reusable code into a recognizable product.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2Vm5h2s3k0YAuW2aX124P3" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 35: Undersupported, Unrecognized and Vital: 3 Community Health Workers Supported by Lwala Community Alliance Speak Out | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Three Community Health Workers supported by Lwala Community Alliance in Kenya share their day-to-day, the role of digital tools, and why CHWs must be paid.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep35-undersupported-unrecognized-and-vital-3-community-health-workers-supported-by-lwala-community-alliance-speak-out/">
+<meta property="og:title" content="Ep 35: Undersupported, Unrecognized and Vital: 3 Community Health Workers Supported by Lwala Community Alliance Speak Out">
+<meta property="og:description" content="Three Kenyan Community Health Workers on their day-to-day, digital tools, and why CHWs deserve to be salaried.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 1, 2023</span>
+          <span class="dot"></span>
+          <span>32 min</span>
+        </div>
+        <h1 class="ep-title">Undersupported, Unrecognized and Vital: 3 Community Health Workers Supported by Lwala Community Alliance Speak Out</h1>
+        <p class="ep-deck">Part two of our Lwala Community Alliance series, told in their own voices: three Community Health Workers in Migori County, Kenya describe their journey into the work, a day in the field, and why CHWs deserve to be salaried, trained, and recognized.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://www.youtube.com/embed/QQPsvUBcpCk"
+            width="100%" height="352" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="YouTube player: Episode 35 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000611301983" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/QQPsvUBcpCk?si=2idzVt1oBlJ2A2UL" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/b5af0116-97bb-4e39-a095-04bc2b8d6f0e/high-impact-growth-undersupported-unrecognized-and-vital-3-community-health-workers-supported-by-lwala-community-alliance-speak-out" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">86%</div>
+          <div class="ep-stat-label">of Community Health Workers in Africa are not salaried</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">148</div>
+          <div class="ep-stat-label">clients Miruka supports across about 75 households, visiting them all each month</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10 to 15</div>
+          <div class="ep-stat-label">households a CHW aims to visit in a single day</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Jonathan Jackson and Amie Vaccaro sit down with three Community Health Workers supported by the Lwala Community Alliance in Migori County, Kenya: Millicent Miruka, Lawrence Oggo, and Jared Oola. This is part two of a two-part series on Lwala&#x27;s work transforming the community health landscape in Kenya, following an earlier conversation with the organization&#x27;s co-CEO.</p>
+        <p>The three CHWs share what first drew them to community health, including deeply personal experiences of loss and illness in their own families. They walk through a typical day in the field, from packing a bag of malaria tests, medications, and screening tools to prioritizing visits to pregnant mothers, under-five children, HIV clients, and the elderly across dozens of households.</p>
+        <p>They also speak candidly about what they love, the difficult clients and long days that wear on them, and how a digital job aid has made their work lighter and more reliable. Above all, they make a direct appeal to funders, implementers, and policymakers: Community Health Workers do skilled, essential work and deserve to be paid, trained, supervised, and recognized.</p>
+
+        <blockquote>
+          <p>&ldquo;We need to be to look like health workers, health caregivers who need to be salaried. We need to be recognized also. We should not be a tokenism. We should not be manipulated.&rdquo;</p>
+          <cite>Jared Oola, Community Health Worker</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Why they do this work</strong>: three first-hand stories of loss and survival that turned personal hardship into a calling for community health</li>
+          <li><strong>A day in the field</strong>: packing the bag, prioritizing pregnant mothers, under-five children, HIV clients, and the elderly across 10 to 15 households a day</li>
+          <li><strong>The hardest part</strong>: reaching difficult clients and farmers away in their fields, rescheduling visits, and working through rain and long days</li>
+          <li><strong>The case for salaries</strong>: why CHWs, the front liners during Covid-19 and called out even at night, must be paid and not asked to volunteer</li>
+          <li><strong>From volunteer to supported</strong>: Jared on years of unpaid work before Lwala began paying CHWs every month</li>
+          <li><strong>Digital tools that help</strong>: how a CommCare job aid replaced bulky paperwork, prompts follow-up visits, and lets them sync reports from the household</li>
+          <li><strong>A message to global health</strong>: be trained, paid, supervised, advanced, and recognized by ministries and governments</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi about the role of technology in creating a world. Where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost. Along with Jonathan Jackson. Dimagi CEO and co-founder. I am so excited about today’s episode.</p>
+              <p>We talk a lot about the importance of community health workers on this show. And I’m truly ashamed that it’s taken until episode 35. To bring community health workers onto the show itself, but better, late than never. Today, we’re going to hear from three incredible community health workers, Millicent Maruca Lawrence ammonia, and Jared Oglala.</p>
+              <p>These three community health workers are all supported by law Walla community Alliance.</p>
+              <p>Who’s co CEO we’ve met in the last episode. First we asked them about their stories and in particular, what motivated them to become community health workers. I’m going to give a real life trigger warning here. Their stories are both devastating and also incredibly inspiring. .</p>
+              <p><span class="spk">Miruka:</span> I’m Emil sank. I’m a community health worker working from North Kama. Rogo, sub County, Mior County, Kenya. I’m working under Ministry of Health, being supported by community Alliance. Before as a community member, before we used to deliver the birth at traditional birth attendance, but it was usual for us cause we didn’t know more about the facility or visiting the facility. So as usual, I just went to the traditional bath at attendants to seek the medical attention,</p>
+              <p>now when the time reaches for me to deliver, I had some of the difficulties I delivered well, but after delivery, I was bleeding too much that I became unconscious. I could not work, I could not do anything. But I can say that I thank, forgot that I’m still alive today to give the. And that was the thing that inspired me a lot to become a c w for me, that I didn’t want my community. To undergo what I went through because it was a difficult time. That is what is inspired me as Milicent Miracle to give my community members health education on the importance of visiting the facility, on the importance of delivering at the. For them not to undergo what I went through.</p>
+              <p><span class="spk">Lawrence:</span> I’m Lawrence Hogo, s HW from South Kenya Community Health unit, Rango Sub County, RIE County, Kenya. I happen to become a chw, in the year two or five when, my brother fall sick. He was positive, , hiv. And during those days, many people were not ready to, care for the HIV clients and they would, sometimes run away from the clients who were basically sick on HIV and aids. So as, being that he was my elder brother, I had to be there at home and, see how he progress.</p>
+              <p>He was given medications from the. And there was so many that should be done at home. I got encouraged because, I had to be with a brother and seek, more advices from the healthcare takers on how to take care of, such clients. During those days we had cultural beliefs and, the cultural beliefs.</p>
+              <p>Made many people not true, adhere to medications on HIV and AIDS clients. So, it took me a lot of time to go round and round to see how my brother could get well, but all in all, to date his well off and his, moving on with his activities as usual. And, from that I was inspired to be a hw. By 2 0 9 I was also chosen by the community to advocate for them on health issues and that’s how I became s h w.</p>
+              <p><span class="spk">Jared:</span> I’m Jared Oola. I’m a community health worker. And, what inspired me to become a C H W was that, a long time ago when I was growing up, there was my younger brother who was felt sick.</p>
+              <p>and, my mom was struggling so, as I was growing up and that, watching my younger brother’s sick He passed on. So that made me not too happy with the way he was treated. He was not even taken to the hospitals. Mother used to tell me that, Jared, you need to grow up, study a lot, and become a doctor so that you can help the community. So, as I was growing up, I did. Primary level. I went to secondary, then I went to college and study, after which I come back, to the community and, that’s where I started this work of community health.</p>
+              <p>Next we asked maruka Lawrence and Jared to share a bit about what their day-to-day lives look like as community health workers. Here’s Maruca.</p>
+              <p><span class="spk">Miruka:</span> Okay, in my day-to-day, I usually have a work plan, and that work plan will show me the day when I want to go out to visit my clients. In a day I have to make sure that I visit at least 10 to 15 houses in a day. Before I go out, I have to do my household things, then I make sure that before I go. I have my bag and inside my bag, I make sure that I have the commodities in my bag. I can make sure that I have the MRDs for testing malaria. I have the AL for treating malaria. I make sure that I have the paracetamol in my bag. I make sure that I have the mark tape for the nutrition screening. I make sure that I have the weighing. and, H C G, that is the pregnancy testing kit. I make sure that they are in my bag and again, I make sure that I have the timer for the P S B I, the timer and the pulse exhibitor and the thing that I should make sure that I have in my bag. I should have a pen, I should have a book, a notebook, and I should have my digital tool cause that is my tool to, for. And I make sure that I have the job aid for giving the health education the community. Now, when I want to go out, I prioritize the clients. First I have to visit the pregnant mothers, and afterwards I will go to the under five children in the households. Then I will also visit the HIV clients and even the elderly clients.</p>
+              <p>So when I start to visit the clients, I have to go to the pregnant. In this pregnant household, mothers, when I get there, I’ll have to give them the health education, and tell them, all about individual birth plan, where they will deliver, who will accompany them to the hospital. And, again, they should, keep some money for emergency cases. And again, I will also do the screening for this pregnant mother I will also give the education on the family planning methods that she will take after delivery, because that is also our roles in the.</p>
+              <p>After I will go to under five children households. In this household, I will automatically find a caretaker or a mother In this household, I will ask the child’s progress, how the child is faring on, and if at all I find that the child is, a bit. If at all the child is experiencing some symptoms of malaria automatically, I will do the R D T test in this household. And if at all, the RDT test turns positive, I will give the al and the paracetamol to this child and immediately I do this. I will have to enter these things in my digital tool and after doing these things I will also do the nutrition screening using my mark and my weigh scale to do the nutrition screening.</p>
+              <p>After doing all this I will now move to HIV household where I will also give education, health education on adherence counseling, on nutrition counseling, on things to do like wash hygiene and even prevention counseling. And above all, I will also do a pill count. I will make sure that all the drugs, I will count them to make sure that is this client taking the drugs exactly how she was prescribed with the. All this thing I will do in this household</p>
+              <p>after all this visit, I will again go to the elderly clients. I will do a routine checkup if there is any problem, if they are sick I will give them the referral form to go to the facility immediately. And, these referral forms, I will also give them to my clients. If at all, it is a severe malaria, I will not treat at home. I will just give them the referral to go to the nearest facility. As a community health worker, I’m only treating the uncomplicated malaria, not complic. Because I know the signs of uncomplicated and the signs of complicated malaria. And after doing all these thing, I will, record them in my book and I will keep them in my book records for me to take them to the digital. Because I have my digital tool that is guiding me in the community. In my day I can say that I’m going out to the community at exactly 10:00 AM and when it reaches at four, around four 30 or 5:00 PM I’m done with the clients and I’m going back to.</p>
+              <p>And here’s Lawrence sharing details on what his day-to-day looks like. You’ll hear a lot of parallels between his day-to-day and Maruca is. Driven by the fact that they’re both supported by low Walla community Alliance.</p>
+              <p>An organization that’s guiding a structured approach.</p>
+              <p><span class="spk">Lawrence:</span> On my day-to-day work, when I woke up in the morning, I prepare myself to go to the field to visit the, the village, the clients. When I’m out there in the field, I do household visit and I do health talk to the community members, in households we do always screen to know how they progress if there is any problem or any emerging, disease, we see how to go about it and. Already we are trained and, we know how to see and identify if there is a severe or a moderate. If they’re severe. We do referral using our MOH 100 tool. And, when the, and the files are showing signs of symptoms which are not, severe, there, we can do, a test on a malaria case. And then we administer, a l and parce.</p>
+              <p>So far, on elderly people, we encourage them on nutrition and also we encourage them to go to the facility most of the time Mao once in a month for routine checkups so that they can know how they are pro progressing.</p>
+              <p>As to HIV clients, we do, see when they’re adhering to medications as prescribed by the healthcare test from the facility and, sau water and sanitation. We also do check when safe water for drinking. Cause any moment they take drug, they use water and they, when the water is not. They’re at risk. So we always do, follow up on, water and sanitation products so that the community or the houses can be safe.</p>
+              <p>I asked Maruca how many clients overall does she support within her community?</p>
+              <p><span class="spk">Miruka:</span> Okay. So far I have around 75 houses, but the population is around 148 clients. In this. And I make sure that in a month I visit them all.</p>
+              <p><span class="spk">Jonathan:</span> Thank you just an amazing amount of work that you do and breadth of clients, and it’s so impressive. How you’re able to support your community and the work you do on a day-to-day basis. One of the questions I’m really curious to hear is, what motivates you? What is exciting to you on a day-to-day basis as you are able to support your community? And also what challenges do you face? You know, what are, what are some of the struggles</p>
+              <p>of, of doing that impressive body of.</p>
+              <p><span class="spk">Miruka:</span> okay, what I love so much in my work is that I’m seeing my community members having a lot of. Because before we didn’t know the benefits of visiting the facility, but as I came in as a community health worker giving health education to my community members, nowadays I can see that they are going to the facility and there are some clients that are going to the facility even without telling me that they’re going there, so that really inspires me they are positive towards health issues, and they’re doing a lot. I really like it. The thing that discourages me most in the community is that when I’m going to the community, as I said before, I use my work plan and I have to visit at least 10 to 15 household, but you’ll find that when visiting this household, you’ll find at least 12 of and three are not. So it’ll make me to revisit this household again, and that is really giving me hard time. Another thing, there are some difficult clients in the community. They are not all positive. They are some difficult clients, but dealing with them is a bit difficult. But I can say that I have my supervisors, I have my community nurses, if at all. They’re all difficult. I can report them to my supervisors. That is what is making me to. Discouraged in the community.</p>
+              <p>Now let’s hear from Lawrence. On the things that he finds challenging about his day-to-day work.</p>
+              <p><span class="spk">Lawrence:</span> I can say that most of. the community members are farmers. They go out to the farms and when you go to visit them, you find them, they’re not back from the field. So it, it takes us time to reschedule and do another visit so that you can find them and talk to them.</p>
+              <p>Give the health truck, either when you’re doing a follow up to a current, it takes much of our time in the field. We are also having some beauties to perform at House of Levels, but, we take much time in the field. Sometimes it might be raining. You have to wait so that the rain goes off when you can move on with your work. So sometimes it’s becomes cumbersome, but, being that we are in the community and we are ready to help the community, we might go back to our homes or to our households at around. and when you are going back, you are much tired, but, but you just persevere cause we help the community. So the hardest part of it, are the difficult, difficult clients and the much time we take in the field to do the head talk, to reschedule our visits so that we can get the community members and give the right and the correct information.</p>
+              <p>And now Jared, on what he loves and finds challenging in his work.</p>
+              <p><span class="spk">Jared:</span> What I really love most about my work is when, I’m working in my community And I’m finding things are moving well. Like, we have no defaulters in the community. I love it when, I see my community is improving. Well, in terms of health,  I’m feeling very happy when, I’m, within my community is that when I see children are not, are not, dying because of. The simple diseases that can be treated I enjoy most. Then, I also enjoy working in my community because they do operate very well and also giving me easy time to do my job. And, that really motivates me. And the worst part of it is, I can say some clients are so much d. you can’t understand them. Sometimes you go out to visit them and you find them, they’re not there. Some are not even welcoming you Some are, very harsh to you, Maybe sometimes you find that somebody’s doing, some is doing some job, then, you tell him, I just need to see you talk to you about, something Then, he don’t respond very well because he’s also busy and you are also busy.</p>
+              <p>Do want to talk to him. So sometimes we find it very difficult then, another thing is also weather system. Whether we change sometimes. and you might find that, you wake up early in the morning to do some work and you find the weathers just really change ab abruptly. And, you can’t, those are natural things you can’t avoid.</p>
+              <p><span class="spk">Amie:</span> I’m curious with those difficult clients, how do you handle that when they’re not welcoming</p>
+              <p><span class="spk">Jared:</span> Okay. My difficult clients, I do handle them by at least having a PR public relation. So I do talk to them, communicate to them, trying to mobilize them. And, if I find a difficult client, somehow I. I can just leave him for that time. Then I come back after, after he has gone, I has come from his, duty, then I talk to him or how very calmly and I tell him or how, what I need to do and, how my work can help him or her in this, in that community.</p>
+              <p><span class="spk">Amie:</span> So I wanna ask you know, so many community health workers across Africa are volunteers.</p>
+              <p>The most infuriating thing about community health work. Is that. Half of all community health workers in low and middle-income countries. Are not salaried, including 86% in Africa.</p>
+              <p><span class="spk">Amie:</span> I wanna hear your stance. Tell me why, why is it so important that government and partners are paying CHWs for the incredible work that they’re doing?</p>
+              <p><span class="spk">Miruka:</span> I can see that it is important to pay CHWs because CHWs are the front liners back at the. ] You, I can say that for, for instance, during Covid 19, we were the front liners and we were working a lot in the community. So, you know, it is very hard to go to someone’s household to talk with this person and to encourage this person to visit the. It is very hard. I can say that it is important to pay CHWs because, because we are doing a lot in the community. We are reaching them all, you know, in the facility. They cannot reach all community members, but we are reaching the community members anytime. Even at night we are being called for the delivery cases. We are called, even at night, we are not sleeping. So we need to be paid.</p>
+              <p>Building on that theme. Jared shared with us his journey from being a community health volunteer. That was unpaid. To being supported by LA Walla community Alliance. And the difference it makes to be compensated.</p>
+              <p><span class="spk">Jared:</span> I have worked, as a C H W for around six years. Yeah. I started working as a community health worker in the year 2016. whereby we used to work just to volunteer. We were just volunteering within the community. But, when, Lua joined us like five years ago in my community, eh, then, started paying us. But long before Lua, To our community. We were not being paid or we were not u getting anything I can say. So because, uh, uh, ministry of Health, did not, budget for it maybe. But Lua really doing a lot cause he’s paying us every month we are getting something and, we really appreciate for. and, we are managing with that. Yeah. It’s really helping us.</p>
+              <p><span class="spk">Amie:</span> Thank you for sharing that. And, I just can, can only imagine the level of passion and generosity of spirit to be working for those years before you were even getting payment. That’s commendable, but it really shouldn’t, it shouldn’t be the case. Right? It’s, this is such important work.</p>
+              <p>So this podcast is about technology and its role. In making things better. So we next asked maruka Jared and Lawrence to share. How they see the role of technology. In their work.</p>
+              <p><span class="spk">Amie:</span> So I wanna, ask you, about digital tools and how that factors into your day to day, both on the side of how does it help you, and are there any ways in which using digital makes things harder or any kind of unexpected challenges from using digital.</p>
+              <p><span class="spk">Miruka:</span> Okay, before, we were working with, we were using papers, not digital tool, it was a paperwork, a bulk of papers carrying in the bag and even you want to report to the office or to the supervisor, you have to take them to the office. So it was really hard before, but since the digital tool came, it has made our work easier. You know, the digital tools reminds me on the visits, the household that I’ve not visited. It’ll remind me automat. It’ll also remind me on the, the children who have not been fully immunized, I will see them automatically in my digital tool. After treating malaria, I’ll put it in a digital tool and afterwards it’ll remind me on the day to follow this. So it has made my work easier and, so far it is easy to carry. It is portable and, after doing all this thing, even in a household, I will just have to put the data on and sync the report and I will submit it when I’m in, in the community. And, you know, before I had to use it to work even for the whole. For me to submit everything, but nowadays we are submitting it every day. After doing everything in the community, I’ll have to submit it. The only thing I need to have is the bundles, so it has made my work easier and we really appreciate Lola for that.</p>
+              <p>Here’s Lawrence.</p>
+              <p><span class="spk">Lawrence:</span> I can say that. The digital tool, since it, it was introduced to us as Chv s it has, it has already made, it has really made our work to become easier. Cause during those early days we used to, do paperwork and somehow it was also becoming cumbersome. And, as per now, the digital tool has made our work easier. When I go to visit and households, I can update the client, I can update the households, and immediately when I’m done with the health talk, I always, submit my data at the household level so that my supervisor can see the kind of work I’m. Also digital tool help us to, reminds us on what next to do or when we are doing a follow up to clients. As we, go to the, digital tool. You click there, you find the household switch, you are to go and visit for a follow up. So it makes our work. but some, at some moment you, we can run, out of data balance and, sometimes, if it have some problems. The, the data or the, the records which you had, you might miss the records. That’s the worst part of it. But, in our day to day work, it has really made our work. And. It helped us a lot.</p>
+              <p>And here’s Jared.</p>
+              <p><span class="spk">Jared:</span> This digital tool tool has really make our us to be so, so much easier. Yeah. I can say it has really, really a plus. Yeah. It has reduced a lot of work that we had at the, in the past because if you go to their household, you just carry some necessary things. Malaria kit, paracetamol. Those are the only things you can carry on your bag. But, nowadays you carry only a phone and, some, some drugs if, if need. But in the past we used to be to be carrying so many things and. You can be forced even to leave some at home because they are too heavy. So digital tools has really helped us. It has made our work to be easy.</p>
+              <p><span class="spk">Amie:</span> That’s, that’s really, really good to hear cuz I think, you know, one thing that we think a lot about, at Dimagi and, you know, we, we make Comcare. Is that sometimes digital tools we want, we intend them to make life easier, but maybe they make life worse. And so it’s, it’s nice to hear from you that it’s really making your, your life easier.</p>
+              <p>The last question I asked was for maruca Lawrence and Jared. To speak directly to you, our audience. Funders implementers technologists in global health and development. To tell you. What you need to know about each of them that you may not know.</p>
+              <p><span class="spk">Miruka:</span> As a community health worker we as the community health worker, we need to be paid, consist. cause we are doing a lot in the community and we also have our children that needs school fees. We also have to put food on the table. We also need to be supervised as the community health worker because when you are supervised, your supervisor will tell you that this is not right and this is right. So I will not, we will know a lot. And we also need to be trained as the super, as the community health workers and above.</p>
+              <p>Or finally, I can say that we as the community health workers, we want our voices to be heard globally. We even want us to visit or to attend the conferences globally, to know how other countries are doing their work. And as a community health worker or as community health workers, I can say that where are we heading to?</p>
+              <p>Are we going to be community health workers forever in our. Or is there an opportunity for advancement for community health workers? We need to be advanced because we are doing a lot in the community and we are the front liners</p>
+              <p><span class="spk">Lawrence:</span> When I get an opportunity, I would add the policy makers to make policies that can, make the working environment of CHWs to be conducive. The CHWs, are doing a lot in the community? and perhaps they need to be paid. The CHWs also needs to be trained, well trained, and also they should be given updates on new. So that there, because there are some common diseases that might, arise in the community, and when they are not updated on the new skills, it might be hard. So, the cHWs also need to be advanced. They, they also, need to be recognized as the other healthcare workers. So, that’s what I can, tell the global world and the global community that the CWS deserves to be. To be paid and all that.</p>
+              <p><span class="spk">Jared:</span> What I would, love when I see, or when I hear or when, I tell the global is that, we associate Ws, we are doing So much and we need to be trained. We need to be to look like health workers, health caregivers who need to be salary. not just to be paid, but we need to be salaried. yeah, Then, we also need to be supervised because during, supervision is when you know your mistakes. It’s when you know why you are logging behind or you are in the right race. So if, if we can be trained, we can be supervised, we can be salary. then I think we can do, so much work. We can do everything that possible that, can make a community move on. We need to be recognized also. We should not be a tokenism. We should not be manipulated. We should not be as a decorat. We need to be recognized by Ministry of Health. we we should also be recognized by the government.</p>
+              <p>So well said. Thank you so much.</p>
+              <p><span class="spk">Jonathan:</span> It was wonderful just to get to sit here and listen to your amazing work. And, I completely agree with you. Community health workers need to be trained. They need to be paid. They need to be supported with strong supervisors and empathetic supervisors who recognize the amazing work that you’re doing. And, it was such a pleasure to have you on and, and hear from you</p>
+              <p>Thank you to Maruca Jared and Lawrence for sharing their time and experiences with us today. And thank you also to the Walla for all that you do. And in this case for helping make this important conversation possible. I’ll share a few of my takeaways from hearing these three stories and voices in particular.</p>
+              <p>We heard from Maruca Jared and Lawrence. About their structured approach to their day’s work and also the sheer variety and types of clients they’re seeing and supporting it truly sounds like very challenging and skilled work, not volunteer work.</p>
+              <p>They described the best part of their work as seeing the change in behaviors and health outcomes in their communities. And the most common challenge they shared. Was working with difficult clients.</p>
+              <p>Community health workers working with He’s a Comcare application as a job aid. So I was thrilled to hear unanimously that digital tools are making their lives easier. We definitely probed on any challenges there. As we know that digital can actually make lives harder as well. And either they were each very polite.</p>
+              <p>Or they’re truly grateful for the ways that Comcare makes their day-to-day easier and allows them to provide better care for their communities. And most importantly, I want to reiterate this message we heard at the end. Community health workers are doing incredibly important work and they’re doing so much. They need to be paid, trained, advanced in their careers, recognized, supervised.</p>
+              <p>Two years into my time in global health and development, and I’m still dumbfounded. That the most important people within the health system, the community health workers who work day in and day out to ensure that everyone gets access to care are so often not paid or supported. Before I close. I want to give a plug to the community health impact coalition or chic. Who is doing incredible work to advocate for CHWs.</p>
+              <p>Dimagi is of course a member and perhaps we’ll help them on the show down the road. That’s our show. Please rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. The show is executive produced by myself.</p>
+              <p>Danielle Fenwick is our producer. Brianna DeRoose is our editor and cover art is by Angiocath.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">MM</div>
+            <div class="person-info">
+              <p class="person-name">Millicent Miruka</p>
+              <p class="person-role">Community Health Worker in North Kamagambo, Rongo Sub County, Migori County, supporting pregnant mothers, children, HIV clients, and the elderly.</p>
+              <span class="person-org">Lwala Community Alliance</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LO</div>
+            <div class="person-info">
+              <p class="person-name">Lawrence Oggo</p>
+              <p class="person-role">Community Health Worker from South Kamagambo, Rongo Sub County, who became a CHW after caring for his brother living with HIV.</p>
+              <span class="person-org">Lwala Community Alliance</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">JO</div>
+            <div class="person-info">
+              <p class="person-name">Jared Oola</p>
+              <p class="person-role">Community Health Worker who volunteered for years before being salaried, calling for CHWs to be recognized and supported.</p>
+              <span class="person-org">Lwala Community Alliance</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://youtu.be/QQPsvUBcpCk?si=2idzVt1oBlJ2A2UL" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

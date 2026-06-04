@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 13: Takeaways from the 77th United Nations General Assembly: Breaking Down Silos, Supporting the Global Fund’s 7th Replenishment, and Unpacking Global Development’s Talent Gap with Dr. Kelly Collins | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jonathan Jackson and Dr. Kelly Collins on UNGA 2022: breaking down global health silos, the Global Fund&#x27;s 7th Replenishment, and the talent gap.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep13-takeaways-from-the-77th-united-nations-general-assembly/">
+<meta property="og:title" content="Ep 13: Takeaways from the 77th United Nations General Assembly: Breaking Down Silos, Supporting the Global Fund’s 7th Replenishment, and Unpacking Global Development’s Talent Gap with Dr. Kelly Collins">
+<meta property="og:description" content="Inside UNGA 2022: breaking down silos, the Global Fund&#x27;s 7th Replenishment, and global health&#x27;s talent gap.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>September 28, 2022</span>
+          <span class="dot"></span>
+          <span>40 min</span>
+        </div>
+        <h1 class="ep-title">Takeaways from the 77th United Nations General Assembly: Breaking Down Silos, Supporting the Global Fund’s 7th Replenishment, and Unpacking Global Development’s Talent Gap with Dr. Kelly Collins</h1>
+        <p class="ep-deck">Jonathan Jackson and Dr. Kelly Collins return from the 77th UN General Assembly with takeaways on breaking down disease silos, the Global Fund&#x27;s 7th Replenishment, and the talent gap holding back global health.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/4QyHlXyZAgBzg9RE7iobjf?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 13 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/4QyHlXyZAgBzg9RE7iobjf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000615724041" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/l-pZOsaaW1U" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/1f3f01f6-811a-4eb8-91b9-2af894cd1f5f/high-impact-growth-takeaways-from-the-77th-united-nations-general-assembly-breaking-down-silos-supporting-the-global-fund-s-7th-replenishment-and-unpacking-global-health-data" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">$18 billion</div>
+          <div class="ep-stat-label">the Global Fund&#x27;s 7th Replenishment target</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">$14.25 billion</div>
+          <div class="ep-stat-label">raised at the pledging session, the largest single raise ever for the Global Fund</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">50 million</div>
+          <div class="ep-stat-label">lives saved by programs the Global Fund has supported, as of end of 2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>What is the UN General Assembly, and why does it matter for global health? Jonathan Jackson and Dr. Kelly Collins, Dimagi&#x27;s Global Director of Digital Adherence, both attended the 77th UNGA in New York and join Amie Vaccaro to share their key takeaways from the week. They cover why Dimagi chose to attend, the high density of social entrepreneurs, implementers, and government partners in one place, and the advocacy happening around community health workers and the big three diseases of HIV, TB, and malaria.</p>
+        <p>A central theme is the urgent need to break down the institutionalized silos that have long shaped global health, funding HIV, TB, or malaria in isolation, and to move toward integrated, person-centered care that stretches every dollar further. They discuss COVID-19&#x27;s reversal of nearly two decades of progress, the challenge of earmarked aid, and the Global Fund&#x27;s 7th Replenishment, where Dimagi made a $5 million matching commitment. The conversation closes on global development&#x27;s talent gap and why the field needs more of the best and brightest, including people who do not think like the existing community.</p>
+
+        <blockquote>
+          <p>&ldquo;Us as innovators really need to push the donor community to start talking about funding and investment in a way that is more platform focused or more system focused.&rdquo;</p>
+          <cite>Dr. Kelly Collins, on breaking down silos</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Why UNGA matters</strong>: the one week when development professionals, funders, and governments are all in one place, and why Dimagi chose to attend</li>
+          <li><strong>Breaking down silos</strong>: moving global health away from funding TB, HIV, or malaria in isolation toward integrated, person-centered care</li>
+          <li><strong>COVID's setback</strong>: the first reversal of progress on HIV, TB, and malaria in nearly two decades, and what it demands of the field</li>
+          <li><strong>Earmarked aid</strong>: why so much donor funding is tagged to specific diseases, and a little empathy for the donors caught in those mandates</li>
+          <li><strong>The Global Fund's 7th Replenishment</strong>: what the multilateral fund does, the climate it fundraised in, and what happened in the room</li>
+          <li><strong>Dimagi's $5M commitment</strong>: a matching fund to help countries invest Global Fund allocations in digital frontline worker programs</li>
+          <li><strong>The talent gap</strong>: why global development needs more of the best and brightest, including people who think differently than the current community</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth. A podcast from Dimagi about the role of technology and creating a world. Where everyone has access to the services they need to thrive.</p>
+              <p>I’m Amie Vaccaro, your cohost. I’m really excited about today’s episode. I sat down with Jonathan Jackson and Kelly Collins. Who’s Dimagi is director of digital adherence and they have just came back from The 77th United Nations General Assembly. And I wanted to hear what was it like? Not everyone gets to go to UNGA week as it’s called. And i wanted to get their take and their takeaways</p>
+              <p><span class="spk">Amie Vaccaro:</span> Kelly, since this is your first time on the show, do you wanna do a quick intro of who you are and, , what you do at Dimagi?</p>
+              <p><span class="spk">Kelly Collins:</span> My name is Kelly Collins. I am the global director of digital adherence at demo. Um,, previously CEO of shared here at mobile technology. , and my company was recently acquired by tamagi so really excited to be folded into the Damon family.</p>
+              <p><span class="spk">Amie Vaccaro:</span> cool. Thank you, Kelly. And we’re, we’re so glad that you and the whole shared here team have joined. So, okay. Let’s start with basics. Um, cuz up until last year I actually had not really paid attention to UNGA or really heard about it. So what ISGA.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Sogo week is the UN general assembly. Uh, so this is a time when many heads of state and foreign dignitaries and domestic, um, organizations are all attending a variety of conferences in. New York city. And, uh, the UN general assembly is obviously the biggest one of those for many of the heads of state, but there’s a lot of events that are relevant to Dimagi and listeners of this podcast. Um, the Clinton global initiative, which has a lot of amazing social entrepreneurs and funders and new commitments being made on aspirational, new programs that are being spun up. Um, the world economic forum has a conference around sustainability and, um, different business initiatives. Concordia has a conference. And then Kelly and I were both there to attend the global fund replenishment, uh, which this year was hosted by the United States, uh, the seventh replenishment. And we have a big strategic partnership with the global fund and, and therefore we’re attending and advocating for, um, getting the $18 billion that they’re trying to raise.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome Kelly, anything you wanna add to that definition of UN.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. I mean, I think, um, Jon had a great formal definition. I think for anyone who’s never been to that week, kind of the feeling is not just conferences, but also a lot of side events, networking events that allow those of us that work in the global health and development community to really come together and network and, and really talk about sort of the previous year or previous years.</p>
+              <p>And really understand synergies and areas of collaboration for, uh, future work. , so in addition to kind of attending and listening, it’s also an opportunity for a lot of collaboration and connection.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. So I know at Dimagi. We aren’t necessarily known for attending every event. We tend to be pretty choosy about which ones we attend .</p>
+              <p>Why did you choose to go to UNGA week? Why does this week matter?</p>
+              <p><span class="spk">Jonathan Jackson:</span> So, certainly this is, uh, less common, uh, as you might have pointed out Amie there on what we tend to attend. There’s, you know, a huge amount of meetings that Kelly and I were both able to take on. TB HIV, malaria community health workers in particular, , and a lot of, , just high density of social entrepreneurs, of implementing partners of government.</p>
+              <p>So it is a really efficient way to, to get a lot of work done. this is an annual, um,,, event, Um,, and then these, these bigger, um,, weeks, uh, they’re really important platforms for advocacy. So one of the major groups that we’re a part of the community health impact coalition. Uh, was there doing a lot of advocacy on behalf of community health worker programs? Um, obviously the global fund does major advocacy around the three big diseases of TB, HIV, and malaria. , so there’s a lot of discussions that are relevant to our work because while we, you know, Our technology firm and, and work a lot, , across our product portfolio to impact outcomes. , there’s a lot of policy that’s really important to downstream implications.</p>
+              <p>And some of the things we’ve talked about on this podcast with broken markets and different market dynamics that really start at the top level policies of what are we trying to collectively do together? How do we increase accountability? How do we increase value for money? And that’s something that, um, we talked a lot about with, uh, a lot of folks.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. And maybe Amie, I would. Oftentimes ongoing week is kind of the, the only week where, um, as Jon mentioned, there’s a high density of development professionals together, all in one at, in one area. And we get a chance to. Connect in person, , and, , engage on the issues that are facing our team. Also engage in, , sort of upcoming work, meet new, uh, social entrepreneurs that are in the space and trying to understand what new things are happening.</p>
+              <p>And, you know, really that in person connection is, is kind of a good first way to, you know, learn who somebody is outside of a screen and outside of sort of an announcement around their work, on the internet. I really enjoy that. Being able to get to meet people in person and hear about new initiatives in such a high density situation</p>
+              <p><span class="spk">Amie Vaccaro:</span> So how did the week go tell me.</p>
+              <p><span class="spk">Jonathan Jackson:</span> The week is always is pretty intense and it was a lot of fun, a lot of different meetings, but you constantly feel like you’re rushing. You know, from one place to another, it all happens in Midtown between, you know, eighth avenue and, and park andbetween what 20 different streets, but you’re rushing from building to building and things.</p>
+              <p>And that part of it can be a bit stressful, but overall, it was really nice to see everybody. I haven’t attended this event in years and Clinton global initiative. This was the first time hosting their conference in many years. So I saw a lot of social entrepreneurs that have known for over a decade. um, but hadn’t had seen recently. And so that was a lot of fun. Um, and then we, you know, were able to meet with a lot of our global fund partners, the private sector team and Kelly and I were meeting with a lot of different, folks on TB strategy and in particular community health workers, it was really exciting to see the level of visibility that community health programs are gaining in global health.</p>
+              <p>The recognition of the critical role they play during the global fund replenishment. In fact, uh, Francis president Macron. Specifically mentioned community healthcare workers, as one of the things that France is looking for the global fund to be invested in and emphasizing there’s a dedicated fund that was announced by the global fund around, frontline workers. And so that’s really exciting for us to see the increas in visibility that that particular initiative is gaining. , and in addition to all the other work we do to support global health and global.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Kelly. What about for you?</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. I think for me it was, as Jon mentioned, it was an awesome week. It was really great to see people. I hadn’t seen in a couple of years due to COVID and just reconnect and, and re-energize around, the work that we all do together. So I think that was a huge highlight, but in terms of some key takeaways from my end, you know, I think it really highlighted across all of the conferences, all of the meetings, all of the side effects, and even with the networking session that really our immediate challenge, at this juncture is to break down the previously really institutionalized siloes that existed in global health. So things like just TB or just HIV, or just malaria, how do we find better ways to improve structures of health systems?  in general? So we can improve health outcomes in communities by using, by leveraging tools, really across, , all areas. And I think that was just one of the biggest takeaways from, for me for the week.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Were you hearing from donors that’s kind of same old, like focused on their silos? Or were, were you also hearing people kind of speaking. Out about like the need for more foundational investments, across program.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. I was hearing a lot of need for breaking down silos. I mean, I think every single session I went to talked about how we need to be leveraging tools across silos in order to really address. You know, basic health outcomes. But I think I was, I was discouraged by the conversation coming from, I think the, the donor community in that there still was a lot of talk about funding, you know, X intervention for, for Y or funding, you know, innovations for TB or innovations for HIV.</p>
+              <p>Um, and I think, you know, COVID has really shown us that that’s not going to work, that that status quo won’t work long term. And so I feel like. Us as innovators really need to push the donor community to start talking about funding and investment in a way that, you know, is more platform focused or more system focused.</p>
+              <p>So we can, , you know, really address needs across silo. So I think that was kind of a, a takeaway for me that it’s still going to take some, you know, push. On our end in order to kind of push the donor and investment community away from saying we have an agenda to fund X and really start thinking about strengthening systems overall.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jonathan. What were your key takeaways?</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the things that was very stark you know, this is the first time that many of these global leaders are meeting together and we’re looking at you know, the first reverse of the progress we’ve been making across HIV and TB and malaria in nearly two decades.</p>
+              <p>Um, you know, we’ve had a constant March down. New cases of total cases and COVID has really set us back. And so that was a pretty you know, stark, uh, recognition. Obviously we’ve known this, we’ve been looking at the data for years and, and this was well aware and predicted during COVID, but just to kind of see that, , and the, the huge task we had ahead of us in continuing to just get back to where we were, and then continue to drive these numbers down is gonna require you. More innovation, more value for money more partnership at the community level. All these things are really critical. And I think it’s exciting to hear some of the recognition and, and the role innovation and technology can play, cuz the dollars are getting harder and harder to come by. As you know, we enter what could be a global recession or at least a very difficult economic climate for many of the donor countries. , and, and donor foundations that were there.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. And maybe one more thought on that, Amie is that, you know, I think almost every session started with, with the thought that COVID has set us back. I mean, that was kind of the leading comment in every single room that I was in COVID has set us back. How do we navigate, uh, getting out of this? Right?</p>
+              <p>How do we, as Jon said, get back to, uh, where we were in order to continue moving forward, which is a huge challenge. And. At least for me working in TB, for so long, you know, the vast majority of my career has been really focused on innovations for, um,, TB and then expanding those to other health areas.</p>
+              <p>And we have always had to be very frugal in TB because we’ve always had the smallest piece of the pie, in terms of funding and support in human capital and resources. And so we’ve always had to, to kind of be innovative and scrappy in the way we leverage innovations. And I think that. , because we’re now behind in all areas, you know, the whole global community’s gonna have to come together and figure out how to be, how to leverage things that were built for COVID.</p>
+              <p>How do we take them and, and apply them to TB HIV in malaria?  I think that’s gonna be a really critical challenge and, and something that, you know, the donors are gonna need to push, rather than trying to tell us all to pick up, you know, create new innovations. It’s like, how do we take what’s already been built and sort of augment it for these new area.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. As I was kind of following along a little bit with, with UNGA, I definitely heard that theme of like COVID has really set us back on hitting sustainable development goals. And there’s just a huge need to rally together and, and work closely together and also to innovate.</p>
+              <p>What ideas did you hear that felt promising? Like where, where was the energy going in terms of like, how do we actually solve this?</p>
+              <p><span class="spk">Jonathan Jackson:</span> And at UN good, it’s always a lot of, you know, very high level mediums. So to some extent, there weren’t a lot of deep, um, tactical discussions. But I think the area that you know is part of our strategic priority for our five year plan and the part that as many organizations, strategic priorities, really the role that frontline workers and community healthcare workers can play. Both getting back to where we were pre COVID and then continuing to bring those numbers down. , PEPFAR just released their, um, new strategy with the new ambassador who joined recently.</p>
+              <p>Chiming in here to share that PEPFAR is the president’s emergency plan for aids relief.</p>
+              <p>It’s a US government program. That’s invested nearly a hundred billion. In global HIV and aids response. And had a really incredible impact over the years</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the key focus areas is around integration. I think this is a key theme that we’ve heard.</p>
+              <p>Kelly mentioned it, , as well around how do we get more, , out of the existing funding that’s going through? I think that’s one of the big topics and I actually didn’t. Too much about this discussion of really saying, you know, look, the amount of money we’re spending in total is not going to dramatically increase and we have more work ahead of us than we had. Previously. And so we’re gonna have to figure out how, you know, that dollar can go further to support patients, to provide community centered care and to, um, really take a person-centered approach to this. And that I think is a recognition, but how to achieve that, what to do, what partnerships are gonna make sense here? I think there’s a lot of work hub, , around this. , obviously we’re huge proponents of innovation and technology, and I, I heard a lot of really exciting new digital, , technology ideas and areas, and, and that’s, that’s one piece of the puzzle, but supporting these workforces that are so burnt out after COVID that are, um, you know, overworked already.</p>
+              <p>And that probably need to take on more work to, to continue to, to fight the good fight is something that is, you know, really a daunting task ahead of us and is something that we, we all need to figure out innovative ways to not just build innovative technology, but new partnership models, new ways to, I. , you know, HIV and verticalized programs into horizontal care for communities. And so all of these things I think are, are big areas to, , explore going forward. But there’s, you know, at, at a week, like guy, you’re not necessarily gonna get into the weeds on these new care delivery models, for example.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Question. For you. That PEPFAR strategy, when they’re talking about integration, what does that mean? Like, I hear the word integration, I think about like digital tools connecting to each other, but I’m guessing it’s beyond that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, it’s building on what Kelly had also said around integration of service deliveries. So when we were responding, To HIV aids. Um, you know, it’s one of the huge success stories of global development over the last two decades. Like this, this was on a catastrophic rise of cases in many countries and the world came together and PEPFAR was a specific us government program, but in general, many governments, many donors, many implementers, all came to support and, , you know, really. A a massive impact global fund estimates they’ve saved 50 million lives. , you know, since it was first founded and a lot of those are, are, all of those are, you know, around HIV, TV and malaria with many of those in HIV. And that kind of response, , in part was using a lot of verticalized programs that were just focused on HIV or just focused on TV or just focused on malaria. And that has. Sometimes a detrimental effect on the rest of the health system, because you’re sucking resources and talent and, , program design that doesn’t include the rest of primary healthcare or non-communicable diseases or, um, other infectious diseases. And obviously with COVID, we’ve seen the huge, huge impact of not having. , you know, comprehensive, uh, public health integrated into the healthcare systems. That’s true of every other part of the healthcare component. So when we talk about integration, it’s not so much an at a technical or digital level, but at a system design level, you know, is the healthcare system integrated in the way that it can care for a whole of patient or a whole community. Um, and that is something that a lot of people are. Looking at, and, and some, some programs are designed what we call vertically, you know, so you’re just focused on that one disease intentionally. And there’s a lot of potentially valid reasons why one might want to do that. But when you’re looking at needing to get five X or 10 X of the value for money, based on how much you’re spending, like you’ve gotta figure out how to get better platforms that are more efficient.</p>
+              <p>And that requires a lot of integrated care.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah, maybe a good example of that, Amie is that typically, if you’re an H, if you’re diagnosed with HIV, you go to an HIV clinic. , and oftentimes, you know, TB and HIV are co epidemic, , across the world. And so you could go to that HIV clinic and not be seen for your TB. Uh, you have to go to a separate clinic to be treated for TB.</p>
+              <p>And so. You know, what, what kind of waste are we seeing there? And that, that patient can’t get the same care from the same provider in the same facility, they have to go to a complete different facility that then treats TB has to have a whole different set of staff, , in order to support that patient.</p>
+              <p>And they, they have two different care providers for two different diseases and really. The drugs co mingle, the, you know, the there’s co issues across being co-infected in terms of symptoms and side effects and, , stigma around both of the diseases. And so that patient should be supported, , in one system.</p>
+              <p>And we don’t take a, a systems’ approach to infectious disease, and it’s been important in the past to get huge epidemics under control, to stay siloed. But we’re now at a phase where giving this integrated care is actually gonna be really critical to stretch those dollars.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s such a, such a vivid example, Kelly it’s I mean, it’s one, it’s one body, right? That’s facing multiple challenges and to treat them in separate clinics in separate places seems so disjointed.</p>
+              <p>What other salient points did you hear from the week</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah, I think for me, One of the, the key pieces that I heard, you know, continually heard, , in that area, Amie is that political commitment is going to be really key. So not necessarily as Jon mentioned new innovations or new delivery models necessarily, but actually bringing in real true political commitments.</p>
+              <p>And I don’t think anybody knew what that meant until COVID came along. And basically the entire globe had to put a true , political commitment, cross sectors to really, um, engage R and D and, and find true solutions for COVID that could get us to a place to end the pandemic. And so I think that we now know what real political commitment looks like.</p>
+              <p>And we also know in the global health community that we haven’t given real political commitment. I mean, $18 billion is a drop in the bucket. Um, when it looks, when you look at real dollars and the amount of money that is passing through, um, you know, developed economies on any given day. And so I think it’s a.</p>
+              <p>You know, challenge to the global health community say, look, we’re not going to continue getting more, you know, new and additional funding. We’re not going to see the levels of funding that came through COVID. So how do we be creative with what’s there and how do we challenge leaders to give real political commitment to ending these diseases?</p>
+              <p>The world is gonna have to, put, put time and dollars in human capital resources in and not just, you know, say, throw the money at it. That’s not gonna work.</p>
+              <p>What about you, Jonathan? What other takeaways did you have?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. One of the things that I was struck and I knew this, but I had not, uh, remembered it or had to had not had a top. Um, but is, you know, the us government is obviously a huge percentage of global development dollars. It’s the biggest donor to the global fund. It’s also one of the biggest bilateral, uh, funders in the market. The amount of money that is earmarked by the time it gets to S a I D is massive. I, I don’t, I didn’t have a chance to look at the exact number, but I think something like 80 to 90% of the budget is earmarked to. U S a I D. And I was reminded of this when I was both talking to, uh, some of the senior leadership and also, , other folks from U S a I D around this challenge of, well, when you want to integrate programs better, or you want to redesign these systems, when everything coming into your budget is earmarked, it makes it very difficult,</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Jon, when you say earmarked, you mean like it’s, it’s basically tagged as like, this is malaria</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yes. Yeah, exactly. And so you you look at that. Well, how do you integrate spending when all of this money is earmarked and tagged for, , specific things. I’d known that step before, but just kinda like us, you know, in one year out the other, and then you complain, like why can’t USA be more efficient about this or that, or be more integrated.</p>
+              <p>And you’re like, oh right. They, you know, their budget’s congressionally mandated and like they’re really hamstrung on how to drive forward innovation sometimes. And I just, you know, Given that integration was a big topic that, that I was discussing with some of them. I was reminded of that. And, um, how big of a challenge that can be, uh, for people innovating within the government.</p>
+              <p>And, you know, in that context it was the us government, but also just in general, you know, with a lot of these huge multilaterals, like global fund or Gavi or the us government and others, like there’s a lot of mandates that come along with that funding that can make it difficult to make what look like obvious you.</p>
+              <p>Improvements in value were the way that we designed these grants. And I was just reminded of that and, and tried to have a little empathy for some of the complaining I do around that.</p>
+              <p><span class="spk">Kelly Collins:</span> Well, and I think that’s hard that donors have constituencies and we have to kind of take those constituencies into mind when we’re developing funding proposals. For example, because the donor has an agenda, they have to answer to somebody around that agenda. And so they earmark the funds for X, Y, and Z.</p>
+              <p>And, um, that can be really challenging from, you know, a healthcare delivery standpoint in that, you know, you need to fund your organization and, and so you have to reach out in the way or, you know, fund, , submit proposals that can get funded. , and so I think that the whole system needs to, uh, change in order to support this integrated care delivery approach.</p>
+              <p>And it, it’s not just us who are on the ground giving doing you. Delivering services and or delivering technology to support service delivery. It’s really, you know, the whole funding cycle needs to come along with that.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, no, it just gives you, gives you starts to give you a little bit of empathy for, for the donors and what they’re, what they’re dealing with.</p>
+              <p><span class="spk">Jonathan Jackson:</span> But only a little bit.</p>
+              <p><span class="spk">Amie Vaccaro:</span> so I wanna hear. you mentioned. So during ongo week, there’s a lot of side events or like, you know, big events that happen in that week. One of which is the global funds replenishment.</p>
+              <p>What is, what is the global fund and what is their replenishment look like?</p>
+              <p><span class="spk">Jonathan Jackson:</span> So the global fund was, uh, set up. This is its seventh round. So I think it was about 20 years ago, um, or 18 years ago. And it’s a three year funding cycle that was set up as a really, , innovative mechanism to some. Port governments and support response to the big three diseases of HIV, TB, and malaria. And unlike what’s called a bilateral agreement. So a particular country working with the us government, this is called a multilateral. So everybody funds the global fund and then the global fund funds countries to go, um, designed and implement their health programs.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. And chiming in here to share some stats from the global funds work that was reported in dev ex.</p>
+              <p>The global fund reported that the programs that supported have saved 50 million lives as of the end of 2021.</p>
+              <p>And there are a total of 23.3 million people that are now on antiretroviral therapy. Thanks to their work. 5.3 million people are being treated for tuberculosis and. Global fund partners have distributed 133.2 million mosquito nuts. so some really incredible impact and stats from the global fund</p>
+              <p><span class="spk">Jonathan Jackson:</span> So every three years they host a replenishment conference in a host country.</p>
+              <p>This year is in the us. And, , try to. uh, get billions of dollars, , pledged for the next three years. So they can respond to these pick three diseases. This year, they had a target of 18 billion and at the pledging session, they raised a total of 14.2, 5 billion. There were some major countries that are going through government transitions that haven’t yet made their pledge such as the UK and Italy. Um, and hopefully others that will be, , Coming to the table. So they were about 4 billion short of their goal, but even at 14.2, 5 billion, that’s the biggest amount of money ever raised, , you know, by global funder, in a single raise. And so it’s a really great sign for, , the work ahead. , obviously a little bit short of the goal, , but it was a really great, , session and event and there was a lot of. Uncertainty. I imagine behind the scenes, I mean, this is a very difficult political climate to be fundraising in right now. , both with the global uncertainty and, and global security and conflict and things everybody’s concerned about, but with the, , you know, downturn in the economy and the increase in energy prices, like this is not a great time to be asking people for billions of dollars.</p>
+              <p>Um, and so the fact that they raised that in this climate, I mean is, is great. And I think is something that, , is, is. You know, really good moment for the global health community. Although obviously it would’ve been even better to have gotten to the full 18 billion,</p>
+              <p><span class="spk">Kelly Collins:</span> yeah. And I think maybe I. Out to Jon’s comments that, you know, it was really encouraging to see many global fund countries. So for example, Indonesia or South Africa for the first time actually becoming part of the donor communities, um, they, , earmarked budgets from their, you know, their national state budgets to be donated to the global fund.</p>
+              <p>And so they joined this multilateral community community. They will also benefit from the global fund replenishment, , in terms of funding for their health systems. But I think really important to see again, that political commitment coming. Government in global fund countries is to say, look, we think that this fund is important enough to earmark our state budget to be donated to this fund.</p>
+              <p>And I thought that was a, a hugely encouraging, uh, takeaway from the event, even though we didn’t reach that, you know, $18 billion mark.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s so powerful. Kelly there’s so much symbolism there in that, like we’re, we’re coming together as a global community to fight these global problems, um, that are threats to all of us.</p>
+              <p>So from the replenishment, it’s always so different to be in the room versus just read about it what was the vibe like In the room during this replenishment</p>
+              <p><span class="spk">Jonathan Jackson:</span> It’s uh, it’s tough to articulate. I mean, this. Three to four hour meeting with lots of heads of state, lots of very important people coming in and out of the meeting. So I wouldn’t say there’s a, a vibe per se. It’s a lot of, um, just, you know, a lot of coordination. There’s a ton of people coming in and out.</p>
+              <p>There’s heavy security around the building and everything. Um, and a lot of this is choreographed, you know, ahead of time. I think obviously you can imagine the amount of political, , actions and sign off and things that need to happen behind the scenes for these heads of state to be making these commitments. Um, but it was, it was really powerful. I mean, there were speakers who, , you know, , people who have lost their mothers, fathers loved ones to HIV. People who have had kids who are now HIV free due to prevention of mother, to child, transmission, , people who work in this space. Uh, and so there was also, it wasn’t just hearing from the politicians, but also hearing from real people and from real communities.</p>
+              <p>And that was really exciting and motivating, , to, to hear from and see. , but you can imagine like a three or four hour meeting. Um, very high level dignitaries in heads of state. So it’s, um, not exactly the, the most rapid progression through, uh, the day Kelly and I got to sit next to each other.</p>
+              <p>And so we were also able to, to keep each other company during the, the three to four hours.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I was gonna say, what were you two doing? Were you like multitasking and trying to work at the same time?</p>
+              <p><span class="spk">Jonathan Jackson:</span> no, we were we were totally paying attention 100% of the time and never checking our phones or cracking jokes with each other. Um, it was, it was 100% full, full attention.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. I mean, if, if you’ve ever watched, , CSPAN of a UN you know, resolution event where basically 200 and some odd countries get up and give their, uh, political resolution, it’s it, it’s a, it’s an. It’s a process. , but I think, , again, it was really cool to hear, I think, from a block to hear African countries stand up and, , put themselves in with the donor community.</p>
+              <p>I think that was, uh, really energizing for me. And those moments of hearing, you know, the room. Galvanize around those leaders was, was pretty cool when, um, you know, they would announce after the, the political speech that, you know, uh, South Africa, this is the first time they’d become a donor country. There was, uh, a change in the atmosphere in the room.</p>
+              <p>And I think that that was, , those moments helped us kind of like, , come back to the four, pay attention again and be like, oh, wow, okay. This is really great. Something really positive just happened. And I think we need to, kind of refocus, , attention back and not just on the, the process and this sort of a pageantry of it, , that can be fairly boring and really focus on the reason we’re in the room.</p>
+              <p><span class="spk">Amie Vaccaro:</span> You posted a photo in our internal slack channel. That included Biden and other heads of state. What was that moment like?</p>
+              <p><span class="spk">Kelly Collins:</span> It was kind of cool to like, feel the energy in the room change. I think like to see the, the change in the room in the G seven basically walked in the room, you could. You know, they all started to arrive outside and like the room went from maybe 250 people to 500 and all of the staffers came in and the energy rose and, um, and then the table started getting filled and you saw, you know, Trudeau come in and then you saw MCCR come in.</p>
+              <p>And then you saw the president of South Korea come in. And then you saw, you know, the, the prime minister of Germany come in. So that was kind of cool. And then all of a sudden Biden walked in and that was something I’ve never experienced. So I thought that was pretty cool to, to see, , The leaders of the world, you know, really coming in from the most developed countries and, and actually, you know, put a political commitment and political well behind this, although, um, yeah, the rest of it, that 10 minutes was really exciting.</p>
+              <p><span class="spk">Jonathan Jackson:</span> if you, if you could walk in with them, which were not security clear to do, like that would be just a perfect event just to do what they did get that, that last 15 minutes when the G seven comes in. Um, then no.</p>
+              <p><span class="spk">Amie Vaccaro:</span> The executive summary version of the event.</p>
+              <p><span class="spk">Kelly Collins:</span> Right. Well, and Biden got all the credit for hosting the event and he did not have to sit there for that four hours. He was there for 10 minutes. Yeah,</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love hearing like what it was like to actually just be in that room. What’s Dimagi’s role in supporting the work of the global fund going forward and how are we coming to the table</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. So we’ve worked with the global fund in, um, a variety of projects over the last decade or so, and that has been primarily across HIV, TV, and malaria, and they moved more towards integrated health systems strengthening as well. And so we’ve been supporting those projects, but over the last year, we’ve tried to deepen our partnership with the global fund, recognizing the critical role they can play in expanding digital frontline worker programs in particular.</p>
+              <p>Um, and so we signed an MOU.</p>
+              <p>MOU is a memorandum of understanding.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Earlier this year, um, contributing $3 million, uh, to the global fund during their last replenishment. And then this replenishment, we contributed $5 million of, um, partnership from demo, which we’re really excited about and hopefully will lead to improving outcomes and accelerating the adoption of our platforms for transformative work in these countries.</p>
+              <p>So that was a really exciting, , moment for us and something that we expected deepen our partnership with the global fund over these next three.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So what does this $5 million commitment from Dimagi mean? And how does it work?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah.</p>
+              <p>So for the countries that we’re working with, , it’s a matching fund. So if countries budget out of their global fund allocation, , to support, uh, work we’re doing together, we can then match that with our own, and kind, , product and services. And so it’s something that hopefully provides better value to countries and, you know, gives them an incentive to prioritize this.</p>
+              <p>One of the really cool things about the way the global fund works is they basical. Provide a budget to countries, but then countries get to decide how they wanna spend that money across the technical areas. That global fund is funding. So it has to be within the domain of HIV, TB, and malaria, but there’s a lot of room for deciding what they wanna spend that on. And we try to advocate that, you know, some of that should go to improving jobs, to improve outcomes and using CommCare to do that. Or, , Kelly’s platform shared here to improve digital adherence with TB. , and that is something that this fund can be used.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Coming outta this event, is there anything that you will do differently?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I don’t think there’s any immediate things that we will do differently. I think it’s, you know, there’s a lot of bold. work ahead. And there’s a lot of reasons to be humble, given the setback that we’ve had. And I think it’s important that we remember as a community, like how far we’ve been able to come against fighting some of these major diseases.</p>
+              <p>But I mean, we have a long way to go now and, um, we need to bring in, you know, as many innovations, as many different ways of working together as we can to support this. And like, we see this in all markets, this isn’t just a. Problem in L M IC is we have, you know, healthcare cost, rising energy cost, rising global insecurity around a variety of topics.</p>
+              <p>And so I think, you know, one of the cool things about Angus is just like that coming together of so many people and cultures and things to really, , in many ways find common cause. And I think we just need to keep that in mind and keep that at the forefront, cuz like this work gets hard. And then when you look at some of the stats and the setbacks, it gets disappointing at times too. , but it was really an, an error of, um, Aspiration and, you know, we can do this and, and that’s great. And it, you know, it was nice to get re-energized by doing that.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah, I think for me personally, and especially the work that we’re doing with shared here, I actually think that this has been kind of brewing for a while for us. But, , actually one of the big takeaways for me from the week on, on things that we need to do differently is to talk about TB treatment support in a way that is about.</p>
+              <p>Accompanying a patient through care and getting them through care, not monitoring them and ensuring they’re, you know, taking medications for example. And, um, I think that that came about this week actually pretty heavily. Not really because there was a lot of talk about digital adherence per se, but because there’s a lot of talk about resilient health systems.</p>
+              <p>And I think that technology solutions that we develop for TB that are around support, um, and checking in with the patient and making sure that, you know, we’re treating the patient as a person, um, will really help us, um, break down some of these silos that we’ve been in. And so, you know, that, that we were already going that direction anyways.</p>
+              <p>But I think that this week really reiterated that for me, that we need to be doing that sooner rather than later, um, because we need to be developing solutions that treat across sectors across diseases. And. you know, , help build health infrastructure.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Okay, this is my last question, but an article I saw recently. From dev X was about something called the talent gap, which is essentially saying that. We don’t have enough people working in global development to effectively reach the sustainable development goals.</p>
+              <p>And we need more people like the two of you to really dedicate their careers to this. Was that something you heard talked about this week</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I didn’t see anything specifically on that topic. Um, but that is. Definitely true. I mean, I think there’s so much work that people can do, whether they’re a technologist, a public health pro professional, or, you know, program manager, um, to support these programs and equally, if not more importantly, the talent that goes into the public sector and serves within government or civil society, um, is, is critical.</p>
+              <p>And, and yeah, there’s a huge amount of talent, um, that. I, in my humble opinion, be doing something amazing and impactful with their skills. And, um, if they’re not happy at their corporate sector job, they should, you know, take a, take a good look at global health and development. There’s a lot of amazing companies.</p>
+              <p>Um, you know, ours is one of them, but there’s tons of others that are doing great work. And if they’re fulfilling important, engaging work that, um, you know, can impact, you know, the next 50 million lives saved.</p>
+              <p><span class="spk">Kelly Collins:</span> Yeah. I mean, now that you brought that up, I think I actually did hear a little bit, maybe. Not necessarily using that term talent gap, but I did hear actually, sir, Jeremy for our head of welcome. , he actually gave some comments to that effect that basically said, you know, we need our best and brightest in health and development and, and we’re not all here, you know?</p>
+              <p>And his point was that know, a lot of the best and brightest are going into, you know, high paying jobs in the private sector, but they’re not having impact on the world. And, , we’ve gotta find ways to recruit those individuals into our, , Into our field and, and he, he mentioned COVID as, you know, one of the indicators that it’s possible.</p>
+              <p>Right. And so I think, , there are ways to incentivize these types of individuals to come into the field that have never had, you know, any, any work, done, any work involvement at all. Um, but might be really excited about bringing, you know, their, their. Thoughts and talent and, and, you know, solutions, innovations, and, and just their minds to this, this work.</p>
+              <p>And so I think collectively, we need to find ways to recruit those individuals, um, you know, to the</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s a great point, Kelly. And one of the things I was reflecting on as you were talking is the people who maybe would love to work in global health and development, but like don’t wanna work in a market. That’s. Kind of</p>
+              <p>challenging and dysfunctional in certain ways, we talk a lot and advocate a lot for market shaping and fixing the market so that innovation and technology is more adopted, more readily used, but one of the huge benefits of also shaping the market and making, , You know, purchasing more clear about what you can sell and how to adopt technology is that it’s also kind of more easy to imagine yourself working in that industry.</p>
+              <p>Cause it feels less confusing and less opaque. And so I think part of the talent gap can be fixed also with a better functioning market. Not because people can earn more salaries just because it’s more clear what to build for how to sell it, who to sell it. And what’s going to be adopted. And I think that’s another critical area to driving more talent into our industry is like working with the global community.</p>
+              <p>That to make that more clear, you know, can you, , can you sell a better, faster TB diagnostic? Can you sell a better, faster malaria diagnostic? Like what is the value of treatment innovation? And it’s really hard, you know, if you haven’t spent a decade in this field to understand how. To bring things to market, how to, um, drive innovation.</p>
+              <p>I think that’s an area that can be confusing and keep people out, um, and make it, you know, look more appealing to go tweak a add algorithm or tweak a movie recommendation. Um, because at least you can like wrap your head around how that makes more money, but like that’s, that’s not why you should take that job.</p>
+              <p><span class="spk">Kelly Collins:</span> Well, and I think global development is in global health is very much a click. Like we, we, um, are very close-knit community. Everybody is very like minded. Um, you know, even, even if you work in the private sector versus the public sector or an IGO. Uh, we’re all very like-minded and I think we need to start attracting individuals that don’t think like us.</p>
+              <p>Um, and I think that’s gonna be a really important key to, as Jon mentioned, like how can we show them that there is a market for these products and then also make, make them feel kind of welcome in this community in a way that like, look, we need, we need this type of innovation. And we also need to hear from people that don’t think like us.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much to Jonathan and Kelly for joining me. Late on a Friday after a long week at UNGA, I’ll share some of my key takeaways. So first. What I really heard is that COVID has set us back on reaching the sustainable development goals.</p>
+              <p>And we have a lot of work to do to catch up. . We aren’t going to magically have more resources. So we actually need our money to work harder for us. And innovative technology will definitely be part of the solution. Second, we really need to break down silos when dealing with global health challenges.</p>
+              <p>Finding ways to improve health systems holistically and looking at how tools can support. Programs across verticals and silos. This is a concept referenced by PEPFAR as integration, which seems like it’s really coming to the fore as an important way to make our money work harder for us. Third political commitment is essential. We need our leaders to fully invest across human capital, across resources and time to make our best effort at reaching the sustainable development goals.</p>
+              <p>Fourth. Even donors need empathy. So. There are certain challenges that we’re up against that makes it really hard to do that kind of integration. We spoke Where, for example, USA ID budgets are earmarked the majority of them for certain disease verticals. And we need to use that money to create more foundational infrastructure that can support multiple disease verticals and really support the whole person.</p>
+              <p>Fifth. We also heard that there is a talent gap, right? We, we have some incredible talent in the space, but we need more and we need the best and brightest to really put their minds to solving these intractable problems. And. If you’re listening and considering changing careers, I highly recommend</p>
+              <p>The sixth takeaway I had I felt this sense of really coming together around huge challenges and. We need those sorts of boosts to continue fighting these fights day after day.</p>
+              <p>Please. Like rate. Review subscribe follow it helps us to grow and expand our audience and our impact and if you have any ideas for us please write to us podcast@dimagi.com.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">KC</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Kelly Collins</p>
+              <p class="person-role">Global Director of Digital Adherence, previously CEO of SureAdhere Mobile Technology, which was recently acquired by Dimagi.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/4QyHlXyZAgBzg9RE7iobjf" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

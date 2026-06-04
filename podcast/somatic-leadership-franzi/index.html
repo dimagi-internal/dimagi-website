@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 72: The Somatic Edge: Leading with Capacity in a Stress-Filled World | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Somatic leadership coach Franzi Gonder on how understanding the body builds the resilience, presence, and capacity that leadership under pressure demands.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/somatic-leadership-franzi/">
+<meta property="og:title" content="Ep 72: The Somatic Edge: Leading with Capacity in a Stress-Filled World">
+<meta property="og:description" content="Somatic coach Franzi Gonder on leading with capacity: the beginner's-mindset trap, the Still Point exercise, and co-regulation for teams under stress.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>July 21, 2025</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">The Somatic Edge: Leading with Capacity in a Stress-Filled World</h1>
+        <p class="ep-deck">Somatic coach Franzi Gonder on how understanding the body builds the resilience and presence that leadership demands.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6yTY5okwdv1DBjPsByXHca?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 72 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6yTY5okwdv1DBjPsByXHca" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000717963177" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/c5564946-08c9-47ba-a7f5-9acf8cd4d4d1/high-impact-growth-the-somatic-edge-leading-with-capacity-in-a-stress-filled-world-with-franzi-gonder" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>High performers are taught to push through stress, but Franzi Gonder argues that the body keeps the score, and that learning to read it is a leadership skill in its own right. The renowned somatic leadership coach and entrepreneur joins hosts Amie Vaccaro and Jonathan Jackson to explore how presence and capacity are actually built.</p>
+        <p>Franzi shares her personal journey into somatic work and unpacks the pervasive beginner's mindset in high-performance environments and its impact on growth. She introduces the Still Point exercise as a practical tool for grounding during challenging times, and makes the case for co-regulation as a core part of leading teams.</p>
+        <p>It is a grounded, useful conversation for leaders, high-achievers, and anyone seeking greater presence and sustainable performance.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>What somatic awareness is, and why it matters for leadership</li>
+          <li>The &lsquo;beginner's mindset&rsquo; trap in high-performance cultures</li>
+          <li>The &lsquo;Still Point&rsquo; exercise for grounding under stress</li>
+          <li>Co-regulation: how leaders shape the nervous systems of their teams</li>
+          <li>Building resilience and capacity instead of pushing to burnout</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://franziskagonder.com" target="_blank" rel="noopener">Franzi Gonder</a></li>
+          <li><a href="https://franziskagonder.substack.com/p/a-new-week-june-16th-2024" target="_blank" rel="noopener">Franzi's essay: A New Week (Substack)</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible. With technology and human creativity.</p>
+              <p>I’m Amie Vaccaro, senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson, Dimagi, CEO, and co-founder.</p>
+              <p>Today’s conversation is gonna be a bit more personal and vulnerable than usual. After our episode featuring Jonathan’s coach, Jason Morris became one of our most popular. Our producer Prarthana suggested that I bring on my own coach to the podcast.</p>
+              <p>To be honest, when she suggested that it made me feel really uncomfortable,</p>
+              <p>but upon reflection, I realized that anytime I feel that edge of discomfort is a signal that there’s possible growth there. So I’m so glad she suggested it.</p>
+              <p>So today we are joined by FCA Gander, a somatic leadership coach I’ve worked with over the past 21 months who’s had a profound impact on me and how I show up at work and in life. With our industry facing unprecedented upheaval, funding cuts, AI disruption, constant change.</p>
+              <p>Many of us are running on empty gripping so tightly to performance that we’re actually limiting our growth. Franzi has taught me that capacity is more important than performance, and today we’ll explore why that tunnel vision we love is actually shutting down our creative problem. Solving how to find your still point when everything feels chaotic, and why genuine human connection might be our most powerful business strategy.</p>
+              <p>If you’re a leader feeling stuck in perpetual hustle mode. This conversation will give you practical tools to show up differently and more powerfully starting today.</p>
+              <p>Amie Vaccaro: All right. Welcome to the podcast. I am so excited for today’s conversation., So I’m here with Jonathan Jackson, my co-host as always. Hey John. Good to see you.</p>
+              <p><span class="spk">Jonathan:</span> to see you too.</p>
+              <p>Amie Vaccaro: Hey, . today we have a very special guest. My coach, Franzi Gander. Um, Franzi is a somatic leadership, coach and entrepreneur.,</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p>Amie Vaccaro: I have been working together for the last 21 months., I measure it based on when my baby was born. Uh, ’cause I think we started working together right around then.</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: and</p>
+              <p>Franziska Gonder: What a time.</p>
+              <p>Amie Vaccaro: Our work together has really. Shaped me in, in profound ways.</p>
+              <p>So I’m excited to some of the insights that we’ve had together, as I think there’s a lot of applicability to kind of what is happening in the world, right now. But I would love to start and just hear a bit from you, Franzi, about your story, um, and how you came into the work that you do.</p>
+              <p>Franziska Gonder: Thank you for inviting me. I’m really excited to be here too. Um, it’s one of the most, uh, more meaningful podcasts that I can be on, um, so I’m, yes, I’m a somatic leadership coach. I got into this work, because of my own messy life in many ways.</p>
+              <p>Um, I grew up as a, a strong alpha female, uh, I guess is, is the right way to describe it. Um, very like go-getter mentality. . And at 23 slash 24, my father was, uh, diagnosed with terminal cancer and it, uh, put a big pause on my life. Um, I was traveling through Vietnam, doing my master thesis at the time, um, and came back.</p>
+              <p>And everything was put on hold. I was, uh, leading an organization through in university already. Um, I built a small company there and, um, and was also doing my research. And, uh, then I passed everything, moved back home onto my mom’s couch and took care of my, um, terminally ill father until he took his last breath.</p>
+              <p>And that really shook me, at such a young age in particular. Um, and there was a lot of grief that came through that, um, a lot of childhood trauma that resurfaced. And it made me really aware of how I had been showing up in the world, um, and all of the emotions that I’ve never allowed myself to feel and all of the things that I’ve never allowed myself to see the way I’ve sort of like.</p>
+              <p>See the world, see people, see myself the way I engage. And, um, long story short was I did all the like typical things that people do when they’re traumatized. Uh, I went to therapy. I like, you know, got all the help that I, that I needed, but nothing really helped. Um, and so the first time I found a sense of relief was through the somatic realm.</p>
+              <p>So somatic meaning body related work. Um, identifying where I was feeling things, how it impacts me, how long has it been there? How old is it? Um, how does my body relate to that? Um, all of these things. And, and through that, really at the time I learned that, uh. I was not the only one that had problems like that.</p>
+              <p>Um, surprise. And I was an interim, I had a company back then, um, a few years later that was doing interim executive services for, um, funded startups. And all of a sudden my conversations started to shift with the CEOs. Like we would have deeper conversations, um, conversations about like how they related to themselves and how the, where they were standing in their own ways and, um, what burnout was and what it not was, and all of these kind of things.</p>
+              <p>And so, um, and so I started to educate myself further and dig deeper and deeper and deeper. And. Not just get myself out of probably the darkest hole of my life. Um, but also along the way started help really helping people with what I learned, um, in my own organization. And, uh, my leadership coach at the time said to me, I hope you turn this into something one day.</p>
+              <p>Um, you’re really good at this. Um, and I didn’t do anything with it for the first five years or so. but then when COVID started, I was like, well, if people don’t need some level of nervous system regulation and identifying where they store their trauma and how it relates to their leadership, I dunno when, um, so I kind of went all in in 2020, that’s five years ago and haven’t looked back and it’s been.</p>
+              <p>heart, mind and everything opening along the way.</p>
+              <p>Amie Vaccaro: It’s a beautiful story, Franzi. I I appreciate you, you sharing. Um, uh, I wanna share a little bit of a, an insight that, that you had shared with me.</p>
+              <p>Franziska Gonder: Hmm.</p>
+              <p>Amie Vaccaro: And there’s been so, so many sort of like aha moments and I have to say like every, you know, to what you’re saying about what you’ve been able to unlock with your, your clients.</p>
+              <p>Like I feel like every time have a session together and we meet probably like monthly, um, there’s sort of foundational aha moment that I have. Um. It’s just like incredibly powerful and often rooted in somatics. Um, sometimes not. but so this is, I wanna read something that you wrote to me in January that I think just like, was really profound. Um, so what you wrote was, what I hope for you and would love to lean into more tactically together next year lightness around the excellence you already have so you can create more space for learning and progressing. If we can truly feel our sense of greatness, the overthinking [00:08:00] pauses. We create more space for growing around the edges that our company, our people, and our partner need from us. And this just like really resonated for me, I think. I’m realizing there’s like a kind of a gripping that can happen, um, in my, in my body, right? Gripping onto kind of, to be achieving, to be hustling, to be perceived in a certain way. and like one of the things that you pointed out with this is that like, that prevents you from actually growing right?</p>
+              <p>And to like expanding whatever greatness. Right? Um. So I’d love to kind of hear from you a little bit of like, just reflections on, on that and if that’s something you see commonly and um, yeah, use</p>
+              <p>Franziska Gonder: Mm</p>
+              <p>Amie Vaccaro: point.</p>
+              <p>Franziska Gonder: mm Well, I mean, I really, um, it made me emotional hearing that, it’s so true. Um, one of the things that I. Started to learn myself many years ago and I see like coming also back to your question, do we see this in others too? Yes. I think in our very performance oriented society that kind of asks us to not rest and not stop because we could forget or miss out on something.</p>
+              <p>And this is something that we’ve, we’ve also talked about. W we tend to, from a nervous system standpoint, and also like kind of like we’re kind of wired to be stuck in our beginner’s mindset, quote unquote. So what I mean with that is if we never actually lean into what we’re really good at or what we’ve learned along the road, or where we currently are or what is, what is being asked of us as leaders in particular, um, then I.</p>
+              <p>I don’t think we have the chance to truly understand what the impact of our actions are because we’re just moving through the motions. We’re just checking things off the list. We’re just, you know, navigating the endless like things that we never get to, um, including things that are not related to work.</p>
+              <p>Because, you know, if we’re, if we’re never enough at work, we’re also never enough in any other area of our lives. Um. And so I think there is this perpetuating beginner’s mindset that in particular creates this sense of stuckness for f for folks who’ve been in their work for like somewhere between 10 to 15 years.</p>
+              <p>So if we perceive our twenties as sort of like the starting points of our careers and we, we work and we move and we, you know, hustle for solid 10, 12, 15 years and we, we approach work with the same grip. Uh, you just mentioned that the grippy mentality, um, of like, and that same almost like adrenaline of like.</p>
+              <p>It’s never enough. You know, I need to learn more in order to show what I’m capable of and who I am. And do does everybody see it? Um, we never actually get to share what we’ve learned along the way, and it makes sense because the right side of the brain, um, actually shuts down when we’re always rushing.</p>
+              <p>It’s sort of like, it’s a nervous system, energy preserving mechanism, um, that the body has for us where it says like, well if you’re just in fight or flight all the time, then uh, I need to preserve energy. And so it takes away from all of the creative problem solving, innovative behaviors, all of that juicy stuff in the right side of the right side of our brain.</p>
+              <p>Um, and so we don’t even have access to that type of expansive. Nimble thinking that this wild world really needs from us, um, right now.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s great fans. And, um, in terms of that fight or flight response and that. to, to think creatively. our, our industry in the development sector, um,</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> of unprecedented upheaval right now in terms of decreasing amounts of funding, changes in business models. And so lot of, um, people who have worked in this field for the 10 to 15 years that you’re mentioning, possibly even much longer or had just started their career, but envisioned this is what they wanted to do for their entire lives. are in this moment of, you know, unprecedented change. You know, I,</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> stress enough how, um, different our industry looks already and, and will look in the future. How, um, how do these principles apply when that level of external stress is, you know, coming at you plus then you add like. Global news and, and AI and, and so on top of that, you’re, learning what even in a totally stable industry might have been unprecedented levels of stress.</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> but I know, you know, from, um, reading some of the somatic work myself, it definitely works. It, you know. You can feel it instantly when you try to apply these practices, but also, um, it is extremely hard in a high stress environment to like start up new practices in some ways or try to, you know, think that now is the right time to kind of take that moment for yourself and, and appreciate, you know, everything you’ve been doing in your career, all the amazing impact you’ve been having that your organization has had, even if maybe. It has to dramatically transform or change. do you recommend, um, you know, to, to people right now who kind of recognize the stress level, recognize the, like, latent anxiety that might be with ’em, but are kind of just like, man, don’t even feel like I’m on a hamster wheel right now. I feel like I’m just like about to run into a brick wall every day, um, you know, with what’s going on.</p>
+              <p>But, what, what, um. guidance can you, you know, provide our listeners or others on just, you know, how to, how to just take that first breath, how to, you know, be able to take one, one step back even in this, um, you know, incredibly stressful time period for money in our industry and many outside of our industry as well.</p>
+              <p>Franziska Gonder: Great question. Um, so. I think the, and I should, I should always preface with like, the reason why we practice things is so that we have them when we need them, right?</p>
+              <p>So, um, obviously in the best case scenario, we’ve practiced things for a while so that when they’re needed, we have the tools and our body actually starts responding to it already because there’s muscle memory around, around it. Um, that’s not always. Possible. And, um, so, but it is just me kind of stressing the point of like, please don’t just stop a, start a practice when times are stressful or hard or things like that.</p>
+              <p>And then drop the practice thinking, well time, you know, stressful times are over, like back to business, right? Like this is some, like the body needs repetition. In order for us to build a certain resilience and for us to build a certain way of being too, um, so it can stick around. And this is why we call it embodiment, right?</p>
+              <p>Like it, it shall become part of us. Um, so, but uh, how do we take the first breath when times are already stressful? Um, I think the, one of my favorite. Quote unquote tools or exercises, however you wanna call it, that Amy and I and a group that we used to meet with regularly, the two together, um, is called the Still Point.</p>
+              <p>And the still point is beautiful because it’s a point that we can identify in our bodies that feel calm and neutral and almost like a conscious witness inside of ourselves. It’s almost like that part of us that can see something that you cannot see when you’re stressed or agitated or hypervigilant or just moving through the motions.</p>
+              <p>For many people, uh, this still point lies somewhere around the belly button. Um, like so many, um, things that actually tell us the truth. Um, there are several, uh, reasons for that. I can go into that in a moment, but. Point of the, the point of the still point is, is that we practice this way of interacting with our bodies and understanding if I drop back into this point in my body, how does this problem that I’m looking at right now, how does it change?</p>
+              <p>Um, and it does change because. What happens most of the time when we’re responding to stressful moments and we’re in reactivity to the stress, is that we’re responding with the upper half of our bodies. Um, that also means that the, our eyes are narrowing, the peripheral vision narrows down. Um, we get very heady.</p>
+              <p>Um, and we’re kind of like analyzing the situation with things that we already know. So the brain takes from things that, you know, has used already a thousand times. That obviously doesn’t give us any novelty and sometimes also doesn’t promise us sort of like the kind of solution that we need in situations that we’ve never been in.</p>
+              <p>And so we need to find access a point in our body that we have access to, that can observe situation, that can be a witness of a moment, um, and take ourselves out. That doesn’t always involve a breath. A breath definitely helps. Um, especially a [00:18:00] long exhale because that regulates our nervous system. Um. I would start there, I would start with identifying a part of, in our body that feels neutral, not even good or bad, like really just neutral, um, calm and that sort of like orients you into, in the room in a different way where you feel like you can take in more.</p>
+              <p>Um, and that’s a really beautiful starting point to initiate that, that kind of work. Even when the fire’s already on.</p>
+              <p><span class="spk">Jonathan:</span> That that’s, uh, great and I think the. That taking a step out and kind of observing it is something that</p>
+              <p>Franziska Gonder: Hmm</p>
+              <p><span class="spk">Jonathan:</span> have tried to do in group meetings. Um, you know, with,</p>
+              <p>Franziska Gonder: mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> the remote culture and with Zoom, when we do have those moments to be together is like of condensed body language that you’re sending to everybody that’s gonna last longer and be read more deeply, whether or not consciously or subconsciously I think.</p>
+              <p>And</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p><span class="spk">Jonathan:</span> in, I actually didn’t do it Amy last time we were together in [00:19:00] Boston, now that I’m thinking about this, but like. to kind of just like take a bird’s eye view of the room, you know, like what is this room saying? What is the, the environment, regardless of the people in it saying to this, this room and, and this discussion. I’ve been thinking about that and, uh, doing that, even if</p>
+              <p>Franziska Gonder: Hmm.</p>
+              <p><span class="spk">Jonathan:</span> virtual call, you know, kinda like what is, what is my, you know, interaction saying what is, what is somebody else’s? but that. That somatic, um, component? Uh, you know, for me, Amy, we talked about this. Like, I, I was getting anxiety where I could like physically feel my, like, getting anxious sometimes.</p>
+              <p>Um, you know, in terms of getting frustrated with an email or, you know, just, just kind</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p><span class="spk">Jonathan:</span> And so for me, I found that just trying to close my eyes and like, my fingertips, like truly, see if I could actually feel sensations through my fingertips was a really calming thing.</p>
+              <p>’cause it, it’s not there. And so you think really hard about it, then you get that [00:20:00] sensation of, oh, I can, I can actually feel things that even my fingers are not touching anything. so for me, that was my trick just kinda like, okay, calm down. You know, take,</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> beat. Um, but reminding yourself that you have all these feelings that you’re ignoring. You know,</p>
+              <p>Franziska Gonder: Yes.</p>
+              <p><span class="spk">Jonathan:</span> in your current state, and then just picking one that you can like, oh, right. And then, then even when you set that belly button thing, I like took a deep breath and was like, got the, you know, chills, um,</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p><span class="spk">Jonathan:</span> it. So it’s like that, that for me was my trick of, um, you know, just like remind your body that there’s all these sensations that you’re ignoring most of the</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> you really just take a beat, um, you know, you can, you can feel.</p>
+              <p>Franziska Gonder: There’s a really beautiful, um, there’s a really beautiful exer exercise called three times. Three times three. Um, it’s like three things you can hear, three things you can feel, three things you can see, like, feel as in touch. Um, and, and, and I. Pure somatic therapy. Not like somatic leadership, but like somatic therapy.</p>
+              <p>It’s often used to help people, uh, also regulate from like, um, either a panic attack or like something like that. Um, in order for them to ground back into the present moment, and we can use this, everyone, like I give this thing to my kids, like I tell them like, if you feel really stressed before you go on the soccer field, like.</p>
+              <p>What do you see? What do you hear? What can you touch, right? Um, or, you know, I don’t wanna sleep in my bed tonight. It’s like, right? Uh, I don’t know. There’s something scary, right? All right. Like, you know, let’s, let’s ground ourselves, right? So, um, but we can also do that in the boardroom. We can, like, you know, if, when, when we feel like we’re getting tense or more agitated, more irritated, right?</p>
+              <p>We can ground ourselves through, you know, the fingertips or things like what I just mentioned. Um. Because it’s just physiology and in order for us to show up as our best selves, [00:22:00] right? That’s always sort of like the big claim that we have for, you know, roles. Like we all have. Um, we need a body that is responding to almost like calm interventions, uh, so that we can come back to.</p>
+              <p>Open right side of the brain, right? And can respond not from a place of just pure reactivity, but actual attunement, true attunement to the situation. And we can’t attune to other people in front of us if we’re in, you know, a state of fight or flight or freeze or fun. Um, it’s just impossible. So it’s hard for us to see others in front of us when we’re not well resourced.</p>
+              <p>Amie Vaccaro: Yeah, there’s so much here, and I, I feel like one of the things that I’ve really taken from you, Franzi is this idea of like, down</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: up. Right? And I think somebody in one of our groups said like, uh, is smooth and smooth is fast. I think that was, maybe that was you franzi. Um,</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: but just realizing like what a change that is to kind of go from this place of like, I just wanna like execute, execute, execute, and really feeling kind of. Addicted to that, like get it done</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p>Amie Vaccaro: actually no can I like slow down and like tune in and really understand what’s, what’s happening here and</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: check in with my body. Right? And, um, there’s, yeah, some of my things that, what I’ve noticed actually, like just throwing a ball up and down is like a really calming kind of nervous system thing.</p>
+              <p>Um, taking a moment and like seeing my child in the middle of the day, which is a, you know, privilege. ’cause I work from home and she’s, she’s here right now. But just these kind of, even just stepping away and like taking a walk. Right. But I, feel like noticing more and more the things that trigger me and it’s amazing how sensitive my nervous system is right.</p>
+              <p>To [00:24:00] triggers, right? Like a, an email that’s worded somewhat funny or like, know, a new pressure that wasn’t, I wasn’t expecting can just like throw me, right? And these things will happen every day, right? And so,</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: um, I think another sort of. Theme that I’ve heard from you, Franzi from, from day one in our work together, is really about how do you build capacity to handle stress. Um, and I think you, you frame it as like, your capacity is more important than your performance.</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: and</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: that like, if we all wanna perform, right, like that’s, uh, that’s a goal, uh, I think of, of a lot of folks. But. I think what you’ve sort of like honed in on is that we can’t just be performing all the time, right?</p>
+              <p>Like the, the body cannot handle that and that leads to burnout inevitably. Um, and certainly people have different abilities to perform. Um, and I think what you’ve been really trying to [00:25:00] bring home for me is, it’s more important that we’re expanding that. that we have to handle a stressful event and get back to baseline, right?</p>
+              <p>To</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: that stressful email or that panic thing or you know, that fire drill or whatever and just like come back to normal, right? Like reset. Um,</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: yeah. I’m</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: like to hear a little bit from you Franzi, in terms of like how, how do you coach folks in that sort of realm of their capacity to handle stress?</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p>Capacity over performance is like from the way the visual that I have in front of me is like an iceberg, right? Like, um. There’s so much more to, um, performance than what we see on the surface. Um, it’s like all of the emotional labor that we’re carrying, you know, in various aspects of our [00:26:00] lives. Like, um, all of the overthinking that we’re doing, all of the.</p>
+              <p>You know, things that we put need to put into place so that the launch is successful, right? Um, there’s so many things, um, that the body holds for us, literally every single day in order to show up and quote unquote perform. And the way our body makes that possible for us is by. Sort of like oscillating in a window of tolerance.</p>
+              <p>That’s how, you know per poly vagal theory for everyone who’s listening. That’s what you should look up. Um, per poly vagal. The, the window of tolerance sort of like dictates how that experience is gonna go, right? Like stress and then okay, did that rest and digest, stress, rest, and digest, right? And so very different from other aspects of our lives.</p>
+              <p>We actually want a lot of volatility. Um, when it comes to our stress levels [00:27:00] because we want those dips of rest and digest, um, as we call them. And so, um, the problem really starts when, uh, a high performer, uh, or person with high ambitions, um. Does not come down from the, uh, from the stress anymore and creates a so-called faux for French as in wrong, uh, faux window of tolerance.</p>
+              <p>And it’s basically a state where the body needs more cortisol and more like, literally more cortisol, adrenaline, um, to function at a basic level. So you wake up groggy, you need, you always need two cups of coffee to start the day, you know? Um, right. It’s sort of like the body needs a certain level of stress in order to do the basic things in life.</p>
+              <p>And that’s where a lot of like chronic tensions in our body develop. [00:28:00] So when people talk about like, you know, like those chronically tight neck or, you know, I always have back pain or things like that, just sort of like. You might have not stretched enough and your body probably holds psychosomatic stress.</p>
+              <p>’cause what happens when the body is in stress, that blood flow gets constricted. Um, and so the blood can literally not run through the body the way it should, um, and give us literally the energy through the blood, right? That, that we need in order to weather the day. And so when we stay in that constricted state for too long, right?</p>
+              <p>That’s when all of those ailments, and Ill quote unquote, illnesses come about. What we want as a result is obviously the opposite. And the opposite is not more performance or less performance like, kind of like just opting out of our lives entirely and like moving to Bali and becoming a yoga teacher. Um Right.</p>
+              <p>We wanna maintain the important work that we’re all doing, especially for you guys in that field. Like we wanna. Make sure that the impact stays high and that we can show up for the people that we serve and all of that kind of stuff. Be a leader for the work that we’re doing. And so we’re trying to expand capacity.</p>
+              <p>And capacity. Really is is that idea of like my. What does it mean for my body to hold these things, um, in a more capacious way? And that can only come when we allow, um, these, these rests. The about, I call them islands of rest throughout the day. Um, and, you know, and. That’s also why we need build cultures of where vacation is, not questions or where people can vacation without any emails coming in.</p>
+              <p>Um, for instance, it’s, it’s all those like small things and all the big things obviously, but the way we resource ourselves, like how do we start the day? You know, do we watch, look at our phone or, uh, our computer while we have lunch, or do we [00:30:00] just eat our food?</p>
+              <p>Right? Um, do we step outside in the morning when we wake up, or is the first thing looking at our phone, um, especially in the remote environment, right? Um. What do we eat, right? Do we just rush and put a croson, you know, push a croissant into our mouth? Or do we actually have something that stabilizes our blood sugar so that the body can actually source from that and doesn’t just like rush up the cortisol, you know, because of the carbon take.</p>
+              <p>And then, the body, uh, rushes back down and sort of like totally exhausted after. So there’s like so many things on a just wellness, even though it’s not wellness, it’s really just health level that we can do. It really correlates with the, the type of, um, presence that we have in the room on a daily, on a daily basis.</p>
+              <p>Amie Vaccaro: . Yeah, there’s, there’s so much here and I feel like even in just what you described, like two cup of coffee in the morning. Absolutely. Looking at my phone while I’m eating, like, uh, I am definitely trying, I am paying more attention to actually my blood sugar. Um.</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: Interestingly, just right now, um, I had, I had gestational diabetes I was pregnant, and so I’ve been just like trying to monitor blood sugar a bit more.</p>
+              <p>And</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: those like two week glucose monitors that I’m using just right now, just to see. And it’s wild. The</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: I’m just like, oh my God. So, um,</p>
+              <p>Franziska Gonder: Yeah. Yeah. It’s fascinating.</p>
+              <p><span class="spk">Jonathan:</span> I was just talking with some runners and apparently it’s like a thing now to, to get the glucose</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> so you see how your</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p><span class="spk">Jonathan:</span> to stuff that you’re eating. And like</p>
+              <p>Franziska Gonder: Oh yeah. I’ve done that too.</p>
+              <p><span class="spk">Jonathan:</span> Uh, um, yeah, it’s, it’s fascinating to, to, to look at that. And, one of the, one of the things that, um, Franzi you said on the stress level, and Amy, your question on capacity.</p>
+              <p>The other thing that like struck me when I was, you know, if you’re in the go-getter mindset and you’re not doing a lot of mindfulness or wellness stuff like. Somatic activities can feel a little bit like atypical from what you thought you might be getting into with a leadership coach or, or things. but like, it’s just, it’s so obvious in, in like this virtual zoom, like you, you know, you’re not showing up as like your best fully engaged self in any, like, you, you know, within five seconds of the meeting, That you’re multitasking. You have your email up or you’re checking your phone and these things. And so I found it really hard to convince my brain to be like, this is. Not like 10 minutes more, you’re adding to your day to schedule, you know, mindfulness in the morning or going out and filling the grass on your feet in the afternoon or, you know, eating lunch at your desk.</p>
+              <p>This is like productivity gains. you just know how inefficient you’re being. Like, for me, at least personally, like I, I was shocked at how, um, when I moved to Denver from Boston. I got used to see Amy, you know, face-to-face for our one-on-ones or anybody who was based in our Boston office.</p>
+              <p>Just that it wasn’t a ton of FaceTime. But even just losing that like weekly FaceTime with people just made me feel like Armenians were far less effective, um, remotely than they, could have been in person. Fortunately, we had years to build up all that rapport. Um, but to me a huge reason why I was so drawn to Somatics once I kind of got over the initial, um. hump of, of, and not matching my mental model of what I needed to work on to be a better leader. was just like, it just, it’s, it’s a net. Even if all you’re doing is like ruthless productivity, you know, like, I’m like, go getter, you know, all, all I wanna do is win. still the right answer. Because, um, it is just so inefficient to be going through your day without reflecting on how you’re showing up in meetings without doing these quick exercises and body checks and, different perspectives.</p>
+              <p>Um, so for me that was like a really hard thing, Amy, that Amy and I talked about was just like, it’s. It’s kinda hard in one way to like do the more physical stuff when you think you’re supposed to be all about, um, you know, cognitive development, um, these areas. But then you just, like anybody listening, you know, just reflect on how you showed up at work yesterday and you’re like, yeah, of course. Particularly given all the stressors out there, you know, very likely didn’t feel like your most productive day you’ve had. Um, you know, whether that’s due to lack of exercise or too much coffee or too little sleep or whatever the case is. how, how much, just these. Five to 10 minutes of, interspersed throughout the day, make you way more productive in the, in how you can show up and how you can engage with, with your coworkers or teammates or kids or spouse or whatever the case is.</p>
+              <p>Franziska Gonder: Yeah. I think the, the crucial point here is too, is that as someone who leads a team, right, we have the responsibility also. To, uh, co-regulate the room, right? So if we are agitated or under-resourced, um, on, on various levels in our bodies all the time, then we can also not regulate others in that same state because we’re basically just like showing them how acceptable it is to be in that place, right?</p>
+              <p>And then that becomes culture, right? So, and co-regulation is. Or like we do co-regulate with people all the time, every single day. And so we always have the choice. Do we wanna be a source of positive co-regulation or of like, quote unquote negative, um, co-regulation, right? So if I show up to a meeting by having taken, I don’t know, for, for some it’s deep breath.</p>
+              <p>For some it’s a five minute walk. For some it’s like some water and being like, who am I about to meet? Who’s that person in front of me, right? It could be as simple as that, right? Um, that presence that you’re showing up with might actually be exactly what the other person needed because they’re having a really hard day, and you can feel it because you got your own stuff out of the way before coming into the meeting.</p>
+              <p>And so you can actually meet that person and be like, Hey, man, like. What’s going on? Something is, something is, feels different today. Is this something we wanna spend five minutes on? Right? And all of a sudden you find out my something’s happening in their families or whatever. It’s, and so you being able to ground that person because you grounded yourself is not, is, is business strategy.</p>
+              <p>If you ask me. It’s the most successful business strategy that you can have. It’s like be human and be relatable and be approachable and, you know, be available emotionally, mentally, um, because we’ve all been in a room with leaders who you can’t trust because it’s just, well, well let’s, let’s go.</p>
+              <p>What, what’s the agenda today? And all you feel is like, wow. Like there’s no space for me here. And so what do we do as humans to protect ourselves from that, we shut down. Like, right? Like, and then we dissociate, and what does dissociation do? It builds resentment, right? Like, and then we have what we call the, the trend of like, quiet, quitting or whatever.</p>
+              <p>You know, it’s like we have all these like fascinating words these days in order to describe people’s, basically the states, right? It’s just, it’s like, yeah, they’re dissociated. Why are they dissociated? Right? Um, so it’s all, it’s all, it’s all connected. Right the way, like you said, Jonathan, like the way you show up, the way you resource yourself has an immediate impact on the people that you’re meeting.</p>
+              <p>Especially in times like now where there’s so many emotions and so much existential fear lingering where wherever you go it’s like to be receive. Someone being like, do you wanna talk [00:38:00] about it? Is like massive.</p>
+              <p>Amie Vaccaro: Yeah, one thing that’s coming to me right now is. I feel like I’ve been thinking a lot about AI lately. Um,</p>
+              <p>Franziska Gonder: Who hasn’t?</p>
+              <p>Amie Vaccaro: and I have been talking a lot about it. Um, actually that’s probably one of our top topics in our one-on-ones these days. and like of it is just like having to kind of rethink do I bring to the table light</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p>Amie Vaccaro: the fact that AI can now do a lot of what I thought was like. you know, special skills I had built over 20 years of a career. Right. And</p>
+              <p>Franziska Gonder: Hell yeah.</p>
+              <p>Amie Vaccaro: I think what you’re saying though is like that, that humanity is, is the thing. Right. And so really like mastering that and your, and your presence and your ability to ground yourself and show up fully for your team members, even though that’s actually, it’s hard.</p>
+              <p>Like, I, I have to say that I’ve,</p>
+              <p>Franziska Gonder: It is.</p>
+              <p>Amie Vaccaro: in doing this work, like I’m realizing just how addicted I am to. [00:39:00] Multitasking into productivity, into having three things going on. Like, the phone with, you know, a family member and I’ll just be like, scrolling on my phone because I don’t know, like I just want more stimulation.</p>
+              <p>Right. Like,</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p>Amie Vaccaro: um, it’s, it’s really, it’s really hard human work to try to slow down and just be really present with someone.</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: and, and, and one thing I think Franzi, you’ve, you talk about a lot and you’ve written about, and you mentioned earlier in this conversation, is peripheral vision.</p>
+              <p>Franziska Gonder: Mm. Mm-hmm.</p>
+              <p>Amie Vaccaro: noticing like your, your vision, right?</p>
+              <p>And sort of almost that as a, as a metaphor, right? To like a</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: Like, I love to get tunnel vision. I love to just like hunker down and execute. Like, just like, give me a goal and let’s go. Right? Like, I feel like</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p>Amie Vaccaro: past week, John, like John had a little, um, you know, some last minute things he needed and I had such a blast, like just executing on these things, you know,</p>
+              <p>Franziska Gonder: you know.</p>
+              <p>Amie Vaccaro: I knew there was all these other things I was supposed to be doing, but it was like. Super fun. Um, [00:40:00] but as a leader, like you can’t do that all the time. You cannot, right. You have to be able to step back and have that like wide angle view and be able to read the room survey, what’s going on, like look at the environment, understand what threats are happening, right. And like how do you, um, yeah, just like that importance of, of that, um, broader perspective, .</p>
+              <p>Both somatically and, theoretically as well.</p>
+              <p><span class="spk">Jonathan:</span> It was super fun working with you on that. And, um, Franzi to, to add to that too, it’s like from, from a leadership perspective, can’t always be looking at the big picture and like. You know, thinking super high level, like it’s fun to just have these, you know, myopic tasks where you can be like, Nope, we’re just gonna like nail this two minute video that I gotta show next week.</p>
+              <p>And did a</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p><span class="spk">Jonathan:</span> with the team, but it was like, a lot of, it was a big lift, a lot of work from a lot of people to put in the footage and, and all this stuff. But like, also really fun and gratifying to be like these two days all we’re doing is like heads down on this one thing that</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p><span class="spk">Jonathan:</span> we can successfully complete and have that sense of completion.</p>
+              <p>[00:41:00] ’cause a lot of the. The bigger existential questions in our industry right now, or how to create the most impact or how to help vulnerable populations. These are decades longs undertakings, you know, that that’s, that are very complicated problems with no good answers. Um,</p>
+              <p>Franziska Gonder: Mm.</p>
+              <p><span class="spk">Jonathan:</span> just sit at that super high level if they’re, at least I can’t.</p>
+              <p>Um, it, it,</p>
+              <p>Franziska Gonder: No.</p>
+              <p><span class="spk">Jonathan:</span> you know, so that, that cycle you were talking about. At a stress level, at least in, in, from a leadership perspective, I feel that where you’re like, you need to be able to dive really narrow, even if it’s maybe overkill and just be like, I wanna nail this one super small task ’cause I</p>
+              <p>Franziska Gonder: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> do a great job on this.</p>
+              <p>And yes, I do it just 80% as well? Maybe, but like, I wanna nail it. I want to feel a sense of accomplishment. I want to be able to like, kudos and, and just feel really proud of this thing, even though, you know, big, massive problems in the background too.</p>
+              <p>Franziska Gonder: A hundred percent. Couldn’t agree more. Uh, there are phases in life where you just have to get sh done, right? Like, um, like you just, you just gotta do it. I think culturally, like what I often say when I go into organizations. That have like a sprint culture, right? Like those, like we have like a one week sprint and then, you know, uh, because we’re launching a new feature soon, it’s like, great, let’s do the sprint, but tell me what happens prior and after.</p>
+              <p>Like, does it mean like you are actually letting the team exhale, quote unquote, um, for a day or two and just say like, Hey, make sure you don’t take care of all the most urgent things right now. Give yourself a day or two. That was an intense week, right? Go like, have fun with your family. Go for a nice dinner.</p>
+              <p>Go get a massage. Like, take care of yourself. All of the things that you haven’t done in the last week, go do that, right? Like, so that again, we have that volatility back, right? Um, there are intense phases, right? There are like hard times. Um, it’s more about those like glimmers, um, on a daily and weekly basis.</p>
+              <p>We can insert for ourselves and for our team members to make sure that they’re taken care of themselves too, so that they’re resourced in order to show up for the best work that they can do. Um, ’cause otherwise, you know, and again, like even for, um, for learning and performance purposes, we don’t always wanna be in performance because we we’re not learning in performance.</p>
+              <p>Right. Like a soccer player. I always give that example because I have this soccer obsessed child. Um, but, um, um, a soccer player trains most of the time and then has a game on Saturday and Sunday, let’s say, and that’s when they go play all out. Right. And that, and then after. They go lay down, take the electrolytes, get some protein, go sleep, and then do recovery the next few days. So there’s, it’s, we just, we have to feel and think and be more like athletes also in leadership in order to have that sustainable capacity. Um, and, and broaden our nervous system capacity too, to like hold. Tension when it’s really needed. If I give myself all out all the time, my nervous system has zero capacity to hold long, sustain like hard times, right?</p>
+              <p>We just break fall apart. But if I have resourced my body enough and my, and you know, because you’re aware enough what your body needs in order to even just get small bottles of capacity back at the end of a hard day, then. Your body can do this for a pretty long period of time. Talking about performance like this is, that’s the real performance, right?</p>
+              <p>So yeah, I could not agree more. A hundred percent. I also wanna say Amy, uh, on the AI [00:45:00] topic really quick because it’s like, it’s such a passion, uh, passion theme for me right now. Um, I’ve spent a past life version of me, spent a lot of. Years in, like data ethics and, um, those, those kind of realms. I just wrote a longer essay on that topic too, of the how to raise companies and children in times of AI is sort of like, that’s the, that was the, the essay.</p>
+              <p>And one of the things that I’ve really, that, that I’ve really massaged was that idea of how AI is really about like scalability, patterning, like repetition, automation. Whereas, uh, leadership is really all about depth relational, right? Like, sort of like that, that relational element, um, nuance, right? Which is something that, you know, even though, uh, church PT says some incredible things, but if I would just [00:46:00] literally say to you what TR PT would give to me.</p>
+              <p>It would probably still feel a bit odd. Amy would be like, what is she talking about? Like, that has nothing to do with me right now. Right. Um, it, it would just come across staged because I’m not attuned to you as, you know, there’s like the pauses in the little funny sentences and the little bit like the giggles in between, and there’s just like the, the human element is so important in order for us to nurture that sense of belonging, safety, dignity.</p>
+              <p>With each other that ultimately creates like good ideas and all that good stuff. So, um, AI has its place. Um, but I do, I have this thesis that we will, in a few years, can’t fully say when somewhere between five and 10 we’ll start to pay a lot of money to, to get access to people where we can just show up as who we are and get honest answers and just be really deeply connected with each other.</p>
+              <p>I think those like offline gatherings, communities, places where we can learn human to human can get really real emotionally too. I think those are gonna be like places that we’re gonna start seeking out more because it’s all gonna, it’s all feels so sterile,</p>
+              <p>especially in your work.</p>
+              <p>Amie Vaccaro: Yeah, that, that definitely resonates Franzi. And, I can share a link if you’re, if you’re okay with that. I can share a link to your, your essay in the show</p>
+              <p>Franziska Gonder: Yeah, I’d love that.</p>
+              <p>Amie Vaccaro:, Franzi, thank you so much for your time today. And there’s, yeah, there’s a million more things we, we could cover</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: on a, on a future episode. curious for folks that are interested to learn more about you or your work, where, where’s a good place for folks to find you?</p>
+              <p>Franziska Gonder: Uh, a very fascinating URL francisco gonder.com. Um, that’s a good, that’s a good place to start when once you link folks to the Substack, um, that’s a really good place. I think I’ve written somewhere along like a hundred essays over the past few years, so there’s, there’s a lot of. Good stuff there. Um, oftentimes includes also like prompts and like call to actions, to like reflect on all of this stuff yourself and how it feels for you.</p>
+              <p>So, um, it’s actually pretty actionable, not just something to read and absorb. I do have a podcast that, uh, has a lot of incredible episodes called Leadership That Heals the World. Um, it’s not a li like life as in like, we’re not filling it right now ’cause we’re, we’re taking a break from it. But the people that have come on there are incredible people.</p>
+              <p>Amie Vaccaro: Definitely like, um, a shout out for your, your substack. I think your, weekly essay is, um. Are always just, yeah, give me a lot to, to chew on and, and reflect</p>
+              <p>Franziska Gonder: Okay. Yeah. Yeah.</p>
+              <p>Amie Vaccaro: Cool.</p>
+              <p>Franziska Gonder: Yeah.</p>
+              <p>Amie Vaccaro: All right. Thank you so</p>
+              <p>Franziska Gonder: Thank you so much. Yeah. This was, this was likewise, likewise.</p>
+              <p>This was a lot of fun. Thank you.</p>
+              <p>​</p>
+              <p>Thank you so much, Franzi, for joining us today. Let me leave you with a few of my key takeaways from today’s conversation. First, capacity Trumps performance every time. Instead of constantly pushing yourself to perform, focus on building your ability to handle stress and return back to baseline. Your body needs those islands of rest throughout the day to sustain high level work.</p>
+              <p>Second, find your still point. That neutral place in your body, often around your belly button that can witness stressful situations without reactivity. Third, remember that as a leader, you’re constantly co-regulating with your team. Your nervous system state becomes their nervous system state, so taking care of yourself is actually a business strategy.</p>
+              <p>And finally, in our AI driven world, the most valuable skill you can develop is your ability to be genuinely human. To attune to others, create belonging, and show up with presence and nuance. The no algorithm can replicate. That’s our show. Please like rate, or view, subscribe and share this episode. If you found it useful.</p>
+              <p>It really helps us grow our impact. And write to us@podcastatmgi.com with any ideas, comments, or feedback. This show is executive produced by myself, Ana Bhand and Michael Kelleher are our producers. And cover art is by Sudan. Chiang.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">FG</div>
+            <div class="person-info">
+              <p class="person-name">Franzi Gonder</p>
+              <p class="person-role">Somatic leadership coach and entrepreneur helping leaders build capacity, presence, and resilience.</p>
+              <span class="person-org">Somatic Leadership Coach</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6yTY5okwdv1DBjPsByXHca" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

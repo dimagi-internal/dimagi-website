@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 6: Developing CommCare to Scale iNGO Impact with Dev More (Exponential Growth Part 3) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dev More on scaling CommCare to a million users as an enterprise platform for iNGOs like the IRC, and how those same features help governments scale nationally.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep6-developing-commcare-to-scale-ingo-impact/">
+<meta property="og:title" content="Ep 6: Developing CommCare to Scale iNGO Impact with Dev More (Exponential Growth Part 3)">
+<meta property="og:description" content="Dev More on scaling CommCare to a million users as an enterprise platform for iNGOs like the IRC.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>July 4, 2022</span>
+          <span class="dot"></span>
+          <span>22 min</span>
+        </div>
+        <h1 class="ep-title">Developing CommCare to Scale iNGO Impact with Dev More (Exponential Growth Part 3)</h1>
+        <p class="ep-deck">Part three of Dimagi&#x27;s exponential growth series. Dev More, Sr Director of Product, on scaling CommCare toward a million users by making it as commonplace inside an iNGO as email.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/0mHDFeiwhJ3b4CJPQH7aSq?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 6 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/0mHDFeiwhJ3b4CJPQH7aSq" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000568750048" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/byz4neOmDjw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/073161db-5685-4fb3-9c38-94b51ce77e93/high-impact-growth-developing-commcare-to-scale-ingo-impact-with-dev-more-exponential-growth-part-3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">1 million</div>
+          <div class="ep-stat-label">users Dimagi is working to scale CommCare toward</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">40</div>
+          <div class="ep-stat-label">countries the IRC works in, across 200 plus programs</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">80%</div>
+          <div class="ep-stat-label">of data needs aimed to be met by self service tools, with flexible pipelines for the rest</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In part three of Dimagi&#x27;s deep dive into sustaining exponential growth, hosts Amie Vaccaro and Jonathan Jackson talk with Dev More, Senior Director of Product at Dimagi and the person responsible for the CommCare roadmap. The thread running through the conversation is self service: the open source and software as a service model that lets hundreds of organizations build their own CommCare applications, and the backbone Dimagi is betting on to reach a million users.</p>
+        <p>Dev explains how the biggest growth has come from an enterprise strategy that helps international NGOs institutionalize CommCare across their global operations. The clearest example is the International Rescue Committee, which went from using CommCare in a decentralized way across 15 to 20 countries to standing up a central internal CommCare team, locking in predictable pricing, and giving every country office access to the platform&#x27;s full capabilities, including deep case management and longitudinal tracking.</p>
+        <p>Jon and Dev then look ahead at product development: lowering the effort it takes to build high impact applications, investing in a data and analytics ecosystem that serves both self service users and complex custom pipelines, and the discovery that the same enterprise features now help governments scale CommCare nationally across tens of thousands of frontline workers.</p>
+
+        <blockquote>
+          <p>&ldquo;That is one of my bits, to get CommCare to a point where in iNGOs it&#x27;s as commonplace and central as using email.&rdquo;</p>
+          <cite>Dev More, on his goal for CommCare</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Self service as the backbone</strong> for exponential growth, and why the SaaS model is one of the few places where financial feedback loops actually create more impact</li>
+          <li><strong>Scaling to a million users</strong>: how Dev thinks about CommCare as an enterprise platform for data collection and service delivery</li>
+          <li><strong>Inside the IRC rollout</strong>: from a decentralized deployment across 15 to 20 countries to a central internal CommCare team and locked in pricing</li>
+          <li><strong>Why case management wins</strong>: longitudinal tracking, multi worker caseloads, and the depth that makes CommCare second to none for M and E teams</li>
+          <li><strong>Build once, deploy to many</strong>: single sign on, enterprise release management, and lowering the effort per user</li>
+          <li><strong>An 80 to 20 data ecosystem</strong>: self service tools for most needs, flexible pipelines for the complex 20 percent, plus integrations with Power BI, Tableau, and DHIS2</li>
+          <li><strong>From global to national</strong>: how the same enterprise features help governments scale CommCare across tens of thousands of users</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to high impact growth. I’m your co-host Amie Vaccaro. Today we are rounding out a three part deep dive into Dimagi strategy of sustaining exponential growth. So one of the key considerations for this strategy is that we’ll continue to invest in self service, our backbone for exponential growth.</p>
+              <p>When we talk about self service, we’re really talking about Commcare Dimagi is flagship offering. It’s a customizable digital platform for frontline work anywhere in the world. CommCare is available open source, and we also offer it with a software as a service or SAS subscription. Currently, there are hundreds of organizations. That are subscribing to come care on a self-service basis, which means that they can build their own applications using CommCare.</p>
+              <p>So as an example, during the early days of COVID-19. This self-service offering allowed organizations to quickly build and adapt their own COVID 19 applications.</p>
+              <p>In previous episodes, you’ve heard us talk a bit about the public sector and some of the ways that we don’t think it’s working properly, such that. The more impact you generate does not equal more revenue. But. This is actually not the case in our software as a service business. So it’s one of the few parts of our business where financial feedback loops can actually work to create more impact.</p>
+              <p>So, what I mean by that is that if CommCare actually solves. Uh, our customer’s problems they’ll buy CommCare. And this allows us to invest in things like customer success and building more impactful features. And these features can then drive more value to the people that we serve. Creating greater impact.</p>
+              <p>So for today’s episode, Jon and I talked to Dev More, senior director of product at Dimagi. Dev is responsible for the CommCare roadmap and product development. So he’s going to share how he’s thinking about scaling CommCare to a million users. And specifically about how we’re making it most useful.</p>
+              <p>As an enterprise technology platform.</p>
+              <p>For both data collection and service delivery. For large international non-governmental organizations or NGOs.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I want to start asking you a couple of questions.</p>
+              <p>So how did you find Dimagi and what made you.</p>
+              <p><span class="spk">Dev More:</span> Sure. Yeah. Thanks Jamie. Thanks for having me. Yeah. So so before joining the Dimagi you know, I was a product management person. I worked mostly in the payments industry building. Products that make mobile payments easier. And I did that for about five, six years and the food apps I was, you know, in similar roles and different industries, but I got to a point where I wanted to spend all my time and effort into building tools that a.</p>
+              <p>Impact millions of users and B impact users that are doing meaningful things. So Clayton recently articulated this very well. And I use this kind of like as a part of my story where,  I wanted to work on products for not the most profitable users, but for the most important human beings.</p>
+              <p>And, and that. Propelled me into figuring out how I could do that. And Nively, I taught that, Hey, in order to, in order for me to do that, I should probably go back to school. And so I applied to a bunch of like masters in public administration and public policy program. And I got rejected by all, thankfully, but interestingly, what happened was just a month off of that.</p>
+              <p>The Magee’s job posting for a product manager popped up on my LinkedIn feed. And interestingly, the job posting was essentially the essay that I would attend to all the schools in terms of what I wanted to do with education. So I don’t know, Jon, if you remember, but I ping Jon. On LinkedIn, and then I asked him like give me a project or the weekend.</p>
+              <p>So Jon. It’s kind of old to a bunch of people asking for a project. So he did give me a project, which I had turned around or the weekend and yeah, in a week’s time I had the job. So, so yeah, it was A lot of good luck, essentially.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s amazing. And I feel like that story is actually. Advice for job seekers, right. Just get in there, do a project show what you can do and let your work speak for itself.</p>
+              <p><span class="spk">Dev More:</span> Yeah. Cause, I was interviewing with a couple of organizations and I was, you know, going through the whole exercise of, you know, asking or fielding theoretical questions. So I just thought like, Hey, you know, it’d be nice for Jon and I to chat about something like meaningful that is relevant to the product. And also like chatter about other things. so so yeah, I would definitely recommend that.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And so I’m personally like. The longest I’ve been at one organization is I think four years. It’s embarrassing to even say I I’ve definitely done some job hopping and you’ve been here for five years now.</p>
+              <p>What’s kept you here? All those five years.</p>
+              <p><span class="spk">Dev More:</span> Ah, I mean the same reason that got me here, you know, we haven’t gotten into 1 million users yet, so I’m not going anywhere until we get there. Yeah. And then we just have a, you know, a fascinating culture. Everybody is like very empowered to. Push for things that they believe in and if you have an excellent leadership team Yeah, I mean, honestly, I can’t think of anything else that I could do with my time.</p>
+              <p>That would be this enjoyable. And over the last couple of years, you know, Got it into impact investing. And I support my sister’s organization in India that provides services to children with disabilities. I also advise other similar organizations in India. So I’m really happy that the field or the sector that I’m in and there’s so much to be done.</p>
+              <p>So, so Dimagi kind of fits into. That personal desire and mission really well as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, absolutely. And I think, yeah, Dimagi is, is quite ambitious and as are you. So I, I, I see that alignment and that kind of, you know, you mentioned the trying to get to a million users that ties nicely into the topic for today, this is a series of conversations around. Our five-year strategies.</p>
+              <p>These strategies are built on learnings and things we’ve known for a long time, but really just articulating them. So one of his strategies is sustain exponential growth. And within that, there’s a handful of considerations. And one of those is we will continue to invest in self-service our backbone for exponential growth.</p>
+              <p>And I know Dev that you really sit at the center of these efforts as has or. , So I’m curious to hear, what does, what does this consideration mean to you and what has it looked like and how has it evolved? Over the years,</p>
+              <p><span class="spk">Dev More:</span> Got it. So, Amie in the past five years that I’ve been at Dimagi the most exponential growth that we have noticed is in an enterprise strategy where we enable international NGOs to adopt CommCare at a global level of, at an institutionalized CommCare in a way where to build. Central CommCare team and then V engaged with the CommCare team to unlock further capacity building and for the success, I think dot model.</p>
+              <p>Is going to be incredibly key to our success. What happens is when we build such enterprise relationships, it creates the right level of intimacy between us and our partner organizations, where we are deeply embedded in their, what short term and longterm strategy, which allows us the ability to optimize our product and services in alignment with the strategy so that we can unlock.</p>
+              <p>Success and growth efficiently. It also allows us to build capacity into that core central Kafka team. And, and they further bill capacity down to the regional or country office level. So enterprise, our enterprise strategy has a seen you know, significant growth. And like I mentioned, it is something that we’ll be heavily investing in in the next five years,</p>
+              <p>as well. In alignment with that, a lot of our product work has been around enabling such organizations to easily adopt CommCare at the global level. So in the last five years, you know, we have essentially improved the ability for organizations to admit. Uh, The rollout of CommCare at the global level, we have doubled down on our enterprise user management capabilities through features like single sign on.</p>
+              <p>We have made it easier for organizations to deploy content solutions where they Can.</p>
+              <p>build once and deploy to many country offices. Capabilities like the enterprise release management and does a lot on the roadmap around just making it, easier and easier for organizations to truly outcome care.</p>
+              <p>Like you had email. And that is one of my. Bits to you know, to get conquered to a point where in ING Is it’s it’s as commonplace and central as using email.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Dev, is there an example you could give, what does that look like to adopt CommCare at an enterprise level? And how does that team work and how does that sort of tie into this self service?</p>
+              <p><span class="spk">Dev More:</span> Yeah, I mean, I can talk about the most recent the most recent and significant example of IRC.</p>
+              <p>***</p>
+              <p><span class="spk">Amie Vaccaro:</span> Quick aside here for those listening who may have not heard of the IRC. IRC is the international rescue committee.</p>
+              <p>They are an NGO that helps people that have been affected by humanitarian crises, including the climate crisis to survive, recover, and rebuild their lives.</p>
+              <p>***</p>
+              <p><span class="spk">Dev More:</span> So IRC before they. Establish an enterprise relationship with us. They were using CommCare across, 15, 20 countries. And of course they, they work in, 40 odd countries with, 200 plus programs.</p>
+              <p>So the other way of operating was very decentralized and there was a lot of demand internally for tools like CommCare, but but they didn’t have a central strategy to provision Comcast to all their staff. So a year and a half or two years ago when they Adopted our CommCare offering that led to creation of their own internal CommCare team which consists of folks from it folks from Morrell</p>
+              <p><span class="spk">Amie Vaccaro:</span> Marel stands for monitoring evaluation, research and learning.</p>
+              <p><span class="spk">Dev More:</span> And and once such an enterprise relationship gets established and we have a cadence of quarterly calls where we familiarize myself with, you know, what the organization is trying to do, and that was similar with IRC. So. So that translated into IRC having a lockdown pricing structure so that they know you know, what their costs are going to be today. And also, in a year’s timeline Monday have more countries using CommCare.</p>
+              <p>So, so that makes just the planning for CommCare significantly easier. Other than that, you know, they got access to all our capabilities, which does significant improvements to building into organizational capacity. Before enterprise, we used to get a lot of complaints from IRC, where somebody from HQ was responsible to blue capacity, complaining that.</p>
+              <p>That I can train people effectively because have the capabilities I want to train them on. They don’t have access to them because they are on our free software plan or, you know, a lower plan that doesn’t have those capabilities. So enterprise gave everybody access to all capabilities that just did wonders to our internal ability to bill capacity.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What are, what are some of those capabilities? Like, what are there, like even before they came in with those enterprise plan, you’re saying that their staff were wanting CommCare?</p>
+              <p>Like, what were they using it for?</p>
+              <p><span class="spk">Dev More:</span> So most of the demand came from the monitoring and evaluation team that. Digital tools, frontline tools that actually work in the field. And specifically for longitudinal data tracking where and a numerator enrolls a beneficiary, and then that beneficiary is, is monitored over time.</p>
+              <p>And yeah, and then CommCare. Fit into those needs really well because of our case management capabilities very well known in our sector for our deep case managing capabilities, which go above and beyond just the ability to, or just to somebody and follow them over time. You know, we have a lot.</p>
+              <p>The depth of a case management capabilities is like second to none. And and that leads to the effectiveness, but a lot of, a lot of capabilities that organizations don’t realize that they would need. Like, for example, the simple ability where. Multiple frontline workers can collaborate on the same caseload.</p>
+              <p>And you know, that’s you know, bread and butter CommCare use case. And once DRC country office teams have access to that, you know, everybody started using it. So Yeah, so I would say to summarize, I mean the MNA teams, the local, I mean, the teams needed, you know, powerful frontline tools that were flexible enough to meet their specific workflows and tools that are actually effective on the field and CommCare address.</p>
+              <p>Those needs are as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s awesome. So, so IRC, who’s serving, you know, millions and millions of people around the world with varying services, they’re able to effectively. Deliver those services to individuals track those cases over time and then collect data back on the impact of those services.</p>
+              <p>So they can then be reporting back to their, their donors and their organization on the impact that they’ve had and optimize it over time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And for a lot of our enterprise customers like IRC, that Dev was alluding to, the amount of programming work they have is vast. I mean, the staff in countries are almost consistently under capacity, there’s always more projects and more impact. They wish they had time to create. And a lot of the work that we’ve done over the last couple of years has been to recognize, we need to minimize the amount of time it takes to build a high-impact application in CommCare, both in terms of how an entire enterprise rolls it out across the enterprise, how they support their country offices and how those country offices support their field staff.</p>
+              <p>And so a lot of those features Dev alluded to, they’re really about trying to lower the amount of total effort that has to go into creating these high-impact solutions that can really drive and amplify the impact of an IRC in the field while trying to either maintain the current effort and reach more users or lower the effort per user.</p>
+              <p>One of those two things must be true if we’re going to achieve sustained exponential growth.</p>
+              <p>So to feed into exponential growth. Improvements to CommCare either need to help our partners reach more users and create more impact with the same level of effort. Or they need to lower the effort to create impact</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so, as we think a lot about what Deb said on the enterprise features and how to build ones deployed many or some of the data analytics tools and data pipeline tools, we just released. These all are about lowering the effort that needs to go into achieve the same impact or unlocking more impact with the same amount of effort.</p>
+              <p>And that’s really core to our strategy from a product positioning with how we’re going to achieve that. Sustained X-Men.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What does, what does product development look like going forward as you continue to support those exponential growth?</p>
+              <p><span class="spk">Dev More:</span> So, like I mentioned, I mean, we definitely gonna double down on our enterprise strategy. So I think in order to get there, we will have to continue investing in our enterprise capabilities that makes it easier and easier for organizations to adopt CommCare at a global.</p>
+              <p>Another team that is going to be of significant value towards our enterprise strategy is investing in our data and analytics ecosystem. What are the things that we have learned working with our enterprise partners is in a given organization. Staff comes in with a lot of different skillset for data use and those skillsets evolve very rapidly.</p>
+              <p>Along with that mean, For data use within an organization, also vary across teams across country offices. And those needs also evolve very quickly. Like we all know that our country offices are programs that are required to send data to DHIS too. We know that our country offices that are, that don’t want to use anything besides Excel.</p>
+              <p>And then we know that our teams that are obsessed with using power BI and, you know, how do you create an analytics ecosystem for enterprise that, that caters to these reality? And how do you create an analytic ecosystem? That allows these organizations to operate in a way where 80% of the data needs are fulfilled by self-service data tools that don’t require any it support.</p>
+              <p>And for the remainder 20% complex data needs, they have a flexible and powerful dev tools to build custom data pipelines. So our analysts, because this. Has been designed with these realities in mind and we plan to, you know, further invest into the ecosystem or the last couple of years we’ve added, you know, turnkey integrations with like power BI Tableau DHIS two.</p>
+              <p>We are actually working on adding Google sheets integration very soon. We’ll start working with. um, Adding turnkey integration with tools like Stata or SPSS. So I think our intentionality around how we build a data tooling ecosystem, such that it truly aligns with the needs of a given NGO at the global level.</p>
+              <p>I think it’s going to be very key to our success.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Jon, what about you? What are you looking forward to in terms of product development for.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think there’s a lot of exciting areas that that I’ve mentioned. And one of the keys, which. Something that we didn’t necessarily think was true in the last couple of years, but that just felt like it really came together. All those features that they’ve just mentioned for enterprise customers, large non-profits and for-profits that we support globally.</p>
+              <p>Those are the same features governments are now asking for because governments are deploying across tens of thousands of users and they want to have some flexibility on how the app is deployed to the district. And the district offices have different tools. They’re using the connect data pipelines too, and there’s a different ecosystem of products on the grounds.</p>
+              <p>They need more intricate API integrations. So I think our industry previously several years ago was kind of looking at these national scale programs, like a single digital solution that was going to work across the entire national workforce. And all of these features that we’ve been building in that helps enterprise scale globally, help governments scale nationally.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Just a quick sidebar here on national scale that Jon mentioned.</p>
+              <p>A national scale program would be where CommCare is used across. An entire country’s health or other frontline workforce. And we’re actually going to be talking about national scale specifically. In an episode to come. So look out for that</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so that’s something that we’re really excited about as a lot of our government partners have started to scale. You know, thousands of users into the tens of thousands of users. And we now have that experience of running these projects, some for over a decade, but many for multiple years. And we’re seeing multiple different versions and multiple user types and multiple versions of the application for urban versus rural users and things like that.</p>
+              <p>These features are all. Coalescing in a very convenient way, that’s aligning the product roadmap. And so that’s some of the areas I’m most excited about. Also, I think the goal that we have for strategic priority, one in our five-year strategy, better jobs for better outcomes. That’s something I’ve always been excited about and is something that Dev and I have really talked about in terms of what, what creates a better job for the frontline worker.</p>
+              <p>What creates a better job for the eMoney health? , Technology is obviously only one part of that puzzle, but how does that play a role across the product roadmap? And I’ve always enjoyed, you know, when we sync on different product priorities, how we think about the impact it’s going to have. And it’s something that we’ve been very fortunate to be successful enough as an organization that we can really make core product investments.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think just thinking that the, this notion. All of these features are coming together because there’s, there’s always this kind of like cascade of capacity. There’s a cascade of skill building. There’s increasingly complex applications and we’ve built such an amazing set of capabilities in the platform that allow us to handle, you know, five NGOs running the same app in a country that don’t share data, five districts that do share data.</p>
+              <p>One app that runs across 10,000 users, one app that’s supported by Dimagi staff and our NGO partners and all those different configurations. I think. Increasingly possible with all the capabilities we’ve added and are going to add. And I think that’s really exciting as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thanks to Dev and Jon for today’s episode. I hope you found that peak under the hood of calm cares, product development. Interesting. As a quick recap. Today, we talked about how we’re building CommCare to support self service so that we can sustain exponential impact growth.</p>
+              <p>We talked about making CommCare easier to use at an enterprise level across a large I N G O. And we also talked about the ways in which we’re improving, how CommCare supports a large eMoney ecosystem of data tools.</p>
+              <p>And we also heard how those same functionalities. Can also support government and national scale use cases of CommCare. Thanks again for listening and please do follow rate and subscribe and do send any questions or ideas you have to podcast@dimagi.com. Thanks so much</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">DM</div>
+            <div class="person-info">
+              <p class="person-name">Dev More</p>
+              <p class="person-role">Senior Director of Product, responsible for the CommCare roadmap and product development as it scales toward a million users.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/0mHDFeiwhJ3b4CJPQH7aSq" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

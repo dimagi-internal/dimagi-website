@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 63: Improving Health Worker Jobs to Boost Outcomes | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Inside CommCare Connect, Dimagi&#x27;s bet to improve community health worker jobs through Learn, Deliver, Verify, and Pay, with early results from Malawi and beyond.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-63-improving-health-worker-jobs-to-improve-outcomes-with-commcare-connect/">
+<meta property="og:title" content="Ep 63: Improving Health Worker Jobs to Boost Outcomes">
+<meta property="og:description" content="Inside CommCare Connect: improving health worker jobs through Learn, Deliver, Verify, and Pay.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>September 13, 2024</span>
+          <span class="dot"></span>
+          <span>62 min</span>
+        </div>
+        <h1 class="ep-title">Improving Health Worker Jobs to Boost Outcomes</h1>
+        <p class="ep-deck">A frank roundtable on CommCare Connect, Dimagi&#x27;s biggest bet: a platform built on four pillars, Learn, Deliver, Verify, and Pay, that lets community health workers opt in to additional work and get paid for it.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/273AZJZscAr8JVsXu43ZGU?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 63 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/273AZJZscAr8JVsXu43ZGU" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000669463672" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/HELwf5xkJLY" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/931c9d09-5bb8-43f4-aa5d-9df85fb0913e/high-impact-growth-improving-health-worker-jobs-to-improve-outcomes-with-commcare-connect" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">84%</div>
+          <div class="ep-stat-label">of frontline workers completed a full learn, deliver, verify, pay cycle on their own in a Malawi pilot</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">100,000+</div>
+          <div class="ep-stat-label">verified service delivery visits delivered on the child health campaign</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">$3 million</div>
+          <div class="ep-stat-label">in funding closed in 2024 to scale up CommCare Connect</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode of High Impact Growth hosts Amie Vaccaro and Jonathan Jackson, dive into one of Dimagi’s most ambitious and potentially transformative projects to date, CommCare Connect. This platform is designed to improve the jobs of community health workers (CHWs) by equipping them with digital tools to learn new skills, deliver health services, verify their work, and, crucially, get paid for additional work. By doing so, CommCare Connect seeks to address some of the biggest challenges in the global health space, such as the underpayment and disempowerment of CHWs and funding wasted on digital tools that don’t survive the project’s end, while driving better health outcomes globally.</p>
+        <p>Throughout the conversation, Dimagi team members Mercy Simiyu, Sarvesh Tewari, and Dhivya Sivaramakrishnan, share insights from their direct work on CommCare Connect and with locally led organizations and CHWs across various regions, including Kenya and Malawi. They provide an in-depth look at how CommCare Connect has evolved over the past two years and reflect on early success stories, challenges, and lessons learned. During this conversation we unpack the four pillars of CommCare Connect’s technology:</p>
+        <p>Show Notes:</p>
+        <p>For inquiries, ideas or information on how you can get involved please reach out to: bgeoffroy@dimagi.com</p>
+        <p>Sign up to our newsletter⁠, and stay informed of Dimagi’s work</p>
+        <p>We are on social media – follow us for the latest from Dimagi: ⁠LinkedIn⁠, ⁠Twitter⁠, ⁠Facebook⁠⁠⁠, ⁠Youtube⁠</p>
+        <p>⁠⁠⁠</p>
+        <p>If you enjoy this show, please leave us a 5-Star Review and share your favorite episodes with friends.</p>
+        <p>Hosts: ⁠Jonathan Jackson⁠ and Amie Vaccaro</p>
+
+        <blockquote>
+          <p>&ldquo;84 percent of the frontline workers successfully completed a full learn, deliver, verify, pay cycle on their own.&rdquo;</p>
+          <cite>Sarvesh Tewari, on early pilots in Malawi</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The four pillars</strong>: how Learn, Deliver, Verify, and Pay (LDVP) come together to let a community health worker opt in to new services and get paid for them</li>
+          <li><strong>Better jobs, better outcomes</strong>: why Dimagi made improving CHW jobs its top strategic priority coming out of COVID</li>
+          <li><strong>Proof from the field</strong>: pilots in Malawi where workers autonomously completed full cycles for household safety, vaccine promotion, and early childhood development</li>
+          <li><strong>The 90 cents goal</strong>: keeping only 10 percent for the platform so the vast majority of funding reaches the frontline worker</li>
+          <li><strong>Earning local buy-in</strong>: working directly with locally led organizations and the surprising demand from CHWs and communities</li>
+          <li><strong>Rethinking funding</strong>: paying only for verified delivery, cutting the heavy overhead of traditional outcomes financing</li>
+          <li><strong>Truly opt in</strong>: why a take-it-or-leave-it model forces the product to create real value for every actor in the ecosystem</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth. A podcast from Dimagi for people committed to creating a world where everyone has access to the services, they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity. I’m Amie Vaccaro, senior director of marketing at Dimagi.</p>
+              <p>And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder. We often talk on this podcast about the challenges in the tech for global health and development space. Today, we’re going to talk about the biggest bet that Dimagi is currently making on a solution to those problems.</p>
+              <p>A solution we think could fundamentally change the way the sector operates.</p>
+              <p>We’re going to talk about our work on Comcare connect.</p>
+              <p>We’ve mentioned it on previous episodes, but today is the first time we’re dedicating an entire episode to sharing insights from the journey. Over the last two years, a team at Dimagi has been heads down on this effort to upend the status quo and health service delivery.</p>
+              <p>Conquer conduct is about making community health worker jobs better. As we see that as an essential component to improving health outcomes around the world.</p>
+              <p>If it works, Comcare connect will usher in a new way of delivering services where they’re needed most and compensating, the health workers who make it possible. Today’s conversation is a Frank round table on how it’s going with four of the people closest to the work. Enjoy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to the podcast. So I am very, very excited for today’s conversation today. We’re going to be talking about one of our most exciting initiatives at Dimagi, which is called CommCare Connect. And it’s sort of funny when we first started this podcast over two years ago, we were just starting out, uh, to build CommCare Connect.</p>
+              <p>And my actual initial intention with this podcast was like, let’s follow the path of CommCare Connect. And really use that as a, as a thread for the podcast. And we actually ended up not talking about it. Um, I think we really wanted to get more progress, more learning, um, push it a lot further before talking about it.</p>
+              <p>But I’m just excited that here we are today in a place where we want to share some of the things that we’re learning and how it’s going, um, and to give you some context for what, how we’re thinking about this. Um, so very excited for today’s conversation. And today we’ve got Jonathan Jackson here, of course, my host.</p>
+              <p>Hey, Jon.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Great</p>
+              <p><span class="spk">Amie Vaccaro:</span> you. And we have three incredible Dimagi team members here with us who have been heads down working on CommCare Connect and are eager to share with you some of their learnings and what they’ve been working on. Um, they are, there’s a larger team working on it, so this is not the entire team, but these are three folks that we’re, we’re happy to have joining us.</p>
+              <p>So first we have Mercy Simiyu. Marcy, welcome to the podcast. Nice to have you.</p>
+              <p><span class="spk">Mercy Simiyu:</span> Thanks, Amie.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Next we have Sarbesh Tewari. Sarbesh great to have you.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Thanks, Amie. Thanks, Jon, for having me. I’m excited to talk about the CommCare Connect.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And last but not least, we’ve got Divya Sivaramakrishnan. Divya, great to have you.</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> Thanks, Amie and Jon, great to be here.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Great to have you.</p>
+              <p><span class="spk">Amie Vaccaro:</span> so,</p>
+              <p>okay.</p>
+              <p>I’d actually love to hear just quick intros from each of you before I hand it over to Jon to give a little bit of context on CommCare Connect and what it is. So, Mercy, do you want to go first?</p>
+              <p><span class="spk">Mercy Simiyu:</span> I have, uh, been with Dimagi a little bit over a year, well, almost exactly a year, um, and I joined, uh, in the capacity of, uh, Director of Frontline Programs for CommCare Connect. My background, I have my training in public health and I worked within public health tech since 2014 15, so.</p>
+              <p>Uh, very excited to, to join last year and just amazed at everything that I’ve been learning since then.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Thank you so much, Mercy, for joining. Sarvesh, over to you.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Hi, um, I am Sarvesh Tiwari. I have been with Dimagi for more than seven years and I have worked in different geographies. My current role is as a director and I lead the program team for CommCare Connect. Um, and we have been experimenting in different countries, which we’ll, we’ll talk a bit more about, but, I’ve worked on many different, uh, projects focusing primarily on digital health.</p>
+              <p>And before Dimagi, my, my background is in computer science, engineering and social entrepreneurship. And I have been working in development space for some time, but Dimagi was my foray into digital health and it has continued so far.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Wonderful. Welcome, Sarvesh. Divya, over to you.</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> Thanks, um, I, uh, have been with Dimagi for about six and a half years now, uh, currently leading the, um, in share solutions delivery, um, and, uh, also looking into the direct to frontline pathway in CommCare Connect, which we will talk more about. Um, I have, uh, Thanks for that. I have a development sector and sociology background.</p>
+              <p>Uh, and, uh, I have worked in, uh, Likelihoods, Financial Inclusion, and, uh, now Health Tech. Um, and, uh, really excited about, uh, you know, the different, uh, innovative pieces that we work on as a team</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Welcome. So excited to have each of you here today. want to go back to you, Jon, and I’d love for you to. Set the scene a little bit. What is the problem that you’re trying to solve with CommCare Connect?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Amie. We, I think it’s not a not an I, Jon, but a we Dimagi and a we industry. Um, so community health workers have been shown in multiple massive evidence bases to have huge potential impact, both on health outcomes and huge return on financial returns up to 10 to 1. And I heard there’s a refresh of that study that that’s even higher, maybe 11 to 1 on the returns.</p>
+              <p>We just heard that on a previous podcast episode. Um, I think there are massive potentials of this workforce. They’re doing incredibly important work. They’re reaching patients that often can’t be reached through other healthcare services. Distances to primary care clinics or hospitals are very far. And CHWs have been shown to be extremely adept and competent at providing lots of services in the community, whether that’s door to door, Or to fix site, um, that makes CHWs just a really powerful part of a healthcare delivery system.</p>
+              <p>That said, running any workforce with tens of thousands of people, um, is very difficult. And running CHW programs can be extremely difficult. You have high burnout, high attrition, very low pay. not enough supervisors, not enough supplies, many challenges faced in other parts of the health system as well, but this workforce is often massive.</p>
+              <p>Uh, so as we thought about what Dimagi wanted to do coming out of COVID, our top strategic priority was to improve outcomes by improving jobs. We’ve done lots of programs to support community health workers all across many different geographies and many different cadres and skill levels, and we’re incredibly proud of the work we do, but we think there’s so much more that can be done.</p>
+              <p>And the reason we’re focused on better jobs is we frankly think not enough of our industry is focused. On better jobs for CHWs. That is, how do they get more pay? How do they actually, there are a lot of folks focused on getting more pay for CHWs, but how do we make that job, um, better? How do we help ’em with digital tools?</p>
+              <p>How do we help ’em upscale? How do we help ’em be more empowered in their community? And most importantly, how do we maximize the agency that A CHW has for determining what’s right in terms of the services he or she is delivering? in their community. And that was the genesis of, of CommCare Connect.</p>
+              <p>Basically, we know CHW programs can be incredibly effective, but they’re just really exceptionally difficult to design, to run, to maintain, and to improve over time. And so we thought if we can put that CHW and her client. At the center of how we think about different programmatic models. Maybe we can transform parts of how CHW delivery can happen.</p>
+              <p>And that’s where we came up with CommCare Connect. So the idea is that you have this huge workforce already out there. Doing somewhere between very limited number of hours per week to full time. And the people who are not currently full time have the opportunity to do even more in their community if they so choose.</p>
+              <p>And we think we can empower them to do that by four key pillars that we call Learn, Deliver, Verify, and Pay, or what we internally at Dimagi call LVVP. So if you think about a canonical CHW who’s out there in rural Kenya, delivering, say, 16 hours worth of services per week. She’s visiting houses in her community.</p>
+              <p>She knows where the newborns are. She knows what the under five children are. She might not be doing intensive early childhood development, and we’ll talk about this as an example in a bit, but she has the opportunity to do intensive responsive caregiving coaching. This is something as a parent I wish I had access to when my kids were younger, understanding best practices for playing with your children, um, and this could be something that’s incredibly important.</p>
+              <p>Powerful to first time mothers or to first time fathers or to, you know, parents who have a couple children. The worker can learn how to do that digitally. She can then get certified to do that by taking a digital test and potentially getting observed by an expert. She can go deliver that out in her community when she chooses to.</p>
+              <p>We can verify that that was done because she’s using the application in real time. And then ultimately and importantly she can get paid for doing so. And we think if we can connect, learn, deliver, verify, and pay at scale, this creates a transformative opportunity for CHWs to opt in, to choose the additional work they want to do in their community, and get paid a strong livable wage for doing so.</p>
+              <p>And excitingly, if this can be done the way we think, at scale, it’s even cheaper for the people who want to fund early childhood development programs than the current status quo. Because you’re using the opt in ability of CHWs, you’re using their own agency to dramatically lower the overhead. of how that program gets delivered because all of that work can be done and chosen to be done by the CHW and the vast majority of the payment can be given to the CHW.</p>
+              <p>So our goal with the CommCare Connect platform is to only have to keep 10 percent of the programmatic funding to pay for the platform and pay for everything Dimagi is putting in. And 90 cents on the dollar can get to the frontline worker to pay for labor or commodities. Now, there’s tons of stuff that has to go right for that vision to play out, but we picture this workforce that’s already equipped, already supported with the amazing work that CHIC and Africa Frontline First and many of these other international organizations are doing and all the advocacy that WHO is doing, and then add this layer where in addition to the core service package, CHWs can choose to opt in to do these additional services and choose what is most appropriate for their community and for what they’re interested in delivering.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much, Jon, for sharing that. And thank you. I remember when you first shared this vision with me and I was pretty early at Dimagi and just feeling so, so inspired and so excited by this idea that we could really support and enable the frontline health worker to do their jobs better in their communities and really focus on what are the functionalities that they need in a digital tool to learn those new skills, deliver them, verify that they’ve delivered those services, and then most importantly, get paid.</p>
+              <p>Right? Because so often, we talk about on this podcast, they’re not getting paid. Um, in the last two years, how has it been going, Jon? What, where, where are we at with this incredible project?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, it’s been a, it’s been a huge effort. And again, I think when we look at this as Dimagi, we’re uniquely positioned with our experience of having run hundreds of CHW programs. And we have some of that expertise on this call and bringing in outside expertise, um, to really, you know, learn as much as we can and progress this.</p>
+              <p>I mean, this is a huge effort. It would be transformative for the industry. So obviously there’s a lot of work going on and a lot still to prove. Um, and so I’m excited, uh, to hear from Mercy, Sarbhash and Divya what they thought when I first pitched this idea to them. Um, you know, Sarbhash and Divya were already at Dimagi, but had done tons of CHW work over the years, um, including some of the biggest CHW programs in the world.</p>
+              <p>And Mercy, when we were recruiting you, you had your own direct experience with CHW programs. But I’d love to kind of go one by one and hear what you thought. I’ve had this conversation with funders, with internal team members with program team members and gotten a huge spectrum of responses, Amie. So to your point, one of the things we’ve been doing over the last two years and are still doing is just trying to learn, you know, do CHWs really want to opt in?</p>
+              <p>to doing additional work for additional pay. Are there programmatic interventions that are appropriate to deploying this way? We’re by no means claiming that everything should be delivered via CommCare Connect even if it works. We deeply believe in the value of a core service package and scaling up, um, national CHW workforces.</p>
+              <p>Um, but I’ll start with you, Marcy, and just pass it over. You know, when we were having these discussions during recruiting and when you were trying to, you know, think about whether this could be successful, what, what initially went through your head? You know, what were you excited about? What were you skeptical about?</p>
+              <p><span class="spk">Mercy Simiyu:</span> I think I was 100 percent excited about everything. What’s appealed to me about CommCare Connect and just the idea behind it, having worked with CHWs from Ethiopia to all the way to Liberia, I think the idea that they’re able to opt in and do these additional tasks, it’s very, it’s empowerment. They’re able to not just rely on the government or the local organization or the local nonprofit to tell them what to do, but they’re able to sort of.</p>
+              <p>Work it into their day job. So typically the CHWs I worked with, they had a certain set of tasks that they needed to do. However, when they get to the household, Things might be a little bit different. They might see something additional that because of the nature of their character, they just want to help the family.</p>
+              <p>And what CommCare can at that point when I was thinking during recruitment, Oh, it allows them to professionalize that stepping in and get paid for it. Um, and also it helps upskill them to a certain degree. So some of the community health workers, for example, in Kenya. They’re recruited. They have a maybe a second year of high school education.</p>
+              <p>It used to be a primary school. And most of them who are women have either dropped out due to lack of school fees. And so they go into the community health worker role to sort of help. And they’re doing informal jobs on the side. So my thought when I heard about CommCare Connect was, oh, this allows them to get certification to upscale themselves.</p>
+              <p>Um, sort of build up the, the education that they left stunted behind. It might not be the typical formal education, but it sets them up for upward mobility within the health system, and they don’t have to rely on Ministry of Health to do it for them. Um, I think the only skeptical thing that was in my mind, because I’m from Kenya, I knew that we have mobile money, but I was like, how are we going to pay?</p>
+              <p>Everybody on time when governments themselves cannot do it, but so far, I’ve been, I’ve been impressed by how we’ve been able to do it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Great. Thanks, Marcy. And Suresh and Divya, I’ve, I’ve tried to pitch you guys on a lot of different ideas over the years and ways to improve our projects. So I’m curious, um, you know, when you were first hearing from this and getting closer to the project work, what was going through your head in terms of.</p>
+              <p>You know, could this work? Would it work based on what you’ve seen, um, in, in CHW programs? So Raj, we’ll start with you.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Thanks, Jon. Yeah, I think when I first heard about the, I remember the document that you had shared about the strategy and when we are looking at it, uh, one thing which stood out about how we are approaching it. One was through our traditional model of operation, which is reaching out to organizations.</p>
+              <p>Reaching out to CHWs through them. And I think the second model was very interesting because we had never worked directly with frontline workers in a direct capacity where we don’t have, uh, an organization through which we are going with. I think that was a very new approach that I had, I, I hadn’t seen before that we have taken, and I think it, it was.</p>
+              <p>It brought a sense of excitement, but also a sense of skepticism of, of that, because when we look at anything, like, let’s say, taking about the Learn, Deliver, Verify, Pay, that you mentioned the LDVP internally, what we refer to, the learn, digital learning component itself is a, is a challenge that we see across different CSW program.</p>
+              <p>Back in the day, I think between 2017 and 2020, I was leading the product team. With one of the biggest time held and one of the key challenges we had is how to onboard CSWs onto the project. The training itself will take two weeks time and associated with that two weeks time was the cost that will go into that.</p>
+              <p>So when I looked at the LDVP model for what we were thinking about is I think the digital learning itself was in both an exciting part, but also. Think about the challenges that we have ahead. How do you think about whether someone would be able to get that skill that they need to go into the communities and not create negative impact?</p>
+              <p>Um, so, so that was, I think, one thing. I think the second thing that stood out was also around the verification. I think verification of work is a global development debate. How do you think about verification? What components to keep in mind? And so on. Um, and I, and I think that’s what has been the most exciting part, just problem solving and trying to figure out where do we, Take our product, how do we think about it, how do we push the bar, and how do we make sure that we do it all under that 10 percent operating cost.</p>
+              <p>So, keeping scalability also at the same time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Great. Thanks. Divya, what do I hear?</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> when I first heard about CommCare Connect, I was like, wait, what’s new? We’ve been working with You know, organizations all through and, uh, what does this really bring to the table? But, um, I think as the conversations grew and, uh, we were, you know, um, figuring out the strategy, I think there was a lot, uh, of newer aspects that, uh, you know, uh, we realized, uh, as we were sort of finalizing, uh, the final aspects of it.</p>
+              <p>Um, I think the ones that particularly really excited me was that, Working with locally led organizations, um, may not be a new concept, but the idea of empowering them, putting money in the local economies and treating it as a win win situation for both the organizations, uh, to sort of receive funding for their efforts, but also be able to remunerate frontline workers to receive timely and appropriate payments.</p>
+              <p>I think that was the real key and doing all of this, um, in a way where we’re thinking through Uh, cost effectiveness, uh, at the same time focusing on high impact interventions, uh, and trying to figure out, you know, which programmatic areas would really fit into and, uh, sort of check box all of these, um, aspects.</p>
+              <p>I think those were really, like, interesting pieces, um, when, uh, when we first, uh, spoke about CommCare Connect in general. And, uh, I think the idea of, uh, even the frontline organizations, um, kind of motivated to think about the growth path for reclining workers. And, um, when we were in conversations with some of the organizations, um, you know, how they sort of presented their ideas in terms of, you know, this is the, uh, local wage in, uh, our country.</p>
+              <p>Uh, we have been remunerating them at, uh, you know, X and X amount as incentives, but this will actually provide them to have either a flat pay or, uh, you know, You know, think of incentives in a, in a different, um, uh, perspective, uh, based on, um, digitally verifying their work, uh, and not really having that overhead of shadowing them for every activity that they do, putting in additional resources, really verify if, if a intervention actually took place or but doing all of that in a way that, does add up, and at the end of the day, you have those impactful interventions being provided to communities.</p>
+              <p>I think that was, um, really something that still stands out, uh, to me. And, uh, the fact that we’re continuing to, um, identify opportunities, uh, that are both women for the organizations as well as for my community. is what kind of keeps me</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Divya. And you mentioned, um, one of the key aspects of why I’m really excited by the potential of CommCare Connect is a lot of these concepts are not novel. You know, learning, delivery, verification, and payment. These are things Dimagi has been trying to support our partners on. Um, so we know there’s just huge, um, value in succeeding at these pillars, that they’re areas that many organizations struggle with.</p>
+              <p>And I think if we can wrap them together in a, in a platform that lets them do it easily and accessibly, it can really transform how locally led organizations can get funded within the development sector, meeting, you know, Burdensome audit requirements or M&amp; E requirements, um, to your point. And so, yeah, it’s really, it’s really a great, um, feedback.</p>
+              <p>And, and hopefully that idea that, um, each of those four areas are so critical to CHW programs is going to help, CommCare Connect, succeed. Uh, Mercy, you’ve, you’ve had a lot of discussions with our Current partners on CommCare, Suresh, you’ve been working a lot with the teams that are interfacing directly with frontline workers and Divya, you’ve been leading a lot of our work with locally led organizations.</p>
+              <p>So what I wanted to kind of hear from you all is what, what has been the response you’ve gotten from some of the people you’ve been working with or talking to? And most importantly, what’s surprised you? Um, you know, one of the things from my personal vantage point, Amie and I talk a lot about this, year one last year was all about like, do frontline workers really, actually.</p>
+              <p>Want to, in a digital manner, opt in to doing additional work for additional pay. And I was thrilled that I think it’s like very clearly, yes, but you know, we had to prove that to ourselves and we’ve gone, um, into multiple countries to, to demonstrate that potential. but from your own vantage point, like what, what’s, what’s, what’s What’s been some interesting learnings that you’ve had, um, in either trying to position CommCare Connect to potential funders or LLOs, locally led organizations, or frontline workers?</p>
+              <p>Um, again, Mercy, we’ll start with you. You’ve been having a lot of discussions that I’ve been on the calls for, um, talking to existing CommCare partners.</p>
+              <p><span class="spk">Mercy Simiyu:</span> Sure, I think the initial reaction for from our current partners is there’s a lot of enthusiasm and support for the idea. They understand the LDVP cycle and what we’re trying to do. Uh, what I’ve picked up on the hesitation comes with, um, questions on sustainability, questions around funding. How will we continue?</p>
+              <p>Will Dimagi, you know, continue with us moving forward? Um, have funders responded positively? Will they continuously fund us? And I think that comes from the local organization’s traditional approach to public health, where they apply for RFPs or, um, or bids that are out there. They submit as part of a cohort, and then they get money for three years, and then they have to do it again.</p>
+              <p>So I think they are so. stemmed in that, that when we talk to them, that’s where their minds go first. There is a lot of support and even in talking with a lot of the folks who, uh, sort of lead the, uh, CommCare implementation on the ground, uh, for their organizations, they’re very excited about the idea of the digital verification of services provided.</p>
+              <p>Because I think internally they do have challenges with. Uh, Quality of Service Provider, and so they see this as a solution, so much so that sometimes they ask if we can split the cycle and just give them one portion of it. Uh, but we definitely are enthusiastic and supportive, um, of any idea that builds up the community health workers that they work with, their capacity and their ability to, to, to earn more money.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. Thanks. And you and I have been in a lot of discussions with partners. Hopefully we will be signing to, uh, MOUs in the foreseeable future and then deploying this, where we’re going to give existing CommCare users the ability to opt into doing early childhood development in an intensive, uh, responsive caregiving approach for the first time.</p>
+              <p>Um, and, and then a lot more in Q3 and Q4 of this year. you mentioned that three year funding cycle, and this is something Amie and I have worked on. Worked together a lot on and talked about on this podcast, but that that feeds into our impact delivery mindset, which is saying if we can get LDVP to work for early childhood development.</p>
+              <p>Then, not only do we get early childhood development deployed in a highly cost effective way, but the next program, whether that’s vaccine promotion, or reader distribution, or disease screening, that worker is now more skilled at the process of learn, deliver, verify, pay. So we get not only the ROI of the first program, but that second program is even easier.</p>
+              <p>And then that third program is easier. So that’s another thing that’s really exciting. And I’ve heard that come through in the client discussions you and I’ve had with our partners where they, that, that is very clear to folks that, Oh yeah, this can work for early childhood development. It can work for all these other programs, um, as well.</p>
+              <p>And so that’s been really exciting on the partnership model. Um, switching to you, Starbush though, we have, A lot of, uh, work we’ve done trying to convince ourselves that just at the individual CHW level, that frontline worker, that she really does want to opt in to doing additional work, um, and that we can pay her for doing so.</p>
+              <p>So you’ve been doing a lot of that deep work. What has been, um, some of the learnings you’ve had through that experience and, and kind of at a high level, just talk us through what we’ve done and, and why we’re now convinced that yes, CHWs do in fact want to do additional work for additional pay.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Sure. Thanks. Um, so I think the work that we did in Malawi has been, uh, the most surprising and biggest learning for me. When we started, we had no idea whether front end workers will opt in. We had no idea whether we will be able to impart this new skill set that we are talking about. Um, and I think few things that we did last year, like for instance, in one of the pilots that we did in November, December time last year, we will opt in.</p>
+              <p>84 percent of the frontline workers successfully completed a full learn, deliver, verify, pay cycle on their own, which means that we just pushed out that opportunity that they had with a new skill set, a new programmatic area, they were able to autonomously go through and complete the learning. Pass the assessment, get certified, and then start delivering.</p>
+              <p>And all we had to do is just push a button and say that this is the new opportunity that you get. You get the learn and deliver and then we will verify and pay. And I think that was very exciting for me because. When we started the year, um, last year, we had no idea whether we will be able to complete a full cycle.</p>
+              <p>But then seeing, not just completing a full cycle, but also seeing 84 percent uptake was, was very, very exciting. And there were a few anecdotes which came up during these pilots when we were doing so. For instance, we, in one of the, um, one of the experiments we were running, we noticed that the test was hard.</p>
+              <p>And so a lot of frontline workers were struggling initially because the way. And then we also, we noticed that the other frontline workers who had been able to clear, they would jump in and explain their peers about how to approach it. And they would, and I think this is a very, Uh, beautiful part of the, this experiment, which is, you, we do see these kind of peer to peer learning when we look at it from an ed tech standpoint, but in this case, it is not just about that.</p>
+              <p>It is about in, they investing their own time and money to meet their colleagues in a place where they could explain how they have been able to see things and then go through that learning process. So I think that was also something which was very, very interesting. One thing which came up also as a very surprising and, and positive learning is they, we established not only the need with the frontline workers, but when we were doing this household safety related, um, uh, interventions in Malawi, one feedback that we got from the partner organization is that they are seeing a lot of high demand from the community members itself.</p>
+              <p>So. These, uh, frontline workers will go and cover certain households which they were targeting, and there were certain households which didn’t fall in that bucket, so they would not target. And then the community would ask our partner organizations to say that can the volunteer visit us as well the next time.</p>
+              <p>So I think it was these kind of stories that would come up during these, these, uh, pilots that, uh, that all made it very exciting for what we’re trying to test out.</p>
+              <p><span class="spk">Amie Vaccaro:</span> that’s really cool, Sarvesh. I’m wondering if you could, just for our audience, kind of share a little bit more about what that first intervention was and that, that 84 percent stat is just so, so powerful. So just a little bit more context on how, um, what we were asking these, this kind of first cohort of frontline workers to do.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Sure. So when we started, we initially started with a very simple household safety check where the workers would go into the community, talk about what involves household safety, would include some, some counseling around it. For example, with fire safety, if there are children or kids in the household, what, what other safety measures that families could take.</p>
+              <p>So we started with this. We would in this particular. Uh, experiment or the pilot that I mentioned, initially we pushed out, uh, an opportunity for household safety. So we said that this is an opt in. Do you want to take this on? A lot of community volunteers with whom we work in Malawi, they took on the opportunity and then they completed it for two weeks.</p>
+              <p>At the end of two weeks, we pushed out a second opportunity, which was around vaccine promotion. which was also a simple task. They had to go door to door, identify if there is an infant in the targeted age bracket, and then promote vaccine. Generally, just check their vaccination card, see if there are any zero dose children, try to counsel parents on vaccine hesitancy, and then complete that.</p>
+              <p>So when we looked at the numbers, our target was to see the vaccine promotion, because the first opportunity was to just get them on board and see how they are doing and so on. And the vaccine promotion is not an easy topic. Household safety, you can still say that it is a fairly straightforward. We already do a lot of it in our day to day life, but many times vaccine or anything around vaccine is something which the families or the community volunteers had not heard about.</p>
+              <p>So going through a learning. process, module by module, uh, was a new thing for community volunteers and not just learning by themselves, but also being able to deliver a service on it, which means that they are able to replicate the knowledge that they have acquired, which was where I think the most excitement for the team came up because, you know, We were, I think, honestly, we were all thinking that this is like only maybe one or two people out of the, uh, 20 or 30 people I think we pushed it with will, uh, take it on.</p>
+              <p>But then when we saw the numbers, it was very encouraging and not just the numbers in terms of end to end cycle, but also numbers at how fast these were done. So, as soon as we pushed out the opportunity, the number of days in which people were able to complete learning, the attempt they would take to complete the assessment and so on and so forth.</p>
+              <p>Yeah,</p>
+              <p><span class="spk">Jonathan Jackson:</span> a couple of details here for our listeners, one of the things that’s enabled us to be quite successful in these approaches is we developed a deep partnership with a local organization that has been able to onboard sets of 10, 20, 30 users at a time. So over the past year, we’ve run over 13 cohorts of testing various aspects of.</p>
+              <p>different intervention types or updates to the app or updates to the content and the digital learning. And that rapid learning cycle has been critical for us during this early phase of CommCare Connect. Um, and it’s really, you know, exciting. It’s taken us back to our roots of, of previous episodes. We’ve talked about design under the mango tree and what it was like originally building, CommCare.</p>
+              <p>And it’s, it’s been great. And it’s really important, even though we know kind of household safety check or. Um, Vaccine Checks and Vaccine Promotion, at a high level, there’s been deep kind of co design, co creation with both the CHWs and with the local organizations to help inform what’s contextually appropriate, um, you know, what, what makes sense for that intervention in their community.</p>
+              <p>And so, um, that’s, uh, that’s, uh, Great insight, Sarvesh, and something that we’re really excited by the long term vision of CommCare Connect is that Dimagi is not the one coming up with these programs, but that we have a whole ecosystem of people who are have their own ideas for great programs, whether that’s a local organization, a global organization or other, and that they’re in a position to offer it.</p>
+              <p>to CHWs through the platform. And so right now we’re doing a lot of the design, but I can’t wait to get to that future state. So if we have any, uh, of our audience that wants to get in touch and design their own program on this, we’d love to hear from you. Um, so with those cohorts who delivered thousands of verified service delivery visits in multiple countries, but Divya’s been overseeing the team that’s delivered over 100, 000 verified service delivery visits this point on a specific intervention for our child health campaign. So Divya, I’d love for you just to talk through the model, um, because it works at the, at the organizational level in addition to the frontline worker model. And then what you’ve learned and what’s been exciting about the amazing work that your team has been doing.</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> Thanks, Jon. so the CommCare Connect, specific pathway that, our team is kind of working on is working directly with the frontline organizations and delivering interventions through the frontline organizations. the idea is to essentially, create a platform that enables the delivery of these essential services.</p>
+              <p>where the whole effort is to essentially streamline, uh, some of the processes like onboarding the frontline workers, providing them access to, information that they can learn. We’ve experimented, mostly with in person, trainings, but we’re now getting into digital training as well, and trying to see how the organizations can optimize some Um, and then the, the point of, uh, streamlining standardized solutions across all front line workers, across all organizations, and delivering the same set of services to a large, set of beneficiaries in different geographies, and to be able to improve our own methods of, identifying whether, uh, Uh, an intervention is real.</p>
+              <p>Is it, you know, retrospectively, um, done? Uh, is the data actually correlating to the intervention that they’ve done and trying to improvise constantly on how can we identify, aspects that help us, you know, make our checks better. And finally, working on payment methods, via the frontline organization and trying to improvise there again in terms of, You know, how many tranches make more sense, or does the front line organization actually have the wherewithal to, you know, pay the front line, workers without waiting for, the whole intervention to get over, and how do they want to think about, the growth.</p>
+              <p>So I think there have been a lot of, questions, that we’ve kind of, you know, brainstormed and, uh, worked in a very iterative manner, but the idea is, you know, that we identify, those services that are, actually scalable and can be replicated, you know, a lot of beneficiaries are being, uh, serviced by one frontline worker. there have also been aspects where, uh, we’ve experimented with, kind of getting the organizations to do their own, Microplanning, uh, to essentially figure out, you know, how is it that they want to kind of structure the intervention in order to ensure that the coverage rates are higher in their own communities?</p>
+              <p>Uh, how do they look at, uh, sort of mapping the frontline workers to, to specific jurisdictions? How do they ensure that, they are able to identify, or through us, are able to identify, you know, instances where the frontline worker isn’t necessarily handing over the And, uh, you know, just trying to sort of get work done. and, there have been, instances, where, we’ve also heard from our partners that, more and more frontline workers have been interested just to get that device and, you know, deliver services via the device. also the fact that I think they also recognize that there is a lot of value in kind of ensuring there is, data all in one place, uh, more recently, give feedback about how the platform itself can be improved, not from their perspective, but actually from the frontline workers perspective, to say that if you, you know, added this, text on the screen, then this would help the frontline workers understand what they’re getting paid better.</p>
+              <p>Uh, so I think those nuances and, and that kind of feedback really, uh, kind of makes the whole, Experience kind of surreal because, uh, we’re all working towards the common goal, uh, in some sense. Yeah,</p>
+              <p><span class="spk">Jonathan Jackson:</span> great. And the one of the things that was really exciting, um, we were worried about whether there would be enough locally led organizations that were excited for this model, to support their workforces or recruiter workforce to go deliver. services through the, the platform, and we’ve been really, really excited by, um, the response we’ve gotten.</p>
+              <p>So we ran an open RFP last year, um, to deliver, uh, the child health campaign. And then, um, most recently, we, uh, specifically in Nigeria have received funding to scale up. Um, the CommCare Connect to Child Health campaign there and received over 40, letters of, of interest from different organizations.</p>
+              <p>Um, so I’ve just been really excited by the, the response we’ve gotten from locally led organizations.</p>
+              <p><span class="spk">Amie Vaccaro:</span> 1 question that I’m having as I’m hearing all of this is around funding and the funders role in this. And I asked this kind of knowing very well that this, in many ways, this is our chance to build. Specifically for the frontline worker, right? So, I know, Jon, you and I’ve had a recent conversation around, like, how do you.</p>
+              <p>Yeah. Minimize the impact of like, funders and all of this, but I do think it’s, it’s important to call out, like, how are we thinking about this, these efforts being funded, um, on a, on a long term basis. And, ,</p>
+              <p><span class="spk">Jonathan Jackson:</span> a</p>
+              <p>really, um, exciting, challenging and potentially transformative question, problem, opportunity. Um, you know, at one level, the potential to pay for outcomes is not novel. You know, a lot of people have been talking about development impact bonds or pay for outcomes mechanisms for years as a potential holy grail of, you know, making development more cost effective.</p>
+              <p>And I think, um, What we’ve seen practically is that the overhead of setting up those mechanisms is massive. You know, you have to hire a whole other M&amp; E multi million dollar project to go verify the outcomes of the primary project. So, part of what we’re really excited about here is if we can get to a mode where we’re only paying for verified delivery.</p>
+              <p>And we’ve empowered the CHW to opt in. This is, like, transformatively cheaper because we’re cutting out so much current overhead that goes into trying to verify those outcomes. So that’s one part. Um, but the second is, you know, this is not how the industry currently works. So when we work with funders, this is a long discussion.</p>
+              <p>This is trying to change the hearts and minds of ways that we can deliver these services. And frankly, part of our, um, five year strategy is we fully acknowledge not everybody’s. Um, and in fact, very few people are on our, uh, side of trying to improve jobs, right? Like as a primary outcome, a lot of people are all for improving CHW programs, but not necessarily, you know, in and of itself, improving the job of a CHW should be a goal.</p>
+              <p>And so when we have these funding discussions, it’s been really interesting. Lots of amazing enthusiasm. Divya and Sarvesh mentioned all the field work we’ve been doing, and the response not only by our locally led organizations, by the CHWs, but by the local government and national government has been exciting.</p>
+              <p>You know, so the potential of this idea, um, to help reduce overhead, to help make things more efficient has been really exciting. But there aren’t that many outcomes funders. Um, In the world right now. Um, a lot of people are excited about health systems funding, which we’re 100 percent on board with. Um, but we think.</p>
+              <p>Just like our overall impact delivery approach, the ability to do vertical funding plus horizontal funding is the holy grail, I think. Um, there’s always going to be programs that make sense to fund vertically. You know, there’s going to be people who are excited to fund under five, early childhood development.</p>
+              <p>There’s going to be people who are excited to eliminate, uh, worms as a, as a potential disease vector. There’s going to be people who are excited by various vertical areas. And then there are going to be other funders who are really excited by strengthening CHW systems. And the beauty of CommCare Connect is regardless of which way the money comes in, regardless of whether it’s a systems level investment or a more vertical program investment, you are strengthening the system.</p>
+              <p>The core CHW worker, you’re empowering him or her to do Learn, Deliver, Verify, Pay, which is a repeatable process and you’re creating a more adaptive and resilient. CHW system. So that’s the pitch I make to funders. Um, and, uh, it’s, it’s working well so far, which is really exciting where we’ve closed 3 million in funding in 2024 already to scale up, um, the work that Suresh mentioned, to scale up the work Divya mentioned, and to expand into new program areas like, uh, Kangaroo Mother Care, which Mercy has been very, uh, involved in.</p>
+              <p>So, um, good reception so far, but it’s early. You know, we ultimately want to see tens of millions, if not hundreds of millions of dollars flowing into paying for verified delivery and getting to the CHWs, um, with as much money ending up in her pocket as possible. So, um, there’s a long way to go. And one of the critiques we’ve gotten, you know, is, There isn’t enough funding for mental health.</p>
+              <p>There isn’t enough funding for early childhood development. Um, you guys don’t have a real market and I think there’s not enough funding today, but that’s because it’s in many ways too hard to scale these programs. Right? We see many CHW programs with vertical interventions that are proven in a randomized control trial or in a small setting, and then it’s really difficult to take that to scale.</p>
+              <p>We think this is the potential pathway to take those incredibly powerful, but high intensity evidence based interventions to scale, and to scale in a way where the vast majority of the money is getting into the locally led organization or to the frontline worker. So in some ways, we have to go create that market.</p>
+              <p>We kind of acknowledge that people, some funders are really excited and in discussions to really be thought partners or early research partners, but others we expect to come in a year or two from now when we do have more evidence and more proof of what we’re trying to do. The exciting thing is, you know, this is coming at a time when the development sector in general is making this huge push towards localization and at the same time recognizing the administrative burden.</p>
+              <p>of being a contractor to some of these funders is massive and the, you know, audit function and finance function and all these capabilities, they’re beyond the reach of what some of these amazing locally led organizations can do. , the experience they have running health campaigns, the experience they have supporting CHWs in their community is just phenomenal.</p>
+              <p>But can they respond to USAID RFP? Definitely not. You know, and so we were also hoping that this moment in time in the development sector and what funders claim they’re trying to do is extremely well suited. for scaling up this type of model, which gives locally led organizations and frontline workers the tools to deliver amazing services at very cost effective processes and creates the data systems and the data sets you need to then be confident you can pay for that.</p>
+              <p>Um, so I’m really excited, but it’s, it’s going to be a long journey. I mean, this is, this is really trying to change how people fund, um, if we pull off what we’re trying to pull off and, and could be a model for not just CHW programs, but other types of services as well, if we’re successful.</p>
+              <p><span class="spk">Amie Vaccaro:</span> thank you so much for sharing that, Jonathan. I think that really sums it up nicely and that this is, this represents a transformation and how the funding could happen. Right? And it’s going to take a while to kind of evolve the sector. Right? But I love that. future state of. Instead of a funder having to pay for a long 5 year effort that involves building out the tech platform and all of the infrastructure and then suddenly delivering the system, but then the 5 years is over and it’s hard to sustain that system past the funding cycle and it all falls apart, the funder can actually just pay for the outcomes that they’re looking to have, whether that be within a certain vertical in one specific area, or whether that be strengthening the system itself and investing in community health workers.</p>
+              <p>More, more broadly, so it just, it feels really, really exciting. I have a couple final questions. 1 question is around, you know, I think the example that we’ve heard so far from Sarvesh was around enabling a community health worker to do a household safety check. Or have a vaccine conversation, which are fairly straightforward interventions.</p>
+              <p>Um, but I, I think 1 of the promises of this effort is that it can also support much more complex interventions, right? so I would be curious to hear, maybe just Sarvesh, a little bit around, what are we seeing when we’re using this platform? For a more complex intervention, and I know that you’ve got one example around early childhood development or ECD.</p>
+              <p>could you speak a little bit to that?</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Sure, yeah. So, I think the ECD, Early Childhood Development, is a very good example of a complex intervention, where we are asking the frontline workers to go to the same household and do repeated number of visits. So, each visit is focused on different interventions. So, the whole idea is that we equip frontline workers with the knowledge and tools that are necessary to engage with caregivers on these key issues.</p>
+              <p>topics for newborns development. It is based on the nursing care framework that is there with the WHO has prescribed and it talks about such as responsive caregiving, positive parenting, um, any danger signs that warrant immediate care, um, anything around when the baby is crying, not sleeping.</p>
+              <p>Problems with, with feeding, breastfeeding. So the whole idea is about talking about these early childhood development concepts which impact, different cognitive and learning capabilities of newborns. So, so one of the key reasons why it makes this kind of an integration complex is because there are many failure points.</p>
+              <p>So imagine a frontline worker goes and registers a household, says that I have the targeted client here, the, uh, the child. And In the second visit, which are expected to happen at a particular period, they are not able to go there. So when we look at the uptake and completing a quote unquote intervention.</p>
+              <p>It involves going to the same household repeatedly, and also meeting the same verification rules, which is, it should be real time, maybe looking at the GPS data, seeing if it is happening around the same geography, or so on and so forth. So, our experience has been so far that even with these kind of complex interventions, it is still something As Jon said, which is early stages, but even with these kind of complex interventions, frontline workers are able to repeatedly go to the same household.</p>
+              <p>They’re able to deliver these concepts, and we have verified this also by calling the households to understand a little bit and get their side of feedback as well. Whether these counseling visits are happening. What topics are being discussed, getting a little bit of survey data, a survey from them. So even with these complex intervention, we are seeing progressively as we are increasing the complexity of these interventions, we are still seeing digital learning working out.</p>
+              <p>People, the frontline workers are able to get those skillset that are required. So, so far it has been positive, I would say, but I want to be cautious as well, optimistically cautious here. Let’s see how the rest of the year goes and what we learn next.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, absolutely. Thank you. Thank you for sharing that. That’s that sounds very promising, but absolutely something we’re continuing to work on.</p>
+              <p>So we’ve got this kind of funder environment that we’re trying to shift and we absolutely need funding to come in to support these interventions.</p>
+              <p>Going forward, how do we make sure that we are building CommCare Connect for that community health worker, for that frontline worker? Like, how do we make sure that that, the influence of funding isn’t actually skewing how we’re building?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. My, my personal favorite answer to this, and I’ve talked with some of our major, uh, supporters of this initiative. One of the things that is. Eats at me and in our, uh, core business is because it’s so top down, you don’t know, you know, we get funding for a three to five year project. We do all this work to deploy what we think is a great application with the CHWs, but they’re basically being forced to use.</p>
+              <p>in those cases. And so it’s easy to imagine a scenario where we accidentally made their job worse. With CommCare Connect, they’re opting in. So the signal that we’ve succeeded in creating something of value to the CHW is going to be that they opted in and are choosing to deliver the service over time Because it’s worth their, their time, the application’s easy enough to use.</p>
+              <p>So for me, that’s something that I, I, and you don’t need CommCare Connect to have that opt in model, but I’m kind of obsessed and our team has heard me talk about it a ton where we want to get to a point where we’re saying, take it or leave it, both to funders and to locally led organizations, but most importantly to the CHWs.</p>
+              <p>And when I say take it or leave it, I mean, did we create something valuable enough that you want to use it? based on how much you’re going to get paid for using it. So much of digital health is, well, aspirationally three years from now, this great thing will be true. So let’s start using that now, even if it’s a little bit clunky, even if we’re making you both enter data on paper and into the device, even if it’s making your job a little bit worse, at some point in the future, it’ll be better.</p>
+              <p>With CommCare Connect, it’s got to be better right now. Or you’re not going to use it because you’re not being forced to use it. It’s got to be opt in. So, Amie, I love that question. And for me, I’m just so excited by this because it literally just, it’ll be in the data because they just won’t use it. Um, and it’s a great, um, feedback loop for us, uh, in, in all of the work we’re doing, locally led organizations won’t apply if they don’t believe in the intervention or it’s not worth their time.</p>
+              <p>Frontline workers aren’t going to opt in. People won’t keep doing. The verified delivery visits, if they’re not finding it worth it. So there’s so many feedback loops here, which just not going to work if it’s not being perceived as worth it by every actor, um, in the ecosystem. So I’m, I’m really excited about that innate property of how we’re doing CommCare Connect, um, because it’s opt in, um, you know, that, that, that question you asked, it’s such a problem with digital health and the development sector in general right now.</p>
+              <p>Yeah. My, my personal favorite answer to this, and I’ve talked with some of our major, uh, supporters of this initiative. One of the things that is. Eats at me and in our, uh, core business is because it’s so top down, you don’t know, you know, we get funding for a three to five year project. We do all this work to deploy what we think is a great application with the CHWs, but they’re basically being forced to use.</p>
+              <p>in those cases. And so it’s easy to imagine a scenario where we accidentally made their job worse. With CommCare Connect, they’re opting in. So the signal that we’ve succeeded in creating something of value to the CHW is going to be that they opted in and are choosing to deliver the service over time Because it’s worth their, their time, the application’s easy enough to use.</p>
+              <p>So for me, that’s something that I, I, and you don’t need CommCare Connect to have that opt in model, but I’m kind of obsessed and our team has heard me talk about it a ton where we want to get to a point where we’re saying, take it or leave it, both to funders and to locally led organizations, but most importantly to the CHWs.</p>
+              <p>And when I say take it or leave it, I mean,</p>
+              <p>did we create something valuable enough that you want to use it? based on how much you’re going to get paid for using it. So much of digital health is, well, aspirationally three years from now, this great thing will be true. So let’s start using that now, even if it’s a little bit clunky, even if we’re making you both enter data on paper and into the device, even if it’s making your job a little bit worse, at some point in the future, it’ll be better.</p>
+              <p>With CommCare Connect, it’s got to be better right now. Or you’re not going to use it because you’re not being forced to use it. It’s got to be opt in. So, Amie, I love that question. And for me, I’m just so excited by this because it literally just, it’ll be in the data because they just won’t use it. Um, and it’s a great,</p>
+              <p>feedback loop for us,</p>
+              <p>in, in all of the work we’re doing, locally led organizations won’t apply if they don’t believe in the intervention or it’s not worth their time.</p>
+              <p>Frontline workers aren’t going to opt in. People won’t keep doing. The verified delivery visits, if they’re not finding it worth it. So there’s so many feedback loops here, which just not going to work if it’s not being perceived as worth it by every actor, um, in the ecosystem. So</p>
+              <p>I’m really excited about that innate property of how we’re doing CommCare Connect,</p>
+              <p>because it’s opt in, um, you know,</p>
+              <p>that question you asked, it’s such a problem with digital health and the development sector in general right now.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that answer, Jon, around the nature of CommCare Connect is that if users are using it, it means we’ve built it for them and they’re, they’re able to opt in. There’s no, they’re not being forced to use this. There has to be value today in the product. And I’m curious, as a team, how are you all thinking about what intervention areas we want to be building for, right?</p>
+              <p>We’ve, we’ve talked about early childhood development. We’ve talked about vaccine hesitancy. We’ve talked about household safety checks. Clearly, each of those requires a little bit of a different way that CommCare Connect is set up. So how, how are we choosing those intervention areas?</p>
+              <p><span class="spk">Mercy Simiyu:</span> I think, one of our, guiding principles or just practices for CommCare Connect is to set up the intervention areas To not mirror what happens in the CHW’s day job. So typically the CHW has, or the Ministry of Health in the countries where we work, They have a set of specific activities with specific sectors that the, uh, CHW will, will carry out.</p>
+              <p>And for CommCare Connect, we want to make sure that we’re providing complementary intervention. So that’s why, uh, Early childhood development is one area. The infant vaccine checks is another, though it’s closely related to the vaccine work that’s done by community health workers these days, but we want to make sure that we’re not competing with what the government is typically doing.</p>
+              <p>So, We’re offering an intervention area where the community health worker can opt in because it’s not something they do, um, in a standard, in their standard day to day household visit, but it’s something that will supplement what they’re doing. And in that course of supplementing that, it also sort of builds into MOH’s lower priorities, their priorities, but not at the top of the list.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really helpful to hear. So we’re really thinking about how do we complement what the CHW program might already be covering in terms of those intervention areas. so my final question for each of you. As I’ve been hearing this, and even though I’m, I hear about this work all the time, like, just hearing each of your stories today is giving me such a sense of.</p>
+              <p>Thank you. Hope and possibility and hopefully if you’re listening to this, you maybe have a similar sense. I’m, I’m curious to hear from you. What support can folks offer to this team? What, what are ways that. People listening to this can get involved in this work.</p>
+              <p><span class="spk">Mercy Simiyu:</span> If you’re listening and you are a CommCare partner organization using CommCare currently for your frontline workers, It would be great to get you on board to test out the intervention areas we have specifically for the typical CommCare user. So you can reach out as well and we can see how to push those experiments forward.</p>
+              <p><span class="spk">Sarvesh Tewari:</span> uh, we are always exploring early programs. Um, we, as we talked about, we have vaccine promotion, kangaroo mother care, early childhood development, some of these programs that we are working, but if you are a partner that would like to test out the LDVP approach, we would be very keen to talk to you and see if we can explore partnership.</p>
+              <p>We are also constantly experimenting with new pool of. Uh, Frontline Workers. We were doing so far work in Malawi, but now we are expanding it to Nigeria, Mozambique, some of the other countries as well. So if you are interested in, in trying out and seeing if any of these things would work in your context, we will be very, very happy to explore those as well.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, those are great ones. And, and the last, um, call to action is on the research side. You know, we have a ton still to learn and test and evaluate. And so if you’re listening and, um, an idea sparked in your head of something you’d love to study, we’re, we’re always really excited to, to partner with, uh, research teams, ideally locally led research teams, to, to learn different aspects of how this can impact jobs or, uh, demonstrate improved outcomes.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Well, with that, thank you so much. This has been really insightful and I appreciate each of your, your time and your energy and, just thank you for all of the work that you’re doing to push this initiative forward and very excited to hopefully share more about CommCare Connect on a future episode as we continue to learn.</p>
+              <p>Thank you so much.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Amie. Thanks everybody for being here.</p>
+              <p><span class="spk">Mercy Simiyu:</span> Thank you, Amie. Thank</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Thank you for so much.</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> Thanks everyone.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that answer, Jon, around we’ll, we’ll just, the nature of CommCare Connect is that if users are using it, it means we’ve built it for them and they’re, they’re able to opt in. There’s no, they’re not being forced to use this. There has to be value today in the product. And I’m curious, as a team, how are you all thinking about what intervention areas we want to be building for, right?</p>
+              <p>We’ve, we’ve talked about early childhood development. We’ve talked about vaccine hesitancy. We’ve talked about household safety checks. Clearly, each of those requires a little bit of a different way that CommCare Connect is set up. So how, how are we choosing those intervention areas?</p>
+              <p><span class="spk">Mercy Simiyu:</span> I think, uh, one of our, um, guiding principles or just practices for CommCare Connect is to set up the intervention areas To not mirror what happens in the CHW’s day job. So typically the CHW has, or the Ministry of Health in the countries where we work, They have a set of specific activities with specific sectors that the, uh, CHW will, will carry out.</p>
+              <p>And for CommCare Connect, we want to make sure that we’re providing complementary intervention. So that’s why, uh, Early childhood development is one area. The infant vaccine checks is another, though it’s closely related to the vaccine work that’s done by community health workers these days, but we want to make sure that we’re not competing with what the government is typically doing.</p>
+              <p>So, We’re offering an intervention area where the community health worker can opt in because it’s not something they do, um, in a standard, in their standard day to day household visit, but it’s something that will supplement what they’re doing. And in that course of supplement, of supplementing that, it also sort of builds into MOH’s lower priorities, their priorities, but not at the top of the list.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really helpful to hear. So we’re, we’re really thinking about how do we complement what the CHW program might already be covering in terms of those intervention areas. As I’ve been hearing this, and even though I’m, I hear about this work all the time, like, just hearing each of your stories today is giving me such a sense of.</p>
+              <p>Thank you. Hope and possibility this has been really insightful and I appreciate each of your, your time and your energy and, um, just thank you for all of the work that you’re doing to push this initiative forward and very excited to hopefully share more about CommCare Connect on a future episode as we continue to learn.</p>
+              <p>Thank you so much.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Amie. Thanks everybody for being here.</p>
+              <p><span class="spk">Mercy Simiyu:</span> Thank you, Amie. Thank</p>
+              <p><span class="spk">Sarvesh Tewari:</span> Thank you for so much.</p>
+              <p><span class="spk">Dhivya Sivaramakrishnan:</span> Thanks everyone.</p>
+              <p>I’m coming away from this conversation. Cautiously optimistic. Tech isn’t everything, but strong tech is an important foundation. To enable service delivery. Specifically, we believe that tech can unlock frontline service delivery through four essential components. First the tools to digitally learn a new service. Second, the job aid to support you in delivering that service in person. Third. The tools to verify that the service has been delivered. And forth.</p>
+              <p>And most importantly, perhaps the ability to get paid for that service delivery. And those are the components that we’re building right now with Comcare connect. You heard today, a few examples of how these new functionalities come together to support a community health worker. To learn, deliver a verify and get paid for delivering new services. The thing I appreciate most about what I heard today is that this whole concept of Comcare connect hinges on value creation to each player. It is truly opt in at every level. So much of tech efforts in global health and development. From what I’ve seen comes about in a fairly top-down way . But this effort intends to give autonomy and choice to the frontline worker, as well as to the organizations we’re partnering with to bring this to life. And so far, what we’ve seen is that frontline workers are choosing to opt in to get paid for more work.</p>
+              <p>Our partnership with both community health workers and locally led organizations is essential for this work. So speaking of that, I hope that some of you listening are interested in learning more.</p>
+              <p>We would love to hear from you, especially if you’re running a locally led organization. Interested in potentially implementing Comcare connect to support your workforce. If you’re an existing Comcare partner, interested in learning more and testing outcome care connect. Or if you’re a researcher and have a thought of something you’d like to study in partnership with us. You can reach out to us@podcastatdimagi.com and I’ll get you routed to the right person at Dimagi.</p>
+              <p>That’s our show, please like rate, review and subscribe and share this episode.</p>
+              <p>If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, questions, or feedback. This show is executive produced by myself, Michael Kelleher. is our producer and cover is by Sudhanshu Kanth.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">MS</div>
+            <div class="person-info">
+              <p class="person-name">Mercy Simiyu</p>
+              <p class="person-role">Director of Frontline Programs for CommCare Connect, with a public health background and years of work alongside CHWs from Ethiopia to Liberia.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">ST</div>
+            <div class="person-info">
+              <p class="person-name">Sarvesh Tewari</p>
+              <p class="person-role">Director leading the program team for CommCare Connect, running pilots with frontline workers across multiple countries.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">DS</div>
+            <div class="person-info">
+              <p class="person-name">Dhivya Sivaramakrishnan</p>
+              <p class="person-role">Leads in-share solutions delivery and the direct-to-frontline pathway, working with locally led organizations on verified service delivery.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/273AZJZscAr8JVsXu43ZGU" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

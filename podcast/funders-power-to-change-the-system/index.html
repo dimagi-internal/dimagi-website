@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 76: Funders: The Power to Change the System | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Mulago Foundation's Dr. Kevin Starr on why broken funding models are a 'much needed reality bath,' and how funders can back what actually scales.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/funders-power-to-change-the-system/">
+<meta property="og:title" content="Ep 76: Funders: The Power to Change the System">
+<meta property="og:description" content="Mulago's Dr. Kevin Starr on impact-focused philanthropy: backing scalable solutions, the Rainer Arnhold Fellows, and the power funders hold to change the system.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>October 27, 2025</span>
+          <span class="dot"></span>
+          <span>50 min</span>
+        </div>
+        <h1 class="ep-title">Funders: The Power to Change the System</h1>
+        <p class="ep-deck">Mulago Foundation's Dr. Kevin Starr on why broken funding models are a &lsquo;much needed reality bath,&rsquo; and how funders can back what actually scales.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/0SN9KX9VTzm7M3fEQOH76b?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 76 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/0SN9KX9VTzm7M3fEQOH76b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000733737160" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/8aec9fd9-020a-4e93-bb80-64acae30c4b6/high-impact-growth-funders-the-power-to-change-the-system" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>What comes next in a world where old funding models are breaking down? Our guest, Dr. Kevin Starr, CEO of the Mulago Foundation, argues this shift is not a crisis so much as a much needed reality bath. After a personal tragedy moved him from medicine into philanthropy, Kevin built one of the most respected impact-focused foundations in the field.</p>
+        <p>In this conversation we explore Mulago's distinctive model of backing scalable solutions and the leaders behind them, including the Rainer Arnhold Fellows program, and examples like Dr. Nick Laing's OneDay Health, a nurse-in-a-room primary care model in Uganda.</p>
+        <p>It is a sharp, opinionated take on what funders should actually reward, and on the power they hold to change the system.</p>
+
+        <blockquote>
+          <p>&ldquo;A much needed reality bath.&rdquo;</p>
+          <cite>Dr. Kevin Starr, Mulago Foundation</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>Why broken funding models are a &lsquo;much needed reality bath&rsquo;</li>
+          <li>Mulago's impact-focused model and how it picks what to back</li>
+          <li>Designing for scale: solutions that can reach millions</li>
+          <li>The Rainer Arnhold Fellows program</li>
+          <li>OneDay Health and the nurse-in-a-room primary care model</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://www.mulagofoundation.org/" target="_blank" rel="noopener">Mulago Foundation</a></li>
+          <li><a href="https://www.mulagofoundation.org/fellows" target="_blank" rel="noopener">Rainer Arnhold Fellows Program</a></li>
+          <li><a href="https://www.onedayhealth.org/" target="_blank" rel="noopener">OneDay Health</a></li>
+          <li><a href="https://ssir.org/bios/kevin_starr" target="_blank" rel="noopener">Kevin Starr's writing (SSIR)</a></li>
+          <li><a href="https://ssir.org/articles/entry/big-aid-is-over" target="_blank" rel="noopener">Big Aid is Over, by Kevin Starr (SSIR)</a></li>
+          <li><a href="https://ssir.org/articles/entry/the_doer_and_the_payer_a_simple_approach_to_scale" target="_blank" rel="noopener">The Doer and the Payer, by Kevin Starr (SSIR)</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Amie Vaccaro: All right. Kevin Starr, thank you so much for joining us. It’s really an honor to have you on the show. Um, I’ve been hearing your name since I joined Dimagi five years ago, and, uh, yeah, it’s just, it’s a, it’s a real pleasure. So thank you so much for, for joining today.</p>
+              <p><span class="spk">Kevin:</span> Oh, I.</p>
+              <p>Amie Vaccaro: So I will, I will dive in., Kevin, you, you started your career as a doctor and ended up running one of the most [00:02:00] respected, impact focused foundations. That transition happened after you lost your friend and mentor in Bolivia in 1994. I’m curious, how did that loss shape your career path, um, and also your, your approach to creating change.</p>
+              <p><span class="spk">Kevin:</span> Um, boy, it was, it was the absolute watershed, in a very slow transition. But, um. I had this mentor who I, I had, uh, developed and this friendship that had really, um, about through this project. I started in the Andes and Reiner was a Arnhold was a remarkable. Teacher for me because he’d worked in so many different crisis settings throughout the world, and so kind of had a window in the world that, that I only knew, in a limited way. but I had no idea the background he came from. And so right after he died, I’d his family and out that they’ve been in banking for. Oh, I don’t know, kind of hippie friend riner, um, left a fortune and the family, the family said, uh, well, you know, we don’t need this. Um, we wanna create something that carries on Reiner’s work and you actually know him as well as anybody, so will you help us do it? And that’s what kind of send me stumbling into philanthropy.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s, both, amazing. And I imagine daunting, um, to be kind of tasked with how, how one can continue somebody’s legacy and how to make impact like that. Like how did you even go about thinking, you know, what, what could be next with a, a charge like that?</p>
+              <p><span class="spk">Kevin:</span> Well, I, um. A couple of things. One is I, I just looked at his life and what he’d cared about, and in fact, he’d created this Mago foundation as an entity to do his own very quiet giving. So I looked at what he’d given to, thought about so many conversations we’d had. Um. I thought about his life and what he’d done with it, and just tried to use that as a starting point for figuring out what he might have wanted to see this do going ahead and then realized that I didn’t know what worked and I had better dive in and start figuring that out.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s, um. Yeah, that, I think starting with that humility of, of we don’t know what works is something I’ve always appreciated. You know, when you and I have talked and, and you provided feedback and mentorship on, on our approach, and, and so can you share a bit about, you know, where, where that landed you, how you, think about the way that Malago tries to make its impact and, and supports, um, the change that you think, um, is most important right now.</p>
+              <p>And, and we’ll get to some of the big ideas that you shared over the years. Um. Uh, you’ve been a, a thought leader in our space, uh, you know, around different models for scalability, different models for sustainability, and, and obviously this year has been transformative, um, for many organizations who saw a lot of their US government funding and, and global funding disappear.</p>
+              <p>Um, but in terms of just the nuts and bolts of Hamma Lago operates today, how you, um, you know, approach your, your impact giving. Um, can you just share a bit about, about that and how you go about it today?</p>
+              <p><span class="spk">Kevin:</span> That was a lot.</p>
+              <p>No, what, what happened was this, I was doing, I was really excited about this opportunity. I had no idea quite what to do with it, but I was doing, I was able to kind of shift my work into doing these sort of rural er gigs. That allowed me a lot of time, then I just started. I travel travel, whatever I heard about and whatever I could, um, dig up. And I did start, you know, I’m going all over the place from, from Tibet to the Solomon Islands. And, uh, I started to see some patterns it was, um, it was a little about what wasn’t working that. Kind of gave me a sense of what might, which is to say three, three big patterns. One was stuff wasn’t designed.</p>
+              <p>What I was seeing seemed often more of a collection of ideas that seemed like a good idea at the time, rather than something coherent, driven by a central idea. And then it seemed like, and this was, you know, maybe clear to me, coming from medicine, it seemed like things weren’t being measured. It’s like there weren’t a lot of numbers to go on and that that left me kind of uncomfortable. And then finally, and I didn’t know anything about of how businesses were run at the time, but at the same time it seemed like things weren’t being run in a business like fashion. Kind of those three insights are what pushed me to try to get more systematic about those things. And then I started to get into more and more conversations with some remarkable people who really got me thinking about scale.</p>
+              <p>And I really had no idea what this notion of scale was. thought scale was just big. And really what I started to get a sense of was, was how an idea really could, um, how you could create scale through the application of an idea. The ways in which you might find a sustained of impact through, uh.</p>
+              <p>Amie Vaccaro: So I’d love to just hear a bit of like how the foundation runs today. So it sounds like you’ve got a, a fellowship program . Um, what I, from what I read, like 800 organizations applying for just 20 spots annually. Um, and your model is pretty unusual in that you are, project specific grants, you’re providing unrestricted, continued funding.</p>
+              <p>Um, so yeah. Talk us through kind of how you got to that model and then how that ties into these, these insights that you had around what, what wasn’t working.</p>
+              <p><span class="spk">Kevin:</span> Well, the way it was funny, my, my, um. at the time, Reiner’s brother, this brilliant who became a, a close friend, Henry Arnhold. He, he loved the notion of a fellowship and a fellowship for him was the idea of finding a promising person and giving them. Some money, maybe some content, and seeing what they did with it. And so he turns to me one day he is like, we should have a, we should have a fellowship. And I said, sure. But I have no idea what a fellowship could do. Can you gimme a minute? And, um. We took those kind of insights that we had before, especially the notion of design. And I didn’t know anything about design other than coming from a family of architects. But, um, we thought we’re just gonna get people who seem like, I don’t know, they could make a difference going ahead and we’re gonna ’em together for a week and see what we can figure out. And. Over the first couple of years of doing this, we noticed that the people who with a specific idea and were trying to build an organization around that idea, what we were doing, seemed to resonate with them and started to make sense for us. And I didn’t even know what the phrase social entrepreneur I did. I, I wasn’t in those circles. I had no idea what this was, but I got a sense of what to look for. And what that is morphed into now in its current incarnation, is we pick 20 fellows a year. 10 of them focused on poverty, 10 of them focused on the environment with as much overlap as we can find. And we, I, uh, hate to say it, but now we start with thousands and try to do an initial screen if it looks interesting.</p>
+              <p>We get ’em to do a very short application that’s a one pager, and then start making phone calls. And the process is remarkably simple. It’s, it’s basically that, that one pager a set of up to maybe four phone calls, then we sit around and we pick what who looks to be the most likely.</p>
+              <p>And it’s on the basis of, of having seen a lot of ideas and having a, get good sense of, and really a systematic sense of what looks like it might be scalable. And, whether they have kind of an idea about how to get it to scale, although that’s something we can really work on later. But then it’s the, the person and do they seem to have the chops to do this?</p>
+              <p>And are they there? There’s this one characteristically. We, we look for that’s one of these. Um, you know, when you see it, things we call irrepressible. And you know that in a phone call or two. And then when we pick our final 20, we have a week long course. . And um, it’s a pretty intensive week focused on design for impact strategy for scale. Communications, which could not be more important and evidence. And increasingly we’re trying to look at, uh, methods for rapid iteration. ’cause we’re constantly telling ’em, you gotta iterate, iterate, iterate. But we hadn’t really given them a methodology. So we have that first course and then we work with them steadily over the year in between to move their design and strategy forward. Then we have a second course bringing, again, the first years and the second years together for a week. After that week. We know them very, very well and we look at, um, criteria to see if it looks like a fit for the portfolio. And interestingly, we, we have come to the point where we do not, um, add anybody to the portfolio who’s not gone through. It just never seems to the, the, it’s an enormous gift to be able to get to know them through that year of being a hundred percent in their corner create a trusting relationship through that, and then have the chance to go on that, that journey to scale with them.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s amazing. And I think it’s, um, we’ve talked about this. I think it’s awesome that, that you have that clarity of, you know, process and entry point. Um. Because I think for so many people, particularly in in the environment we’re in right now, there’s a lot of lack of clarity. Uh, you know, for folks seeking money on what funds could be a good fit, what approaches could be a good fit.</p>
+              <p>And I think your clarity around that, um, is incredibly helpful for folks, who are, who are trying to engage, within that week long course. You know what., A pessimistic way to view this is like, oh, like another constraint on social entrepreneurs who are very busy and, you know, have a lot on their plate.</p>
+              <p>Do we really need another fellowship? I have a bunch of friends who have gone through it with you and, and speak extremely highly, you know, of the content, of the thinking and, and of the, the approach that you’ve taken. . In that course and what you discuss. Why do you think that is? Why, why do you think that there’s so much value in this week that you get the, the awardees together and, and the fellows together and talk about these topics?</p>
+              <p>Like what, what, what about our industry has caused this to be relatively unique? Like do you think, do you view it as a concern that you are kind of out there, you know, with these unique viewpoints?</p>
+              <p><span class="spk">Kevin:</span> Um, I have developed just a fundamental belief that if you want something to happen with a group of people, you need to get ’em off themselves . And we initially get a lot of resistance to that. ’cause you’re right, that is a lot of time. I don’t get a lot of people saying it was too long at the end of it. And I think having a very cri curriculum that’s really developed over 20 years now that addresses their idea head on and looks at how it might scale up is. They find that enormously valuable and they, it’s interesting. They rate those sessions within the week very highly. It’s something they really, really wanna engage and don’t get many chances to step back and think about it don’t get a lot of tools to really, engage it usefully and, and, and move these things ahead. And then we really structure, we bring in very valuable faculty people, just a few, and we make sure that the right people get the right time with them. And then we’re very focused on what’s emerging. And this is the tight wire. Fact, part of it is should be talking to who and how can we make this complex schedule so the right one-on-ones happen?</p>
+              <p>Those, those one-on-ones are often what we hear is, are among the most valuable. And so the net of it is you get a, a group of people who, are very close to each other. Have made real connections have a shared language and a framework to talk about, and we have a shared language. And that notion of a shared language in a jargon plagued, um, sector with far too many, um, acronyms and buzzwords is out to be super important.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think we’ve passed around some of your SSIR articles internally and and things, so I think that shared language, I’d love to jump all the way to, you know. Present day. Um, you just had your fellowship retreat, I think a month or two ago. Um, this year is unprecedented and the changes in aid did this year differ substantially in how you, you worked with the fellows and what the team worked through with.</p>
+              <p>Um, um, obviously there’s a massive amount of uncertainty ahead still, but you know, the landscape is, is changing underneath their feet. And I’m curious how, how much of that 20 years of curriculum. Felt relevant, and, and how much you feel like you know or need to rapidly adapt or add modules as well, given the current times.</p>
+              <p><span class="spk">Kevin:</span> What was kind of surprising is it didn’t change that much for the fellows, and there were some, I guess I’ll talk a little bit about. What we’re doing with the portfolio, but it, very few of our, uh, organizations had a big, um, reliance on big age in their own budgets. And, um, we’ve been, uh, de-emphasizing. NGO replication by o, other NGOs as a path to scale for a long time. increasingly, we were noticing that Big was not actually turning out to be that, reliable and effective, resource getting scale. And so we’ve really doubled down with people on scaling via the market or scaling via governments, I think this sort of new reality changes a lot about, you know, I think of it as a, a, a reality bath rather than a new reality.</p>
+              <p>In other words, this is, this is the reason it hasn’t affected malago that much is that it wasn’t that important all along. And so it, it didn’t really affect how we worked with the fellows and it’s affecting our portfolio less than you.</p>
+              <p>Amie Vaccaro: So I think what you just said, I think is a really, statement, um, which is that what I’m hearing is you’re saying aid wasn’t that important all along. Is that, am I hearing you correctly?</p>
+              <p><span class="spk">Kevin:</span> Yeah, it seemed like it was gonna be important ’cause it’s a lot of money. And so when we talked about this, you know, these fundamental notions of the doer at scale and the pair at scale have turned out to be just absolutely the center elements when we’re thinking about a strategy to get to scale. And this is just, this, just empirical.</p>
+              <p>We just noticed that when people sort of would talk about Big Eight as a payer, it just didn’t seem to materialize in any kind of reliable way. And we just saw that again and again, the prospects actually started to seem pretty dim, and so [00:20:00] we just kind of moved away from it.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I, I think that’s, um, the, the payer at scale and the do at scale will link to some of the articles you’ve written on this, but is a great concept for thinking about this. And I think one thing that Big Aid caused to happen. It allowed a lot of entrepreneurs to think there was way higher profit margin for their products or services than there really was when you consider the government or the market, um, the payer.</p>
+              <p>Right. And this is something that the Magi has completely, we were already on a journey away from U-S-A-I-D and Big Aid over the last several years and towards different approaches. Um. With some of our main CHW systems. You know, we’re now reflecting and saying if we had really thought we were selling this to the government, not big aid, we would’ve known the price point was 10% of what it really is, right?</p>
+              <p><span class="spk">Kevin:</span> Yes,</p>
+              <p><span class="spk">Jonathan:</span> And if you have that coming in way earlier in your organizational [00:21:00] design and way earlier in innovation, you have to make fundamentally different choices about what you can really build and what you can offer. Big aid really gave people the wrong impression on what their terminal price was, um, likely to be, and therefore what their profit margin could be to build a viable business around it.</p>
+              <p>I’m curious if you’ve seen that in the, in the discussions you’re having, Kevin.</p>
+              <p><span class="spk">Kevin:</span> Oh, that summarized completely discussions we’re having. Um, you know, we have, once you, once you understand your payer at scale, you can talk about this fundamental idea of cheap enough. You know, we have these criteria that have turned out to, to work so well for us, which is, it needs to be, for something to be scalable, it needs to be good enough, big enough. Simple enough, cheap enough. And the cheap enough is a huge focus for us right now. And we, you, you’re exactly right. We, we kind of let ourselves [00:22:00] imagine that things that sound cheap are actually are. represent potentially a 50% increase on the, on the per capita spend of a government might be in fact scalable.</p>
+              <p>And it’s, I think you’re exactly right. That’s, that’s an order of magnitude off and it’s pretty exciting to start thinking about newer technologies and to, jump to that challenge.</p>
+              <p>Amie Vaccaro: Absolutely. Kevin, I’m, I’m curious for our audience, um, if you’d be willing to kind of share perhaps an example of, um, an entrepreneur you’ve, you’ve worked with and sort of like the type of work that they’re doing you’re sharing some really incredible concepts and ideas, but just to kind of ground it in, in the reality of like, what is, um, maybe it’s one of the fellows you’re working with right now that like you’re particularly excited about.</p>
+              <p>I’d love to, to dig in [00:23:00] there.</p>
+              <p><span class="spk">Kevin:</span> Yeah, I’ll just kind of riff on one. Um, we just did a sort of portfolio in fellows gathering. We called, uh, primary Healthcare 2.0, was the idea that well, really, um, I. Not just tech, but mostly tech. And not just tech, but mostly AI creates some new, some remarkable directions we might go, and that we have the opportunity to make low cost providers much more in what they can deliver, much more sophisticated, what they can deliver. So this fellow of ours, Nick l. Is is a Kiwi doc who’s in Uganda, lived there forever, and he has started a, uh, what he calls one day clinics. And he has this idea of finding the black holes where nobody’s getting [00:24:00] served. And this, his basic idea is so elegant and simple. I wonder why we haven’t heard of it before.</p>
+              <p>I, I call it a nurse in a room. So they, instead of building something they find. A room they can rent and they hire typically a new graduate nurse. And that nurse, um, is equipped with, uh. Basic, get basic equipment. It costs about $2,000 to get one of these up and running. And the nurse has basically a handbook that’ll helps her treat about 30 different conditions, which is 95% of what come, what’s important to, to, uh, delivering primary healthcare and their target cost per patient is about a buck 50. And so when I, when, when we, when we found Nick, I [00:25:00] just thought, I don’t quite know what we’re gonna do with this nurse in a box idea. Is this a government idea? Is this a private sector idea? I don’t know. But that, that cost and the possibilities of that role are remarkable, especially if you start thinking about what AI might, uh. Might accomplish if applied well to approach and that kind of a provider. And Nick’s kind of a genius and, and, um, I’m really excited to see where this can go because I think all these discussions of, of, uh, AI need to be grounded in. Actual provision of healthcare, not just the just tools. so they need to be grounded in somebody who’s really trying to, do patient care. And it was really interesting that [00:26:00] the 20 or so people, we had this gathering sort of sorted into two camps. We called a citizen with a phone and provider in a box. That proved to be a really useful way to focus on where these ideas might go. Interestingly, and I’m, I’m very curious to see, what the whole community health worker, the professionalized community health does. It was almost as if everybody gravitated toward that provider in a box. What can be done in private and public sector clinics and what could be done over time with someone actually getting, accessing and using, important, effective information that they can get straight to their phone.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think that’s obviously a very exciting potential for AI to transform the way some things are working. I think with the example you gave [00:27:00] where you’re like, you know, maybe this could scale private, maybe this could scale public. How, how do you think about exploring. That you know, that that’s daunting to think that it could end up in either pathway, right?</p>
+              <p>That’s just a huge difference in how you build the organization, how you go to market, how you think about your problem space. A lot of entrepreneurs face that challenge, you know, they’re like, somebody should be willing to pay a buck 50 a patient to get healthcare for 95% of problems. But you know, a lot of young entrepreneurs are.</p>
+              <p>Are really struggling with this question right now. Not young, everybody is, um, you know, so how, how do you, what frameworks do you put in place to think about how to explore that rapidly, to your point and iteratively? Um, as you think about how, you know, can Uganda afford a buck 50 patient for these visits?</p>
+              <p>Can anyone right now, you know, and, and as a private, as a public, et cetera, so how does that, how, how do you go about, you know, building on this use case? How do you go about exploring that?</p>
+              <p><span class="spk">Kevin:</span> Yeah, well there’s, there’s just [00:28:00] three there that, that, um, I imagine are worth. To explore. And one is, uh, the notion of a, uh. Nonprofit business, like ki being the Kaiser Permanente of, um, low cost healthcare in Africa. Another is, uh, public private partnerships where actually government would be the customer of someone like one day that would be providing actually the low cost care that the government can’t. Quite managed to do. And then the last thing is that the, the methods and approach of one day begin to be in some systematic way, taken up and and applied by public institutions. I’m not quite sure what the. What, which one is gonna work [00:29:00] out. I actually think that in the short term, the notion of a nonprofit is an idea that it suddenly, you know, it started to seem to me at this gathering that that should be something we should really, um. Explore if for no other reason than it gives you enough control of the intervention that you can in an agile and, effective way, evolve it</p>
+              <p><span class="spk">Jonathan:</span> Um, your example of Kaiser Permanente, which is a, a massive US-based, healthcare provider is interesting. I, remember even pre. Uh, this current administration, a lot of criticisms of the US government’s approach to healthcare and, and costs in the US are, are, you know, labeled quite high. And one of the interesting things is when you look at administrative overhead, the US government is extremely efficient on certain metrics versus the private sector.</p>
+              <p>Um, or the, the [00:30:00] nonprofit sector in the US which are somewhat indistinguishable when it comes to healthcare, unfortunately. Um, I’m curious how you think about that problem because, the idea of a public-private partnership has huge appeal to Dimagi. That’s always been our mental model. Um, but then you look at what happens as organizations enter kind of self preservation mode and, you know, thinking through what it would really mean to transition something to a government and put yourself out of business in a country or in an interventional approach.</p>
+              <p>And it becomes quite different. And from being an abstract concept to when it’s really, you know, choice in front of you. Um, and, and I think self preservation is a, a very powerful, um, catalyst that can add a ton of waste and, and confusion into some of these difficult decisions. Um, so I’m curious, like, are there ways you can design upfront to make that a more honest conversation with yourself, with your organization, with your approach?</p>
+              <p>I think when you’re first starting, it’s easy to be indifferent. Between, oh, my org [00:31:00] might be the path to scale. The government might be the path to scale, other partnership models. Um, but if you’ve been doing this for a decade, it becomes really hard to not think your org is the right answer to the the path to scale.</p>
+              <p><span class="spk">Kevin:</span> Well, I don’t think any single organization is ever the pet scale and that there’s a caveat there, which, uh, some emerging tech is a wild card and, and there are organizations with tech solutions that may get way farther sort of on their own than anything has before. But I, if you imagine of. If, if you imagine the idea is to get governments to take up an idea and own it and deliver it, and, um, one is there’s an as asymptotic curve of, of uh, sort of presence and input that an organization is still gonna need to, to employ. [00:32:00] To help make that happen, help, uh, maintain quality and and effectiveness over time and help the thing evolve as it needs to over time. And then there’s also an endless array of new places to go. So that one, turn out to be really good at, should get ongoing support. If you’ve got something where the government actually can be a customer of a corporate entity, the path to scale there is for a given to go as far as it can, but to create a business model that others would wanna get into.</p>
+              <p>Because if that’s how, you know, it was really interesting to me to see how some early investments in Liberia outsourced management. Or assistance, uh, public sector assistance to government schools turned into a much larger effort [00:33:00] by more than a few companies to perform that role, to supply that role in a bunch of countries, which is exactly how these things need to happen.</p>
+              <p>There just can’t be a single provider,</p>
+              <p>Amie Vaccaro: Um, i’m curious. I would love to. Dig in a little bit more on the, the tech side of things. Um, acknowledging that it’s, it’s changing quickly, right? With, with ai. and also just looking at your portfolio, there’s a number of real tech companies um, you’ve also written about sort of, being wary of investing in, ventures that are built on one single technology. How are you thinking about tech. In terms of the, the social entrepreneurs that you’re working with, how are you thinking about technology right now?</p>
+              <p><span class="spk">Kevin:</span> Well, mostly. Tech needs to be applied to some idea that would work otherwise,</p>
+              <p>tech lowers the cost or the reach or in [00:34:00] some other way amplifies the impact. There are some things now that are probably gonna happen that we just, that would never happen without tech, but for the most part, that’s how we see it.</p>
+              <p>If it didn’t work with a, a pen and paper, it probably isn’t gonna work with tech.</p>
+              <p>Amie Vaccaro: So tech is really like an enabler of what’s, what’s happening. Like the core idea needs to be really solid. It can’t just be flashy tech for, for tech’s sake, is kind of what you’re saying.</p>
+              <p><span class="spk">Kevin:</span> Yeah, exactly. I mean the, the, that’s why I bring up the example of one day clinics. I, there’s a lot of possibilities for tech to, those clinics, much lower cost much more effective. But it depends on that fundamental equation of a, uh, enabled person in a facility. And without that, the tech has nowhere to go.[00:35:00]</p>
+              <p><span class="spk">Jonathan:</span> I, I think, um, with the, with this question on technology you just mentioned previously some tech ideas might have a chance to scale far beyond, you know, what we’ve seen previously. Because this moment of AI and, and internet and mobile phone, and I assume a confluence of many factors, that that become an enabling technology.</p>
+              <p>One other point you raised was simple enough. You know, when you think about the ideas that can scale, this is something we’ve been struggling with because there’s a ton of great ideas that are both incredibly valuable and really hard to do. Technology, you know, particularly when it comes to big systems projects with government, and it’s not a financial constraint, although that’s one big important part, but it’s just like, it’s just really hard to do some of these big transformational projects.</p>
+              <p>I love that concept of simple enough because I think to some extent, one of the reasons transformational projects with large, significant budgets have have not worked as they’re just too hard. They were good [00:36:00] ideas. They would’ve created huge value if they succeeded. And it’s literally just too hard to pull it off.</p>
+              <p>And that’s something we’re, we’re thinking about with our solutions. How do we get them even more simple over time? You know, how do we take even more, um, standardization into the approach? How do we minimize choices even if it doesn’t give you all of what you want? Maybe it’s 80% of, you know, the, the ideal solution, but it’s significantly simpler to deploy.</p>
+              <p>I think that’s also a critical factor. And how we need to be thinking about solutions right now and how entrepreneurs and organizations need to be thinking about their use of technology. Um, you know, yeah, it could be a great idea, could create a ton of value, and it’s just too hard to do. Even if you could get the money for it, it’s just too hard.</p>
+              <p><span class="spk">Kevin:</span> Well. It goes back to kind of a couple different directions we’ve been talking about, and it goes back to this notion of the doer at scale. And if [00:37:00] one of the questions we often ask when people come to us, um, with an idea where they say the government’s gonna be the do at scale, we ask them, give us an analog, give us something like this thing.</p>
+              <p>You want the government to do that They already do. And do well. And if you can’t think of anything, you may already be in the too complicated territory. Um, and at the same time, businesses can do quite complicated things the profit is there. that raises new possibilities for public private partnerships. But I hate to say it, but increasingly the problem is governments don’t pay their bills on time. But, um, those just seemed to us to be the two routes that we can explore. Finding things that are cost effective, are simple enough for governments to do effectively. And [00:38:00] increasingly the rule is, no additional spend. Can you design things for no additional spend that, that the governments can do? Then the simple enough becomes can the government do it or is it being provided at a very low or no net additional cost for that, that pair, which is, yeah. We realize is now needs to be and maybe should have been all along</p>
+              <p><span class="spk">Jonathan:</span> That’s right. Um, one, one personal example we have around this was we’re currently trying to analyze. Whether we can provide our entire Comcare platform at national scale for all CHWs that want it, and that the government wants to deploy to for less than the cost that you just would’ve spent doing the in-person trainings for CHWs.</p>
+              <p>Because I don’t think anybody’s gonna spend a marginal dollar on digital [00:39:00] solutions in the near term, unfortunately. So you, you really do have to do what you said, Kevin, which is zero marginal cost. And there’s plenty of ways to achieve that while still having revenue models. But you gotta be making something else significantly simpler that has a nontrivial budget line item in the current government’s mind.</p>
+              <p>And that’s really hard. Yeah. And, and if you, if you, you know, again, if you knew that was the, the game when you first set up your business, you would behave very differently than thinking there’s some big check you’re gonna get from a major institutional donor to fund the business. Like it really, it really laser focuses you on what can you, what can you offer at that price in a way that I think is, is a healthy shift in how entrepreneurs should be thinking about what they can offer.</p>
+              <p><span class="spk">Kevin:</span> Well, I think this idea of. Negligible or trivial. Additional cost to government is just a really cool driver of [00:40:00] creativity and a really an excellent, um, design constraint, which we, we always need in these, we work with people who rise to challenges and it just, it’s increasingly, I think it provides a clarity. for example, you might start looking at a given id you have, uh, maybe around professionalized community health workers. And it becomes, can you find countries where they already have, are supporting community health workers and you can just make them way more effective? Or is there a country where community health workers actually could be, I don’t know, marketed to them as a way of achieving. Much better primary healthcare at much lower cost than whatever, whatever thing they’re currently doing, which is probably the traditional hospitals and clinics approach. I, I, I don’t know what the possibilities really are of that, but [00:41:00] it’s, it’s, it’s really. Interesting. And then maybe there’s places where you can partner with a country that’s really to think, maybe for the first time about effective primary care, where that might become a fundamental pillar of it. But we’re just gonna have to continually think about if your idea. Requires a big additional spend. It’s a non-starter. this is really hard for this whole generation of people who, you know, cut their teeth, um, under the influence of, of great thinkers like Paul Farmer, where it was like the poor deserve quality, equality.</p>
+              <p>And that notion was so important for all of us. And then it also led to a lot of organizations that. While they were constantly trying to cut costs, they actually didn’t design toward the kind of thinking about costs that we’re [00:42:00] talking about. And what’s super exciting now is we have the, have the possibility of providing that, that quality Paul dreamed of at a cost that people can actually afford. And the one thing I’ll also say is that I think is always gonna be a combination of public and private. And I just happened to look at Togo the other day, like, private spending is three x what government spending is I? And, and it’s not segmented X to, you know, economic quintiles. So I don’t know if it’s mostly by the rich or what, but it’s. Money out their own.</p>
+              <p>Amie Vaccaro: Kevin, one, one last question for you that I think builds on what you’re sharing. Um, and just speaking with you makes me really wanna dig in further on all the read, the writing that you’ve done. But you’ve been really vocal [00:43:00] about this concept of zombie organizations, that you think should go out of business and funders who aren’t serious about impact, um, which is pretty, pretty stark criticism. Um, can you share a little bit about that and also like what would need to change in the funding ecosystem to fix some of these problems that you’re, you point to?</p>
+              <p><span class="spk">Kevin:</span> Well, I think we’ve, we need a, weirdly, we need a fundamental kind of movement revolution in impact. And not just everybody goes to RCTs, but just rather, um, funders take it really seriously and expect it from organizations expect that organizations are measuring in a way that. A communicates to the funder and others what the value is, and B provides what organizations need to get better at what they do. And that that culture of curiosity and iteration also becomes [00:44:00] a big plus in getting funded. But fundamentally, it just. You could not have an investment industry where, uh, investors didn’t think seriously about profit. And it’s exactly the right analog to think that we can’t have a sector that doesn’t think seriously about impact, both at the doer and the funder level, and it’s funders who ultimately will drive this ship. And as long as funders don’t put impact, first and foremost, we’re never getting yet anything that looks like an effective market impact. And we’re never gonna kill the zombies, and we’re never more importantly gonna disproportionately reward those who do have real impact and who do have real strategy for scale. And it was really inter really interesting to me when these sort of admirable, sort of [00:45:00] movements came along around decolonization of philanthropy and, a more effective search for good local leaders. Those really took hold and I saw foundations make real changes, and it seems like this is. As I’ve said before, real impact of the lives of those we serve is the ultimate expression of equity and fairness. And I, um, I believe that, we don’t have, we’re never gonna have any structural way to enforce this, but I really believe that making it an expectation and starting to build a culture around it. And thinking a lot about how other movements have managed to sweep through philanthropy, um, is a really good place to start.</p>
+              <p>Amie Vaccaro: It’s, that’s so well put. I could continue asking you questions for, for probably hours, but [00:46:00] this has been really fantastic Kevin. So thank you. Thank you so much for, for sharing your time with us and I’m gonna do pull up a bunch of great links to include in show notes for folks who wanna continue to read, um, and hear from you.</p>
+              <p>’cause I think this was just a good, good taster of some of your, your thinking and yeah, I can really just see how much. Value you’re bringing to those social entrepreneurs that you’re working with. Um, so what a, what an incredible program and, and shout out to that. Is there any, um, call to action you wanna leave folks with?</p>
+              <p>Any place you want people to find you or follow you?</p>
+              <p><span class="spk">Kevin:</span> Well, I’ll just say I think I, I try not to write until I feel like I have something reasonably important to say, the momentum of that aid is over article really surprised me, and I think we wanna provide of useful follow up to that.</p>
+              <p>So kind of expect that. Other than that, I think I just caved the most rousing call to action in the funder world that I, I possibly could. Oh, thanks [00:47:00] so much for this. I feel like we just got, we, we only just</p>
+              <p><span class="spk">Jonathan:</span> I know, I think we could, we could do this for three or four hours, Kevin, but I’ve, I’ve always appreciated your perspective and, and your leadership in this space now more than ever. Um, you know, people need to be thinking about different ways of moving the organizations forward and, and participating in this, whether a funder, a government, you know, an entrepreneur, but ultimately how do we create that value is, is a great call to action and appreciate all your time today.</p>
+              <p><span class="spk">Kevin:</span> All right. Well thanks for putting this together. I think this is great.</p>
+              <p>Amie Vaccaro: Absolutely. Thank you so much and we’d love to potentially have you back on down the road perhaps to unpack your, your next article, we’ll be looking out for it.</p>
+              <p><span class="spk">Kevin:</span> Great. Well, um, would</p>
+              <p><span class="spk">Jonathan:</span> Sounds good.</p>
+              <p><span class="spk">Kevin:</span> it.</p>
+              <p>A huge thank you to Kevin Starr for sharing his time and hard one insights with us today., If you’re intrigued by what you heard today, I highly recommend digging into some of Kevin’s writing, which we’ll link to in the show of notes. Here’s some of my top takeaways from the conversation.</p>
+              <p>First, an [00:48:00] urgent call to action for funders. Kevin argues that we need a revolution and how the social sector approaches impact. Just as the investment industry is serious about profit, our sector must be serious about impact at both the doer and funder levels. He believes funders must lead this charge by demanding rigorous measurement, creating an effective market for impact, and rewarding organizations that can prove they’re creating real scalable change.</p>
+              <p>Second, the importance of identifying the doer and payer at scale. This is a core component to Kevin’s framework. For any solution to be sustainable, you must be relentlessly clear on who will actually deliver the work. And who will pay for it in the long run? When evaluating leaders, the single most important quality Malago looks for is what he calls irrepressible, that unstoppable drive to see an idea through.</p>
+              <p>Third, the real role of technology is as an enabler, not a savior. Kevin’s rule of thumb is that if an idea doesn’t work with pen and paper, it probably won’t work with technology. Tech isn’t the core idea. It’s a tool to dramatically [00:49:00] lower costs, expand, reach, and amplify the impact of a solution that’s already fundamentally sound.</p>
+              <p>And finally, the power of community in a shared language. Milo’s fellowship model isn’t just about funding, it’s about creating a cohort of leaders with a shared framework and vocabulary to tackle big problems That week long intensive course that he mentioned builds the trust and connection needed to support entrepreneurs on their long journey to scale.</p>
+              <p>That’s our show. Please like, rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us at podcast at Dimagi dot com with any ideas, comments, or feedback. This show is executive produced by myself. Ana Bhand is our editor. Natalia Acky is our producer, and cover art is by Sudan.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/guests/kevin-starr.jpg" alt="Dr. Kevin Starr" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Dr. Kevin Starr</p>
+              <p class="person-role">CEO of the Mulago Foundation, backing social entrepreneurs with scalable solutions to poverty and climate change.</p>
+              <span class="person-org">Mulago Foundation</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/0SN9KX9VTzm7M3fEQOH76b" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

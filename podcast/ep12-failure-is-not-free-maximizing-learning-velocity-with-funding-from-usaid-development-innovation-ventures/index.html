@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 12: Failure is Not Free: Maximizing Learning Velocity with Funding from USAID Development Innovation Ventures with Kriti Mehrotra, Jeremy Wacksman and Sri Ranganathan | High-Impact Growth | Dimagi</title>
+<meta name="description" content="How USAID DIV funding drove dozens of CommCare pilots in India from 2010 to 2014, and the learnings on motivation, training, and why failure is never free.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep12-failure-is-not-free-maximizing-learning-velocity-with-funding-from-usaid-development-innovation-ventures/">
+<meta property="og:title" content="Ep 12: Failure is Not Free: Maximizing Learning Velocity with Funding from USAID Development Innovation Ventures with Kriti Mehrotra, Jeremy Wacksman and Sri Ranganathan">
+<meta property="og:description" content="Inside Dimagi&#x27;s USAID DIV era: dozens of CommCare pilots in India and the hard-won lesson that failure is never free.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>September 26, 2022</span>
+          <span class="dot"></span>
+          <span>55 min</span>
+        </div>
+        <h1 class="ep-title">Failure is Not Free: Maximizing Learning Velocity with Funding from USAID Development Innovation Ventures with Kriti Mehrotra, Jeremy Wacksman and Sri Ranganathan</h1>
+        <p class="ep-deck">Part three of Dimagi&#x27;s 20th anniversary series looks back at 2010 to 2014, when two USAID Development Innovation Ventures grants funded dozens of CommCare pilots across India and pushed the team&#x27;s learning velocity to its peak.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6Dry9sVdDvC5wtX3AoR20K?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 12 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6Dry9sVdDvC5wtX3AoR20K" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000580655877" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/cBwmjFI_uxo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/29c317dd-8bb8-46aa-b833-50deed163840/high-impact-growth-failure-is-not-free-maximizing-learning-velocity-with-funding-from-usaid-development-innovation-ventures-with-kriti-mehrotra-jeremy-wacksman-and-sri-ranganathan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">40</div>
+          <div class="ep-stat-label">organizations across India supported in the stage two DIV grant</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">285</div>
+          <div class="ep-stat-label">frontline workers the CRS project scaled to, from an initial 10</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">24 to 1</div>
+          <div class="ep-stat-label">social return on investment DIV measured for CommCare</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>“Unlike other technology sectors, the cost of failure is extremely high, but it’s not born by the organization. It’s born by the user….And so while we learn and it’s helpful for us to view [digital health pilots] as a funnel, that’s an incomplete view of the world because there is a real cost to equipping users and then dropping support for the application and dropping support from the organization. So I think we do need to have that mindset, but also realize…you can’t just fail for free.” – Jonathan Jackson</p>
+        <p>Today’s episode is part 3 in a series looking back on pivotal time periods in Dimagi’s story in honor of our 20th anniversary. Today we look back at the time between 2010 and 2014 when Dimagi received two rounds of funding from United States Agency for International Development (USAID) Development Innovation Ventures (DIV) program to test CommCare through dozens of pilots in India. This was a time of maximum learning velocity, as we got feedback from users across many organizations and applied it to get better and better every week. Jonathan Jackson and Amie Vaccaro are joined by Kriti Mehrotra, Impact Advisor Office of the CEO; Jeremy Wacksman, Global Director of Division Operations; and Sri Ranganathan, Director of Customer Success to unpack the learnings from this time period.</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;Unlike other technology sectors, the cost of failure is extremely high, but it&#x27;s not born by the organization. It&#x27;s born by the user. So I think we do need to have that mindset, but also realize you can&#x27;t just fail for free.&rdquo;</p>
+          <cite>Jonathan Jackson</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The DIV mechanism</strong>: a stage one grant to equip 10 organizations, then a stage two scale-up to 40 organizations across India</li>
+          <li><strong>The CRS proof point</strong>: a Catholic Relief Services maternal and child health project that scaled from 10 pilot users to 285 frontline workers</li>
+          <li><strong>Built with the user's voice</strong>, literally, with a community health worker recorded for the app's multimedia counseling on J2ME brick phones</li>
+          <li><strong>Intrinsic vs extrinsic motivation</strong>: research on feeding performance data back to health workers in ways that motivate rather than shame</li>
+          <li><strong>Failure is not free</strong>: the real cost to users when a project equips them, then drops support, and why adoption is a funnel with a human price</li>
+          <li><strong>Over-invest in training</strong>: teaching digital literacy and Hindi typing from scratch, and treating reusable training collateral as core to scale</li>
+          <li><strong>Practices that evolve</strong>: weekly field reports and ad hoc communication that fit a small team but had to change on the road to national scale</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth, a podcast from Dimagi about the role of technology and creating a world where everyone has access to the services, they need to thrive. I’m Amie Vaccaro, your cohost. So 2022 marks Dimagi’s 20th anniversary. And in honor of that, we decided to look back at five key pivotal periods of time into Dimagi’s history. We’re doing so, as a way to extract learnings so that they can both help other organizations on their own journeys, as well as informed Dimagi is path forward as we continue to grow. and</p>
+              <p>So if you’re a regular listener, you’ve maybe already heard the first two episodes in this series. One on the creation of CommCare and another on funding from the bill and Melinda gates foundation. So today we’re talking about funding we received from the USAID div program.</p>
+              <p>This happened between. 2010 and 2014.  So. USAID is the United States Agency for International Development and their dev program, is their development, Innovation Ventures Program.</p>
+              <p>Dave is USAIDs, open innovation program that funds breakthrough solutions to the world’s most intractable development challenges. By funding innovation and focusing on rigorous evidence. Dave impacts millions of lives at a fraction of the usual cost.</p>
+              <p>The reason we chose this as one of our milestone moments was that this was really a time of incredible learning velocity at Dimagi. So it was a time where we were getting rapid feedback from users across dozens of pilots. And applying those learnings to get better on a week over week basis.</p>
+              <p>In today’s episode. Jonathan Jackson and I are joined by three incredible Dimagi employees.</p>
+              <p>Christine Malhotra, who’s an impact advisor in the office of the CEO. Jeremy Waxman, who is global director of division operations and tree rung, And who is a director of customer success.</p>
+              <p><span class="spk">Kriti Mehrotra:</span> Hi, I’m I’m Kriti. And I have been at Dimagi for a little over eight years. So my background is in, math and sort of computer science. Uh,, I was a very varied interested person, , during my college days. , I moved into the corporate sector right after I graduated and found that that was not the great fit for me.</p>
+              <p>I did not particularly feel motivated to wake up in the mornings. , I also, , followed my friends to Dimagi. So, , at the one company that I worked at after I graduated, I’ve made two very good friends. , one of them was very particular and driven and already knew that she wanted to be in the, , impact space in the global development space. , and she found Dimagi. She moved to India for the Dimagi our second friend followed a year later and I followed a year after that. So I, I followed a couple of my friends to Dimagi and during the eight years here have had a wide variety of experiences.</p>
+              <p>The majority of the time was spent, , in the India office, , and really excited to talk today about the, the dev phase, which I joined towards the end of and have, , I think a very different perspective than Jeremy and tree will bring</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thanks so much, Kristy. And over to you, Jeremy.</p>
+              <p><span class="spk">Jeremy Wacksman:</span> Thanks. I’m Jeremy Waxman. I am the global director of division operations. I joined DEMA back in, I think in 2012, um,, I had, was fortunate to spend a portion of my undergraduate time in India about a year and a half. , and so had a little exposure to the international development space and was thoroughly turned off from all of it.</p>
+              <p>, and found myself, , a few years later working for the department of defense of all things, supporting, uh,, technology development. , I’ve always been interested in the intersection of health and technology. And so I was about to go to NCU school when someone forwarded me an email from Dimagi looking for someone to, , from, from iRead of it, to kind of wander around India and hang out with some community health workers that sounded, , pretty fun for a year.</p>
+              <p>So I deferred my, , nursing program. I, , went over, went over to India as what was called a field fellow at the time. And, , sure enough did get to go hang out with a bunch of community health workers and, and build some apps for them. And then 10 years later, I’m still here, ,, lots of new challenges along the way.</p>
+              <p>And, , so it’s been, been really interesting. This was definitely, , it’s fun to reflect on this period, which was really a lot of what drew me in and got me really excited about this particular intersection of, of health and te.</p>
+              <p><span class="spk">Amie Vaccaro:</span> , what an interesting path, and I love that you’re, you’re still here 10 years later. That’s awesome. Um, SRE,</p>
+              <p>over to.</p>
+              <p><span class="spk">Sri Ranganathan:</span> yeah, my name is SNA, , and I also joined the Margi in 2012. , my background is in business management, , and I did a fellowship called the grassroots fellowship program, which was kind of. , you would spend, you know, you’d spend a month working with a local NGO in sort of different rural communities in, in India.</p>
+              <p>And so I did that for, for a couple of months, and then I really liked the organization and, and kind of, you know, joined, joined as an employee. And then the next two years I spent spent time just like traveling across India and visiting various organizations and kind of learning about the different programs that they were doing.</p>
+              <p>And I, that’s kind of like what, what sort of led to the sensitization of the social sector. And, and I was really sort of keen to, to, to sort of grow more professionally in the sector. And then I came across the ma and,</p>
+              <p>and then what felt. The really long interview period. I just happened to join, join the Mar in 2012. So, so yeah, but I, I really then sort of, I had no technology background, none of that, but you know, somehow the ma said, yeah, you you’d be a fit here. And, and so then I came in and really understood kind of the work that was doing and, and it really got me interested in sort of the journey of technology and, and impact for, for frontline workers and, you know and, and here we are.</p>
+              <p>Yeah, 10 years, 10 years hence.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s awesome. Alright, so today we’re gonna be talking about this, this diviv funding. , We’ll start with a little bit of the, sort of the, what, , and what it was. We’ll talk about why it matters and what it means today. So I wanna start with you, Jon. where were we at as a company when we were</p>
+              <p>applying</p>
+              <p>for this funding?</p>
+              <p><span class="spk">Jonathan Jackson:</span> last episode we had already decided that we wanted to make CommCare into a product, but there was a lot of work to do. In realizing that vision and when the diviv program first came out from USAID it was specifically designed to make these breakthrough investments to be a different type of grant mechanism than USA had had traditionally done before.</p>
+              <p>And so we were very excited when we heard about it. And we were actually in the first cohort of awardees um, when diviv was first launched all the way back in 2010 or 2011, I think, and we were very proud of that. It was an initial a hundred K grant that allowed us to give away comp care to 10 organizations, fund them to buy the phones and then deploy it to community healthcare workers.</p>
+              <p>So in the more traditional corporate sector, this is a very common like land grab strategy, where you raise as much of capital. Then you give your software away for free to learn as much as you can and gain adoption. And so we took the elements of that, that we thought were appropriate to our market and approach and told D Hey, we think if you fund us, you know, with a hundred K to go do this, we can then come back to you with a lot of evidence that we learn and div has a really cool staging process.</p>
+              <p>So we have a stage one, two, and three approach. And so this was the stage one grant to kind of go prove if we equip 10 organizations, we’re gonna both prove that is really easy to use, that we can quickly develop high quality applications that the users want them. And then come back to you and say, can we go to stage two and do this in an even bigger scale?</p>
+              <p>And the stage one result were positive enough that they supported us in stage two as well, which is when we then went to 40 different organizations in India. And it was a very fun and hectic period for the, the team that was there supporting 40 different organizations simultaneously over two year period.</p>
+              <p>And the beauty of that approach was it forced us to really figure out what were the common elements for success. Um, This had major learnings across the company in terms of how we thought about deployments, also, how we recognized organizations that maybe shouldn’t have decided to deploy with us in the first place.</p>
+              <p>You know? So you started to see the telltale signs. Nobody can define exactly what benefit the solution’s gonna create, or nobody can give us the requirements. So we started to very quickly learn. Okay. There’s definitely gonna be organizations that we were excited about, that you wanted to stop the project with because it’s actually not a good fit.</p>
+              <p>And we then you know, had that experience and that really led to a huge part of why our SaaS approach became successful was a lot of this work that we were able to do through the div mechanism. And for those listeners who are seeking fun. And I wanna give a big shoutout. I think they’re an extremely well known mechanism today.</p>
+              <p>But because it does sit within USA, I D I think there can be some skepticism of how easy the mechanism is or how easy diviv is to work with. And I just wanna highlight, we’ve gone on to do future work with div on other grants. And it’s just an amazing team, and it’s an amazing approach for funding, if you’re a good fit for their program.</p>
+              <p>And so having encourage anybody listening, who’s trying to get their own ideas off the ground or scale to um, look at them for funding.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So it’s back, like 20 10, 20 11, USAID has just rolled out this new diviv funding. Ram. , we apply and we essentially get a hundred K grant that’s meant to help us basically give CommCare away for free to community health workers at 10 organizations in India. , that was like a stage one grant. We were able to show like, yes, this is working. We’re learning. There’s value being added here. We actually got a second grant from them , to scale to another 40 organizations also in India. , so I think you’ve, you’ve set the stage really well.</p>
+              <p>, and I’m just really excited cuz we’ve got criti, Jeremy and tree here who were , at Dimagi at that time, working with those organizations that were kind of those early recipients of CommCare and this was really like a proving ground moment for CommCare, right. Where we were trying to see like, is there, is there impact to be had here?</p>
+              <p>Does this model work? , how can we evolve? So I know that there was, you know, first 10 organizations and then another 40 that we worked with. Um,, I’d love to maybe dig in on one specific organization just to kind of hear kind of what that, what this looked like for that particular organization.</p>
+              <p>So , I wanna start with Catholic relief services or CRS. and I’m gonna start with URI. I’d love to hear a bit about this particular proof of concept. , you know, what were the goals, what was CRS trying to do? How did they wanna use CommCare</p>
+              <p><span class="spk">Sri Ranganathan:</span> Sure. Yeah. Their goal was, you know, mainly to to look at two high burden districts. When we talk about high burden districts, it’s, it’s where the you know, the, the, the health indicators are, are are some of the poorest in the region, in Prade. In, in the north of India.</p>
+              <p>So, so CRS came in wanting to deploy technology to, to be able to work as a, sort of be as a job aid for the health workers working in those regions and see if they can see if they can bring about better service delivery, particularly uh, for mother and children. And their focus was ensuring that they could track pregnancies track the services that were being provided to these women provide follow up during the postpartum period period, as well as track the children through their routine immunizations and so on and ensure that all of this led to timely decision making, timely, supportive supervision and so on and so forth.</p>
+              <p>So, so really like their goal , was to provide the best job aid possible that could show transformative change in, in terms of how service was delivered in those communities and see improvements. In those critical indicators that, that I talked about earlier.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s awesome. And so what did, how did it go? What, what happened with that project and how did what, how did comp care help those, those health workers</p>
+              <p><span class="spk">Sri Ranganathan:</span> Right.</p>
+              <p>So initially it was, it was deployed to 10 pilot users because that was sort of, you know, the, the testing ground. We wanted to work very closely with with the community health workers, as well as government officials and the local NGO partners in terms of creating this application and, and ensuring that it was covering all the different aspects that, that we needed to demonstrate that success. And just you know, once we, once we sort of deployed to those 10 users and they were seeing positive results what, what a then sort of transpired was there was enough leverage within, within the community. There was enough sort of buyin from, from government officials. And of course, with, with additional sort of funding there was there was scale up to, to two blocks or sort of two administrative regions.</p>
+              <p>And so that went to about 285 frontline workers , from like the initial 10. And, and that was over a period of time. It, it didn’t immediately go to 2 85, but essentially that was a scale up to, to two areas, including you know, building a super supportive supervision application. There was a lot of research studies done there. There was also a cost benefit analysis study that was, that was done. And, and there was, there was a lot of different analysis done on this project to demonstrate its success and, and Catholic relief services was, is one, one of our you know, key, key partners in, in sort of. Not just, not just focusing on, on the program delivery and, and execution, but, but also like working very closely with the Margie to you know, to, to showcase what technology can do for, for programs.</p>
+              <p>So yeah. And in some of the studies, it showed significant improvements in service delivery across a lot of indicators that, that we were looking at. So so really this, this became sort of the, the bedrock for for us as, as an organization, as, as well as for CRS and, and for the communities that, that we were.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So it sounds like we, with that project, we were able to kind of demonstrably prove out that there was a positive impact on, on outcomes , through using com. , for these community health workers. ,</p>
+              <p>I know Jeremy, you were also involved in this project and, and on the ground. can you share a bit of your, your experiences</p>
+              <p><span class="spk">Jeremy Wacksman:</span> sure. So when I arrived in India, we had those 10 or so pilot projects from D one all of them had launched and now a few of them were scaling up. So this was a big moment to kind of try and understand why are some of these. Succeeding and scaling up to adding additional users or expanding the scope extending the engagement that we had with those partners.</p>
+              <p>And why did some never get off the ground? So taking a moment to focus on the CRS project. This is really the extreme in one way of a project that’s scaled up and sustained use.</p>
+              <p>And when I reflect on why this project I think was, was so successful, one piece of a was the amount of. Effort and thought that went in, even at the early stages to what’s gonna happen to this later on, how are we gonna partner with the government? Where is this gonna land? If we’re not here, how is this gonna work if we’re not here because they had a lot of kind of supportive supervisors that would go out and visit the community health workers for support with the technology aspect, but also generally for support with kind of supplementing the training that these community health workers had.</p>
+              <p>And so they would think how how’s this gonna work when we’re not here driving around and visiting these community health workers? Um, I think another big piece, which this is something we, we learned again and again, is that they really focused on making a tool that was valuable for the end user and not just something that was gonna collect data in order to inform.</p>
+              <p>The, the programmatic level of of staff that were, you know, doing reporting that type of thing. A lot of times when we would meet with partners, they certainly came up in, in diviv two. When we were meeting with a lot more partners, you know, somebody at the headquarters may have signed up for this engagement uh, show up.</p>
+              <p>And there’s a sort of a lack of clarity about what are we actually going to do here. We only have two weeks, so there’s only so much we can build out in, in two weeks. And so if the people driving that decision or the people who have to, you know, collect data or manually transcribe data, that’s a strong incentive for them to design something.</p>
+              <p>That’s going to address that problem rather than to design something. That’s going to be really useful for uh, community health workers and address some of the challenges that they have. I think one of those challenges sure might have more context on this, but there are a lot of users who had low.</p>
+              <p>or they would be working with clients who you know, were, were I literate. And so a lot of effort went into building out multimedia and both for the navigation of the tool, as well as for the counseling experience. Uh, I think those were kind of demonstrated commitments to those end users. So the community health workers that were building a tool that’s gonna be valuable for, for them that they drive a lot of the you know, the content of that.</p>
+              <p>And so I think that’s something that also sustained use over time which was, was really uh, exciting to see those 10 users even way scaled up to 200, whatever it was, users, those 10 users still remained kind of like key drivers of what the scope of this system looked like throughout and were consulted during the entirety of the project</p>
+              <p><span class="spk">Amie Vaccaro:</span> so just to kind of reflect back on some of the things you, you shared, Jeremy, it sounds like this was a partner that was really thoughtful about the long term impact and how this, this tool would be used for the long term. , They were also kind of shared that ethos that I think we’ve talked about in other episodes around. The tool shouldn’t just be for data collection, it should really be for making service delivery better and actually making the, the job of the people that are using the tool better. , and then also just like being thoughtful around , developing multimedia for, for load literacy users. , Kati, were you, were you on this particular project?</p>
+              <p><span class="spk">Kriti Mehrotra:</span> CRS remind in particular was actually one of my first field visits. So I uh, joined as a field manager. Um, Sure. He was the project manager. So we went on a field visit together, actually Ted Khan. Um, I, that particular field visit didn involve training, but we visited the partner office and we’re making app changes for them.</p>
+              <p>My big memory really from that field visit is just how quickly we were making changes. It was quite an excellent experience and really the rapid with which we were able to make.</p>
+              <p>Those changes still amazes me. And like, as we’ve grown , the sequence in which we do things and build and test, and the number of steps that we have in the number of people involved at any point have changed, but the fundamentals are very similar. I think it was true in me sitting with a partner, hearing what they needed next kind of had our laptops open making app changes. Like basically real time. The testing process was more arduous than we were deploying directly onto phones to make sure that we were, you know, doing it. Now we have better emulators that allow us to do that a bit more quickly. But I think doing that whole process and just being able to release it live to the users.</p>
+              <p>So the next time they were updating, they were getting those changes.</p>
+              <p>So I think to Jon’s point of, you know, we were, we were the phase of kind of productizing CommCare, trying to make it more of that platform. That was my introduction.</p>
+              <p>So even now I work in CommCare pretty regularly. That is my, that is my initial anchor. Like my first vision of CommCare is like what I did for CRS remind in Khan. Eating fresh mangoes in the middle of summer for what it’s worth.</p>
+              <p>So that particular story uh, just in my journey at Dimagi is actually just quite, quite Special in various ways. So, although I didn’t grow up in India, my family’s from up originally, like with the, the state that this project was deployed in, it was very different for me to kind of go back to that state in the context of work and see how we’re helping the community there.</p>
+              <p>And I’m engaging with the community there, which was really cool.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really, really cool story cookie. And in the last episode we talked about like trying to make CommCare at a platform that’s easy to change and update. And that’s like an beautiful story of that in action. Being able to kind of sit with users, hear their feedback and iterate and change it in real time so that it becomes the most valuable tool possible for them.</p>
+              <p><span class="spk">Sri Ranganathan:</span> I wanna, I wanna share two fun facts . So one is, I think, you know, when Jeremy was talking about multimedia, it, it quickly struck me that we actually used the voice of one of the health workers in our multimedia messages. So the entire app is her voice. And so we kind of hired her uh, service. To record all of the messaging. We bought a professional mic, so we would go to our house. And so just for context, like in order to get to KBI, you would have to take a train from like deli to like luck now, then sit on a bus and then, then take a final cab. And then we would finally get to like Khan.</p>
+              <p>And then in order to get to the health worker’s house, we’d either have to cycle there or, or whatever. So and so this is, this, this used to be our way of getting even the recordings done. So we would’ve to go all the way there make sure, like, you know, the, the health worker was done with her work and like, you know, she’s finished all about other responsibilities and she has. Quiet space in the house, no other noise. And we do this recording. So it was just a fun recollection of how we used to even get, get the recordings. And the second thing is, the devices were basically brick phones. You know, when we talk about phones, we might make the assumption that we’re talking about Android phones, but so a simple update of an app or, or a change in the app or, or anything of that sort is, is, was a completely different process back then.</p>
+              <p>And also so much more emphasis on the, on the user experience for how little screen space there is. And so how smartly you had designed the app and train on the app such that it was, it was intuitive for the user. So I think these two just struck a chord with, with what Jeremy and truth were talking about. ,</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that idea of like actually . Working with, with the health worker to record all the. Is in the app. Um, sure. That made it even more impactful. , so Jeremy, I wanted to ask you a bit , when you were working on this project, you were doing some research on intrinsic motivation and how to essentially, like how can we use data that we’re collecting to. Give feedback and improve performance. And I think you had some interesting learnings from that. Would you wanna speak to.</p>
+              <p><span class="spk">Jeremy Wacksman:</span> We worked very closely uh, a number of different people from Dimagi with , CRS. We were looking a lot about how to support supervision or because basically in any situation where you have these community health workers, they’re spread across a huge geographic area, they might not have regular uh, internet connectivity or, or phones.</p>
+              <p>So yeah, it’s a challenge that there’s not a lot of direct supervision directly from people in the government side. But one of the uh, pieces that CRS felt was very important to the work that they were doing is that they were providing a lot more active supervision, whether that’s support using the device support and counseling support in navigating some of the administration angle as well.</p>
+              <p>You know getting paid things like that. I. And that piece, they were very concerned was not scalable. They didn’t see how, how the government would be able to directly translate the model that they had of having people go out and visit all the community health workers to the, the government piece.</p>
+              <p>So one angle of this was trying to take all this metadata that was being gathered in CommCare about worker activity and using that data to provide various reports, which would be given to supervisors.. So how many, how often were uh, clients being visited? The app was really focused on On prenatal care and on on, you know, newborn infant care in, in later times. And so there was a prescribed cadence who wanna visit each client once a month, that type of thing could look at the number of forms being submitted</p>
+              <p>and a, a lot of the exploration was can we present this data in a way which is useful? To people on the government side so that they can identify who might need additional help who is, you know, an, an all star, according to the data that turned out to be more complicated than we thought. So I remember one day in particular accompanying some of the staff to one of the, the block meetings where all the community health workers came in for supplementary training and to to turn in their record books, that type of thing.</p>
+              <p>And uh, somebody had been given the output from CommCare, this kind of here’s the, the top performers by certain metrics and the lowest performers.  And all that happened is the community health group were, were kind of scolded in front of everybody for not having. High enough numbers or high enough follow up rates without any sort of probing or curiosity about why that might be or what, what the barriers were.</p>
+              <p>And so that, that felt like not, not quite the right solution</p>
+              <p>there I think correct me if I’m wrong, but I think you had to make a pretty significant decision of like, whether you wanted to make this research a big part of your next year or not at one point. And I think you ended up moving to kho. So if you can just speak to that as well.</p>
+              <p>Sure. So after a few months in India with Dimagi, I ended up in Mumbai where I was living with another DGI field person, Moi, and working on some, some projects there.</p>
+              <p>Got, got asked. Do you want to keep doing what you’re doing or do you wanna move for the next four or five, six months to Khan uh, and just stay there and work only on this research project. Uh, And it, it definitely took me a minute to, to understand, wait a minute, what , what does that look like? Lifewise?</p>
+              <p>What does that look like substantively? Uh, I’m definitely glad that I ended up doing it. So that the research study that I was going to support, which was led by a researcher, Scott Lee at the time was with uh, Harvard business school. And Brian Drek, who now works for demo.</p>
+              <p>uh, As well as support from a lot of other people in Ari, you are involved in, in the study as well. A lot of other people at Dimagi supported the basic premise was to understand, are there ways that we can take this, all this information, which is being collected and give it back directly to community health workers in a way which is meaningful and can drive changes in performance.</p>
+              <p>So a ton of time was spent developing visuals that could, present this data back to the community health workers, ways of representing just a pure number of visits we should been completed in a month. How many follow up visits had occurred within a certain amount of time. And then also being able to see for any given community health worker, where do you stand relative to other community health workers?</p>
+              <p>Are, are you doing really well, or do you think, are you towards the bottom and you might need some support growing your number of forms, emissions, or increasing your, your follow up rates. And so there’s a lot, a lot more to it than that. But one of the exciting things was that were really, there was no supervisor mediation.</p>
+              <p>This data went right back to the community health workers, so they could see their own performance and, and make of that data with what they wanted to, and were delighted to see that you know, for a good portion of the community health workers, being able to see that information was motivating.</p>
+              <p>We saw and relative to community health workers who were given a control application. we saw, uh, an improvement in performance.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I wanna highlight a couple things that were really incredible about this work. One was it really changed how I thought about the potential for additional features and capabilities in CommCare and how challenging the market was to support those. You know, Jeremy had just proved with the entire research team at CRS and the amazing local CHW staff that for zero marginal cost, you know, just the cost of the software feature, you can improve performance.</p>
+              <p>And it was extremely difficult to get anybody to fund us, to build the capabilities needed to do that at scale. In fact, it took many, many years and one of our current dev grants is still based on this premise of how do you improve precision super. On the platform. So there was a hugely long sales cycle from um, learning that this could be highly impactful to convincing somebody to provide the R and D capital needed to actually implement it.</p>
+              <p>And the second um, Jeremy was the um, intrinsic versus extrinsic motivation in the workforce and how we solve very different outcomes based on whether the CHW filled out a questionnaire that said she was doing this job for intrinsic motivation versus extrinsic. And that was a fascinating result as well for us to understand how different our software was going to be able to amplify the work.</p>
+              <p>These really important work, which are doing based on why they were personally motivated in the first place. And that led to a lot of our thinking of what different segments are there of CHWs. How do we think about success across a large user base? As she mentioned, 285 workers that it scaled up to, they’re not all the same.</p>
+              <p>They’re not doing it for the same reasons. They’re not trying the same effort. They’re not looking for the same level supervision. And so understanding we needed to not look at that workforce is when uniform workforce, but. Sets of different types of workers was one of the key learnings that came out of that as.</p>
+              <p><span class="spk">Jeremy Wacksman:</span> Thanks, Jon. And I’ll just add one, one little other thing there. I think that, that being able to measure that difference of the intrinsic and extrinsic motivation we had a research team, so we had about six uh, researchers come in and conduct very long interviews with all of the community health workers.</p>
+              <p>Um, These were about between two and four hours uh, to really understand how they got involved, what their. Years what their motivators were. And just from an experience perspective was really incredible. Like a lot of these uh, community health workers maybe felt it was very awkward at first.</p>
+              <p>Why anyone wanna know all the stuff about me. And a lot of them got really emotional where people felt like suddenly they could disclose a lot of this uh, the struggles that they had had, or um, you know, talk a little bit more personally about the motivations that they had for being a community health worker.</p>
+              <p>And as, as Jon mentioned, it was really interesting to see that, and we looked at a lot of different ways of categorizing community health workers by these different attributes. And seeing that difference between extrinsic and intrinsic motivation was, was definitely quite striking.</p>
+              <p><span class="spk">Amie Vaccaro:</span> This is, this is really fascinating. Sounds like such rich research and like foundational understanding of what motivates a community health worker? How do you use data to, to. give feedback on performance that actually improves performance versus creating, you know, a shaming situation.</p>
+              <p>Like the one you described as supervisors. Are there ways that today, like the way CommCare is used reflects that research</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, we do a lot of thinking around this. And one thing I wanna say is like, you know, many projects are different, the type of data that makes sense is different, but for the listeners, I wanna bring it back to just think about yourself and your own organization. You know, what type of comparative metrics relative to your peer motivate you?</p>
+              <p>Where does your organization invest in servicing data that they think is gonna be helpful? And how often is your organization totally wrong? That that’s helpful, warranted or worth the time investment. This is really hard work, even at demo AGI you know, creepy is the impacted advisor within our office.</p>
+              <p>And like we’re spending a lot of time going through stuff that is really difficult to know is this effort to surface these numbers and present the data in a certain way, going to help. And one thing I wanna say that was so critical in this project, that tree and Jeremy and Kriti, and everybody was working on, we spent a enormous amount of effort on how to , present the data back to the frontline worker in a way that was really understand.</p>
+              <p>For a user at that literacy level with that level of digital familiarity. And we spent a lot of time paper prototyping, Jeremy mentioned working with Mohini in Mumbai. I used the paper based prototype that she did field work on in my presentations for a long time talking about how important it was to get this right, because you could have the right indicators or surface the right data elements, and then present it in a way that doesn’t motivate people at all.</p>
+              <p>Cuz it’s not showing it relative to their peer group or showing it relative to their absolute goal. And there’s a heat amount of work going in around this. But you know, for those listening who might not have been to rural India to get a sense of this, you can also apply it to how you feel and think in your current job and like all the metrics you find useful that your organization asks you to look at and all the metrics you find totally useless that that people ask you to, to look at.</p>
+              <p>And if you’re internal to demo, I’m sure you think all of our metrics are perfectly valid and, and super important, but I’m talking about other organizations of course.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Of course</p>
+              <p><span class="spk">Jeremy Wacksman:</span> Quick little footnote there. Like I, I think one piece to also be aware there’s some risk here as well that you low performers, you demotivate them more depending upon how you present back this information. And so that’s I think also something that we try to be cognizant of when designing these types of systems or, or feedback loops.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Damon has worked on, you know, 3000 plus projects to date. And I think in this period, we. A lot better at project management and knowledge management , and , maximizing the success of projects. I’m curious to hear about some of, some of your learnings from those days</p>
+              <p><span class="spk">Jeremy Wacksman:</span> There are definitely a ton of projects happening very quickly at this time. So one piece was you, you can imagine we a week of prep, two weeks on site. And then a week to kind of wrap things up and then it’s onto the next project. So that’s a lot happening very quickly.</p>
+              <p>And I think that pace of learning was really uh, exceptional this time, whereas just every single.</p>
+              <p>Um, You know, if, if your project was two weeks later, you were gonna benefit a good bit from what had been learned in that intermediary time</p>
+              <p>There weren’t that many of us. And so at the time, a couple of the tools we used at demo moggy one is, and for the India team, we had a call every week, which I remember that standing out as a quick way to quickly share because everyone was always out and about like, here’s, here’s what I’m stuck with.</p>
+              <p>Here’s what worked really well. I had this breakthrough uh, and how to do this type of thing. Um, And then we also had the field reports uh, where everyone around the company would send a um, an update kind of every week on, on what had happened, what they’d run into successes, that type of thing., one example that stands out, these projects were almost all running on these J two O E.</p>
+              <p>Brick phones.</p>
+              <p>Sidebar that a J. Phone would be a phone, like one of the old Nokia brick phones. It’s a version of java designed for really simple phones</p>
+              <p><span class="spk">Jeremy Wacksman:</span> And so one of the things we would have to do is teach how to type in Hindi. And it was a that was like a really know, big learning curve of how, how do we actually do this over? If we just have three days of training, you have to teach all this stuff about a phone and you’re gonna go through how to type in Hindi.</p>
+              <p>And so just getting feedback like, oh, you know, we, we made these paper charts and this time we made three paper charts and this is what was on each of them. And that then I was able to point back and forth between them that was immediately applicable to the next project, to be able to kind of make the trainings more efficient or be able to, to kind of draw upon those training techniques that, that, because we often, at this point, we’re leading a lot of the trainings or working closely with partners.</p>
+              <p>I think all those training related learnings were immediately valuable for of the, the next project.</p>
+              <p><span class="spk">Kriti Mehrotra:</span> For some of the first trainings that I was doing with the Margi in rural north India, you could already tell that we were applying the learnings that had come from these other projects right before.</p>
+              <p>So one of the first trainings that I was a part of was again with maybe a group of 30 to 40 women with a wide range of, of literacy on J two M E brick phones. And it it’s interesting to reflect, like I used to do a bit of teaching and, and tutoring in the time before I had joined Dimagi.</p>
+              <p>And you kind of make a decision at one point when you’re training someone on how to do something very specific, whether you’re gonna tell them. Like the exact steps to follow, or you have to convey a concept so that they’re able to apply that concept. And I think the typing in, in the Hindi font thing I remember having that moment where it’s like, oh, we can’t just tell them that if you’re trying to type the letter. Girl, just press this button because there’s so many different like di critical marks and like things that vowels that have to get represented that we had to say, when you click on this screen and you see this layout, the button that is right below the thing you see on this screen, if you click this button, then that thing that you see right above that button is what will get pressed.</p>
+              <p>So, you know, I was explaining how a phone works alongside that process. Um, And for a lot of people, this was the first phone they were, they were holding. And I think even that, even tying back to the, the motivation points that we were talking about earlier, not in a supervisory context, but early in trainings, you could really see people like whether they were.</p>
+              <p>Feeling more motivated because they were just better at phones. Maybe they were younger, they’d had a little more access to them. And people who just couldn’t quite figure out how to turn a phone on or type very easily being extremely demotivated in the end of like a two day training, really seeing certain people just having turned that curve because we were like, no, you really can’t do it.</p>
+              <p>And they’re like, oh yeah, like, wait, I can type my name in like 10 seconds. And it was taking me like 30 minutes before just to keep, you know, correcting things and going back and forth. So I think that that training piece in particular, I found that when I came in, we, we had those learnings and continued to apply them.</p>
+              <p><span class="spk">Sri Ranganathan:</span> What really sort of stuck out in those, in, in that initial period to, to what we even carry forward today? I think we, you know, CRS sort of stands out as a, as a gold star in terms of like the kind of organization that we work with. But one of the things that was really that really , made them that way was, was the kind of inputs and the kind of collaboration that, that they were bringing to, to the table. So what that meant is, you know, if we were say preparing for a training, you know, there was a very clear set of like checkpoints you know, we would, we would progress to the next stage if we went through like, you know, X stage. And if we got to the next stage, then we, okay. Like it’s time, time to like now actually go to the district and call for this meeting to fix up a training and like everything flowed. Like clockwork and, and that really also gave us a lot of learnings that we clearly apply to our partners. Some of, some of them could be difficult partners. Some of them could be just partners who are not like responsive, but, you know, it’s very clear to like protect the Margie’s time and, and, and the people who work on these projects you know, we’re gonna get to this stage, but, but here are your responsibilities in terms of like, how, you need to be able to deliver X and we, we give you Y and so on and so forth.</p>
+              <p>And, and that, that, that all sort of like, I could also attribute to, to how we learned to plan for a deployment and, and there’s many different checkpoints before you actually get the phone to the end user. And, and, and so they, they start training. And so all of that actually helped us design what our ideal like deployment would look like and, and ways that we could enforce that to, to protect yeah, the people who are working on it as well as ensure it’s a successful deployment.</p>
+              <p><span class="spk">Jonathan Jackson:</span> In those early learnings that she’s mentioning there have continued to be philosophies that we hold today. When we think about exponential growth. It’s not just about the product, but it’s about the processes and the knowledge management and the ways that work. And, you know, our partners, didn’t always like us coming in with this kind of predefined checklist of ways to get to launch.</p>
+              <p>And they weren’t wrong that maybe they wanted to customize it differently. But the challenge was, if we’re trying to do 40 of these um, cost effectively, like we can’t customize it cost effective way. And that’s something that we continue to this day trying to find that right balance of saying, look, the, the industry overall has got to get way more cost effective, right?</p>
+              <p>So we need way more value for money over the long run. If we’re gonna achieve the SDGs Sustainable development goals.</p>
+              <p><span class="spk">Jonathan Jackson:</span> universal health coverage, and many of the other goals, the development sector aspires to achieve. And so that way more value for money across the industry means more standardization and lower cost per. But that does come at the expense of any one project, getting to do things exactly the way it wants to, whether that’s us or anybody else in the market.</p>
+              <p>And that’s something that I think is still hard to figure out the compelling argument, to get people, to accept that their projects should kind of do things a standardized way so that everybody can benefit. And that’s true at the software level. That’s true at the process level. That’s true at the program.</p>
+              <p>So clearly this was a really rich learning period. You heard about CRS, which is an example of a really impactful pilot and the research done on motivation, but we also had some real fails and learnings. During this period, jeremy, can you speak to one of those examples?</p>
+              <p><span class="spk">Jeremy Wacksman:</span> Sure just to provide the story here a bit. So I was working on, this was not a, a diviv two project, but it was very similar structurally. We kind of went in with our J TME phones,</p>
+              <p>Worked closely with a partner to build out an app. Uh, This particular app was for early identification of pregnancies and this program, because it had a little bit of additional funding, went to a larger number of users more quickly.</p>
+              <p>I think maybe there were 70, something like that. Just as many of our projects, the community health workers were very generous with their time to kind of test different things or are kind of like in entry example to do recordings And so we built out this application, the partner was very enthusiastically.</p>
+              <p>So leadership of the of this particular NGO wanting to, you know, go ahead and, and get these phones out there, conduct the trainings and in particular, get all of the community health workers to register all of their clients in the phone. Not, not just that they were doing their work, but getting ahead of you know, ahead of things and typing them all in as we’ve mentioned, that’s no small task to do on a, on a little J two M E phone typing in, in Hindi.</p>
+              <p>So they, they went ahead and did that. So I know the community health, health workers, you know, were excited about this. They saw a lot of value in it. At least based on the, the feedback that we were receiving and what we could see from the initial use. And so I was feeling pretty good about that.</p>
+              <p>And then I was hanging out in the office and I overheard something about the office closing uh, and it turned out that this partner’s uh, funding had ended. Uh, They hadn’t told me yet, but they were uh, wrapping up operations. Uh, So they would be uh, you know, I knew this project was coming to an end, but the, the uh, the thrust of the project had been, it’s gonna be handed over to the, the local municipal government.</p>
+              <p>They would be, they’d already been involved a bit. uh, But over the subsequent weeks, it became clear that that handover wasn’t going to happen. Uh, And that in the, the following weeks, this project would end and the phone would be taken back from the community health workers, because they were property of the, the organization or something to do with how this particular effort was funded.</p>
+              <p>And so all these workers had gone through done all this legwork to get things registered. And then after they’d finished that up the phone. Taken right back from them. We, we did spend some effort trying to figure out can this, is there another partner who could support continuing this effort?</p>
+              <p>And, and couldn’t find someone to do that in the end. And I remember them telling the community health workers, you know, during this meeting, they were explaining what was gonna happen and they were taking the phones back and they said, well, we’re gonna, we’re just figuring out what to do next.</p>
+              <p>And we’ll, we’ll get these phones back soon. And that, that was really upsetting cuz my understanding was that that wasn’t going to happen. And, and indeed those phones just sat in an office somewhere afterwards and reflection on this, you know, there’s uh, I’m sure there’s lots of reasons why different things work or don’t don’t work out.</p>
+              <p>But I think in this instance it seemed like a net negative. Like we’ve taken a lot of time from all these community health workers, both to develop this tool, to participate in trainings, to register all of their clients. And then it was just all taken away immediately after that with, with kind of.</p>
+              <p>Not, not full transparency about what’s going to happen. And so thinking about the impression that that leads with those community health workers like why, why would they participate in something like this in the future? So willingly, it’s just a waste of time. They’re not compensated for that extra time.</p>
+              <p>There’s no particular value to them. And so, you know, in these early days for 40 projects, we wanna really be open to all different types of projects and all different partners. And we wanna try a lot of different things, but thinking about you know, not only what’s the right match or what do we need to screen for in order to feel like this is a good fit, we don’t wanna push anything on anyone.</p>
+              <p>You know, when we’re doing follow up as well. I remember for a while, there was a big push to see which, which of these did POCs these crucial concept projects. These pilots are still using the system and then trying to call them and say, you know, oh, you know what? I see that you’re not being, you’re not using the system.</p>
+              <p>It’s just something we can do trying to figure out, well, maybe there’s times where we just. Should should be very intentional about pulling back and, and not trying to, to put effort into things that we know aren’t going to go.</p>
+              <p><span class="spk">Jonathan Jackson:</span> learning came out of the first of grant, where we put in a ton of effort to make sure all 10 were successful and that we launched all 10, cuz we thought we wanted to do that and both needed to demonstrate that to USAID to get to stage two. But then when we wrote the stage two grant, we were like, we’re thinking about this wrong.</p>
+              <p>You know, this needs to be a funnel of projects where we first solicited RFP to see people are interested in the first place, then try to launch them, but then assume some fraction of the ones that get launched will stop during the project and then assumes. That keep doing the project don’t wanna scale and then, you know, keep going down.</p>
+              <p>And I think this is one of the huge difficulties. Our industry faces is like not being willing to let things fail or stop projects. When we clearly realized there’s a good fit. I remember a personal story. There’s an organization, a global I NGO that we worked closely with in still today and in a one of the POCs that was a similar program based in Africa, they had applied and it was their headquarters office who had applied.</p>
+              <p>And when we went to their office in west Africa, there was a ton of friction in getting the requirements and trying to set up this project. It got escalated up to me in their headquarters and they’re like, yeah, you know, the office really doesn’t know what they want to do. There seems to be a lot of you know, pushback from the country office.</p>
+              <p>I’m like, well, why did you guys apply? If it sounds like they don’t want it? And they’re like, oh, we applied at headquarters. I’m like, whoa, whoa, whoa, whoa. This is not our fault. This is like headquarters in country, office problems of. Obviously we shouldn’t do this project if there’s not sufficient demand, because even when there’s sufficient demand.</p>
+              <p>And even when the app is well designed, there can be all these opportunities for the project to fail as Jeremy mentioned. And so I think looking at the progress of digital adoption as a funnel is one of the common things we do in, in other technology sectors that we need to apply to digital development.</p>
+              <p>But unlike other technology sectors, the cost of failure is extremely high, but it’s not born by the organization. That’s born by the user. As Jeremy mentioned, those users are not even much more skeptical by the next project that comes to them saying, Hey, I have a great solution. Cause they’re like, well, I’ve heard that before and you’re just gonna take this phone away or drop the support in six months.</p>
+              <p>And so while we learn and it’s helpful for us to view it as a funnel, that’s an incomplete view of the world because there is a real cost to equipping users and then dropping support for the application and dropping support from the organization. So I think we do need to have that mindset, but also realize these aren’t, you know, you can’t just fail for free.</p>
+              <p>Um, Those were users. You took the time to train. You got excited about the application and then you stopped support. I feel like I’m getting a really clear picture of what this time was about for Dimagi. I’m curious though, why do you think this funding mattered so much for Dimagi and what are your key takeaways from it?</p>
+              <p><span class="spk">Sri Ranganathan:</span> I think like, just kind of like where,</p>
+              <p>Where um, Jon and Jeremy kind of, kind of left off on, on, on sort of the importance of, of like support systems for a project, whether it’s a pilot or whether it’s a scale up. I think it really, it really signified kind of like the role of, of an M health coordinator. mhealth is mobile health.</p>
+              <p><span class="spk">Sri Ranganathan:</span> And, and I don’t know if in 2012, if that was like a popular term, but it, but it is like, it is one that’s that’s widely required for any sort of like digital deployment around the world. And, and it’s something that that’s sort of, you know, common speak now in, in the ICT4D space</p>
+              <p>ICT4D is information and communications technology for development.</p>
+              <p><span class="spk">Sri Ranganathan:</span> and having like a clear, designated role and having a team to like support users using digital systems is, is so key because right now we, we may have sort of, I guess, like perfected. Or gotten to a really good sense of how deployments can be successful, like all, all, all the effort that that goes in to make sure trainings are done well and so on and so forth. But, but ultimately if the local organizations and, and the organizations that want, want the system to succeed, if, if they’re not playing that role of support those users will, will probably lose out in, in, in the long run and probably we won’t see sustained usage of, of the system.</p>
+              <p>So for me, it, it really spoke volumes in terms of how much support is required and, and how to, how to actually make that sustainably, like, sort of feasible for, for organizations to incorporate it into, into their programs in, in the long run.</p>
+              <p><span class="spk">Kriti Mehrotra:</span> Yeah. I think she, she mentioned this in the, in the last point and I’ll just zoom in on it a bit, a little bit, but really, I think what I saw during this phase reinforced for me in a way that I think will stay with me probably forever the, that the importance of good trainings. And I think just the, just the need to be thinking about this humanly, I mean, you know, we, we think about this in all these other ways, right?</p>
+              <p>Like, just think about when we learn things and we go, I don’t know, you sign up for a course in Coursera or you’re watching a cooking shirt to learn how to cook something. Like all of us learn in different ways and are like absorbing information in different ways. And especially when it comes to technology, we learn differently. you just teach people different things in different ways. Just not underestimating the. Depth and breadth of experiences that you might be training to, I think is critical. someone had made a joke about this when I joined the ma, but I kind of took it seriously and tried to like teach my grandmother CommCare or explain like what we did and how to like use a phone and how to use CommCare on a phone. And I, I think that that is really critical, I think definitely identifying what it takes to do a good training in the right context and then investing in the collateral that is hopefully reusable just to like improve efficiency across like larger scale. But being motivating during those trainings, I think um, really not under investing in setting the stage. We would find in other projects that I did after that, it was very easy for partners to reasonably kind of immediately jump to the idea of like, this is our program. This is what we’re trying to do. And this is how we collect data and we’d be like, we should spend a day before that, just introducing what a phone is and like how to turn of phone on and off and how to tell if it’s charging correctly. And of course that, that context window might have shifted as, as technology has pervaded more into deeper nooks and crannies of all over the wood. But I still think that that window needs to be looked at and that you keep both ends in mind when you do those trainings. So I really feel like the, our interactions with users after that was heavily dependent on how comfortable they felt with the application.</p>
+              <p>I think you’d lose that on both their actual. Performance and, and how they’re going to interact with the system, but also really valuable feedback that you could get from them. The better someone understands the system. You’d be amazed at how good the feedback you can get about. Wait, why, why is this question being asked at this point or in this way, and why not in that other way?</p>
+              <p>Because they’re able to map that it actually can be asked in that other way, because it is in a different place. And that, that level of feedback from a user is it’s really gratifying to see when they are able to internalize that. And I think um, trainings, and it doesn’t have to be one time like regular trainings and engagement on that basis can really unlock that.</p>
+              <p><span class="spk">Jeremy Wacksman:</span> I love both of those. I think one piece that stands out to me is just kind of where the overall, where this fit or situated both for Dimagi’s kind of growth and, and learning as well as kind of where the broader industry was. And the ICT4D community, I think when. I think about diviv two I’m like this is a bunch of pilots, pilot projects that we hoped would scale up, or we were learning a lot from these pilots.</p>
+              <p>And I think a lot of these organizations learned a lot as well about kind of how to think about the role of technology. This was a, a period where there was a lot of incentive to, you know, design a program and then add on. Generic M health innovation to be determined, or to just insert kind of an, an add-on like that, which wasn’t fully integrated into the program, or wasn’t clear kind of where, where the value was going to be.</p>
+              <p>And then this is also kind of around a time where there began to be a lot of pushback against pilots. Maybe that was a little bit after this. There was this moratorium, I think, in Uganda against no more M health projects, no more digital projects like that.</p>
+              <p>And hearing stories of community health workers, carrying pre phones from three different programs and not having to be harmonized. And, and that definitely uh, makes sense that that’s like a poor use of, of time and resources and duplicating work and things like that. But I think that this kind of model shows that there’s a lot of potential value to be had and, and thoughtfully executed pilots, both, you know, from our side as the technology and implementer partner as well as from the many of the, the people that we work with.</p>
+              <p>And, and from our you know, from these NGOs or from these, from the community health workers themselves kind of being able to learn along the way. And so even for those projects that didn’t pan out, I think there was a lot of uh, learning for, for um, everyone who was involved. And so in, in defensive pilots, I guess,</p>
+              <p>. One of the things that was great, just reflecting on hearing all these stories is. How different of an organization we were at this time and how we worked and operated and partnered, but also how many of the lessons learned and approach and philosophies consistent with what we do today?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think one of the takeaways for me just hearing this and reflecting back on what it was like 10 years ago is we had a extremely ad hoc communication style. And it worked excellently at that time. You know, as, as everybody said, we would, everybody would send out a field report once a week. That’s a lot of emails going out and most of us would read all of them.</p>
+              <p>And to Jeremy’s point, you would literally be learning week to week and then adapting that, putting them on the field and learning more. That would be crazy at 260 people now to be doing that. But it was perfect for the size we were at the work we were doing at that time. And I think that you know, within individual people, as they have ebbs and flows of energy and projects and, you know, spike in productivity and then have lulls recognizing that organizations do that as well.</p>
+              <p>Was something I was reflecting on as I was just hearing all these stories of, you know, what works for a particular organization at a given time that evolves and to Jeremy’s point that doesn’t mean you never do pilots or only do scale projects, but as we’ve grown, having to take these learnings and then right size our approach based on the project size, the approach um, you know, what was made a ton of sense for us during this diviv period stopped making as much sense when we were going to national scale in several countries, one of them being India.</p>
+              <p>And that I think took us longer to recognize in, in our approach. And we’ll, we’ll talk about that in a future episode as well. But it was so much fun and, and so, so exciting that this period, and it was exactly what we needed to do because maximizing our learning velocity was probably the most important thing for DEMA to be doing at this time, in terms of the long term success of our vision.</p>
+              <p>And, and that’s certainly how we structured the organization was to maximize. Our learning velocity, possibly the expense of, of other things. But it was great to hear those stories and, and definitely brought me back to a lot of the, the early days of, of what we were doing with Jon, what was the impact of this whole project and did USA ID and the div program ever do any measurement of the impact?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, one of the other exciting things, in addition to the learning velocity was the huge impact that this led to, obviously it was core to getting CommCare off the ground and the diviv team actually did a social return on investment report that we can link to in the show notes uh, that found that CommCare was one of the most cost effective investments dip has ever made at a 24 to.</p>
+              <p>Uh, Social return on investment, which we were really excited to to see. And so we’ll drop a link to the report um, for that as well. But I think Deb also got a, you know, huge bang for their buck on this investment as well.</p>
+              <p>Thanks so much for joining us for today’s show and thank you to critique Jeremy and Sri for joining. So I wanted to share a couple of takeaways before I close. First, if you’re a social enterprise in the space and looking for funding, definitely do check out USA IDs, div program.</p>
+              <p>Second. Pilots can have tremendous value to create rapid learnings. And they also carry a lot of risks. So choose your partners wisely, ensure they’re doing a pilot for the right reasons, with a commitment to implement for the longterm, and really be sure that your. Carrying those learnings forward.</p>
+              <p>Three. Over invest in training and ensure you’re covering the basics in your training, which may include digital literacy depending on where your users are at. For, if you’re rolling out a digital intervention, you have to be clear that it’s adding value. And not just burden for the users. And also be really thoughtful about how you’re sharing data, who you share it with and how they’re going to use it to improve outcomes, and fifth. Organizational practices need to evolve depending on where you’re at as an organization.</p>
+              <p>Some practices may make a ton of sense during a period of rapid learning. Like the one we talked about today, but they’re not going to make sense as the organization grows. So just being mindful of where you’re at as an organization and hiking design systems and learning mechanisms to ensure that you’re moving forward.</p>
+              <p>That’s it. Please take a moment to rate and review the podcast, share it with anyone you think might benefit from it and write to us at podcast@dimagi.com. If you’ve got any ideas or questions. Thanks so much</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">KM</div>
+            <div class="person-info">
+              <p class="person-name">Kriti Mehrotra</p>
+              <p class="person-role">Impact Advisor in the Office of the CEO, who joined as a field manager and trained early CommCare users in rural India.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">JW</div>
+            <div class="person-info">
+              <p class="person-name">Jeremy Wacksman</p>
+              <p class="person-role">Global Director of Division Operations, a former field fellow who led the CRS motivation research on the ground.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SR</div>
+            <div class="person-info">
+              <p class="person-name">Sri Ranganathan</p>
+              <p class="person-role">Director of Customer Success, who managed the CRS deployment and helped shape Dimagi&#x27;s deployment playbook.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6Dry9sVdDvC5wtX3AoR20K" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

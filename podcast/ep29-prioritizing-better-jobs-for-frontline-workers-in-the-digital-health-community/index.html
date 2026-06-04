@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 29: Prioritizing Better Jobs for Frontline Workers in the Digital Health Community | High-Impact Growth | Dimagi</title>
+<meta name="description" content="John Jackson and Amie Vaccaro on a proposed 10th Principle for Digital Development: making frontline health workers&#x27; jobs better to improve outcomes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep29-prioritizing-better-jobs-for-frontline-workers-in-the-digital-health-community/">
+<meta property="og:title" content="Ep 29: Prioritizing Better Jobs for Frontline Workers in the Digital Health Community">
+<meta property="og:description" content="A 10th Principle for Digital Development: make the frontline worker&#x27;s job better to improve outcomes.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>March 6, 2023</span>
+        </div>
+        <h1 class="ep-title">Prioritizing Better Jobs for Frontline Workers in the Digital Health Community</h1>
+        <p class="ep-deck">Fresh from the Global Digital Health Forum, John Jackson and Amie Vaccaro unpack the session John led and a provocation for the field: what if a 10th Principle for Digital Development was to make the user&#x27;s job better?</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6cWLcpyhTj5Xv3o8acOjKv?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 29 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6cWLcpyhTj5Xv3o8acOjKv" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000654481418" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/FOqiK5UUqv8?si=GMNbcziIHkWSOQA8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/40d42ff5-32f3-4a5e-a24e-99109b679346/high-impact-growth-prioritizing-better-jobs-for-frontline-workers-in-the-digital-health-community-with-jonathan-jackson-dispatches-from-the-2022-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">50%</div>
+          <div class="ep-stat-label">of some community health workforces show signs of burnout, per studies John cites</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">10th</div>
+          <div class="ep-stat-label">the proposed new Principle for Digital Development: make the user&#x27;s job better</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Back from the 2022 Global Digital Health Forum in Washington, DC, John Jackson and Amie Vaccaro reflect on a week of reconnecting with teammates, ministries, and funders, and on one thing that stood out for the wrong reason: how few frontline workers were actually represented in the room.</p>
+        <p>John walks through the session he led, &quot;Is the Digital Health Community Creating Better Jobs for Users?&quot;, and poses a question to the field. Alongside the existing Principles for Digital Development, what if there was a 10th principle to ensure the technology we roll out is creating better jobs, and how would we even measure that? The conversation digs into the tension between accountability tools that serve supervisors and programs and the autonomy and trust that workers actually want.</p>
+        <p>Grounded in Dimagi&#x27;s five year strategy of improving jobs to improve outcomes, the episode closes on a practical test: put yourself in the worker&#x27;s shoes and ask whether a new tool would leave you feeling empowered or disempowered. John and Amie also commit to bringing more community health worker and frontline voices onto the podcast.</p>
+
+        <blockquote>
+          <p>&ldquo;Are we at the end of the day making providers jobs better and are they then able to support their clients better?&rdquo;</p>
+          <cite>Jonathan Jackson, on what the field too often overlooks</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A 10th principle</strong>: John's proposal to add "make the user's job better" to the Principles for Digital Development</li>
+          <li><strong>The missing voice</strong>: why frontline workers were so underrepresented at the Global Digital Health Forum</li>
+          <li><strong>Accountability vs. trust</strong>: how real-time data tools can serve the supervisor while leaving the worker feeling watched</li>
+          <li><strong>Net effect over perfection</strong>: weighing trade-offs so a project's total impact is still a better job</li>
+          <li><strong>Maintenance matters</strong>: bad phones, lapsed airtime, and stale documentation signal that an employer doesn't value the worker's time</li>
+          <li><strong>Empowered or disempowered</strong>: a simple test of putting yourself in the worker's shoes before rolling out a tool</li>
+          <li><strong>Bringing the voice in</strong>: Dimagi's commitment to feature more frontline and community health worker perspectives on the show</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So John, we just got back from Global Digital Health Forum. It was a pretty intense and interesting week. I’m curious to hear your perspective on, first of all, just tell me about your time there, and then I would love to hear a bit about the session that you led there.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, global Digital Health Forum was a lot of fun. We got to see a ton of our DGI teammates in person in DC for the first time. In a while and tons of old friends and colleagues from the industry. So it was great. I posted on LinkedIn, you know, I heard somebody refer to it as the, this community’s annual holiday party, which was, appropriate, and was a blast. And on top of that, we got to record a ton of podcasts with, folks from the ministry and within the industry and funders. So that was a, a lot of.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s awesome John, was there anything that you saw that like surprised or excited you in particular?</p>
+              <p><span class="spk">Jonathan Jackson:</span> There was a lot of positive things in terms of talking with other technology partners, hearing from governments on their national digital health strategies. A lot of the panels our team gave were really interesting on AI and open source, some different topics and mental health</p>
+              <p>but one of the things that was, surprising to the downside, un unfortunately not that surprising, was the lack of frontline workers that were represented at the Global Digital Health Forum. You know, one of our main core strategies at Dimagi over the next five years is ensuring that we improve jobs to improve outcomes.</p>
+              <p>And I often find that we lack a, voice from the user in a lot of these conferences and settings. that was, one thing that, you know, again, not that surprising cuz this is consistent, but something I would love to see our industry.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, a hundred percent. I, I definitely noticed, noticed that as well. And I think that brings me to, to your sessions. So you ran a session called, is the Digital Health Community Creating Better Jobs for Users?</p>
+              <p>And we definitely got some really good feedback from a few folks actually approached me afterwards and said that was like one of their favorite sessions. Would love to hear a little bit about what, what was your session about? Talk Me.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. We had wanted to talk about this, again, aligned to our five year strategy because I think it’s something that we’re not as a community thoughtful enough about, in my opinion.</p>
+              <p>You know, we, we talk a ton about sustainability at the national government level, which is critical funding, critical. You know, open source, local hosting, data sovereignty, data privacy, these are all critical issues. We have the digital principles for global development, which are great and a lot of other areas.</p>
+              <p>And totally missing, you know, from a lot of this is are we at the end of the day making providers jobs better and are they then able to support their clients better? And so when we talk about improving jobs to improve outcomes, it really came from a reflection both on our own projects and the way we were talking about support. These programs to really prioritize that provider or user. You know, with Covid 19, the amount of burnout that’s happening in the healthcare workforce with how challenging these jobs were even before Covid 19, this is a huge problem. I think I’ve seen studies that that show up to 50% of some community healthcare workforces are exhibiting signs of burnout, and these workforces are absolutely critical.</p>
+              <p>Often they’re the only touchpoint a client may have in a c. . So solving this problem and making sure when we think about how digital or technology can help a health system, one of the top things we’re thinking about is whether that’s actually leading to a better job for that provider.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Absolutely. Yeah. I think that’s, that’s so important. And I really appreciated you kind of bringing that, bringing that voice to the table. . So in your session, one of the things you talked about, you mentioned these digital principles for global development. And then I think you, you also just posed an interesting question to the community, which is, can we add a 10th one?</p>
+              <p>So talk me through that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, these are, these are principles that I. came out, five or six years ago. I’ve talked, about various elements of these over the last few years at the Global Digital Health Forum. And this year, rather than talking about an existing principle, I kind of wanted to pose this question of like, what if our 10th principle was ensure we’re creating better jobs, and what would it look like if we did that?</p>
+              <p>How would we even measure that? And we had to start by acknowledging, you know, a lot of things that technology has done in all markets, not just the global digital health. , maybe good for a business, good for a program, good for a supervisor, and bad for the employee. You know, one of the things I talked about, and, and Amy you can, relate to this with all the data I ask you for on the marketing side, but like, it doesn’t feel great when people are asking you for real time data to prove that you’re doing your job well.</p>
+              <p>Like, you wanna be trusted, you want to be able to go about doing your job and the way you think is the best way to do it. And so all these tools that give like real time data to ensure accountability, it’s like, well, the employee doesn’t want that. You know, that’s, that’s something the boss wants or the program wants.</p>
+              <p>We think about that both within our organization but also outside of our organization. And it’s complicated, like if you had that as a principle of ensuring that these technologies are creating better jobs that might actually conflict with some of these other areas around accountability, performance-based supervision, all of which are things we agree with by the way, but need to be, put in context of ensuring that at the end of the day, the net total effect of a project is a better job for that.</p>
+              <p>Even if one or two things may not totally align to a better job, cause I’m not saying systems can be perfect and completely positive, experiences, there’s gonna be trades.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. I think that’s such a, an important point and I think it underscores that that reality of just the complexity, right, and that there is, there’s so much nuance and. This is an important perspective we need to be taking and it will potentially conflict with other perspectives and other goals. Right.</p>
+              <p>But it all needs to be taken together and I think I’m really proud that Dimagi has actually prioritized the frontline worker because I think at the end of the day, she’s at the heart of the change that needs to happen and the support that our communities need. So I’m curious, during the session.</p>
+              <p>we invited folks to kind of give their, their input and we had a kind of a breakout session that I thought was pretty interesting. And I was looking at sort of, you know, what, what were some of the things that people shared? I’m just looking at my notes here. I think people kind of said, what would need to be the tenets of this 10th principle, around making frontline workers jobs better?</p>
+              <p>And so folks talked a lot about, you know, just making sure that it’s really benefiting the community health workers, not burdening them. Some people talked about making, like helping them look good for their bosses, right? Cuz there are, there’s always that data collection piece and, which I thought was interesting.</p>
+              <p>You know, I think people also talked about what does it mean for, for their clients, right? Making sure that the beneficiaries of the services that they’re delivering are actually getting better, better services. Um, and could we incorporate that somehow? And then I think there was another element around technology that people talked about where they talked about, you know, the technology.</p>
+              <p>needs to work Well, the hardware, the software, they need to be accessible. Maintenance matters. Right. I heard that a lot around just like, yeah. We’re like, yeah, digital, digital is the future. It’s, it’s amazing, but there’s so much effort that goes into maintaining a digital program and, and making sure that the tools are working.</p>
+              <p>So I thought those were some interesting kind of themes coming out of it. What, what other things did you hear from folks when they were kind of sharing about how they might see this, this principle, shap.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think that’s, those are great reflections in, in. Call as well. One of the things that I was thinking a lot about as people were, were sharing those, was to take it back to your own organization. You know, just as you were repeating those, Amy I was, I was going back to thinking about, yeah, when I, enter a new job and somebody gives me a, a bad laptop that’s underpowered and like old, what does that say about how they value my time and how they, they generally value productivity within the enterprise, or when the documentation and the Wiki are out of date on like how to do something.</p>
+              <p>it tells you that your employer doesn’t value your time. You know, and, and that is something that I think we constantly, unfortunately, are telling frontline workers when we give them bad phones that aren’t maintained or when we let the airtime lapse or when the battery is underpowered and, and not great.</p>
+              <p>So all of these things, along that pillar like really resonated. I hadn’t thought about that going into the session. I thought that was a great, point that that person brought up. , you can, you can then reflect a lot of what we’ve been talking about in that session. And in general, it’s really easy just to reflect back onto yourself, you know, put yourself in that context and say like, how would this make me feel as a worker?</p>
+              <p>Would I feel empowered or disempowered by this action? And that, that really struck me, just that simple one around just like maintenance, you know, making sure they have the tools and the equipment to do, their job. And, and unfortunately often, like that’s not, that’s not something that would score very highly on a, on.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, so true. And I think as. Are talking, John, I realize, I wanna say this publicly, that we are committing in this next year to really do a better job of bringing community health worker and frontline worker voices onto this podcast. I think, you know, we, we too have a role and I think, I’m excited.</p>
+              <p>We’ve got a few, a few episodes, in planning stages where we’re hoping to kind of bring in, bring in their voices. Anything else you’d wanna share from JD h f or from your session?</p>
+              <p><span class="spk">Jonathan Jackson:</span> It’s so, enjoyable to be back, face-to-face with people and it’s such a privilege to have that opportunity. You know, we’ve had a couple years of not being able to be face-to-face together and, getting to have those moments of hallway conversations or talking to each other at table or catching up with, with old friends.</p>
+              <p>And new friends. That was really exciting and I had a lot of great conversations with governments that were working with that I hadn’t had the chance to meet. And that was just amazing to hear how they’re viewing their digital transformation, the journey they’re on, how we can support them. So it really was just, just great.</p>
+              <p>I’m, I’m looking forward to a lot more face-to-face in, in 2023 as well.</p>
+              <p>Thanks so much for listening. What I hope you take away from this conversation. His first and foremost, the importance of considering the impact on the job of the frontline provider. When you roll out a digital tool or digitize a program.</p>
+              <p>Billions of people around the world are relying on nonspecialists, frontline providers for essential life saving services. And this workforce is critical to closing the gap in access to healthcare. But we’re seeing around the world that frontline providers are overburdened and they’re burning out. So when we look to roll out a digital tool,</p>
+              <p>we have to consider what impact will it have on the provider? Who’ll use it. And many cases, a new digital tool might make the program better, but actually make the job worse. For example, asking someone to collect more indicators can slow the frontline provider down. Rolling out new versions of the app can cause more training and relearning to need to happen.</p>
+              <p>So like everything in global health and development, there is a lot to consider. The idea of improving jobs to improve outcomes is one we’ll continue to talk about. On this podcast as it’s a focal point for Dimagi. So look out for more on this topic.</p>
+              <p>And write to us@podcastatdimagi.com with any ideas, comments, questions, or feedback. That’s our show, please like rate, review, subscribe, and best of all, share this episode. If you found it useful, it really helps us grow our impact. The show is executive produced by myself. Danielle van wick is our producer.</p>
+              <p>Briana DeRoose. This is our editor and cover art is by Sudan. thank you.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols" style="grid-template-columns:minmax(0,560px);justify-content:center;">
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6cWLcpyhTj5Xv3o8acOjKv" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

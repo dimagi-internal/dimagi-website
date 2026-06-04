@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 11: Dimagi’s Big Break: Receiving Instrumental Core Funding from the Bill &amp; Melinda Gates Foundation with Tim Wood, Former Senior Program Officer | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Tim Wood and Jonathan Jackson on how the Gates Foundation&#x27;s core funding of CommCare became Dimagi&#x27;s big break, and what it takes to fund digital public goods.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep11-dimagis-big-break-receiving-instrumental-core-funding-from-the-bill-and-melinda-gates-foundation/">
+<meta property="og:title" content="Ep 11: Dimagi’s Big Break: Receiving Instrumental Core Funding from the Bill &amp; Melinda Gates Foundation with Tim Wood, Former Senior Program Officer">
+<meta property="og:description" content="How the Gates Foundation&#x27;s core funding of CommCare became Dimagi&#x27;s big break, with former Senior Program Officer Tim Wood.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>September 12, 2022</span>
+          <span class="dot"></span>
+          <span>53 min</span>
+        </div>
+        <h1 class="ep-title">Dimagi’s Big Break: Receiving Instrumental Core Funding from the Bill &amp; Melinda Gates Foundation with Tim Wood, Former Senior Program Officer</h1>
+        <p class="ep-deck">Tim Wood, the Senior Program Officer who led the Gates Foundation&#x27;s investment in Dimagi, joins Jonathan Jackson to tell the story of a rare platform-level grant that funded CommCare itself rather than another single project. Part two of Dimagi&#x27;s 20th anniversary series.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/4Qkx1VFO2TMGajFKk8u9YR?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 11 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/4Qkx1VFO2TMGajFKk8u9YR" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000579191233" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/99CpcOi-AuM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/09f258c4-9bf6-436c-ac30-af0a34b1f30b/high-impact-growth-dimagi%E2%80%99s-big-break-receiving-instrumental-core-funding-from-the-bill-melinda-gates-foundation-with-tim-wood-former-senior-program-officer" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">$12.5M</div>
+          <div class="ep-stat-label">core funding the Gates Foundation invested in Dimagi across 2014 and 2016</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">640,000</div>
+          <div class="ep-stat-label">users on the CASS project in India that Tim cited as proof of CommCare&#x27;s scale</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">20 years</div>
+          <div class="ep-stat-label">of Dimagi history this anniversary series looks back on</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Tim Wood has been at the forefront of building and investing in technology to improve health outcomes in low-and-middle-income countries over the last 3 decades – including work at the Grameen Foundation and the Bill &amp; Melinda Gates Foundation (BMGF) where he served as a Senior Program Officer. During his time at BMGF he led a transformative, platform-level investment in Dimagi and its technology that breaks the mold of the industry’s tendency to invest in projects rather than core technology.</p>
+        <p>In this episode, Jonathan Jackson and Tim Wood tell the story of how that investment happened, why it was so important, and their reflections on the challenges and opportunities in global health and development today. In the course of the conversation, you’ll also hear advice for getting funding from a funder like BMGF. This is part 2 in a 5 part series highlighting pivotal moments in Dimagi’s history in honor of Dimagi’s 20th anniversary.</p>
+        <p>Episode Highlights:</p>
+        <p>3:01 – Making the move from for-profit to impact-driven work and how Tim Wood made the decision to leave Microsoft to work in global health 4:36 – Why the global health and development industry needs people from the private and government sectors 7:22 – What made the BMGF grant to Dimagi unique 9:10 – The challenge of creating organizational sustainability when projects scale and the surprising disconnect between scale and revenue in digital health 10:20 – How core funding from BMGF supported achieving national scale projects at Dimagi 11:15 – The challenge of developing robust and impactful technology in global development 12:07 – “Pilotitis” in digital health: What is it? Why does it happen? 13:20 – How Tim Wood made the case to BMGF to invest in Dimagi at a platform level 16:50 – Turning the corner on sustainability at Dimagi and speaking to health impact 21:13 – Tim Wood’s advice for social entrepreneurs seeking funding from BMGF or other foundations 25:20 – A trend of increased collaboration across funders in global health to help address country priorities 29:00 –  The challenge of rolling out horizontal technology within a ministry of health and the need ensure you’re working with stakeholders with a broad enough mandate to make your vision a reality 32:50 – What’s concerning to Tim Wood and Jonathan Jackson when it comes to the use of technology to achieve the Sustainable Development Goals 37:30 – How might we create a common language and ways to measure success of technology implementation to make better decisions and make investments in global health more effective? 40:00 – The tax on users of digital health pilots 41:00 – The need to have a plan for moving from paper to digital 42:40 – What is most exciting looking ahead in digital health? 43:40 – Co-investing across donors 47:30 – How can other Digital Public Goods be successful? What is the role of Digital Square?</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;It was really focused on how does the CommCare platform get stronger and bigger and more sustainable. And that was a new type of grant for the gates foundation to be making.&rdquo;</p>
+          <cite>Tim Wood, on the 2016 platform grant</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From Microsoft to global health</strong>: how a five-week trek through Nepal and an early part-time role led Tim Wood to leave product development behind</li>
+          <li><strong>Breaking the project mold</strong>: why a grant funding the CommCare platform itself, not a single malaria or maternal health app, was so unusual for the Gates Foundation</li>
+          <li><strong>Pilotitis explained</strong>: the syndrome of money pumped into endless new pilots instead of investing in scale</li>
+          <li><strong>The scale-revenue disconnect</strong>: why more users on national-scale projects often meant more cost and liability, not more profit</li>
+          <li><strong>Making the internal case</strong>: how a cross-cutting integrated delivery team let Tim pitch a tool that could lift impact across multiple health domains</li>
+          <li><strong>Advice for social entrepreneurs</strong>: aligning with a funder's evolving priorities, building local capacity, and being honest about what you can and cannot solve</li>
+          <li><strong>The paper-to-digital problem</strong>: why a real plan to go paperless is critical, and the tax that pilots place on overworked frontline workers</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth, a podcast from Dimagi about the role of technology in creating a world where everyone has access to the services they need to thrive.</p>
+              <p>I’m Amie Vaccaro, your co-host. Today we have a fascinating episode for you. This is part two and our series about demo’s 20th anniversary, where we’re looking back at milestone moments from demo’s history and trying to extrapolate the learnings from them. For you, our audience. So in the last episode you heard about the origin story of CommCare. And today you’re gonna hear about a transformational investment that Dimagi received from the Bill and Melinda Gates Foundation. Today’s episode is the first time that we’ve brought in someone from outside of Dimagi. So today, Jonathan Jackson and I are joined by Tim Wood, who is currently a senior advisor at the co-developed fund.</p>
+              <p>Tim is an influential pioneer in digital health.</p>
+              <p>He was the senior program officer at the gates foundation who led the investment in Dimagi. But his story is more than that. Today, you’ll hear how he decided to change careers from working at Microsoft to joining the Grameen foundation and eventually the gates foundation.</p>
+              <p>For context for anyone new to global health and development. The Bill and Melinda Gates Foundation is an incredibly influential and important funder in the space. They were founded in 2000 by Bill and Melinda Gates. And they are the second largest charitable foundation in the world. With nearly 50 billion in assets, according to Wikipedia.</p>
+              <p>Um, they’re focused on improving health and reducing poverty.</p>
+              <p>Another organization. We talk about a lot today is the Grameen foundation, which is a well-known nonprofit founded in 1997 with funding from Muhammad Yunus to expand the microfinance model. Started by the Grameen bank. It’s goal is to enable the poor, to create a world without poverty.</p>
+              <p>The investment we speak about today happened in 2014 and also 2016. In two parts, but the story really starts back in 2011. When Tim was working with Grameen and teamed up with demo on a project. Through the course of today’s conversation, you’re gonna hear. How that investment happened, advice for other social entrepreneurs that may be looking for funding. And both Tim and Jon’s perspectives on the challenges and opportunities for technology in global development. Enjoy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Tim would thank you so much for joining us and to the high impact growth podcast. Here with Jonathan Jackson as well, today what we wanted to talk about was a really key moment, that Tim, you were at the lead of which was when, the Bill and Melinda Gates Foundation decided to invest in. Dimagi so excited to that story in full from, from both you and Jon, before we do that, Tim, I wanted to just hear a little bit about your story as an individual. Introduce yourself and share a little bit about what has driven you and guided your career to this day?</p>
+              <p><span class="spk">Tim Wood:</span> Great. Thanks, Amie. It’s really fun to be able to retrospectively look back at the McGee’s history. And I think part of that is also sort of the history. Investment in digital health for developing countries. So this should be really fun. But as for my background, I started my career at Microsoft. I did product development for 12 years on an assortment of products at Microsoft for awhile.</p>
+              <p>And then I had the good fortune to take a sabbatical, which led to. Five week Trek through Nepal, where I found myself in need of some medical attention and realize that I was a four day walk from the nearest medical facility or anything, but it closely resembled the medical facility. And that sort of opened the eyes for me around some of the challenges around health in developing countries.</p>
+              <p>And when I came back, I started to do some reading on the topic and had the fortune of that timing, sort of aligning with the Bill and Melinda Gates Foundation first, you know, getting started in. Really starting to formalize. And I wound up knowing someone who was working at the very nascent gates foundation then and said, Hey, if you ever need any help, let me know.</p>
+              <p>And that was around the same time. They were starting to think around what their first digital health strategy would look like. So I wound up joining the gates foundation in around 2001 on a part-time basis to help them think through their digital health while I was still doing some work at Microsoft.</p>
+              <p>And pretty quickly found that all of this stuff that I was lying in bed thinking about, had nothing to do with software development for windows users, and had everything to do with thinking about how to address HIV and some of the other challenges in health systems in developing countries. So I use that as the launch pad for me to leave Microsoft and sort of fully embrace the world of developing country plus technology.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And one thing I’ll add to, to Tim story is the benefit that a lot of people who enter the sector later in life can bring from their private sector experience or government experience is really valuable. So I, you know, I highly encouraged a lot of people who are coming. Um, Or graduate and looking to start their career in social impact.</p>
+              <p>That it’s awesome, it’s also incredibly important that people are entering later. Bringing a lot of skills and learnings from much more traditional, you know, sectors. Tim’s been able to offer us a lot of mentorship, you know, having been through product cycles that were the most successful software companies in the world. Um, And that, that that’s equally important in some ways uh, bringing into our industry as we try to mature digital health</p>
+              <p><span class="spk">Amie Vaccaro:</span> So the funding milestone we talk about today from Bill and Melinda Gates Foundation to Dimagi. Happened in 2014, but the relationship began forming in 2011. When Tim was working at the Grameen technology center and they brought Dimagi in on a gates funded project. Tim and Jon hit it off. Well, as they were both fully impact aligned and really searching for how can we have the most impact together? Also Grameen and Dimagi had complimentary technology solutions. So Grameen had a data integration platform called Motech and Dimagi with our technology platform for digitally enabling frontline workers, CommCare.</p>
+              <p>So the two organizations work together and be heart India. And you had both seen. The challenge of building technology in global development. Where project based funding really impedes the ability to build a robust and transformational technology platform. That’s needed to really drive impact at scale.</p>
+              <p>Then in 2013. Tim you joined the Bill and Melinda Gates Foundation and amazingly. You made the case to us as Dimagi that we should go big in terms of a funding proposal to solve for that pain point and really invest in building and scaling CommCare.</p>
+              <p>So in 2014 and 2016, the Bill and Melinda Gates Foundation invested 12.5 million in Dimagi. And this was really core funding. So up until then, we had been making money only on projects. And this was the first time that. Dimagi his engineers could actually behave like a real product team and think long-term</p>
+              <p>Tim. Tell us about the grants you made in Dimagi.</p>
+              <p><span class="spk">Tim Wood:</span> In preparation for this discussion, I went back and took a look at the grant agreements in 2014 and then 2016 that we had. And I actually think it was the 2016 grant that was more meaningful. Um, From uh, does grant design and probably future Dimagi perspective. In 2016 was a much larger grant, I think is about 7.5 million where we really focused on how does Dimagi get to scale, how does Dimagi generate a sustainable business model? And that was a very unusual grant because it wasn’t focused on a specific implementation someplace. As most technology projects in the developing space happened and thought, oh, I want to go do this app for malaria or a maternal health funded app.</p>
+              <p>It was really focused on how does the CommCare platform get stronger and bigger and more sustainable. And that was a new type of grant for the gates foundation to be making him one that I was personally motivated to try to make happen, to stand it up as an example, our, for future types of investment that I thought would be critical in order for the digital health space to grow and evolve.</p>
+              <p><span class="spk">Jonathan Jackson:</span> As we entered that second grant, that was really finally making the case. Like no, there’s no daylight between us succeeding and our theory of change for an impact model. you buy the CommCare should be deployed at scale. So you can, you can disagree. The Comcast should be deployed at scale.</p>
+              <p>You can disagree with our hypothesis on the model, but if you bought that argument and we believed at the time and still do that, we have a very strong evidence-base showing the benefit that CommCare can have for frontline workers that this is about, that pays off in impact. And that was really important for us.</p>
+              <p>And I think one of the big learnings I had and shared with Tim. Um, His team was the challenges that we were starting to see through that 2014 to 2016 period around the existing project-based funding life cycle for development projects and the sustainability of digital products and how um, at odds those could be. And interestingly, that 2014 to 2016 period was when we started to have some of our national scale work, really pick up steam. And we were noticing those projects were becoming less and less profitable. if you’re a technology provider, as the adoption of your product grows, you’re really excited and it creates more profit for you and in our sector often, depending on how these projects are structured, but if the vast majority of them as your technology gets picked up, it actually creates a liability for the technology provider because it creates more and more usage, but not necessarily more and more revenue or profit for the organization. And that’s something that even still today at argues to true of a lot of our industry, but that was something that we really highlighted in that discussion back in 2016 and 27. Was the reality that that was true about the market and what that implied for donors needed to think about funding organizations like Dimagi and how global good platforms were going to be successful or not based on that reality in the market.</p>
+              <p><span class="spk">Tim Wood:</span> Jon. Do you think those national scale projects that happened would have happened as quickly if it were not for the core funding? Why, what was, what was the symbiosis between the national scale programs and the core funding grants, or were they on separate trains? Did you get to a sustainability point as a function of the core funding and the national scale stuff would have happened?</p>
+              <p>Because that was more country-specific focus or was there some interplay between.</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah, that’s a great question. And there’s complete interplay between the two, had we not had the core funding from the gates foundation? We never could have pulled off the national scale projects because we were effectively running those all at a loss. know, that the amount of technology demands that were needed to both build core features and the platform and custom features just for that project. Far exceeded the budget that those projects had. And so we were using our core funding to accelerate the development on the platform and CommCare as much as we could. But the countries and the impact we were trying to generate uh, we several huge projects in India at the time and several in Africa. Would not have been able to run those at a loss, had we not had the core funding. And when you take a step back and think about normal technology, development, like, you know, it’s a given that you got to go raise venture capital, run into huge loss as you’re building the product and then scale it up and make money, you know, five years after building that. And then the development sector, you still have to run it that loss or get somebody to subsidize that loss to build it. But then once you come out the other side, you’re kind of just breaking events. So you can’t really pay back that huge R and D investment. As you build out these products, but you can get to break even on the, on the front side.</p>
+              <p>But I think the, the investment that we have in the foundation was transformative for us because it allowed us to really lean into those national scale projects and build a lot of. Complexity and features they needed to maximize their longterm impact. And had we not had that? In fact, we had been not having that until that point obviously in our company’s history and it was very, very difficult to balance and sustainability of Dimagi that grant really allowed us to focus really hard on scale. Know that period, that period of Dimagi is history. It was just like, let’s see if we can get to scale, let’s get these products to scale. there was also a function of our industry, you know, at that time, everybody was starting to get annoyed and call it pilotitus</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jumping in here to share my own definition of Pitis, which is a syndrome where money is being pumped into new pilots of digital health interventions. Instead of investing in scale. And it results in a proliferation of pilots. And a dearth of long term impact.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Where you have these projects keep turning like, all right, well then we’re going to be the ones who get there.</p>
+              <p>Let’s go as hard and fast as we can to get some of these projects scaled up. And fortunately we did in several countries. But without that funding, I don’t think we would have had nearly the chance of successes as we did.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So. I kind of want to go back to you like you, you were instrumental in making this case. It sounded like this was a different way of funding, right? Up until then, gates had done maybe more project based funds. You really made the case for let’s invest in the technology.</p>
+              <p>That’s gonna enable all of this more scaled impact. How did you make that case to gates?</p>
+              <p><span class="spk">Tim Wood:</span> I was able to make that case within the gates foundation in part, because I sat on a team that had a mandate to have an impact across multiple teams within the foundation that had health domain focus. So what typically happens is there will be an HIV centric project or malaria focus project, or maternal health focus project.</p>
+              <p>And sometimes the foundation will fund digital health projects just within that domain. And there was a group that at the time was called integrated delivery that had the charter of looking across all the different teams to try to find investments that would sort of lift the tide for all of the boats and have an impact.</p>
+              <p>And so I was able to tell the narrative of how a technology investment in a multipurpose tool like CommCare was able to have an impact for multiple teams and the. Importance of trying to get those two BS things that we’re operating at scale, where we were breaking out of either geographic specific silos of funding or health domain, specific silos of funding.</p>
+              <p>And there is always a objective for impact at the foundation and to have a project where we saw a through line that would potentially end at large scale and maybe even sustainability, which is sort of the holy grail for digital health programs. That was something that was a compelling sell, but it was not an easy pitch.</p>
+              <p>There was a lot of time that I spent trying to get people to understand. Those dynamics. And despite the DNA of the Bill and Melinda Gates Foundation, there are not a whole lot of people inside the Bill and Melinda Gates Foundation that have a software development background. So trying to explain to them the dynamics of making the investment in a core platform, that you then realize the benefits for later down the road or the need to make that core investment without having some overtax that you then ask each other project that’s going to be using it to pay.</p>
+              <p>Um, The, the dynamics within the foundation are sort of a microcosm of the dynamics and the broader global health ecosystem.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Tim, as the program officer who was investing in Dimagi, how did you think about, or talk about the impact that Dimagi was having.</p>
+              <p><span class="spk">Tim Wood:</span> The story that I would tell as we would do reports that would go to management and go all the way up to Bill and Melinda was talking about the scale of. CommCare was operating in specific implementations because we were always going back to country impact. So to be able to talk about the 640,000 users in India that were using it for the cast project,</p>
+              <p><span class="spk">Amie Vaccaro:</span> Sidebar we’ll share more about that Cass project that Tim just mentioned in a future episode.</p>
+              <p><span class="spk">Tim Wood:</span> to be able to talk about the national deployment that was happening in Burkina Faso, to be able to sort of talk about the scale of the impact.</p>
+              <p>As well as the breadth of the impact across multiple health domains was the narrative that resonated most strongly. And then as Dimagi really started to get traction around revenue generation and a sustainable business model, that was a pretty compelling story as well, because as we were making those that large platform investment, it was a clear goal of management at the gates foundation to see Dimagi.</p>
+              <p>Turn the corner and operate in the black so that they weren’t dependent on gates foundation funding indefinitely. And to actually have a story where that was happening is very unusual. And it was nice to be able to talk about the revenue numbers that Dimagi was consistently hitting that were on target.</p>
+              <p>And oftentimes ahead of the goals that had been said, and to be able to talk about the success, both on the health impact side and the countryside, as well as on the business side.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And this is something that we struggled with in terms of helping Tim paint, that that narrative was making sure we were being clear that while both things were going really well, they were less correlated than we wanted. I spent a lot of time trying to. Yeah, Tim, two pagers for you that I’m sure you distracted like two sentences from but they were kind of trying to just explain, like, you know, here’s all our revenue that’s going really well.</p>
+              <p>Here’s a national scale of growth. That’s really what going really well. look at the revenue numbers related to the national scale growth projects. And they’re like negative in terms of our profit margin. And then our parts of the business were um, making our complete business whole, which is one of the key innovations of Dimagi and our sustainability.</p>
+              <p>But um, given again, this is true of the gates foundation. It’s true of many large scale donors in our industry. It’s like, it is really at the end of the day about the impact you’re having at a country level at scale. And those projects were not necessarily the reason why we were gaining sustainability.</p>
+              <p>It was other parts of our business model. And that was somewhat difficult to paint the, the appropriate narrative for, for people who are not deep into technology don’t get the nuance of that. Um, And the second that I still have never figured out a component way to, to get Tim you or others to, to buy this argument.</p>
+              <p>Mostly cause I know it’s, it’s hard to be compelling on it, but the other thing that was happening at the time that I’m really proud of was as we were learning on these national scale projects in India or Burkina we were increasing our future rate of and probability of success because these projects are extremely hard, most fail, including ours. So if what the foundation is ultimately doing is changing our prior profitability of success from 10% to 30%, that has a huge extrapolated impact. If we’re the partner that they’re working with in a given country, right? So we feed this investment with Tim have learned a lot about how to take things to national scale, a lot of experience, improved our software in such a way when you compound that growth rate apply it to all the national scale projects, not only that are happening today, but that are going to happen for the next 10 years. I think it’s an extremely compelling bet to make, but it doesn’t show up and national scale programs today. It shows up five years from now. And I think that’s something that Tim and I always discussed a lot in, in the benefit. But like, as I full, well, no, like that’s not necessarily the most compelling argument that we’re increasing the probability of project’s going to be successful five years in the future. And, and we still struggle with how to make this case. And Tim would love to hear how your thinking has evolved on, on that. As I know, you’ve been thinking a lot about these infrastructure level.</p>
+              <p><span class="spk">Tim Wood:</span> Yeah, I do think that those were some of the most interesting discussions that we have. I was tracking the disconnect between the success and the number of deployments and the financial success that those projects had. And to try to dis-aggregate that from the financial success that Dimagi was seeing on a lot of the smaller scale components that were leading towards the sustainability, because I think the operating assumption for so long has been, oh, you just get more users.</p>
+              <p>And as soon as you get more users, that’s volume is what is going to unlock the revenue potential. And that wasn’t the case for Dimagi. As you guys saw the larger and larger projects be deployed in the field that just wound up, I think becoming more complicated and lots more overhead, and lots more politics for you to manage, to try to keep those things alive, which really didn’t help the business side of the equation so much when you were looking at the dollars but certainly helped with your narrative and the stories around.</p>
+              <p>And that was a tension that I tried to also articulate within the gates foundation. And I not sure how much that has been internalized broadly within the foundation because it’s a complex topic. And two, it requires you to really dig into the nuances of both the challenges around the business models and digital health in general, but also the nuances of Dimagi is business.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So I curious, you know, thinking about the audience for this podcast and some of them are , other social entrepreneurs working in digital for global development. Are there pieces of advice you would give to folks that are actually seeking funding from someone like the gates foundation on this type of, , digital health infrastructure</p>
+              <p><span class="spk">Tim Wood:</span> I think part of the challenge is finding the overlap between the priorities that exist at a private foundation, like the gates foundation and the work that any technology entrepreneur is trying to do and to have those align well at a specific moment in time and so figuring out where any organization is in their current thinking is the biggest challenge.</p>
+              <p>And the biggest trick, if you’d asked somebody within the gates foundation three years ago, what their digital health priorities were, then it probably would sound slightly different than it would sound today. Just because things are constantly evolving. I do think that there is more recognition now of the need to invest in what I’ve called digital health infrastructure.</p>
+              <p>So components that are. A key part of a country’s national digital health plan that could then be the foundation for services that multiple digital health tools build on top of there’ve been lots of discussions and frameworks like open HIE that have talked about the need to have a facility registry and a client registry and a health worker registry.</p>
+              <p>But we haven’t seen a whole lot of investment in those tools that has successfully landed in a tool that is then used in multiple countries for multiple systems and has core support on a multi-year basis as a digital public. Good. And I think people are starting to see the need to move away from narrow implementations of a specific digital tool to the need, to.</p>
+              <p>And the digital public goods that would support multiple projects across multiple countries, across multiple disease domains and the different types of funding and thinking and implementation strategies that are necessary to make that shift happen. There also seems to be more momentum today than there was a three or so years ago around increasing capacity in countries on the technology side.</p>
+              <p>So how do we see, how do we foster more local entrepreneurs that are working in service of their country’s government to implement tools? And so do that in a way where you have that expertise locally, but also some of the technology and innovations feeding back into a global resource that can be used across other countries.</p>
+              <p>So I see those as some of the dynamics that are changing and. The challenge of having a conversation with different donors and different funders to see where they are heading and what their priorities are. There’s no easy way to do that. It’s not like you go to the website and these sort of, and there’s a, a very clear directive from any of a number of the funders in the digital health space around.</p>
+              <p>Oh, just tell us, you know, here’s specifically what we’re looking for today. It’s more dynamic and challenging and changes more quickly than that. And I don’t have a great answer as to, oh, you know, here’s the resource that everyone can go to, to figure out where the five major funders of digital health are placing their money today.</p>
+              <p>But there is a increased amount of coordination that seems to be happening amongst the digital health donors today. Much more so than there was say, pre COVID and the benefit of the. Conversation is that there seems to be better alignment amongst the digital health donors around trying to fund things in a complimentary way, as opposed to everyone pursuing their own interests.</p>
+              <p>And I think people truly are trying to put country priorities at the forefront. So another way of making that entry point is if you are knowledgeable or have a presence in country and really understand the dynamics of what are happening in that country and can represent the needs of the health system in that country.</p>
+              <p>Well, to other funders, that’s probably a pretty good way to source work and to get some traction when you’re having conversations with donors, because they’re most likely entering the conversation, thinking about impact either at the country level or at a disease domain level for a specific.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s that’s awesome. Tim. That’s, there’s so much in there. And I had to kind of reflect back what some of the nuggets of what you shared. It sounds like, you know, and foremost, just really work to understand what’s happening with that particular funder, that foundation. And there’s not an easy way to do that, right?</p>
+              <p>It might be conversations. It might be showing up for their events. It might be networking with others that have recently fundraised. Right. But figuring out what’s really on the minds of, of that particular funder. , Second thing you mentioned was really funders more and more are looking to in foundations that support many different. Challenges and issues as opposed to more vertical, specific funding that maybe was more popular previously. thinking about ways that your tech can support many use cases and be more of a digital public good. As you mentioned. Third thing I heard you say was around, if there’s ways that your technology can reflect an investment in local capacity and folks in country developing the skill sets that are needed and how can, how can it help kind of build out that local ecosystem. And then I also heard you talk about collaboration and really being able to kind of build on happening across the space. And I love that, you know, Jon and I just recorded an episode recently about out collaborating versus out competing, and really the need to pay attention to what’s happening across players and, and make sure what you’re doing adds to that and brings things forward. And then lastly, The local insight being really essential. So if you’re a funder with specific Intel and specific understanding of what’s happening in country, really bringing that to the fore when you’re approaching a funder</p>
+              <p><span class="spk">Tim Wood:</span> Yeah, especially with that last piece, if you’re an implementer that has deep domain knowledge in a particular country, to be able to articulate the country impact. And especially if you can tell that story at scale, as opposed to this is just going to be a something that’s in the corner of this particular country that sort of nationwide impact story is a very compelling one, but also you have to get pretty high up in a country and ministry of health to get the, the buy-in to pull together that sort of project.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think might sound a bit like a catch 22. If you’re listening to this in terms of like, well, the way to get funding, just to already be at national scale, I already have a clear path and</p>
+              <p>And I think it’s not saying that that is the only way, but if you’re talking to some of the very large foundations, right, you just to take into account what they are focused on and their strategy. Which means not to, you know, not talk to the gates foundation if you’re at a smaller scale, but you’re probably going to go in through a partnership with one of their existing grantees, or you’re probably going to need to prove yourself in a smaller pilot and bring some of that data to the discussion.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Which is exactly how it Dimagi was able to start building that relationship with the gates foundation, through that partnership with the Grameen foundation that we heard about earlier.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And when you’re having these discussions with donors, whether it’s the gates foundation or other being very clear about what part of the problem you think you can solve, what part of the problem we’re funding can help you solve more quickly and then where you need to partner? Because I think a lot of people come in as like the, be all end all solution for their problem space.</p>
+              <p>And that’s almost never the case ourselves included. So we always tried to be very clear with Tim and with others, like this is the part of the problem we think we can solve and then do really well. And then these are some of the other areas that we need to partner on, or that could come along and make, you know, two X, three X, the impact and that, that narrative of how you’re going to collaborate, how you’re going to develop this and also how it’s going to be sustained. found is really critical when you’re talking with foundations as big as, as the gates foundation.</p>
+              <p><span class="spk">Tim Wood:</span> I think that’s a really important piece. There’s been enough investment in digital health over the course of the last decade, that the odds are pretty good, that someone has already played in the space that you are innovating in. And to be able to articulate how your technology or your project is going to build upon the work that others have already done or how you’re going to work with others to bring a more robust solution to the market is really important.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And one thing that just reminded me of this a little bit of an off shoot gave me, but the discussion we had around collaboration previously and what Tim was mentioning on the foundation was structured to make this investment into the Marquis. This is currently something I think is a huge challenge for digital health providers going forward, which is who has that cross cutting mandate within a ministry of health or within a whole of government approach that can leverage what we call horizontal technology. For multiple use cases. And we got very lucky that at the time that we were trying to make that argument at the foundation, there was a team within the foundation specifically with that mandate. But the other thing that we have to be cognizant of as people trying to advocate for digital health and our specific products is the structure in the country.</p>
+              <p>You’re, you’re wanting to go support, reflect a dynamic that can leverage the technology in the way you’re claiming it could be leveraged. And what I mean by that as a ticket technology that we don’t ourselves like digital identity it’s hard to horizontally roll out digital identity across a whole of government approach. Extremely hard. And, and the ones that have been successful at the government level have set up teams dedicated to just accomplish that goal. I think often we’re a little bit naive on the digital health side, walking in and saying, oh yeah, we’ve got this great horizontal technology, but there’s no team in a position to scale it horizontally.</p>
+              <p>And I think we’re increasing. I’m trying to support local partners, local entrepreneurs to provide a vehicle that could be that horizontal capacity. But I’ve had a lot of conversations where you know, Tim has rightfully pointed out like, but nobody can, I like what you’re saying, but nobody on the other side of this equation can do what you’re advocating for.</p>
+              <p>Like, who’s going to use Comcast for 20 different use cases inside the ministry. so thinking through not only our software and technologies of digital health provider, but also does the, on the ground reality reflect a org structure or human capital capacity to leverage your technology in the way you’re claiming it could be leveraged, not just hypothetically, but practically.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, no, that’s such a good point, Jon. And just really just because you have the vision of what is possible, there actually has to be someone within the organization that you’re approaching that actually aligns with your vision and has the, like a wide enough mandate to make that happen.</p>
+              <p>Because yeah, it sounds like Tim, was in a really great position when we, you know, we’re working with him. Right. And that he was looking across use cases. So, yeah, so I’m excited to have both Tim and Jon here, you two are both would consider visionaries in this field of, you know, how do we take the beautiful thing that is technology and use it to increase equity and access to essential services for people around the world. I’m curious to hear from each of you a little bit of like, , what’s going on in the industry right now.</p>
+              <p>What’s concerning to you when it comes to progress that’s happening or not happening around. Specifically reaching the sustainable development goals.</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the things that’s most concerning to me currently in the market is I don’t think we’re getting smarter about what success looks like for digital health projects. And what do I mean by that?</p>
+              <p>As digital health is supposed to amplify some other thing it’s not, the goal is not stand up CommCare or stand up DHS 2, or stand up the technology the goal is. Use that technology to create a solution and use that solution to improve outcomes. And my biggest concern right now is I don’t think we’re getting smarter about how to measure what it looks like to build a successful solution. And even more, we’re not close to measuring. Did that solution create the intended outcome? And the reason why this is so concerning to me is these projects are not free to maintain. They have ongoing recurring costs, whether that’s software costs or human personnel costs or servers, phones, airtime, and ministries need to decide whether the ongoing costs are worth the return they’re getting out of that solution. And that’s one of the biggest concerns I have is over the last 10 years, I think we’ve vastly matured software products. We’ve asked them to business models at the social entrepreneurs, but I don’t know that we’ve gotten better and making it easier for governments to have a decision of, okay, I’m spending a year on my CommCare solution.</p>
+              <p>Should I keep. And under what conditions is it worth? That, and that I think drives a really difficult inefficiency in the market because no common way to compare what’s going on. Like, is the solution that Ghana built better or worse than the solution that Nigeria built or and how are we all collectively getting smarter? Because to your question on the STGs, I mean,</p>
+              <p><span class="spk">Amie Vaccaro:</span> SDGs are the sustainable development goals.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think we need to see, you know, X better return on our spend over time to really help digital unlock the potential it could. And I look at the market and I don’t see the market mechanism to train in such a way that it’s driving more and more value.</p>
+              <p><span class="spk">Tim Wood:</span> that’s a great observations, Jon. I think the piece that I struggle with the most is on the governance side at the country level. I think that there is a natural ceiling. We are going to hit on implementation of all digital programs, whether that’s digital health or identity or payments without. Country leadership that understands both the nuances of this specific implementation, but also the high level goals and objectives for that, and is willing to put some political muscle behind making sure that those projects get implemented and are going to happen.</p>
+              <p>And that political capital is something that comes with some risk because people are putting themselves out there and saying, yes, this is something that I believe in. This is something that my country needs, and we don’t have a whole lot of evidence at the moment that we can use to substantiate the case for making that risky investment.</p>
+              <p>And it requires someone with some vision and someone who’s willing to gamble some of that personal capital. And without the high level governance, I don’t think we are going to see the investment or the evolution of systems at the country level that really realized the potential. Digital innovations could bring</p>
+              <p><span class="spk">Amie Vaccaro:</span> These are both , really interesting observations that I’m curious to probe a bit on, on each of them. , so Jon, what does it look like? Ideally, if things are working in the way that it, that it should work, right?</p>
+              <p>It’s clearly not, working and that we’re not able to invest where there’s, there’s more impact. What would you like to see there?</p>
+              <p><span class="spk">Jonathan Jackson:</span> So I think this is obviously a complex area because traditionally you haven’t seen a lot of software or technology firms sell based on outcomes. Their software creates this cell based on seats you’re using for their software or compute or consumption and those types of metrics. So it’s not that common in the software industry that you’re structuring contracts or procurement based around outcomes.</p>
+              <p>So I’m not advocating that we necessarily reshape how software is purchased or procured. But I do think exactly, as Tim mentioned at the governance level, like what is the country getting for the investments that is going into the technology and the solution on the implementation of that solution? And so I think one area that that could help is when we’re talking about use cases that are being fulfilled by a technology product and the impact it’s having in country is like, what are common ways?</p>
+              <p>One can measure that. So we equipped frontline. Could there be a common set of dimensions that you measure success of community health information systems are 10 mentioned, facility registries. What is supposed to be the benefit of a facility registry? Can we get a common language to talk about that and then have kind of an understanding of one country’s implementation of the technology up better or worse than a peer group? Because I think it’s 10 months and there’s a lot of risks and political capital that needs to be spent by bureaucrats and politicians today to do some of these programs. But if we had common ways to measure success that might a align all stakeholders in the implementation and support of that country mission, also the the comparison of whether, you know, 200 K in country a was better or worse than 400 K in country B. And now we can start to learn, okay, why did one country. Effectiveness for a better value. And a lot of the time it down to exactly what to mention the governance model of, of how, you know, how bought in was the country and how successful could that be. But one of the areas that you mentioned also that we would love to see more thinking about, and I don’t have the answers, but as who has done a lot on digital health interventions and they, there was this guidance over the last several years of what’s evidence-based or not. That’s a great starting point is to say, how many of these digital health interventions got unlocked and what was the price tag to implement solutions for those interventions? Then you could at least start to get to some cost benefit analysis, potentially that could be, be used across countries. And I think that’s an area that would help at least the digital vendors, like Dimagi a common framework to talk to funders and governments about to say, look, I really believe it’s worth the cost benefit here, but it’s the cost is not zero.</p>
+              <p>Right? And maybe that’s one of the things that’s a real struggle for. In our advocacy efforts is to make sure that people understand that obviously everybody understands there’s a cost to stand up the software initially, there’s an ongoing cost to keep generating that impact and value over time that I think is critical to of the challenges I was talking about and the market dynamics, we are not incentivized to create the second, third, fourth use case with the government right now, or somebody has to go find the next pilot or the next country to build up.</p>
+              <p>And I think that’s really going to change to unlock the value because it’s so much cheaper to go to the second, third, fourth use case when you’re already scaled it is to go start a whole new project</p>
+              <p><span class="spk">Tim Wood:</span> And as we operate in this gray area where the measurement and impact components are harder to see, and people are less willing to make the big leap to fully invest in technology. Despite the fact that they have this vision for the impact that technology could have. I worry about the tax that the users end up paying.</p>
+              <p>Who are the, at the, on the front lines of implementing these programs and specifically the frontline health workers who are being asked to simultaneously adopt a brand new digital tool while continuing to maintain the paper records that they’ve been working in today’s date. And it’s really hard to say to a health system, Hey, you know what, we’re just going to jettison paper, trust us.</p>
+              <p>Digital is going to be fine. And that’s a really, really scary bet. But unless you make that leap, you probably don’t get to the point where you’re really tackling all of the issues that you need to tackle for a successful digital investment. And you are saddling the people who are already incredibly overworked with this burden of trying to bring the technology up to a point where it’s actually adding value.</p>
+              <p>And that seems like a really challenging condition.</p>
+              <p><span class="spk">Jonathan Jackson:</span> What Tim mentioned during. Paperless question is something I’ve been really about a lot internally at Dimagi because this is this is like such an obvious point that I think a lot of people have wishful thinking on, like, if you don’t have a knowledge of how, and when you could convince the government to go fully digital and your system that is kind of premised on going fully digital and getting rid of paper, you’re kidding yourself</p>
+              <p>that you have a path to sustainability or viable scale-up model. Like you were just making those user’s jobs worse, unless you think you’re going to get there. And I think we don’t as an industry, make it easy on the digital vendors, because they’re much more incentivized to say, oh yeah, in two years, I’ll figure that out. get started so I can get some traction. And that may have been fine 10 years ago when we were still trying to prove that the software could have the impact it has. But like, I think now not really responsible approach because we know the technology could work. The question is, is it gonna work in this way, in this particular country? And going paperless is critical for some of the solutions that we have, that our medical record systems and facilities that are registered based solutions that are community health based solutions. And just that point, that’s very obvious. Like you have to have a path to going paperless. think a ton of the projects, even once we start, don’t have that path up front and don’t really invest the time and energy over the course of the project to say, okay, under what conditions would you be willing to go paperless?</p>
+              <p>What do you need to see from me? are the users need to say about whether they like the software? Like how do we get there? And having the ability to discuss that as an outcome metric of success for the project is exactly what I was talking about. Like what had, do you have a shared decision making framework on when you would be willing to consider going paperless?</p>
+              <p>And if you can’t get there, you are solutions just adding burden to an overworked workforce system.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What are the things that you’re most excited about? Like where do you see the most promise going forward in terms of really using technology to create the progress that we need to see?</p>
+              <p><span class="spk">Tim Wood:</span> I’m pretty excited at the moment about the decrease in fragmentation on the donor side, where donors are starting to recognize that playing by themselves, isn’t the path to the type of success that they envision and that in order for us to see the impact that we want to have at the country level, donors need to act in a more concerted way.</p>
+              <p>And there are no shortage of headwinds and incentives that make this challenging at some point in time. So it’s by far and away, not a perfect universe, but I think the amount of co-investment that is starting to happen by donors with a specific eye towards country impact is encouraging and is starting to impact the way that countries are thinking about envisioning their digital future.</p>
+              <p>Be it for investment in identity systems or health systems. In some ways COVID has been a nice way to shine a light on the weaknesses of the health system and the potential that you have when you have digital elements. That allow you to more quickly identify people who need to be vaccinated or provides vaccine certificates to those that want to travel.</p>
+              <p>You start to very quickly see the benefit of those digital tools, or it could also be on the payment side where you’re trying to give payments to people in your country to help them through the pandemic. And it’s much simpler when you have a national ID, for example, to make those payments happen. So I think we’re starting to be a little bit sharper around what some of the use cases are and that there is greater recognition at the country leadership level and have a greater desire to invest in digital systems.</p>
+              <p>The challenge of course, is how to figure out how to invest in those systems in a smart way that actually passes.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think building on that, I’m, I’ve seen the same thing from our point in the market. And one of the things that’s also really encouraging about this is a growing recognition of how hard it is to do even when everybody</p>
+              <p><span class="spk">Tim Wood:</span> absolutely.</p>
+              <p><span class="spk">Jonathan Jackson:</span> um, It’s, it’s multiple donors, multiple stakeholders, global fund Gavi USA, and the gates foundation and others. And it’s just, it’s a very complex problem. We embrace complexity, adding understanding of like, this is, this is hard for a reason. It’s not like we’re all just bad at our jobs. You know, like this is, this is complicated. And, and just the core systems design and what is also exciting is like it’s in most countries and most donors we’re talking about it’s. Question of how not should we do this? It’s how do we do this? You know, like it’s, it’s very obvious the benefit that digital can have across a wide variety of use cases and people recognize that benefit. And so you’re seeing the national digital strategies come out. You’re seeing the ministry of health, having dedicated digital strategies and teams and meeting them to unlock this impact is a really exciting challenge we all have.</p>
+              <p>And I think now lot of the mechanics the industry are shifting towards how do we do this together? Not should we do this together? And that’s, that’s pretty exciting to watch.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, I love that. So it’s, we’re getting to a place where clear that digital has an important role to play, right. There’s alignment there. But we’re also really acknowledging just how challenging and complex it is to make this really work. And it’s so challenging, there’s even greater emphasis on how can the different parties, funders, implementers, work together in collaboration to approach these channels.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And it’s also just to add, this is not unique to lower and middle income settings, like look around many high income markets that completely failed to successfully implement digital solutions in the past or during COVID or after COVID. are just difficult, complex multi-stakeholder problems. And a lot of the that we see in our markets are the same, you know, governance of stakeholders and political will or political. And those are the things we have to keep in line and consistent unique necessarily to some of the markets we serve.</p>
+              <p>So Tim, I know that we were really fortunate to receive a direct investment from the gates foundation over many years, that was instrumental for us, but I also know that you’ve been driving a lot of collaborative approaches in the industry and trying to replicate the argument you were making with the moggy at the time on longer-term funding for digital public goods. I’m curious if you could just speak to, you know, how your thinking started on that and how it might be evolving in terms of we continue to find other Dimagi as, and other products that can be successful.</p>
+              <p><span class="spk">Tim Wood:</span> example that comes to mind most quickly, for me, there is digital square, which got off the ground in large part due to some thinking, uh, USA ID by Americ Schaefer, amongst others. That recognized the need to invest in a number of different technology components across the ecosystem.</p>
+              <p>And then gates foundation joined USA ID quite quickly to help stand up digital square and the original vision behind digital square. At least from the perspective of the gates foundation’s investment, there was to try to provide a pool of funding that would attract other funding for donors that collectively could be applied towards that long-term core funding needs that digital public goods often face.</p>
+              <p>So in much the same way that the gates foundation tried to support Dimagi unilaterally to get to that growth phase. Could we institutionalize that similar model and have a resource that implementers could draw upon for. Investing in some of the core components that they needed to do that aren’t super sexy.</p>
+              <p>That would be easy to get external funding for, or weren’t tied to a specific project. And I think digital square has been pretty successful in drawing in a fair amount of capital, but definitely not enough to meet the needs that the community has for growing their digital public goods. I, you see that in some of the resource calls that digital square does where they will approve more projects than they actually have funding for as a way to try to highlight to the donor community.</p>
+              <p>Hey, there’s some strong ideas out here. We just need the money and that’s been nice to be able to. Highlight where the needs are and the good work that a lot of people are doing, but it still requires donors to step up and provide flexible funding to organizations like digital square to go and fund the digital public goods that we envision countries will be building their health systems and the rest of their digital public infrastructure on.</p>
+              <p>Quite recently, a number of bilateral donors, as well as some of the private philanthropies have. Poured some attention on digital public infrastructure and the needs around digital public infrastructure and digital public goods.</p>
+              <p>And I think some of those conversations are quite promising and may bring more resources to digital public infrastructure investments in the coming years.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Before we close, I wanted to share five of my takeaways . One consider a career in social impact. We need the best and brightest minds from all over the world to help better leverage technology. To uplift humans everywhere. Two, the best partnerships are built on a shared desire to create impact.</p>
+              <p>Strong trust and limited ego and politicing. Three luck really played a role here. As it has in many of Damon’s milestones, we got lucky to work with Grameen in those early days. And lucky that Tim would later join gates and had a mandate to look at how technology could drive value across verticals.</p>
+              <p>For there really is no playbook. For getting funding from a gates foundation or similar funder. But Tim and Jon had some really great tips forgetting your digital venture funded.</p>
+              <p>It’s worth re-listening, but I’ll share high level. What I heard.</p>
+              <p>You need to align with the funder’s priorities. Look at how your technology can increase local capacity. Build on what’s happening across the space. Leverage knowledge of, or impact in a specific country or region. Be really clear and honest about what problem you can solve and which ones you don’t.</p>
+              <p>And align your solution to the actual reality and capacity. Of the country you’re looking to impact.</p>
+              <p>Fifth. And finally what I take away from Tim and Jon’s thoughts on the industry at large is that we’re at an exciting moment in time for digital in development. Governments and NGOs are aligned that there is benefit to digitizing workflows. And moving from paper based systems to smarter digital ones. And we’re starting to see funders and implementers collaborating more closely.</p>
+              <p>To solve complex health and development challenges. But we still have a ways to go to fully understand and quantify the value of digital interventions. And we need to see country level, vision governance and risk taking to realize the potential of digital transformation at the country level.</p>
+              <p>&lt;affirmative&gt; That’s it. Please follow rate, review and share this podcast. And if you’ve got ideas feedback comments please write to us podcast@dimagi.com. thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">TW</div>
+            <div class="person-info">
+              <p class="person-name">Tim Wood</p>
+              <p class="person-role">Former Senior Program Officer at the Bill &amp; Melinda Gates Foundation who led the platform-level investment in Dimagi; now a senior advisor working on collaborative funding for digital public goods.</p>
+              <span class="person-org">Bill &amp; Melinda Gates Foundation</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/4Qkx1VFO2TMGajFKk8u9YR" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

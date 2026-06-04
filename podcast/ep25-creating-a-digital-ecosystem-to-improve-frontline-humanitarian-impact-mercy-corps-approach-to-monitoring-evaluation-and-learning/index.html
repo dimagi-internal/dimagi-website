@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 25: Creating a Digital Ecosystem to Improve Frontline Humanitarian Impact: Mercy Corps’ Approach to Monitoring, Evaluation and Learning | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Mercy Corps&#x27; MEL team on building a connected digital ecosystem across 40 countries to turn monitoring and evaluation data into faster frontline impact.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep25-creating-a-digital-ecosystem-to-improve-frontline-humanitarian-impact-mercy-corps-approach-to-monitoring-evaluation-and-learning/">
+<meta property="og:title" content="Ep 25: Creating a Digital Ecosystem to Improve Frontline Humanitarian Impact: Mercy Corps’ Approach to Monitoring, Evaluation and Learning">
+<meta property="og:description" content="How Mercy Corps&#x27; MEL team standardized tools across 40 countries to turn data into faster, comprehensive humanitarian impact.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>February 6, 2023</span>
+          <span class="dot"></span>
+          <span>49 min</span>
+        </div>
+        <h1 class="ep-title">Creating a Digital Ecosystem to Improve Frontline Humanitarian Impact: Mercy Corps’ Approach to Monitoring, Evaluation and Learning</h1>
+        <p class="ep-deck">Mercy Corps&#x27; MEL team on moving from fragmented monitoring and evaluation to a connected digital ecosystem, and how standardizing tools across 40 countries fuels program adaptation and faster, more comprehensive frontline impact.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000635414377" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/e563fbd4-578a-4823-8a42-b241a4525180/high-impact-growth-creating-a-digital-ecosystem-to-improve-frontline-humanitarian-impact-mercy-corps%E2%80%99-approach-to-monitoring-evaluation-and-learning" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">40</div>
+          <div class="ep-stat-label">countries where Mercy Corps operates</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">5,000+</div>
+          <div class="ep-stat-label">Mercy Corps team members worldwide</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">3 weeks to 1 day</div>
+          <div class="ep-stat-label">data turnaround reduced by moving from a manual to a technology-driven process</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Jonathan Jackson sits down with Mercy Corps&#x27; Monitoring, Evaluation and Learning (MEL) team: Meri Ghorkhmazyan, Senior Director MEL, Alex Tran, Senior MEL Advisor, and Hanna Camp, Senior Advisor for Technology for MEL. Together they unpack how MEL is the next generation of M&amp;E, adding an explicit learning element that connects data to program design and decision making rather than just accountability reporting.</p>
+        <p>The team describes the long change management journey Mercy Corps took to fix a deeply disaggregated approach to MEL technology, where country offices ran as many as five to seven overlapping data collection tools with little global guidance or support. Through surveys, interviews, a white paper, and a dedicated task force, they built a recommended suite of private and open source tools, secured enterprise agreements including one for CommCare, and launched training and Jumpstart funds to support adoption.</p>
+        <p>The conversation also looks ahead to aggregating standardized data across humanitarian responses to surface country, regional, and global trends, and returns again and again to a central lesson: many struggles with technology are really culture, resource, and buy-in issues, so lasting change demands a comprehensive approach, not just better tools.</p>
+
+        <blockquote>
+          <p>&ldquo;Along the way, we found out that sometimes our struggles with technology have nothing to do with the technology. These are culture issues. These are resource issues. These are buy-in issues.&rdquo;</p>
+          <cite>Meri Ghorkhmazyan, Mercy Corps</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>MEL vs. M&E</strong>: why adding learning turns data from accountability reporting into fuel for program adaptation</li>
+          <li><strong>Timeliness and comprehensiveness</strong>: how an integrated tech stack cut one team's process from three weeks to as little as one day</li>
+          <li><strong>From disaggregated to standardized</strong>: country offices once ran five to seven overlapping data collection tools with no global support</li>
+          <li><strong>The white paper and task force</strong> Mercy Corps used to build buy-in and action a recommended suite of MEL technologies</li>
+          <li><strong>Enterprise agreements</strong>: how going enterprise with CommCare saved money, time, and procurement headaches</li>
+          <li><strong>Talent and technology</strong> go hand in hand, with standardized tools opening clearer professional growth pathways</li>
+          <li><strong>What comes next</strong>: aggregating standardized data and pairing it with secondary sources like earth observation to see deeper trends</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to High Impact Growth, a podcast from Dimagi about the role of technology in creating a world. Where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi in your cohost alongside Dimagi CEO and co-founder Jonathan Jackson. Today we have a rich and insightful episode about the state-of-the-art and the future of monitoring, evaluation and learning. I’m really excited today to be joined by Mary who leads the Mel team for Mercy Corps. Hana Camp, Senior advisor for technology for Mel at Mercy Corps. And Alex Tran, a senior monitoring evaluation and learning advisor at Mercy Corps. Both Hannah and Alex, sit on Mary’s team at Mercy Corps. If you don’t know Mercy Corps, which I think you should.</p>
+              <p>They’re an international nonprofit working to alleviate suffering, poverty and oppression by helping people build secure, productive, and just communities. The work spans 40 countries with over 5,000 team members. They described themselves as a global team of humanitarians working together on the front lines of today’s biggest crises to create a future of possibility where everyone can prosper.</p>
+              <p>We’re really proud that Mercy Corps has been a longtime partner of Dimagi is, and really honored that they’re joining us today.</p>
+              <p>We know that funding is extremely limited in the global health and development space. So doing monitoring and evaluation and learning better. Is a key driver to improving the impact that we can get for every dollar we invest.</p>
+              <p>And Mercy Corps has done some amazing work thinking through how to set up their teams, tools and processes for maximum impact and efficiency. With an ecosystem of digital tools. I will also point out the incredibly collaborative and generous nature of today’s conversation. The team you’re hearing from today is proactively sharing their learnings and their very thoughtful approach. So that they can help other organizations who are inevitably facing the same challenges of disorganized. And disconnected monitoring and evaluation technology tools and data processes, and looking for how to take control to do more impactful work.</p>
+              <p>With that let’s get started with some intros starting with Mary.</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> Thanks Amy. Uh, , my name is, I’m the Senior for monitoring, evaluation and learning at Mercy Corps. Part of my job is about helping the organization set priorities for e and learning and streamline our work with our emerging strategies especially, and I like doing this because it generally gives me an opportunity to work with many programs and to help strengthen the systems and affect them in a more systematic and consistent way.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome, and over to you, Alex.</p>
+              <p><span class="spk">Alex Tran:</span> Yeah. Hey everyone. Uh, my name’s Alex Tran. I’m a senior monitoring evaluation learning advisor at Mercy Corps. I’ve worked with Merc for, for just about over two years, uh, with the global MEL team, focusing on how to integrate a range of different technologies to automate data, to enhance decision making and humanitarian response programs.</p>
+              <p>Um, generally speaking, during my time, In the sector seeing a lot of, uh, situations where data can really transform how humanitarian assistance is provided, if it’s answering key questions, if it’s really timely. Um, and you know, I’ve really started to appreciate how well placed technologies can really play a role ensuring that that happens consistently.</p>
+              <p>Um, so yeah, just excited beyond to discuss the experience.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Welcome Alex and Hannah over.</p>
+              <p><span class="spk">Hanna Camp:</span> Hi. and, I’m a senior advisor, um, focusing on mal technology in Mercy Corps. Um, so I’ve been with Mercy Corps for close to five years, and I started off with a team. That was really working on, uh, common indicator tracking software across our, our different offices and programs.</p>
+              <p>And it was traveling to a lot of different country offices, helping them to use that software. And in the course of that, I really saw how many problems were resulting from our. Just organization wide, lack of organization specifically when it came to Metech. So I really got into this sort of sector because I, I, really just wanna help address those problems. Um, And it allows me to really touch on bunch of different types of data and data across the life cycle and, and data in different stages and analysis. And it’s really interesting to see the entire spectrum that way.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. Uh, Thank to all three of. Joining the show and, um, for those of our listeners who aren’t familiar with Mercy Corps, just as a kind of general organization, could you give an overview of the work that Mercy Corps does?</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> Sure. Uh, Mercy Corps is one of the leading global organizations that implements both humanitarian and long-term development programs. And our primary focus and, and goal, we hope, is to alleviate human suffering. Our current operation stretch is over 40 countries and we work with both local and international stakeholders.</p>
+              <p>So these might involve the local partners, NGOs, governments, as well as other donors who are interested to support us in this journey. We recently developed our tenure strategy and at the heart of that is to leave countries or our programs where we have achieved. Inclusive and resilient communities, and we hope to do that by implementing programs around four thematic areas.</p>
+              <p>Those include opportunities, food insecurity issues, uh, peace and governance and water security.</p>
+              <p><span class="spk">Jonathan Jackson:</span> been wonderful to see the amazing work that Mercy Corps has done and obviously just immense need and unfortunately immense growing need, um, over the,</p>
+              <p>the last few years that we’ve seen in all sorts of forms.</p>
+              <p>And I know Mercy Corps’s been there at the front lines and in a lot of these, jumping over to the, the mill conversation as a starting point. You know, when I started my career 20 years ago, the term. Uh, Wasn’t, uh, in our lexicon. And, and so, uh, I always heard of it as m and e. And so my first question is, you know, can you talk through the difference between kind of traditional m and e and how the industry has moved towards Mel and, and kind of your view, what is the difference between those two disciplines?</p>
+              <p><span class="spk">Hanna Camp:</span> Yeah, I, um, I see the basic difference and I think there’s a lot of, um, there’s a lot of discussion and debate, I think bet among practitioners about different acronyms that people prefer, but think the basic difference between monitoring, evaluation, and learning and m and e monitoring and evaluation is that the latter. the monitoring and evaluation piece without the learning is explicitly focused on just collecting data for accountability reporting purposes primarily. So you do what you said you were going to do? Did you achieve the results you expected? Um, so if have Mel. Theoretically, if you have that learning element, interested then in also connecting that data up to bigger of decision making and program design. So changes can or should the program make in response to the trends that they see? Um, how do decision makers process the data and use it?</p>
+              <p>Do they not use it? Why don’t they, um, should future programs be designed differently given what we know? So Mel matters because it serves as that consistent voice for data, not just as it means as results, track for results tracking, but as sort of fuel for program adaptation and higher level learning about what works and what doesn’t. And it can answer a lot of the big questions programs have about their performance, but only if we really plan and manage that data well and intentionally use it. I think a lot of people who did traditional m and e and still consider themselves doing traditional m and e, still frequently used that data for learning purposes.</p>
+              <p>And, you know, they would not say that like, well, just because I was doing m and e I wasn’t doing learning. But I think the sector has moved more towards acronyms like Mel, so that the learning. Is explicitly called out and just more systematically included in the work.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I’m sure as your program teams can attest often, The and e can be a challenge when it’s kind of only used for donor reporting or results tracking, and I know that’s something that can often a challenge to find that right partnership between the program teams and the MEL teams and, and making sure they’re, they’re aligned towards greater impact. And so I’m just curious how, how does this work at Mercy Corps and how do you achieve that kind of shared success?</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> Thanks, John. This is a question I think that, that the whole sector is learning, as we’re going, especially with the new technological innovations. But I’ll just lay out kind of the principles around which we operate. Hopefully that kind of explains a bit more. So we incorporate, what Hannah was talking about a minute ago was around using the data for decision making, you know, generating the data, making it available so that those who have to have access to that. Have a visibility about what’s going wrong, what’s going well, where should we scale, what should be improved? So our task is around systems and structures that make the data available to those that need to be using in a format that they can at a time when they need, and at a quality that they can trust. Um, so that’s kind of we’re working towards. And our job is not just about designing the systems, but also administering the processes and building so that those mechanisms and systems we put in place get implemented and achieve, uh, the intention that we have. Put in place. for example, at the start of initiation, every program we design a logic model and a theory of change where we articulate, Oh, we think if we do these, these are the results we’re gonna get. our task as an m and e and learning team is to really articulate, So what information do the decision makers of the program need? then who are those decision makers? When do. Um, at what format would they absorb that information better? Um, so we kind of look across all of the continuum of the data life cycle, and I think in the last several years what I have seen change, and I’m really happy to see it, is that the data life doesn’t end with data being available. And with our team, we’re trying to stretch that and at one more step of our work, when an adaption has happened, when an improvement has happened and the data has been considered and used. So that’s part of the success. And to do that, there are a couple of things that we as an organization started putting in place.</p>
+              <p>So one of them is about. Foundational right? We all know already from best practice and years and years of implementation there, there are certain things you have to have in place in order to succeed in this data. Um, the data management processes. So as an organization, we have an m and e policy, which lays out those. Standards and we’re communicating and working with our teams and programs to have that institutionalized and embedded in our programs. as we implement that, we’re also developing additional training, capacity, strengthening, working with our constituencies, partners, um, and and so on, just stakeholders across the board, uh, to make that available to them.</p>
+              <p>And a key element our success is also from peer but also sharing our learning because we. We’re in this sector and we have benefited a lot from our partners, uh, lessons, and we are very keen to make ours available because eventually we all have the same interests of alleviating human suffering.</p>
+              <p>So we hope that that contributes towards that bigger goal. Thank you.</p>
+              <p><span class="spk">Jonathan Jackson:</span> rather than out competing with our partners and ecosystems, and I think that shared learning is so critical. I wanted to follow up on one point that you raised, which we struggle a lot with. You know, both in our partnerships with Mercy Corps and other organizations, which is the point you brought up. As you’re designing that start of the program, there’s this kind of theory of who the decision makers are going to be, who’s gonna have time to respond to which data and insights, and then there’s the reality. Everybody being really busy, um, you know, lots of stress and, and too much work and things. so I’m curious, um, how, how do you kind of tell if it’s working, if the decision makers really do have time to incorporate the data and react to it and make the changes? then more importantly, how do you revisit that design, you know, in year two or three of a program to say, is this still the right framework, um, to be driving actionable data?</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> I’ll give it a try. And then Alex and Anna, feel free to add, um, one of the key, um, of the key parts of this process for me is seeing the demand, right? It’s, it’s, you’ve done it right? When there is demand and people are coming back for more and more in support and they want to see and they want to improve, Um, so we know we got it right when, when we don’t see the engagement from the senior leadership and we have may have generated the best dashboard in the world and they’re not looking at it, we already know something is not going right.</p>
+              <p>And we have had lessons along the line as we’ve, we’ve worked towards that. then second piece is, um, when the data is not being looked uh, by multiple users. So if it’s just at one end, then we know that there are other users in the program that they haven’t looked at or it hasn’t been made available for. Um, so tho those are kind of the, the bits that we’ll pick up and then go back and work with the team and figure out where the bottlenecks are and what solutions need to be implemented.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Hannah, Alex, to</p>
+              <p><span class="spk">Alex Tran:</span> One thing I really might add kind of on a, um, kind of like a very practical level is kind of when you hear kind of the magic words, it’s like, based on the data we have available to us, We are going, we are going to go in this direction, or something along those lines. I think it’s really important to kind of, when you start to see shifts in teams where they kind of start to speak about what is the information and data they have available and kind of how are they using it.</p>
+              <p>Um, those kind of discussions on what is available data that then, as Mary mentioned, mentions drive further demand. of Generating additional questions. So it’s kind of a natural kind of progression between this is what we have, this is the the decision that we’re making based off of it. But this is also the recognition by teams.</p>
+              <p>When you start to see it, it’s really amazing when they say, Well, this could really start to enhance a decision making process or a determination if our programs. Achieving certain types of results and things like that. And we’re gonna collect more data and information, conduct more analysis based off of that.</p>
+              <p>So starting when you start to see that shift, I really think it’s really cool to.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great and you could imagine, you know, kind of an m and e framework for MEL process where you’re asking, you know, how many is. to data coming up, how many times are these dashboards being viewed by multiple roles within the program and really understanding, you know, are we being successful with the MEL approach any given program? And that, um, a huge challenge I think a lot of our partners face, whether they think of it as Mel or kind of program monitoring, um, in understanding like, are they achieving their goals? You know, we, we all want these fancy dashboards, but who’s looking at them, why? are they leading to data driven discussion and, and more improvement in the.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. I’m curious, um, to hear from you, how do you see, , what is the role of technology in doing really successful Mel?</p>
+              <p><span class="spk">Alex Tran:</span> Yeah., I kind of want to take it back to kind of what Mary was talking about, uh, a bit earlier, irrespective of technology. , successful Mel is really based know, a core set of, uh, steps, you know, establishing, proper logic models, kind of processes for data collection, um, intensive.</p>
+              <p>Analysis that really kind of speaks to, you know, are we getting, are our programs doing what it was that they were supposed to do to get us toward certain types of outcomes and things like that, as well as why did it do that? And kind of the way I see where technology, plays a role in kind of that foundation of Mel is really as a great enhance.</p>
+              <p>Of it. Let’s take an example of a humanitarian response team, a program team, um, that really kind of cares about information and data and can really see the value of how it can enhance, uh, their programs. Um, especially around answering the key question of is the assistance that, you know, our program participants are engaging with, providing you.</p>
+              <p>The ability for participants to meet their basic needs or to kind of achieve certain types of outcomes that are, you know, better for their overall condition. So example would be, let’s say that we do have a program team that that does this. Um, but there’s oftentimes kind of a trade off, if you will, between timeliness and comprehensiveness.</p>
+              <p>And I really think that one of the things that it comes down to, You know, people in need do, need assistance, um, especially in a rapid context. And if we’re not getting that infor, if we’re not getting assistance out in time, um, we are really kind of missing the boat in regards helping people meet their needs quickly.</p>
+              <p>At the same time, teams really do need to have comprehensive information to answer. What are the needs? Where are the areas most affected? What are, how do we ensure that what we’re doing really does, you know, fit certain gaps, or meet certain needs and things like that? But oftentimes you see kind of a trade off between the two, which is if I’m, if I do things really quickly, it sacrifices oftentimes that comprehensiveness.</p>
+              <p>And if we do things in a more comprehensive. It takes way more time, which essentially increases the amount of time that assistance can get out the door. So the way I kind of see it here is that the influx of different types of technologies across a whole cycle of things, um, from data collection to data management to storage and analysis, can really start to close the gap on that trade off, where potentially there are scenarios where, Timeliness and comprehensiveness don’t have to a one to one type of trade off.</p>
+              <p>You can potentially have a bit of both in regards to, take for example, if we are collecting information using, uh, platforms such as Comcare, being able to code in certain types of values that really speeds up the analysis really speeds up kind of the results. Um, if we’re connecting that to kind of a number of different data systems, micro, uh, such as, you know, things like dashboards and things like.</p>
+              <p>It can really start to kind of spit out information to decision makers very rapidly. If we’re starting to kind of pre-code data collection steps, data analysis, or rather data analysis and cleaning steps, that process can get even quicker. So one example that we’ve seen, uh, with teams using this integrated technology, uh, stack that we have is essentially a manual process.</p>
+              <p>Might take anywhere from, could take three weeks to kind of collect, analyze, and finally, Into, into the hands of decision makers. That’s not a lot, that’s a very long amount of time, especially in kind of a rapid setting. Going from a manual process to kind of a technology driven process, we’ve been able to essentially reduce that time period to from three weeks to just as little as one day.</p>
+              <p>And to be able to kind of get comprehensive information that really does speak to the needs of different programs, leadership. To have it both comprehensive and as, and that fast has really of shown how teams are really kind of start to engaging with it. Really starting to see kind of essentially, uh, what the needs are, how effective programs are in a way that kind of balances both the timeliness and the comprehensiveness.</p>
+              <p>I will say that one additional thing is that while it’s great to see this in kind of a one-off programs, uh, not every program is the. And of one of the big things, kind of part of our journey is how do we get to kind of this consistent level of, uh, processes that all a number of different programs can, you know, benefit from not kind of once off.</p>
+              <p>And much of that journey, has led to kind of a need for an organizational shift.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Sorry. That’s great and I think, um, speaks to a lot of challenges that organizations face around how to scale this across numerous programs. And Hannah, you had mentioned this, um, is an area that you’ve been looking at a lot, so, I know Mercy Corps’s done a lot of work over the last several years in figuring out how to create an enabling ecosystem.</p>
+              <p>Can you speak to kind of the journey that you’ve been on and leading within the organization?</p>
+              <p><span class="spk">Hanna Camp:</span> Yeah, just to maybe give a sense of what we kind of set out to address. before the work that we’re still on the journey, were still on, really started, I guess. Merci Corps had a really, really disaggregated. to Mel technology. So any technology for data collection, data analysis, data visualization that Mel teams use essentially.</p>
+              <p>So, Because of that disaggregated approach, we, we really had few, if any, global agreements for major technologies used for mal, and we didn’t give much guidance on which Tech Mercy Corps recommended to programs. We didn’t really commit to providing support for any of them. Support would sort of be ad hoc as needed. especially people that had existing relationships with folks who had the, the required skills either in the headquarters office or regional offices or other places. and some country offices would coordinate internally and, and work to adopt similar check for their program so that they had some of that that, yeah, uniformity, but very often it would be up to the male manager of each program. As soon as they were hired and onboarded, they got faced with this problem of like, Hey, you have to set up your tech stack and you have to do it really quickly so that you can start getting the baseline data in. Um, and so we ran surveys to understand this landscape of the problem basically, and, and. we were finding is, you know, we would have country offices that were running maybe as many as, you know, five or seven data collection solutions, for example, many of them were overlapping. They were the very, they were very similar in their underlying tech. There wasn’t like necessarily a technical or functional reason.</p>
+              <p>Why would you, you would use one over the other. Sometimes, you know, people need different tools for different purposes. In a lot of these cases, they were using functionally similar tools, just different enough that that would create then problems. If, for example, staff transitioned to other programs or transition from Mercy Corps, um, and then suddenly the person who has those skills is lost. Um, and it made it that much harder for programs to benefit from each other’s experiences. It made it that much harder. For us at the global or regional level to provide support and back stopping, made it hard to develop any of those sort of tools that Alex was talking about. It’s just all sorts of cascading problems from that, you really couldn’t set up economies of scale basically. Um, so we had this opportunity, all this opportunity to deliver timely and comprehensive but we just hadn’t set ourselves up at the global level make that happen. So to start through talking what the process that we, did was, We built on those surveys that we had run and did a much more comprehensive assessment of the problem. So we benefited from a lot of different, uh, data sources on that. There are Merle Techs, state of the field reports that were really helpful. They’re, outside of Mercy Corps. They, they ran a whole lot of, uh, interviews and assessments that, Contributed a ton to what we were seeing. Um, we did internal interviews.</p>
+              <p>We did, consultancy or, you know, consulting informant interviews with our, our country programs just to try to get a much deeper understanding of what was going on. And we wrote a white paper that really just outlined the problem as we saw it, how we got here, and recommendations we had change things. And that process really involved a lot of feedback, and building. Buy in across leadership and across different departments that everyone agreed what that problem was and at least had, you know, tentative willingness to work with us, on that problem. And from there we just kind of continued to build the actual task force. That we wanted to, to focus on the people who were actually going to do the work to get an, an, some answers to those problems. We’ve got that buy-in from leadership really to give us the space to say, Okay, we’re gonna action these recommendations from the white paper now. So one of the first ones then was we needed this task force to. Do a deeper under, get a deeper understanding of all of the needs that the Mel teams themselves specifically would express to us. If we go through the different data landscape and data cycles with them, what, what do they say they need? What problems would they say they, they feel like we could address at the global level? And we analyzed that data and basically came up with, a suite of technologies that we felt were matching to those. Across the data cycle, like I said, in data collection, data analysis, data visualization, everything in between, and the available that we had to support them. So the technologies that we chose were really a mix of private and open source, technologies really we felt were, were matching to, to what we had available and what those needs. From there, we knew we needed enterprise test setups for some particular technology, like Comcare. It was something that came up in our interviews. It came up in our, in a lot of the work that we had done prior to this process. It was just a long running problem, that we needed organized procurement and and IT support to get that accomplished.</p>
+              <p>So it was a long process and, and d Maji was great working with us throughout it, but we did get that enterprise agreement for Comcare going. and as Mary, I think has, has mentioned elsewhere, we’ve, we’ve worked on, uh, potential enterprise agreements for some other, technologies as well, Comcare was really that first one that has helped us to of blaze that path for what subsequent enterprise agreements might look like. The final thing that we really focused on and are still focusing on is developing guidance, and publicizing that across the agency. At the same time, as we were rolling out that suite, we announced a new training program, and what we called Jumpstart funds to make it clear that we were committed to basically supporting people to get on board with these technologies.</p>
+              <p>We weren’t just putting recommendations out there that we weren’t willing to support, and I would really wanna call out the Cisco Foundation. Here they have, uh, with Mercy Corps, a Tech for Impact grant, that has been running for five years now. It’s, and it’s had a huge amount of, support dedicated for work like this.</p>
+              <p>And they supported us in developing training program, for matching all of these technologies. so it was really critical to have that, that additional, know, technology donor support. They really saw the value in, in things like this, and they were willing to put a lot of funds behind helping us get that technology training up and, But I’ll turn over to to Mary and Alex.</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> I wanna add maybe just a little bit, Hannah, to what you were saying. I mean, this, this is, this is not a process that happened a week or two. I mean, we’re talking about a year and a half long management process. And I think one of the other key things that, we learned throughout the process is maintaining that continuity continuously working on it and driving it so that the countries, for example, that we interviewed and asked about their problems are seeing the solutions being offered and they’re engaging with us throughout the process and throughout that, I think. Um, Buy-in isn’t just at the beginning, so you, you kind of have to manage that buy-in and continuously grow by showing action and addressing the actual problems and acknowledging that this is not, this is gonna be a long term change management and we’re still, we’re still in it, so we haven’t finished our work.</p>
+              <p>We’ve just started, had a very strong start, and now we just continue going and tackling all of these recommendations that Hannah mentioned in our white.</p>
+              <p><span class="spk">Jonathan Jackson:</span> One follow up question I have on that, Mary, the you mention, Recognizing it’s kind of a long journey for that change management. curious, at the start of that journey, did you and leadership know how long this journey was going to be and if, did you think it was gonna be quicker? And the second is, you know, I think a lot of organizations recognize. Fragmentation of tools even inside of Dimagi. You know, we have this issue on, on certain tools we use, it can be really hard to create the will and the organizational to do something about it. And so I’m curious if you have any, you know, tips for the audience, um, on that. And, uh, you know, what, what what clicked and kind of made it work.</p>
+              <p>And I think one of the things you highlighted showing winds along the. Is so critical, right? Cuz it can’t be this big year long process and then, oh, just wait and see. It’ll all be great in 12 months. Um, Creating that consistent buy-in sounds like a great strategy, but I’m curious if there’s any other learnings you</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> Yeah, it’s, we started very enthusiastically thinking we’re gonna. Have the white paper in the first like six weeks, and then we’re gonna work on it. And that’s not what happened. The first, the, just the first articulation of the, the need and the, the issue we were dealing with, we kept unpacking it as, as we learned.</p>
+              <p>So it took us about, I wanna say about three, three to four months. And what made it work for us is dedication and I guess recognizing that it’s gonna need level of effort, it’s gonna need somebody’s time. And we’re gonna have those people sit down and write it up and actually drive that change process through working groups, through task forces.</p>
+              <p>And Hannah and Alex, uh, were players in that. We also, Interesting, just to give an idea, we tracked the administrative level of support on that, and it was almost equal to the technical support. So it’s not just about people working, it’s also railing up and getting them onto the same room, bringing everyone on. It, it all takes time and effort. And after we phase one, I think we extended the deadline for phase two and then phase three But every time, I think one of the key lessons we learn is that we under underestimate at the timing and the amount of effort that goes into things, but I think we’re getting a little better now. And being within an organization that is but allows, provides that kind of operational environment for people. who have an idea and want to execute and implement and gain the support to go through. think that’s critically important because sometimes the bureaucratic systems within an organization might become a limitation for ideas like this, and they want to see quick results. One of the tricks that we use, which I recommend for organizations that are going through a change management like this, is have shorter term benchmarks, just so that you can track that you’re going in the right direction or that direction is the right. And we have had to pivot a couple of times. So it has really helped us to figure out, you know, how to retain and it gives an opportunity bring the others on board based on what they’re interested in. Hannah or Alex, do you guys have any additions to that?</p>
+              <p><span class="spk">Alex Tran:</span> I guess like one addition I might put in, um, that might be like, kind of a very, was a very critical thing for us to get our collective leadership dare I say talking about the cost savings of this in the long term. Essentially enterprise agreements might seem very scary or like, ooh, I don’t wanna commit to something.</p>
+              <p>But, you know, for example, we had, you know, individual com care procurements happen. All over the world. And the way that, you know, that gets tallied up that it ended up being several dozens of thousands more than what it would cost under very, kind of a more streamlined, easier to work with enterprise platform.</p>
+              <p>So both kind of the recognition that, we would actually save money via this process in the long. We would also save a lot of time and a lot of headache, a lot of heartache, quite, quite, quite frankly, , to get these kind of systems in play. Um, I wouldn’t understate that as well. So while it is a lot of hard work that that work is, is being done for a reason and that’s to ensure that we as an organization are able to scale different types of technologies in a more kind of cost effective manner as well as much more quickly, uh, given you know, organizational procurement.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I’m, I’m excited to hear you say that, Alex, because that’s something we also try to advocate a lot for, is it’s not just about the programmatic streamlining, but married to your point, the admin and the cost savings are huge. Um, Not just in, you know, total spend, um, financially, but in the amount of.</p>
+              <p>Time procurement officers are spending or it spending on security reviews and these things having that organizational wide strategy, be it Comcare or another tool, of do it once at the global level and then every country office and every program can leverage that in a streamlined, you know, super efficient way. Mary, you mentioned interim benchmarks and I’m curious, for the team, you know, what, what has been the success so far, uh, through this? Journey and, and, um, you know, have you seen successes already that you can measure and, and speak to?</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> I, I guess one that I see right now is streamlined and capacity right? We have, we know what we need to train people on and we kind of have the materials already developed and that training has already happened, like we had had a pilot. Um, So that, that gives us a common ground, um, and understanding of what are those competencies we anticipate from our staff to have when engaging with the. I’ll let Hannah and Alex share from their perspective also.</p>
+              <p><span class="spk">Hanna Camp:</span> I think we’ve see more clarity now in coming from programs as well about what technologies they want to ask about. Just us having put out the guidance of what we think they should use. Then instead of coming to us with a question of like, Hey, I need this to get done. What could I use Instead, people are saying, Oh, I think Comcare could do this.</p>
+              <p>Can you help me get on board with that? And so that, I think it, it streamlines everything. It stream, it makes everything much shorter, and easier to do. And then it also gives, I think, all of us, including, you know, at, at the headquarters teams or the regional teams or the, the global, the program teams priorities for professional development as well.</p>
+              <p>It allows us to kind of focus on the things that we think would be. Would add value not just to our teams, but also then to our careers as we maybe like move into different roles within Mercy Corps or in another organization. And there’s just that. There’s just that much more clarity in the pathways that you as a Mel technology practitioner can take to develop what you’ll need to have to be successful in the program.</p>
+              <p><span class="spk">Alex Tran:</span> Yeah, I’ll just more generally, it’s been impressive to see. Essentially kind of a lot of teams that we’re able to onboard with our new technology stack, if you will. So essentially, you know, just having, just having like the Comcare enterprise, a Microsoft Azure, Microsoft Power bi, you know, and a lot of assistance through, a partnership with Microsoft Philanthropies and things like that.</p>
+              <p>I think it’s been really cool to see that, you know, a lot of time that we see kind of a procurement. On technologies where, oh, we can’t do these things because of that period of time. For that to be kind of almost relatively instant so that teams can finally just get on with the work, uh, because they know they have this available from an enterprise level has been really impressive to see.</p>
+              <p>And I think that it’s been great, on a few kind of responses that we are, that we started up, you know, anywhere from, you know, Ukraine, Ethiopia and things like that. It’s been great to see kind of we’re able to implement these. Relatively immediately. Given that we now have like kind of these tools, uh, enterprise and agency, uh, globally available to.</p>
+              <p><span class="spk">Amie Vaccaro:</span> For the audience. We have, there’s a guide that Mary put together detailing out this really incredible process that they went through. But really, really cool to kind of hear, hear you all walk through that. I’m curious from here, and Mary, you mentioned this is a, know, an ongoing change management process. What, what comes next?</p>
+              <p><span class="spk">Hanna Camp:</span> Yeah, I think three things I would mention. Um, one, make sure that our use of the technologies that teams already consider essential to operations, which includes Comcare, is really standardized, efficient, and well supported just across. To the board. then second, promote more use of technologies that have tended to be considered nice to have, but not essential, but which we think should be more important.</p>
+              <p>So this includes technology for qualitative data analysis and gis. Those are, I think, some, some needs that are emerging much more clearly as we sort through a lot of the, the more essential technologies and like day-to-day operations. And then finally, Build a lot of these better tools that Alex, especially has been mentioning for advanced analysis, using our technology, especially through incorporating data science, and Azure and other types of, of more advanced softwares into our process.</p>
+              <p><span class="spk">Alex Tran:</span> I think what what’s exciting that comes next you know, how we, the establishment of our kind of, Enterprise sets, as like a, you know, a general kind of a phase one, type of thing. And like, kind of now Hannah mentioned it, you know, essentially is we’re now able be able to explore potentially even more consistently kind of deeper insights into our data.</p>
+              <p>Um, so essentially if we have things that are standardized across the globe, uh, from a technology perspective and even from a data perspective, we’re starting to embark on. Process. And once again supported by, uh,, Microsoft Philanthropies where we’re starting to essentially aggregating data together across a number of different humanitarian responses and programs, especially in regards to kind of the ongoing food security crisis.</p>
+              <p>So being able to essentially try to see where is Mercy Corp programs, not only just active, but seeing potentially an overtime look. Of how they’re performing, given a number of different kind of contexts is gonna be the next phase. And I think that having like these technologies much more standardized, the abil the data being much more standardized in turn is going to allow us to potentially see deeper insights as to potentially country level trends, regional trends and global trends.</p>
+              <p>Um, so we’re very excited about the prospect of that next step, um, to have that a bit more consistently.</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> F From the beginning for me in this process has been culture change. And it stays as a priority I think, throughout all of the phases. But one thing that will be different with all these technologies integrated, it’s, it’s the, the view we take on collective results.</p>
+              <p>Because it enables us now to see that, right? Because we would see program by program. Hopefully bringing that to understand the, the collective impact that the programs are having or where we’re, you know, where we’re falling short and is that consistent across the board and what needs to be done.</p>
+              <p>These are the type of question I, I think, that most organizations are tackling, and that’s, that’s our next phase challenge that we’re trying to address now in the next, in the next several years.</p>
+              <p><span class="spk">Jonathan Jackson:</span> it, you know, There’s so much that you’ve done. Uh, This journey. And I’m curious, as you look forward, you know, a lot of work ahead, but kinda like what’s exciting to you? There’s so much going on in the space. There’s, there’s so many ways technology could help, but for you three as individuals, like what are the areas that exciting you, um, from the potential for technology to improve, you know, global health development and humanitarian response.</p>
+              <p><span class="spk">Alex Tran:</span> Essentially I’m just excited about the prospect of, you know, once again, as I mentioned earlier, there’s. You know, essentially foundational, mel, foundational data practices and just technology in general, enhance that just really effectively, it’s, it’s, it’s really exciting to see kind of practitioners have much more data available to them and them be more empowered, as they start to better understand it, as they better are able to grapple it and be able to kind of like tangibly make better decisions and.</p>
+              <p>Considerations around program performance around it. You, I think at the end of the day, kind of being able to see that happen more consistently, um, is definitely what I’m most excited about. I think at the end of the day, um, if our teams are really kind of just saying like, Yeah, you know, we we’re able to do something with this, that excites me, the.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think, I think that’s a great point, Alex. Like some of the most exciting stuff that technology enables is processes and best practices that are best practices for a reason. You know, it’s like really, really critical that the right decision makers have access to timely, accurate data to make the best informed decisions on, how to create that impact. some of the most exciting stuff can be just, you know, 1 0 1 mal practices that finally work at. Mary, Hannah, from your</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> I, I wanna add, like, when we started this journey for all of us here and then else that was part of this process, access to data was an equity issue, and we are excited to see that going forward. And we’re excited to see more diverse, better, quality data being accessible to more diverse people. and, and that’s what’s driving, I think most of us that tackle that. Anna?</p>
+              <p><span class="spk">Hanna Camp:</span> I’m really excited about how the sector is increasingly look looking to like context analysis and secondary data to compliment our internal sources. And you know, it’s probably some folks outside the, the sector, maybe not, maybe kind of a surprise that you wouldn’t already be using a ton of secondary data to your, your processes.</p>
+              <p>But given all of the challenges we’ve talked about with getting. Normal mal analysis done on time and comprehensive enough there, there oftentimes just wasn’t head space to consider how we could augment that with other sources of information. But I think implementers are increasingly looking at bringing in as many secondary sources of information as we can.</p>
+              <p>I’m really excited at looking at things like earth observation, um, to, to compliment the kinds of, of, um, of data that we’re bringing in from our programs, uh, and provide just that additional. Contextual understanding, uh, so we can improve the decisions that we’re making.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, that’s an area that we’re, um, also really interested in how this is going to help change Mel, as more of these public data sets become available, more geospatial and satellite data, um, on a frequent, more timely basis. How does that combine with data you’re kind of collecting directly at the household level or program level, and how do you accurately combine those data sets to make the best informed decision?</p>
+              <p>And I think there’s a lot. Complexity in doing it. You know, it sounds easy. Just combine this, you know, population density map with your programmatic data. And then it’s really hard in practice to know, okay, but like now what, you know, what are we gonna do with this data? So that’s an area that, um, I’m excited to see what, what Mercy Corps does with that, cuz it’s such a high potential area, I think, you know, for, for future, um, use of data. Um, and then last question. You know, this has been an amazing journey and thank you so much for sharing the, the lessons learned. Do you have any advice for, for other organizations in technology adoption and, and how they can think about it based on your experiences and, you know, what would really help scale and maximize other, other people’s work from from your experience?</p>
+              <p><span class="spk">Hanna Camp:</span> Yeah, I’m, I’m sure it depends on the challenges that the particular organization is facing for. I think one thing that’s probably common across all of us is challenges with finding and retaining technically skilled staff who can work on all of these technologies that we’re, we’re trying to use to Mel. Um, I think we have to just focus early and often on how we’re going to develop our internal Um, and just. Folks who really have those skills and are really, uh, really excellent at applying them in practice, um, in the organization as much as we can, or at least in the sector, applying, applying these skills. So at least in our experience, I think you get results not with the guidance, but with practical hands on help. Whether it’s like providing the training program, providing targeted assistance to them, you know, so you’re working through the problem together. Connecting the programs with other sources of skilled support that they could get.</p>
+              <p>Just something else. But whatever it is, you just, you have to have your, sort of, your hands in it. and that means you also just have to have a network of folks who really have those skills ready to deploy as the problems arise.</p>
+              <p><span class="spk">Alex Tran:</span> I think from my side, you know, essentially just kind of grounding. IR kind of think about like kind of your processes irrespective of technology and what needs to happen consistently over and over and over and over and over again. And kind of seeing like kind of What are the challenges that might be happening over again.</p>
+              <p>What might be successes that could happen over and over again. And I think that what we found generally speaking is that, you know, when we start to look at kind of Mel as a cycle more broadly, data as a cycle more broadly. , steps around data planning, data collection, the storage and management of that data, the analysis, and finally kind of the interpretation and using it for decision making and adaptation.</p>
+              <p>If there’s one thing that I think is , there’s not one technology to rule the all, uh, but rather kind of how do we piece together different types of technologies that are good at one thing or potentially, you know, a handful of things. To piece that cycle all together, like a interoperability, uh, element if you, in a sense, and when we start to kind of see all those different technologies put together, a lot of things are then kind of very possible.</p>
+              <p>And I would encourage organizations to not shy away from essentially saying, I’m being a bit more forward about, you know, these are technologies that can help us and if we have them in. , um, from the get go of a, of a program start, it can really kind of enhance that entire decision making, or sorry, data processes process, uh, from the start of a program.</p>
+              <p>It’s okay to essentially kind of have some of these kind of technologies in mind, based on your research, potentially even going for enterprise solutions so that, you know, you can communicate to program teams that Essent. You know, we have these resources available because based on our experience, these are very effective tools that enhance certain types of activities in Mel, certain types of processes within data, to help you get started, and things like that.</p>
+              <p>So I think that’s, you know, been pretty solid for us to know, better understand like these are kind of foundational elements and then now we’re layering the technology pieces on top of it. But then finally getting kind of you. The procurement and kind of enterprise agreements in place so that teams don’t have to struggle to get the tools that they.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. Mary, your end?</p>
+              <p><span class="spk">Meri Ghorkhmazyan:</span> I think both Alex and Hannah mentioned this, that technology itself isn’t the only, And right, like it’s, it’s a means to achieving bigger objectives and just being clear about what these bigger objectives are. Along the way, we found out that sometimes our struggles with technology have nothing to do with the technology.</p>
+              <p>These are culture issues. These are resource issues. These are buy-in issues, unless you resolve that, all the other effort that you put into rolling out a technology or streamlining is just not gonna work and be. For a more comprehensive if you’re really gonna tackle it. And, and that’s kind of, I think what we’ve done is just a company that with a change management approach, with a, , comprehensive training approach.</p>
+              <p>We’re talking now even about our hiring practices of what skills we recruit and so on. So it’s gonna take that kind of comprehensive addressing the issue to really take it forward and, and take care of that.</p>
+              <p>Thank you so much to Mary Hannah and Alex for joining us today. There’s so much rich content in here. So I’m going to just try to share the top five things that stood out to me.</p>
+              <p>First. I heard that Mel is the next generation of M and E. It’s not just about tracking and monitoring results, but it ensures that that data that you’re collecting is fuel for program adaptation and higher level learning. Second doing good. Mel requires thoughtful technology by standardizing on technology for monitoring evaluation and learning .</p>
+              <p>Teams can maximize both the comprehensiveness of the data. That they need to collect. As well as the timeliness of the services they need to deliver with those same tools. And better technology also allows teams to see deeper insights and trends in the data. And use that to make data informed decisions. .</p>
+              <p>Third.</p>
+              <p>Consider enterprise agreements, you can save money time and also improve decision-making by creating enterprise agreements with your technology tools of choice.</p>
+              <p>The Mercy Corps team shares that by going enterprise with Comcare, for example, they were able to save money and of course got the benefit of streamlined management. I of course I’m quite biased and, and do highly recommend Comcare as the platform for impactful frontline work everywhere. But this really applies to any tools you may be using.</p>
+              <p>And getting the most value from. Fourth technology and talent go hand in hand. Talent is a key challenge for Mel teams, both finding and retaining top talent. And the Mercy Corps team talked about how standardizing on leading tools can actually help create better professional growth opportunities for your teams.</p>
+              <p>And fifth and finally rolling out standardized technology is not just about technology. It’s really about culture change. So if you’re leading a process within your organization to align on technology And enable better, Mel. A look at the blog post written by Mary, which has supplemented in this episode. And LinkedIn, our show notes.</p>
+              <p>That’s our show. Thanks so much, please like rate, review, subscribe, and best of all, share this episode with any MNE teams who you think will benefit from Mercy Corps approach. And also write to us@podcastatdimagi.com with any questions or ideas.</p>
+              <p>This show is executive produced by myself. Danielle van wick is our producer. Brianna DeRoose is our editor. Cover art by sit onto con.</p>
+              <p>Thank you.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">MG</div>
+            <div class="person-info">
+              <p class="person-name">Meri Ghorkhmazyan</p>
+              <p class="person-role">Senior Director MEL, setting organization-wide priorities for monitoring, evaluation and learning and leading the change management effort.</p>
+              <span class="person-org">Mercy Corps</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">AT</div>
+            <div class="person-info">
+              <p class="person-name">Alex Tran</p>
+              <p class="person-role">Senior MEL Advisor focused on integrating technologies to automate data and enhance decision making in humanitarian response programs.</p>
+              <span class="person-org">Mercy Corps</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">HC</div>
+            <div class="person-info">
+              <p class="person-name">Hanna Camp</p>
+              <p class="person-role">Senior Advisor for Technology for MEL, leading work to standardize and support MEL technology across offices and programs.</p>
+              <span class="person-org">Mercy Corps</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000635414377" target="_blank" rel="noopener">Listen on Apple Podcasts</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

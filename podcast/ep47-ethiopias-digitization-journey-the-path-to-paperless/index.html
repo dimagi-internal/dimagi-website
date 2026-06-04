@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 47: Ethiopia’s Digitization Journey: The Path to Paperless with Dr. Girma Tadesse | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dr. Girma Tadesse of JSI on Ethiopia&#x27;s eCHIS program and its journey toward a fully paperless community health system built on government ownership.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep47-ethiopias-digitization-journey-the-path-to-paperless/">
+<meta property="og:title" content="Ep 47: Ethiopia’s Digitization Journey: The Path to Paperless with Dr. Girma Tadesse">
+<meta property="og:description" content="Dr. Girma Tadesse on Ethiopia&#x27;s eCHIS program and its path toward a fully paperless community health system.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 9, 2023</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">Ethiopia’s Digitization Journey: The Path to Paperless with Dr. Girma Tadesse</h1>
+        <p class="ep-deck">Dr. Girma Tadesse of JSI traces Ethiopia&#x27;s decades-long path toward a fully paperless community health system, and what it takes to move from collecting data to truly using it.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/1J8DrBfZcOd3JklF6KBfEo?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 47 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/1J8DrBfZcOd3JklF6KBfEo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000623967396" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/hQXrTQGft7c?si=HFlYaMG1AjXlGwLA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/48a7a14e-f5c3-4799-9985-0b3e8d797a58/high-impact-growth-ethiopia%E2%80%99s-digitization-journey-the-path-to-paperless-with-dr-girma-tadesse" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">18</div>
+          <div class="ep-stat-label">health service packages delivered by health extension workers, now digitized in eCHIS</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">7,600</div>
+          <div class="ep-stat-label">health posts reached so far, more than a third of the agrarian total</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">18,000</div>
+          <div class="ep-stat-label">health posts Ethiopia is expected to have nationwide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Discover the key ingredients to Ethiopia’s incredible progress in digital health as Ali Flaming and Amie Vaccaro speak with Dr. Girma Tadesse, electronic Community Health Information System (eCHIS)  Project Manager with JSI. Stemming from a clear vision for improving health outcomes and data use, the Ethiopian government has been on a digital health transformation journey starting in 1991. As Project Manager for this effort, Dr. Girma shares Ethiopia’s journey moving towards a fully paperless system. You’ll hear how with government ownership and strategic resource allocation, they’re establishing a strong foundation for long-term success, while also investing in the people and skills needed to create meaningful change. This is a must-listen for anyone working in and with governments and Ministries of Health wanting to learn how to leverage technology to support higher quality services. Ethiopia has been leading the charge of enabling healthcare workers by building scalable platforms and ecosystems for sustained impact and this conversation provides an inside look at how.</p>
+        <p>Topics included:</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;Our ultimate goal is not to see station worker having a tablet, fancy tablet, and playing with that. No. Our ultimate goal is to improve the health of the community.&rdquo;</p>
+          <cite>Dr. Girma Tadesse, on what paperless is really for</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A reform decades in the making</strong>, from Ethiopia's 1991 government change to the 2016 information revolution that reshaped how health data is used</li>
+          <li><strong>Inside eCHIS</strong>, the electronic Community Health Information System that automates 18 health service packages for health extension workers</li>
+          <li><strong>Why CommCare was chosen</strong>: open source, offline first, and flexible enough for the government to own and customize locally</li>
+          <li><strong>Closing the data loop</strong>, from household registration in the field to a national Apache Superset dashboard refreshed within hours</li>
+          <li><strong>The ecosystem around it</strong>, integrating SIM Prints biometrics, DHIS2 reporting, and performance-based incentives for health workers</li>
+          <li><strong>The road to paperless</strong>, the ambitious push to make selected woredas fully digital and the infrastructure, tablet, and connectivity hurdles in the way</li>
+          <li><strong>Advice for other governments</strong>, start with a clear health vision, secure leadership commitment, and invest long term in local capacity</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Ali Flaming:</span> I’m here with Dr. Germa, who is based in one of jsi ATIs Ababa offices as the Electronic Community Health Information System, or E C H I S, which will refer to as the project manager. Dr. Germa has more than 25 years of experience working within the Ethiopian Health system, first as a doctor, and now for the last 13 years as a health information systems expert. So, Dr. Grma, thank you so much for, for joining us. I was hoping you could start by explaining what the E C H I S program is, and tell us a bit about your role as E C H I S project manager within J s I.</p>
+              <p><span class="spk">Dr. Girma:</span> As you said, I have been working, with J S I, For the last, four years, the first, three years I have been working with, another project, . Then I moved to the HS project for the last, 18 months, as, as a project manager. , prior to that, I have been, working as in different, aspects of information system development, implementation in the country, in at large scale. Prior to that, I have been a physician working in a rural, rural setting as well as in the charity setting and, in the governmental health center. So, I have spent most of my time, supporting, , people. And then the information system, so that, the people’s health, can improve</p>
+              <p><span class="spk">Ali Flaming:</span> Yeah, absolutely. I was hoping you could explain a little bit for our listeners who are not familiar with the E C H I S program, what is the goal of the program and how does it improve the health of the people in e Ethiopia?</p>
+              <p><span class="spk">Dr. Girma:</span> Before I jump into the E CS program, let me give, the audience, the information system context, So that they will have a well understanding about the s. So, after, government change, in 1991 government, has been, introducing several reforms in different sectors.</p>
+              <p><span class="spk">Dr. Girma:</span> And, one of the reform, is about, HMS or the Health Management Information System in 2007. So with the principle of, simplicity integration and standardization, the Toan government try to, improve the health information system, which were, full of, problems like, duplication of effort, poor quality of data.</p>
+              <p><span class="spk">Dr. Girma:</span> There is no, coordinated effort. And the data use was so poor. No one will see the data, to make, important, decisions. So to change this situation. The government, went through a reform, then following that reform, as the technology advances, the Ethiopian Health Information, system starts to, move from paper to electronic system eventually.</p>
+              <p><span class="spk">Dr. Girma:</span> So what happened in the, 2016, the, ex, ministry office, Dr. Casada, , Try tried to, declare or try to come up with a kind of, health information system agendas. So, there was, four major agendas at that time. One of the agenda was information revolution. So, following his remark speech in the Health Sector’s annual review meeting, those who have, stake in the development and improvement of Theto energy information system, donors, partners, and, and different government structures.</p>
+              <p><span class="spk">Dr. Girma:</span> Started to work on, improving Theto information system, with the philosophy of, improving. Transforming the culture of, data use, for decision making and digitization. That starts from the grassroots level point of care data collection till, developing a kind of data warehouse and accessing the data through different, business, intelligence, engines.</p>
+              <p><span class="spk">Dr. Girma:</span> So one of the major. Individual level data collecting or, application, that serve, individual level, data collection, as well as, supporting the process of, providing, delivering, preventive, therapeutic and rehabilitative service to the community is, electronic, health, community health information system, which is hs.</p>
+              <p><span class="spk">Dr. Girma:</span> So, HS is in our, health architecture and the most important, component. So, uh, hs. The goal is, to automate the Hills Extension Program package. We had, about, 16 package earlier. Now we have 18 package of health services provided by the health extension workers. So to automate the, this, daily routine services, health extension worker provide to the, to the individual communities and at household level, is automated and, not only, automating, the service, but the work flow, but, able to get, , on job aid from, from the system.</p>
+              <p><span class="spk">Dr. Girma:</span> So it has a kind of job aid, service so that, better efficient, quality, , service, is provided to the client is the other, goal that very relate with this, health supporting health extension worker activity is that, at the local, health system, each health center, has, minimum of five fields posters to which there is a strong, referral system.</p>
+              <p><span class="spk">Dr. Girma:</span> So the referral linkage between the health center and the health post among the health extension worker is, automated through this HS application so that the health extension worker can easily, send the individual profile to the health center and health center, can, can repair, itself and provide. The next level of, service to the individual. So the exchange of, information about a patient or about a client between the extension worker and the care provider at health center level, is automated. These are, the main goal of, echs program.</p>
+              <p><span class="spk">Ali Flaming:</span> Thank you so much. That was a really, helpful history. I think talking. All the way back to the digital revolution led within the government and how that gave birth to the E C H I S program. And then how it’s led to the digital job aids that we see today in use by the health extension workers and the facility level workers.</p>
+              <p><span class="spk">Ali Flaming:</span> , you mentioned a few really important problems that the government, was trying to address with going digital. You mentioned the duplication of effort that was happening on the paper system. Poor quality of data and lack of data use for decision makers, lack of access to data, in order to make programmatic and strategic decisions.</p>
+              <p><span class="spk">Ali Flaming:</span> I think those are some of the biggest problems that we see in, in health systems, you know, all around the world. And. It’s been incredible to see how Ethiopia has tackled this with this information revolution. I also like what you said about, you know, the end goal of all of this is for transforming the culture of data use.</p>
+              <p><span class="spk">Ali Flaming:</span> I think having that as kind of the, the pillar that all of these efforts are working towards, not just, the development of E C H I S, but all of the other platforms within the ecosystem that you mentioned and how all of those are playing an important part into this larger goal and ambitious goal of transforming the culture of good use within the government, and within the health programs.</p>
+              <p><span class="spk">Ali Flaming:</span> So thank you for touching on all of those points. I think it’s been really inspiring to see how. Ethiopia has gone about this digitization journey and not just doing it for the sake of digitizing, but for this, this real end goal of, data use and improved decision making. You’ve talked about some of the, goals of the E C H I S program, and I’m curious if you can speak to what were some of the very early on goals with the E C H I S program, when it was just launching and piloting, and how has that changed over the years as the program has matured?</p>
+              <p>Since, there were, pockets of efforts to come up with, uh, platform. That serve the need of, reaching all different types of, community level, services, in different parts of the country. And, a lot of partners were, engaged, early, in 2060s and 15.</p>
+              <p><span class="spk">Dr. Girma:</span> So this individual, mobile technology based efforts of collecting data, covering only segment of, the package, focusing on the maternal and, child health where, here in Israel. So as after the ministry, decided to, to look for open source, and, somehow, robust and, and, easily a scalable, flexible system. The Comcare platform, was chosen. So once the Comcare platform was chosen, the development of, HS customizing is HS based on the requirement. Started, then, I think in 2019 the Ethiopia starts to, deploy, release one of this, this HS application in agrarian community. So, the development, was not completed when we move, to implementation paradigm.</p>
+              <p><span class="spk">Dr. Girma:</span> So, we have been, , till, the end of 22. All the modules that support all the help package were not, developed and available. But, , we have been able to reach about, 7,000, 600, health posters in the area. Area. So Ethiopia, is expected to have about, , 18,000 health posters in, in the country, which it is growing, year by year.</p>
+              <p><span class="spk">Dr. Girma:</span> But we are almost covering about more than one third of, the health posters in the Aion area. So, , giving priority for the maternal and the child health. The implementation was, going, better. But, it was, a bit difficult to enjoy the benefits of having a digital tool, at a community level.</p>
+              <p><span class="spk">Dr. Girma:</span> Very recently, as I explained earlier, we were able to complete the development now, as ex station workers are, getting trained and, started to use, the full, HS, modules to deliver, their services. So, as a goal, the ministry, in a shorter period of time, want to reach all, all the agrarian health posters, to reach all the extension workers within, within the coming three years.</p>
+              <p><span class="spk">Dr. Girma:</span> So this is reflected on the, on the strategic, plan . Now, it is about to complete, JSI and me are involving in the development process. So, the gross, implementation of cs, should be there in order to, enjoy all the benefits of s to the extension worker, to the client, to the cluster center, and to the program, owners and the coordinators.</p>
+              <p><span class="spk">Dr. Girma:</span> This is how we are, going. In terms of, scale up and in terms of achieving our goal, so to reach the ultimate goal, we are trying to intensify the scale up of, ACHs across the Caribbean area.</p>
+              <p><span class="spk">Ali Flaming:</span> All right, great. I think that’s really helpful to hear how that iterative approach has allowed us to get to the point that, that we see the program is at now of, going for, you know, the ambitious goal of reaching every single health post. You know, starting with proving that value with some of those key maternal child health indicators.</p>
+              <p><span class="spk">Ali Flaming:</span> And then once that buy-in, was received from the government and, the health programs. Really everyone’s focus shifted to that local ownership. So as you mentioned, the open source component was really critical to the government in selecting Comcare as the E C H I S platform. So there was a lot of effort, I think, around, 20 17 20 18 to make that transition to local ownership, both in terms of hosting, but also the development.</p>
+              <p><span class="spk">Ali Flaming:</span> So it was, folks sitting, in Ethiopia who were going and doing the scoping, gathering the requirements, and, and actually further building out the, the E C H I S tool to meet the needs of, of the health extension workers and the facility users. And I think that early commitment to local ownership has really, Been one of the reasons why we see the success today and, and the scale that this program is at and , is aiming to reach.</p>
+              <p><span class="spk">Ali Flaming:</span> We see the national dashboard and data use, really being a focus at this point and it, the kinda maturity of the program and now this transition to fully committing to digital and going paperless and reaching all of the health posts. So, I think it’s really, inspiring to see how that step-by-step approach and really thoughtful, intentional approach has allowed the government to really take ownership of it and kind of drive the scale up of the program.</p>
+              <p><span class="spk">Ali Flaming:</span> You mentioned this goal of reaching all of the health posts, I was hoping you could actually explain a little bit for folks who have never been to a health post before in in Ethiopia, I know you’ve spent a lot of time at them, we’ve visited some together. Can you explain a little bit what E C H I S actually looks like at the health post level for the health extension worker? How are they using it, and how are they interacting with patients and providing, improved care to patients using E C H I S?</p>
+              <p><span class="spk">Dr. Girma:</span> Okay, in the Ethiopian Health System, health, service delivery has, three tiers. So at the top, we have this tertiary level, hospitals where, specialized services, are provided. And we have this middle layer, where the general hospitals and, more of the inpatient services, outpatient services.</p>
+              <p><span class="spk">Dr. Girma:</span> And a lot of, services are provided except, specialized care. At the third, the bottom layer, we have the primary hospitals, the health centers and, the health posters provide more of preventive, and primary care and, some therapeutic and rehabilitative get to the public.</p>
+              <p><span class="spk">Dr. Girma:</span> So, having this in mind when we come to, the service, the kind of service provided by health extension worker to the community is that, it is more of preventive, more of health professional kind by nature. Of course there are some, follow up and, some of the mild cases diagnosed and, treatment, can be given by the health issue worker.</p>
+              <p><span class="spk">Dr. Girma:</span> So, the package, the 18 packages are around, the maternal health, the family planning service, the child health immunization, and nutritional service. The hygiene and environment services. And very recently, we are also, introduced the non-communicable disease screening, the follow up for hiv, TB screening, malaria screening, and, screening for neglected, tropical diseases.</p>
+              <p><span class="spk">Dr. Girma:</span> So, when they provide these services, some of the services are provided at health post level by which a client will come. And receive the service. And some of the services are provided, as an outreach, reaching the household, or how the home of the individuals, so they have the extension workers need to plan.</p>
+              <p><span class="spk">Dr. Girma:</span> And, and they are actually, the minimum of three extension workers are assigned in health. Post one, health extension worker provide the outreach service. This, for example, the first day of the week she will go for outreach service and the other station worker remain a sales post to, to serve those who are coming to the health post.</p>
+              <p><span class="spk">Dr. Girma:</span> So, they prepare, what to do next. And, accordingly, they visit each household using their tablets so that they can, register the household, the household members, and provide, those specific, service, using this hs application. So while they’re providing the service, be it at outreach or at the health post level, first of all, the client and the household does to be registered on HS platform.</p>
+              <p><span class="spk">Dr. Girma:</span> And the, the second point is that there are lists of, eligibles, for that specific service, and that is automatic in, in HS application. And very helpful for them. Why? And a lot of, guidelines. Specific to that service are embedded. So, when they go across the service provision, they will get support, through, these, guiding different pictures.</p>
+              <p><span class="spk">Dr. Girma:</span> All these are contained in E Cs, the dose of medicine, how frequent, what type of medicine is recommended. And if such and such symptoms are, evident, what to do, then all this information are at her, hand in the tablet, and she can, do, the next step accordingly.</p>
+              <p><span class="spk">Dr. Girma:</span> If necessary, she can also refer, the patient using the tablet so that. The center will be aware of what kind of client, what kind of patient is coming from which location. So, this is, one way of, doing their, routine service. The other, benefit of, having HS at , L post level is that when they prepare their, monthly report, because in the Ethiopia information system, there are defined indicators and based on the indicators, predefined reports are expected or monthly, quarterly, annual basis.</p>
+              <p><span class="spk">Dr. Girma:</span> So there are certain data elements expected from health issue worker to report on monthly basis. So, HS is a solution to q produce such kind of report , and communicate to the health center, to the higher level. This is how it works another, is, HS has the focal person application. So a person who is focal, representative of the HIP program at the center, has, an applications that enable hip to monitor the performance of each extension worker. He can set the targets, the plan, or the population base estimates so that he can, use that application to track and monitor the performance of the ation worker.</p>
+              <p><span class="spk">Dr. Girma:</span> At the same time, there are additional features we developed with, de Maggi. To support his own, routine activities so he knows easily, , what to do next, what kind of activities are already performed and what are the remaining. And he can use that application to monitor his own activities as well as to monitor the work of the performance of the ex station workers under him. This is, how they’re working.</p>
+              <p><span class="spk">Amie:</span> So Dr. Germa, I’m just loving hearing all of this and especially, in the context of digital health. I think Ethiopia is often held up as this, digital health darling right there. You’re, you’re so much further advanced. So it’s, I’m literally just eating up every word you share about what.</p>
+              <p><span class="spk">Amie:</span> What that has looked like and just all the incredible thought that has gone into it. And it’s been interesting as, as Degi, you know, , we’ve been working in this space for the last 20 years. And , one of the ways that we look at, getting the most out of digital is really thinking about how can digital be used?</p>
+              <p><span class="spk">Amie:</span> Not just to digitize a workflow, but to really create this lasting, robust foundation for, health service delivery, over time, right? And we think about three different pillars within that. We think about, moving from just collecting the data to actually using this digital tool as a job aid, right?</p>
+              <p><span class="spk">Amie:</span> Which you’re describing, right. And actually allowing. These health extension workers to be able to deliver better services, receive that decision support that they need, be able to refer into the, the clinic as they need to. So that deepening of the service delivery and the quality of the service is happening, which I love.</p>
+              <p><span class="spk">Amie:</span> The second thing we look at is can you use digital across many use cases, ? Which you’re describing beautifully, right? You’ve described 18 different service packages that, Ethiopia is providing and being able to digitize, each of those, ? So from maternal and child health to nutrition, to immunizations, to hygiene, and really being able to use the same digital platform to digitize each of those.</p>
+              <p><span class="spk">Amie:</span> You mentioned adding NCDs recently. And then the third thing that we, we look at across governments as just like a real success factor is, That long-term commitment, , to one platform, ?</p>
+              <p><span class="spk">Amie:</span> Because, one of the things that we see across digital health programs that is so dangerous is that so much money and time goes into launching a new product, or a new tool or a new app for one use case, and then it quickly dies out. And so I’ve just loved hearing the long-term focus that Ethiopia has had in terms of how do we own this and maintain this locally and scale this, for the long haul.</p>
+              <p><span class="spk">Amie:</span> . And you, you talk about this all dating back to 1991, and, and then kind of 2017 being a turning point of, of moving on to Comcare, which we’re so happy to partner with you on. , so just wanted to of reflect back just the ways that I see Ethiopia embodying that we call it our, the impact delivery approach, , to delivering better impact, delivering more services, and doing it over the long term.</p>
+              <p><span class="spk">Amie:</span> I’m curious. To hear from you, Dr. Germa. How has your approach to digitization allowed this, E C H I S program to of achieve this? Like maybe speak to that a little bit and maybe specifically around how you’re able to add new services over time.</p>
+              <p><span class="spk">Dr. Girma:</span> Digitization and, benefiting, from this technology is not an easy task, I explained earlier. It is, resource limited setting.</p>
+              <p><span class="spk">Dr. Girma:</span> We don’t have connectivity as such, and we don’t have enough infrastructure. We don’t have enough resource to provide, to build capacity and we don’t have enough, developers and , those who are, , helping, the digital world to be more useful for the health system. So, above all, it is really difficult to get, the leadership commitment, easily, because as you know, Technology. Most people are informed of technology, but, having such system in place and, serving the intended purpose, take longer time to see the fruit. So nobody will tolerate you, to invest a lot and, to see a product in a cumulative way.</p>
+              <p><span class="spk">Dr. Girma:</span> We have the very well structured government lead system, that has some drawback of course, but it is very useful for, the commitment and for the push for some of the political decisions and to bring resources to the health system.</p>
+              <p><span class="spk">Dr. Girma:</span> It is really important, if the government, own or, government, said it as its priority in the health system. So one is, the government’s, dedication, and commitment, especially at higher level. The second, point, is, fortunately, many donors, many, partners are willing, to invest, in this area at the community level especially, to, to help people.</p>
+              <p><span class="spk">Dr. Girma:</span> To improve the healthy people and technology is, is, is the best option for that. So, because of the availability of, willing donors, and the partners, in the country and around the world to help us, that is helping us, to see such fruit at this time.</p>
+              <p><span class="spk">Dr. Girma:</span> Probably the third one is, , in the Ethiopian, health information system, if you know, the reform, identified, the skilled human resource, in terms of information technology. As a gap. And there were a lot of, college that produce hi information. Technologists as a diploma level graduate as well as there are some universities who started to provide, training at, degree level health informatics and masters levels in the health informatics area.</p>
+              <p><span class="spk">Dr. Girma:</span> So the, workforce involving in in this, digitization effort is eventually, increasing, from time to time. And thanks to, the advancement of technology now, the mobile technology, the penetration is increasing now. There is, a really a con congestive environment, at grassroots level.</p>
+              <p><span class="spk">Dr. Girma:</span> And, , we have the, I mean the structured, the, his, extension program service and it’s governmental structure, the government commitment, the availability of donors and partners within to support the sales system and the increment in workforce is collectively contributing for, the sustainable support of the system</p>
+              <p><span class="spk">Amie:</span> dr. Gruer, that was, such a rich response. And just to kind of reflect you’re describing a really challenging environment where, you know, there was a lack of the talented, like skilled human resources to accomplish these goals. Obviously there’s limited resources, lack of connectivity, so really a lot of odds stacked against you.</p>
+              <p><span class="spk">Amie:</span> And I love that three-part framework you described as really enabling this incredible digital health vision to unfold around. You know, the combination of government leadership and vision and just long-term vision from the government, the, availability and interest of supportive partners and donors that wanted to support, which is incredible.</p>
+              <p><span class="spk">Amie:</span> And then I love how you described really investing long-term in the talent needed to make this possible, right? Because we think about technology as, oh, it’s just technology, but you need humans that can, make it work for you and customize it and, really understand how the data is flowing so that you can get to that vision of, better using data to drive better decisions.</p>
+              <p><span class="spk">Amie:</span> And so, just love hearing about that, that investment in universities creating health information technologists that can then work in the ministry of health.</p>
+              <p><span class="spk">Dr. Girma:</span> Yeah. Just to add on the technological side. When we, select a Comcare as a platform, the possibility of offline first option that the extension worker can provide the service without worrying about connectivity.</p>
+              <p><span class="spk">Dr. Girma:</span> And whenever there is a connectivity, they can, , sync the data and make it available at national level. So if even when we select the technology or, we were very careful. The second point is in our, the information system, the leadership sometimes, plan for you and f force you to start things, but they never follow that.</p>
+              <p><span class="spk">Dr. Girma:</span> So, in our, situation, we learned it from that. And as you said, clearly the ministry has clear vision and, dedicated technical working force to follow this and. Everybody now started, to think that,  digitization by itself doesn’t change, what we want to change in, in the health system.</p>
+              <p><span class="spk">Dr. Girma:</span> So there should be, transformation of data use, culture in the country. So, we have been working with the Magi to, explore and make the data available accessible to, decision makers at program and higher level so that as they can see the progress of the each program and, and can, you know, take action in terms of, I mean based on, credible evidence that comes, through ACHs application.</p>
+              <p><span class="spk">Dr. Girma:</span> So, We are trying to make, meaningful implementation at the same time. So I think we need to close the circle. Otherwise, most of the such, effort, customization and implementation may fail at some point and regress back.</p>
+              <p><span class="spk">Ali Flaming:</span> Thank you for summarizing. I think it’s really helpful to get that context of how that early government investment has led to, you know, that commitment over time has led to where the E C H I S program is now all of the new modules and development that you mentioned covering all 18 of the health areas that, that the health extension workers are providing services for at the community level.</p>
+              <p><span class="spk">Ali Flaming:</span> You also started talking about something that we’ve been working on together is not just the data collection side at the community level and the digital job aid at the community level, but actually ensuring that that data is accessible to. National level decision makers, regional level decision makers who are actually deciding where the future of the program goes and how to reinvest resources.</p>
+              <p><span class="spk">Ali Flaming:</span> So you talked a bit about the, the dashboard, the national E C H I S dashboard that we’ve been working on and our, I know the launches is scheduled for next week, which is really exciting. I was hoping you could, Talk a bit about what the technologies are that are involved in the E C H I S ecosystem.</p>
+              <p><span class="spk">Ali Flaming:</span> So you were just speaking about Comcare and how that was selected. Because it is an open source tool, because it is an offline first, job aid for health extension workers that fit within the needs of the Ethiopian context. You talked about the dashboard a bit. Can you talk a little bit more about the technologies being used there as well as other innovations that, JSI and the government are investing in as part of this larger E C H I S ecosystem that Comcare is a part of?</p>
+              <p><span class="spk">Dr. Girma:</span> Yes, as we all know, there is no, a single system that fit all the need. So, our primary, platform for HS is Comcare. In addition to Comcare platform, there is also, a need to collect some. Uh, Biometric information to ensure that, each service is, provided for the intended client.</p>
+              <p><span class="spk">Dr. Girma:</span> So, together with, SIM printers, we integrated, biometrics in order to, , provide services, to specific well identified individuals. So, integrating with, biometrics, , technology is, one, thing. The other thing is, , to display the data. We know to make the data accessible for decision makers.</p>
+              <p><span class="spk">Dr. Girma:</span> , we have been working with, the maggi, or exploring and coming back with. A business, intelligence engine, which is open source, which can be affordable. Easily customizable, and serve. Our purpose is superset. So Apache Su Parset, is selected nationally, as a bi engine.</p>
+              <p><span class="spk">Dr. Girma:</span> So with Degi, we are very grateful for, for Degi that, be the thing, is very helpful to refresh the data every time from the master database to the Superset, uh, database. So that, the data as it is collected, it’ll be, visible, accessible.</p>
+              <p><span class="spk">Dr. Girma:</span> At national level, with the latest will be, one day or otherwise within 15 hours, the data collected by Ag Station workers will be available this is very important thing and important technology.</p>
+              <p><span class="spk">Dr. Girma:</span> The other innovations, we are, implementing with the ministry is, , in order to enhance the use of data, we need to link, data use with the performance. The data should serve as evidence. To give feedback for hel issue workers so that they can improve their performance. So to improve, the performance of the hel issue, workers, supervisors, and Health Post in general.</p>
+              <p><span class="spk">Dr. Girma:</span> We have, this performance management and performance based incentive, innovations. And we are, implementing these two innovations and, we are using the super safe dashboard to track, the information and we’re going to incentivize even some of, top, uh, ranking health registration workers and, health supports and group of supervisors based on evidence, based on data.</p>
+              <p><span class="spk">Dr. Girma:</span> So, that in turn will improve the performance of the he station worker. So whenever you do things very transparent and database based on data, then that is, really, helpful for the ecosystem to grow.</p>
+              <p><span class="spk">Ali Flaming:</span> Absolutely. I’m glad you brought up the performance management work because I think that’s been. A really inspiring use of technology to support a more holistic approach that the government, jsi, funded through sif working with Living Goods, all these different partners, as DGI working to build that entire strategy and approach to improving performance and feedback for the Health Extension Program.</p>
+              <p><span class="spk">Ali Flaming:</span> Building that into the tools that we have in place now, , the Comcare applications feeding data into the national, superset dashboard in order to monitor that performance and give very targeted feedback to health extension workers. So as the government and J S I and different partners are thinking about, you know, what strategies they wanna use, To improve the quality of the health system overall.</p>
+              <p><span class="spk">Ali Flaming:</span> They’re thinking very carefully about what technologies can support those strategies. And I think the performance management approach, that JSI has been leading in these six Barres, is a really good example of that. I really liked your overview of the different technologies and kind of how they’re interacting with each other and how that’s ultimately, creating this ecosystem that’s improving healthcare delivery and improving that data use for targeted feedback, improving performance, all of these larger goals.</p>
+              <p><span class="spk">Ali Flaming:</span> You mentioned the Comcare applications. You mentioned SIM prints and the biometric integration as well, which we were able to see that on Tuesday at one of the health posts they were delivering. The new tablets and the new, , sim prints, biometric fingerprint scanners, is exciting to see the health extension worker demo, how to use it.</p>
+              <p><span class="spk">Ali Flaming:</span> I got my fingerprint scans, but also how important, integration with the DHIS two system, which is managing the reporting at the RETA level and above for those key indicators. You mentioned the superset, dashboard in the data warehouse as well and how all of these different technologies are, they’ve been supported or created by all these different partners, part of the ecosystem funded by the different donors we know, gates Foundation, usaid, SIF as well.</p>
+              <p><span class="spk">Ali Flaming:</span> All these different programs have contributed to this open source ecosystem. And I think that’s really inspiring to see how. A really, strong government vision can help rally support across so many different funders, so many different partners, private and public sector, to achieve this goal. So thank you for, for really walking us through all those different technologies, the innovations, and how all that’s being leveraged to improve data use, improve the quality of delivery, which are these kind of pillars of success of the program. I wanted to ask if you could describe some of the challenges that the E C H I S program is facing right now at this stage of scale where you’re really gearing up to scale up. Nationally to, many more health posts, and really trying to push the program to the point of paperless, and to the point of really making use of the data that’s being collected at the community level to inform decision making at the national level. What are some of the challenges that you are seeing right now? , at this point in the program?</p>
+              <p><span class="spk">Dr. Girma:</span> Yeah. We can’t see, the challenges, from, different, perspectives. So, especially, when we see the infrastructure challenge, it is individual level data and the service is, provided on daily basis. So the data production is increasing, probably when we go or, further in terms of, scale up.</p>
+              <p><span class="spk">Dr. Girma:</span> Imagine the amount of the volume of data heating, the HS database, so this, big data is, coming and we need to prepare for that, to handle this big data. And when we run some of the, analytics, it needs, more resources as we are facing challenges in case of, the recently, developed dashboard, between mortgages, for ministry office.</p>
+              <p><span class="spk">Dr. Girma:</span> So the infrastructure, especially the capacity of the server, and the data center in general, has to be, optimized and more investment has to come to string than, the data center. Thinking, the future is, more demanding in terms of, data repository and data processing capacity.</p>
+              <p><span class="spk">Dr. Girma:</span> So that is one area. In the infrastructure, category, we have this connectivity, problems. As you know, the internet, penetration is very low. We had, till very recent time, only one internet service provider, which is Ethiopia Telecom. Very recently, Safaricom is added, so the internet penetration, should improve. The government is using, tablets, which were procured for different purpose. Now their capacity is very limited. , so we need to think how best, , we can implement it in, by procuring, tablets.</p>
+              <p><span class="spk">Dr. Girma:</span> With receive investment, we are planning to go paperless for six, sites or district. So, to be realized, we were forced to procure tablets with better spec so that there is extension worker can, use. Is CHS application to provide their service without any inconvenience.</p>
+              <p><span class="spk">Dr. Girma:</span> So, , tablet, capacity, the connectivity issue and the data center, related, infrastructure are the major challenge. The ministry, partners are trying to elevate, and optimize available, resources, in order to, achieve, success in this area. The other challenge is the application, related challenge especially is the development, was delayed, for some time and, it was not completed as expected.</p>
+              <p><span class="spk">Dr. Girma:</span> So customization work is still, ongoing and, still remain a challenging, it needs more investment for the developers and the requirement, specification and testing, piloting, all those things need a more investment, from, implementation, perspective. We need to reach more health posters and more health extension workers</p>
+              <p><span class="spk">Dr. Girma:</span> so gross implementation is very important, to really enjoy the benefit of digitization. So, in the implementation area, the connectivity issue, the tablets training cost, the training, the mentorship, the supervision, all these are a kind of, capacity building modalities. So, it needs more investment, in order to, run and improve the situation.</p>
+              <p><span class="spk">Ali Flaming:</span> A lot of these challenges you’ve been mentioning are things that. I’ve definitely heard a lot in the last week here in Ethiopia talking about the challenges with limited infrastructure, the quality of the tablets, completeness of, of the application. All of that is really coming to a head and, and really the top priority of, of the ministry and the ACHs partners right now leading up to this paperless Rita transition and I think we’ve mentioned it a few times in this conversation. I was hoping you could explain what is the paperless Rita transition. What is the goal of that effort led by the ministry?</p>
+              <p><span class="spk">Dr. Girma:</span> It seems a bit ambitious, but. The ultimate, goal of our effort, , is to improve those outcomes of the community that cannot be, achieved simply by putting those gadgets to the health extension workers, we need to make it more meaningful implementation. So, in the previous, uh, apr, the annual performance review the chief director, Dr. Marta, went us, you know, to do things in a meaningful way rather than, to go to cover more, districts and, that is also important, but it has to be in a meaningful way. So how, in that day there was a big discussion with, with the ministry.</p>
+              <p><span class="spk">Dr. Girma:</span> People were there, the program people were there, and the funder was there. And, there was a lot of discussion. And, we tried to come up with if we ideally implement ACHs, what, would look like, and what kind of services is possible to provide in terms of safety of the individuals, in terms of quality, service, efficient service, effective service, and accessibility of the service.</p>
+              <p><span class="spk">Dr. Girma:</span> So, we, need to bring a kind of, operational definition. And that operational definition is a specified and articulated by the technical working group. So at least, all help services has to be provided by, ACHs or using ACHs.</p>
+              <p><span class="spk">Dr. Girma:</span> All the household and members has to be registered on hs. The report, which are important for the ministry office, has to be generated from E HHAs. The referral system be when the health post and the center should be, through the hs. And it should be automatic. And the HS has to be, the, especially the job paid, component of HS has to improve.</p>
+              <p><span class="spk">Dr. Girma:</span> And the data use. The data generated by s has to be used in order to improve the service. So, to achieve this, different, goals, we need to have enabling environment in terms of tablets, power source connectivity, the world has to imp improve to accept every range.</p>
+              <p><span class="spk">Dr. Girma:</span> In this regard, all the extension workers need to be trained with all S modules. All the new features of an answer focal app has to be, taught for the focal person. The dashboard has to be accessible by p hsu, the, the primary healthcare unit there, which is health center. And the RAD and the ACHs has to be interoperable with DHS two for report, data exchange.</p>
+              <p><span class="spk">Dr. Girma:</span> These are, you know, the key element is that we are struggling to achieve or to reach to the climax of, their implementation in a specific corridor to say that this corridor is paperless and providing the service digitally.</p>
+              <p><span class="spk">Ali Flaming:</span> It’s a really exciting, and as you said, ambitious goal. And I think it’s just a really cool example of exactly what governments who are, scaling up an E C H I S program like this should be aiming for it. This really is the, the end goal that can really show the full impact when you really commit to going digital and going paperless.</p>
+              <p><span class="spk">Ali Flaming:</span> At the point that the program is at now, it’s many years in, there’s been good success, there’s been strong leadership and commitment at the government level now, That really intentional approach that you mentioned of really getting it right in a few weres. Making sure that that environment is there for the health posts to go fully paperless, and really implement the digital job aid fully to see what that benefit is, when the full commitment is there.</p>
+              <p><span class="spk">Ali Flaming:</span> I think that really intentional approach, is really interesting to hear about and I absolutely see it and have been hearing it from all the different partners who have been involved in helping create that environment that we’ve been meeting with in, in the last week here, here in Addis.</p>
+              <p><span class="spk">Ali Flaming:</span> You mentioned there’s the full module development. The tablets have to be in place, that, that work well in our performance. The servers need to be stable, the dashboards need to be, enabling data use and decision making. And that interoperability with D H I S two needs to be in place so that they’re no longer dependent on paper reporting.</p>
+              <p><span class="spk">Ali Flaming:</span> And so once all of that is successful and is in place at the health post level, the hews, they can then stop using paper and fully, fully depend on the digital job aid, to do their work, to improve the quality of their service delivery, but also to ensure that all of that data is actually making it up through the ecosystem and being used for decision making.</p>
+              <p><span class="spk">Ali Flaming:</span> Rather than trying to maintain two parallel systems and all of the energy that, that gets diverted by trying to maintain paper and digital at the same time. I wanted to ask from your perspective, if all of this is successful, once all of this is in place at, let’s say these few weres where the, in the test, the paperless were rate test is going to be implemented, what could it mean in terms of impact if this is successful, if the transition to paperless succeeds.</p>
+              <p><span class="spk">Dr. Girma:</span> It’s a great question. Yeah. As I mentioned, earlier, our ultimate goal is not to see, station worker having a tablet, fancy tablet, and playing with that. No. Our ultimate goal is to improve the health of the community. As you know, one of the sustainable, development goal is, to reach universal health coverage.</p>
+              <p><span class="spk">Dr. Girma:</span> So to reach, a universal health coverage , , the health. Especially those preventive health interventions like, reaching, , those underserved people with vaccine contraceptives. Nutritional, all other health services is very important. So when we implement successfully the paperless water, we are trying to ensure this, service coverage with good quality, is in place.</p>
+              <p><span class="spk">Dr. Girma:</span> So that has to be also a continuous process. So reaching to the ultimate goal, mean beginning, that, enjoying the benefit of digitization. So, every ADA has to be, digital. So the whole nation, benefit, from digital, era</p>
+              <p><span class="spk">Ali Flaming:</span> I’m so glad that you brought it back to that end goal. You talked about reaching universal health coverage, that is really what the paperless is trying to do, and. In order to improve the health of the community as kind of what everyone is really rallying around this effort, in order to achieve.</p>
+              <p><span class="spk">Ali Flaming:</span> And, and the goal of implementing digital to improve the quality of service delivery, is really at the end of the day all an effort to improve the health at the community level where these digital tools are implemented. And, yeah, just how you spoke to how going fully digital can help achieve that.</p>
+              <p><span class="spk">Ali Flaming:</span> But also, you know, looking at it realistically that the process of going paperless has to be an iterative approach. Just in the same way that the entire history of the E C H I S program, as you’ve laid it out, has been an iterative approach. Both to get that buy-in along the way, to test out the successes and learn from them and, and to be able to pivot, and react, to address the challenges that we’ve seen.</p>
+              <p><span class="spk">Ali Flaming:</span> And I think that really is how this program and the government has been able to see the success that it has and has gotten to this point of being able to really commit and to be talking about going paperless is such a massive achievement. And I think, you know, that one of the first places to really that commitment.</p>
+              <p><span class="spk">Dr. Girma:</span> Yeah. Just to iterate, uh, through multiple iteration, we may reach to, the digitization of or paperless water, God. But, that is the beginning of the health system benefiting from digitization. It might be an end from the digitization prospect.</p>
+              <p><span class="spk">Dr. Girma:</span> But it is a beginning of getting full benefit of digitization, or injecting the benefit of digitization into the health system. So we have been trying to serve the people, without such fancy technology, but with addition of this technology, we can, go better. We can reach better, we can, deliver more with a better quality, safe practice and efficient way. So that will be easy if, our digitization effort reached to the fullest. Delivered.</p>
+              <p><span class="spk">Ali Flaming:</span> Absolutely. I think that definitely resonates, those goals of, better and more, of really leveraging digital to. Improve the quality of service delivery, provide better services to the community, and reaching more people across the country.</p>
+              <p><span class="spk">Ali Flaming:</span> And, it’s really inspiring to see how Ethiopia is leveraging the ec j’s platform and the entire ecosystem of tools that we’ve talked about today in order to, to achieve those goals.</p>
+              <p><span class="spk">Ali Flaming:</span> They sound so simple. Yet they are such big , and complex and inspiring efforts. I wanted to ask one last question, maybe to wrap up a bit and get, one last nugget of knowledge out of you, just given your wealth of experience. Knowing that the people who will listen to this podcast and , our audience includes a lot of implementers of digital health programs, what advice would you give to another country or another program? Who’s working to achieve something similar to what you’ve achieved in in Ethiopia with E C H I S?</p>
+              <p><span class="spk">Dr. Girma:</span> Whenever, any country, start such digitization program, they must be very clear about the health objective and their vision has to be very clear. What do you want to get, having investing, on this, digital, gadgets, to the health system?</p>
+              <p><span class="spk">Dr. Girma:</span> So, , they have to, be very strategic and, they should have the vision, and then after, if they have the vision, And, the strategy then, they have to, prepare, ahead of time into, into three major areas. one is infrastructure. They have to assess their infrastructure, level and try to be ready to accommodate, the intervention they want to go with.</p>
+              <p><span class="spk">Dr. Girma:</span> The second area is the governmental commitment from national to the lost level, of administration has to be well communicated. Well aware of the added value of, this digital tools in, into their, as a system. So communicating the added value of, the new technology, the new intervention is important throughout, the health system.</p>
+              <p><span class="spk">Dr. Girma:</span> They’re going to, implement such kind of system. , and not only communicating, but preparing enough, allocating adequate resources. You know, they have to believe that investing on digital, technologies or digital gadgets, the investment might not be, in the coming one or two or three years. It is a long term investment and, the return is not in terms of cash, in terms of, having healthy people, productive people. So once you have this healthy and productive people, then it will indirectly boost the economy, and that will be the return for the nation. So everybody has to be conversant and try to maximize their investment, or resource location to our business.</p>
+              <p><span class="spk">Dr. Girma:</span> Things. The third area is capacity. Capacity is important. You know, the skill and willingness of, people in the program area, in the hardware, in the software development areas has to be. Organized and mobilized and, should get trained, should get the necessary skill, and, should collaborate with, vendors to start, to build an in-country capacity.</p>
+              <p><span class="spk">Dr. Girma:</span> Gradually they will, be able to, support themselves and as well as, reach vast geographical area because, if you have very limited capacity in terms of Humana resource, if even if you have the infrastructure, the willingness, the commitment, the resource, it doesn’t work.</p>
+              <p><span class="spk">Dr. Girma:</span> The other way is also true. So, if they are ready, committed, and strategies have vision and then build the capacity and you know, leveraging or optimizing the available resources after they conduct the kind of readiness assessment. And then, it’ll be easier to mobilize resource because they know their status and go, for digital and they have to of course, monitor, and track follow and give the work. These things are really important.</p>
+              <p><span class="spk">Ali Flaming:</span> Yeah, absolutely. I think your response is actually a really great. Summary of our conversation today and of the evolution of the E C H I S program that you’ve described, you know, you mentioned, the need for that really clear vision about the health objective. , not to just. The objective of going digital, what is it all for?</p>
+              <p><span class="spk">Ali Flaming:</span> And all of the forethought and preparation that’s required to make sure the infrastructure is prepared, as well as the, you know, the local capacity and that, that will exist not just now, but in the future. You know, when you talked about the investment in university programs to ensure that the next generation of technologists are trained on E C I S and are able to maintain it, that’s an incredible amount of forethought and I think such a great example of that.</p>
+              <p><span class="spk">Ali Flaming:</span> You also talked about local capacity and needing that mix of private and public, local entities coming together to support this entire ecosystem, not just the government and not just, private tech companies. It really does require that broad capacity across public and private sectors.</p>
+              <p><span class="spk">Ali Flaming:</span> And then I think the one that you mentioned that has really stood out and I think is a great final point, is that government commitment and investment in the program and that they need to see that investment, and the return of that as a healthy population, not, numbers in a dashboard or, number of tablets that have been distributed.</p>
+              <p><span class="spk">Ali Flaming:</span> And I think all of those, kind of pillars of success and, and advice that you mentioned, I think that really captures the reasons why this E C I S program has been able to reach the, the pivotal point that we see it at today of fully committing to paperless and, and seeing the impact of that. Yeah, I just wanna say thank you so much for sharing all of this knowledge.</p>
+              <p><span class="spk">Ali Flaming:</span> And all of your time with us, but also your deep commitment and many years that you have dedicated to this work as we talked about, as a doctor, , as a health information system, expert. And, yeah, it was a absolute pleasure to speak with you as always. Any last points that you wanted to make Dr. Grma before we, fully wrap up?</p>
+              <p><span class="spk">Dr. Girma:</span> Yeah. Thank you, for the opportunity. Probably two pointers. One is I wanted to thank, the Magi, creating this opportunity to speak about, our experience to the greater audience so that they can reproduce this effort to some else. And I would like also to thank Ministry Office of Ethiopia, and partners working on cs, especially those funders like USAID and si, uh, gsi, all those who are stake in this, uh, HS program</p>
+              <p><span class="spk">Dr. Girma:</span> The second point is, when I was, thinking about the technology benefit to human, I feel that the world is, short of delivering what we are expected. You know, we have a lot of technological advancement. But it is not reaching, and helping people in terms of their health wise. So in the future, I think especially the artificial intelligence, the drone technology, ge all these together with, the information system should, , facilitate better reach those under underserved people, especially living in Africa. So, those who are rich and, do not know where to invest, I think they have to look to this area and help people through. Technology through digitization. So this message is for those who have the money, who are willing to donate or to invest, but do not know where to do that.</p>
+              <p>Thank you so much to Dr. Girma for taking the time to break down the key ingredients. To Ethiopia is incredible progress with digital health. I’ll share a few of the insights that struck me in particular. First, it all starts with a really clear vision driven by the government. Ethiopia has focused on improving. Health outcomes. And service delivery. In service of achieving universal health coverage. And they’re looking to change the culture of data use. So that data collected from digital health efforts actually informs improvements. They’re not looking to digitize for the sake of digitizing. They’re looking to deepen and improve services with digital. . This government ownership and commitment, especially at the highest level has been essential to its progress and longterm trajectory. Second. Communicating the goal, clearly an allocating resources appropriately is essential. Ethiopia benefits from a strong ecosystem of donors and partners who are willing to invest in this longterm effort, largely because the government has been so clear about the goals and purpose. And they’ve been able to speak to the benefits of its overall effort in terms of having a healthy population. Which leads to incredible returns in the long-term.</p>
+              <p>Third, invest in the people necessary to create the change you want to see. Ethiopia has invested in university programs. To ensure it would have the talent to implement this incredibly ambitious long-term effort.</p>
+              <p>Knowing that the electronic community health information system, and now the paperless Florida. Require specific expertise.</p>
+              <p>Fourth. We need to move from just looking at technology as a means to digitizing a paper process. But look at how technology can create true impact delivery. And support better, more and sustained impact. This looks like ensuring that the services delivered are higher quality and more meaningful, and that health workers have access to the best tools to guide their service delivery. As we’ve heard about with Ethiopia’s health extension worker application. And supervisor or focal person application. Using the same digital platform to support many use cases. As Ethiopia has been doing. By digitizing 18 different health services. And taking that now to the next level, with the paperless warrior to effort.</p>
+              <p>And it looks like investing in building a highly scalable long-term platform, an ecosystem of tools that can support sustained impact over the long haul. And doing this with an iterative approach. It will not be one and done. You heard, how thoughtful Ethiopia has been about connecting Comcare with SIM prince for biometrics DHIS two for data warehousing superset for data visualization and more.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GT</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Girma Tadesse</p>
+              <p class="person-role">eCHIS Project Manager, a physician and health information systems expert with more than 25 years in Ethiopia&#x27;s health system.</p>
+              <span class="person-org">JSI</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/1J8DrBfZcOd3JklF6KBfEo" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

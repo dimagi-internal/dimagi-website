@@ -1,0 +1,1801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Podcast | Dimagi</title>
+<meta name="description" content="High-Impact Growth: Stories from Dimagi and industry leaders on building sustainable, high-impact digital programs. Listen wherever you get your podcasts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=11">
+<style>
+/* ── Podcast page ── */
+
+/* Podcast page header is the red ".intro-hig" band below (hero merged in) */
+
+/* Top Picks */
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.episode-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.episode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(10,6,32,0.14);
+  border-color: var(--rule);
+}
+.episode-card-thumb {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.episode-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.episode-card-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(22,0,109,0.7), rgba(56,67,208,0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.episode-play-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.55);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 200ms;
+}
+.episode-card:hover .episode-play-icon {
+  background: rgba(255,255,255,0.25);
+}
+.episode-play-icon svg {
+  width: 18px; height: 18px;
+  fill: #fff;
+  margin-left: 3px;
+}
+.episode-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.episode-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--indigo);
+}
+.episode-title {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.episode-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--indigo);
+  margin-top: auto;
+  padding-top: 6px;
+  transition: gap 150ms, color 150ms;
+}
+.episode-link::after { content: "→"; }
+.episode-link:hover { color: var(--indigo-deep); gap: 9px; }
+
+/* Progressive reveal (load more on click) */
+.episode-card.is-hidden { display: none; }
+.episode-card.is-revealing { animation: epCardIn 360ms ease both; }
+@keyframes epCardIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .episode-card.is-revealing { animation: none; } }
+
+/* Meet the Hosts */
+.hosts-section { background: #f5f7ff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hosts-head { display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; max-width: 1080px; margin: 0 auto 56px; }
+.hosts-head .section-head { margin-bottom: 0; max-width: 520px; }
+.hosts-illustration { width: 100%; max-width: 440px; height: auto; display: block; border-radius: 16px; }
+.hosts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 1080px; margin: 0 auto; }
+.host-card { display: block; }
+.host-head { display: flex; align-items: center; gap: 26px; margin-bottom: 24px; }
+.host-card-photo { width: 148px; height: 148px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.host-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.host-card-name { font-size: 27px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 8px; }
+.host-card-role { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); margin: 0; }
+.host-card-bio { font-size: 15.5px; color: var(--muted); line-height: 1.7; margin: 0 0 16px; }
+.host-card-link { font-size: 14px; font-weight: 600; color: var(--indigo); display: inline-flex; align-items: center; gap: 5px; }
+.host-card-link::after { content: "→"; }
+.host-card-link:hover { color: var(--indigo-deep); gap: 8px; }
+
+/* More Episodes (CTA pulled up close under the archive) */
+.more-section #more-grid:empty { display: none; }
+.section.archive-section { padding-bottom: 28px; }
+.section.more-section { padding-top: 0; }
+.more-wrap { text-align: center; margin-top: 28px; }
+#more-episodes-btn {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 44px;
+  background: #9A2C23;
+  color: #fff;
+  border: 1px solid transparent;
+}
+#more-episodes-btn:hover { background: #7E2018; transform: translateY(-1px); }
+
+/* Podcast header (red band, hero + subscribe combined) */
+.intro-hig {
+  background: #9A2C23;
+  color: #fff;
+  padding: 104px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+.intro-hig::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 75% at 100% 0%, rgba(255,255,255,0.13), transparent 60%),
+    radial-gradient(ellipse 60% 70% at 0% 100%, rgba(0,0,0,0.20), transparent 65%);
+  pointer-events: none;
+}
+.intro-hig > .container { position: relative; z-index: 1; }
+.intro-hig .eyebrow.on-dark { color: rgba(255,255,255,0.92); margin-bottom: 26px; }
+.intro-hig .eyebrow.on-dark::before { background: rgba(255,255,255,0.6); }
+
+.intro-hig-top {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: end; margin-bottom: 56px;
+}
+.intro-hig-title {
+  font-size: clamp(42px, 5.4vw, 72px); font-weight: 200;
+  line-height: 1.02; letter-spacing: -0.035em; color: #fff; margin: 0;
+}
+.intro-hig-lede {
+  font-size: clamp(17px, 1.5vw, 20px); font-weight: 300;
+  line-height: 1.62; color: rgba(255,255,255,0.86); margin: 0;
+}
+
+.intro-hig-bottom {
+  display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
+}
+.hear-intro {
+  display: inline-flex; align-items: center; gap: 13px;
+  background: #fff; color: #9A2C23;
+  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+  padding: 14px 26px 14px 15px; border-radius: 999px;
+  flex-shrink: 0; white-space: nowrap;
+  transition: transform 150ms, box-shadow 150ms;
+}
+.hear-intro:hover { transform: translateY(-2px); box-shadow: 0 18px 34px -14px rgba(0,0,0,0.45); color: #9A2C23; }
+.hear-intro-icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #9A2C23; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.hear-intro-icon svg { width: 13px; height: 13px; fill: #fff; margin-left: 2px; }
+
+.intro-follow-label {
+  display: block; font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72); margin-bottom: 18px;
+}
+.follow-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.follow-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 22px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.30);
+  background: rgba(255,255,255,0.08);
+  font-size: 14px; font-weight: 600; color: #fff;
+  transition: border-color 150ms, background 150ms, transform 150ms;
+}
+.follow-btn:hover {
+  border-color: #fff; background: rgba(255,255,255,0.18);
+  color: #fff; transform: translateY(-2px);
+}
+.follow-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Guest organizations marquee */
+.guest-marquee {
+  display: flex; align-items: stretch; overflow: hidden;
+  background: #7E2018; border-top: 1px solid rgba(255,255,255,0.14);
+}
+.guest-marquee-lead {
+  flex-shrink: 0; display: flex; align-items: center;
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #fff;
+  padding: 16px 26px; background: #6A1610;
+  white-space: nowrap; position: relative; z-index: 2;
+}
+.guest-marquee-viewport { position: relative; overflow: hidden; flex: 1; }
+.guest-marquee-viewport::after {
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 64px;
+  background: linear-gradient(90deg, rgba(126,32,24,0), #7E2018);
+  pointer-events: none; z-index: 2;
+}
+.guest-marquee-track {
+  display: flex; align-items: center; width: max-content;
+  animation: guestScroll 50s linear infinite;
+}
+.guest-item {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  font-size: 14.5px; font-weight: 500; letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.82); padding: 15px 0;
+}
+.guest-item::after { content: "•"; color: rgba(255,255,255,0.32); margin: 0 26px; font-size: 10px; }
+.guest-marquee:hover .guest-marquee-track { animation-play-state: paused; }
+@keyframes guestScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .guest-marquee-track { animation: none; } }
+
+@media (max-width: 860px) {
+  .intro-hig-top { grid-template-columns: 1fr; gap: 18px; align-items: start; margin-bottom: 38px; }
+  .intro-hig-bottom { gap: 28px; }
+  .hosts-head { grid-template-columns: 1fr; gap: 28px; }
+  .hosts-illustration { max-width: 360px; }
+}
+@media (max-width: 760px) {
+  .hosts-grid { grid-template-columns: 1fr; }
+  .guest-marquee-lead { display: none; }
+}
+
+/* All episodes CTA */
+.podcast-all {
+  padding: 72px 0 80px;
+  text-align: center;
+  background: #f5f7ff;
+  border-top: 1px solid var(--line);
+}
+.podcast-all p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .episodes-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .episodes-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../">
+      <a class="logo" href="../index.html">
+        <img class="logo-img invert" src="../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../professional-services/index.html">Professional Services</a>
+        <a href="../company/about/index.html" class="nav-active">Company</a>
+        <a href="../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Podcast header (hero + subscribe combined, red band) -->
+  <section class="intro-hig">
+    <div class="container">
+      <span class="eyebrow on-dark">Podcast</span>
+      <div class="intro-hig-top">
+        <h1 class="intro-hig-title">The High-Impact Growth Podcast</h1>
+        <p class="intro-hig-lede">Hosted by Jonathan Jackson (Dimagi CEO) and Amie Vaccaro (VP of Growth &amp; Strategy), the High-Impact Growth Podcast is for social entrepreneurs, global development funders, nonprofit leaders and anyone grappling with the challenges of how to build digital solutions that are both immensely impactful and also achieve high-growth.</p>
+      </div>
+      <div class="intro-hig-bottom">
+        <a class="hear-intro" href="https://open.spotify.com/episode/1YQXGjMoIrSIozbaNMEahX" target="_blank" rel="noopener">
+          <span class="hear-intro-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+          Hear the Intro
+        </a>
+        <div class="intro-follow">
+          <span class="intro-follow-label">Subscribe here</span>
+          <div class="follow-grid">
+            <a class="follow-btn" href="https://open.spotify.com/show/5ZDxxqC1fLzAgmh4nwr2ow" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>Spotify</a>
+            <a class="follow-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>Apple Podcasts</a>
+            <a class="follow-btn" href="https://www.youtube.com/playlist?list=PLVmwIEfrcKqkdQyQ_nvEyijiz6qk3z1Oe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>YouTube</a>
+            <a class="follow-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/high-impact-growth" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>Amazon Music</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest organizations marquee -->
+  <div class="guest-marquee" aria-label="Podcast guests from these organizations">
+    <span class="guest-marquee-lead">Podcast guests from</span>
+    <div class="guest-marquee-viewport">
+      <div class="guest-marquee-track">
+        <span class="guest-item">Last Mile Health</span>
+        <span class="guest-item">IDinsight</span>
+        <span class="guest-item">GiveDirectly</span>
+        <span class="guest-item">Mercy Corps</span>
+        <span class="guest-item">Jacaranda Health</span>
+        <span class="guest-item">Mulago Foundation</span>
+        <span class="guest-item">Devex</span>
+        <span class="guest-item">Nexleaf Analytics</span>
+        <span class="guest-item">Lwala Community Alliance</span>
+        <span class="guest-item">Friendship Bench</span>
+        <span class="guest-item">MiracleFeet</span>
+        <span class="guest-item">Coefficient Giving</span>
+        <span class="guest-item">UC Berkeley</span>
+        <span class="guest-item">Patrick J. McGovern Foundation</span>
+        <span class="guest-item" aria-hidden="true">Last Mile Health</span>
+        <span class="guest-item" aria-hidden="true">IDinsight</span>
+        <span class="guest-item" aria-hidden="true">GiveDirectly</span>
+        <span class="guest-item" aria-hidden="true">Mercy Corps</span>
+        <span class="guest-item" aria-hidden="true">Jacaranda Health</span>
+        <span class="guest-item" aria-hidden="true">Mulago Foundation</span>
+        <span class="guest-item" aria-hidden="true">Devex</span>
+        <span class="guest-item" aria-hidden="true">Nexleaf Analytics</span>
+        <span class="guest-item" aria-hidden="true">Lwala Community Alliance</span>
+        <span class="guest-item" aria-hidden="true">Friendship Bench</span>
+        <span class="guest-item" aria-hidden="true">MiracleFeet</span>
+        <span class="guest-item" aria-hidden="true">Coefficient Giving</span>
+        <span class="guest-item" aria-hidden="true">UC Berkeley</span>
+        <span class="guest-item" aria-hidden="true">Patrick J. McGovern Foundation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Episodes -->
+  <section class="section archive-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The Archive</span>
+        <h2 class="section-title">Every High-Impact Growth episode</h2>
+        <p class="section-lede">The complete High Impact Growth archive, from the first episode to the latest.</p>
+      </div>
+      <div class="episodes-grid">
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-83-40000-health-workers-one-ai-powered-lifeline.jpg" alt="High-Impact Growth Episode 83 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 83 &middot; May 2026</div>
+            <div class="episode-title">40,000 Health Workers, One AI-Powered Lifeline</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Abraham Zerihun (Last Mile Health) and Sid Ravinutala (IDinsight). HEP Assist: a generative AI call center supporting Ethiopia&rsquo;s 40,000 health extension workers, with RAG architecture, local language support, and 6,500+ AI-supported consultations.</p>
+            <a class="episode-link" href="ep-83-40000-health-workers-one-ai-powered-lifeline/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/podcast-community-mental-health-workers.jpg" alt="High-Impact Growth Episode 82 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 82 &middot; April 2026</div>
+            <div class="episode-title">Closing the Gap: Scaling Mental Health Care Through Local Heroes</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Pavel Reppo (Finemind). How do you deliver mental health care in a country of 50 million people with roughly 50 psychiatrists? Task-shifting to nurses and midwives in Uganda.</p>
+            <a class="episode-link" href="podcast-community-mental-health-workers/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/podcast-nonprofit-individual-giving.jpg" alt="High-Impact Growth Episode 81 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 81 &middot; February 2026</div>
+            <div class="episode-title">Thinking About Individual Giving? Start Here</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Javan Van Gronigen (Donate.ly). Why storytelling beats technology, the &lsquo;random acts of marketing&rsquo; trap, and building individual giving that actually scales.</p>
+            <a class="episode-link" href="podcast-nonprofit-individual-giving/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/podcast-responsible-ai-global-health.jpg" alt="High-Impact Growth Episode 80 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 80 &middot; January 2026</div>
+            <div class="episode-title">Beyond &ldquo;AI for Good&rdquo;: Building Responsible AI</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Genevieve Smith (UC Berkeley). Why &lsquo;AI for good&rsquo; is not enough, and the five lenses every team needs to deploy AI responsibly.</p>
+            <a class="episode-link" href="podcast-responsible-ai-global-health/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-78-what-makes-a-dollar-matter-lessons-from-coefficient-giving.jpg" alt="High-Impact Growth Episode 78 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 78 &middot; December 2025</div>
+            <div class="episode-title">What Makes a Dollar Matter? Lessons from Coefficient Giving</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Deena Mousa (Coefficient Giving). The frameworks behind one of the world&rsquo;s most analytically driven funders, and how to find where a dollar does the most good.</p>
+            <a class="episode-link" href="ep-78-what-makes-a-dollar-matter-lessons-from-coefficient-giving/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-77-the-thinking-you-cant-skip-ai-for-good-at-a-crossroads.jpg" alt="High-Impact Growth Episode 77 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 77 &middot; November 2025</div>
+            <div class="episode-title">The Thinking You Can&rsquo;t Skip: AI for Good at a Crossroads</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Brian DeRenzi (Dimagi). Part four of our AI for Good series: what AI still cannot do, hidden bias in frontier models, and the thinking you cannot skip.</p>
+            <a class="episode-link" href="ep-77-the-thinking-you-cant-skip-ai-for-good-at-a-crossroads/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/funders-power-to-change-the-system.jpg" alt="High-Impact Growth Episode 76 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 76 &middot; October 2025</div>
+            <div class="episode-title">Funders: The Power to Change the System</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Dr. Kevin Starr (Mulago Foundation). Why broken funding models are a &lsquo;much needed reality bath,&rsquo; and how funders can back what actually scales.</p>
+            <a class="episode-link" href="funders-power-to-change-the-system/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-75-a-radical-bet-on-simplicity-and-affordability.jpg" alt="High-Impact Growth Episode 75 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 75 &middot; October 2025</div>
+            <div class="episode-title">A Radical Bet on Simplicity and Affordability</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Gillian Javetski and Isma&iuml;la Diene (Dimagi). After the 2025 USAID cuts, a radical bet on simplicity and affordability as strategy, not compromise.</p>
+            <a class="episode-link" href="ep-75-a-radical-bet-on-simplicity-and-affordability/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/leadership-through-chaos-jayson-morris.jpg" alt="High-Impact Growth Episode 74 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 74 &middot; September 2025</div>
+            <div class="episode-title">Leading Through Chaos: Grief, Healing, and Emergent Leadership</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Jayson Morris. A new playbook for uncertain times: leading through grief, healing, and emergent leadership with authenticity.</p>
+            <a class="episode-link" href="leadership-through-chaos-jayson-morris/index.html">Listen now</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- More Episodes -->
+  <section class="section more-section">
+    <div class="container">
+      <div class="episodes-grid" id="more-grid">
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/next-chapter-in-global-development.jpg" alt="High-Impact Growth Episode 73 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 73 &middot; August 2025</div>
+            <div class="episode-title">Disrupted, Not Defeated: The Next Chapter in Global Development</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Raj Kumar (Devex). A post-peak-ODA world: why value-for-money is now survival, and how organizations can shape what comes next.</p>
+            <a class="episode-link" href="next-chapter-in-global-development/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/somatic-leadership-franzi.jpg" alt="High-Impact Growth Episode 72 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 72 &middot; July 2025</div>
+            <div class="episode-title">The Somatic Edge: Leading with Capacity in a Stress-Filled World</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Franzi Gonder. How somatic awareness builds the resilience and presence that leadership under pressure demands.</p>
+            <a class="episode-link" href="somatic-leadership-franzi/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/systems-burned-with-nithya-ramanathan.jpg" alt="High-Impact Growth Episode 71 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 71 &middot; June 2025</div>
+            <div class="episode-title">&ldquo;The System&rsquo;s Burned Down. This Is Our Moment.&rdquo;</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With Nithya Ramanathan (Nexleaf Analytics). Why the disruption of old global health models is the opening to rebuild for real impact.</p>
+            <a class="episode-link" href="systems-burned-with-nithya-ramanathan/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-70-flipping-the-script-on-aid-five-talents-journey-to-participatory-impact.jpg" alt="High-Impact Growth Episode 70 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 70 &middot; May 2025</div>
+            <div class="episode-title">Flipping the Script on Aid: Five Talents&rsquo; Journey to Participatory Impact</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">With the team at Five Talents. What changes when communities, not donors, define success and own their data? Savings-led development across Eastern Africa.</p>
+            <a class="episode-link" href="ep-70-flipping-the-script-on-aid-five-talents-journey-to-participatory-impact/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/episode-69-cash-choice-and-dignity-how-givedirectly-is-changing-aid.jpg" alt="High-Impact Growth Episode 69 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 69 &middot; April 2025</div>
+            <div class="episode-title">Cash Transfers in Aid: GiveDirectly’s Bold Approach</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Stella Luk of GiveDirectly joins Dimagi's Erin Quinn to ask a simple question: what if, instead of deciding what people need, we gave them cash and trusted them to choose?</p>
+            <a class="episode-link" href="episode-69-cash-choice-and-dignity-how-givedirectly-is-changing-aid/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/ep-68-the-people-and-planet-parts-of-running-a-sustainable-company.jpg" alt="High-Impact Growth Episode 68 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 68 &middot; March 2025</div>
+            <div class="episode-title">The People &amp; Planet Parts of Running a Sustainable Company</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Two leaders from Dimagi's People Operations team join the hosts to unpack what it really takes to run a company sustainably for both its employees and the planet, from rebuilding performance management to.</p>
+            <a class="episode-link" href="ep-68-the-people-and-planet-parts-of-running-a-sustainable-company/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/podcast/covers/episode-67-the-future-of-aid-adapting-to-a-changing-funding-landscape.jpg" alt="High-Impact Growth Episode 67 cover" loading="lazy">
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 67 &middot; March 2025</div>
+            <div class="episode-title">The Future of Aid: Adapting to a Changing Funding Landscape</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">As USAID cancels thousands of contracts and global aid budgets shrink, two Dimagi managing directors share what the funding cuts mean for partners on the ground and how digital tools can stretch every.</p>
+            <a class="episode-link" href="episode-67-the-future-of-aid-adapting-to-a-changing-funding-landscape/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 66 &middot; December 2024</div>
+            <div class="episode-title">Building SaaS Products for Global Health</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Three Dimagi product leaders behind CommCare and SureAdhere on what it really takes to build SaaS for global health: moving from donor-driven projects to a sustainable product model, and why product marketing.</p>
+            <a class="episode-link" href="ep-66-building-saas-products-for-global-health-lessons-from-commcare-sureadhere/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 65 &middot; November 2024</div>
+            <div class="episode-title">From Extractive to Inclusive Data Sharing in Global Development</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Nora Lindström of Catholic Relief Services and Dimagi's Erin Quinn on moving global development past extractive data practices, returning insights to the communities they come from, and the evolving role of.</p>
+            <a class="episode-link" href="ep-65-from-extractive-data-collection-to-inclusive-data-sharing/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 64 &middot; October 2024</div>
+            <div class="episode-title">Strategic Data Management for Violence Prevention Impact</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dr. Charles Elliott of Cure Violence Global on treating violence like an epidemic, and how a thoughtful data strategy built on CommCare helps frontline workers earn credit, build trust, and prove their impact.</p>
+            <a class="episode-link" href="ep-64-the-strategic-role-of-data-management-in-cure-violence-globals-work/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 63 &middot; September 2024</div>
+            <div class="episode-title">Improving Health Worker Jobs to Boost Outcomes</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">A frank roundtable on CommCare Connect, Dimagi's biggest bet: a platform built on four pillars, Learn, Deliver, Verify, and Pay, that lets community health workers opt in to additional work and get paid for it.</p>
+            <a class="episode-link" href="ep-63-improving-health-worker-jobs-to-improve-outcomes-with-commcare-connect/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 62 &middot; August 2024</div>
+            <div class="episode-title">Financing Community Health Programs in Africa</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Nan Chen, Co-Executive Director of Africa Frontline First, on the financing challenge behind community health worker programs, and how better money and smarter coordination are moving them from political.</p>
+            <a class="episode-link" href="ep-62-financing-community-health-programs-with-africa-frontline-first/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 59 &middot; June 2024</div>
+            <div class="episode-title">What's New in Al: Equity-enhancing use cases and Open Chat Studio</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part three of Dimagi's AI series. Jonathan Jackson and research lead Brian DeRenzi catch up on a fast-moving field, from low-resource language testing to Open Chat Studio, and how to bend the arc of AI toward.</p>
+            <a class="episode-link" href="episode-59-whats-new-in-al-equity-enhancing-use-cases-and-open-chat-studio-2/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 57 &middot; May 2024</div>
+            <div class="episode-title">Solve One Problem: From vision to global impact with Chesca Colloredo-Mansfeld, Co-Founder of MiracleFeet</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Chesca Colloredo-Mansfeld left the corporate world to co-found MiracleFeet and bet that one simple, low-cost treatment for clubfoot could reach every child born with it.</p>
+            <a class="episode-link" href="episode-57-solve-one-problem-from-vision-to-global-impact-with-chesca-colloredo-mansfeld-co-founder-of-miraclefeet-2/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 55 &middot; March 2024</div>
+            <div class="episode-title">Glasswing International: Empowering Communities through Mental Health Care and Leveraging Technology for Lasting Impact</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Glasswing International co-founder and president Celina de Sola on building a community-driven, non-clinical model for mental health care across Latin America and New York City, and using technology and data.</p>
+            <a class="episode-link" href="ep55-glasswing-international-empowering-communities-through-mental-health-care-and-leveraging-technology-for-lasting-impact/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 54 &middot; January 2024</div>
+            <div class="episode-title">Empowering Healthcare Access: How the US Digital Service at CMS is Shaping Policies and Creating an Equitable Digital Future</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Andrea Fletcher and Remy DeCausemaker of the Digital Service at the Centers for Medicare and Medicaid Services on how technology, open source collaboration, and AI transparency are shaping U.S.</p>
+            <a class="episode-link" href="ep54-empowering-healthcare-access-how-the-us-digital-service-at-cms-is-shaping-policies-and-creating-an-equitable-digital-future/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 53 &middot; December 2023</div>
+            <div class="episode-title">Equity and AI in Global Health: Leveraging AI to Benefit Underserved Populations and Dispel Inequitable Dystopia</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Four months into Dimagi's AI exploration, Jonathan Jackson and research lead Brian DeRenzi take stock: over a hundred chatbots built, a Gates-funded coaching grant won, and a hard question of how to spread.</p>
+            <a class="episode-link" href="ep53-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 52 &middot; November 2023</div>
+            <div class="episode-title">Category Design and Why It Matters for Global Health and Development Organizations Engaged in Breakthrough Work</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Category Design pioneer Chris Lochhead joins our co-hosts to explain why breakthrough impact comes from creating a new category, not competing in an old one, and how NGOs can make their problem the world's.</p>
+            <a class="episode-link" href="ep52-category-design-and-why-it-matters-for-global-health-and-development-organizations-engaged-in-breakthrough-work/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 51 &middot; October 2023</div>
+            <div class="episode-title">Reimagining Tuberculosis Treatment and Care: Putting People at the Center of Tech Innovation</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Jackie Huh of the Stop TB Partnership and Dr. Kelly Collins of SureAdhere on Reimagining TB Care, a 360-degree, people-centered approach to one of the world's most fatal infectious diseases.</p>
+            <a class="episode-link" href="ep51-reimagining-tuberculosis-treatment-and-care-putting-people-at-the-center-of-tech-innovation/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 50 &middot; September 2023</div>
+            <div class="episode-title">Enabling and Elevating Community Health Workers across the US: Insights from MHP Salud’s Impact Delivery Approach to Technology</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">MHP Salud's CEO Dr. Maggie Dante and Data and Evaluation Analyst Rachel Udow on a decade of digital transformation, and what it takes to enable and elevate Community Health Workers across the US.</p>
+            <a class="episode-link" href="ep50-enabling-and-elevating-community-health-workers-across-the-us-insights-from-mhp-saluds-impact-delivery-approach-to-technology/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 49 &middot; September 2023</div>
+            <div class="episode-title">Introducing Impact Delivery: Raising the Bar for Digital In Global Health Development</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Jonathan Jackson and Amie Vaccaro introduce Impact Delivery, Dimagi's approach to technology for global health and development that optimizes long term impact while accepting the real constraints of the work.</p>
+            <a class="episode-link" href="ep49-introducing-impact-delivery-raising-the-bar-for-digital-in-global-health-development/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 48 &middot; August 2023</div>
+            <div class="episode-title">From Skepticism to Scale: Lessons from Friendship Bench with Dr. Dixon Chibanda</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dr. Dixon Chibanda, founder and CEO of Friendship Bench, joins Jonathan Jackson to share how a team of trained grandmothers delivers evidence-based therapy on park benches across Zimbabwe, and the formula that.</p>
+            <a class="episode-link" href="ep48-from-skepticism-to-scale-lessons-from-friendship-bench/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 47 &middot; August 2023</div>
+            <div class="episode-title">Ethiopia’s Digitization Journey: The Path to Paperless with Dr. Girma Tadesse</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dr. Girma Tadesse of JSI traces Ethiopia's decades-long path toward a fully paperless community health system, and what it takes to move from collecting data to truly using it.</p>
+            <a class="episode-link" href="ep47-ethiopias-digitization-journey-the-path-to-paperless/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 46 &middot; July 2023</div>
+            <div class="episode-title">How the proCHW Movement Can Enable Quality Care for All with Dr. Madeleine Ballard</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dr. Madeleine Ballard of the Community Health Impact Coalition on the proCHW movement: making community health workers salaried, skilled, supervised, and supplied the global norm, and what that means for.</p>
+            <a class="episode-link" href="ep46-how-the-prochw-movement-can-enable-quality-care-for-all/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 45 &middot; July 2023</div>
+            <div class="episode-title">Too Valuable to Fail</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">A short Your Questions Answered episode unpacking a learning Jonathan Jackson shared on LinkedIn: after two decades in digital health, the goal is not to be too big to fail, but too valuable to fail.</p>
+            <a class="episode-link" href="ep45-too-valuable-to-fail/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 44 &middot; July 2023</div>
+            <div class="episode-title">Scaling Mental Healthcare: Exploring the Intersection of Mental Health, Physical Health, Human Connection &amp; Technology</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Three of Dimagi's mental health experts join Jonathan Jackson to unpack the global mental health gap, the power of frontline and self-help group models, and where digital tools can scale care without losing.</p>
+            <a class="episode-link" href="ep44-scaling-mental-healthcare-exploring-the-intersection-of-mental-health-physical-health-human-connection-amp-technology/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 43 &middot; June 2023</div>
+            <div class="episode-title">Empowering TB Patients through Technology: The SureAdhere Impact</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Chris Buri, a TB survivor and patient advocate, shares how he contracted tuberculosis from a contaminated cadaver bone and how video directly observed therapy with SureAdhere gave him his freedom and his.</p>
+            <a class="episode-link" href="ep43-empowering-tb-patients-through-technology-the-sureadhere-impact/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 42 &middot; June 2023</div>
+            <div class="episode-title">Taking New Technology from Research to Commercial Scale: The SureAdhere Story with Dr. Richard Garfein and Dr. Kelly Collins</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">How an idea born in academic research at UCSD became SureAdhere, a commercial venture using video directly observed therapy to transform tuberculosis treatment, told alongside one patient's year on the.</p>
+            <a class="episode-link" href="ep42-taking-new-technology-from-research-to-commercial-scale-the-sureadhere-story/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 41 &middot; June 2023</div>
+            <div class="episode-title">Reimagining Global Mental Healthcare with a Person-Centered, Digitally-Enabled Approach with Dr. Vikram Patel Co-Founder of Sangath and Successor to Paul Farmer at Harvard Medical School</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dr. Vikram Patel, psychiatrist, Sangath co-founder, and Paul Farmer's successor at Harvard Medical School, on scaling mental healthcare beyond specialists, the active ingredient in therapy, and using.</p>
+            <a class="episode-link" href="ep41-reimagining-global-mental-healthcare-with-a-person-centered-digitally-enabled-approach-with-dr-vikram-patel/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 40 &middot; June 2023</div>
+            <div class="episode-title">How Community Health Workers Shaped the Creation of CommCare, the Platform for Impactful Frontline Work with Gayo Mhila</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Co-host Amie Vaccaro revisits some of the first Community Health Workers who helped design and test CommCare in Tanzania in 2008, with Gayo Mhila and Dimagi's Global Director of Research, Dr. Brian DeRenzi.</p>
+            <a class="episode-link" href="ep40-how-community-health-workers-shaped-the-creation-of-commcare-the-platform-for-impactful-frontline-work/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 39 &middot; May 2023</div>
+            <div class="episode-title">Championing a Movement to Pay and Professionalize Community Health Workers with Margaret Odera</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Returning to a mango tree in Tanzania, where in 2008 Dimagi co-designed CommCare alongside the community health workers who were its earliest testers.</p>
+            <a class="episode-link" href="ep39-championing-a-movement-to-pay-and-professionalize-community-health-workers/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 38 &middot; May 2023</div>
+            <div class="episode-title">Building Resilience: The Key to Combating Burnout in Frontline Workers with Lilianna Bagnoli</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi's Lilianna Bagnoli on resilience as a learnable skill, and how WellMe, a CommCare-based app, aims to guard frontline workers against burnout across languages, geographies, and cadres.</p>
+            <a class="episode-link" href="ep38-building-resilience-the-key-to-combating-burnout-in-frontline-workers/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 37 &middot; May 2023</div>
+            <div class="episode-title">Equity and AI in Global Health: Exploring Large Language Models, Building Chatbots and Embracing Discomfort</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi's Brian DeRenzi joins John Jackson and Amie Vaccaro to explore how GPT-4 and large language models could advance equity in global health, from natural-language SMS to voice for non-literate populations.</p>
+            <a class="episode-link" href="ep37-equity-and-ai-in-global-health-exploring-large-language-models-building-chatbots-and-embracing-discomfort/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 36 &middot; May 2023</div>
+            <div class="episode-title">A New Era for Development with Raj Kumar of Devex: Shifting from a Project Mindset to an Investment Mindset</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Raj Kumar, founder of Devex, joins Jonathan Jackson to argue that 2023 opens a tougher new era for global development, one that demands a shift from a project mindset to a results-driven investment mindset.</p>
+            <a class="episode-link" href="episode-36-a-new-era-for-development-with-raj-kumar-of-devex-shifting-from-a-project-mindset-to-an-investment-mindset/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 35 &middot; May 2023</div>
+            <div class="episode-title">Undersupported, Unrecognized and Vital: 3 Community Health Workers Supported by Lwala Community Alliance Speak Out</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part two of our Lwala Community Alliance series, told in their own voices: three Community Health Workers in Migori County, Kenya describe their journey into the work, a day in the field, and why CHWs deserve.</p>
+            <a class="episode-link" href="ep35-undersupported-unrecognized-and-vital-3-community-health-workers-supported-by-lwala-community-alliance-speak-out/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 34 &middot; April 2023</div>
+            <div class="episode-title">The Four Pillars of Community-Led Health: Insights from Julius Mbeya, Co-CEO at Lwala Community Alliance</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Julius Mbeya, Co-CEO of Lwala Community Alliance, walks Jonathan Jackson through the four pillars of a community-led health model bringing quality, affordable care to the parts of Kenya that bear the heaviest.</p>
+            <a class="episode-link" href="ep34-the-four-pillars-of-community-led-health-insights-from-lwala-community-alliance/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 33 &middot; April 2023</div>
+            <div class="episode-title">Reducing Health Inequities Through Digital Innovation with Olukunle Akinwusi of FIND &amp; Erica Troncoso of Jhpiego: Dispatches from the Global Digital Health Forum 2022</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Recorded at the Global Digital Health Forum 2022, Jonathan Jackson sits down with FIND's Olukunle Akinwusi and Jhpiego's Erica Troncoso on closing diagnostic gaps, designing with frontline workers, and earning.</p>
+            <a class="episode-link" href="ep33-reducing-health-inequities-through-digital-innovation-with-find-andjhpiego/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 32 &middot; April 2023</div>
+            <div class="episode-title">Building Digital as a Horizontal Foundation: Insights from Growing Dimagi’s Marketing Team</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">The script flips: Jonathan Jackson interviews Amie Vaccaro on her path into social-impact marketing and the lessons from building marketing as a horizontal, foundational team at Dimagi, with lessons for anyone.</p>
+            <a class="episode-link" href="ep32-building-digital-as-a-horizontal-foundation-insights-from-growing-dimagis-marketing-team/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 31 &middot; March 2023</div>
+            <div class="episode-title">Reflections on Starting this Podcast</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Co-hosts Jonathan Jackson and Amie Vaccaro pause to look back on nine months of High Impact Growth: why they started, what surprised them, the tools they reached for, and what they would tell anyone thinking.</p>
+            <a class="episode-link" href="ep31-reflections-on-starting-this-podcast/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 30 &middot; March 2023</div>
+            <div class="episode-title">How to Double the Impact of Your Team with Liz Wiseman, Author of Multipliers</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Liz Wiseman, author of the bestseller Multipliers, joins Amie Vaccaro and Jonathan Jackson to unpack the leadership research behind getting twice as much from your team, and why mission-driven organizations.</p>
+            <a class="episode-link" href="ep30-how-to-double-the-impact-of-your-team-with-liz-wiseman-author-of-multipliers/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 29 &middot; March 2023</div>
+            <div class="episode-title">Prioritizing Better Jobs for Frontline Workers in the Digital Health Community</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Fresh from the Global Digital Health Forum, John Jackson and Amie Vaccaro unpack the session John led and a provocation for the field: what if a 10th Principle for Digital Development was to make the user's.</p>
+            <a class="episode-link" href="ep29-prioritizing-better-jobs-for-frontline-workers-in-the-digital-health-community/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 28 &middot; February 2023</div>
+            <div class="episode-title">Meeting the Need for Global Mental Health Care with Digital featuring Lauren Magoun</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi's Lauren Magoun joins Jonathan Jackson at the Global Digital Health Forum to unpack the global mental health gap and how non-specialist frontline workers, supported by digital tools, can help close it.</p>
+            <a class="episode-link" href="ep28-meeting-the-need-for-global-mental-health-care-with-digital/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 27 &middot; February 2023</div>
+            <div class="episode-title">How Will Advances in AI Impact Global Health and Development with Clayton Sims</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Recorded at the Global Digital Health Forum, Dimagi CTO Clayton Sims joins John Jackson to separate the AI hype from the practical, from language models and biometrics to copyright, on-prem hosting, and what.</p>
+            <a class="episode-link" href="ep27-how-will-advances-in-ai-impact-global-health-and-development/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 26 &middot; February 2023</div>
+            <div class="episode-title">Partnering with the Government to Improve Maternal Health with Nick Pearson and Sathy Rajasekharan of Jacaranda Health</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Recorded at the Global Digital Health Forum, Jonathan Jackson sits down with Jacaranda Health's co-executive directors Nick Pearson and Sathy Rajasekharan on partnering with Kenya's public health system to.</p>
+            <a class="episode-link" href="ep26-partnering-with-the-government-to-improve-maternal-health-with-jacaranda-health/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 25 &middot; February 2023</div>
+            <div class="episode-title">Creating a Digital Ecosystem to Improve Frontline Humanitarian Impact: Mercy Corps’ Approach to Monitoring, Evaluation and Learning</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Mercy Corps' MEL team on moving from fragmented monitoring and evaluation to a connected digital ecosystem, and how standardizing tools across 40 countries fuels program adaptation and faster, more.</p>
+            <a class="episode-link" href="ep25-creating-a-digital-ecosystem-to-improve-frontline-humanitarian-impact-mercy-corps-approach-to-monitoring-evaluation-and-learning/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 24 &middot; February 2023</div>
+            <div class="episode-title">Advocating for Frontline Workers at Davos: Reflections from a Social Entrepreneur after the World Economic Forum</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Fresh from the World Economic Forum Annual Meeting in Davos, Dimagi co-founder Jonathan Jackson shares candid reflections on the biggest problems we face and the biggest bets we need to make to create a better.</p>
+            <a class="episode-link" href="ep24-advocating-for-frontline-workers-at-davos-reflections-from-a-social-entrepreneur-after-the-world-economic-forum/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 23 &middot; January 2023</div>
+            <div class="episode-title">Unlocking the Potential of AI in Public Health with Rebecca Distler of the Patrick J. McGovern Foundation</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Recorded at the 2022 Global Digital Health Forum, Jonathan Jackson and Rebecca Distler of the Patrick J.</p>
+            <a class="episode-link" href="ep23-unlocking-the-potential-of-ai-in-public-health-with-the-patrick-j-mcgovern-foundation/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 22 &middot; January 2023</div>
+            <div class="episode-title">Taking a Whole-of-government Approach to Digital Health in Zambia with Innocent Chiboma from the Zambian Ministry of Health</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Innocent Chiboma of Zambia's Ministry of Health joins Jonathan Jackson to unpack what a whole-of-government approach to digital health really takes, and why it reaches far beyond the health ministry alone.</p>
+            <a class="episode-link" href="ep22-taking-a-whole-of-government-approach-to-digital-health-in-zambia/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 21 &middot; January 2023</div>
+            <div class="episode-title">Embrace Complexity for Impact: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 4)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">The final installment of Dimagi's values series. COO Lucina Tse, Chief of Staff Gillian Javetski, Avni Singhal, and Simon Kelly sit down with hosts Amie Vaccaro and Jonathan Jackson to unpack why the team.</p>
+            <a class="episode-link" href="ep21-embrace-complexity-for-impact-articulating-dimagis-culture-and-values/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 20 &middot; January 2023</div>
+            <div class="episode-title">Must-Listen Guidance for Technologists in Global Health from Malawi’s Head of Digital Health, Simeon Yosefe</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Simeon Yosefe, Malawi's Head of Digital Health, joins Jonathan Jackson to share hard-won guidance for technologists in global health: align to the government's vision, build for the long term, and replace.</p>
+            <a class="episode-link" href="ep20-must-listen-guidance-for-technologists-in-global-health-from-malawis-head-of-digital-health/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 19 &middot; December 2022</div>
+            <div class="episode-title">Evolve By Learning and Sharing Openly: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 3)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part three of Dimagi's culture series: four team members unpack the value "Evolve by learning and sharing openly," from out-collaborating rather than out-competing to learning candidly from failure.</p>
+            <a class="episode-link" href="ep19-evolve-by-learning-and-sharing-openly-articulating-dimagis-culture-and-values/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 18 &middot; December 2022</div>
+            <div class="episode-title">Lead with Empathy and Respect: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 2)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part two of Dimagi's values mini-series. Lucina Tse, Gillian Javetski, Avni Singhal, and Simon Kelly join hosts Jonathan Jackson and Amie Vaccaro to unpack what it means to lead with empathy and respect across.</p>
+            <a class="episode-link" href="ep18-lead-with-empathy-and-respect-articulating-dimagis-culture-and-values/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 17 &middot; December 2022</div>
+            <div class="episode-title">Nick Martin of TechChange on Training, Content, and the Evolution and Maturation of Digital Health</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Recorded on the sidelines of the 2022 Global Digital Health Forum, Nick Martin of TechChange joins Jonathan Jackson to trace a decade of digital health maturing, and why great training, content, and shared.</p>
+            <a class="episode-link" href="ep17-techchange-on-training-content-and-the-evolution-and-maturation-of-digital-health/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 16 &middot; November 2022</div>
+            <div class="episode-title">Be Bold But Humble: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 1)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">The first in a mini series on company culture: Jon Jackson, Amie Vaccaro, and four Dimagi team members unpack Be Bold But Humble, the first of Dimagi's newly articulated values, and why how the work gets done.</p>
+            <a class="episode-link" href="ep16-be-bold-but-humble-articulating-dimagis-culture-and-values/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 15 &middot; October 2022</div>
+            <div class="episode-title">Bringing Global Health Best Practices to US Public Health Response: Entering the US Market to Meet the Needs of COVID-19 with Carter Powers, Sarah Sagan and Lily Olson</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">When the CDC called at 1am in March 2020, Dimagi went from no solution to a fully deployed, at-scale COVID-19 case investigation and contact tracing system in under six weeks, entering the US market for the.</p>
+            <a class="episode-link" href="ep15-bringing-global-health-best-practices-to-us-public-health-response-entering-the-us-market-to-meet-the-needs-of-covid-19/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 14 &middot; October 2022</div>
+            <div class="episode-title">The Journey to Scale: Lessons learned from supporting the largest digitally-enabled Frontline Worker program in the world with Kriti Mehrotra, Shayoni Mazumdar and Stella Luk</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">The inside story of ICDS CAS, the largest digital health project Dimagi has ever taken on, equipping more than 600,000 of India's anganwadi nutrition workers with CommCare, and what it taught the team about.</p>
+            <a class="episode-link" href="ep14-the-journey-to-scale-lessons-learned-from-supporting-the-largest-digitally-enabled-frontline-worker-program-in-the-world/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 13 &middot; September 2022</div>
+            <div class="episode-title">Takeaways from the 77th United Nations General Assembly: Breaking Down Silos, Supporting the Global Fund’s 7th Replenishment, and Unpacking Global Development’s Talent Gap with Dr. Kelly Collins</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Jonathan Jackson and Dr. Kelly Collins return from the 77th UN General Assembly with takeaways on breaking down disease silos, the Global Fund's 7th Replenishment, and the talent gap holding back global health.</p>
+            <a class="episode-link" href="ep13-takeaways-from-the-77th-united-nations-general-assembly/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 12 &middot; September 2022</div>
+            <div class="episode-title">Failure is Not Free: Maximizing Learning Velocity with Funding from USAID Development Innovation Ventures with Kriti Mehrotra, Jeremy Wacksman and Sri Ranganathan</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part three of Dimagi's 20th anniversary series looks back at 2010 to 2014, when two USAID Development Innovation Ventures grants funded dozens of CommCare pilots across India and pushed the team's learning.</p>
+            <a class="episode-link" href="ep12-failure-is-not-free-maximizing-learning-velocity-with-funding-from-usaid-development-innovation-ventures/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 11 &middot; September 2022</div>
+            <div class="episode-title">Dimagi’s Big Break: Receiving Instrumental Core Funding from the Bill &amp; Melinda Gates Foundation with Tim Wood, Former Senior Program Officer</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Tim Wood, the Senior Program Officer who led the Gates Foundation's investment in Dimagi, joins Jonathan Jackson to tell the story of a rare platform-level grant that funded CommCare itself rather than another.</p>
+            <a class="episode-link" href="ep11-dimagis-big-break-receiving-instrumental-core-funding-from-the-bill-and-melinda-gates-foundation/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 10 &middot; August 2022</div>
+            <div class="episode-title">Solving Hard Problems, Designing Under the Mango Tree, and Taking a Product Approach: Lessons Learned from the Making of CommCare featuring Dr. Brian DeRenzi, Clayton Sims, Cory Zue and Dr. Neal Lesh</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Four early Dimagi employees most involved in building CommCare join Jonathan Jackson to retrace the 14-year journey from bespoke projects to a low-code platform, and the design under the mango tree philosophy.</p>
+            <a class="episode-link" href="ep10-solving-hard-problems-designing-under-the-mango-tree-and-taking-a-product-approach-lessons-learned-from-the-making-of-commcare/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 9 &middot; August 2022</div>
+            <div class="episode-title">Out-collaborating vs Out-competing: The Secret to Making Progress on Complex International Development Challenges with Gillian Javetski</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi Chief of Staff Gillian Javetski joins Jonathan Jackson to unpack why global health and development reward out-collaborating over out-competing, and what separates good collaboration from bad.</p>
+            <a class="episode-link" href="ep9-out-collaborating-vs-out-competing-the-secret-to-making-progress-on-complex-international-development-challenges/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 8 &middot; August 2022</div>
+            <div class="episode-title">Why Improving Frontline Worker Jobs is Critical to Improving Health Outcomes with Dr. Neal Lesh</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi puts a stake in the ground: you cannot reach universal health coverage until the jobs of frontline workers get better. Jonathan Jackson and Dr.</p>
+            <a class="episode-link" href="ep8-why-improving-frontline-worker-jobs-is-critical-to-improving-health-outcomes/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 7 &middot; July 2022</div>
+            <div class="episode-title">The Challenges and Opportunities of Taking Digital Solutions to National Scale with Ismaïla Diene and Fatou Sow (Exceed Market Expectations)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Ismaïla Diene and Fatou Sow of Dimagi's Solutions Division on what it takes to bring digital tools like CommCare to national scale, and why deepening partnerships is central to long-term impact.</p>
+            <a class="episode-link" href="ep7-the-challenges-and-opportunities-of-taking-digital-solutions-to-national-scale/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 6 &middot; July 2022</div>
+            <div class="episode-title">Developing CommCare to Scale iNGO Impact with Dev More (Exponential Growth Part 3)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part three of Dimagi's exponential growth series. Dev More, Sr Director of Product, on scaling CommCare toward a million users by making it as commonplace inside an iNGO as email.</p>
+            <a class="episode-link" href="ep6-developing-commcare-to-scale-ingo-impact/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 5 &middot; June 2022</div>
+            <div class="episode-title">Building a Partner Ecosystem &amp; Subverting the Hubris of Aid with Rowena Luk (Exponential Growth Part 2)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Rowena Luk, Dimagi's Chief Connector, on building a thriving partner ecosystem of local developers and implementers, and why opening up CommCare as infrastructure is how communities lift themselves out of.</p>
+            <a class="episode-link" href="ep5-building-a-partner-ecosystem-subverting-the-hubris-of-aid/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 4 &middot; June 2022</div>
+            <div class="episode-title">Prioritizing Platforms Over Projects with Danny Roberts (Exponential Growth Part 1)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Dimagi's Director of Engineering Danny Roberts joins Jonathan Jackson to unpack Strategic Priority #2, sustaining exponential growth by prioritizing platforms over projects, so impact can scale without scaling.</p>
+            <a class="episode-link" href="ep4-prioritizing-platforms-over-projects/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 3 &middot; May 2022</div>
+            <div class="episode-title">Business Model Changes, Key Hires, and Cultural Evolution with Jonathan Jackson and Dr. Neal Lesh (The Founding Story Part 2)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part two of Dimagi's founding story: the shift to open source, the launch of CommCare as a SaaS product, the early hires who shaped the company, and how a scrappy group of friends grew into a global.</p>
+            <a class="episode-link" href="ep3-business-model-changes-key-hires-and-cultural-evolution/index.html">Listen now</a>
+          </div>
+        </article>
+
+        <article class="episode-card">
+          <div class="episode-card-thumb">
+            <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
+            <div class="episode-card-thumb-overlay">
+              <div class="episode-play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="episode-card-body">
+            <div class="episode-num">Episode 2 &middot; May 2022</div>
+            <div class="episode-title">Fortuitous Meetings and Tough Decisions with Dr. Vikram Kumar and Jonathan Jackson (The Founding Story Part 1)</div>
+            <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">Part one of the Dimagi founding story, told by co-founders Dr. Vikram Kumar and Jonathan Jackson: a chance meeting at MIT, a 15-second decision to join, and a first national medical record project in Zambia.</p>
+            <a class="episode-link" href="ep2-fortuitous-meetings-and-tough-decisions/index.html">Listen now</a>
+          </div>
+        </article>
+
+      </div>
+      <div class="more-wrap">
+        <button type="button" id="more-episodes-btn" class="btn btn-arrow">Load More Episodes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Hosts -->
+  <section class="section hosts-section">
+    <div class="container">
+      <div class="hosts-head">
+        <div class="section-head">
+          <span class="eyebrow">The Hosts</span>
+          <h2 class="section-title">Meet the hosts</h2>
+          <p class="section-lede">High-Impact Growth is hosted by Dimagi CEO Jonathan Jackson and CommCare VP of Growth &amp; Strategy Amie Vaccaro.</p>
+        </div>
+        <img class="hosts-illustration" src="../assets/images/podcast/hosts-illustration.jpg" alt="Illustration of Jonathan Jackson and Amie Vaccaro recording the High-Impact Growth podcast" loading="lazy" width="1201" height="800">
+      </div>
+      <div class="hosts-grid">
+        <article class="host-card">
+          <div class="host-head">
+            <div class="host-card-photo"><img src="../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="host-head-text">
+              <p class="host-card-name">Jonathan Jackson</p>
+              <p class="host-card-role">Co-Founder &amp; CEO, Dimagi</p>
+            </div>
+          </div>
+          <p class="host-card-bio">Jonathan is the Co-Founder and Chief Executive Officer of Dimagi. He oversees a global team supporting digital solutions across the vast majority of countries with globally-recognized partners, and has led Dimagi to become a leading social enterprise and the creator of CommCare, the world's most widely used data collection platform.</p>
+          <a class="host-card-link" href="https://www.linkedin.com/in/jonathanljackson/" target="_blank" rel="noopener">LinkedIn</a>
+        </article>
+        <article class="host-card">
+          <div class="host-head">
+            <div class="host-card-photo"><img src="../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="host-head-text">
+              <p class="host-card-name">Amie Vaccaro</p>
+              <p class="host-card-role">VP of Growth &amp; Strategy, CommCare</p>
+            </div>
+          </div>
+          <p class="host-card-bio">Amie is the VP of Growth &amp; Strategy for Dimagi&rsquo;s digital platform for Frontline Workers, CommCare. She leads the team responsible for CommCare&rsquo;s brand strategy. Passionate about bringing together creativity, empathy, and technology to help people thrive, she brings over 15 years of experience in B2B technology product marketing.</p>
+          <a class="host-card-link" href="https://www.linkedin.com/in/amievaccaro/" target="_blank" rel="noopener">LinkedIn</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../professional-services/index.html">Overview</a></li>
+          <li><a href="../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../professional-services/india/index.html">India</a></li>
+          <li><a href="../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../company/about/index.html">About Us</a></li>
+          <li><a href="../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../podcast/index.html">Podcast</a></li>
+          <li><a href="../company/careers/index.html">Careers</a></li>
+          <li><a href="../contact/index.html">Contact Us</a></li>
+          <li><a href="../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../legal/terms-of-service/index.html">Terms</a>
+        <a href="../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/nav.js?v=4"></script>
+<script>
+/* "Load More Episodes": the first click reveals a batch and removes the button,
+   then the remaining episodes stream in automatically as you scroll. */
+(function(){
+  var BATCH = 9;
+  var grid = document.getElementById('more-grid');
+  var btn = document.getElementById('more-episodes-btn');
+  if (!grid || !btn) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.episode-card'));
+  if (!cards.length) { btn.style.display = 'none'; return; }
+
+  var shown = 0;
+  cards.forEach(function(c){ c.classList.add('is-hidden'); });
+
+  // Sentinel just below the grid; as it nears the viewport we reveal the next batch.
+  var sentinel = document.createElement('div');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.style.cssText = 'height:1px;width:100%;';
+  grid.parentNode.insertBefore(sentinel, grid.nextSibling);
+
+  function revealNext(){
+    cards.slice(shown, shown + BATCH).forEach(function(c){
+      c.classList.remove('is-hidden');
+      c.classList.add('is-revealing');
+    });
+    shown = Math.min(shown + BATCH, cards.length);
+    return shown >= cards.length; // true when everything is shown
+  }
+
+  var auto = false, scheduled = false;
+  function check(){
+    if (!auto) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var guard = 0;
+    // reveal batches while the sentinel sits within ~600px of the viewport bottom
+    while (shown < cards.length && sentinel.getBoundingClientRect().top - vh < 600 && guard++ < 30) {
+      if (revealNext()) { stopAuto(); return; }
+    }
+  }
+  function onScroll(){
+    if (scheduled) return;
+    scheduled = true;
+    setTimeout(function(){ scheduled = false; check(); }, 90);
+  }
+  function startAuto(){
+    auto = true;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+  function stopAuto(){
+    auto = false;
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+  }
+
+  btn.addEventListener('click', function(){
+    var done = revealNext();      // first batch on click
+    btn.style.display = 'none';   // button goes away after the first click
+    if (!done) startAuto();       // the rest stream in on scroll
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 31: Reflections on Starting this Podcast | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jonathan Jackson and Amie Vaccaro reflect on nine months of High Impact Growth: why they started, what they learned, and tips for new podcasters.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep31-reflections-on-starting-this-podcast/">
+<meta property="og:title" content="Ep 31: Reflections on Starting this Podcast">
+<meta property="og:description" content="Nine months in: the hosts reflect on why they started High Impact Growth, what surprised them, and advice for new podcasters.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>March 28, 2023</span>
+          <span class="dot"></span>
+          <span>32 min</span>
+        </div>
+        <h1 class="ep-title">Reflections on Starting this Podcast</h1>
+        <p class="ep-deck">Co-hosts Jonathan Jackson and Amie Vaccaro pause to look back on nine months of High Impact Growth: why they started, what surprised them, the tools they reached for, and what they would tell anyone thinking about launching a podcast.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://www.youtube.com/embed/b7B2HpEeJ8U"
+            width="100%" height="352" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="YouTube player: Episode 31 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000656400364" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/b7B2HpEeJ8U?si=Kv2xCwFBhJ2mHuCS" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/c08a1b86-930e-4067-8328-65f70b1c18ba/high-impact-growth-reflections-on-starting-this-podcast" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">9 months</div>
+          <div class="ep-stat-label">of podcasting the hosts reflect on in this check-in</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">30 days</div>
+          <div class="ep-stat-label">from deciding to do the podcast to actually doing it</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">2 decades</div>
+          <div class="ep-stat-label">of Jonathan Jackson&#x27;s work the show draws insights from</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>After nine months of recording, co-hosts Jonathan Jackson and Amie Vaccaro turn the microphone on themselves. Prompted by a listener request, they check in on why they launched High Impact Growth in May 2022, why they keep going, and what they have learned along the way.</p>
+        <p>The conversation traces the journey from idea to launch in roughly 30 days, the goal of sharing non-obvious insights rather than chasing a large audience, and the moments that made it feel worthwhile, including a peer who made certain episodes required listening for her team. They also name the people behind the scenes and the tools, like Riverside and Descript, that made the process work.</p>
+        <p>Along the way they get honest about the tensions of podcasting: when to share an idea early versus waiting until it is proven, the push to bring in more outside voices, and the value of a bias toward shipping. They close with candid encouragement for anyone considering starting their own show.</p>
+
+        <blockquote>
+          <p>&ldquo;If you are interested in starting a podcast, do it. I really recommend it. Find your non-obvious perspectives to share. We need more honest, transparent dialogue.&rdquo;</p>
+          <cite>Amie Vaccaro, on advice for new podcasters</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From idea to launch in 30 days</strong>: how a long-talked-about idea finally became a real show</li>
+          <li><strong>Non-obvious over big numbers</strong>: why the goal was a focused niche, not a huge audience</li>
+          <li><strong>Signals it was working</strong>: external feedback, funders tuning in, and episodes becoming required listening for a peer's team</li>
+          <li><strong>A healthy tension</strong>: sharing ideas early versus waiting until they are proven out</li>
+          <li><strong>Bias to shipping</strong>: getting episodes out the door instead of perfecting them forever</li>
+          <li><strong>The toolkit</strong>: how Riverside, Descript, and Descript's studio sound shaped the production</li>
+          <li><strong>Where it goes next</strong>: bringing in more outside voices, including frontline workers</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi about the role of technology and creating a world where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost. Along with Jonathan Jackson. Dimagi CEO and co-founder. Today, Jonathan and I reflect on nine months of podcasting.</p>
+              <p>We launched this podcast high impact growth in may of 2022. And today we check in, why did we start it? Why are we continuing it? How’s it going? What have we learned along the way? What surprised us both good and bad. And what would we recommend to others considering starting a podcast? Enjoy.</p>
+              <p><span class="spk">Amie:</span> All right, Jonathan, welcome to the podcast. So for today’s episode, we actually got a request from one of our listeners to do a bit of a reflection, on, how’s this going? And we launched the podcast in May of 2022.</p>
+              <p>And yeah, I thought it’d be fun to just do a quick, quick pulse check on how this is going and what we’ve, what we’ve learned along the way. So, Jonathan, I wanna ask you, how are you feeling about this podcast experiment?</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think it’s, it’s been great. And I just gotta say, Amy, the. Rapport that we’ve had. Obviously we get to work very closely together as you report directly to me, but, this podcast experience has been made really enjoyable for me because of all the hard work you and your team have done. So I just wanted to say thank you and I think we went from like, deciding to do it, to doing it within 30 days, you know, and I’ve been talking about wanting to do a podcast for a while, earlier in my time at DMA and in my career I had aspirations to do a lot of writing and I, I did at various points in time.</p>
+              <p>But I find this format, which I think is why it’s so popular for a lot of people also to be a very different type of, experience and format from writing. For at least this point in time and where we’re at at Dimagi has felt like a really good alignment of how we can get our message out and how we can, try to, you know, put something out there in the world that’s adding value to our listeners so that, that part’s been really exciting.</p>
+              <p>So yeah, I’m super excited by the year that we’ve had and the dialogue that we’ve had and, and how it’s helped crystallize, how we think and what we think for both our audience and internally too, actually.</p>
+              <p><span class="spk">Amie:</span> Yeah, absolutely. Yeah. I’m trying to think. I, I think you originally actually shared the idea of a podcast with me, like maybe a year and a half ago. And I think when I first heard that idea, I was sort of like, oh, wow, that’s just another thing. Like, is that really the thing? And then I actually wanna give a shout out to Heinrich Schrader, who was on the marketing team and also planted the seed of the idea.</p>
+              <p>And again, I was like, I don’t think so. I think that’s gonna be a distraction. So really, really grateful we kind of pushed through, I guess there were a number of folks that I sort of spoke to outside of DGI that were super helpful in, in sort of thinking about it and also realizing the ways in which a podcast can be really strategic.</p>
+              <p>But I also wanna give a shout out to Brianna Deus on my team who has been reviewing and editing every single episode. We finally, just in the last episode, Started adding like, credits at the end of the podcast, which I hadn’t thought to do. And also to Danielle Van Wick on my team who is stepping into a producer role.</p>
+              <p>So we’re definitely kind of formalizing the whole process of podcasting, which has been fun and like certainly a learning journey because yeah, when we started it, we were really flying by the seat of our pants, I think. And just kind of learning as we went. And I think we still are to, to some extent, , we’ve kind of got a little bit more of a process now, which is, which is fun.</p>
+              <p>So I’m curious down, I wanna ask you like, why did we start this podcast and why are we continuing it?</p>
+              <p><span class="spk">Jonathan:</span> That’s a deep question, Amy. I, I think, we started this, mostly, I think we have so many interesting perspectives, both inside the company and through the partners that we work in. and I think our, you know, this podcast is called High Impact Growth. And I think we sit in a interesting thesis that we have as a company of, of, you know, how you can make massive change.</p>
+              <p>And not everybody needs to agree with us, or not everybody needs to, you know, follow what we’re claiming. But I think the reason we wanted to put this together was we thought we did have a unique, perspective to offer. And I think it’s been exciting to try to bring that forward. last year and continuing this year.</p>
+              <p>And I, I hope that we’re doing that in, in, at least somewhat, you know, and that’s been our goal. It’s not to have a huge, audience per se, but it’s really to figure out what are the unique things we can offer, in, in each episode, but also as an arc and get that across because I think. , the, the lessons that we’ve learned that we’ve experienced and that we’re trying to solve for, I think don’t just apply to D Monge and also the, the reason the mission we’re here and the approach that we’re taking, I think is, is a view we’d like more people to undertake, just like our, you know, top five year priority around better jobs for better outcomes.</p>
+              <p>That’s something we definitely don’t want to, to be just a magie mantra or approach, but, you know, really convince others that this is a critical way to think about this problem. And then with our high pack growth framework, that was something we were really excited to, put out in the world last year and, and see how it could apply to other organizations as well.</p>
+              <p><span class="spk">Amie:</span> Yeah, absolutely. I think it’s been like, I think I knew going into this that it would be, and I kept telling you like, okay, it’s gonna be a really slow, slow growth process. We have to be very patient. All these things. And that definitely has been true. But I also think there have been a few moments where folks have reached out and shared the impact that it’s had.</p>
+              <p>And I think like the, the audio format can have such a big impact, even if it’s just a few, few key people. Right. And hopefully we keep growing that over time, but, . I think there was one moment for me when we were at the Global Digital Health Forum and a, a shout out to, to a woman named Grace PAMA at, open Rs, which is a collaborator of ours and a kind of a peer, who, really approached you, John, and said like, Hey, I make certain episodes required listening for folks on my team.</p>
+              <p>Like when I heard that, I was like, wow, this is, this is really something like we’re, we’re sharing valuable insights and we’re also, you know, to your point, we’re not trying to grow this. audience. We’re trying to share unique, not obvious content and insights, from, two decades of your work, John.</p>
+              <p>And I think that’s been really rewarding to start to see the benefit of that. But it is definitely a slow, a slow process too.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, and I think we knew we wanted to focus on, as you, as you articulated it, the not obvious insights and that we wanted to find a niche that it appealed to. and I, I’ve been really pleasantly surprised with how many people I’ve gotten external feedback from on the podcast. And, you know, many, many people I talk to now are like, oh yeah, I heard you say X, Y, and Z on, on this episode.</p>
+              <p>And so that, that’s been really rewarding. Not because we’re trying to grow an audience for the sake of growing an audience, but this has also been a way that people have gravitated towards Tamagi, listened to what we’re saying, and then applied because it really resonated with them. Or, funders who have listened.</p>
+              <p>And, and then, you know, figured out there’s an alignment in what we’re seeing and what, what types of projects they’re looking to fund. And in our partners that, that work with us, and, and better understand who we are and, and potentially ways we can strengthen our partnerships together. So there’s been tons of, of those anecdotes coming as well that have been really excited to, to hear from folks.</p>
+              <p><span class="spk">Amie:</span> Yeah, for sure. Those are some like kind of pleasant surprises. Were there any like unpleasant surprises that you’ve had along the way in this, in this journey?</p>
+              <p><span class="spk">Jonathan:</span> I don’t think unpleasant. I mean, again, you make it so effortless on my end that I just kind of have to show up and, and, have a, a great discussion with people. I think, you know, as we think about what is. Interesting at what phase I think has been something that’s been challenging. You know, we have a ton of really exciting stuff that’s gonna come out in 2023 and you’ve been, wanting to, to say, can we talk about it earlier?</p>
+              <p>And I’m kinda like, let’s prove it out and, you know, figure out the stories we had to share. And I think both of those are valid. Like it’s, it’s. I think great to talk about ideas that have not yet happened and not yet come to fruition. And share those, because maybe they spark an idea on somebody who’s listening.</p>
+              <p>And then, and I also have this inclination to be like, well, let’s like fully bake it, and, you know, have some evidence behind it. So I think that’s been one thing that, that has just been interesting to think about, particularly for this format. Like there’s nothing wrong with talking about an idea super early.</p>
+              <p>But I’m still a little bit shy, putting on my. Evidence-based hat of, of talking about stuff until we’ve had it more proven out. So that’s one. The other has been, you know, and we have a goal, you and I have a goal for this in 2023, like, how do we figure out other voices to bring in that can contribute to that non-obvious discussion and do that, you know, trying to reach the most important people, particularly, frontline workers in, in health and other industries.</p>
+              <p>And that’s something we. We want to try to do, obviously, to date a lot of this has been about our experience as Dimagi about my experience as the co-founder and ceo, but broadening out now how our non-obvious thoughts are playing into other people’s jobs, other people’s organizations, is gonna be a fun, growth opportunity while also still, you know, having one-on-one conversations with you and I and, and others that, that, you know, bring our unique perspective to the table.</p>
+              <p><span class="spk">Amie:</span> Yeah, absolutely. Yeah, I think that is, that is definitely like a kind of a, a tension. And for the listeners, like I’m, I’m always a fan of, let’s talk about it. Let’s share, let’s you know if this is a tricky, dicey. Issue that’s like coming up in management meetings. Like we should be sharing our thinking about it because maybe there’s, value there because these are hard conversations that are probably happening across the industry.</p>
+              <p>And I think Jonathan, your take is like, yes, and let’s like, wait till we’re a little bit further along and we have a little bit more of an understanding. And I think that’s a, a healthy tension to have .</p>
+              <p><span class="spk">Jonathan:</span> but yeah, there, there’s certain things I don’t feel. Rule talking about, because I don’t think I have anything non-obvious to say about them.</p>
+              <p>Right. I think they’re, there are other people much more eloquently, positioned to be, to be talking about some of these topics. So we really do try to find those that we think we’re adding, you know, something interesting and unique to the conversation.</p>
+              <p><span class="spk">Amie:</span> Yeah. Yeah, for sure. And I think that’s, it’s good to be good to be mindful of that, but also, good to have that healthy, healthy tension.</p>
+              <p><span class="spk">Jonathan:</span> What about on your side? Is there anything that’s, that’s been surprisingly challenging.</p>
+              <p><span class="spk">Amie:</span> Yeah. Well, so before I answer that, I wanna say, I agree with you also to your second point around like, let you know, bringing on more voices and. One sort of aha moment I had in this podcast journey was when we were at the Global Digital Health Forum, and I had organized a series of conversations for you with folks, and just seeing those conversations kind of unfold naturally.</p>
+              <p>It was really, it was exciting because I think like there was really interesting ground being covered. I think you’ve got a real knack as an interviewer, and I hadn’t seen you in that interviewer role. I. Largely, I kind of bring you in like as co-host and kind of subject matter expert. So I am excited to maybe do more, more of those types of conversations with folks externally where, I’m probably not the best interviewer because I’m fairly new to the space.</p>
+              <p>So that was one kind of aha moment for me. I think the format overall has been like pleasantly fun for me. Like I, that that’s been a surprise. . You know, I find sometimes, you know, I’ll work on, on weekends on the podcast cause I’m like, this is so much fun. And of course, my wife hates that and, I’m trying to limit that.</p>
+              <p>But, I have found it to be a really, really enjoyable medium to work through. And I love, I mean, I personally love podcast content. Like I, I consume a lot of podcast content, so it’s just been a really, really exciting thing for me, I think as the co-host with. , I think I’ve gotten a bit more comfortable speaking.</p>
+              <p>I think I was really, really nervous for before that first episode. And I’ve, you know, I get nervous before most episodes, but, I think I’m starting to realize that like, I am just one human and I can make mistakes and I can edit . The beauty of editing is amazing. Like, it’s just so, it’s such a great format because you can, you know, cut all kinds of things out and, and rerecord them as you need.</p>
+              <p><span class="spk">Jonathan:</span> And I have heard from, um, multiple people both inside the company and, and externally that they think you are wonderful at. Summarizing and, interviewing the show. So I think that is, I’m glad to hear that the, the comfort has increased, but I, I can definitely say from feedback that people think you’re wonderful.</p>
+              <p><span class="spk">Amie:</span> Oh, well that’s, that’s very nice to hear. Thank you, John. Yeah, I think actually that’s another fun part for me is actually when I get to re-listen to the interviews and then try to distill it down to what, what stands out for me. I. Think that really pushes my, my learning, which has been, which has been.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, and I think like, this is selfish, just obviously insider baseball for, for you and I, but having your head of marketing be able to be , the co-host is extremely helpful, for us because as you said, you know, you came out. From different industries in big tech and other social enterprises, but not in the healthcare domain.</p>
+              <p>And so when we have been talking about, you know, how to better support our messaging to governments or how to think about local partnerships, the work that we’ve done together on the podcast has been extremely helpful. You know, in, in our core business activities, with you running the marketing team as well.</p>
+              <p><span class="spk">Amie:</span> Yeah, no, I think it’s been like really strategically important for me to learn more, and get more involved in the perspectives and the point of view that we’re, we’re trying to take. I think another kind of learning I’ve had is just, and something I wanna in sort of set as an intention for us is just being even more, disciplined about it and actually just like, scheduling time to record and having these conversations.</p>
+              <p>I think we’ve, in our, you know, in the last months, a lot of our episodes we’re kind of pre-planned and then we had very specific topics, but I think there’s a lot of interesting insights that come out of less structured conversation. So I wanna, I wanna create space for that as. As well as bringing in more, more external voices.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, absolutely. And I think the, the. You again of the format is that that, lends itself to, to being easy. And I think one thing that we did, which is a great tip for others early on who are trying to get over the hump of podcasting. Amy would send me the episodes to review and I’m like, this is like, unless I really, really need to, all I’m gonna do is like, have nitpicky feedback and we should just ship, you know, like all things we need will just get the content out there.</p>
+              <p>Even if. Perfect. And that’s been great. And I think that it, it can be scary, like even with a tiny audience, just putting something out there in the world. But, do it, you know, it’s, it’s great. And, and figure out if you like it and then go from there. And I think we, you and I have talked about how we’re like, you know, we’re proud of these episodes on the podcast, even if nobody listens to it.</p>
+              <p>Right. I think we’re, we, we think we’re doing something cool. And I think that’s the measure of when you should put something out there.</p>
+              <p><span class="spk">Amie:</span> Yeah, absolutely. But I agree with you on that, like bias to shipping, right? Because you really, you could spend hours and hours and hours of time just like perfecting an episode, whereas you could also just get it out in the world and start spreading that idea. And move on to the next idea and share that one as well.</p>
+              <p>One other thing I’ll share just as a learning and, and a shout out to the tools that we’re using, I have to say Riverside and Descript have been fantastic tools. Somehow we found those very early on and have made those our kind of go-to. But, for anyone thinking about starting a podcast, descript is amazing because it’s a, it’s an editing tool lets you edit like it’s a, a Word document basically, but.</p>
+              <p>They have a mode called studio sound that I apply to every single speaker pretty much. And it makes, yeah, the audio quality sound way better. And I’ve gotten, actually no, well couple instances of like messing up on the audio, but , I’ve gotten very little complaints about audio quality and people have said like, pretty much the quality is up to par.</p>
+              <p>But yeah, I will, I will note that I for probably, a number of episodes. I had John’s mic backwards. We fixed that , so there were some audio quality issues earlier on, but even then people didn’t mention it because I think the script was so good at covering up, issues.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. Yeah. And one actually, I haven’t confirmed this, but I, I heard on another podcast I was listening to as, as you mentioned, I’m also an avid podcast listener, including some of the marketing content you sent me. But they were talking about how Reid Hoffman is going to do a podcast, talking to chat g p t, and then playing the voice back with another AI tool.</p>
+              <p>I forgot the name of that tool. But that, that was interesting to me. And, I’m definitely gonna listen to the first couple episodes of that. If, if that was in fact a correct statement.</p>
+              <p><span class="spk">Amie:</span> my gosh. Yeah, it’s a new, a new guest on the podcast chat, g b T.</p>
+              <p><span class="spk">Jonathan:</span> exactly.</p>
+              <p><span class="spk">Amie:</span> Wow. All right, Don. Anything else you wanna share about kind of where we’re going from here with the podcast and reflect?</p>
+              <p><span class="spk">Jonathan:</span> No, I just say thank, thank you to all of our, listeners over the last seven months. I think we’ve, built a, a small but, really interesting community and, and we’ll continue growing that in in 2023. I will say, if you have any ideas for speakers you’d like to hear from or, or topics, equally important that you’d like Amy and I and others, from within DMA gear outside of DGI to.</p>
+              <p>Hit up the webpage and, submit that and we’re excited to hear more from the community this year as well.</p>
+              <p><span class="spk">Amie:</span> Yes. Yep. Props to that one. Podcast, dam mongie.com is a great email address to write to. If you’ve got ideas for topics, questions, anything, we’re open to it. Awesome. Thanks so much, Jonathan.</p>
+              <p><span class="spk">Jonathan:</span> Great. I’m looking forward to, our episodes this year. Thanks, Amy.</p>
+              <p>Thank you so much for listening and supporting us along on this journey. We are continuing to embody Dimagi is value of evolved by openly learning and sharing weekly on this podcast. And we look forward to continuing on this journey with you. If you are interested in starting a podcast, do it. I really recommend it. Find your non-obvious perspectives to share.</p>
+              <p>We need more honest, transparent dialogue. I find a good co-host that you can learn and grow with and give yourself the space to experiment and learn as you go. There’s great content out there on how to start a podcast, how to learn, how to podcast. I will add some links in the show notes, but shout out to sweet fish media.</p>
+              <p>And Gimlet for their podcasts and content. That really helped me learn early on. And I recommend choosing. Good tools. I am personally enjoying anchor for hosting Riverside for virtual studio recording and Descript for editing. And there are many, many others out there.</p>
+              <p>And as you go. Build out your process and your team to support you. It’s a lot of work to run a podcast. And it’s a lot for one person. So I really want to give a shout out to my team, to Brandon DeRoose and Danielle van Wyck. Who’ve been intimately involved in every episode. That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And you can reach us@podcastatdimagi.com with any ideas, comments, or feedback.</p>
+              <p>This show is executive produced by myself. Danielle van wick is our producer. Brianna DeRoose is our editor and cover art is by Sudan. Shrikanth. Thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols" style="grid-template-columns:minmax(0,560px);justify-content:center;">
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://youtu.be/b7B2HpEeJ8U?si=Kv2xCwFBhJ2mHuCS" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

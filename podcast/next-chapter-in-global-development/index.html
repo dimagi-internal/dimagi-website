@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 73: Disrupted, Not Defeated: The Next Chapter in Global Development | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Devex's Raj Kumar on a post-peak-ODA world: why value-for-money is now survival, the future of localization, and how organizations can shape what comes next.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/next-chapter-in-global-development/">
+<meta property="og:title" content="Ep 73: Disrupted, Not Defeated: The Next Chapter in Global Development">
+<meta property="og:description" content="Devex's Raj Kumar on the next chapter of global development: the fallout from peak ODA, value-for-money as survival, and adapting to MDBs, DFIs, and outcome-based models.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>August 27, 2025</span>
+          <span class="dot"></span>
+          <span>58 min</span>
+        </div>
+        <h1 class="ep-title">Disrupted, Not Defeated: The Next Chapter in Global Development</h1>
+        <p class="ep-deck">Devex's Raj Kumar on a post-peak-ODA world, why value-for-money is now survival, and how organizations can shape what comes next.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/3lB24Sw6Nz8JdayFd91Yyo?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 73 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/3lB24Sw6Nz8JdayFd91Yyo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000723669201" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/94cf5528-b68f-4cb0-9039-4062e01a6dff/high-impact-growth-disrupted-not-defeated-the-next-chapter-in-global-development" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Raj Kumar, President and Editor-in-Chief of Devex, returns to High-Impact Growth for a candid read on where global development goes after a wave of sudden aid cuts and structural overhauls. With co-hosts Jonathan Jackson and Amie Vaccaro, he separates the noise from the signal.</p>
+        <p>They explore the fallout from peak Official Development Assistance and what it means for program funding, why value-for-money has shifted from a nice-to-have to a survival imperative, and how social enterprises can adapt to a world increasingly led by multilateral development banks, development finance institutions, and outcome-based models.</p>
+        <p>It is essential listening for anyone, from social entrepreneurs and INGO leaders to funders and policymakers, trying to shape the future of development funding before it hardens.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>The fallout from peak ODA and what it means for program funding</li>
+          <li>Why value-for-money is now a survival imperative</li>
+          <li>Adapting to a world led by MDBs, DFIs, and outcome-based models</li>
+          <li>The future of localization</li>
+          <li>How organizations can shape the next chapter before it sets</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://www.devex.com/" target="_blank" rel="noopener">Devex</a></li>
+          <li><a href="https://open.spotify.com/episode/4NTiwuOEBmZREjaVAmq3Yg" target="_blank" rel="noopener">Raj Kumar's previous High-Impact Growth episode</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amy Vaccaro, senior Director of Marketing at EE and your co-host, along with Jonathan Jackson, Dee CEO, and co-founder. Today we welcome back Raj Kumar, the founder and editor-in-chief of Devex. We last spoke with Raj in May of 2023, and in many ways it feels like a different era. The structural trends he predicted then like hitting peak official development assistance or ODA from western governments have accelerated dramatically leaving the global development community in a moment of existential crisis. In this episode, we’re getting real about what comes next.</p>
+              <p>How do organizations survive and even thrive when traditional funding has fallen off a cliff? We’ll explore the chaotic new architecture of global development. The rise of new power brokers in philanthropy and development, finance, and the urgent need for a new narrative. If you’re a leader, implementer or funder in the development space, grappling with uncertainty. This episode will help you move forward and take the opportunity to build something better. I learned a lot in this conversation, and I’m sure you will too.</p>
+              <p>Amie Vaccaro: All right. Welcome to High-Impact Growth. I’m excited for today’s conversation. Um, I’m here with Jonathan Jackson, my co-host as always. Hey John.</p>
+              <p><span class="spk">Jonathan:</span> Hi Amie.</p>
+              <p>Amie Vaccaro: Um, and we are excited to welcome back. Raj Kumar, who is editor in chief of Devex. Um, Raj, you were on the podcast in May of 2023, which feels like ages ago and</p>
+              <p><span class="spk">Raj:</span> Different era.</p>
+              <p>Amie Vaccaro: Absolutely.</p>
+              <p>So, we’ve been really keen to bring you back onto the podcast because so much has [00:02:00] changed. And interestingly, I was looking back at the transcript from our conversation two years ago. I, it feels like a lot of what you were talking about then has happened perhaps faster and more so than expected.</p>
+              <p>, So just really excited to back on to, to hear your perspectives on, on everything that’s happening, to the extent that you’re willing to share. Yeah, so I, maybe I’ll just jump right in if that’s all right.</p>
+              <p><span class="spk">Raj:</span> Yeah, let’s do it. and, and you’re, you’re right</p>
+              <p><span class="spk">Raj:</span> a lot of things did pan out. I.</p>
+              <p>mean, some of it for good maybe, but yeah, a lot of these are kind of longer term structural trends. I was talking about when we were, we were together a couple of years ago and. Obviously we had a very acute moment with the election of President Trump and then the creation of Doge, and so we saw something that was really quick and really transformative, but it, it does fit in the broader trajectories that we were discussing a couple of years ago in terms of the big, big picture trends</p>
+              <p>in how they’re affecting the development space in general.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, absolutely. And I think, um, you know, back [00:03:00] then Raj, you were talking about in more recently, um, the. Peak ODA and that we had to figure out different mechanisms for business models, different ways to make impact. And obviously, um, you know, somebody who’s been in the space for a long time, like, like Amy and myself, um, were, you know, massively heartbroken on how it’s played out.</p>
+              <p>But I think the trends were things people kind of saw coming, Um, in terms of the need to change business models, the needs to think about different ways of doing this. Um, I know you talk with everybody in our industry and so I’m curious. How are you, engaging with these conversations right now?</p>
+              <p>How are people thinking about this change? I know there was this huge period in Q1, Q2 of 2025 where you’re just trying to figure out what’s going on. You know, just try to survive and, and figure out how to right size everything. But now people gotta figure out what they’re doing for the rest of this year.</p>
+              <p>And heading into 2026, I’m sure yourself included at Dev. And so what are you seeing, the ways people are going about thinking about this problem and, and how they’re reinventing themselves? ’cause obviously everybody, regardless of the [00:04:00] previous business model, touched ODA in one way or another. Some large, some small, but kind of everybody’s having to grapple with this question right now.</p>
+              <p>And so, um, at the center of all this is, is Dev X and, and talking with just so many different folks, how, how is this conversation unfolding? How are you seeing people grapple with what the future could look like?</p>
+              <p><span class="spk">Raj:</span> I mean, I think there’s different layers to the conversation. One really big important layer is just, okay, all this aid got cut. The US government Aid has been dramatically slashed. It was by far the biggest in the world in, in health and humanitarian, but you also see a lot of other countries doing slower, less dramatic, but but real cuts, significant cuts.</p>
+              <p>UK cutting 40% of their aid budget on top of the cuts they’ve already had. Those will be phased in in a more responsible way, I would say, than what the US government has done. But nonetheless, massive cuts from a lot of places around the world. I think one big conversation everyone’s having is, well, what’s this actually gonna mean for the outcomes that matter?</p>
+              <p>Like, how many kids are gonna die? How many people are gonna [00:05:00] not get education? Like you’re, you’re going to, and there’s a lot of speculation. There’s some kind of early indications, but. It’s hard to know, you know, and, and a lot of people, and particularly a lot of global south leaders are saying, all right, we’ve gotta scramble to get a handle on our own health system or on our own education system or agriculture system and like?</p>
+              <p>squeeze out the most value we can from the remaining aid that exists.</p>
+              <p>And so we don’t really know for sure what those impacts are gonna be. And I think that’s one really big discussion and one that we’re leaning into a lot at DevX is trying to figure out what are those real world examples of what’s happening. Um, we had a lot of stories That, the Doge people were using to argue for cuts that were, some of them were fake, some of them were rooted in the, in some reality, but, you know, here’s this program that’s super woke and it’s a good example why we should cut. We want to know. More realistically like, all right, what are some real world examples of what the cuts have done? So I think that’s a big layer in the conversation as you’re, as you’re putting it, John. I think another one is inside organizations they saw a lot of the trends that I’ve been speaking about, writing about for a long time, and they were maybe slowly moving as a result of those. And now they face these like, really existential questions, you know, go outta business, merge. Totally change their business model. And so they are in the thick of that. I think they’ve kind of gotten outta the first stages of denial and grief. You know? I think now I think they’re kind of into like, alright, how do we actually. Revitalize reform the way we work. And people are asking really tough questions of themselves, I think. Um, and some of the, like initial rounds of layoffs have happened, but now they’re, they’re really thinking about what do we do from here? How do we, what’s the new vision? And then I guess maybe the, the last big conversation piece is around what does the broader architecture look like in global development.</p>
+              <p>So if you have all these bilateral aid agencies that have suddenly shrunk, the UN is [00:07:00] seeing its funding, you know, really constrained and they’re trying to figure out what do they do from here? So. Do UN agencies merge? Do they close, you know, how does the UN or does everybody just kind of take a haircut and still do what they were doing? huge changes in the international architecture development finance versus bilateral aid philanthropies role. I think those are kind of different layers I’m seeing happening, you know, impacts of the cuts where organizations go from here, you know, NGOs and, and social enterprises. And then like what does the actual architecture land at? After</p>
+              <p>we get through this phase, what does it actually look like?</p>
+              <p><span class="spk">Jonathan:</span> That, that’s a great summary, Raj, and in that architecture question, you know, there’s been a lot of discussion on, um, my, my world, at least on the digital side of, you know, hey, there’s still eight to 9 billion. Currently, you know, in the budget from USG, um, how do we think that’s gonna get spent? There’s questions on what’s the UN gonna look like, as you mentioned.</p>
+              <p>When do you think we start to [00:08:00] see some of these, um, questions get answered, or, or data points come in on what this new architecture is going to look like, um, from just a practical timeline standpoint, you know, we’re, we’re having this conversation August 18th, 2025. How, how and when do we start to see things, you know, play out in the real world based on the timelines you’re aware of?</p>
+              <p><span class="spk">Raj:</span> I’m thinking like two to three years from now, things will have shaken out in a, into a more stable place. Exactly what it looks like, I don’t know, but I think it probably means, just a much reduced UN role. know, much, much reduced size of agencies, maybe merged agencies, um, really big changes at the un. I think in the US system there’s gonna be a lot of chaos. Because, you know, they fired so many people who used to run the programs and, and you know, a lot of the complaint was, well, USAID was really bureaucratic and it was really slow, and, you know, let’s, let’s reduce that. [00:09:00] Okay, well if you get rid of a lot of that bureaucracy and a lot of people did those jobs, you’re not necessarily going to hop instantly to some hyper, hyper-efficient, quick, you know, fast-paced model. I think it’s very likely instead. You’re gonna see a lot of balls dropped. You know, a lot of programs that just, people are like, wait, what’s the status? We don’t know. We can’t, we haven’t heard back from anyone. There’s no one responsible. Uh, so I expect a lot of chaos for probably the next 12 to 18 months in the US system. I think what the Trump administration is likely to try to do is to move toward finding new partners. You know, to not want to just continue funding the same groups that that USAID used to fund. ’cause they really believe in a structural reform here. do that? But it’s not easy to stand up new partners overnight. So I, I think that’s another sort of storyline I’m looking at. Well, who would these new partners be and is there an opportunity for social enterprise? I know a lot of your audience are social entrepreneurs, like is there an opportunity for those groups in this space who might have more of a [00:10:00] market based model, maybe more private sector oriented so they could align a little better with some of the worldviews in this administration?</p>
+              <p>Like is that, is there opportunity? It’s a little early to know, but I expect chaos. 12 to 18 months and then things maybe settle out. You know, the midterms will tell us a lot too about what kind of role Congress is gonna have in this, whether the administration might, you know, get larger budgets from Congress and just not spend the money, or, you know, or will Congress actually say, no, we, we need you to spend the money and play more of a role in defining what the architecture looks like. So Yeah, 12 to 18 months of chaos the US then it settles and overall maybe two to three years. And so. I think this gives us a moment when the clay is soft, there’s a chance to sort of shape this new, this new world and at least the narratives around it. so while it feels like a pretty tough time for people who are in this space doing this work all the time to get hit by the kind of atomic bomb of Doge, you know, there’s still a [00:11:00] chance here to shape the outcomes to some degree. And, uh, and so I think a lot of advocacy groups, a lot of implementers are. the middle of it now, and kind of saying, all right, we let, let’s get involved. Let’s have more of a voice. Let’s talk about what we can, what we can do to, to align. you know, the, the, the way these structures are gonna get formed</p>
+              <p>into something that’s gonna have more impact in the real world.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, that, that makes sense. And one of the things Amy and I have been talking a lot about over the last couple years is the need to increase, you know, value for money. We talked about this two years ago when you were on the podcast of, of just how important it is that we’re increasing the value we’re providing, but also bringing down the cost.</p>
+              <p>Um, you know, so much of the old architecture was kind of a pitch of, oh, I’ll add, you know, a lot more to my program for a lot more money. As opposed to like, Hey, this cost effective, best practice works. How do I bend the cost down even further? Do the same thing, you know? No, no shiny head ornament, no. No glossy new thing we’re doing, just do it better, faster, cheaper.</p>
+              <p>Um, and that’s something that we’re looking a lot at in our [00:12:00] new platforms around, you know, pay for outcomes models, um, you know, just really huge focus on cost effectiveness of, of scaling what works, what’s proven. I’m curious, um, you know, I’ve been trying to think about our role, um, and, and how we mold that clay and others roles.</p>
+              <p>What are you seeing work right now or resonate, you know, kinda like what, which is like the practical back office conversation that happens that could move. Whether it’s my personal view or or other people’s views, but like how do you contribute to that conversation right. now? Like what is the mechanism you’re seeing?</p>
+              <p>Have a chance at helping shape things.</p>
+              <p><span class="spk">Raj:</span> Yeah, I think there’s a few different entry points. So one, and I think about this as a journalist telling stories is like, help get the, the realities of what’s happening out there to people so they can have informed discussions. So, you know, to the extent you other social enterprises, other NGOs are seeing real world things happening as a result of aid cuts. Those are opportunities to get this story out and get people, including in Congress, including the British Parliament, including in the [00:13:00] UN, to talk about them and say, Hey, here’s a, an example where maybe it’s all a bad news story. Maybe it’s like, Hey, there, there was money coming to this program. It was a really cost effective program, and now it’s gone. And now here are the effects of that, which could be really expensive actually. You know, maybe it’s leading to like, uh, dispossessed people migrating or leading to terrorism. You know, kids who are in school and now they’re joining like, you know, terrorist groups. Like those stories to the extent that, they’re real and that they’re happening, and I think they will unfold in the coming months. Getting them out could help inform the urgency around a discussion at the policy level. Okay, we gotta get this right. This is not okay. It’s over. We had these doge cuts and now everything’s done. Like we need to be engaged in this from a policy standpoint. And then on the flip side, like stuff that’s working.</p>
+              <p>You know, here’s a program that doesn’t do the sort of bureaucratic stuff nobody wanted to see that maybe aligns better with the administration’s. Views and is actually providing great value, great service. Uh, it’s something [00:14:00] governments want, you know, host country. Governments want this. Communities want it.</p>
+              <p>Like we need more examples of what you might wanna spend money on. You know, like what you can make a case to voters that, hey, this is a good place to put your tax dollars. So I think getting into that level of discussion is important. You know, just big picture, one of the mistakes I think our community has long made is we talk to ourselves way too much. So we use a lot of lingo. We talk in abstract terms, we assume a lot, right? And know, one reason why Doge and others were so able so quickly to just undermine the public support for development assistance. And obviously the US was extreme, but again, look around the world. OECD countries. Essentially voters are pulling away from support for aid. We never really built a strong foundation and I, I think we never did it ’cause we didn’t always just like level with people about here’s stuff that works, here’s stuff that doesn’t, you know, in plain terms and ways anybody can understand. I think we need more of that. So I wouldn’t want to go back and replicate some of the mistakes made in the past.</p>
+              <p>I think going from here, we should engage the public in these debates. Bring them real, real facts, real stories, uh, warts and all, you know, really, really talk about this</p>
+              <p>work and how hard it is and, and when it works and when it doesn’t.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, that, that makes a ton of sense. Um,</p>
+              <p>we, when this first happened in February, Amy and I were talking a lot about how to communicate out to our government partners, funders, et cetera. And it is shocking how different the message is, you know, when you’re talking to your, your customer base versus the public versus, um, foundations.</p>
+              <p>And one of the things that we were, um, realized is we’re about to find out really quickly whether anybody valued our software. You know, governments no longer have ODA money paying for our products. Um, are they gonna keep trying to use ’em? And we were extremely excited that to a t all the governments maintained.</p>
+              <p>Um, wanting to use our [00:16:00] platforms and reached out to figure out what’s the path to sustainability here. Um, you know, know this funding’s going away and, you know, we were really struggling with this question of how are we gonna start, you know, survive with various business lines, um, in the market. We know there’s a ton less money to go around.</p>
+              <p>One of the things we’ve been trying to do is really say, look, we have to make this so easy. The governments can really just decide, is digitizing my community health workforce a priority or not? We’re actually trying to bring the cost of our national scale offering all the way down to $5,000 a month.</p>
+              <p>Like all in, you know, this used to cost a million dollars a year, all in 60 KA year. You can’t change anything. You gotta take it as is. ’cause it’s the only way we can run it that cheap. But it’s definitely good enough. It’s not perfect. It’s definitely good enough. Is this a priority? And if it’s not, we totally get it.</p>
+              <p>Let’s put your effort in our effort elsewhere. If it is a priority, we can make this work. Really shifting how we come to the table with governments trying to be much more clear, trying to be much more honest about what we really can deliver at a cheap price point [00:17:00] versus what, you know, is too expensive.</p>
+              <p>Um, in today’s day and age for, for what’s available, um, funding wise. And we’ll see, you know, we still to go socialize that and, and bring that out to governments, but we’re trying to keep it super simple and just say, look, if you really want to do a digital program for your community health workers, or maintain your existing digital program.</p>
+              <p>We can get this price point all the way down, and we don’t know if we’re gonna be able to pull it off internally, but we have alignment. You know, we’re still just as passionate as ever about believing community health workers or one of the best bang for the buck, you know, in global health. Can we make this work?</p>
+              <p>But we’ve, we’ve even tripped over our own selves trying to communicate, um, this story out of various points in the past. And finally we’re just like, let’s pick a number where like, you just don’t want to do this if you say no, you know? Um, like it’s so affordable that if you’re serious about digitizing your CHWs.</p>
+              <p>It should be, Uh,</p>
+              <p>an easy yes,</p>
+              <p><span class="spk">Raj:</span> I love that and I, I think, you know, this sector has always suffered from a unclear line customers. You know, I think economists call it an agency problem. It’s like. We’re supposed to serve the poorest people in the world who have very little voice. They’re marginalized, and for these reasons, they, they’re poor and they don’t have access to health services or whatever, but they really don’t have a customer voice in the, in the marketplace. You know, there’s so many intermediaries and many of them, you know, really well-meaning philanthropists and NGOs, and, but in the end, there’s not a lot of customer voice, and so you can end up building these systems that are way too expensive, complicated. Compliance heavy. they’re meeting all kinds of interests and needs that are well prioritized above, you know, the actual end goal here of like, are you getting health services to somebody who needs it in some far off village? And that, that’s a tough thing to solve. Right? Um. You know, the closest, you know, analogies might be government services in a rich country. know, some, you know, some town in here in the United States. Where does that municipality, like, does that local mayor get voted back into office? You know, well, only if they’re filling the potholes and, you know, can you get a close connection between citizen and elected officials? this case, we just have so many intermediaries, they’re so spread apart. So yeah, I think. about this the right way, like get, how do you get closer to those ultimate customers and at least national governments? You know, health ministry is a lot closer ’cause a lot of health ministers are waking up right now and discovering, you know, I don’t really have control over my own health system. You know, because there was so much foreign money coming in it was funding things outside of the purview of the health ministry because it’s flowing through NGO projects and initiatives. they just don’t really know how much money is being lost actually. And you know what? When this money’s pulled back, what falls apart in my system, they don’t really have a clear line of sight to that. Yeah, if there’s a very thin silver lining here, or if we try to mold the future. [00:20:00] Uh, shape of the sector. You know, obviously more outcomes driven, voice for the people you’re trying to end, you know, the end customer. and ideally, you know, putting health ministers and governments more in the driver’s seat. I.</p>
+              <p>think</p>
+              <p>that’s, that’s likely to lead to better outcomes in the long run.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, and I think the, need to also offer, um, you know, some, some stuff can’t fit into outcomes funding. It’s, it’s still gonna have to be project, and, and that’s just true about some hard, complex things. But it’s also not always about financing, although financing is not this huge problem. Um, often like the project’s just too hard to do.</p>
+              <p>I, I was giving this analogy of, of, um, you know, different digital offerings that I’ve seen in the market and, and different digital scopes. And I was talking to a funder and they’re like, well, the government wants to do this, you know, massive horizontal registry for all things. I’m like, you can’t, like, it’s just too hard.</p>
+              <p>Like I, that is a good hypothetical idea. Even if they had 10 million in [00:21:00] funding, that project is just too hard to build, run, and maintain. You need to. Do smaller stuff and build up that expertise before you take a project that complicated on. And you know, you see this in governments that are much higher resource like here in the US and, and you know, big government systems failing, um, to implement ’cause they’re just too hard to do.</p>
+              <p>So I also think.</p>
+              <p><span class="spk">Raj:</span> Well, yeah, I mean, I mean you guys are in the SaaS business in a sense, and if you think about like successful SaaS models, it’s land and expand is often the best way to do it. And, and what that boils down to is. You’re landing a few end customers often it’s like, you know, a few employees at some company actually, they have a problem, they have a pain point.</p>
+              <p>Your software helps solve it. It’s cheap enough, they can sign up for a few, couple seats. Maybe it’s even free, you know, for a lot of SaaS, uh, software as a way to get in. people use it, and then they’re like, yeah, I need this. And then they show the value and then it grows inside the organization. They get to an enterprise level.</p>
+              <p>It gets more complicated security and permissions and stuff. think that approach has a lot of benefits [00:22:00] versus the one you’re talking about where it’s like. Oh, we’re gonna have this massive new project that’s gonna do everything with every bell and whistle, and it’s gonna be determined from the top, and then everyone is mandated to use it. Um, those things are, are very painful to do and to pull off successfully.</p>
+              <p>Amie Vaccaro: Raj, I’m curious. Um, know, I think one of the things that. been talking a lot about is really like the funding, right. And you’ve, you’ve talked about, okay, we, we hit peak ODA, we’ve seen it like fall off a cliff. Um, there’s really we’re, you know, you’re, you’re basically describing like two to three years of really like uncertain where things will land.</p>
+              <p>Um, but I’m curious, like if you had to predict kind of What funding looks like in two to three years? Like what does that look like? Is there, are there other donors coming in or is it that we’re shifting more to this more kind of model, right? Where models and um, you know, we’re actually are paying based on value that they’re getting and there’s less of this donor influence.</p>
+              <p>Like, what do you, what do you see as the, [00:23:00] the shifting if you had a crystal ball right in looking ahead, um, for funding landscape.</p>
+              <p><span class="spk">Raj:</span> Yeah. I do pretend to have a crystal ball every year. I write these predictions at the start of the year and uh, usually, you know, I’m like part, right? Like the stuff I’m talking about is happening slowly. There’s some, this year it was crazy. I had five predictions in my January article and. Four of them came true in like two weeks because of, because of what happened, including PODA.</p>
+              <p>I was like, oh, POD is gonna happen. And it just like instantly happened. Um, one of them didn’t play out yet. And, and it gets to your question, which is around, uh, philanthropy. So basic broadly, I think the way this sector’s gonna look going forward, the financing picture, there’s gonna be a lot less bilateral ODA. Um, and what’s left of it is gonna end up going mostly to humanitarian needs because, you know, with climate change there’s gonna be more crises, more conflict, and so there’ll be just those urgent humanitarian moments when countries say, I’ve gotta write a check, I’ve gotta support this. [00:24:00] And so I think you just see a larger, it’s already happened, you know, over the last decade, more and more of. Bilateral official development systems has gone to humanitarian aid. I said, I think that will just accelerate as the pie shrinks for ODA. Then I think where the action comes is basically development finance, so the multilateral development banks and the development finance institutions like World Bank and DFC.</p>
+              <p>Good examples. I mean, I think DFCS gonna grow a lot in this administration. Obviously it was created by the first Trump administration, um, and seems to have real support from the White House and from the, the President’s team. So I think DFC probably is gonna have a bigger role. I think the World Bank, um, is another good example where. They got a little bit of a cut from the administration in their budget request, but not much compared to all the rest of what happened in, in development. They were supposed to get like 4 billion for, um, for their IDA replenishment from the Biden administration’s pledge, and they ended up getting like 3.2 billion. not bad. And the scheme of things, and so broadly, I think the money is gonna come from a growth at the MDBs, the dfi. Um, and that is gonna change the way the development sector works quite a bit because it’s a different kind of money. It’s not grants, you know, it’s not direct flows through NGOs. It’s, it’s a lot more national level, it’s a lot more private sector and, know, there are implications, good and bad, right? Like, so some of the bad ones, some of the worrying things are. You know, you could move as, as President Trump clearly has a very transactional approach to everything, foreign policy related, and maybe just everything in life. Uh, you, you’re gonna probably see more of that happen in foreign aid. And so you could end up with, you know, a lot of deal making and in the deal making, are development goals prioritized or not? You know, you may end up with them being very deprioritized and [00:26:00] I think about like the Cold War era. aid went up a lot during the Cold War.</p>
+              <p>The us, the US and the Soviets were, you know, trying to win allies and friends around the world and spending more and more on foreign aid. But, uh, development objectives were not a high priority, So we had a lot more aid, but effectiveness was not really the priority issue. We could end up in a similar era here. Um, and so there’s a lot of debate about DFC might grow, but their funding might now go more to high income countries or middle income countries, or really targeting things like critical mineral access. Which could have good development outcomes attached to it, but might not necessarily, you know, it depends sort of how you do it.</p>
+              <p>So I think those are some of the risk sides of it. And the upsides are, you might connect more to the market mechanisms that John and I were talking about, like you might. get investment into businesses and you might create more of a direct link between governments and their voters because they’re the ones taking on debt, you know, to do a big project.</p>
+              <p>Um, you know, their regulatory environment becomes [00:27:00] more important for driving things like, you know, their energy grid. So you could see more of that. So I think there’s a lot of possibilities and potential as well as risks, but that in general, you’re just gonna see a lot more money. MDB and DFI system started pre-Trump, but it’s gonna continue and accelerate. Um, OECD countries are spending more now. Even as they shrink their O to budget, they’re spending more on their bilateral development finance institutions and the MDBs have potential to take their existing paid in capital and do more with it. You know, so-called sweating the balance sheet, but basically leveraging it more, borrowing more against the assets that they have and know, being more aggressive in the way they, they, um, they invest and lend and so. just think that’s gonna be a really, really growth growthy area of our space. And the other one is philanthropy. Philanthropy is a bigger question mark. I get a lot more pushback on this one, including from people in the philanthropy [00:28:00] world, uh, many of whom are like, look, don’t count on the rich people. uh, they have their own priorities. This is not one of them. You know? Yes, some are giving but necessarily expect a lot more will. My read of it is a little bit different, I think. There’s just an unprecedented amount of money at the top. It’s getting the inequality’s getting worse, you know, more than 3000 billionaires in the world now, it doesn’t take many of them. know, you keep it a similar percentage who are giving, gonna see a lot more given and there’s a, a populous wave on the left and on the right. And I think billionaires see this and they realize, look, if I don’t away more of my money, it’s probably gonna get taxed away. And I’d rather control it. So I, I expect this year in 2025, you will see a huge amount of money move into donor-advised funds to take advantage of the existing tax rules that will let billionaires write off that [00:29:00] money, even though it hasn’t actually been given. a nonprofit activity, yet it’s just sitting in a fund. So I think you’ll see a wave of money move into those.</p>
+              <p>I already think, you know, there’s a lot of money I’m hearing anecdotally from conversations with billionaire philanthropists of money going into foreign bank accounts, you know, going into foundations in Switzerland, like moving money outta the US so that they can. Use it for overseas donations over time, while while all those things are allowed and not taxed.</p>
+              <p>’cause there was a lot of concern that, you know, you would see new taxes and new constraints come out through the, through the one big, beautiful bill. So, you know, I just think. Philanthropy isn’t yet having this new era, but it’s coming. Um, you’ve got people like, you know, Howie Buffett and his siblings that, you know, when Warren Buffett passes away, they’ll have 150 billion or so to give away. Um, you know, they could be around the scale of the Gates Foundation, which itself is, you know, nine, 10 billion a year. So there’s just a lot more money on the sidelines in philanthropy, and I expect, [00:30:00] although it won’t happen instantly, and it won’t be smooth, and it’ll have lots of warts on it too. It will come out into the. the broader development space, and there’s a chance we all wake up five years from now and actually this sector is bigger than it was before. All these cuts, it’s different money, you know, and, and in the end, money that shouldn’t matter so much. It should matter, like outcomes, like what are you actually achieving?</p>
+              <p>But it could be bigger in, in dollar terms if you’re considering all that development, finance, money, a lot of which is lending. Um, and if you’re considering all this philanthropy, it could get to that sort of scale. it’s hard to believe, but you know, some of the wealthiest people in the world now could give it levels of governments. You know, even though they tell you no, you know, don’t count on philanthropy. It’s not like government money. You can never get the scale of government with individual donors. That that used to be true. I’m not, I’m not convinced it’s true anymore. There’s just so much money at the top.</p>
+              <p>Amie Vaccaro: So I’m [00:31:00] curious, like this kinda goes back to in the beginning you shared sort of your framework for the things you’re seeing and impacts on the outcomes. What are orgs doing and what is the broader architecture. But if we think about like what do orgs do, um. And orgs like Dimagi, but also like I NGOs that have been working in this space.</p>
+              <p>What would be your advice to us and to our audience of like, how do we, it is, it’s such a shift, right? Orgs have sort of figured out how to work within the way that money was moving, right? And is a drastically new future. Like Yeah. What would be your advice to, to us and to our audience, right?</p>
+              <p>For like, how do you prepare and how do you, Stay agile to, to kind of work in this new world and to help move in this direction if, if this is where things are going. Right? With MDBs dfcs, um, and philanthropy kind of growing.</p>
+              <p><span class="spk">Raj:</span> Yeah.</p>
+              <p>I think it is a really, um, existential moment for a lot of organizations, you know, uh, [00:32:00] especially smaller ones they got enough of their money through the old market. And now that money’s drying up and it’s not so quick and easy to, to pivot. a lot of that was funding some core, you know, overheads, some core staff. So what do you do in that context? You know, I think there’s no easy advice here, but a few thoughts come to mind. So one is thinking about alliances. Right, like a lot of social enterprises are very product specific you know, thinking about merging or joint ventures or just having some kind of a, an alliance where together you’re trying to move a conversation in a sector. Um, so that you’re not trying to fund your own advocacy at a very small scale, you’re approaching larger philanthropies. You’re approaching the larger global discussion on a, on a key topic area. Maybe it’s a disease area, um, you know, maybe it’s a health systems issue, you’re approaching that. [00:33:00] As a group of social enterprises who all offer different products but that are kind of aligned in their worldview and that maybe paints a picture to philanthropists And, even to the development finance world that, look, you might look what we’re doing as very cottage industry. You know, like you might want to go do critical mineral mining, like big stuff, and our stuff might look really small to you, but actually it fits into a bigger, a bigger picture. and you can, you can find a way to fund health systems. You can invest in health systems through social enterprises like ours. I think that narrative is important because right now it feels to me like a lot of social enterprises are on the outside looking in to these big policy discussions because they’re often just seen as too small.</p>
+              <p>They’re too, they’re too much of a sideline issue to like the big world bankers who are thinking about moving billions of dollars. Right. So I I think, alliance’s, mergers, potentially, um. You know, might make sense. Joint ventures might make [00:34:00] sense for some of the social entrepreneurs out there. generally being lean and mean like this is because we could see a few years of, of transition before we know what the new world is like. You’re seeing a lot of funders, you know, waiting, like, you know, in wait and sea mode. They want to keep their powder dry. That’s dangerous. You know, for a lot of small groups who need consistent, uh, funding, you know, sustainable funding. being</p>
+              <p>really lean and mean probably makes sense. Not assuming like, oh, the worst is</p>
+              <p>behind</p>
+              <p><span class="spk">Jonathan:</span> Yeah.</p>
+              <p><span class="spk">Raj:</span> You know? I think we could see more shoes to drop. more cuts, more change. So I think like really focusing in and then. to John’s earlier point, just getting, getting really like hyper customer obsessed, you know, like, what is this thing we’re offering? You know, in your case it’s that software platform and like, how cheap can we do it? And really get down to the core value proposition of what you’re doing. Because if that’s, if that holds true, if that’s strong,</p>
+              <p>then maybe you can survive whatever the storms are of [00:35:00] the</p>
+              <p>moment.</p>
+              <p><span class="spk">Jonathan:</span> Yep. And, and I think, you know, going back to,</p>
+              <p>to the point you were making on Lean and Mean, um, we’re doing a lot of outreach to, um, funders, both that we’ve worked with in the past and new funders, um, to really understand their perspective on localization and you know, how they’re now thinking about that.</p>
+              <p>Are they really trying to fund smaller orgs that can only accept like a hundred K or something? You know? And for the most part, we’re talking with people who I think you would put in the kind of. Top third of thinkers, you know, and, and they’re kind of like we were already above average in our giving.</p>
+              <p>Like we’re just trying to make sure we don’t lose the momentum that our current portfolio had. You know, so what we’re seeing is an acknowledgement of like, yeah, everything’s changing, obviously, and, and we, we need to think about what everything looks like in the future. But for now, we just wanna stabilize our current portfolio.</p>
+              <p>So if you’re not already in with a lot of funders right now, I think it’s very challenging to initiate. New discussion, even if your idea is great, um, you know, and, and, and aligned to that funder. I think at some [00:36:00] point we’ll see that change. But for right now, we’re definitely seeing the funders, to your point, either keeping that powder dry or just saying like, look, we just, we, we believe in the organizations we’ve already funded.</p>
+              <p>We spent a lot of time coming to the conclusion that we should have funded them in the first place. Our mission right now is just to keep all of them going, uh, while we weather this, you know, very difficult period. And then help enable them to, to compete in the new. You know, as that starts to take shape,</p>
+              <p><span class="spk">Raj:</span> I think that’s right and I think a lot of funders are caught a little bit between their advocacy</p>
+              <p>work and their funding. They don’t want to be seen as a gap</p>
+              <p><span class="spk">Jonathan:</span> right?</p>
+              <p><span class="spk">Raj:</span> where it’s like, okay, US government cut, but it’s fine. Everything’s fine. ’cause this foundation stepped in, fully funded the program and then the, you know, there’s no argument to go back to Congress and say, Hey, you should fund this thing. because there’s no harm and obviously it’s a zero sum situation. The foundation might be able to do that, but then they take money away from something else they could have or should have gone and funded. So they’re a little bit stuck. You know, they might be trying to keep their [00:37:00] current portfolio active and alive, but not necessarily grow it, necessarily fill gaps. So even their existing grantees might get</p>
+              <p>hit, ’cause some of their funding could have been coming through U-S-A-I-D.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, for sure. And I think, I think most, you know, had some exposure and so. That, that’s been one of the, the big questions for us as somebody who, like, you know, has historically played a, a reasonable role in advocacy on the digital health side and talking with folks, um, is just what are those conversations that are gonna be meaningful right now, you know, mine Exactly.</p>
+              <p>To your point of those alliances. Like, I’m just harping on the only thing that matters right now is lowering our cost and, and not just to Magi, but like our industry. Like, it’s, it’s just too expensive. It’s just too hard. Um, there’s, there’s nowhere near the amount of technical assistance or. Bodies, you can throw out these complex software implementations.</p>
+              <p>Like everybody’s gotta simplify, everybody’s gotta take cost out, everything’s gotta be more turnkey. And then maybe it’s worth it to governments. But I think those, like old school projects we were doing even just last year of these, you know, [00:38:00] two to three year big builds, it’s just like nobody has the time, nobody has the money.</p>
+              <p>Um, and, and frankly, nobody has the personnel anymore, um, to be doing those things. So, um, but we’re, we’re trying to, um. I think, I think that resonates a lot with social entrepreneurs and across many different, um, areas. But that’s a lot easier said than done. You know, now is kind of the last time people, or one of the most difficult times to be trying to bring your price down.</p>
+              <p>Um, you know, and, and ’cause everybody’s struggling with financing right now. So I don’t know how we get from here to there, um, as an industry. Um, but it’s something that I think is, is critical right now is just more value for money, lower cost. Um, that’s how you. You can weather some of these challenges in the immediate short term.</p>
+              <p>It’s just can you maintain your customer base? But that might include, um, you know, lowering our price. And we did that on our, our main product, our SaaS offerings. And we’re doing that international scale programs. ’cause we just came to the conclusion like it’s, it, it’s just gotta be cheaper. Like we full stop.</p>
+              <p>Gotta be cheaper.</p>
+              <p><span class="spk">Raj:</span> but like you, the, the analogy, if you think about startups in Silicon [00:39:00] Valley, you know, having venture capital backing them, they can take a long runway before they get to the point where they need to break even. they can offer really cheap product, they can try to squeeze costs out, but they might have some years to do that. And unfortunately, when you quickly dry up funding for social enterprises, they have no runway. It could be really hard to actually get to a low price point and in some ways might just be</p>
+              <p>counterproductive. You know, like they could have had, they had steady funding</p>
+              <p>for like</p>
+              <p><span class="spk">Jonathan:</span> Yeah.</p>
+              <p><span class="spk">Raj:</span> or five more years in these really tough markets where customers are really cash constrained. They could have</p>
+              <p>got</p>
+              <p><span class="spk">Jonathan:</span> Yeah.</p>
+              <p><span class="spk">Raj:</span> but this like artificial cliff that was created just makes it so tough and I think you’ll probably see, you tell me what you think. You can probably see social enterprises go under. That had actually pretty good ideas, pretty good products and development, a real, you know, product market fit coming together, but just couldn’t get there on</p>
+              <p>squeezing their prices down in this really constrained</p>
+              <p>window.</p>
+              <p><span class="spk">Jonathan:</span> Absolutely we’re, we’re seeing, [00:40:00] um, some, some really competent, really good friends of ours, um, who, who are on a reasonable path, um, that. Just aren’t gonna be able to make it to your point. Um, there’s not enough runway there. And frankly, like the, the best outcome, even two years ago when the market was still good, was wildly mediocre for digital health companies.</p>
+              <p>You know, like we, we always talked about impacting profit in that order. And profit was always gonna be extremely hard even when the market was much bigger. And so the, the terminal outcome two years ago wasn’t great. Now the terminal outcome is that much harder. You know, to envision. So even if you can make it through, it’s not, it’s not a bridge funding or a gap funding.</p>
+              <p>To your point, Raj, it’s really like what is that new transition gonna look like? Do you really have a price point that you can sell to governments? Because if the future is DFI and, and multilateral development banks funding it, going through the governments, going through public procurement, it’s hard.</p>
+              <p>It’s not that, you know, easy quote unquote easy check from [00:41:00] USG or Gates. That’s gonna be funny to you. You’re going through a public tender process, you’re competing against local firms. You’re competing against, you know, bespoke software. Um, you’re competing against ai. Um, you know, so that, I think the market both got smaller but also harder.</p>
+              <p>Um, you know, as you think about the, the durable business model one could have now, um, hopefully there’ll, there’ll also be some silver linings where people do still have support from their funders. That can carry them through this period we’re, you know, in a very fortunate position. We have a significant amount of capital from some of our funders.</p>
+              <p>Um, but it’s, it’s challenging out there, um, for sure. And, and it’s, um, it’s an extremely difficult position for a lot of social enterprises who deeply believe in their model, deeply believe in the impact they were having with their product. Um, but even when there was a lot more money, didn’t necessarily have the math working out in their favor, and now it’s just completely upside down.</p>
+              <p><span class="spk">Raj:</span> Yeah, I mean the impact social enterprises working in the toughest markets, the [00:42:00] toughest problems in the world, they always needed a longer runway than like a Silicon Valley startup that’s selling, you know, products to rich people in rich countries. So I. You take that problem and then you make it like exponentially worse by, you know, a sudden rapid drop off in funding. There probably are opportunities for some foundations, for some impact investors, maybe for some bigger social enterprises, even some international NGOs. I’ve been talking to some international NGO CEOs about. You know, could they acquire some of these social enterprises in their platform? Some of the ones who have, you know, a little bit of, you know, endowment or just enough capital and assets on the sidelines. some of these enterprise social enterprises are pretty small. They might be burning cash, but not so much. And if they have a product that actually works, could they roll that into some of the international NGOs programs, you know, some of their platform around the world. I think there will be some opportunities here too, for people who are very entrepreneurially minded in this moment.</p>
+              <p>But, you know, it’ll [00:43:00] be, it’ll be a shakeup, no doubt about it.</p>
+              <p>Amie Vaccaro: Raj, I’m curious to go a little deeper on this idea of shifting from projects to, to paying for outcomes that we’ve, we’ve touched on here. We talked about it a couple years ago when we spoke as well, and also just as you’re speaking about the need for social enterprises to kind of. Come together and tell a bigger story.</p>
+              <p>Like, to me, that feels like one of the stories, or that feels like the story that Dimagi is wanting to tell and talk about. Right. Is like, what can that look like? it, it is a big shift, right. From this kind of old school project approach. What do you see from, from your vantage point, like what are the changes that would need to happen to make, like paying for an outcome possible?</p>
+              <p><span class="spk">Raj:</span> Yeah, it sort of depends on who’s gonna pay for it, but I think there’s a lot of potential for like the Silicon Valley billionaire crowd who I think could get excited. Around durable outcomes that they can put their name on. You know, [00:44:00] so sort of like, you know, bill Gates has had an obsession with ending polio hopefully one day he’s gonna get there.</p>
+              <p>I mean, he’s, he’s done amazing work and gotten pretty close already. like, there’s a chance that when he passes away, at some point he will be remembered for polio eradication, maybe even more than for creating Microsoft, you know, And I think he realizes that. And that’s a great thing. That’s, that’s something that we should applaud and, and support.</p>
+              <p>And I’m hoping we could see some other, you know, similar similarly kind of data oriented, evidence minded billionaires, particularly kind of Silicon Valley mindset, let’s say maybe even the New York Hedge fund mindset, but some of those really uber wealthy people you know, I don’t wanna just set up a foundation. And get some, you know, people who applaud me during a gala or something. I wanna actually achieve a tangible, durable outcome. It could be a zero goal, kind of an outcome like ending a disease. Um, or it could be some really, significant [00:45:00] policy shift. You know, like I expect somebody like Mike Bloomberg, who’s worked a lot on ending smoking, uh, cigarette smoking, and you did it as mayor of New York, and it’s funding those kind of programs all around the world. may not, it might not be so easy to get like a a zero goal, like no one smokes or something in the world, but he’ll probably be able to say, Hey, like, this is how many lives I saved. you know, countries that have changed their policies and laws around smoking or excise taxes. Like really durable, substantial measurable impact from his funding. So I think. an opportunity with that crowd of funders to encourage them around outcomes that are really specific and measurable and durable that they can get some credit for. And so that’s one category. I think another category is to, you know, foreign policy and national security interests, like having the debate on Capitol Hill or in the European Parliament or the British Parliament around, uh. [00:46:00] Here is why don’t just want to fund humanitarian aid at a, at a certain level, but you wanna achieve these humanitarian outcomes and you wanna be able to connect them really directly to your national security interest. So maybe in Europe it’s like stemming the tide of migration and being able to show like, hey, we have programs that work, that actually work, that increase agricultural yields, you know, increase educational attainment that keep people where they are. Give them more options, you know, domestically, what have you, like, I think that conversation doesn’t always happen in the outcomes world. It’s often just more like we stop at this is how many kids got educated, you know, we’re, we’re not necessarily drawing the, the link to foreign policy and to national security.</p>
+              <p>And I think that’s gonna be really important in an era of much constrained official development assistance. So I think there’s work to do there in the outcomes world. Um, [00:47:00] and then, you know, ultimately I think the big vision, the one that I’ve got that I, that I’m talking about is like, I think development should be locally led and tech enabled. and, so I think to the extent you can, you can frame an outcomes-based program in those ways. Connecting to national security or connecting to some big picture goal and ambitious goal, but say like, here, here’s the most cost effective way to do things, the most durable way to do them, et cetera. It’s locally led and it’s tech enabled. And and this is what we’re doing. You know, I think those narrative frames are, are important and I think they can probably lead to, you know, better results for social entrepreneurs who are out there trying to promote an outcomes-based worldview.</p>
+              <p>Amie Vaccaro: I really, I like that frame of locally led and and tech enabled. And actually that gets me to the, the next thing I did wanna ask about before we, we close our time together, which we’re, we’re coming up on here, was localization. So I think, you know, two years ago were talking about localization.</p>
+              <p>You were saying that, you know, even large NGOs [00:48:00] really support localization, um, even though it may pose a risk to them. What’s, what’s happening now with localization, right? As these aid budgets have have shrunk dramatically., Is there still a commitment to localization, especially if U-S-A-I-D, which was seemingly the biggest champion of the movement, has pulled back?</p>
+              <p>Um, yeah. What does, what does this look like going forward?</p>
+              <p><span class="spk">Raj:</span> Yeah.</p>
+              <p>it’s interesting. I mean, there’s some people out there now in our community who are really angry at localization. They’re like, Hey, this. Contributed to the demise of U-S-A-I-D and you know, part of their thinking, which, you know, I think there’s some truth to it, maybe because a lot of the, the argument and language around localization got used by the Doge crowd and, and essentially their feeling is like, look. By promoting localization, we made it seem like the existing USAID system was corrupt and inefficient, and so we just undermined political support for it. there’s some grain of truth to that, and I think it’s worth exploring. Like maybe localization was just the wrong frame, know, and, and I think what we might look back on and say that was a mistake that we should have been focused on was outcomes. And if your outcomes focused. You naturally go to like a locally led tech enabled because the most cost effective stuff is gonna end up being locally led. But if you make your goal localization, you could end up with this very bureaucratic matrix of like, well, what counts? And is your board local and wait, you’re using an international brand name and you know you can get into this legalistic thing. That takes you far away from what you were really shooting for. ’cause ultimately the goal here is development. It’s like a long-term sustainable development, human dignity. Like those are the things you’re shooting for. If you, if the best way to do that is through localization, great. But you’re, if you’re not aiming for the right thing, you might, you know, set yourself down the wrong path.</p>
+              <p>So I think [00:50:00] the way it was defined before is not gonna come back, is my feeling. I think we’re gonna go more toward bigger picture goals. Some of those might come from governments like the US government around things like critical minerals. You know, those might be the big picture goals. And then you could have an argument with. You know, a, member of the cabinet who cares about that, who has that portfolio and say, Hey, here’s the best way to do it It’s gonna be through these local organizations who are gonna ensure that there aren’t children in these mines. You know? And that’s gonna allow big American corporations to purchase those products and put them in their electronics.</p>
+              <p>And you know, there may be a way to get there, which actually is highly about localization, but not the goal. You know, it’s a bigger picture, more ambitious goal than that. Uh, my guess about where we go from here around [00:51:00] localization and, and I think it’s, it has become sufficiently polarizing even though it’s bipartisan. You know, you have seen Republicans and Democrats who believe in it, they believe in it for similar reasons, which is, Hey, we gotta get cost effective here. So. it’s not going to, like, you’re not gonna go to your average American voter in the Midwest and talk about localization, right. It’s, it’s very much what I said at the beginning of like a term of art for us to talk to each other. And I think we gotta get outta that, mindset and get much more into stuff we can just say to anybody that makes logical sense to any voter, any taxpayer.</p>
+              <p>not sure this is it.</p>
+              <p>Amie Vaccaro: what you’re saying resonates. ’cause it.</p>
+              <p>is a, it is fairly jargony, right? Localization. Like what does that even mean? And what I’m taking from what you’re saying is you’re like, localization becomes the byproduct. Of doing the most cost effective, outcome driven work possible.</p>
+              <p><span class="spk">Raj:</span> Yeah, I think we gotta get ambitious as a community. Like I love the way the World Bank and the Africa Development Bank have framed their whole M 300 [00:52:00] initiative, which, you know, we’re gonna get electricity to 300 million people in Africa. Like we should be thinking like that in the development community.</p>
+              <p>’cause that’s something you can say to anybody. And they get it. You know, you can talk to any person around the world and say, a big, big group of people who don’t have access to electricity. They obviously need it, just like we all do, here’s this ambitious plan to get there. That is much better to talk about.</p>
+              <p>And of course that’s gonna include a lot of locally led initiatives, local regulation, you know, government’s gotta be in the driver’s seat in these countries and they gotta have interoperable grids and all that stuff. But at a very high level, I think that’s a much more ambitious and sellable proposition to the world and to the public</p>
+              <p>than something really technocratic like localization.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, definitely agree with that. And I think, um, hopefully we will see, you know, some version of that in the health community. And, you know, when we’re talking about these big numbers, like some of this is obviously gonna have to be fairly grant driven and, and you know, reaching people who don’t have any ability to [00:53:00] pay.</p>
+              <p>But these governments and countries all. Private sectors even of people who are relatively, um, poor and, and that that part of the industry can use investment and might have a return. You know, so as we talked about, you know, there’s gonna be different ways to, to move capital into those bigger initiatives that can resonate with an audience that doesn’t know what.</p>
+              <p>Localization means, or is kind of confused how, how it was operating or how it could operate. Um, and I think you’re absolutely right. The, the ability to talk about that as a, as a goal onto itself is probably behind us. But the reason why people wanted that to be a goal, um, you know, was relatively aligned to your point of like, it.</p>
+              <p>just, it makes way more sense.</p>
+              <p>Local organizations know better. They, they know how to deliver this more cost effectively like they should. That that’s the more cost effective way to deliver these outcomes. And in some cases, it’s the only way, like, it just wasn’t even, the project wasn’t even like succeeding at its outcomes at all.</p>
+              <p>Much less at a higher price point. Right? So it’s not, it’s not just price. It’s like, it just doesn’t even work sometimes when you don’t, uh, do it, uh, the smart [00:54:00] way.</p>
+              <p><span class="spk">Raj:</span> Yeah, totally. I think, yeah, the more, as a community, we take what’s happened as a wake up call to not just defend what was, but to really reimagine what we want to be. And in that process, go out and talk to everyone, including the biggest critics of aid, including average, who don’t know anything about it. I think that’s much more likely to help us. Design. A system that lasts, that has political support in the global North that can incentivize and encourage philanthropists to get involved. Incentivize, encourage average people. know, like something like humanitarian work. It shouldn’t just be about, know, an elite group of humanitarian aid workers, like.</p>
+              <p>This should be something every human on on Earth sees themselves in, in some way. And I think we can tell this. I think there’s a lot of exciting stuff that actually happens in our space that we could just do a better job telling those stories, building more support, and ultimately more funding for it, and getting more ambitious about [00:55:00] what’s possible.</p>
+              <p>Amie Vaccaro-1: Raj, this is beautiful. I literally could ask you like hours more questions, but this is such a beautiful place to end. It feels like. You’re giving me one, I think a lot of ideas for us to even consider with for Dimagi and hopefully the audience as well. Um, but I just love that, that place to end of like, let’s, use this as a wake up call to a better path forward.</p>
+              <p>There’s something better ahead as a result of all of this. And, um, let’s not just get defensive of the way that it was, but actually listen and learn from just happened.</p>
+              <p><span class="spk">Raj:</span> Definitely</p>
+              <p>great to be with you guys. Thank you, John. Thanks Amy. Great to see you both.</p>
+              <p>Amie Vaccaro: Thank you so much Raj. really really appreciate your time.</p>
+              <p><span class="spk">Raj:</span> Bye. Bye.</p>
+              <p>Thank you so much to Raj Kumar for truly insightful and honest conversation about the future of our sector. This was a dense and critical discussion, but a few key takeaways Stand out. One, the architecture has fundamentally changed [00:56:00] traditional government aid or ODA is shrinking and shifting towards humanitarian crises.</p>
+              <p>The future of development financing lies with multilateral development banks or MDBs. Development finance institutions or dfi, and a new wave of large scale philanthropy. Two, it’s an existential moment for organizations in this new world. Survival depends on adaptation. Raj advises organizations to think about forming alliances to tell a bigger story, becoming lean and mean to whether the transition and getting hyper customer obsessed to prove value.</p>
+              <p>The old models of project based funding are no longer a reliable path forward. Third outcomes is the new North Star. The language of localization may be on the decline, but Raj encourages us to rally around big, ambitious and measurable outcomes like electrifying a continent or eradicating a disease.</p>
+              <p>When we shift focus to achieving a clear goal in the most cost effective way, locally led and tech enabled solutions become the [00:57:00] natural necessary path forward. Fourth, this is a clay is soft moment. Despite the chaos and painful cuts, this disruption presents a rare opportunity. It’s a wake up call to move beyond defending the old system and instead reimagine a better one.</p>
+              <p>By engaging the public with honest stories of what works and what doesn’t, we can build a more durable, resilient, and impactful system for the future. That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write us@podcastatmgi.com with any ideas, comments, or feedback.</p>
+              <p>This show is executive produced by myself, Ana Bhand and Michael Kelleher are our producers. And cover art is by Suan Chicon.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">RK</div>
+            <div class="person-info">
+              <p class="person-name">Raj Kumar</p>
+              <p class="person-role">President and Editor-in-Chief of Devex, the media platform for the global development community.</p>
+              <span class="person-org">Devex</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/3lB24Sw6Nz8JdayFd91Yyo" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

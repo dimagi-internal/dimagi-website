@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 17: Nick Martin of TechChange on Training, Content, and the Evolution and Maturation of Digital Health | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Nick Martin of TechChange on a decade of digital health maturing, and why training, content quality, and shared buy-in decide whether tools succeed.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep17-techchange-on-training-content-and-the-evolution-and-maturation-of-digital-health/">
+<meta property="og:title" content="Ep 17: Nick Martin of TechChange on Training, Content, and the Evolution and Maturation of Digital Health">
+<meta property="og:description" content="Nick Martin of TechChange on a decade of digital health, and why training and content quality decide whether tools work.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>December 6, 2022</span>
+        </div>
+        <h1 class="ep-title">Nick Martin of TechChange on Training, Content, and the Evolution and Maturation of Digital Health</h1>
+        <p class="ep-deck">Recorded on the sidelines of the 2022 Global Digital Health Forum, Nick Martin of TechChange joins Jonathan Jackson to trace a decade of digital health maturing, and why great training, content, and shared buy-in decide whether tools actually work.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/4Gpr47UXoPvEYqR5ogikLN?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 17 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/4Gpr47UXoPvEYqR5ogikLN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000620579478" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/OmsXfpQ60A8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/a0562739-b47d-4c98-b73c-974483eedb51/high-impact-growth-nick-martin-of-techchange-on-training-content-and-the-evolution-and-maturation-of-digital-health-dispatches-from-the-2022-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">12 years</div>
+          <div class="ep-stat-label">TechChange has been building development courses on technology</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">30</div>
+          <div class="ep-stat-label">trainings TechChange delivered in 2022</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">4%</div>
+          <div class="ep-stat-label">of learners finishing typical MOOCs that draw 50,000 sign-ups</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Recorded live at the 2022 Global Digital Health Forum in Arlington, Virginia, the first in-person gathering of the global digital health network after COVID, this conversation kicks off a series of sideline interviews Jonathan Jackson recorded with peers across the ecosystem.</p>
+        <p>Jonathan sits down with Nick Martin, CEO of TechChange, a fellow social enterprise that has spent about 12 years building training, content, and convening for the global development community. They reflect on how the field has shifted from making the case for mHealth to helping ministries of health plan whole, interoperable national systems, including the digital health planning course TechChange built with USAID and PATH.</p>
+        <p>The two dig into why dry, technical topics like governance and budgeting can still be taught in engaging ways, why the content layer running on top of platforms is the real user experience, and why a shared definition of success years into a project matters as much as the technology itself.</p>
+
+        <blockquote>
+          <p>&ldquo;We are no longer making the case that there should be a field of digital health. We have tons of practitioners who have built incredible tools and ecosystems. So the last few years have really been about connecting those dots and thinking intentionally about the next level.&rdquo;</p>
+          <cite>Nick Martin, on the maturation of digital health</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A decade of maturation</strong>: how the field moved from explaining what mHealth is to helping ministries plan whole, coherent national systems</li>
+          <li><strong>Making the unsexy engaging</strong>: TechChange's board game and applied exercises for teaching governance, interoperability, and budgeting</li>
+          <li><strong>The USAID and PATH course</strong> for ministries of health, born four years earlier in Lesotho with practitioners who had never spoken across their own governments</li>
+          <li><strong>Content as the user experience</strong>: why the layer running on top of CommCare, DHIS2, or OpenMRS decides whether anything works</li>
+          <li><strong>Cohorts over MOOCs</strong>: betting on relationship-driven, outcomes-focused learning instead of massive enrollment numbers</li>
+          <li><strong>Scaling without losing quality</strong>: a train the trainers model and translations into French, Spanish, and beyond</li>
+          <li><strong>Defining shared success</strong>: why year-five sustainability questions should be framed by expected impact, not just budget</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to High Impact Growth. A podcast from Dimagi about the role of technology in creating a world. Where everyone has access to the services they need to thrive. I’m Amie Vaccaro, your co-host and I’m recording live today from Arlington Virginia, where the 2022 Global digital health forum is happening.</p>
+              <p>This is the first post COVID in-person gathering of the global digital health network. And it’s a hybrid event with both virtual and in-person programming. The Dimagi team is here in force sharing lessons learned learning from our peers and broader ecosystem and reconnecting with partners, implementers, funders, and friends.</p>
+              <p>Jonathan Jackson. Dimagi CEO and my co-host for this podcast has been interviewing folks on the sidelines of this event. To understand the real stories what’s going on in digital health, what’s working, what’s not working. What challenges are we seeing and how are we doing when it comes to making digital health work for frontline health workers?</p>
+              <p>Over the next few weeks, we’ll be sharing snippets from those conversations today. We’ve got the first of these conversations with Nick Martin CEO of tech change. Tech change is a fellow social enterprise in global health and development with an important role as a convener and creator of events and courses, many focused on digital health in this sharp and insightful conversation. You’ll hear Nick’s reflections on the evolution of the industry. Tech changes, role, how to make complex and dry technical topics interesting and engaging and why it matters.</p>
+              <p><span class="spk">Jonathan Jackson:</span> welcome to the H Pack Growth podcast. I’m here with Nick Martin and this conversation’s gonna be twice as good as it was yesterday when we lost our recording.</p>
+              <p>So I’m really excited to be doing this again with. Thank you so much for coming. Nick Martin, um, and I have known each other for probably five or 10 years at this point, and he’s the leader of an amazing organization, tech Change. Nick, can you tell us about yourself and the organization?</p>
+              <p><span class="spk">Nick Martin:</span> Yeah, Jonathan, great to be here and excited for round two. Uh, so, you know, tech change is now about 12 years old. We, uh, got our. Uh, 2010 or so building international development courses on technology for, uh, a global audience. And I was thinking back, like it’s, it’s been I think 10 years of coming to this conference, global Digital Health Forum, when it was back at the Gaylord.</p>
+              <p>Uh, and we also, uh, ran, I think the first m. Course or online course for this community back in 20 12, 20 13, uh, the folks at UN Foundation and the M Health Alliance, what was then the M Health Alliance took a big chance on us. So we’ve really, you know, we’ve had some interesting chapters in our journey over the past 12 years evolving from providing these courses to practitioners, um, to now a building a pretty exciting and comprehensive digital health planning national systems course with USA and PATH for.</p>
+              <p>Practitioners in government, people building policy and making big decisions with large, complex, uh, communities and systems.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And we are here at the Global Digital Health Forum together, and as you mentioned, this conference has been going on for 10 years. When tech Change was first building your courses, you were primarily helping people just learn what mHealth was, how to deploy mHealth and the industry has matured a lot.</p>
+              <p>Um, it’s kind of a defacto assumption that digital health is important to deploy. that, um, you know, governments are looking for ways to make sure they’re successful. And the course that you mentioned, I’d love to hear more about. But I imagine over the years it’s, it’s changed a lot from how do we successfully deploy ANM health of digital health tool for pilot or project versus how do we, um, as a whole of government or as a ministry of health or as a donor support this kind of now fade comp or like a given that you have to have, because 10 years ago this was definitely.</p>
+              <p><span class="spk">Nick Martin:</span> It’s so interesting. Yeah. The evolution has been fascinating. We are no longer making the case that there, uh, should be a field of digital health, M Health at the time. We have tons of practitioners who have built incredible tools and ecosystems. So the last few years have really been about connecting those dots and thinking intentionally about the next level and, and really when it comes to country planning, how do these ministries of health actually take, uh, You know, the, the different pieces are sometimes fragmented systems that exist in their countries and start to be a lot more intentional about a holistic plan.</p>
+              <p>You know, it’s interesting, the, the digital health course that we’ve built for ministries of Health started four years ago in a. Conference center in Lisutu, and we had about 50 folks, half of them were from Ministries of Health, half were from ministries of it. And a lot of them, maybe like 10, 15 countries represented.</p>
+              <p>A lot of them had never talked to the folks in their, in their own countries, in uh, in, um, in parallel missions and, and, uh, and ministries. And so just being able to, Uh, this type of a conversation around governance, around all the building blocks, what is required to be successful, and then to have that led by the W h o have so many great standards and guidelines coming from the digital health unit there.</p>
+              <p>And then obviously the great work Mer Schaeffer and others have, have, um, have kind of. Uh, created the path for, uh, has, has allowed us to come in and do what we do best, which is design the best possible, uh, curriculum and interactive exercises and activities that we’re most excited about.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So you mentioned training, policy, governance. , these aren’t necessarily the sexiest topics.</p>
+              <p><span class="spk">Nick Martin:</span> they’re really not. And so, uh,</p>
+              <p>it, it’s taken a lot of creativity on our end. I think again, our superpower is, is coming in and designing best in class curriculum. And so that specifically has meant things like building a board game on how to make really thoughtful, interoperable digital health investments.</p>
+              <p>And the game mechanic is you have a certain number of opportunities before your health. Fails to, uh, to make the right investments and it’s not always easy and it’s requires collaboration. So designing activities like that in a multi module, multi format training that can be delivered online in person, really, however, the learner, uh, You know, can, can experience and accept.</p>
+              <p>It has been a big challenge, but it’s not sexy and a lot of folks who are trying to reach don’t really love the idea of training. So there’s been an interesting resistance to the idea of joining. A workshop and planning national health systems that we’ve had to sort of overcome. But once people are in this experience, they love it.</p>
+              <p>They love being able to, uh, it’s very interactive. We’ve got a lot of activities like the ones I just mentioned, and so having these hard conversations, tying it directly in an applied way to their work has been a really tremendous experience for them. The feedback’s been great, and we’re starting to see some real changes happen at the planning.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s awesome and you have, um, I believe trained over five. People through one of these, these courses and I think in cohorts of 30 or so. So how have you seen, you know, how have you adapted your training methodology? Have you seen the excitement to join these policy courses, be maybe higher over time as people have like heard from their colleagues or peers in other countries?</p>
+              <p>The value of it, but to your point, yeah, I would think getting people bought into a training, um, you know, this, this pretty hard problem with these pretty esoteric time. subject areas is a challenge. So how, how do you engage people and have you noticed higher levels of engagement as you’ve gotten better at this?</p>
+              <p>And as the words kind of out around the value of this.</p>
+              <p><span class="spk">Nick Martin:</span> Yeah, I think that it. Uh, you know, it’s funny, it’s almost like the course itself in its early, early stages was like 14 different people giving 14 different lectures about different topics. So in a way, we had to make the training interoperable ourselves, and that was a very time intensive but, uh, exciting journey.</p>
+              <p>Uh, and I think that demand, as we’ve done about 30 or so of these tradings this year, the demand has snowballed. We’re starting to get, uh, uh, Ministry of Health officials talking to each other. UNICEF is now involved in DICE and so they have come in to also help, um, you know, with their country office network in, uh, in site demand for this.</p>
+              <p>So there’s no question that having something that’s so high quality, that is so. Uh, effective at trying to, to to think about the applied side of this journey has, has, um, been immensely viable for folks, but we like the idea of keeping it high quality. How to scale that with the demand we have has been a challenge.</p>
+              <p>And so we have a train the trainers model that we’re working on. , we have it now translated into a number of different languages. Very complicated if you’re curious to think about how you keep the, the, the quality high and still deliver in other languages. But we’ve done French and Spanish. We’re looking at Arabic Hindi, a few others.</p>
+              <p>Uh, so that’s exciting too. I think. I think seeing where that takes us next year really is about the scale piece and, and the localization element as well.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So with a ton of global good software projects in the industry, we, we talk a lot about software and platforms and Comcare or DHIS two or open. And less about how you configure the content on those platforms to create an amazing experience and in our strategy, how that leads to better jobs, better outcomes.</p>
+              <p>But in other people’s strategy, maybe a different goal. You spending time of time developing this high quality content and thinking about how to maintain it, how to improve it over time. I’m curious for you just to speak a little bit about it. Cause I don’t think we hear from a lot of people who are, you know, incredibly focused at the content layer that’s running on top of these platforms and that is critical.</p>
+              <p>You can have the best or worst. That you pick to support this. And if the content layer’s bad, nothing’s going to work. And on top of that, as you mentioned, we’re already talking with it, you know about a topic that may not be the sexiest thing in the first place. So how do you think about that? Like how do you convince funders to come in and support that?</p>
+              <p>How do you work with your team to think about that? But that sounds like its own, you know, product management challenge into itself.</p>
+              <p><span class="spk">Nick Martin:</span> I’m so glad you mentioned that, uh, Jonathan, cuz it is, it is a great question that vexes us, uh, constantly. How do you, how do you really build the right content strategy for. The tool that you’re implementing. And, and so for us, one of the things we’re most proud of this year is we have produced, uh, I wanna say maybe 10, 15 total videos on, uh, on different digital public goods.</p>
+              <p>Um, and for each of these, we had like a great production roadmap for our partners who, many of whom had never really built out a serious produced video. And so that involved scripting and b-roll and, and animation and all these different elements, and we gave. The, the cookie cutter building blocks for them to drop their, their continent and help to sort of project manage it, and the result has been some really powerful.</p>
+              <p>Uh, videos that, that have never existed before for this community. And I was just walking around the halls today. Everyone would say, oh, this is so great that we now have this, we’re using this for X, Y, and Z. So, you know, I think that it, it, it always feels like an afterthought for the folks that are building tools, but when they have it and when they go through a process with us to create something really meaningful, they can’t imagine life without it.</p>
+              <p>And so I, I do think that, uh, you know, we see our role as being able to. To be the engine for a lot of the, the content pieces for the tools, but then how the tools fit together. I think that’s been a challenge for the governments to sort through. Um, and, and, um, really trying to think about interoperability at all levels.</p>
+              <p>Uh, and in fact, one of the great videos we did work on was talking about. Digital architecture and interoperability in a coherent way. Cause we found that we were doing so many, uh, sessions trying to explain this really complex topic, why not have a really great video? And we’ve gotten some, some wonderful feedback on that too.</p>
+              <p>So, you know, I think just looking to do more like that and to really think about content differently alongside, you know, high quality production for targeted.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, and just to plug, um, make that. Thinking in that approach to a lot of the technologists out there who are listeners, it’s critical to, put a high priority on the production value of what you’re doing in these systems, whether it’s Comcare or others. Again, the layer of content is, that’s the user experience, right?</p>
+              <p>That the software’s a means to an end to develop these experiences for the end user. And often it’s overlooked, I think, unfortunately. And, and so it’s critical and we spend a ton of time when we have the ability. Doing what we call Design Domingo Tree and really getting in there, uh, but through any means necessary, really understanding how you, how do you get that and how do you do that feedback?</p>
+              <p>I’m curious, how successful have you been convincing funders or programs that like, look, we can get to, you know, b quality with this amount of funding, but we should be shooting for a quality. This is going out to 500 or a thousand people. And that’s a big difference between being a quality, like has that landed, have even successful and able to track the resources you need to get to that highest level of quality.</p>
+              <p><span class="spk">Nick Martin:</span> It’s always been a hard sell. Jonathan, you know, in, we have grown up in the era of MOOCs where funders are seduced by just massive enrollment numbers, and we are quick to tell them, well, look, you. Get 50,000 people signing up for your course, but 4% are finishing it and the learning outcomes are are not great.</p>
+              <p>So we have been big proponents of, of cohort based social learning for in the past 12 years before it became popular, which a bit of right now there’s a renaissance in, in cohort based learning with the pandemic. So we’ve seen the best outcomes. We emphasize relationships alongside skills building. And so that’s been a big dimension of our, of our work.</p>
+              <p>But it is tough. I think again, USA Path have, have really appreciated the high quality nature of this training. And like I really do feel like anybody can just kind of record 14 lectures and 14 different topics and put ’em online and say, well, that’s an online course. Like that is still happening in 2022 across a number of domains and subjects.</p>
+              <p>To really think intentionally about a learning journey. Think about how you be, become outcomes driven to get creative about the activities, to, to think about the activities in an applied way. So like there’s a, a budgeting exercise in this course. There’s, uh, you know, a strategy exercise. There’s, for each piece of content that we introduce, there’s something applied that is facilitated and it’s just harder to do that, uh, at scale.</p>
+              <p>So again, we do have some exciting plans for Train the Trainer this year. We are thinking about how. help folks become great facilitators, both online and in person with this content. And if we can’t make a single person do that, how do we pair digital health expertise that’s needed to deliver this type of training with facilitation expertise that’s really needed to make sure the learning outcomes, um, are effective So that, that’s the strategy and we’re excited to see where that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And you mentioned learning outcomes right there. I think this is something that, again, I’ve been talking about at the conference, but that shared goal, like what is the purpose of this digital health intervention? What is the purpose of this training? So when you think about learning outcomes, particularly for this course for policy makers, what is the goal?</p>
+              <p>You know, like what should be true about. Somebody who’s taken these courses and what are we hoping as a community technologies like this are, are supporting governments to do? Is it better decision making? Is it more awareness? Like how do you think about that learning objective?</p>
+              <p><span class="spk">Nick Martin:</span> Yeah, I think it is certainly a better decision making, but it’s, it’s really assuming that at this point in time, 2022 governments already have some element of digital health programming happening , under their roof. Right there, there. Already managing it and they’re probably frustrated by how.</p>
+              <p>Systems don’t talk to each other and how an architecture may or may not be coherent and fully fleshed out. And so this course is really trying to sort of say, we’re gonna start you where you are, but we’re gonna talk about how you take those building blocks and think intentionally, uh, about strategy and governance and um, and planning and policy and budgeting.</p>
+              <p>And so again, it is designed to be very applied and. We have with each of these, we have examples of countries that have done this well and we’re trying to learn from those. And a big piece of this is also making sure that the network of humans is built up around this. We saw, we have a ton of alums here at the, at the conference today, so, you know, to me the relationships are, are really important for being able to, to, you know, actually get to that applied decision making that we’re all aiming for.</p>
+              <p><span class="spk">Jonathan Jackson:</span> as you look at, you know, talking to people in your alumni or other people here at the Global Digital Health Forum, are there, um, courses you wish you were being asked to create? Are there personas that you wish you were able to support? Like where, what’s next, where, where you headed and.</p>
+              <p>Where are you feeling the industry kind of pulling you, you know, at this point in time?</p>
+              <p><span class="spk">Nick Martin:</span> There’s a lot of push to do translation. We’re working hard on Spanish and Portuguese right now. Uh, modules, w h o and others are very excited about modules on telemedicine and there seems to be a lot of demand for that. Heard a lot of talk at the conference about building modules and training around fire.</p>
+              <p>There are some great fire standards trainings out there. Uh, Google and others have, have been really great about seeding this ecosystem, but I think there’s an opportunity. To do what we do best, which is tie that into a coherent learning journey with, um, and connect it to the rest of the digital health architecture journey we’ve got.</p>
+              <p>So those are a few, uh, you know, I think that there is the holy grail of getting high quality community health worker training to happen. But, you know, my constant challenge over the past 12 years has been trying to do, and I think we do best, which is that high quality piece. And then to sort of marry that with, oh, it’s gotta be mobile and it’s gotta be sms.</p>
+              <p>And I, you know, throw my hands up and say, well, we. We can’t have critical thinking happen at the level we want, if it’s gotta be, you know, delivered over WhatsApp or something. So I, I think that’s still a challenge, but I do think there are opportunities to take what we’ve done and target some adjacent, uh, audiences.</p>
+              <p>I think, you know, entrepreneurs and, and startups are an interesting space. Uh, and you know, I, I think there are, we do a lot of work with Chicago and, and other big global health implementers and, uh, and so they’re looking at, at other audiences where we might be able to potentially take this. So I’m excited to see where we go.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. You mentioned Chicago and I know they do a ton on the, the health worker front. We’re obviously looking a ton at learning for CHWs and Absolutely. Like you do have to make big trade offs technologically on what you can do there. Um, you mentioned telemedicine, which is a really exciting area.</p>
+              <p>One question I’m curious about on telemedicine or other modules you’ve built. There’s the initial kind of like revenue head around the technology and then there’s the sustainability, like the financing. Is it like you could do telemedicine, but should you mm-hmm. , you know, under what condition? So is that part of what you’re thinking about in helping guide those kind of strategic level decisions?</p>
+              <p>Because we, um, as a community, I think, fail often to define what does shared success look like? Not, not now, but 2000 days from now. You know, after that five year grant’s over in year six, what should be true about. And how do we define that and make sure everybody’s supporting this vision, often from the government, but could be, you know, private sector, um, that it’s true six years from now, and how do you work backwards to, to make that happen?</p>
+              <p><span class="spk">Nick Martin:</span> There’s a whole budgeting component. Um, you know, I think that if we were to do telemedicine and we’d approach it in that way, you know, what are the trade offs and how do we, how do we make sure that people really go in eyes open with, with what’s required to sustain and, uh, and manage these programs over the long haul?</p>
+              <p>So I think that’s important and excited to see where we take that too.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And the budgeting side is one piece of it. I wanna put a plugin for the shared definition of success on the other side of it. So we, we talk a ton about sustainability. We deploy com. Here in a huge number of countries, there’s a lot of questions around how are we gonna sustain this and is it worth it?</p>
+              <p>I’m like, that is a completely valid ask. That is a completely valid question. Is it worth it? And that’s gotta be put in context of not just the budget, but the expected impact. The impact to better jobs for the provider, the impact of better outcomes for the client, and or improving livelihoods, avoiding healthcare altogether.</p>
+              <p>And so that’s something that I’m really curious cuz I, I would put a plug in if there’s not a module on this, this is to me something that’s critical. In year one when the project’s going well. Mm-hmm. , nobody takes the time to think about this. Well, you don’t need it in year one. I’m not claiming this as like a critical change to the work plan in year one, but in year five when you’re like, are we still gonna put time and effort into this project?</p>
+              <p>You better understand what value that project’s creating or you’re gonna turn it off.</p>
+              <p><span class="spk">Nick Martin:</span> Yeah, I, you know, I, I will have to get me and, and Ariel in here to go deep with you on this, but I, I, I agree. I think, I think that that kind of long term planning is. Often why we’re in this fractured. That we’re trying to kind of work around and against. So, uh, this is a long journey. And I think the other challenge is, yeah, when you work with Ministries of Health, there are administrations that turn over.</p>
+              <p>And so, you know, governments are, it’s really tricky to get that continuity and decision making. And so, uh, but like, lives are at stake, you know, I think, I think that the covid, um, that the pandemic has in many ways, Forced a lot of these ministries to rethink how they’re doing business and how they do a better job of planning to prevent.</p>
+              <p>And so, uh, I’m excited to see where they take that. I, I think that we will still probably end up making some of these same mistakes, but at least we’re, we’re trying to be a little more systematic about how we address them.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Awesome, Nick. Well thank you so much for doing. Any last words you wanna share?</p>
+              <p><span class="spk">Nick Martin:</span> Excited to be here and just big com care fans, so thank y’all for doing the work that you do, and excited to see what else we can, we can work on together next year.</p>
+              <p>Thank you so much to Nick Martin and John and Jackson for a candid and thoughtful conversation. And also for their patients dealing with technical difficulties, they had to record that conversation twice. So hope you enjoyed it. Please like rate, review and subscribe to this podcast. If you enjoyed this, it really helps us grow our audience and our impact. And if you’ve got questions, ideas, suggestions for us. Please write to us@podcastatdimagi.com. Thank you so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NM</div>
+            <div class="person-info">
+              <p class="person-name">Nick Martin</p>
+              <p class="person-role">CEO of TechChange, a social enterprise building training, content, and convening for the global digital health and development community.</p>
+              <span class="person-org">TechChange</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/4Gpr47UXoPvEYqR5ogikLN" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

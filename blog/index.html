@@ -1,0 +1,2028 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog | Dimagi</title>
+<meta name="description" content="Expert perspectives on digital health, frontline technology, and global social impact from the Dimagi team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=12">
+<style>
+/* ── Blog page ── */
+
+/* Blog hero (light) */
+.blog-hero {
+  padding: 80px 0 72px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.blog-hero .eyebrow { margin-bottom: 16px; }
+h1.blog-hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  margin: 0 0 20px;
+  max-width: 640px;
+}
+.blog-hero-sub {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.55;
+}
+
+/* Blog grid */
+.blog-grid-wrap {
+  padding: 80px 0 100px;
+  background: #f5f7ff;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.blog-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(10,6,32,0.14);
+  border-color: var(--rule);
+}
+.blog-card-image {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #eef1fb;
+  flex-shrink: 0;
+}
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.04);
+}
+.blog-card-body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.blog-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.35;
+  /* Uniform 3-line slot so every card's title block is the same height */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(3 * 1.35em);
+}
+.blog-card-desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  /* Reserve a min slot so short descriptions still align; full text always shows */
+  min-height: calc(3 * 1.6em);
+}
+.blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.blog-card-date {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-soft);
+  letter-spacing: 0.06em;
+}
+.blog-card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--indigo);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 150ms, color 150ms;
+}
+.blog-card-link::after { content: "→"; }
+.blog-card-link:hover { color: var(--indigo-deep); gap: 8px; }
+
+/* Category filter (grouped by dimension) */
+.blog-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+.filter-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  width: 76px;
+  flex-shrink: 0;
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.blog-filter {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 150ms, color 150ms, border-color 150ms;
+}
+.blog-filter:hover { border-color: var(--rule); color: var(--ink); }
+.blog-filter.is-active {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .filter-row { gap: 6px; }
+  .filter-label { width: auto; }
+}
+
+/* Empty state */
+.blog-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+  padding: 48px 0 8px;
+}
+.blog-empty[hidden] { display: none; }
+
+/* Progressive reveal ("More Blogs") */
+.blog-card.is-hidden { display: none; }
+.blog-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+.blog-more[hidden] { display: none; }
+
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../">
+      <a class="logo" href="../index.html">
+        <img class="logo-img invert" src="../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../professional-services/index.html">Professional Services</a>
+        <a href="../company/about/index.html" class="nav-active">Company</a>
+        <a href="../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <div class="blog-hero">
+    <div class="container">
+      <span class="eyebrow muted">Dimagi Blog</span>
+      <h1 class="blog-hero-title">Insights from the Frontline</h1>
+      <p class="blog-hero-sub">Expert perspectives on digital health, frontline technology, and global social impact from the Dimagi team.</p>
+    </div>
+  </div>
+
+  <!-- Blog grid -->
+  <div class="blog-grid-wrap">
+    <div class="container">
+
+      <div class="blog-filters" role="group" aria-label="Filter posts by category">
+        <button type="button" class="blog-filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="blog-filter" data-filter="CommCare" aria-pressed="false">CommCare</button>
+        <button type="button" class="blog-filter" data-filter="Connect" aria-pressed="false">Connect</button>
+        <button type="button" class="blog-filter" data-filter="SureAdhere" aria-pressed="false">SureAdhere</button>
+        <button type="button" class="blog-filter" data-filter="AI for Good" aria-pressed="false">AI for Good</button>
+        <button type="button" class="blog-filter" data-filter="Global Health" aria-pressed="false">Global Health</button>
+        <button type="button" class="blog-filter" data-filter="Community Health" aria-pressed="false">Community Health</button>
+        <button type="button" class="blog-filter" data-filter="Maternal &amp; Child Health" aria-pressed="false">Maternal &amp; Child Health</button>
+        <button type="button" class="blog-filter" data-filter="Events" aria-pressed="false">Events</button>
+        <button type="button" class="blog-filter" data-filter="Research" aria-pressed="false">Research</button>
+        <button type="button" class="blog-filter" data-filter="Company" aria-pressed="false">Company</button>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="taroworks-alternative-givedirectly-cash-transfer-case-study/index.html">
+            <img src="../assets/images/taroworks-alternative-givedirectly-cash-transfer-case-study/cover.jpg" alt="Why GiveDirectly switched to CommCare to support their Cash Transfer Programs" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Why GiveDirectly switched to CommCare to support their Cash Transfer Programs</h2>
+            <p class="blog-card-desc">How a leading humanitarian organization migrated seven countries from TaroWorks to CommCare, cutting project launch times from weeks to days.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2026</span>
+              <a class="blog-card-link" href="taroworks-alternative-givedirectly-cash-transfer-case-study/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="scaling-global-health-programs-a-miraclefeet-case-study/index.html">
+            <img src="../assets/images/scaling-global-health-programs-a-miraclefeet-case-study/cover.jpg" alt="Scaling Global Health Programs: A MiracleFeet Case Study" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Scaling Global Health Programs: A MiracleFeet Case Study</h2>
+            <p class="blog-card-desc">How MiracleFeet scaled clubfoot treatment from 180 to over 500 clinics by automating its CommCare-to-Salesforce data pipeline, saving more than 22,000 staff hours a year.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2026</span>
+              <a class="blog-card-link" href="scaling-global-health-programs-a-miraclefeet-case-study/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="predictive-analytics-public-health-malnutrition/index.html">
+            <img src="../assets/images/predictive-analytics-public-health-malnutrition/cover.jpg" alt="Transforming Community Health: Precision, Prevention, and the Power of Predictive Analytics" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">AI for Good</div>
+            <h2 class="blog-card-title">Transforming Community Health: Precision, Prevention, and the Power of Predictive Analytics</h2>
+            <p class="blog-card-desc">How Dimagi built a machine-learning model to help frontline workers in India predict child malnutrition before it happens, and what it means for prevention-first public health.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2025</span>
+              <a class="blog-card-link" href="predictive-analytics-public-health-malnutrition/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-use-cases-operational-efficiency/index.html">
+            <img src="../assets/images/commcare-use-cases-operational-efficiency/cover.jpg" alt="Scaling Beyond the Wall: Unlocking New CommCare Use Cases for Operational Efficiency" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Scaling Beyond the Wall: Unlocking New CommCare Use Cases for Operational Efficiency</h2>
+            <p class="blog-card-desc">Beyond monitoring and evaluation: how partners are extending CommCare into asset tracking, fleet management, and internal logistics to do more with leaner budgets.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2025</span>
+              <a class="blog-card-link" href="commcare-use-cases-operational-efficiency/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="closing-post-discharge-gap-kangaroo-mother-care/index.html">
+            <img src="../assets/images/closing-post-discharge-gap-kangaroo-mother-care/cover.jpg" alt="Closing the Post-Discharge Gap with Connect Kangaroo Mother Care" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Connect</div>
+            <h2 class="blog-card-title">Closing the Post-Discharge Gap with Connect Kangaroo Mother Care</h2>
+            <p class="blog-card-desc">Learn how Connect KMC bridges the gap in newborn health. We combine digital innovation with Kangaroo Mother Care to deliver life-saving support at home.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2025</span>
+              <a class="blog-card-link" href="closing-post-discharge-gap-kangaroo-mother-care/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="global-digital-health-forum-2025/index.html">
+            <img src="../assets/images/global-digital-health-forum-2025/cover.jpg" alt="Join Dimagi at the Global Digital Health Forum 2025" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Join Dimagi at the Global Digital Health Forum 2025</h2>
+            <p class="blog-card-desc">Dimagi returns to the Global Digital Health Forum to connect with partners, share insights, and shape innovations driving the future of digital health.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2025</span>
+              <a class="blog-card-link" href="global-digital-health-forum-2025/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="whats-new-in-commcare-fall-2025/index.html">
+            <img src="../assets/images/whats-new-in-commcare-fall-2025/cover.png" alt="What’s New in CommCare: Fall 2025 Product Updates" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">What’s New in CommCare: Fall 2025 Product Updates</h2>
+            <p class="blog-card-desc">Explore key takeaways from the Fall 2025 “What’s New in CommCare” webinar from Smart Performance Alerts to AI-powered tools for leaner teams.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2025</span>
+              <a class="blog-card-link" href="whats-new-in-commcare-fall-2025/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="case-management-course-dimagi-academy/index.html">
+            <img src="../assets/images/case-management-course-dimagi-academy/cover.jpg" alt="Unlock the Power of Case Management with Our Free Dimagi Academy Course" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Unlock the Power of Case Management with Our Free Dimagi Academy Course</h2>
+            <p class="blog-card-desc">Discover how case management in CommCare can enhance frontline service delivery. Get the new free course, now available on the Dimagi Academy.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2025</span>
+              <a class="blog-card-link" href="case-management-course-dimagi-academy/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-eu-cloud-launch/index.html">
+            <img src="../assets/images/commcare-eu-cloud-launch/cover.png" alt="Choose Where Your CommCare Data Lives with Our New EU Cloud" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Choose Where Your CommCare Data Lives with Our New EU Cloud</h2>
+            <p class="blog-card-desc">CommCare EU Cloud launches in Ireland, joining India and US hosting options. Choose your data location with identical features, pricing, and security.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2025</span>
+              <a class="blog-card-link" href="commcare-eu-cloud-launch/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="unicef-health-campaign-digitalization-guidebook/index.html">
+            <img src="../assets/images/unicef-health-campaign-digitalization-guidebook/cover.jpg" alt="Inside UNICEF’s Digital Tool Selection Guidebook for Health Campaigns" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Inside UNICEF’s Digital Tool Selection Guidebook for Health Campaigns</h2>
+            <p class="blog-card-desc">Explore Dimagi’s perspectives on the UNICEF Digital Tool Selection Guidebook for Health Campaigns that recognizes CommCare as a leading tool.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2025</span>
+              <a class="blog-card-link" href="unicef-health-campaign-digitalization-guidebook/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="digital-tools-public-health-workers/index.html">
+            <img src="../assets/images/digital-tools-public-health-workers/cover.jpg" alt="Empowering Public Health Workers in Somerville with Digital Tools" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Empowering Public Health Workers in Somerville with Digital Tools</h2>
+            <p class="blog-card-desc">Discover how Somerville&#x27;s public health workers use CommCare to streamline workflows, improve data sharing, and deliver better care.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2025</span>
+              <a class="blog-card-link" href="digital-tools-public-health-workers/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="five-talents-savings-groups/index.html">
+            <img src="../assets/images/five-talents-savings-groups/cover.jpg" alt="How Savings Groups Are Shaping Economic and Social Change: A Five Talents Case Study" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">How Savings Groups Are Shaping Economic and Social Change: A Five Talents Case Study</h2>
+            <p class="blog-card-desc">How 20 years of savings-group data in Burundi, and real-time CommCare data in Kenya, reveal what truly sustainable, community-owned impact looks like.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2025</span>
+              <a class="blog-card-link" href="five-talents-savings-groups/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="tech-enabled-approach-to-community-health-care/index.html">
+            <img src="../assets/images/tech-enabled-approach-to-community-health-care/cover.png" alt="Inside Volunteers of America’s Tech-Enabled Approach to Community Health Care" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">Inside Volunteers of America’s Tech-Enabled Approach to Community Health Care</h2>
+            <p class="blog-card-desc">How Volunteers of America equipped its Community Health Worker workforce with CommCare to address social determinants of health at scale across four US states.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2025</span>
+              <a class="blog-card-link" href="tech-enabled-approach-to-community-health-care/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-public-health-campaign-payments/index.html">
+            <img src="../assets/images/commcare-public-health-campaign-payments/None" alt="Improving Polio Vaccine Delivery: How CommCare Powers Campaign Payments" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Improving Polio Vaccine Delivery: How CommCare Powers Campaign Payments</h2>
+            <p class="blog-card-desc">In partnership with WHO and the Bill &amp; Melinda Gates Foundation, CommCare digitized last-mile worker payments for polio and routine immunization campaigns across 16 countries, cutting payment timelines from months to days and reaching some 2 million frontline health workers.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2025</span>
+              <a class="blog-card-link" href="commcare-public-health-campaign-payments/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="harnessing-ai-for-frontline-workers/index.html">
+            <img src="../assets/images/harnessing-ai-for-frontline-workers/cover.jpg" alt="Harnessing AI for Frontline Workers: Lessons from CATSCoach" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">AI for Good</div>
+            <h2 class="blog-card-title">Harnessing AI for Frontline Workers: Lessons from CATSCoach</h2>
+            <p class="blog-card-desc">Harnessing AI to empower frontline workers with smarter tools, improving efficiency, decision-making, and impact in global health and beyond.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2025</span>
+              <a class="blog-card-link" href="harnessing-ai-for-frontline-workers/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="supporting-our-partners/index.html">
+            <img src="../assets/images/supporting-our-partners/cover.jpg" alt="Supporting Our Partners Through Change" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Supporting Our Partners Through Change</h2>
+            <p class="blog-card-desc">As USAID restructuring reshapes global development, here&amp;rsquo;s how Dimagi is supporting partners, from a more affordable CommCare Standard Plan to letters of support and free training.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2025</span>
+              <a class="blog-card-link" href="supporting-our-partners/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="2024-year-in-review/index.html">
+            <img src="../assets/images/2024-year-in-review/cover.png" alt="2024 Year-in-Review: Scaling Digital Solutions for Global Impact" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">2024 Year-in-Review: Scaling Digital Solutions for Global Impact</h2>
+            <p class="blog-card-desc">A look back at Dimagi&amp;rsquo;s 2024: 173,638 CommCare users, SureAdhere&amp;rsquo;s 800,000th video, government partnerships across Africa, and impact from global to local.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2025</span>
+              <a class="blog-card-link" href="2024-year-in-review/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="sureadheres-story/index.html">
+            <img src="../assets/images/sureadheres-story/cover.jpg" alt="SureAdhere’s Story" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">SureAdhere</div>
+            <h2 class="blog-card-title">SureAdhere’s Story</h2>
+            <p class="blog-card-desc">From a 2009 research project at UC San Diego to a globally recognized tool for tuberculosis treatment adherence, this is the story of SureAdhere, now part of Dimagi.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2024</span>
+              <a class="blog-card-link" href="sureadheres-story/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="inaugural-commcare-government-summit/index.html">
+            <img src="../assets/images/inaugural-commcare-government-summit/cover.png" alt="Key Takeaways from Dimagi’s Inaugural CommCare Government Summit" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Key Takeaways from Dimagi’s Inaugural CommCare Government Summit</h2>
+            <p class="blog-card-desc">In October 2024, Dimagi hosted its first CommCare Government Summit in Addis Ababa, bringing 64 health leaders from 11 countries together to scale digital health across Africa.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2024</span>
+              <a class="blog-card-link" href="inaugural-commcare-government-summit/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="gdhf-2024/index.html">
+            <img src="../assets/images/gdhf-2024/cover.jpg" alt="Find Dimagi at the Global Digital Health Forum 2024" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Find Dimagi at the Global Digital Health Forum 2024</h2>
+            <p class="blog-card-desc">Dimagi is presenting across eight sessions at GDHF 2024, on the frontiers of AI in global health, improving frontline jobs, and scaling mental health care.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2024</span>
+              <a class="blog-card-link" href="gdhf-2024/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="usaid-div-and-dimagi-partner-to-enhance-child-health/index.html">
+            <img src="../assets/images/usaid-div-and-dimagi-partner-to-enhance-child-health/cover.jpg" alt="USAID DIV and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Maternal &amp; Child Health</div>
+            <h2 class="blog-card-title">USAID DIV and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria</h2>
+            <p class="blog-card-desc">USAID DIV has awarded Dimagi a grant to scale and evaluate CommCare Connect, delivering Vitamin A and ORS to children under five in northern Nigeria.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2024</span>
+              <a class="blog-card-link" href="usaid-div-and-dimagi-partner-to-enhance-child-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="miraclefeet-drives-global-impact-through-commcare-and-the-impact-delivery-approach/index.html">
+            <img src="../assets/images/miraclefeet-drives-global-impact-through-commcare-and-the-impact-delivery-approach/cover.jpg" alt="MiracleFeet Drives Global Impact Through CommCare and the Impact Delivery Approach" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">MiracleFeet Drives Global Impact Through CommCare and the Impact Delivery Approach</h2>
+            <p class="blog-card-desc">How MiracleFeet uses CommCare and the Impact Delivery approach to scale low-cost clubfoot treatment, reaching nearly 100,000 children across 36 countries.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2024</span>
+              <a class="blog-card-link" href="miraclefeet-drives-global-impact-through-commcare-and-the-impact-delivery-approach/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-connect-reaches-100000-deliveries/index.html">
+            <img src="../assets/images/commcare-connect-reaches-100000-deliveries/cover.png" alt="CommCare Connect Reaches a Milestone of 100,000 Service Deliveries" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Connect</div>
+            <h2 class="blog-card-title">CommCare Connect Reaches a Milestone of 100,000 Service Deliveries</h2>
+            <p class="blog-card-desc">Key milestones for CommCare Connect, strengthening the pillars of digital learning, verification, and payments to Frontline Workers in LMICs.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2024</span>
+              <a class="blog-card-link" href="commcare-connect-reaches-100000-deliveries/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="ecd-digital-transformation/index.html">
+            <img src="../assets/images/ecd-digital-transformation/cover.png" alt="Amplifying Early Childhood Development with CommCare: FCW&amp;rsquo;s Digital Transformation" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Amplifying Early Childhood Development with CommCare: FCW&rsquo;s Digital Transformation</h2>
+            <p class="blog-card-desc">The Foundation for Community Work (FCW) chose CommCare to digitize its out-of-center early childhood development program, equipping home visitors in South Africa to streamline service delivery and track real impact for children and families.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2024</span>
+              <a class="blog-card-link" href="ecd-digital-transformation/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="ict4d-conf-2024/index.html">
+            <img src="../assets/images/ict4d-conf-2024/cover.png" alt="Dimagi to Exhibit and Host Advanced CommCare Training at ICT4D Conference 2024" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Dimagi to Exhibit and Host Advanced CommCare Training at ICT4D Conference 2024</h2>
+            <p class="blog-card-desc">Join Dimagi at the ICT4D Conference 2024 in Accra, Ghana. Sign up for our Advanced CommCare Training and connect with our team on digital development.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2024</span>
+              <a class="blog-card-link" href="ict4d-conf-2024/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-research-grant-checkin-move-up-global/index.html">
+            <img src="../assets/images/commcare-research-grant-checkin-move-up-global/cover.jpg" alt="CommCare Research Grant Awardee One Year Check-in: Move Up Global" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Research</div>
+            <h2 class="blog-card-title">CommCare Research Grant Awardee One Year Check-in: Move Up Global</h2>
+            <p class="blog-card-desc">One year after launching the first CommCare Grant for Frontline Research, we share insights from first-place winner Move Up Global, whose study in rural Rwanda targets neglected tropical diseases and malnutrition among school-aged children.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2024</span>
+              <a class="blog-card-link" href="commcare-research-grant-checkin-move-up-global/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="world-poultry-foundation-guide/index.html">
+            <img src="../assets/images/world-poultry-foundation-guide/cover.png" alt="World Poultry Foundation&amp;rsquo;s guide to implementing a self-service digital solution" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">World Poultry Foundation&rsquo;s guide to implementing a self-service digital solution</h2>
+            <p class="blog-card-desc">Learn how the World Poultry Foundation addressed challenges in collecting real-time data from the field, and explore their journey to find an affordable, sustainable mobile digital solution built on CommCare.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2024</span>
+              <a class="blog-card-link" href="world-poultry-foundation-guide/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="design-thinking/index.html">
+            <img src="../assets/images/design-thinking/cover.png" alt="Design Thinking: Unleashing the Power of Empathy" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Design Thinking: Unleashing the Power of Empathy</h2>
+            <p class="blog-card-desc">A Dimagi design contractor shares how empathy and the five stages of design thinking shape user-centered solutions, from a rural-artisan e-commerce app to everyday products.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2024</span>
+              <a class="blog-card-link" href="design-thinking/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-connect-2023/index.html">
+            <img src="../assets/images/commcare-connect-2023/cover.png" alt="CommCare Connect: A Year in Review" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Connect</div>
+            <h2 class="blog-card-title">CommCare Connect: A Year in Review</h2>
+            <p class="blog-card-desc">Reflections and early learnings from the 2023 design and testing of CommCare Connect, Dimagi's platform that lets Frontline Workers learn, deliver, verify, and get paid for essential services.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2024</span>
+              <a class="blog-card-link" href="commcare-connect-2023/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="island-health-care/index.html">
+            <img src="../assets/images/island-health-care/cover.png" alt="How Dimagi Enables CHWs to Care for Martha&amp;rsquo;s Vineyard&amp;rsquo;s Highest-Need Residents" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">How Dimagi Enables CHWs to Care for Martha&rsquo;s Vineyard&rsquo;s Highest-Need Residents</h2>
+            <p class="blog-card-desc">Dimagi empowers community health workers to provide top-quality care to the most vulnerable residents of Martha&rsquo;s Vineyard.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2023</span>
+              <a class="blog-card-link" href="island-health-care/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="enterprise-summit-2023/index.html">
+            <img src="../assets/images/enterprise-summit-2023/cover.jpeg" alt="Highlights from Dimagi&amp;rsquo;s Inaugural CommCare Enterprise Summit in Washington D.C." loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Highlights from Dimagi&rsquo;s Inaugural CommCare Enterprise Summit in Washington D.C.</h2>
+            <p class="blog-card-desc">In September 2023, Dimagi hosted its Inaugural CommCare Enterprise Summit in Washington D.C., where 14 of 16 Enterprise Partners reaching a collective 1.2 billion people gathered to share challenges and expertise.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2023</span>
+              <a class="blog-card-link" href="enterprise-summit-2023/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="wellme-update2/index.html">
+            <img src="../assets/images/wellme-update2/cover.jpeg" alt="WellMe: The Resilience Application for Frontline Workers" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Research</div>
+            <h2 class="blog-card-title">WellMe: The Resilience Application for Frontline Workers</h2>
+            <p class="blog-card-desc">A Q3 progress update on WellMe, Dimagi's resilience-building app for Frontline Workers, covering pilot projects in India and Nigeria, a beta testing program, and key feedback from health workers.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2023</span>
+              <a class="blog-card-link" href="wellme-update2/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="grand-challenges-catalyzing-equitable-ai/index.html">
+            <img src="../assets/images/grand-challenges-catalyzing-equitable-ai/cover.png" alt="Dimagi Receives Grand Challenges Grant for Catalyzing Equitable Artificial Intelligence (AI) Use" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">AI for Good</div>
+            <h2 class="blog-card-title">Dimagi Receives Grand Challenges Grant for Catalyzing Equitable Artificial Intelligence (AI) Use</h2>
+            <p class="blog-card-desc">Dimagi is a winner of a Grand Challenges grant funded by the Gates Foundation. Led by Dr. Neal Lesh, the team will build an LLM-powered coach to support and supervise frontline workers.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2023</span>
+              <a class="blog-card-link" href="grand-challenges-catalyzing-equitable-ai/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="dimagi-to-host-its-inaugural-commcare-enterprise-summit-to-drive-impact-delivery/index.html">
+            <img src="../assets/images/dimagi-to-host-its-inaugural-commcare-enterprise-summit-to-drive-impact-delivery/cover.jpg" alt="Dimagi to host its inaugural CommCare Enterprise Summit to drive Impact Delivery" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Dimagi to host its inaugural CommCare Enterprise Summit to drive Impact Delivery</h2>
+            <p class="blog-card-desc">Learn more about Dimagi&rsquo;s first-ever CommCare Enterprise Summit, taking place from September 19 to 21 in Washington DC and hosting 16 of our software as a service (SaaS) CommCare Enterprise partners.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2023</span>
+              <a class="blog-card-link" href="dimagi-to-host-its-inaugural-commcare-enterprise-summit-to-drive-impact-delivery/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/index.html">
+            <img src="../assets/images/addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/cover.png" alt="Addressing Vermont&amp;rsquo;s Housing Crisis Through a Targeted, Tech-Driven Approach" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Addressing Vermont&rsquo;s Housing Crisis Through a Targeted, Tech-Driven Approach</h2>
+            <p class="blog-card-desc">How the CommCare Transitional Housing care coordination solution helped Vermont prove that the right technology, combined with targeted efforts, can make an outsize, positive impact on housing insecurity.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2023</span>
+              <a class="blog-card-link" href="addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="bao-systems-and-dimagi-announce-integration-partnership/index.html">
+            <img src="../assets/images/bao-systems-and-dimagi-announce-integration-partnership/cover.png" alt="BAO Systems and Dimagi Announce Integration Partnership" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">BAO Systems and Dimagi Announce Integration Partnership</h2>
+            <p class="blog-card-desc">BAO Systems and Dimagi announce a partnership to support communities connecting CommCare and DHIS2, streamlining data flow from collection to integration to analysis and use.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2023</span>
+              <a class="blog-card-link" href="bao-systems-and-dimagi-announce-integration-partnership/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="harnessing-ais-potential-to-improve-equity/index.html">
+            <img src="../assets/images/harnessing-ais-potential-to-improve-equity/cover.jpg" alt="Harnessing AI&amp;rsquo;s Potential to Improve Global Health and Development Outcomes" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">AI for Good</div>
+            <h2 class="blog-card-title">Harnessing AI&rsquo;s Potential to Improve Global Health and Development Outcomes</h2>
+            <p class="blog-card-desc">Learn more about the work Dimagi is doing to contribute to the equitable use of large language models as part of our overall mission to foster impactful, equitable, robust, and scalable digital solutions.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2023</span>
+              <a class="blog-card-link" href="harnessing-ais-potential-to-improve-equity/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="introducing-wellme-the-resilience-app-for-frontline-workers/index.html">
+            <img src="../assets/images/introducing-wellme-the-resilience-app-for-frontline-workers/cover.png" alt="Introducing WellMe: The Resilience Application for Frontline Workers" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">Introducing WellMe: The Resilience Application for Frontline Workers</h2>
+            <p class="blog-card-desc">WellMe is a wellbeing and resilience application designed to promote resilience-building behaviors and prevent burnout among Frontline Workers. Dimagi outlines its theory of change and a plan to pilot the platform with 1,200 Frontline Workers.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2023</span>
+              <a class="blog-card-link" href="introducing-wellme-the-resilience-app-for-frontline-workers/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="international-workers-day-2023/index.html">
+            <img src="../assets/images/international-workers-day-2023/cover.png" alt="Recognizing the contributions of community health workers on International Workers&amp;rsquo; Day 2023" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">Recognizing the contributions of community health workers on International Workers&rsquo; Day 2023</h2>
+            <p class="blog-card-desc">On International Workers' Day, Dimagi recognizes and supports community health workers through CommCare, advocating for better working conditions and workers' rights to strengthen community health systems and improve health outcomes.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2023</span>
+              <a class="blog-card-link" href="international-workers-day-2023/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-grant-awardee-series-introduction/index.html">
+            <img src="../assets/images/commcare-grant-awardee-series-introduction/cover.png" alt="CommCare Grant Awardee Series: Introduction" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Research</div>
+            <h2 class="blog-card-title">CommCare Grant Awardee Series: Introduction</h2>
+            <p class="blog-card-desc">Learn more about our CommCare Research grant awardees and the work they have been doing as we share key insights from their first-hand experience with frontline research, digital data collection, and the realities of managing an NGO.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2023</span>
+              <a class="blog-card-link" href="commcare-grant-awardee-series-introduction/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-in-the-classroom/index.html">
+            <img src="../assets/images/commcare-in-the-classroom/cover.png" alt="CommCare in the Classroom: Teaching Real World Digital Skills for Global Development" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">CommCare in the Classroom: Teaching Real World Digital Skills for Global Development</h2>
+            <p class="blog-card-desc">CommCare brings digital health to life in university classrooms around the world, equipping the next generation of global health and development leaders with real-world, no-code digital skills.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2023</span>
+              <a class="blog-card-link" href="commcare-in-the-classroom/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="20-years-of-designing-under-the-mango-tree/index.html">
+            <img src="../assets/images/20-years-of-designing-under-the-mango-tree/cover.png" alt="20 Years of Designing Under the Mango Tree" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">20 Years of Designing Under the Mango Tree</h2>
+            <p class="blog-card-desc">On Dimagi's 20th anniversary, we reflect on Designing Under the Mango Tree, our user-centric approach of building solutions around users' contextual needs, and revisit conversations with some of the first users of CommCare.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2022</span>
+              <a class="blog-card-link" href="20-years-of-designing-under-the-mango-tree/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="vermont-care-network/index.html">
+            <img src="../assets/images/vermont-care-network/cover.png" alt="The Vermont Care Network &amp;lsquo;Wheels and Waves&amp;rsquo; Program: Treating Opioid Use Disorder with Video Directly Observed Therapy" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">SureAdhere</div>
+            <h2 class="blog-card-title">The Vermont Care Network &lsquo;Wheels and Waves&rsquo; Program: Treating Opioid Use Disorder with Video Directly Observed Therapy</h2>
+            <p class="blog-card-desc">Vermont Care Network and Vermont Care Partners are collaborating with SureAdhere by Dimagi to scale the ‘Wheels and Waves’ program, a telemedicine intervention to treat opioid use disorder across the State of Vermont.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2022</span>
+              <a class="blog-card-link" href="vermont-care-network/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="tech-team-summit-2022/index.html">
+            <img src="../assets/images/tech-team-summit-2022/cover.jpeg" alt="Getting to know each other: Tech Team Summit 2022" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Getting to know each other: Tech Team Summit 2022</h2>
+            <p class="blog-card-desc">Dimagi's tech team held its first in-person summit in four years, bringing together the team's global workforce in Tulbagh, South Africa.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2022</span>
+              <a class="blog-card-link" href="tech-team-summit-2022/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="celebrating-20-years-of-impact/index.html">
+            <img src="../assets/images/celebrating-20-years-of-impact/cover.png" alt="Celebrating 20 Years of Impact at Dimagi" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Celebrating 20 Years of Impact at Dimagi</h2>
+            <p class="blog-card-desc">Looking back on 20 years of Impact, Team and Profit at Dimagi, and looking ahead to the next 20 years of high-impact growth.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2022</span>
+              <a class="blog-card-link" href="celebrating-20-years-of-impact/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="global-digital-health-forum-2022/index.html">
+            <img src="../assets/images/global-digital-health-forum-2022/cover.png" alt="Join us at the Global Digital Health Forum 2022" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Join us at the Global Digital Health Forum 2022</h2>
+            <p class="blog-card-desc">Dimagi is looking forward to a strong presence at GDHF 2022. Find out what we&rsquo;ll be presenting on, and sign up for our happy hour on Monday night.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2022</span>
+              <a class="blog-card-link" href="global-digital-health-forum-2022/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-grant-2022-winners/index.html">
+            <img src="../assets/images/commcare-grant-2022-winners/cover.png" alt="Announcing the First CommCare Research Grant &amp;amp; the 2022 Winners" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Research</div>
+            <h2 class="blog-card-title">Announcing the First CommCare Research Grant &amp; the 2022 Winners</h2>
+            <p class="blog-card-desc">Announcing the first-ever CommCare Grant for Frontline Research. Learn more about the origins of the grant and the 2022 winners.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2022</span>
+              <a class="blog-card-link" href="commcare-grant-2022-winners/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="digital-health-must-invest-in-local-digital-ecosystems/index.html">
+            <img src="../assets/images/digital-health-must-invest-in-local-digital-ecosystems/cover.jpg" alt="Digital Health Must Invest in Local Digital Ecosystems" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Digital Health Must Invest in Local Digital Ecosystems</h2>
+            <p class="blog-card-desc">Why technology entrepreneurs based in low- and middle-income countries are essential to local capacity strengthening, and how Dimagi supports them through the CommCare Provider Program.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2022</span>
+              <a class="blog-card-link" href="digital-health-must-invest-in-local-digital-ecosystems/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="dimagi-monkeypox-case-management-solution/index.html">
+            <img src="../assets/images/dimagi-monkeypox-case-management-solution/cover.jpg" alt="Dimagi to Launch Monkeypox Case Management Solution to Support US Public Health Departments" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Dimagi to Launch Monkeypox Case Management Solution to Support US Public Health Departments</h2>
+            <p class="blog-card-desc">Dimagi is offering a free, pre-configured monkeypox case investigation and contact tracing solution built on CommCare to any US public health department, with six months of free CommCare Enterprise Premier.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2022</span>
+              <a class="blog-card-link" href="dimagi-monkeypox-case-management-solution/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="4-reasons-to-jump-into-a-social-impact-career-now/index.html">
+            <img src="../assets/images/4-reasons-to-jump-into-a-social-impact-career-now/cover.png" alt="The Tech World is Crashing Down: 4 Reasons Why Now is the Best Time to Jump Into a Career in Social Impact" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">The Tech World is Crashing Down: 4 Reasons Why Now is the Best Time to Jump Into a Career in Social Impact</h2>
+            <p class="blog-card-desc">After years of a tech golden age, companies of all sizes are experiencing widespread layoffs. Dimagi's CTO shares why, even when things seem like they are falling apart, this is a great time to transition your career into social impact.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2022</span>
+              <a class="blog-card-link" href="4-reasons-to-jump-into-a-social-impact-career-now/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="high-impact-growth-podcast/index.html">
+            <img src="../assets/images/high-impact-growth-podcast/cover.png" alt="Announcing the High-Impact Growth Podcast" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Announcing the High-Impact Growth Podcast</h2>
+            <p class="blog-card-desc">Dimagi is launching the High-Impact Growth Podcast, a new way to share two decades of learnings about technology in global health and development.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2022</span>
+              <a class="blog-card-link" href="high-impact-growth-podcast/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="reducing-childhood-malnutrition-in-madagascar/index.html">
+            <img src="../assets/images/reducing-childhood-malnutrition-in-madagascar/cover.png" alt="Reducing childhood malnutrition in Madagascar" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Maternal &amp; Child Health</div>
+            <h2 class="blog-card-title">Reducing childhood malnutrition in Madagascar</h2>
+            <p class="blog-card-desc">The Office of National Nutrition and the Ministry of Health in Madagascar, with World Bank funding, are working to reduce childhood stunting. Dimagi optimized the CommCare-based PARN application to support this goal.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2022</span>
+              <a class="blog-card-link" href="reducing-childhood-malnutrition-in-madagascar/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="digital-solutions-scale-mental-health-care/index.html">
+            <img src="../assets/images/digital-solutions-scale-mental-health-care/cover.jpg" alt="How Digital Solutions Can Help Scale Mental Health Care" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">How Digital Solutions Can Help Scale Mental Health Care</h2>
+            <p class="blog-card-desc">Dimagi is building reusable digital components to help expand access to quality mental health care, with a focus on lower and middle income countries where the unmet need is greatest.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2022</span>
+              <a class="blog-card-link" href="digital-solutions-scale-mental-health-care/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="thriving-in-a-hybrid-world/index.html">
+            <img src="../assets/images/thriving-in-a-hybrid-world/cover.png" alt="Thriving in a Hybrid World" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Thriving in a Hybrid World</h2>
+            <p class="blog-card-desc">Dimagi was a hybrid organization before hybrid had a name. Jeremy Wacksman reflects on a decade of remote work and how Dimagi is intentionally designing a thriving hybrid workplace.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2022</span>
+              <a class="blog-card-link" href="thriving-in-a-hybrid-world/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="three-digital-tools-for-behavioral-health/index.html">
+            <img src="../assets/images/three-digital-tools-for-behavioral-health/cover.jpeg" alt="Three Digital Tools That Can Help US State Governments Meet Behavioral Health Needs Amidst COVID-19" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Three Digital Tools That Can Help US State Governments Meet Behavioral Health Needs Amidst COVID-19</h2>
+            <p class="blog-card-desc">The COVID-19 pandemic sharply increased demand for behavioral health care while cutting the number of inpatient beds available. Here are three digital tools that can help US state governments match patients with the care they need.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2022</span>
+              <a class="blog-card-link" href="three-digital-tools-for-behavioral-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="dimagis-5-year-strategy/index.html">
+            <img src="../assets/images/dimagis-5-year-strategy/cover.png" alt="Announcing our 5 year strategy for High-Impact Growth" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Announcing our 5 year strategy for High-Impact Growth</h2>
+            <p class="blog-card-desc">Dimagi shares its five-year strategy for 2022 to 2026, built around three strategic priorities to achieve what we call High-Impact Growth.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2022</span>
+              <a class="blog-card-link" href="dimagis-5-year-strategy/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="abt-associates-healthy-mother-healthy-baby-tajikistan/index.html">
+            <img src="../assets/images/abt-associates-healthy-mother-healthy-baby-tajikistan/cover.jpg" alt="Abt Associates: Healthy Mother Healthy Baby, Tajikistan" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Maternal &amp; Child Health</div>
+            <h2 class="blog-card-title">Abt Associates: Healthy Mother Healthy Baby, Tajikistan</h2>
+            <p class="blog-card-desc">Dimagi is partnering with Abt Associates on the USAID-funded Healthy Mother Healthy Baby project, which advances digital transformation for maternal, newborn, and child health and nutrition services in Tajikistan.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2022</span>
+              <a class="blog-card-link" href="abt-associates-healthy-mother-healthy-baby-tajikistan/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="adpp-mozambique-tb-local-response/index.html">
+            <img src="../assets/images/adpp-mozambique-tb-local-response/cover.jpg" alt="ADPP Mozambique: TB Local Response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">ADPP Mozambique: TB Local Response</h2>
+            <p class="blog-card-desc">Dimagi joins the ADPP Mozambique consortium to lead digitization efforts and build DHIS2 tools that strengthen the TB Local Response across 50 districts.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2022</span>
+              <a class="blog-card-link" href="adpp-mozambique-tb-local-response/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="dimagi-acquires-sureadhere-digital-solutions/index.html">
+            <img src="../assets/images/dimagi-acquires-sureadhere-digital-solutions/cover.png" alt="Dimagi acquires SureAdhere to expand portfolio of high-impact digital health solutions" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">SureAdhere</div>
+            <h2 class="blog-card-title">Dimagi acquires SureAdhere to expand portfolio of high-impact digital health solutions</h2>
+            <p class="blog-card-desc">Dimagi acquires SureAdhere to bolster digital solutions for Frontline Workers, enable new virtual care models, and strengthen the clinical trials digital ecosystem.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2022</span>
+              <a class="blog-card-link" href="dimagi-acquires-sureadhere-digital-solutions/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="digital-development-organizations-take-away-it-security-news/index.html">
+            <img src="../assets/images/digital-development-organizations-take-away-it-security-news/cover.png" alt="Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news</h2>
+            <p class="blog-card-desc">Dimagi&rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2022</span>
+              <a class="blog-card-link" href="digital-development-organizations-take-away-it-security-news/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">
+            <img src="../assets/images/malawi-ministry-of-health-cstock-supply-chain-management-application/cover.png" alt="Malawi Ministry of Health: cStock Supply Chain Management Application" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">Malawi Ministry of Health: cStock Supply Chain Management Application</h2>
+            <p class="blog-card-desc">Dimagi is partnering with the Malawi Ministry of Health to revive and transition to local ownership the proven cStock supply chain system for the community level.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2021</span>
+              <a class="blog-card-link" href="malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="building-in-the-open-september-2021/index.html">
+            <img src="../assets/images/building-in-the-open-september-2021/cover.png" alt="Building in the Open: September 2021" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Building in the Open: September 2021</h2>
+            <p class="blog-card-desc">The fourth in a series of regular updates, Dimagi Senior Director of New Business Shabnam Aggarwal shares learnings from the marketing and sales strategy behind FocusMDM.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2021</span>
+              <a class="blog-card-link" href="building-in-the-open-september-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="catholic-relief-services-technical-advisory-services-2021/index.html">
+            <img src="../assets/images/catholic-relief-services-technical-advisory-services-2021/cover.jpeg" alt="Catholic Relief Services: Technical Advisory Services" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Catholic Relief Services: Technical Advisory Services</h2>
+            <p class="blog-card-desc">Catholic Relief Services is working with Dimagi to prepare and host six full-day training sessions to help improve their ICT teams' case management and advanced app-building skills.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2021</span>
+              <a class="blog-card-link" href="catholic-relief-services-technical-advisory-services-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-precision-tasking-framework/index.html">
+            <img src="../assets/images/commcare-precision-tasking-framework/cover.jpg" alt="CommCare Precision Tasking Framework: A Prioritized Tasking Solution for Supervisors and Health Workers" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">CommCare Precision Tasking Framework: A Prioritized Tasking Solution for Supervisors and Health Workers</h2>
+            <p class="blog-card-desc">Dimagi has created a Prioritized Tasking Framework that aims to help CHWs focus on service delivery, enable data-driven decision making, and provide patients access to better care.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2021</span>
+              <a class="blog-card-link" href="commcare-precision-tasking-framework/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="baobab-senegal-uncdf-commbanane-advisory-service/index.html">
+            <img src="../assets/images/baobab-senegal-uncdf-commbanane-advisory-service/cover.png" alt="Baobab Senegal &amp;amp; UNCDF &amp;ndash; CommBanane Advisory Service" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Baobab Senegal &amp; UNCDF &ndash; CommBanane Advisory Service</h2>
+            <p class="blog-card-desc">UNCDF partnered with Baobab Senegal, Corprobat, and Dimagi to pilot a digital solution for the agricultural sector, now scaling up to reach an additional 2,250 smallholder farmers.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2021</span>
+              <a class="blog-card-link" href="baobab-senegal-uncdf-commbanane-advisory-service/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="crisis-response-corps-launch/index.html">
+            <img src="../assets/images/crisis-response-corps-launch/cover.jpeg" alt="Dimagi launches new Crisis Response Corps" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Dimagi launches new Crisis Response Corps</h2>
+            <p class="blog-card-desc">Dimagi has officially launched its Crisis Response Corps (CRC): a team dedicated to rapidly building durable digital solutions for immediate impact in emergency and humanitarian response.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2021</span>
+              <a class="blog-card-link" href="crisis-response-corps-launch/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="commcare-fhir-integration/index.html">
+            <img src="../assets/images/commcare-fhir-integration/cover.jpg" alt="Championing New Integrations for Increased Interoperability and Impact" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Championing New Integrations for Increased Interoperability and Impact</h2>
+            <p class="blog-card-desc">Dimagi has partnered with PATH and Digital Square to create a turnkey integration between CommCare and Fast Healthcare Interoperability Resources (FHIR), making it easier to share health data securely across systems.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2021</span>
+              <a class="blog-card-link" href="commcare-fhir-integration/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="climate-neutral-certified/index.html">
+            <img src="../assets/images/climate-neutral-certified/cover.png" alt="Dimagi Is Climate Neutral Certified!" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Dimagi Is Climate Neutral Certified!</h2>
+            <p class="blog-card-desc">As of June 30, 2021, Dimagi is officially Climate Neutral Certified, taking responsibility for its global carbon emissions through measurement, offsets, and a reduction plan.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2021</span>
+              <a class="blog-card-link" href="climate-neutral-certified/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-pandemic-preparedness-report/index.html">
+            <img src="../assets/images/covid-19-pandemic-preparedness-report/cover.png" alt="Learning from COVID-19: How Investments in Frontline Digital Tools Now Can Prepare Us for the Next Pandemic" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Learning from COVID-19: How Investments in Frontline Digital Tools Now Can Prepare Us for the Next Pandemic</h2>
+            <p class="blog-card-desc">Dimagi, Medic, and The Rockefeller Foundation collaborated on a report exploring how investments in digital platforms for frontline workers today can help prepare for future pandemics.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2021</span>
+              <a class="blog-card-link" href="covid-19-pandemic-preparedness-report/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="building-in-the-open-june-2021/index.html">
+            <img src="../assets/images/building-in-the-open-june-2021/cover.png" alt="Building in the Open &amp;ndash; June 2021" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Building in the Open &ndash; June 2021</h2>
+            <p class="blog-card-desc">In this third post in a series of regular updates, Dimagi Senior Director of New Business Shabnam Aggarwal shares what the team has learned about the sales strategy behind FocusMDM.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2021</span>
+              <a class="blog-card-link" href="building-in-the-open-june-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="innovation-at-dimagi-part-6-new-business-portfolio/index.html">
+            <img src="../assets/images/innovation-at-dimagi-part-6-new-business-portfolio/cover.png" alt="Innovation at Dimagi, Part 6: Managing the New Business Portfolio" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Innovation at Dimagi, Part 6: Managing the New Business Portfolio</h2>
+            <p class="blog-card-desc">The next piece in our Innovation at Dimagi series highlights our team's approach to evaluating current and upcoming projects honestly and efficiently.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2021</span>
+              <a class="blog-card-link" href="innovation-at-dimagi-part-6-new-business-portfolio/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="abt-associates-vaccine-hesitancy-cbos/index.html">
+            <img src="../assets/images/abt-associates-vaccine-hesitancy-cbos/cover.jpg" alt="Designing Digital Tools to Combat Vaccine Hesitancy in High-Risk US Populations" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Designing Digital Tools to Combat Vaccine Hesitancy in High-Risk US Populations</h2>
+            <p class="blog-card-desc">As the United States moves to the next stage of its pandemic response, Dimagi is working with Abt Associates and local community-based organizations to fight vaccine hesitancy in some of the country&rsquo;s most vulnerable populations.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2021</span>
+              <a class="blog-card-link" href="abt-associates-vaccine-hesitancy-cbos/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-pro-bono-project-highlights-2021/index.html">
+            <img src="../assets/images/covid-19-pro-bono-project-highlights-2021/cover.jpg" alt="A Year of COVID-19 Response With CommCare" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">A Year of COVID-19 Response With CommCare</h2>
+            <p class="blog-card-desc">More than a year on from the release of our first template applications for COVID-19 response, a look at how our partners have been putting them to use across the globe.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2021</span>
+              <a class="blog-card-link" href="covid-19-pro-bono-project-highlights-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="innovation-at-dimagi-part-4-innovation-funding/index.html">
+            <img src="../assets/images/innovation-at-dimagi-part-4-innovation-funding/cover.png" alt="Innovation at Dimagi, Part 4: The Role of Innovation Funding" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Innovation at Dimagi, Part 4: The Role of Innovation Funding</h2>
+            <p class="blog-card-desc">In the fourth entry in our series on Innovation at Dimagi, Jon explains how and why to differentiate funding from innovative sources from true revenue.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2021</span>
+              <a class="blog-card-link" href="innovation-at-dimagi-part-4-innovation-funding/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="building-in-the-open-march-2021/index.html">
+            <img src="../assets/images/building-in-the-open-march-2021/cover.png" alt="Building in the Open &amp;ndash; March 2021" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Building in the Open &ndash; March 2021</h2>
+            <p class="blog-card-desc">A candid March 2021 update in Dimagi&rsquo;s Building in the Open series, reflecting on the Focus mobile device management product&rsquo;s sales pipeline, strategic partnerships, and the decision to keep the tool simple.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2021</span>
+              <a class="blog-card-link" href="building-in-the-open-march-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="egpaf-malawi-pepfar-gh002301/index.html">
+            <img src="../assets/images/egpaf-malawi-pepfar-gh002301/cover.jpg" alt="EGPAF-Malawi: Support for the PEPFAR Program in Malawi" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">EGPAF-Malawi: Support for the PEPFAR Program in Malawi</h2>
+            <p class="blog-card-desc">Working with EGPAF-Malawi, Dimagi is designing, developing, and testing a pilot mobile solution that will support testing of children and partners who might be at risk of HIV in Malawi.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2021</span>
+              <a class="blog-card-link" href="egpaf-malawi-pepfar-gh002301/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="cdc-foundation-pods-project/index.html">
+            <img src="../assets/images/cdc-foundation-pods-project/cover.jpg" alt="CDC Foundation: Pregnancy Outcome and Death Surveillance in Humanitarian and Fragile Settings" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Maternal &amp; Child Health</div>
+            <h2 class="blog-card-title">CDC Foundation: Pregnancy Outcome and Death Surveillance in Humanitarian and Fragile Settings</h2>
+            <p class="blog-card-desc">The CDC Foundation has engaged Dimagi in a pilot of the Pregnancy Outcomes and Death Surveillance in Humanitarian and Fragile Settings (PODS) project, building a model to better understand challenges to good maternal and newborn health outcomes and to use data for evidence-based decision making.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2021</span>
+              <a class="blog-card-link" href="cdc-foundation-pods-project/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="data-driven-program-improvements-webinar-miraclefeet/index.html">
+            <img src="../assets/images/data-driven-program-improvements-webinar-miraclefeet/cover.png" alt="Turning your data into insights you can use" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Events</div>
+            <h2 class="blog-card-title">Turning your data into insights you can use</h2>
+            <p class="blog-card-desc">Our Customer Success team outlines five key steps for setting up a process of continual improvement for your programs, with lessons from our partners at MiracleFeet.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2021</span>
+              <a class="blog-card-link" href="data-driven-program-improvements-webinar-miraclefeet/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="building-in-the-open-february-2021/index.html">
+            <img src="../assets/images/building-in-the-open-february-2021/cover.png" alt="Building in the Open: February 2021" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Building in the Open: February 2021</h2>
+            <p class="blog-card-desc">The first in a series of monthly updates, Dimagi Senior Director of New Business Shabnam Aggarwal outlines the work of the New Business team, focusing on the mobile device management platform, Focus.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2021</span>
+              <a class="blog-card-link" href="building-in-the-open-february-2021/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="innovation-at-dimagi-part-2-approach-to-failure/index.html">
+            <img src="../assets/images/innovation-at-dimagi-part-2-approach-to-failure/cover.png" alt="Innovation at Dimagi, Part 2: How We Increased the Value of Failure" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Innovation at Dimagi, Part 2: How We Increased the Value of Failure</h2>
+            <p class="blog-card-desc">In the second post in our Innovation at Dimagi series, CEO Jonathan Jackson explains how we reformed our approach to innovation and exploration at Dimagi and how it gives us greater confidence in the results of our tests.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2021</span>
+              <a class="blog-card-link" href="innovation-at-dimagi-part-2-approach-to-failure/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="reflecting-on-2020/index.html">
+            <img src="../assets/images/reflecting-on-2020/cover.png" alt="Reflecting on 2020" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Reflecting on 2020</h2>
+            <p class="blog-card-desc">Dimagi CEO Jonathan Jackson reflects on a year filled with uncertainty, challenges, inspiring partners, and no small amount of hard work.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2021</span>
+              <a class="blog-card-link" href="reflecting-on-2020/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-equitable-vaccine-delivery-challenges/index.html">
+            <img src="../assets/images/covid-19-equitable-vaccine-delivery-challenges/cover.jpg" alt="Equitable Vaccine Delivery: What Our Obstacles Are and How to Overcome Them" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Equitable Vaccine Delivery: What Our Obstacles Are and How to Overcome Them</h2>
+            <p class="blog-card-desc">As viable COVID-19 vaccines become available, the tools we use to ensure their equitable delivery will determine whether we can overcome the challenges that accompany them.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2020</span>
+              <a class="blog-card-link" href="covid-19-equitable-vaccine-delivery-challenges/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="banyan-global-empleando-futuros/index.html">
+            <img src="../assets/images/banyan-global-empleando-futuros/cover.jpg" alt="Banyan Global &amp;ndash; Empleando Futuros Project" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Banyan Global &ndash; Empleando Futuros Project</h2>
+            <p class="blog-card-desc">Banyan Global has partnered with Dimagi to build an SMS-based system designed to keep upwards of 2,500 youth in Honduras engaged in a program promoting employment and education resources.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Dec 2020</span>
+              <a class="blog-card-link" href="banyan-global-empleando-futuros/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-equitable-vaccine-delivery/index.html">
+            <img src="../assets/images/covid-19-equitable-vaccine-delivery/cover.jpg" alt="Now Is the Time to Develop Digital Global Goods for Equitable Vaccine Delivery" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Now Is the Time to Develop Digital Global Goods for Equitable Vaccine Delivery</h2>
+            <p class="blog-card-desc">To support the next phase of COVID-19 response, Dimagi is developing an open-source digital global good to track and support every client before, during, and after vaccination.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Nov 2020</span>
+              <a class="blog-card-link" href="covid-19-equitable-vaccine-delivery/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="infomovel-commcare-hiv-tb-patient-tracking/index.html">
+            <img src="../assets/images/infomovel-commcare-hiv-tb-patient-tracking/None" alt="Infomovel: Tracking HIV and TB Patients Across Mozambique" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Infomovel: Tracking HIV and TB Patients Across Mozambique</h2>
+            <p class="blog-card-desc">Infomovel connected more than 1,750 community health workers across seven provinces of Mozambique with CommCare, reducing loss to follow-up and aligning fragmented partners around the UNAIDS 90-90-90 targets for HIV and TB.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2020</span>
+              <a class="blog-card-link" href="infomovel-commcare-hiv-tb-patient-tracking/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="great-reset-social-enterprise-wef/index.html">
+            <img src="../assets/images/great-reset-social-enterprise-wef/cover.jpg" alt="The Success of the Great Reset Depends on Social Enterprises" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">The Success of the Great Reset Depends on Social Enterprises</h2>
+            <p class="blog-card-desc">Dimagi CEO Jonathan Jackson shares highlights from a joint post with the COVID Response Alliance on the World Economic Forum blog, on the vital role of social entrepreneurs in the recovery from COVID-19 and the achievement of the Sustainable Development Goals.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2020</span>
+              <a class="blog-card-link" href="great-reset-social-enterprise-wef/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="malaria-consortium-upscale-iccm-child-health/index.html">
+            <img src="../assets/images/malaria-consortium-upscale-iccm-child-health/None" alt="Malaria Consortium upSCALE: iCCM for Improving Child Health" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Malaria Consortium upSCALE: iCCM for Improving Child Health</h2>
+            <p class="blog-card-desc">How Malaria Consortium's upSCALE program used CommCare for integrated community case management (iCCM), helping community health workers improve child health in Mozambique.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2020</span>
+              <a class="blog-card-link" href="malaria-consortium-upscale-iccm-child-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="technoserve-monitoring-evaluation-tools-suite/index.html">
+            <img src="../assets/images/technoserve-monitoring-evaluation-tools-suite/None" alt="TechnoServe: Building a Monitoring &amp;amp; Evaluation Tools Suite" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">TechnoServe: Building a Monitoring &amp; Evaluation Tools Suite</h2>
+            <p class="blog-card-desc">How TechnoServe worked with Dimagi to build a suite of CommCare-based monitoring and evaluation tools that reaches nearly half a million beneficiaries across Africa and Latin America, cutting implementation time in half.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2020</span>
+              <a class="blog-card-link" href="technoserve-monitoring-evaluation-tools-suite/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-africa-commcare/index.html">
+            <img src="../assets/images/covid-19-africa-commcare/cover.jpg" alt="Supporting COVID-19 Response Across Africa" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Supporting COVID-19 Response Across Africa</h2>
+            <p class="blog-card-desc">With the coronavirus continuing to spread across the continent, Dimagi is partnering directly with NGOs and ministries of health across Africa to implement CommCare for everything from workplace screening to facility readiness and contact tracing.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2020</span>
+              <a class="blog-card-link" href="covid-19-africa-commcare/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-aws-contact-tracing/index.html">
+            <img src="../assets/images/covid-19-aws-contact-tracing/cover.jpg" alt="Powering scalable, fast, and secure contact tracing solutions with AWS" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Powering scalable, fast, and secure contact tracing solutions with AWS</h2>
+            <p class="blog-card-desc">Originally shared on the AWS Public Sector Blog, this post highlights how Dimagi&rsquo;s CommCare and Amazon Connect helped the New York State Department of Health scale up COVID-19 contact tracing.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Aug 2020</span>
+              <a class="blog-card-link" href="covid-19-aws-contact-tracing/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="contact-tracing-2014-ebola-anne-liu/index.html">
+            <img src="../assets/images/contact-tracing-2014-ebola-anne-liu/cover.jpg" alt="A Human-Centered Approach to Digital Contact Tracing Programs" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">A Human-Centered Approach to Digital Contact Tracing Programs</h2>
+            <p class="blog-card-desc">Anne Liu, an expert on mobile tools for disease surveillance, shares her experience supporting the Government of Guinea in launching a national digital contact tracing program during the 2014 Ebola epidemic.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2020</span>
+              <a class="blog-card-link" href="contact-tracing-2014-ebola-anne-liu/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-response-jhu-digital-solutions-report/index.html">
+            <img src="../assets/images/covid-19-response-jhu-digital-solutions-report/cover.png" alt="Johns Hopkins Selects CommCare as Leading Digital Solution for Contact Tracing" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Johns Hopkins Selects CommCare as Leading Digital Solution for Contact Tracing</h2>
+            <p class="blog-card-desc">In a recent assessment of digital solutions for COVID-19 response, the Johns Hopkins Bloomberg School of Public Health highlighted CommCare for its existing deployments, flexibility, and ease of use.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2020</span>
+              <a class="blog-card-link" href="covid-19-response-jhu-digital-solutions-report/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-template-application-port-of-entry/index.html">
+            <img src="../assets/images/covid-19-template-application-port-of-entry/cover.jpg" alt="Port of Entry App: A Patient Screening Tool for COVID-19 Response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Port of Entry App: A Patient Screening Tool for COVID-19 Response</h2>
+            <p class="blog-card-desc">As more countries reopen their borders, Dimagi has developed a Port of Entry Surveillance application to screen travelers for COVID-19 risk factors and symptoms at air, sea, rail, and land ports of entry.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jul 2020</span>
+              <a class="blog-card-link" href="covid-19-template-application-port-of-entry/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-template-application-healthcare-provider-training-monitoring/index.html">
+            <img src="../assets/images/covid-19-template-application-healthcare-provider-training-monitoring/cover.jpg" alt="Healthcare Provider Training: A Mobile Tool for COVID-19 Workers" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Healthcare Provider Training: A Mobile Tool for COVID-19 Workers</h2>
+            <p class="blog-card-desc">The Healthcare Provider Training &amp; Monitoring template application gives frontline workers responding to COVID-19 easy access to resources for education, training, risk assessment, and symptom screening.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2020</span>
+              <a class="blog-card-link" href="covid-19-template-application-healthcare-provider-training-monitoring/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-template-application-facility-readiness/index.html">
+            <img src="../assets/images/covid-19-template-application-facility-readiness/cover.jpg" alt="Facility Readiness: a mobile stock tracking aid for COVID-19 response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Facility Readiness: a mobile stock tracking aid for COVID-19 response</h2>
+            <p class="blog-card-desc">The Facility Readiness template application supports facilities responding to COVID-19 to assess their readiness and keep track of vital stock.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jun 2020</span>
+              <a class="blog-card-link" href="covid-19-template-application-facility-readiness/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-template-bi-tools/index.html">
+            <img src="../assets/images/covid-19-template-bi-tools/cover.jpg" alt="New Template BI Tools to Support COVID-19 Response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">New Template BI Tools to Support COVID-19 Response</h2>
+            <p class="blog-card-desc">To help partners rapidly set up their COVID-19 data pipelines, Dimagi built template dashboards for Excel, Power BI, and Tableau that connect to CommCare through its built-in integration features.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">May 2020</span>
+              <a class="blog-card-link" href="covid-19-template-bi-tools/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="covid-19-response-template-apps/index.html">
+            <img src="../assets/images/covid-19-response-template-apps/cover.jpg" alt="Template Applications to Support All Phases of COVID-19 Response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Template Applications to Support All Phases of COVID-19 Response</h2>
+            <p class="blog-card-desc">To support organizations coordinating COVID-19 response around the world, Dimagi is developing a collection of free template CommCare applications for the various phases of outbreak response.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Apr 2020</span>
+              <a class="blog-card-link" href="covid-19-response-template-apps/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/index.html">
+            <img src="../assets/images/theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/cover.png" alt="&amp;ldquo;There&amp;rsquo;s no choice but to act now&amp;rdquo;: WHO Contact Tracing template app available today" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">&ldquo;There&rsquo;s no choice but to act now&rdquo;: WHO Contact Tracing template app available today</h2>
+            <p class="blog-card-desc">Dimagi has released an application template encoding the full WHO FFX Contact Tracing and Reporting protocols, ready to deploy in minutes for COVID-19 response.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2020</span>
+              <a class="blog-card-link" href="theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="join-the-fight-to-support-critical-open-source-infrastructure/index.html">
+            <img src="../assets/images/join-the-fight-to-support-critical-open-source-infrastructure/cover.png" alt="Join the fight to support critical open source infrastructure" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Join the fight to support critical open source infrastructure</h2>
+            <p class="blog-card-desc">Open source tools are a critical piece of global infrastructure, and they need champions for long-term investment.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2020</span>
+              <a class="blog-card-link" href="join-the-fight-to-support-critical-open-source-infrastructure/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="coronavirus-covid-19-response-initiative/index.html">
+            <img src="../assets/images/coronavirus-covid-19-response-initiative/cover.jpg" alt="Supporting Coronavirus (COVID-19) Response" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Global Health</div>
+            <h2 class="blog-card-title">Supporting Coronavirus (COVID-19) Response</h2>
+            <p class="blog-card-desc">Dimagi is offering pro bono CommCare subscriptions to COVID-19 response applications through May 2021. Find out if your project qualifies and apply today.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Mar 2020</span>
+              <a class="blog-card-link" href="coronavirus-covid-19-response-initiative/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="dimagi-awards/index.html">
+            <img src="../assets/images/dimagi-awards/" alt="Awards" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Awards</h2>
+            <p class="blog-card-desc">Dimagi has been recognized for its commitment to open source software and a collaborative, impact-focused work culture, earning awards and certifications across governance, workplace, and global health.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2020</span>
+              <a class="blog-card-link" href="dimagi-awards/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="two-big-lessons-that-iowa-and-geneva-can-teach-us-about-technology-in-digital-development/index.html">
+            <img src="../assets/images/two-big-lessons-that-iowa-and-geneva-can-teach-us-about-technology-in-digital-development/cover.png" alt="Two big lessons that Iowa and Geneva can teach us about technology in digital development" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Company</div>
+            <h2 class="blog-card-title">Two big lessons that Iowa and Geneva can teach us about technology in digital development</h2>
+            <p class="blog-card-desc">Two high-profile technology failures, the Iowa caucus app and a UN data breach in Geneva, reveal cautionary lessons for practitioners building software in the public sector and in digital development.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Feb 2020</span>
+              <a class="blog-card-link" href="two-big-lessons-that-iowa-and-geneva-can-teach-us-about-technology-in-digital-development/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="baylor-college-of-medicine-ethics-lesotho/index.html">
+            <img src="../assets/images/baylor-college-of-medicine-ethics-lesotho/cover.png" alt="Baylor College of Medicine &amp;ndash; ETHICS Lesotho" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">Community Health</div>
+            <h2 class="blog-card-title">Baylor College of Medicine &ndash; ETHICS Lesotho</h2>
+            <p class="blog-card-desc">The Baylor College of Medicine&rsquo;s Children&rsquo;s Foundation Lesotho is working with Dimagi to expand a CommCare-based client tracking tool to two more districts, the final step before national deployment.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2020</span>
+              <a class="blog-card-link" href="baylor-college-of-medicine-ethics-lesotho/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="naatal-mbay-commcare-agricultural-support/index.html">
+            <img src="../assets/images/naatal-mbay-commcare-agricultural-support/None" alt="Naatal Mbay: CommCare for Agricultural Support" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Naatal Mbay: CommCare for Agricultural Support</h2>
+            <p class="blog-card-desc">How the Naatal Mbay program built CommAgri on CommCare to register 68,000 farmers and coordinate 500 extension agents across Senegal's rice, maize, and millet value chains.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Oct 2019</span>
+              <a class="blog-card-link" href="naatal-mbay-commcare-agricultural-support/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="lwala-commcare-improving-vaccination-rates/index.html">
+            <img src="../assets/images/lwala-commcare-improving-vaccination-rates/None" alt="Lwala Community Alliance: CommCare for Improving Vaccination Rates" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Lwala Community Alliance: CommCare for Improving Vaccination Rates</h2>
+            <p class="blog-card-desc">How Lwala Community Alliance reached 95% vaccination coverage across 60,000 people in western Kenya and cut child mortality from 105 to 29.5 per 1,000 live births with a custom CommCare app.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2019</span>
+              <a class="blog-card-link" href="lwala-commcare-improving-vaccination-rates/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="mhp-salud-integrated-community-health/index.html">
+            <img src="../assets/images/mhp-salud-integrated-community-health/None" alt="MHP Salud: An Integrated Approach to Improving Community Health" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">MHP Salud: An Integrated Approach to Improving Community Health</h2>
+            <p class="blog-card-desc">How MHP Salud used CommCare to unify 10 grant-funded health initiatives under a single app, cutting data submission time by 89% and saving more than $14,000 a year.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Sep 2019</span>
+              <a class="blog-card-link" href="mhp-salud-integrated-community-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="terre-des-hommes-ediagnostic-child-health/index.html">
+            <img src="../assets/images/terre-des-hommes-ediagnostic-child-health/None" alt="Terre des hommes: The Integrated eDiagnostic Approach for Child Health" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">Terre des hommes: The Integrated eDiagnostic Approach for Child Health</h2>
+            <p class="blog-card-desc">How Terre des hommes deployed an integrated electronic diagnostic approach on CommCare to improve the quality of frontline child healthcare across 1,132 clinics in Burkina Faso.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2016</span>
+              <a class="blog-card-link" href="terre-des-hommes-ediagnostic-child-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-image" href="tulasalud-commcare-community-health/index.html">
+            <img src="../assets/images/tulasalud-commcare-community-health/None" alt="TulaSalud: CommCare for Improving and Monitoring Community Health" loading="lazy" decoding="async">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-category">CommCare</div>
+            <h2 class="blog-card-title">TulaSalud: CommCare for Improving and Monitoring Community Health</h2>
+            <p class="blog-card-desc">How TulaSalud used CommCare to improve and monitor community health in Guatemala, supporting community facilitators and strengthening maternal and child care.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">Jan 2015</span>
+              <a class="blog-card-link" href="tulasalud-commcare-community-health/index.html">Read more</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+                  <div class="blog-more" id="blogMore" hidden>
+        <button type="button" class="btn btn-indigo btn-arrow btn-lg" id="blogMoreBtn">More Blogs</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../professional-services/index.html">Overview</a></li>
+          <li><a href="../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../professional-services/india/index.html">India</a></li>
+          <li><a href="../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../company/about/index.html">About Us</a></li>
+          <li><a href="../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../podcast/index.html">Podcast</a></li>
+          <li><a href="../company/careers/index.html">Careers</a></li>
+          <li><a href="../contact/index.html">Contact Us</a></li>
+          <li><a href="../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../legal/terms-of-service/index.html">Terms</a>
+        <a href="../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/nav.js?v=4"></script>
+<script>
+/* Blog grid: show 9 at a time, filtered across Product/Type/Topic/Country (AND), reveal 9 more per "More Blogs" click */
+(function () {
+  var BATCH = 9;
+  var DIMS = ['product', 'type', 'topic', 'country'];
+  var cards = Array.prototype.slice.call(
+    document.querySelectorAll('.blog-grid .blog-card')
+  );
+  var filterBtns = Array.prototype.slice.call(
+    document.querySelectorAll('.blog-filter')
+  );
+  var wrap = document.getElementById('blogMore');
+  var btn = document.getElementById('blogMoreBtn');
+  var empty = document.getElementById('blogEmpty');
+  if (!cards.length || !wrap || !btn) return;
+
+  var active = { product: 'all', type: 'all', topic: 'all', country: 'all' };
+  var shown = BATCH;
+
+  function matches(card) {
+    return DIMS.every(function (dim) {
+      if (active[dim] === 'all') return true;
+      return (card.dataset[dim] || '') === active[dim];
+    });
+  }
+
+  function render() {
+    var visibleCount = 0, matchCount = 0;
+    cards.forEach(function (card) {
+      if (matches(card)) {
+        matchCount++;
+        if (visibleCount < shown) {
+          card.classList.remove('is-hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('is-hidden');
+        }
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+    wrap.hidden = visibleCount >= matchCount;
+    if (empty) empty.hidden = matchCount > 0;
+  }
+
+  btn.addEventListener('click', function () {
+    shown += BATCH;
+    render();
+  });
+
+  filterBtns.forEach(function (fb) {
+    fb.addEventListener('click', function () {
+      var dim = fb.getAttribute('data-dim');
+      active[dim] = fb.getAttribute('data-filter');
+      // toggle active state only within this dimension's row
+      filterBtns.forEach(function (x) {
+        if (x.getAttribute('data-dim') !== dim) return;
+        var on = x === fb;
+        x.classList.toggle('is-active', on);
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      shown = BATCH;
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

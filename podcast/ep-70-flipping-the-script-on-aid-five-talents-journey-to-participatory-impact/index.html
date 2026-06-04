@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 70: Flipping the Script on Aid: Five Talents&rsquo; Journey to Participatory Impact | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Five Talents on flipping the script on aid: women-led savings groups across Eastern Africa, community-owned data, and CommCare strengthening trust and inclusion.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-70-flipping-the-script-on-aid-five-talents-journey-to-participatory-impact/">
+<meta property="og:title" content="Ep 70: Flipping the Script on Aid: Five Talents&rsquo; Journey to Participatory Impact">
+<meta property="og:description" content="Five Talents on participatory development: women-led savings groups across Eastern Africa, community-owned data, and a program tackling human-wildlife conflict in Kenya's Tsavo.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 15, 2025</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">Flipping the Script on Aid: Five Talents&rsquo; Journey to Participatory Impact</h1>
+        <p class="ep-deck">What if communities, not donors, defined success, owned their data, and led the way? Five Talents on savings-led, community-owned development across Eastern Africa.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/1z0zWoOO5Bwjs4tjoSVW1N?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 70 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/1z0zWoOO5Bwjs4tjoSVW1N" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000708626201" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/16bfa96c-3a0c-4610-a3f4-e0517f8eb156/high-impact-growth-flipping-the-script-on-aid-five-talents'-journey-to-participatory-impact" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>For decades, aid has flowed from the top down, with donors setting the goals and measuring the results. This episode asks what changes when you flip that script and put communities in charge of defining success and owning their own data.</p>
+        <p>Rachel Lindley, Hannah Wichmann, and Samantha Muli of Five Talents join the show to share an approach that goes well beyond finance. Through women-led savings groups across Eastern Africa, Five Talents builds trust, visibility, and inclusion at every level, with technology like CommCare strengthening the work rather than extracting from it.</p>
+        <p>The conversation digs into a specific program tackling human-wildlife conflict in Kenya's Tsavo Conservation Area, and steps back to ask what a more participatory, locally led future for aid could really look like.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>What it means to let communities define success and own their data</li>
+          <li>Savings groups as a platform for women's economic empowerment</li>
+          <li>The Tsavo program: addressing human-wildlife conflict locally</li>
+          <li>How CommCare strengthens trust, visibility, and inclusion</li>
+          <li>Lessons for funders on shifting power toward the communities they serve</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://www.fivetalents.org" target="_blank" rel="noopener">Five Talents</a></li>
+          <li><a href="https://www.philanthropy-impact.org/media/z55pfjil/philanthropy-impact-magazine-issue-31-pt2.pdf" target="_blank" rel="noopener">Rachel Lindley on CommCare, Philanthropy Impact Magazine (p.16)</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive.</p>
+              <p>We bring you candid conversations with leaders across global health and development about raising the bar in what’s possible with technology and human creativity. I am Amie Vaccaro, Senior Director of Marketing at Dimagi, and your co-host along with Jonathan Jackson Dimagi, CEO, and co-founder.</p>
+              <p>In today’s conversation, we tackle the question, how can data collection in development move beyond just ticking boxes for donors? What if it could actually empower the communities and program staff on the ground? In this episode, we sit down with the team at Five Talents, an organization supporting women entrepreneurs in Eastern Africa.</p>
+              <p>To discuss this very challenge here, how they overhauled their entire model moving from a traditional microcredit model to a savings group model. A key part of this transition was an evolution in their monitoring and evaluation approach, moving from potentially extractive m and e practices to a [00:01:00] truly participatory approach.</p>
+              <p>Where communities help define success and own their own data. We’ll dive into the pivotal role technology played in this evolution, digitizing processes, ditching the paper on a bus system, and unlocking real time insights that drive accountability and learning. At every level,</p>
+              <p>we will uncover the profound benefits and also the hurdles of building data systems that genuinely serve the people they’re meant to support. Enjoy.</p>
+              <p>Amie Vaccaro: All right, welcome to the high impact growth podcast. So I am here today with my</p>
+              <p>cohost, Jonathan Jackson. And we are joined today</p>
+              <p>by three incredible partners of ours from five talents. We</p>
+              <p>have Rachel Lindley, who is co CEO of</p>
+              <p>five talents. Hannah Wichman, who is part of five talents, global programming team, leading M and E as well as Samantha Mouly, who is climate</p>
+              <p>literacy manager at five talents. Welcome to the</p>
+              <p>podcast., I would love to kick this off [00:02:00] with an introduction to five talents work. So starting with you,</p>
+              <p>Rachel, to hear a bit of, um, an overview of your work</p>
+              <p>Rachel Lindley: Sure. So, Five Talents, the one line version is that at Five Talents, we support women across Eastern Africa to start businesses so that they can support their</p>
+              <p>families. And the vehicle we use for that is savings groups, community savings groups. Some organizations call them VSLAs, they have</p>
+              <p>lots of names, but the core principle is groups coming together within the</p>
+              <p>community to save their money and then to lend that to one another to invest in. So, uh, often the best way to illustrate it is with a story. So a typical member might</p>
+              <p>be, uh, let’s call her Martha from DR Congo. Martha,</p>
+              <p>she doesn’t know how old she is.</p>
+              <p>She’s looking after five children. She got married at the end of primary school, so she</p>
+              <p>never had a chance to get married. to complete her education. She’s a widow, her husband was killed in, in one of the wars, so she is really struggling to bring up her children</p>
+              <p>because she has no access to any kind of financial</p>
+              <p>services, no access to formal employment, and very little access to education or training. But then she hears about a community savings</p>
+              <p>group, and then she’s um,</p>
+              <p>through Five Talents.</p>
+              <p>She</p>
+              <p>probably hears about this through her church.</p>
+              <p>Five Talents partners with the, with the church across Eastern Africa. Um, groups are open</p>
+              <p>to people of all faiths and non, but that’s probably how she’s first going to hear about it or from one of her neighbours who’s already a member. So Martha decides she wants to join one of these community savings groups.</p>
+              <p>And the first thing she does through the group is learn how to read and write and count. And already that’s going to be transformational for her because, um, not only can she now start a business and keep</p>
+              <p>business records and figure out profit and loss, But also, she can vote for herself. She can read the instructions on medicine.</p>
+              <p>She can read road signs.</p>
+              <p>She can help her kids with their homework. So the whole world</p>
+              <p>opens up for her. just through</p>
+              <p>literacy and numeracy. And of course, once the whole group is literate and numerate, they go on to learn</p>
+              <p>financial literacy. So how to manage their money, how to save, how to have saving goals, how to make loans, how to set interest rates, repayment schedules, and so on and so on.</p>
+              <p>All the time they’re</p>
+              <p>saving in a communal pot. So each woman will bring along a small amount of money every week or every month. And when there’s enough money in the pot, and they’ve all been through the money management training, they will start making loans to one another to invest. So let’s say Martha takes a loan from her group and she uses it to buy a big sack of rice from the market and she sells it door to door by the mug haul in her community.</p>
+              <p>So people no longer have to travel to the market so often, she’s making a profit and she’s able to use the profits to repay the loan and then to invest in her family. But what we often find is that it’s not just about the, it’s not just about the money. Martha might say to us, what’s changed is that now my children are going to school and I’m determined that my girls will go on past primary school, they’re not going to get married at 13 or 14, they’re going to complete their education and have more opportunities and better opportunities than Martha herself had.</p>
+              <p>Jonathan Jackson: That, that’s amazing, and I think, one of the things that surprised a lot of people who don’t know intervention well or, um, what the SLAs do and how they work is just how crazy effective it is, um, you know, in terms of the impact that it has. And so, um, I’d love to hear, you know, I, I actually didn’t know that the, the literacy was a component of.</p>
+              <p>of your programmatic design. Is that common? And then, um, you know, where and how, um, did that component come into the intervention across VSLA programs? Is it, you know, is there a huge difference in how these programs are run? Because I know that the term VSLA can be applied to a lot of different things, but I’d love to just hear more.</p>
+              <p>I mean, the evidence is overwhelmingly positive of how effective these can be. And so I’m curious, A, you know, on the impact side, What have you seen? And then B, how did you land on this specific model?</p>
+              <p>Rachel Lindley: Mm. Yeah, absolutely. So I think it’s probably fair to say that 5talents evolved through learning by doing. You know, when we started, we looked very different from how we look today. So in fact, when we started, we had some microcredit programs. uh, where Five Talents was putting in loan capital. And we were not widely supporting the literacy element.[00:06:00]</p>
+              <p>Over time, we have learnt perhaps that the microcredit model is much less effective and much less empowering. The savings led model is, is much more effective and much more empowering. And part of that is very much the literacy element. So we don’t incorporate literacy everywhere in places where people have had the chance to go to school numeracy are relatively high, there’s no need to do it.</p>
+              <p>But because we are typically working in the most marginalized areas, and with typically majority women who tend to have had fewer educational opportunities, we do focus on literacy in those areas where people haven’t had the chance to go to school. And we find the impact of that is it’s partly it makes the savings groups more effective.</p>
+              <p>Obviously, the members can hold the group leaders to account much better if they can check the secretaries and the treasurer’s records themselves. It’s also much more empowering when you can read your own passbook and you know how much money you’ve saved. And of course, from the business side, we would have people saying, I’ve got a business, but I’ve no idea if it’s profitable because I can’t, I can’t count the profits.</p>
+              <p>Even people cheat me at the market because they give me a note and [00:07:00] I don’t know what the numbers on it say. So it does make the transaction on the business skills, the business profits. and the saving script themselves much more effective. But I think we’ve also found that it’s a huge springboard to agency.</p>
+              <p>And because so much of the program is about unlocking women’s sense of, of self belief and the capacity to solve their own problems. A lot of that comes from being literate and numerate, as well as having access to financial capital and social capital.</p>
+              <p>Jonathan Jackson: But that’s wonderful. And you mentioned, um, accountability. I’m curious, uh, you know, paper based receipts sound challenging. And I know that you’ve adopted, um, CommCare throughout, uh, supporting your program. So I’m very interested to hear how has that helped support. Um, accountability. I think this is a common term we’re going to hear a lot more of in, you know, whatever the future of foreign aid looks like.</p>
+              <p>Um, so curious to hear how you’ve managed to create that, how, how it’s helped support members belief in the model and, and overall execution of the model.</p>
+              <p>Rachel Lindley: Yeah, it’s a really good question. I think for us, One reason we collect data is accountability, but that is not just accountability to our donors or funders. It’s also very much accountability to the members themselves. It’s their money that they’re saving. It’s their program. One of the ethos is behind five talents is that we should not be there forever.</p>
+              <p>We are enablers and unlockers, but the savings groups themselves are designed to be self sustaining and to keep going long after the training and support that we provide is ended. And the only way for that to happen is for the groups to be able to operate by themselves, which means they do need this level of literacy and numeracy and accountability to themselves, this mutual accountability to all the group members.</p>
+              <p>And of course, the reason, the reason that they can have that is if they’ve got trust in their own data. So the record</p>
+              <p>keeping side of it is one area. Often, one of the hardest parts of savings</p>
+              <p>groups is teaching the record keeping component. But then perhaps,</p>
+              <p>um, Even more interestingly and excitingly is some of the impact data that we collect.</p>
+              <p>So one of the really transformational things for [00:09:00] us about using ComCare has been the ability to share the data back with the members and the partners much more quickly and easily so that they can see the impacts themselves, but also so that they can participate in discussing what’s that telling us.</p>
+              <p>The sense is it’s not five talents data. Yes, we are going to use it for fundraising and accountability. Um, this side, but actually it’s their own data. What can they learn from it? Does it resonate with them? What do they want to do differently as a result? Um, and even perhaps longer term, perhaps we’ll come on to this later in the conversation, longer term.</p>
+              <p>How could they use it to mobilize funding and resources within their own communities and contacts themselves, given the world is perhaps changing in terms of the funding landscape.</p>
+              <p>Jonathan Jackson: That’s wonderful. And you mentioned kind of evolving, you know, for micro credit. And I think it sounds like you’ve also, um, you know, truly integrated data and accountability and feedback to the community. How did that happen? A lot of organizations struggle and kind of M&amp; E is an afterthought and, and brought in to prove to the funder or the donor.</p>
+              <p>I’m curious in your case, how did you successfully, you know, infuse it and. And was it a long process for the organization? Was that something that took a while to get to?</p>
+              <p>Rachel Lindley: Yeah, it was a really long process. Let me start off and then hand over to Hannah to fill in the gaps. Um, but I think our, the way we approach monitoring evaluation has changed massively since our early days. I think when we were primarily a credit led microfinance organization, the data we were interested in was loan repayment rates and very much the quantitative stuff.</p>
+              <p>How many members, how many loans and what the, what were the repayment rates? And we found that the staff in the programs, the partner staff in the programs, were loan officers and maybe debt collectors rather than community development workers, which was not really the space we wanted to be in. And so over time, as we exited those sorts of programs, and we built up the savings led approach, which we found far more sustainable and far more empowering, and I can go into the reasons for that more if we get time, but we found at that point as well, the data that we wanted to collect was changing as [00:11:00] well.</p>
+              <p>So yes, we still wanted to know how many members, how much they were saving, how much they</p>
+              <p>were borrowing, um, all the indicators of whether the groups were healthy, you know, were people attending, were, were loans being repaid. But actually what was really interesting was working with the partners to see, you know, what, what does poverty look like in this community?</p>
+              <p>And what outcomes do you want to see? What are the changes that you yourselves want to see? And then let’s design some indicators around those changes that you want to see, because it’s not our problem. It’s not our program. It’s not the five tenants program. It’s your program, it’s your money that you’re saving and borrowing, so you define what changes you want to see, and then we can work together on how to measure those changes.</p>
+              <p>So it will look a little bit different in each place where we work, and that’s quite interesting from a CommCare perspective as well, that contextualization of indicators and what we’re trying to measure in each place. But in some places it might be, um, you know, how many people have health insurance, that might be a change that people think is really, really important to measure.</p>
+              <p>In other places, it might be rates of gender based violence or women in leadership or girls in school. And so, nowadays, we will work with our partners and ask them to go through a kind of theory of change process to figure out what is the change we want to see, and then we will measure according to that.</p>
+              <p>And the ethos is very much, it is their data, it’s not our data, it’s their data. So, again, that’s interesting from a CommCare perspective because there is some centralization that happens and some centralization that we need to happen to present the data to our funders and supporters, but we try and very much stick true to that core of it’s their data, not ours.</p>
+              <p>And it’s the change that they want to see that matters.</p>
+              <p>Hannah Wichmann: I was just going to add to that. I think our journey as well has been</p>
+              <p>going from kind of using standardized measurements, like Rachel says, to using more program specific, but also what</p>
+              <p>actually matters to the members and measuring the</p>
+              <p>change that we hope to see</p>
+              <p>happen. Um, and I think like you said, Jonathan, like, um, instead of seeing M&amp; E as an add on at the end, kind of actually is integral to what we do.</p>
+              <p>And actually also, I think what we’ve learned is it. How we do it affects, um, how participants perceive the program and it’s part, they perceive it as part of their interaction with the program generally. Um, and so it’s really important and what you measure is kind of, uh, what gets done to some extent.</p>
+              <p>And I think with the standardized poverty measurements, we were using one, um, which was the theory behind it was it would give an indication of whether somebody lived above or below particular poverty lines. And so it was 10. Quite strange questions often, um, develop specifically for that country. And one of them, I think, was how many towels do you own in your household?</p>
+              <p>And the challenge with this was like, first of all, it was, I think there was another one about toilets. And so they were often perceived as quite rude. And therefore, often staff felt they couldn’t actually ask them and therefore people often didn’t ask them, but would, you know, go to the house and try to have a little look and make notes.</p>
+              <p>So it reduced accuracy, um, or it made people feel like this is, you know, offensive. Um, but the other thing was that people didn’t understand why would we be asking that? How, what’s that got to do with the rest of the program? Um, and there was one incident where somebody actually thought that to participate in the program.</p>
+              <p>They had to go and buy a towel. And so that’s what happened. And so it’s like, it actually really, it really matters to the participants and to their part, you know, how they see the program and we want them to learn from the data. So we would now collect the data that like Rachel says is based on what we hope of what they’ve said they hope to achieve through the program.</p>
+              <p>But also in terms of how we collect it, we don’t, uh, very often, very rarely do we collect data from individuals. More often, everything that happens is through the group. Uh, so the savings groups are kind of the platform for everything. So we would be asking questions to group members as a whole, and then members of the group would respond.</p>
+              <p>Um, so, you know, if we were a group, we might be saying, yeah, three of us feel like this, two of us feel like that. That’s interesting. And then kind of, we would see that data instantly because we’d be raising our hands to different questions, or sometimes people move around the room. So there’s not that need for us then to go [00:15:00] away, produce a report and come back and share it because that’s happened.</p>
+              <p>live there and then and actually that’s useful for the group to say, I thought we were all in the same place with that, but I see that you’re not or like, Hey, when we did that before, do you remember there was only one of us that said that? And now all of us have said it or whatever it might be. Um, so I think that’s kind of again how it’s changed.</p>
+              <p>And that’s how having metrics relevant to what we hope to see is really useful in terms of the program as well as our learning and like fundraising and all of those things that we have to think about as well.</p>
+              <p>Rachel Lindley:, that point about how the questions are asked, I think is really relevant as well. I remember when we were first, um, introducing some of these surveys and this concept that you might collect the data using your mobile phone. Some of our facilitators, our group trainers felt a little bit, about that because they didn’t want to be the person with the clipboard or the person with the, with the smartphone because nobody else has a smartphone.</p>
+              <p>They felt that’s gonna set me apart and the group won’t feel comfortable with me. Uh, but if you are, first of all, asking questions that the group themselves have bought into because they’ve helped define what’s important and what isn’t, but then asking them in this very participatory manner, you get away from that sense of it’s the extractive M&amp; E style where someone does come in from outside of the clipboard, you get much more this sense of actually it’s participatory data and data collection that we are all learning from at once.</p>
+              <p>The fact that it’s captured in a smartphone is kind of really neither here nor there. It’s massively efficient and effective and much easier for all of us. But for the group members themselves, what’s important is the fact that they are part of the journey.</p>
+              <p>Jonathan Jackson: Yeah, that’s wonderful. And the question on the latrines reminds me</p>
+              <p>of one of our early community health worker</p>
+              <p>programs. That was the first question, and it just completely destroyed their desire to use the application because it was inappropriate,</p>
+              <p>rude. And then we learned if we added that to the end after there was some report built, it, it went a lot better Um, so definitely that that can, uh, matter. I think one of the things that struck me</p>
+              <p>when you were talking, M&amp; E is often about operationally tracking the programmatic intervention once you’re already kind of running it. How do you determine which villages to work [00:17:00] with in the first place, in terms of like their interest in the intervention, their Whether they’re a match.</p>
+              <p>Um, ’cause that can be just as hard as, you know, running the program in some ways. Um, as, as how to figure out where to support. We limited resources and it’s important to find communities that want the intervention and, and that it’s appropriate for</p>
+              <p>Rachel Lindley: Yeah, so I guess there’s, there’s two elements of that. One is that before we start working in a new area, we do do some research to make sure that there aren’t 17 other engineers doing similar projects there already. So there’s no point</p>
+              <p>us going there in that case. And to check it does align with, with,</p>
+              <p>some criteria that we have.</p>
+              <p>So there is some.</p>
+              <p>Our side due diligence and</p>
+              <p>reflection and research, but very much the strongest driver of where we start programs is where there is demand. So we would wait to be invited to a new region. Um, and then we would want to make sure that the vision that the region themselves has, because we’re working through the Anglican Church, we might be invited by a bishop or an archbishop and we would want to make sure that their vision for community, social and economic empowerment is something that Five Talents [00:18:00] can deliver.</p>
+              <p>If they want something, you know, if they want microcredit, for example, that’s not, that’s not what we can do anymore. So then we’ll be saying we’re probably not the right partner for you. If they are saying they want to work with women because women are typically more excluded, they want to open up groups to people of all faiths and non to people from different ethnicities, and they want to use these savings groups as a vehicle for social and economic empowerment more holistically.</p>
+              <p>And then we would, we would continue the conversation and develop a program together. We would also do some community context assessments and so on and so on. And that’s again, where we would bring in</p>
+              <p>something like Comcare to help us collect the data and analyze it more quickly and easily. But a lot of it is around the relationship and the vision alignments that has</p>
+              <p>to happen up front before you start doing any of the actual hard data collection.</p>
+              <p>Amie Vaccaro: This is, such a cool story. like you’re really painting a picture of. A huge evolution, right?, and on a number of levels, from starting, for the micro</p>
+              <p>credit model, moving into this savings model, um, taking more of a</p>
+              <p>standardized, perhaps more extractive M&amp; E approach to now this more participatory M&amp; E approach., and I’m curious. We’ve touched on technology a little</p>
+              <p>bit., but I’d love to hear a bit about like how,</p>
+              <p>what has been the role of technology in that evolution? Um, and perhaps even sharing</p>
+              <p>like a paint us a picture of</p>
+              <p>like, what does that look like today in practice for a program?</p>
+              <p>Rachel Lindley: it.</p>
+              <p>Hannah Wichmann: is around, um, the move from paper based to using technology. Um, one of the biggest benefits that we’ve</p>
+              <p>seen Is just in how terms of how the data is organized, um, allows us to do</p>
+              <p>so much more with the data compared to when it was paper.</p>
+              <p>Um, so we’ve been keen throughout this process not to add more work to. what our partners already do. Um, but actually to do more with what we have, which is kind of like the whole of what five talents is trying to do. Um, so for example, in Burundi previously, um, data was collected group by group. So people go to group a group B, you know, write it all down.</p>
+              <p>And then, um, If they didn’t have access to internet in that area, some areas would, some areas wouldn’t. Those papers might be put on a bus, the bus going to Bujumbura, when they got to Bujumbura, they would be compiled into a report for that quarter for the program as a whole, perhaps split down by like geographical location, but you know, broadly.</p>
+              <p>Um, and that’s what would be sent to us. And that’s the record that would kind of stand over time. And they would still keep the paper. But that what would be lost in that is all of that work had gone into collecting group by group data. So much work, so much time. And yet that detail is instantly lost when you kind of just aggregate it like that.</p>
+              <p>Um, so one of the huge benefits has been just simply organizing what we were already doing in a different way. And technology being the enabler for that has been hugely beneficial. Um, so that’s been a huge win, I think, for us. Um, I think the other thing is people being able to access the data. Um, during their work.</p>
+              <p>So people who are actually collecting the data, being able to see, you know, the status of the group, being able to identify more quickly, um, groups that might need more attention, whether that’s by the Comcare app or some of the dashboards that we’ve set up that kind of, uh, the data gets fed into, um, and our colleague, Samantha, and a bit might be able to talk a bit more about that.</p>
+              <p>Um, so these are kind of the things that have changed in terms of what it Practically looks like, but in terms of data collection, um, what that would look like is we do baseline and end lines. And then also we’re using ComCare to collect what Rachel said earlier, like still we’re collecting information around participation, savings and loans, because that’s part of the picture as well as the outcome data.</p>
+              <p>Um, so people are using ComCare for all of those things. Sometimes they’re using it for also tracking the training that is given to different groups, tracking progress through modules. Um, But in terms of what it looks like for outcome data, it would look like somebody attending, going through a list of questions, and these questions will all be tied to the theory of change.</p>
+              <p>So measuring what we actually hope to seek change, uh, rather than like standardized metrics. Um, and then depending on the literacy levels of the groups, because as Rachel said, we might be working with people who are low literacy. We might encourage quite a lot of physical participation. So it might be like, okay, if you feel like, yes, stand over here.</p>
+              <p>If you feel like no, and then that would be noted into Comcare as well as then whoever’s facilitating that we would encourage them at least for some of the questions to ask more in depth questions. So like why you you’ve stood over there, why is it that you’ve stood over there and try and encourage particularly people who might not freely speak to ensure that they’re speaking and this kind of thing.</p>
+              <p>So that’s what it would look like, um, in practice,</p>
+              <p>Rachel Lindley: well, I think it’s a really beautiful image that Hannah has shared about the way it used to look. So in the old days, somebody would collect the data and they would put the lumps of paper, put the bundles of paper on a bus to the capital city.</p>
+              <p>And then the people in the capital city would enter it into an Excel spreadsheet and email it to FiveTalents in the US or the UK. So at every stage of that process, the data is getting further and further away from you and you never look at it again. Um, and there’s this real sense that you’re not doing it for yourselves, you’re doing it because you have to send it to the capital city by the bus that goes at this time.</p>
+              <p>And then the people in the capital city have to send it on to FiveTalents because that’s what the reporting cycle says. Um, and the sense of the loss of ownership of that data, I think it’s really profound, and I feel like putting it on a bus really visualizes that. Whereas now the data is never lost at all because it’s on the smartphone in the pocket of the group trainer who lives in the village where the group meets.</p>
+              <p>So the data is, is always with them, they have access to it, and there’s this real sense that they’re doing it for themselves, not to put it on that bus and then email it</p>
+              <p>across the continent.</p>
+              <p>Amie Vaccaro: I actually just got goosebumps like that. That transition is really feels really profound., and it almost, just reminds me of, if I’m, like, trying to just check boxes on my list versus, like, really feeling like this is an important activity that I’m doing for my own benefit.</p>
+              <p>, there’s a huge difference in that., so I appreciate you illustrating that so vividly. And I, I want to touch on you’ve,</p>
+              <p>you’ve mentioned inherent in this transition, shifting from micro credit to a savings model, which I imagine was really hard and, um, complex process. And I’m curious that feels like that’s at the heart of this evolution.</p>
+              <p>I’m curious if you would share a little bit more about that transition</p>
+              <p>Rachel Lindley: Sure. So the origin of Five Talents was, um, it came out of a conference of Anglican bishops in 1998 who said, not quite in these words, but they said the church spends a lot of time arguing</p>
+              <p>about contentious issues and people in our parishes are still hungry. So can we not do</p>
+              <p>something practical about that?</p>
+              <p>Let’s start an Anglican</p>
+              <p>microfinance agency to deal with some of the grassroots challenges that we see rather than spend all our time arguing about</p>
+              <p>these doctrinal issues. So the concept</p>
+              <p>came from this, this bishop from Tanzania. Um, Five Talents was founded, an office was set</p>
+              <p>up, uh, and some money was raised and some programs were started.</p>
+              <p>But really, there was not a great sense of what a good microfinance</p>
+              <p>program looked like. So we tried a bit of everything in lots of different places. Full credit to those who, who started FiveTurns.</p>
+              <p>They tried a lot of different</p>
+              <p>experiments. They’ve tried some microcredit approaches. They’ve tried some partnerships with other organizations, and they tried some savings group approaches.</p>
+              <p>And they found over time, you know, fast forward the clock 10 years on when they’ve got 10 years of experience behind them. They found that in the credit led entities, there were several problems emerging. One was, I think, as I was saying earlier, that the, the partner staff end up being debt collectors rather than community development workers.</p>
+              <p>And their focus is very much on. Making sure the repayment rates remain high, rather than necessarily making sure that</p>
+              <p>lives are transformed. So there was a sense that by focusing on credit led, you were almost drifting away from this</p>
+              <p>mission to transform lives into this,</p>
+              <p>this mission to make sure that your debt</p>
+              <p>repayment stats were [00:26:00] good. There was also a sense from the 5Talents perspective, that it wasn’t very sustainable, because every time a new member joined a credit led program, 5Talents had to find new loan capital. Whereas in the savings led approach, every time a new member joins, the groups are self capitalized, so each member brings their own capacity to save.</p>
+              <p>And it’s actually a much more scalable and replicable approach to take the savings led approach. You don’t have to be always finding new loan capital. Now on paper, the theory was that in the credit led institutions, after a certain number of loan cycles, members would want to go off and get loans from bigger microfinance institutions or even from banks.</p>
+              <p>But what we found was that nobody wanted to leave because they did value the fact that there was some training given. There was some sense of group fellowship and solidarity, some sense of I belong here. This is not a scary faceless institution. So none of the loan loan credit led institution members actually wanted to leave, which meant that members kept on growing.</p>
+              <p>Nobody was ever graduating and we had to keep on finding more and more loan capital. And we just couldn’t [00:27:00] keep up with, with that demand. But then the other points and perhaps the most important point for this conversation was the sense that we saw in our savings led programs, much more sense of ownership of the outcome.</p>
+              <p>So in a credit led program, um, somebody would say. I took a loan from the institution and here’s what I did with it. Whereas in a savings loan program, they would say, here’s my business. I started it with help from my group. It’s mine. You know, I’m sharing the profits with my group. I’m repaying the loan.</p>
+              <p>My group members come and help me because they’ve got a vested interest in it as well. And this business is going to be here, you know, three generations from now, my children are going to join too. There was a much greater sense of this is our group. We’ve done this ourselves. So that sense of ownership empowerment agency came out much more strongly.</p>
+              <p>So I think we just found over time the savings led approach was much more scalable, much more sustainable, much more replicable, but also much more, I know it’s overused jargon, but much more empowering. So we, um, over time, it’s not as easy as it sounds, but over time we exited our credit ed programs and only invested in starting the savings led [00:28:00] programs.</p>
+              <p>And with that came this transition of our participatory approaches to M&amp; E and so on that we’ve talked about as well.</p>
+              <p>Amie Vaccaro: That’s, that’s beautiful. I really appreciate you, you sharing that. It seems like, um, just a unique approach and a really thoughtful evolution. So, um, thank you for sharing that. So I’ve, I’ve loved hearing about this evolution in how you’ve been working, and this movement to more participatory, Savings programs away from this, more loan driven model where it felt a bit more extractive.</p>
+              <p>So we’ve heard a bit about Five Talent’s, journey and evolution, and in this next segment of today’s conversation</p>
+              <p>we’re gonna speak about a specific project that Five Talents is working on.</p>
+              <p>We are honored to be joined today by Samantha Muley. Who is five talents climate literacy manager,</p>
+              <p>Samantha has been designing and running a program for five talents in the SVO conservation area of Kenya,</p>
+              <p>[00:29:00] looking at human wildlife conflict.</p>
+              <p>And is here to share more on the approach.</p>
+              <p>I will note that this program is A-U-S-A-I-D funded program, which has been impacted by the stop work order. And so we’ll also hear from Rachel Linley</p>
+              <p>on her thoughts on the disruption and evolution of the aid industry overall.</p>
+              <p>Amie Vaccaro: Samantha over to you. I’d love to hear, hear a bit about the program that you’re running.</p>
+              <p>Samantha Muli: for several conservation area. We are working with groups that are within the several conservation area. Several conservation areas, the biggest conservation area in Kenya. Uh, we work with the groups that are along these conservation areas since we are trained to address a human wildlife conflict.</p>
+              <p>Uh, in context, what our training does, we have developed a curriculum. And to point out this curriculum, we developed together with the communities. We had like focus groups, [00:30:00] the curriculum has three modules. We have the first one is climate literacy</p>
+              <p>we discuss about what causes climate change. We discuss about effects and also discuss about climate action for natural resource management, which is a second module. I will discuss about resources that are within communities. module since this is where we discuss about, uh, wildlife. in here, we discuss what is the importance of resources that are within our communities.</p>
+              <p>In you go to a group, we discuss what are the wildlife found within our areas. Savo has a wide biodiversity. We have elephants, we have buffaloes, we have lions, we have leopards, we have other mammals, zebras. All that. So once we identify the wildlife in community, what are the importance?</p>
+              <p>Once we discuss the importance, we discuss who are the stakeholders involved in wildlife conservation. We also discuss about the conflict [00:31:00] arising from the human, from wildlife.</p>
+              <p>Here they outline what are the effects that they feel that, uh, wildlife has brought into their areas. We discuss at land, we also discuss that the mitigation measures. What can we do about these things? We are also trying to promote coexistence. Uh, in the third module is mitigation and adaptation.</p>
+              <p>Here we discuss on how can we mitigate these effects of climate change, because one of the factors that has led to more human wildlife conflicts are the</p>
+              <p>effects of climate change, about</p>
+              <p>drought, access to water.</p>
+              <p>We find like the seasonal rivers within the Savonish and Opak is also shared by</p>
+              <p>the communities so there’s a lot of conflicts between wildlife and human.</p>
+              <p>In this session,</p>
+              <p>since most of the members are either illiterate</p>
+              <p>or illiterate, we also use pictorials in areas where they need to use. We also play audios for members. I just want to point out that</p>
+              <p>we do not discriminate. We work with people. All [00:32:00] members</p>
+              <p>of the, either Christians or Muslims living along the server conservation area.</p>
+              <p>We also have, uh, special groups. We, for instance, in Chaitra, we have, we have a deaf group that comprises of, uh, people living with deaf, uh, uh, disability. Uh, we have trained our staff. We also training them on sign language for them, but at least for the project to be more inclusive., I also want to point out that we also work in partnership with the county government. They’ve really supported us and reaching</p>
+              <p>out to this community.</p>
+              <p>Amie Vaccaro: That’s, that’s beautiful. Um, it sounds like a really thoughtful curriculum that you’ve, you’ve developed. Um, and I’m curious if you could give a couple examples of like, how does the savings model work? Like, what kinds of activities would folks in these groups pull together to support each other with?</p>
+              <p>Samantha Muli: for instance, let’s say a group like a deaf self help group, they come [00:33:00] together, they are registered. Actually, all our groups are actually officially registered in the social service in the Kenya. So they have a certificate. So once they come, we go and visit them. We discuss on the dates. Once we arrive, we do the training first.</p>
+              <p>Since it’s structured every day, you know, like this time I trained on climate literacy. Maybe next time I’ll do financial literacy. So the structured. So once you arrive, the first thing is training. And then after training, we do saving this savings model, which is ask accumulative savings and credit association.</p>
+              <p>We help members pull their savings together. If they have agreed on a saving amount, now each members, uh, gets to their savings, their savings are recorded. We have also told the members on record keeping, so if it’s a group that is not literate enough, that’s where you go and help them in saving, in recording their savings.</p>
+              <p>Uh, one thing we’ve realized with the pooling of resources, actually, that our members are able to learn. Once they learn because our loans are on a lower interest, not like they’re maybe like getting banks and some groups are so remote access to a bank, maybe to make cost like 2000 shillings, which is so high for a member to afford.</p>
+              <p>So this model, these savings within their groups, helps them to access finances. After we have completed the curriculum, we have seen members learning themselves money to get a energy efficient cooking stuff. We’ve also seen members, uh, Learning themselves to get solar solar panels.</p>
+              <p>We’ve seen members learning</p>
+              <p>themselves to get a water tank. So that’s basically what how our</p>
+              <p>savings model is.</p>
+              <p>For</p>
+              <p>Amie Vaccaro: That’s beautiful. And can you share a bit of how you’re using ComCare day to day to support this program?</p>
+              <p>Samantha Muli: ComCare, like in every county, we have staff that support these groups. Like for me, for instance, I’m a coordinator. I coordinate three counties. It’s impossible to be there physically. So one thing I use is tracking progress. Now, when you go to the field, you come here to collect, information on group.</p>
+              <p>What is the name of the group? How much savings do they have? So, ComCare, we are able to input data on savings. We are able to input data on loaning. We are also able to put data on training session. So, for instance, if maybe a staff has gone for a leave, it’s easier for the other staff to track where the progress is.</p>
+              <p>, we also use come here like the use of dashboard for me, like, uh, we just a click. I can just see what is happening in key tree. What is happening? And what is happening in title? Uh, come here is also allowed, like, uh, when you put that it records the last training date. So if I’m in tight and I want to check what is the progress of group a key tree, it’s just a click and I see.</p>
+              <p>The last training was on this date and they</p>
+              <p>were trained on this, so I’m able to track</p>
+              <p>the progress.</p>
+              <p>Amie Vaccaro: That’s fantastic., you also mentioned in a previous conversation the ability to support a sense of belonging within a broader project because people are able to see the bigger scope of the effort. Can you say a little bit about that.</p>
+              <p>Samantha Muli: Yeah, there’s a sense of belonging, like you find, like, most of these groups are marginalized. For example, you go to a group, because we have groups that are young mothers., these young mothers, most of them didn’t step, maybe, a foot in school.</p>
+              <p>So if you go there, you train them, They feel like they are, they belong to something big, especially when you use like, uh, ComCare. We have a map and then you can show them this is where we also have other groups in other counties that are doing something like yours. So it promotes like a sense of belonging.</p>
+              <p>It motivates them. They’re actually always looking forward because they didn’t get a chance to go to school. So like our training session actually act like informal, informal schools for For young mothers and maybe to add for our deaf group, because that’s a very special group to us. Uh, you find like, uh, most of them are being sidelined.</p>
+              <p>So once when you approach them with this big idea, they</p>
+              <p>were actually motivated. They’ve actually started agreeing initiatives. They are started at three nursery and that’s a progress that we are really, really happy for them because they feel like they belong to something big, not just staying at home.</p>
+              <p>Rachel Lindley: One of the things we love</p>
+              <p>Five Talents received a grant from the A&amp; A Sherman Foundation, which supported our implementation of the Comcare project. And when we applied to them, we set out all the reasons why, why we wanted to win this grant and how we would use it and the benefits we thought would come. I think what we have found a couple of years on is that the benefits from integrating Comcare into our work have even exceeded what we foresaw it works at all different levels of the partnership. So, it adds value for the community members themselves, who, as Samantha was saying, they get this sense of belonging from seeing they’re part of something bigger and they get this sense of ownership of their own data and then it works at the program manager level, the partner staff level. So someone like Samantha, she’s saying if it’s rainy season and she can’t get on the roads,</p>
+              <p>she can see from the dashboard what trainings She can see immediately where there might be any challenges that do need some further follow up.</p>
+              <p>We’re using it in our program in DR Congo as well, where conflict erupts from time to time. So there are groups that can’t be visited because it’s not safe. But again, the people, the managers can see what’s going on because of these of Comcare. So it works at that level. And then it works for the reporting side as well.</p>
+              <p>We found ComCare was so, so helpful in order to meet the reporting requirements for USAID. But also in terms of donor reporting, as Hannah was saying, it’s so helpful for us just to show a little visual that shows all the savings groups mapped against.</p>
+              <p>where there’s water scarcity and where there are water points on a map, that’s an immediate visual, you can show a donor and they get why you’re doing the project there much more than you could show through a table or a long piece of narrative. So for us, we find it adds value at every stage of the partnership,</p>
+              <p>Samantha Muli: Maybe I can add on Comcare when the USAID came for data quality assessment, they were actually amused on how we collect data first because I am not able to alter the data itself because I’m the coordinator. I cannot just sit here and maybe start altering maybe data for group A, maybe to show how much we have worked. So that one actually was a very, they received very good recommendation. They actually recommended other projects, projects, uh, programs in our, in the servo benchmarking. Our CEO, Peter Mugendi was [00:40:00] also invited for a conference in South Africa to show how technology outcome care has helped us</p>
+              <p>in collecting data.</p>
+              <p>So it’s been a very smooth journey for</p>
+              <p>us.</p>
+              <p>Hannah Wichmann: useful and encouraging. And we’re quite a small organization, really, relatively, this was our first USAID.</p>
+              <p>grant. Um, and so I feel like Comcare has enabled us to do what we were already doing in many ways on paper and just like take it up a level. And like I said before, be able to get so much more from what we were already doing. Um, so it was really encouraging for us to have that, that positive feedback from them as well.</p>
+              <p>Amie Vaccaro: Yeah, I appreciate that that framing of, like, just be able to get more from the work you’re already doing. That’s actually probably a a great segue, um, into talking a bit about USAID. We’re recording this conversation late February, 2025. There’s been a lot of changes happening, um, with USAID.</p>
+              <p>Um, and I know, um, Rachel, you, you’ve got some, some thoughts on changes and evolutions and future of aid. And I’d love to, um, hand it to you to share a bit about how you’re, you’re seeing things.</p>
+              <p>Rachel Lindley: Thank you. So, Five Talents, we have one grant from USAID and that is funding the work in Salve that Samantha’s been talking about. So, like many other organisations, we have received the stop work order for that project. I guess it’s fair to say that right now the situation still feels very fluid and dynamic.</p>
+              <p>It’s not quite clear where it’s all going to land. We feel, I guess, grateful at Five Talents that our exposure is relatively limited. It is just this one project and we really feel for many NGOs who are much more exposed and therefore are losing much more funding and particularly of course for the community members who are no longer receiving vital services.</p>
+              <p>So we feel a lot of, I guess, sorrow and sadness at the situation. I’m coming at it from the point of an NGO that supports savings groups. When I look at a savings group, I see a group of people coming together to pool their resources to address common challenges. And I can’t help taking that up the scale to think about international development in the same lens.</p>
+              <p>I think there are so many challenges that the world faces that are global common challenges, whether that’s climate change or migration of people or food security and supply chains. These are all global issues. And so I can’t help feeling that an isolationist perspective perhaps is not the most helpful way forward.</p>
+              <p>What we see from looking at savings groups is that when people do come together and pool their resources and bring the power of what they each have, they can solve problems together. But people can’t do that on their own. So I guess you would expect me to say that because I work for a savings group charity and I’m passionate about international development.</p>
+              <p>But I do think there’s a little bit of a A lesson we can take from the way that groups of 20 women in, in remote parts of Samoa or DR Congo or Burundi or South Sudan can come together and make a difference, but only by coming together. And I do feel that perhaps working together in partnership is one of the, the lessons we can take.</p>
+              <p>And that said, I do recognize, there are a lot of people who do feel frustrated with the international development and aid systems, that there has been perhaps a lack of, or loss of trust. in the aid project, the aid industry it has in place has become an industry, um, rather than something that is led and owned by communities and grassroots themselves.</p>
+              <p>So I suspect there is a lot of learning for all of us to take, um, from some of these developments about how we need to present what we do better and how we need to rebuild trust. I think with our talents as a relatively small organization, it’s probably easier for us. You know, we don’t have many layers of bureaucracy and management.</p>
+              <p>We do have lots of local partners. Our work is all led by partners from the communities themselves. So we don’t have many, many tiers of bureaucracy and so on. So perhaps for us, again, it’s a little bit easier to feel insulated from some of the challenges. But that said, I think the whole aid sector does need to look at rebuilding trust and showing how aid money is spent effectively.</p>
+              <p>And one of the ways to do that, of course, is by having good data that shows the impact. So it brings us right back to what we started, that gathering impact data to show the impact of the money that is being spent is really, really important, but so too is making sure that the money is being spent effectively on programs that do deliver real change for the communities themselves.</p>
+              <p>And it’s only those communities who can say that. So again, bringing communities into the process so that they own the change that they want to see. They’re the ones who talk about how they want to measure it and show the results that are being achieved. It just brings us back, I think, to the power and the importance of something like Comcare to rebuild the trust, to show the transparency and the effectiveness, but to make sure that’s rooted in the ownership by the communities themselves, but please edit that out if it’s not helpful to say it. I don’t know whether that’s helpful or not. I</p>
+              <p>Amie Vaccaro: you’re, you’re speaking up., I’m curious, like if you could paint a picture of what this aid industry looks like five years from now, where we’ve. Kind of learn some of these lessons. Like, what, what does that look like?</p>
+              <p>Rachel Lindley: think. The future has to look like more control being in the hands of the communities themselves, right from the program design phase through to the impact measurement phase. I think perhaps one of the challenges has been that there is still a lot of top down delivery, you know, top down ideas, the money is raised in one place, it’s sent to another place with a contract of what has to be delivered when.</p>
+              <p>Uh, and that’s not a very empowering approach, and there’s no necessary guarantee that the money that is sent and the project that is delivered is actually what is wanted or needed by the communities themselves. So, for me, I think the future would look like having a system which starts with the communities themselves, where the communities and locally led organizations develop projects that they know meet local needs.</p>
+              <p>And then the funding is secured for that and delivered to deliver those those ends. But the whole person in the driving seat is the community themselves. One of our, one of our founding members from Kenya has this wonderful phrase that in development, the community is at the center and we’re the periphery.</p>
+              <p>And I think perhaps the aid industry has built up itself to be at the center and the community is to be at the periphery. So we need to flip that. on its edge and have the communities themselves at the centre where they should be. Our role on the periphery is to provide funding and technical support to enable and unlock all those impacts, but it’s the communities themselves who have to be in the driving seat of delivering that change and determining what it should look like and how it should be delivered.</p>
+              <p>But actually I think, sorry to come back again to Comcare, I think the role of Comcare in enabling partners and communities to showcase their own impacts is going to become increasingly important as well. Because if we imagine that there is going to be less funding flowing from, uh, what we sometimes call the global north, and more funding having to be raised in, uh, the countries where we work, communities themselves, partners themselves, locally, uh, locally led delivery organisations themselves are going to need to have access to that impact data to showcase their own impacts and raise their own money.</p>
+              <p>Um, and that’s actually an exciting vision of the future for me. I think of our talents, we’ve often said, you know, we should not be here forever. We should not be here forever. Um, but the way to put ourselves out of business is to make sure that partners themselves have access to the data and the resources that they need to do the work themselves.</p>
+              <p>Amie Vaccaro: That’s really, really beautifully put, Rachel.,</p>
+              <p>Samantha Muli: Okay.</p>
+              <p>Amie Vaccaro:, I think your,</p>
+              <p>your vision of development being a lot more locally led, right? A lot less top down, um, and sort of fueled by high quality data that’s owned by the programs that are working on it. That, whose data it is, that, that really, yeah, resonates for me.</p>
+              <p>,</p>
+              <p>Amie Vaccaro: yeah, and it’s going to be, it’s going to be interesting to see how, how it all unfolds. Um,</p>
+              <p>Rachel Lindley: Yeah. Yeah, I mean, the, the, the real pain I think we feel is for people turning up at health clinics tomorrow and there’s nobody there to provide the drugs that they need. So, even if there’s a long term vision, it could be exciting coming out of all of this. I think the short term pain is very much there.</p>
+              <p>Yeah.</p>
+              <p>Amie Vaccaro: absolutely. Yeah, the short term pain is, is, hard to, ignore., and we shouldn’t ignore it., All right, well, I think, we can wrap there.</p>
+              <p>to each of you for joining today to Rachel to Hannah to Samantha., this has been just a really insightful.</p>
+              <p>And I’m just, I’m so impressed with what five talents is able to do and, um, inspired by the small but mighty role that Comcare plays in all of it. So I really appreciate you sharing that with our audience.</p>
+              <p>Rachel Lindley: Thanks so much for the opportunity to chat today and thanks again for all your work developing Comcare. I think as we’ve shown it has enabled us to do more and to do better. So really grateful for that.</p>
+              <p>Thank you to Rachel, Hannah, and Samantha from Five Talents. What an inspiring conversation. Here are a few key things I’m taking from today’s discussion. Savings groups over microcredit five talents intentionally shifted from microcredit to a community savings group model, finding it more empowering, sustainable, and scalable.</p>
+              <p>This approach puts the member’s own capital and agency at the center. Participatory data is power. Their m and e evolved from potentially extractive standardized metrics to participatory process where communities help define success and own their data. Using tools like Comcare has enabled real-time learning and accountability, not just reporting up to donors.</p>
+              <p>Locally led is the future. True impact comes when communities are in the driving seat, identifying needs, designing solutions, and owning the outcomes. And lastly, technology adds value at every layer.</p>
+              <p>Digital tools like Comcare proved essential. Adding value far beyond initial expectations for community members. It enhances data ownership and fosters a sense of belonging to a larger effort. For program managers like Samantha, it enables easier progress tracking coordination across dispersed teams, and operational visibility even when travel is impossible and for the organization and donors, it ensures higher quality data streamlines reporting and allows for compelling visual storytelling of impact.</p>
+              <p>That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful. It really truly helps us grow our impact. And write to us at podcast at Dimagi dot com with any ideas, comments, or feedback. This show is executive produced by myself, Beana Bala Chand and Michael Kelleher are our producers.</p>
+              <p>And cover art is Byan. Chicon.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">RL</div>
+            <div class="person-info">
+              <p class="person-name">Rachel Lindley</p>
+              <p class="person-role">Part of the Five Talents team advancing savings-led, community-owned development across Eastern Africa.</p>
+              <span class="person-org">Five Talents</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">HW</div>
+            <div class="person-info">
+              <p class="person-name">Hannah Wichmann</p>
+              <p class="person-role">Part of the Five Talents team working to put data and decision-making in the hands of communities.</p>
+              <span class="person-org">Five Talents</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SM</div>
+            <div class="person-info">
+              <p class="person-name">Samantha Muli</p>
+              <p class="person-role">Part of the Five Talents team supporting women entrepreneurs and participatory programs in the field.</p>
+              <span class="person-org">Five Talents</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/1z0zWoOO5Bwjs4tjoSVW1N" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

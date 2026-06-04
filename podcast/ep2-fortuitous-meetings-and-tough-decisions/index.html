@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 2: Fortuitous Meetings and Tough Decisions with Dr. Vikram Kumar and Jonathan Jackson (The Founding Story Part 1) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi co-founders Vikram Kumar and Jonathan Jackson on the company&#x27;s earliest days, their MIT meeting, and the Zambia medical record project that shaped it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep2-fortuitous-meetings-and-tough-decisions/">
+<meta property="og:title" content="Ep 2: Fortuitous Meetings and Tough Decisions with Dr. Vikram Kumar and Jonathan Jackson (The Founding Story Part 1)">
+<meta property="og:description" content="The Dimagi founding story, part one: how Vikram Kumar and Jonathan Jackson met at MIT and built a first project in Zambia.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 23, 2022</span>
+          <span class="dot"></span>
+          <span>24 min</span>
+        </div>
+        <h1 class="ep-title">Fortuitous Meetings and Tough Decisions with Dr. Vikram Kumar and Jonathan Jackson (The Founding Story Part 1)</h1>
+        <p class="ep-deck">Part one of the Dimagi founding story, told by co-founders Dr. Vikram Kumar and Jonathan Jackson: a chance meeting at MIT, a 15-second decision to join, and a first national medical record project in Zambia that set the company&#x27;s course.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2suUd80AW1ebwfImqBvD9d?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 2 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2suUd80AW1ebwfImqBvD9d" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000565522794" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/PevUTXkrSOY?si=jD1o2W1SwR8BVD4n" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/d214b052-bcf2-4d4f-9d5a-3bc80ecef0d8/high-impact-growth-fortuitous-meetings-and-tough-decisions-with-dr-vikram-kumar-and-jonathan-jackson-the-founding-story-part-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">20 years</div>
+          <div class="ep-stat-label">Dimagi has been working on the same core problems</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">80 hours</div>
+          <div class="ep-stat-label">a week Jonathan worked as the company&#x27;s only engineer</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">half</div>
+          <div class="ep-stat-label">of Dimagi&#x27;s revenue at stake in walking away from the Zambia project</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In the first part of Dimagi&#x27;s founding story, co-host Amie Vaccaro talks with co-founder Dr. Vikram Kumar and co-founder and CEO Jonathan Jackson about the company&#x27;s earliest days. Vikram, a medical student working at the MIT Media Lab, wanted to surface healthcare problems so engineers could solve them at scale, an idea that became Dimagi, a name drawn from the Hindi word for brain. Alongside co-founders Vishwanath and Tarjay Mickelson, the team began developing early work to improve rural healthcare, starting in India with the All India Institute of Medical Sciences.</p>
+        <p>Jonathan, a 22-year-old MIT computer science graduate searching for fulfilling work, met Vikram through an MIT development ventures club led by a figure named Yost. Within seconds of their first conversation, Jonathan knew he had found his calling and effectively hired himself. Within about a year, he proposed to Vikram that he become CEO, and Vikram supported the quick transition. Three weeks after joining, Jonathan took his first trip to Africa to lead Dimagi&#x27;s first major project: a PEPFAR-funded national medical record system in Zambia.</p>
+        <p>That Zambia project shaped Dimagi&#x27;s enduring approach, including the field-driven user-centered design the team once called designing for the mango tree. It also led to a defining tough decision: when the project&#x27;s heavy focus on central data collection diverged from Dimagi&#x27;s frontline-worker-centric vision, the team chose to walk away, giving up half its revenue at the time. The company recovered that revenue within the year and grew faster by better aligning impact with its partners.</p>
+
+        <blockquote>
+          <p>&ldquo;I think one of the interesting things that I didn&#x27;t know, it sounds silly in retrospect, but you literally do step off the plane when you land in Africa, there&#x27;s no jet bridges. And so there was literally a visceral sensation you get when you step off the plane, because it just smells different.&rdquo;</p>
+          <cite>Jonathan Jackson, on his first trip to Africa</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Why engineers, not just doctors</strong>: Vikram Kumar on wanting to surface healthcare problems so engineers could solve them at boundless scale</li>
+          <li><strong>The name Dimagi</strong>, drawn from the Hindi word for brain and a fitting fit for the digital era of the early 2000s</li>
+          <li><strong>Hiring himself in 15 seconds</strong>: how Jonathan Jackson joined the founding team after a single conference-room meeting</li>
+          <li><strong>From engineer to CEO</strong>: the quick, uncontentious transition that made a 22-year-old the boss of a Harvard-trained physician</li>
+          <li><strong>First trip to Africa</strong>: stepping off the plane in Zambia to build a PEPFAR-funded national medical record system</li>
+          <li><strong>Designing for the mango tree</strong>: how watching a nurse work for three hours seeded Dimagi's user-centered design culture</li>
+          <li><strong>The tough decision to walk away</strong>: giving up half the company's revenue when the Zambia project stopped serving frontline workers</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to episode two of High Impact Growth. I’m Amie Vaccaro, a co-host of this podcast. Today’s episode is all about the founding of Dimagi. I’ll be interviewing a few of the key figures involved in the founding of this company to understand where it all began. You will hear about the very first time our founders met, their first trips to Africa and how Jonathan Jackson became CEO.</p>
+              <p>And about our very first defining project, building a national medical record system for Zambia. First I spoke with Vikrum Kumar. Dimagi’s co-founder.</p>
+              <p>So why did you start Dimagi?</p>
+              <p><span class="spk">Vikram Kumar:</span> So I was really lucky during medical school to spend time both at a medical school and also at an engineering college at MIT. And there was this. Thrill that all of us medical students would have when we would wear a white coat and walk into a hospital, we knew nothing, many of us still know very little, but then we knew we knew nothing about medicine.</p>
+              <p>Yeah. We’d wear this white coat and we’d feel some level of. Accomplishments. And when I’d go back to the lab and, and, and see these brilliant engineers developing the next hardware software innovations, I would sit and wonder, well, why can’t I give , those engineers, that kind of feeling, why can’t they feel.</p>
+              <p>Accomplished from the perspective of doing good as a doctor Ken and that was really some of the motivation for the moggy was to think, is there a way that I can surface the problems in healthcare such that engineers could solve them?</p>
+              <p>I love that. So why can’t engineers be doing just as much good as doctors?</p>
+              <p><span class="spk">Vikram Kumar:</span> And the beauty is a doctor can save a life on a one is to one ratio. But when we are sitting here behind the computer, trying to design a solution that potential for scale and impact, is boundless.</p>
+              <p>In many ways we’ve been working on the same problems for the past 20 years. One of my co-founders Vish on enthrallment. He had spent his medical education in India. In a public health system where you have to spend time after graduating, you have to spend time in these rural health systems.</p>
+              <p>And he interacted and saw that the nurse midwives and EMS were doing a lot of work through paper, and he had this simple, but bold idea that let’s bring technology to make it better. And if you think about what we’re doing today is just that refined with better technology, better design, and many, many, many iteration.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So, how did you choose the name? Dimagi.</p>
+              <p><span class="spk">Vikram Kumar:</span> Yeah, no, I actually. Always wanted to start companies in plural. And I entered the MIT media lab where I was doing all my technical work as a medical student in 2000. So there was a lot happening in those days. A lot of startups, everything was electronic or digital, so D and E were important words. So Dimagi stuck as a word because it was appropriate for the time it started with D so digital ends with an I, but it sounds like Dimagi, but, but really what it represented was Dimagi which in Hindi means brain and a play on that word. So Dimagi is smart guy gal .</p>
+              <p><span class="spk">Amie Vaccaro:</span> So in those early days before John. You had two co-founders Vishwanath and Antoine and tarjay mickelson i want to hear about them</p>
+              <p>Tardy was and undergrad in mathematics who just computer genius on the side.</p>
+              <p><span class="spk">Vikram Kumar:</span> Tarjay has gone on to do incredible work and, and he was just a spark of technical genius and Vish brought us the problem sets to solve.</p>
+              <p>And he had very in-depth knowledge of the problem, which was trying to improve rural healthcare. And it was very specific. So. Went to India and we’re developing our, the first version of this with the all Indian Institute of medical sciences. And it was clear that if we didn’t build an institution around what we were doing, this idea that we had and the initial work that we were doing, what would fall apart.</p>
+              <p><span class="spk">Amie Vaccaro:</span> How did you and John meet?</p>
+              <p><span class="spk">Vikram Kumar:</span> Yeah. So John and I met through an MIT class, we were spending time with Yost. Who’s a figure at MIT and at the media lab. And he was running a , developmental ventures club. And you also knew a lot about Dimagi. We had come through his class in so many ways. He birthed the Dimagi in bringing Vish Tarjay myself together .</p>
+              <p><span class="spk">Amie Vaccaro:</span> Describe to me, the very first meeting between you and John.</p>
+              <p><span class="spk">Vikram Kumar:</span> We’re sitting in a conference room. We’re in one Kendall square where we had an office so it’s, it’s Vish, John myself sitting in a conference.</p>
+              <p>And within 15 seconds, John gets up and says, let’s do this. And pretty much he hired himself.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What’d you say to him? I mean in 15 seconds. That changed the course of his whole life you must’ve said something really compelling</p>
+              <p><span class="spk">Vikram Kumar:</span> I mean, he’s an engineer. He saw a problem. We were solving a problem. He was thinking to solve as well. We’ve made a little more progress. We had finally closed a little financing on this project in Zambia. We didn’t know what to do or how to approach it. He is the engineer. He said, I can do that. I’ve been trying to do this elsewhere.</p>
+              <p>Let’s do this. And so I think it was enough that he saw that we needed him and it was perfect.</p>
+              <p>I asked Jonathan Jackson, for his take on that same meeting.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Within 30 seconds I was like, oh, this, this could be at, this could be the job that, that fulfills that passion goal of mine.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So. That story and just I’m so curious about , what did Vikrum say to you in those first 30 seconds that you just knew,</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah. And, and I think it wasn’t anything that was said. It was. I just didn’t think this existed. And I’ve actually heard that story from a lot of people that we’ve brought into Dimagi over the years. Had I known that you could use donor funding to go attempt to make such a big impact with technology?</p>
+              <p>I probably would’ve known what I was doing freshman year in college.</p>
+              <p>So John joins Dimagi. And then back to vikrum</p>
+              <p><span class="spk">Vikram Kumar:</span> And really within about a year, I got my first note from John where he says, you know, I think I should be CEO. And so not only did he hire himself within the first 30 seconds, he pretty much made.</p>
+              <p>Him, my boss pretty soon after that. And actually since that meeting, I just didn’t even try to hold on. It was pretty clear that John knows how to make decisions and he makes really good decisions. He made a decision to join us, and actually he is the only reason why we are doing the impact and the work we’re doing today.</p>
+              <p>So the fact that John has been able to stick to mission is, one of the biggest achievements I have seen of any leader of any company I have seen.</p>
+              <p>Back to John for his take on that same interaction.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I’m working 80 hours a week, writing all the code, starting to do business development, had to figure out how to get my own health insurance and payroll. And like, you know, when you add up what I’m doing, It looks a lot like what a CEO might, might do.</p>
+              <p>And so I had a meeting with Vikram. And we sat down and I said, ah, Vikrum, I think I should be the CEO. And that was my intro to him of what I was proposing. And there wasn’t a whole lead up to it. I was just like, I think I’m kind of doing everything here and he’s like, yeah, you are.</p>
+              <p>And so the, the reading wasn’t contentious Victor was totally supportive and it was a very quick transition of about an hour from, from victim into myself. I also uh, was 22, he’s a Harvard trained physician.</p>
+              <p>So you could imagine being a little bit more shy about that. But early on, I was, I was pretty confident that that would be the right place.</p>
+              <p><span class="spk">Amie Vaccaro:</span> He told us similar story, although he said it was an email that you wrote</p>
+              <p><span class="spk">Jonathan Jackson:</span> he might be right.</p>
+              <p>It might’ve been an email. I thought I’d. I thought, I at least had the the insight that I should probably say this in person, but maybe I didn’t even have that back then.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So John Jackson is now CEO of Dimagi. And he’s going to be really the subject of this podcast in many ways. We’ll bring in a lot of other voices as well but he’s an important figure in the dimagi story and the learnings we’ve had so i wanted to get to know a bit more about his background</p>
+              <p><span class="spk">Jonathan Jackson:</span> So I have a wandering journey as a, as a child in terms of what I was interested in, but very early on, I knew I wanted to run companies or start companies. I just kind of had that bug. The first business I started with my sister was a friendship bracelet business in first grade.</p>
+              <p>She was making these really cool bracelets. I loved them. My friends saw them on my wrist and I was like, I’ll sell you one. And so we started that business together and, you know, made five or 10 bucks, but it was a lot of fun so as I went into high school and went to college, I was.</p>
+              <p>And the computers. So it was programming from a young age and I was a computer science major in college at MIT and thought, I might end up wanting to go into medicine or law or something, but right away in freshman year, I took my first programming class and I was hooked. So I kind of knew I wanted to do something, having to do with engineering and software.</p>
+              <p>And from there I worked in a couple of startups. This was during the.com boom, and the early two thousands. And then also I was doing a lot of interesting research projects in the healthcare field and those started to come together, but I didn’t quite know how to align them. And so. Uh, Was looking at a lot of different fields.</p>
+              <p>And one of the areas that really captured my interest was medical record systems. So 20 years ago, most of medical care in the United States was based on paper-based systems. What is now very common called electronic medical records. EMR is which are pretty commonplace all across many regions were just starting to become popularized.</p>
+              <p>And that was really exciting to me. And so I actually did my master’s thesis in this field, looking at how you could aggregate a lot of clinical. And try to find insights or predictive analytics, but again, had no idea how this would translate to a professional career. So for me, I was really searching for a job that was fulfilling.</p>
+              <p>I tried to go to wall street. I tried to apply to grad school. I was doing a lot of different things and not quite finding anything that was a perfect fit. And the one thing I did learn throughout my college career is I wanted to find a job. I was incredibly passionate about.</p>
+              <p>And I wasn’t incredibly lucky because I was scanning my email one day and a request went out for graduate students to support a student group that was developing application for Zambia. I saw that ad going on like, oh, this is super interesting. Why don’t I try to volunteer my time?</p>
+              <p>And maybe I’ll learn a little bit about how it works in, a global health context and through that work the grad student who’s running this course mentioned, Hey, I know a company that’s actually trying to do this. professionally, are you interested in speaking with them?</p>
+              <p><span class="spk">Amie Vaccaro:</span> So that’s how John met Vikrum.</p>
+              <p>And you’ve heard how that meeting went. You may have heard John mentioned Zambia. One of Dimagi. His first major projects was building a national medical record system for Zambia. This project is important because it set a precedent for how we work as Dimagi that we stick to today. Here’s Vikram’s take on that project.</p>
+              <p><span class="spk">Vikram Kumar:</span> Basically it was putting digital records on a smart card for HIV. And the idea that patients with HIV were traveling clinic to clinic. And so this was the way where they could take their records with them.</p>
+              <p>So mark Scheels is a visionary CDC official who had designed this idea. And actually at the time he didn’t believe. We would maybe survive as a company. So he had two companies, us and another company, both bid, and he awarded both of us to do this project. And we were lucky because we sorted didn’t do anything for the first several months until really John got started.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Now here’s John.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That, that was a crazy year. So I joined we decided to go for it and I get on a plane three weeks later. It was my first trip to Africa. Landon’s. Immediately start working 80 hours a day, trying to program at night and going out to the field during the day, learning as much as I could. I mean, I was hooked from like the second I stepped off the plane that I was gonna be doing this you know, for a long time.</p>
+              <p>And at this point I think it might be for my entire career. But it, it was just such an amazing experience to go. The people I met and got to work with both to mentor on the technology side and learn from on the public health and clinical side. That blend was so unique and the amount of empathy and passion you saw in the healthcare workforce that we were supporting and trying to improve was just phenomenal.</p>
+              <p>so I was working incredibly long hours. I was the only engineer at the company at the time. And so it was. Coding a lot. We were building the national medical record system in Zambia that was funded by PEPFAR, which is the president’s emergency plan for aids relief. One of the major flagship donor programs that really accelerated our investment to try to combat HIV and aids.</p>
+              <p>And this system was going to be the national system to build the medical record by. To help all these implementers on the ground who are providing HIV care and treatment to patients in Zambia. So was a really exciting project. On top of that, we were trying to build capacity from day one. We were building the local software development. Um, We got to do you know, a lot of things, right. That are often a struggle in our industry. And that was also very.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Gosh, that, that picture of you stepping off the plane for the first time ever in, in Africa, how did you feel in that moment?</p>
+              <p><span class="spk">Jonathan Jackson:</span> so I think one of the interesting things that I didn’t know, it sounds silly in retrospect, but you literally do step off the plane when you land in Africa, there’s no jet bridges. So that was, you know, step one is that, and tarmacs because of all the oil have a very unique. That is common across many airports.</p>
+              <p>And so there was literally a visceral , sensation you get when you step off the plane, because it just smells different. And a lot of air airports smell very similar on the tarmac. And I I’ll never forget that sense cause I get it every time I fly. Now, when I, when I go back to a place in New York, you’re exited on the tarmac and I just kind of felt.</p>
+              <p>Oh, this is, this is going to be different. This is going to be an adventure, and this is going to be something that I’m going to want to keep doing. You know, it kinda is, I don’t know to kind of quarter this, and I know I’m not uniqueness, but I think there’s some type of sensation you get when you like know you’re home for the first time and you’re going to come back and revisit that.</p>
+              <p>I think it was somewhat idealistic at the time to write. I was like, oh, I’ll be this great engineer and I’ll go help everybody. It’ll be super easy. Everything’s going to work great.</p>
+              <p>And obviously that’s not how it turned out. And then there’s a lot harder than anybody anticipated, but I was also, you know, very idealistic and still am about the impact we can have.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What other key learnings did you have from that time?</p>
+              <p>You.</p>
+              <p><span class="spk">Jonathan Jackson:</span> so I didn’t realize this at the time, but me getting to the field so quickly after I started this role and seeing how much I learned when I got out of the field. And that experience of just how obviously unaware I was of the context in which this nurse was going to be using the software.</p>
+              <p>What her day-to-day job looked like and just watching her for three hours, it was watched her do her job was so useful to me that I think it really helped us build this culture we have at Dimagi around what is now called user centered design. But back then was not a common technique. And we called it designer to the mango tree, which was really about making sure we went out to the field, understood the user’s job in context, watch them use our technology and context and heard from them and helped them be the leader and the designer of what we were.</p>
+              <p>And I think had I not had that, I would not necessarily be as passionate as I am about like, you know, if you haven’t been to the field for the exact use case we’re doing with that exact user. Yeah. You may have some assumptions from prior work or prior countries you’ve worked in, but until you’re on the ground, really seeing what they’re doing, you may or may not be designing the right solution.</p>
+              <p>And that’s something we try to be very humble about at Dimagi and balance all the different perspectives and be like, look, maybe on paper, this is the job definition of the worker we’re trying to support, but is that really how that job is practiced? Is that really what he or she is doing in the field?</p>
+              <p><span class="spk">Amie Vaccaro:</span> I’m curious to, to follow the, the Zambia project a little bit further. Cause I know that was just an, a really important first project. And also there were some ways that it evolved and eventually we ended up having to walk away from the project. And that was a, I think, a really tough decision that you had to make.</p>
+              <p>But also really indicative of the way in which Dimagi continues to operate with real focus on, on impact to the end user. So. Tell me, tell me a bit about that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We had an amazing opportunity on this project to build a national medical record system. And there’s many different reasons why one might want to build a national medical record system to get the data back to a central location, to epidemiological analysis, to improve how providers at the front lines can care for their patients.</p>
+              <p>And many other reasons our ethos at Dimagi was really trying to be frontline worker centric. We wanted to make sure that the work we were doing was driving. For providers, community health workers, nurses, doctors, et cetera. But a lot of projects are actually anchored on data collection. They want to get the data back to a central location so that you can then hypothetically do something with the data.</p>
+              <p>And in our experience, unfortunately, a lot of times you don’t end up doing that thing with the data. So you create this big burden on the end users to enter all this data, but then you’re not necessarily creating value back to them and you can do both. And we’ve now built our entire business model and approach to make sure we do both creating.</p>
+              <p>For the frontline providers and create the value of that dataset that you can generate insights or data-driven supervision from. But in this project there was really heavy anchor towards getting the data back together at first. And I was totally aligned with that vision and we were. Pushing on that.</p>
+              <p>As hard as we could for many years, however, as the project kept going, I started to have this sinking concern that we were never going to get to. How do we make the system create more impact for the frontline workers,</p>
+              <p>And I just kept feeling like we weren’t getting to it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And it got to be such a big point of conflict between us and the project sponsor that. At one point we said, you know, maybe we’re not the right vendor anymore for this. Like, I, I don’t think we have the right the same vision for where we want to take the project. we started initially just talking about it, but as we kept arguing more and more, you know, as we would groom the backlog together, we’d be having all these internal conflicts that are, you know, should we fix this backend thing or make the system more usable and, and powerful for the fallen workers.</p>
+              <p>And so I talked to our CTO Cory Zue at the time. Back when we were in Boston and we were both kind of getting frustrated with all the fighting that was happening and he never like this. Isn’t supposed to be what this feels like, work on projects that have this much funding, this amazing sponsorship by the government, you know, all these things going, right.</p>
+              <p>Maybe there’s other vendors who would do a better job on this. And we need to go find a different project because if this is what it feels like, I don’t think this is gonna work over the long run. And once we kind of had that discussion, we knew. To do, which was, you know, really be honest with the project sponsor and ourselves and saying like, look, this is not a productive, healthy way to engage together.</p>
+              <p>And Cory was actually in country. I was back here in Boston and things kind of came to a headquarter, was out with the project sponsor dinner.</p>
+              <p>And he’s like, I really think we’re going to have to walk, you know, if we do this, cause I don’t think they’re aligned to our priorities. And I’m like, okay, well then we got to walk in. If that means we can’t run Dimagi anymore. That’s what it means. But. Trying to make impact as we see fit because the industry doesn’t need yet another vendor just doing you know, it services</p>
+              <p>****</p>
+              <p><span class="spk">Jonathan Jackson:</span> and he’s like, seriously, you really want me to do this.</p>
+              <p>And I’m like, yep, we’re gonna, we’re going to do it. And you know, he went back to the table at dinner and said, okay, we totally get where you’re coming from, but it makes sense for you to find a new vendor for the project. And when we did that, it was half of our revenue at the time. You know, so there’s this crazy risk, that we were taking, but we really just felt like this. Wasn’t going to be a transformative approach to how Dimagi could make a contribution into global impact.</p>
+              <p>And in fact, this massively accelerated our ability to hopefully create transformational change over the long run. We’re still on that journey, but that taught us, , we really need to find projects where the impact that we want to have with. Um, To what the project sponsor and the partners in country won.</p>
+              <p>And by doing that, we actually accelerated our business. We made up all that revenue in the same year and then started growing even more quickly because we were better at finding a line.</p>
+              <p><span class="spk">Amie Vaccaro:</span> At that moment, like, Calls you from dinner? How did you feel about it? , were you scared?</p>
+              <p>Like that sounds like a really scary moment in the life of. Interestingly. It wasn’t scary at all. I kind of knew this was how. I think the scary thing was us acknowledging that this is what it feels like to work in the sector with our thesis.</p>
+              <p><span class="spk">Jonathan Jackson:</span> This is not a job I want. Right? Like that was the scary thing. And I constantly have that doubt, you know, still on certain projects or with certain strategies we implement or certain approaches we take.</p>
+              <p>And so some level of doubt and, and self-reflection is always critical, but it, when it gets to a certain level, you know, it’s counter productive and you’re probably right to have that doubt on some level and you need to find something more in common.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Is that project still running? Do you</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. So excitingly, it is still running. It’s gone on to do great things and it has created a lot of frontline impact. And, and so that’s, that’s, you know, I view that a success. It doesn’t have to be that we’re right about how every project should be run, but I think we were right about whether Dimagi was the ideal vendor.</p>
+              <p>Yeah.</p>
+              <p>That ability to know when to walk away. When a project isn’t aligned with the impact you want to be having. I think that’s really unique. And special about Dimagi. Here’s the victims take</p>
+              <p><span class="spk">Vikram Kumar:</span> And that’s again, a great example of how John had been able to get, not just into the technical weeds, but he’s able to get into the business. Logic challenges that implementation is surrounded by. And so he really got into it and it was very clear at some point that it was best for us to walk away and leave the system.</p>
+              <p>John was able to find what the best way was to part at that time. And it’s actually one of, I think, one of the most endearing. How we run Dimagi is we don’t really part with people. Even when we stop a project or stop working with someone, we will start working with them again.</p>
+              <p>And it’s, we’re working in a very small space. We’re working with people who are very passionate about solving the same problems we’re trying to solve.</p>
+              <p>I totally see that. And I also think there’s this ethos of where we’re a partner, right? We’re not just your tech vendor and we’re joining forces with you to tackle the problem.</p>
+              <p>And do it the right way.</p>
+              <p>In this episode, you heard John talk about flying from Boston to Zambia to learn from and work with users of Comcare on the ground. Since then. We’ve built out a team that includes people from and living in many of the countries that we work in. It’s one of the many ways that this company has evolved over the years that I’m interested to document.</p>
+              <p>Going from being a Boston-based startup to a truly global organization.</p>
+              <p>Thanks for listening to part one of the founding story. And the next episode. You’ll hear part two of Dimagi sounding story. Which includes answers to some key questions such as how has the McGee’s business model evolved over the years? Who were some of the key early hires that helped propel us forward? And what approaches did they bring that inform who we are today? And how has dimagi his culture evolved over the years</p>
+              <p>Stay tuned</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">VK</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Vikram Kumar</p>
+              <p class="person-role">Co-founder of Dimagi who started the company as a medical student at the MIT Media Lab to let engineers solve healthcare problems at scale.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2suUd80AW1ebwfImqBvD9d" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

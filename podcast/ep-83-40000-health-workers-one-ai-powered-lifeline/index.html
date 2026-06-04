@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 83: 40,000 Health Workers, One AI-Powered Lifeline | High-Impact Growth | Dimagi</title>
+<meta name="description" content="How Last Mile Health and IDinsight built HEP Assist, a generative-AI call center supporting Ethiopia&#x27;s 40,000 health extension workers, with 6,500+ AI-supported consultations and 53% of cases resolved at the community level.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-83-40000-health-workers-one-ai-powered-lifeline/">
+<meta property="og:title" content="Ep 83: 40,000 Health Workers, One AI-Powered Lifeline">
+<meta property="og:description" content="Inside HEP Assist: a generative-AI call center supporting Ethiopia&#x27;s 40,000 health extension workers in local languages.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 15, 2026</span>
+          <span class="dot"></span>
+          <span>49 min</span>
+        </div>
+        <h1 class="ep-title">40,000 Health Workers, One AI-Powered Lifeline</h1>
+        <p class="ep-deck">Inside HEP Assist: a generative-AI call center built by Last Mile Health and IDinsight, in partnership with Ethiopia&#x27;s Ministry of Health, to support the country&#x27;s 40,000 health extension workers in their own languages.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/38eXeICeW1MSqIHtrDxQFf?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 83 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/38eXeICeW1MSqIHtrDxQFf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/40-000-health-workers-one-ai-powered-lifeline/id1628339050?i=1000767962147" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://www.youtube.com/watch?v=W1qfzw44te4&amp;#038;list=PLVmwIEfrcKqkdQyQ_nvEyijiz6qk3z1Oe&amp;#038;index=1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/384d24a1-b4c3-4fd2-b13b-a04a01b20be7/high-impact-growth-40-000-health-workers-one-ai-powered-lifeline" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">40,000</div>
+          <div class="ep-stat-label">health extension workers HEP Assist is designed to reach</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">6,500+</div>
+          <div class="ep-stat-label">AI-supported consultations completed so far</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">53%</div>
+          <div class="ep-stat-label">of cases resolved at the community level</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In Ethiopia, more than 40,000 health extension workers are the first, and often the only, point of care for millions of people. When a question falls outside their training, the nearest expert can be hours away. This episode looks at how a coalition set out to put a knowledgeable second opinion within reach of every one of them.</p>
+        <p>HEP Assist is a generative-AI call center built by Last Mile Health and IDinsight in partnership with the Ethiopian Ministry of Health. Country Director Abraham Zerihun and Chief Data Scientist Sid Ravinutala join hosts Jonathan Jackson and Amie Vaccaro to unpack how it actually works, from the architecture under the hood to the trust it had to earn before a single health worker could use it.</p>
+        <p>At the core is a retrieval-augmented generation (RAG) system grounded in Ethiopia&#x27;s national clinical guidelines, fronted by a virtual assistant the team named Hawa that answers in local languages including Amharic and Oromo. The conversation gets refreshingly practical: how they modeled the true cost of running AI at national scale, how they won government confidence on data security and patient privacy, how they designed around real health-worker personas, and how they built evaluation frameworks rigorous enough to trust on high-stakes decisions.</p>
+        <p>The throughline is a clear point of view: AI here is augmentation for frontline workers, not replacement. With more than 6,500 AI-supported consultations completed and 53% of cases resolved at the community level, the team argues that generative AI can be deployed responsibly, and effectively, in exactly the low-resource settings where skeptics assume it cannot.</p>
+
+        <blockquote>
+          <p>&ldquo;There&#x27;s a lot of skepticism that AI is not an appropriate solution. And I feel like we have disproved that.&rdquo;</p>
+          <cite>On the impact of HEP Assist</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The RAG architecture</strong> behind HEP Assist, grounded in Ethiopia's national clinical guidelines</li>
+          <li><strong>Meet Hawa</strong>, the virtual assistant built to respond in Amharic, Oromo, and other local languages</li>
+          <li><strong>Costing AI at scale</strong>: modeling what it really takes to run this for 40,000 workers</li>
+          <li><strong>Earning government trust</strong> on data security, privacy, and ministry buy-in</li>
+          <li><strong>User-centered design</strong> built around real frontline health-worker personas</li>
+          <li><strong>Evaluation frameworks</strong> rigorous enough for life-and-death decisions</li>
+          <li><strong>Augmentation, not replacement</strong>: keeping the human health worker at the center</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to High Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amie Vaccaro, senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson Dimagi, CEO, and co-founder. Today, we’re moving past the hype of AI to look at a real live in the field use case that is actually working today. There’s a lot of skepticism about whether generative AI can truly perform at the last mile, where languages are complex and the stakes are high, but our guests today are disproving that skepticism.</p>
+              <p>Joining us today are Abraham Zerihun from Last Mile Health and Sid Ravinutala from IDinsight. They’ve partnered with the Ethiopian Ministry of Health to launch HEPA Assist, an AI driven call center supporting 40,000 health extension workers. We’re going deep into the ins and outs, the technical hurdles, the safety guardrails, and how a government can successfully lead an AI transition.</p>
+              <p>If you’ve been wondering if AI is actually ready for the front lines, this is the episode for you. Enjoy.</p>
+              <p>All right. Welcome to the High Impact Growth Podcast. I am so excited for our conversation today. I’m here with Jonathan Jackson, my co-host, as always, John. Hey, good to see you,</p>
+              <p><span class="spk">John:</span> Amy. Good to see you too.</p>
+              <p><span class="spk">Amie:</span> Yeah. And we are joined by Sid Ravinutala, Chief Data Scientist at IDinsight, and Abraham Zerihun, Ethiopia Country Director at Last Mile Health. We are very excited to be joined by both of you. Today we’re going to discuss a very specific use case of AI for healthcare workers. What happens when that healthcare worker needs an immediate answer to a complex medical question and there’s no doctor nearby? So today we’re looking at how together IDinsight and Last Mile Health have solved this exact problem [00:02:00] with a program called Hep Assist, which is a generative AI powered call center designed specifically for health extension workers in Ethiopia.</p>
+              <p>I’m really, really excited to dig into this particular story, but I’d love to start with some introductions. First, Sid and Abraham - I’d love for you guys to introduce yourselves, share a bit of your journey into both data science and global health, and also what drew you to this particular challenge of supporting frontline healthcare workers in Ethiopia.</p>
+              <p><span class="spk">Sid:</span> Yeah. Thank you Amy. Thanks Jonathan for having us here today.</p>
+              <p>My career is a little bit of a flip-flop. I started my career in tech consulting and then gone in and out of the development sector for almost 20 years in search of a role where I could do something that was meaningful to me and something that was technically deep and interesting for the nerd inside.</p>
+              <p>And that’s been surprisingly a challenge until I think maybe [00:03:00] five or 10 years ago when data science became a bigger thing. So I started my career - my undergrad thesis was a machine learning project on intrusion detection, looking at network traffic and seeing what someone’s trying to hack in.</p>
+              <p>And then did some tech consulting, and then was bitter and jaded after that. So took some time off to work in Ghana, Papua New Guinea, and then eventually Uganda, where I worked for Clinton Health, where Abraham and I both worked. I think we just barely overlapped.</p>
+              <p>And then after that, what did I do after Uganda? I went to grad school. Worked very briefly for an education nonprofit. Worked for a think tank at the Harvard Kennedy School called Center for International Development. Worked in the private sector with Quantum Black, which is McKinsey’s data science arm.</p>
+              <p>And then I’ve been with IDinsight for now [00:04:00] coming up to six years - next month will be six years. And the way I describe it is that IDinsight is the best iteration where I’ve been able to find this balance between doing things that are meaningful, that I can be proud of, and doing some technically deep and interesting things.</p>
+              <p>I’ll hand over to Abraham to introduce himself.</p>
+              <p><span class="spk">Abraham:</span> Thank you, Sid. I started my public health career around 30 years ago. I started working in HIV - I am part of the HIV generation, which is a very activist form of public health. I’m very passionate about HIV. I don’t work in HIV anymore, but that’s how I started my career.</p>
+              <p>That was a time where being HIV positive was a death sentence. Treatment was not available, and countries were really trying to scale [00:05:00] HIV treatment programs. So after spending some years working in HIV, I started working more in rural health and primary healthcare - more of a comprehensive approach to delivering public health services to the last mile. I’ve done that in Ethiopia and in other countries as well. I worked in Lesotho for some time, in very, very rural, hard to reach areas, expanding primary healthcare services in those areas, in the mountains of Lesotho.</p>
+              <p>I’ve also worked for some time in the Caribbean, in Jamaica, working in expanding HIV services through primary healthcare. I’ve worked in health management as well, maternal child health, several programs working for the Clinton Health Access Initiative - that’s where Sid and I overlap.</p>
+              <p>I was also part of a hospital management program through [00:06:00] Yale Global Health Leadership Institute. And then finally I ended up spending some time with philanthropy from the funding side as well. But finally came back home to Ethiopia, which is where I’m from, and started working for Last Mile Health.</p>
+              <p><span class="spk">John:</span> Wonderful - amazing levels of experience and depth to both your careers. So really looking forward to this conversation on learning more about the specific program in Ethiopia. Obviously we want to hear how your backgrounds led to the work in this and the exciting work that is continuing to happen in Ethiopia.</p>
+              <p><span class="spk">Amie:</span> Yeah. So I’m curious - what was the spark, or the aha moment, for this particular effort that we’re going to start speaking about, which is the HEPA Assist effort, this AI powered call center in Ethiopia. Tell us where that started.</p>
+              <p><span class="spk">Abraham:</span> Well, around five years ago or so, the ministry asked us to come up with a technology response which can reduce the cost of training of health extension workers, which are community health workers in Ethiopia. We call them health extension workers. Because the cost of training was very high, the ministry wanted to digitize, reduce the cost and also improve the quality.</p>
+              <p>So we came up with a solution - a blended learning [00:07:00] hybrid form of learning, which has a face-to-face and a digital component, which brought down the cost of training by 40%. But the aha moment of looking for an AI solution was that even if you train community health workers, they might face a complicated case.</p>
+              <p>You cannot train for every case. And they would need support to help them manage a case - to reduce unnecessary referrals so that they could treat cases which are within their scope of practice, or to also reduce delayed referrals so that people can get treatment right away for cases which should not be handled at the community level and should be referred right away.</p>
+              <p>So training we felt is not adequate, or might not be adequate, for community workers to manage every case. So that was the aha moment where we initially started a call center, but then we said the counseling and the support they need needs to be standardized - we can bring in AI.</p>
+              <p>And that’s where we started looking [00:08:00] for technical experts and partners who can help us with this solution. And that’s how we found Sid and ID Insight.</p>
+              <p><span class="spk">John:</span> Great. And to add - I was really excited when I heard you guys were working on this project because we have deep respect for both Last Mile and ID Insight’s work.</p>
+              <p>But one of the things that I think everybody thinks of is: does this work in local languages? Right. We keep hearing how AI models are not applicable. So Sid, can you take us through how you guys iterated on the project design? I’m particularly curious - when you got that first email, were you like, oh, this is probably going to work, or, oh, this is probably not going to work?</p>
+              <p>In general when you started brainstorming.</p>
+              <p><span class="spk">Sid:</span> Yeah. To be completely fair, we had some great ambitions when we started and then some reality checks along the way. So language is like one example of it. What we’d ideally want to do is use open weights models where we are not dependent on any provider [00:09:00] - Google, Gemini, or OpenAI - but the performance in Amharic and Oromo has been pretty mediocre in these foundational models. I mean, Google owns the internet and they suck the internet dry. So it’s understandable why their model does so much better.</p>
+              <p>I was even looking at some benchmarks that Dimagi had put out, and that even shows the performance hierarchy - how much better Gemini is compared to some of the other ones. So that was one.</p>
+              <p>So there’s a couple of things that we would love to have, and we are hoping that as the technology improves, we would get there. One is completely open source, using only open weight models. Two is - can we run these on device or at least have some capability? Some of these smaller language models are now coming out where at least some capability, maybe not everything, is available offline, but can we increase the features that are available offline?</p>
+              <p>And the third is [00:10:00] voice in real world settings. Can we allow questions to be asked in a noisy background with kids running around, in a language other than English, and it still responds accurately. So these are the frontier things that we are watching carefully. And maybe we could dig into some of the work we’re just starting on looking at some of these components.</p>
+              <p>But when we started, this is the vision. This is the dream we want to get to. And as we evaluated various open weights models, we discovered that language support was poorer than we originally thought. There is fine tuning, of course, to improve that, and maybe that is still a path we take in the future, but as you all know really well, that is a big investment for an NGO to take on early on in this project.</p>
+              <p>But yeah, so when we started, we’re like, well, yes, we could do this in English and online fairly easily. No problem. We’ve done this before. But all of these other things will require us to just stay up to date with where the technology’s progressing. And it is moving really fast - things that we didn’t think would be possible six months ago are suddenly possible.</p>
+              <p><span class="spk">Amie:</span> Yeah. Thank you for [00:11:00] that, Sid. I think that’s helpful just to even hear those three levers that you’re really keeping a close eye on - around language performance, open source models, running on device, and then voice. Does it actually work in the real world?</p>
+              <p>I definitely want to dig in further on the AI specifically, but even before we go there - how did this partnership come together between ID Insight, Last Mile Health and the Ethiopian Ministry of Health? How did that happen and how has that been working?</p>
+              <p><span class="spk">Abraham:</span> Yes, Last Mile Health works really closely with the Ministry of Health. We have an MOU with the Ministry of Health and the ministry was actually quite excited to see the potential application of AI at the community level.</p>
+              <p>We involved around 26 experts from the Ministry of Health to review and make sure that the AI platform that we are creating is aligned with ministry guidelines and protocols. So there’s a lot of stakeholder engagement and there was a [00:12:00] lot of review processes at the expert level with the Ministry of Health.</p>
+              <p>And the country and the government of Ethiopia is quite excited about AI. We have an AI institute. There’s a lot of political will behind working on AI, so that really helped with the momentum. And then we brought in Sid and ID Insight as technical partners. And we worked well together and, as Sid mentioned, the technology - some of the things that were not possible when we started became more and more possible. The proficiency of AI on local languages such as Amharic and Oromo became better and better. Now that we are actually really rigorously testing it and even implementing it, the local language responses are getting better and better and refined.</p>
+              <p>We are also testing voice to text as well. We’ve seen some very encouraging results even in local languages. That’s really [00:13:00] the next frontier for us that we want to explore. So the more developments came about, the ministry was more and more excited and became even more invested.</p>
+              <p>And I think eventually we ended up winning a grant that we worked together on, which helped us even strengthen the collaboration and also roll out the pilot as well. Over to you, Sid.</p>
+              <p><span class="spk">Sid:</span> Thanks, Abraham. Maybe I’m preaching to the choir here, but community health workers are the backbone of primary healthcare in a lot of the countries that we work in.</p>
+              <p>An opportunity to even marginally improve the care provided by a single community health worker, or health extension worker, can lead to significant, substantial improvements in the quality of healthcare seen by individuals, or the overall healthcare level for a country would improve.</p>
+              <p>So focusing on these frontline workers, we knew, is where [00:14:00] AI can have the greatest impact. And when we had this conversation with Abraham and his team - Ethiopia has invested in community health workers for a long time, one of the oldest programs on the continent.</p>
+              <p>I think Abraham, you could correct me if I’m wrong, I think it’s a 20-year-old program with 40,000 health extension workers. They’ve invested a lot in their training, as Abraham was saying earlier, and the skills development. And having that sort of buy-in and political will - this past investment and also this critical will in improving it further - is really rare.</p>
+              <p>So kudos goes to the Ministry of Health for setting up such a great system, and then again, looking for innovation to make it better. And then last is partnering with an organization like Last Mile Health. That brings a ton of contextual knowledge from the deep history supporting community health workers in multiple countries.</p>
+              <p>That sort of a partnership is really rare. [00:15:00] You can build AI solutions in isolation, but if you really want them to scale and have impact, you need partners like Last Mile Health. So when there was this confluence of these different factors coming together, I personally got really excited. I thought this was a rare opportunity. So yeah, that’s kind of how this partnership got started.</p>
+              <p><span class="spk">Amie:</span> That’s awesome. Such a cool story and I love just hearing both of your perspectives on getting this started. I’m curious - it’s funny, in 2026 it feels like we’re starting to be in this world where every project has an AI element or we’re asking questions about AI.</p>
+              <p>But I’m curious for this effort - why did you decide to use generative AI? Did it start with AI and “let’s see how AI can improve this particular program”? Or were you looking at other solutions as well?</p>
+              <p><span class="spk">John:</span> And I’ll build on Amy’s question. How did you think about the value of learning by just trying? There’s a ton of value in just seeing how AI can help support community health workers. As you mentioned, Sid, the ministry and Last Mile - just learning where AI can be applied.</p>
+              <p>So as you thought about the project context, for both of you, I’m curious - [00:16:00] I can see two tracks of value. It’s like, does the exact use case work, does it improve CHW outcomes, but also - are we learning how we can apply AI? And I’m curious if and how those conversations weaved as the project was being designed and as we were thinking about the different potential phases.</p>
+              <p><span class="spk">Abraham:</span> Yeah. So the idea of AI came about because the problem at hand is supporting community health workers with decision making, particularly for managing a case which is quite complex. And it’s very difficult to address this with a deterministic model because cases are different.</p>
+              <p>Each case is unique. There are different backgrounds and root causes to every case, and we felt AI is better suited to address it. But something we’re struggling with is that we cannot explore global knowledge - everything out there - to address a case. It has to be limited to ministry [00:17:00] protocols, Ministry of Health guidelines.</p>
+              <p>That’s where Sid recommended the RAG architecture, which limits information to Ministry of Health protocols but has a generative AI component. This is like information retrieval assisted by AI - that’s why it’s called Retrieval Augmented Generation. And we felt this also has a safety layer to it. It reduces hallucinations and also would allay the fears of the Ministry of Health around safety issues where AI goes and provides a treatment protocol.</p>
+              <p>So in short, we felt AI is better suited for this because managing a case is difficult to manage through a deterministic model.</p>
+              <p>And also, advances in AI were rapidly happening and we felt we could integrate [00:18:00] language and voice capabilities, which would be better suited for community health workers. And we’re getting very, very close to that. The ministry is quite excited. Most of the AI solutions we have in Ethiopia are equipment related - there’s now consideration of using AI assisted ultrasounds and things of that nature. But for a case management and decision support tool, we don’t have a solution yet. So HEPA Assist became a unique solution at the community level.</p>
+              <p><span class="spk">Sid:</span> Yeah. I can add a couple of things. Just on Amy’s question about non-AI solutions - Abraham mentioned earlier that what the Ministry of Health invested in is a call center where these health extension workers could call for help. So they could call in and an expert who’s in front of a computer can answer these questions.</p>
+              <p>But even then, the quality of response that they would get is highly variable. And of course, again, it’s [00:19:00] limited by how many people you have available to serve these 40,000 health extension workers. So there is an analog solution in place to provide this sort of additional support for these health extension workers.</p>
+              <p>We are just trying to supercharge them with AI, so we’re not replacing any systems - in fact, we’re not even creating a new system. We are augmenting an existing system that’s already in place. So the step one or phase one of this project was to support these call center agents with an AI support tool.</p>
+              <p>They can be another level of check as well. Before they share that back, they can give us feedback, they can tell us, they can filter out when AI is saying something that they don’t agree with. They are the final source of truth for the health extension worker. So there was an analog solution in place and we are seeing how this can boost that. Once we build this confidence in phase one - that the answers we’re getting are good and the call center agents are giving a lot of thumbs up - </p>
+              <p>then we can talk about, again, [00:20:00] giving this directly to health extension workers. In terms of learning - there has been a ton. We talked a little bit about the language part of it at the start. There’s also just nuances around - if you look at the documentation or the guidelines that the government has put together, there’s a lot of great images in it.</p>
+              <p>For example, how do you help a mother breastfeed? There’s a lot of great visuals on latching and how to hold the baby. You can do that in text, but it’s really useful to pull out the right image at the right time in your conversation and send that back. There’s a lot of technical learning in terms of architectures that lets you do those kinds of things.</p>
+              <p>In terms of larger, higher level learning, we’ve had many conversations at Last Mile Health about - this was the low hanging fruit, we know this needs to be done, but what are other areas or other ways we can support health extension workers? Admin is one - health extension workers go through a new village and you’ve got to onboard every single [00:21:00] household, which is really onerous.</p>
+              <p>Can we use AI to reduce the burden on health extension workers? Admin and training, as Abraham mentioned earlier - can we provide better training? Just in time training - if you’re going to see a certain household and we know what kind of household, can we provide you with just in time training to support that household.</p>
+              <p>So there are all these new sets of use cases that are now possible, especially once we have a proven use case. We are showing how this arguably simpler use case can be done well. And now we are starting to look at what are these other ways that AI can be supporting health extension workers.</p>
+              <p><span class="spk">Amie:</span> That’s great. And just for my clarity - you mentioned the phase one where the AI is helping the call center agents. What phase are you in now? Is it actually in the hands of the health extension workers themselves or is it still with the call center agents?</p>
+              <p><span class="spk">Abraham:</span> We are in phase one at the moment. It’s predominantly in the hands of call center agents. However, we have selected a small subset of health [00:22:00] workers and we just started to try out phase two where it’s direct use by health workers. So that has started. But most of the data we have is through the call centers.</p>
+              <p><span class="spk">John:</span> That’s great. And when did this project start in terms of timeline?</p>
+              <p><span class="spk">Sid:</span> Was it December 2024? Is that right, Abraham?</p>
+              <p><span class="spk">Abraham:</span> Yes. I think it started before that, but I think actual implementation we started in December. Yeah.</p>
+              <p><span class="spk">John:</span> Great. So back then and certainly now there’s huge concerns around data security and, Sid, you mentioned frontier models and being locked into proprietary approaches. I know it’s an extremely complicated landscape, and lots of countries, lots of organizations, lots of individuals are grappling with these concepts. And LLMs themselves are changing so much [00:23:00] that I think the ground is kind of shifting underneath their feet.</p>
+              <p>But I’m curious - very tactically, when you had these discussions with the ministry and how you supported them to think about their data security during testing, privacy controls if it were to scale - how did you think through those?</p>
+              <p>I’m sure it’s still evolving, as all things are with AI right now, but I’m just curious how you overcame that. Because I think that’s a huge barrier for some of our listeners and governments and funders on just how do you even get started on these things. Case data is very sensitive, and so yeah, love to hear how you overcame some of those and how you iterated with the ministry to find a path to turning it on, because I know there are 50 people listening like, yeah, I had this idea, I just couldn’t figure out how to actionize it. And so it’s wonderful that you have actually been able to turn it on and I would love to hear more on that.</p>
+              <p><span class="spk">Sid:</span> Abraham, do you want to talk a little bit about the conversations with the government on data security and data governance?</p>
+              <p><span class="spk">Abraham:</span> Yes. And Jonathan, you correctly mentioned that this is a very important and serious issue for the Ministry of Health. One of the things [00:24:00] the ministry insists on is selecting platforms which have some sort of commercial accountability - not vendor lock-in. So we’ve tried to be as careful as possible to use open source platforms, as well as for HEPA Assist to be LLM agnostic, so that the Ministry of Health does not feel like it’s bound by one vendor or one tool or another. Sort of try to be as flexible as possible.</p>
+              <p>There’s also another very strong interest by the Ministry of Health to ensure data security and also to make sure that - we have a data proclamation. We just passed one, I think a few months ago. And the government and the Ministry of Health is very serious about where data is housed and stored as well.</p>
+              <p>So we’re working to reassure the ministry that we are taking all the necessary precautions. But sometimes there are some technology considerations - [00:25:00] availability of GPU in country is still limited. So sometimes we are forced to use AWS servers, but in the future the ministry is building that capability.</p>
+              <p>We have an Artificial Intelligence Institute which is building that capability, and in the not too distant future we hope to transition that to the ministry. And we also want to build on what Sid mentioned in terms of looking at potentially offline capability, which will involve looking at maybe lighter models which won’t have the requirements of storage and computing power.</p>
+              <p>So with those lighter models, doing this locally with ministry infrastructure and local protocols would become much more achievable in the not too distant future.</p>
+              <p><span class="spk">Sid:</span> Yeah. These are real issues. You’re totally right, Jonathan. And I don’t think we have quite everything [00:26:00] resolved. We have a path, we have a trajectory on where we want to get to - as Abraham was saying, having service hosted in Ethiopia, owned by the government.</p>
+              <p>In the meantime, we are reliant on cloud service providers. They’re on the continent, but AWS does not have a data center in Ethiopia. So there are some compromises - temporary, hopefully - that we are making until this infrastructure is in place.</p>
+              <p>One conversation that we still need to have is integration into EMR systems. And then it starts getting into a lot of very sensitive areas. Now you have access to all their medical history. You can use that to provide richer responses, but at the same time, there’s a lot of privacy concerns that come into it. We are not there yet, but we are aware that these are conversations that we need to have and what the requirements are on how we manage this sort of data.</p>
+              <p>And it might be that we don’t do EMR integration until we are able to do [00:27:00] our own open weight models hosted in country - that might be a requirement from the government. I know that OpenAI, Gemini and all of them claim that they’re not using your data for training. They’re not retaining it. Actually, OpenAI doesn’t say they’re not retaining it - they are retaining some of that data. So there is a trust component to this as well.</p>
+              <p>And I think we’ll have to wait and see how this develops. In terms of lock-in, we’ve actually been very conscious and intentional about not having lock-in. And by that - getting technical for a second - we use an LLM gateway that allows us to switch between models quite easily with one line of code. Which is also beneficial as the cutting edge model evolves and new models come out. We want to be able to try new ones easily.</p>
+              <p>As government policies change on which models we can and cannot use, we want to be able to switch that easily. So that sort of flexibility has been part of the design from day one.</p>
+              <p><span class="spk">John:</span> That’s great and makes a ton of sense. I think the [00:28:00] need to think through a future where the open weight models are very good - not just good enough - at certain use cases is definitely how we’re recommending people think about these conversations now.</p>
+              <p>So even if you start with one of the frontier models, plan for a world when you can migrate off. Possibly it’s even cheaper in terms of the run cost over time as well. So that’s great.</p>
+              <p>So we were talking about the data security piece, but also the cost piece I just mentioned, and I’m very curious how you’ve thought about this, modeled it. Even cents per interaction can add up to a lot if you’re talking about an entire national CHW workforce. So how have the cost discussions been modeled? Is that something that’s kind of too early to be thinking about because the tech is changing a lot? But how have you had those discussions and thought about scalability and costing from that perspective?</p>
+              <p><span class="spk">Abraham:</span> Yes, I think the costing conversation is ongoing. With previous technology interventions, what we have seen is that the development cost might be high, but when you scale it, the per unit cost comes down as you scale. And with AI, with [00:29:00] things changing by the minute, we hope that the costs are coming down, but there’s a lot of opportunity costs that we need to consider as well.</p>
+              <p>If a person is treated with quality treatment at the community level, you are reducing cost of transportation. You’re reducing cost of care at a higher level. So there’s a lot of even hidden costs which are associated with lack of quality of service, which is unnecessary referral or delayed referral.</p>
+              <p>If a referral is delayed, it means you might need to go to the hospital. So there’s a lot of preventive costs which you gain from improving quality of service, which we need to measure, because I feel like directly measuring only the development costs might send the wrong picture.</p>
+              <p>So as we get more data, we’ll be able to assess. Just to give you one [00:30:00] data point - up to now there have been 6,555 AI supported consultations. And out of those consultations, 53% of them have been treated at the community level and 37% have been referred. So this is not a small number, which really tells you that in a short amount of time, more than 6,000 AI supported consultations, more than 6,000 cases being addressed.</p>
+              <p>We are very, very encouraged by that. But if you assume the cost - even for some portion of cases, if there were misdiagnosed or not treated on time, or they were referred while they were not supposed to - the cost implications are huge, which we need to measure.</p>
+              <p><span class="spk">John:</span> So I love that description of how you’re [00:31:00] thinking about ROI. Clinton Health obviously did a ton of financial modeling during HIV procurement. I’m extremely curious - for governments listening, for other partners listening - that question of cost avoidance, I think, is often very difficult to model and very difficult to kind of win an argument on.</p>
+              <p>How do you think about that, both practically right now, but also just given your history of working in the HIV space where this was a critical issue - to talk about whether it was first line to second line regimen changes or other externalities and societal issues.</p>
+              <p>So with AI, if I can avoid a bad treatment outcome or the wrong treatment outcome, how do I kind of think about the ROI of that? I’d love to hear your opinion on that.</p>
+              <p><span class="spk">Abraham:</span> Yeah, it’s going to be complicated. Sometimes we have this need to quantify each and every cost component, which is sometimes a bit difficult to do, but I think it can be done.</p>
+              <p>It definitely can be done. It’s not only [00:32:00] related with patient outcomes. There are logistics and administrative costs as well. I just gave you the number of the consultations, but the number of calls is much, much bigger. We have 18,000 calls that health extension workers made to call centers, which shows you that the demand is very, very high.</p>
+              <p>We are estimating that on average health workers have eight calls every two months, which is around four cases a month, which is very high. If you multiply that by 40,000 workers throughout the country, it’s a massive number.</p>
+              <p>So the demand for case management is there. Even with these call centers, the number of calls which have been converting to consultations is only 6,000, which means that there are calls which are not answered - calls which are [00:33:00] rejected - because these call center workers do not have the time sometimes or might be managing other cases.</p>
+              <p>Which really makes the justification for pushing to phase two - putting this AI directly in the hands of health workers. So when that happens, the costs, especially at scale, become more and more justifiable. And as the cost of technology and the cost of AI reduces as well, we feel like this is going to be more and more affordable.</p>
+              <p><span class="spk">Amie:</span> Those numbers are really fascinating and I imagine that four calls a month will grow as health extension workers realize just how valuable the service is. Like I find for myself - with my own ChatGPT usage - questions I used to have that I would just think, I’ll never be able to figure that out, I now realize I can just ask AI and get a pretty interesting answer and help evolve my thinking.</p>
+              <p>So [00:34:00] I am curious - sorry, go ahead.</p>
+              <p><span class="spk">Sid:</span> No, that’s a hundred percent right. Once you reduce the barrier to asking questions - you don’t have to actually call someone, wait on the line, speak to a human, but just while doing something else, ask on the side - I expect the volumes to be even higher than the calls that are coming in right now.</p>
+              <p>Can I just say one point on cost? We used to work in tech and we build technology where you pay this huge fixed cost. You’re like, okay, marginal cost for bringing on a user is practically zero. So let’s scale this thing. Now every person you bring on, every new user, you’re paying a non-zero variable cost. So the cost model has changed substantially.</p>
+              <p>When I make this argument, the counter argument often presented is that token costs are going down. Don’t worry about it, the future will be fine. Yeah. But new models are coming out and [00:35:00] you want to use the latest model, not the one that came out last year. And there’s now thinking models and new methods of doing guardrails and LLM as judge. The token cost is going down, but the number of tokens you are using is also increasing over time.</p>
+              <p>And I feel like the equilibrium is staying the same - token cost going down, but demand for it is going up. And maybe hosting your own models is the answer, but then you need a certain volume scale for that to make sense as well. You’re paying for GPUs, the compute’s not cheap. It doesn’t make sense to do that for 10 users - it makes sense for hundreds of thousands of users. So you need to get to that scale before you can start hosting them.</p>
+              <p>But yeah, the cost is an ongoing thing that I’m always watching. What is that switch point when you’re like, okay, no longer using an API, it’s time to host your own model. And I like Abraham’s approach as well - costing it out as a whole, not just here’s the AI component, how much does it cost?</p>
+              <p><span class="spk">Amie:</span> Yeah. So I want to shift us a little bit. I think we’ve dug in a bit on the tech side, the government considerations, things like data security, [00:36:00] cost, et cetera. And I want to bring us to the user side of the equation. Something that Dimagi - we speak about a lot - is what we call design under the mango tree, which is designing products with our users. I’m curious just to hear a bit about how you’ve incorporated users in this design process. What kind of feedback have you been getting? What are some of the barriers you’re seeing? Are there things that have changed in the offering based on what you’ve learned from users?</p>
+              <p>Yeah. Love to hear from either of you.</p>
+              <p><span class="spk">Abraham:</span> As much as possible, we’ve tried to be user centered. We’ve had several consultations with Ministry of Health, with nurses and midwives who are the core call center agents, and also health extension workers as well. And we’ve tried as much as possible to iterate different versions.</p>
+              <p>There are several functionalities that we have included [00:37:00] which have continuously improved the tool. This can be getting user feedback, allowing call agents to rate the responses from HEPA Assist. This can be including broader reference documents, because how it works is that you upload the guidelines and modules that you want the AI tool to use. So we have included reference documents so that there’s some sort of a bigger body of knowledge, but still within the ministry guidelines.</p>
+              <p>We have included citations, where the AI needs to reference where it’s getting the responses from - like, okay, this is how you should manage this child, and this response was given to you from such and such guideline, page 70, page 40 - so specific references so that they could go verify those guidelines as well.</p>
+              <p>And the latest addition has been introducing a character called Hawa. [00:38:00] This is one of the first health extension workers who was used in our user centered design process. So we named this virtual assistant after her. So Hawa is going to be like Alexa or Siri, embedded with HEPA Assist.</p>
+              <p>Hawa is also a character we have used for our blended learning. She is the best trained health worker in those video stories. So we felt - let’s take health extension workers through that journey where they’re used to watching animated videos for their blended learning to learn about maternal health or newborn health.</p>
+              <p>And we integrated Hawa into the HEPA Assist platform where they are having a conversation with her, and Hawa makes the experience more human and less machine oriented. So lots of user feedback being incorporated to [00:39:00] improve the tool. And we’ll definitely continue to do so, especially now that we are trying direct use by health workers. We feel like we will get much more feedback, which we are committed to incorporating.</p>
+              <p><span class="spk">Sid:</span> Yeah, just on a couple of technical notes on this. There’s the intensive approach, where we’re sitting with these end users and watching them and getting feedback from them in person, and doing multiple cycles of this.</p>
+              <p>And then there’s the softer touch, which is within the app itself - they can give qualitative and quantitative feedback. They can give us a thumbs up and say, I like this, I don’t like this, and also why they didn’t like it. And then we can analyze that. And of course using all our traces that we keep track of, we do error analysis as well.</p>
+              <p>So if they give us a thumbs down, we can go in and analyze where in the chain, in our pipeline, was there a failure? Was it because we didn’t have the document? Was it a translation thing or did it not take some context into [00:40:00] account? And that allows us to continuously improve.</p>
+              <p>And we’ve made a lot of changes, as Abraham said. One is like adding this supplemental documentation and how we use that along with primary documentation to answer certain questions. And then over time, we’ve also built an evaluation set that allows us to do this continuously as we are making changes to a solution - to see how it’s performing on this evaluation set.</p>
+              <p>Are we getting better with every change?</p>
+              <p><span class="spk">John:</span> So we just have a few minutes left and I’d love to hear - Sid, you mentioned evaluations. This is something that I’ve spoken a lot about with our open chat studio platform. It’s a scenario we’re invested in because it’s just so hard to tell, as you continue to improve things, in exactly which ways did it improve, how confident are you in that improvement?</p>
+              <p>So that’s one nugget that I was really excited to hear as part of the project. But I’m curious - for our listeners who are all trying to deploy AI use cases at this point, I would guess you started this in [00:41:00] late 2024. You’ve had all of last year to kind of see these tools explode in their capabilities and see models get much more competent.</p>
+              <p>But if you were starting a project today or giving advice to somebody starting a project today, do you have your top three learnings or design aspects - just, how to think about problems like this? Not getting started, because everybody’s already gotten started, but just as you’re thinking about these types of projects - you guys have such a wealth of experience practically really turning something on. What would you say? Things you wish you knew at the start or things you learned that were critical?</p>
+              <p>And same question for you, Abraham.</p>
+              <p><span class="spk">Sid:</span> Yeah. This is a good question. Let me see if I can construct something on the fly. So one piece of advice that I give to most organizations is to start with off the shelf tools. Partly because if you haven’t built anything or this is a new thing that you’re adding, you need the experience to articulate what exactly you want. It might be really hard to do that when looking at a blank page, but it’s easy to react to something.</p>
+              <p>So there’s a lot of off the shelf tools now available [00:42:00] that can augment AI into your process. They might not be perfect for you, but that’s what I recommend that most people start with. And then that’ll help you say, oh, actually I want feature A that is missing on this, and that’s really important to me and it’s worth me investing in building something on my own.</p>
+              <p>That’s one thing that we have learned. What else? I think evaluation is something that you start from day one. Even on this project, we left that a little bit later. And it doesn’t have to be like a massive data set - you can start with 50 use cases or 50 conversations, something really small, something realistic, just to let you know that you’re trending in the right direction.</p>
+              <p>And someone leads the Agency fund. One said that evaluation is not separate - it’s part of product development. And I completely agree. That is something that I wish we had internalized a lot more. Now when we speak to organizations, that’s one advice I give them as well.</p>
+              <p>Let me pause there, see if Abraham has anything to add, and I’ll think of a third one.</p>
+              <p><span class="spk">Abraham:</span> Well, what I’ve seen in our field, in the public health world, especially at the community level or [00:43:00] other solutions as well - there is hyper enthusiasm on one side of the spectrum, and there is so much skepticism on the other side. My advice would be to try to maintain that balance.</p>
+              <p>I feel like on the hyper enthusiasm side, there might be a tendency to regard AI as the new solution for everything, which may not necessarily be true, as there are solutions which are best addressed by technology through the good old deterministic models that we’ve been working on.</p>
+              <p>So jumping on AI for the sake of AI, or just because it’s fashionable, or just because we are super excited and enthusiastic about it, may not be the right way to go. So “is it really a problem we need to solve through AI?” - I think that’s the number one question [00:44:00] which needs to be answered.</p>
+              <p>On the other side of the spectrum, I feel like there’s so much skepticism on AI. There are a lot of people who tend to shoot it down, saying this is a rural area, this is the last mile, AI is not an appropriate solution. And I feel like we have disproved that. I was in a gathering recently where we are trying to come up with standards for training community health workers, and I was proposing that community health workers be trained in AI as part of their pre-service training, because chances are they will be exposed to AI.</p>
+              <p>I saw a lot of naysayers in the room. And I think there is a lot of skepticism. I feel like [00:45:00] we need to produce data to convince that skepticism, because we should not let the AI revolution pass us. There’s a lot of potential and there are a lot of problems we could solve through AI as well. So I feel like the only way to do this is to produce the data and show - from a programmatic point of view, from quality of service, from patient outcomes, even from costs and return on investment perspective - that AI has a lot of potential. That would be my advice.</p>
+              <p><span class="spk">Sid:</span> Yeah. Can I just add one thing? What Abraham was making the point about early on is exactly right. What I encourage organizations is to think about direction more than speed. I feel like when you’re starting off and you’re coming up with the AI use case, identifying the real problem that you’re trying to solve - is this truly a barrier to you achieving your mission? Is AI really the thing that’s going to solve it?</p>
+              <p>Often people are really excited and directly start fast, but instead spending some time on getting that direction right before you put your foot on the pedal. But yeah, that’s one last piece of advice for organizations.</p>
+              <p><span class="spk">John:</span> [00:46:00] That’s great. And one thing I was reflecting on as I was hearing both your suggestions was if we were doing this 15 years ago, we could have made most of those sentences and replaced AI with “digital” or “mobile apps” or those things. So our history doesn’t repeat itself, but it rhymes.</p>
+              <p>And I think a lot of what we’re hearing is there’s so much potential. CHWs are always more capable than people give them credit for. Technology can have a huge impact and there’s plenty of ways to use it totally wrong and it’s not going to work for everything. So I think that all resonates with stuff I was saying 10 or 15 years ago on digital in general.</p>
+              <p>But we really appreciate your time and it’s so wonderful to hear about this project. We’ll drop a ton of links in the show notes to some of the things we talked about. Amy, back to you.</p>
+              <p><span class="spk">Amie:</span> Yeah. Thank you so much, Sid and Abraham. I think one of the things you mentioned there at the end is that [00:47:00] you’re disproving a lot of the skepticism around AI for last mile use cases. And so I’m just so grateful that you both showed up today to kind of take us through a bit of your journey. And like John said, we’ll include some links to materials if folks want to dig deeper into what you’re working on. Thank you both.</p>
+              <p><span class="spk">John:</span> And Amy, just a great point. I do just want to really hone in on the fact that this is live - thousands of calls getting support with frontline workers in an African language. So everybody has an objection to any one of those things not being possible.</p>
+              <p>This project proves it is and it’s really exciting to hear about that.</p>
+              <p><span class="spk">Abraham:</span> Thank you both. Always energizing to talk about our projects. Well, thank you.</p>
+              <p><span class="spk">Sid:</span> Thank you so much.</p>
+              <p><span class="spk">Amie:</span> Thank you so much.</p>
+              <p><span class="spk">John:</span> Thanks everyone.</p>
+              <p><span class="spk">Amie:</span> We want to extend a massive thank you to Abraham and Sid for sharing such a grounded, practical look at how AI is actually working in the field today. It’s one thing to talk about the potential of these models, but hearing about thousands of live AI supported consultations in Ethiopia is truly exciting.</p>
+              <p>Sharing a few takeaways for others considering AI in your efforts. First, augment, don’t replace - HEPA Assist succeeds by supercharging existing human led call centers rather than trying to automate people out of the [00:48:00] loop. Second, the power of personas - to make the technology feel less machine oriented and more human, the team created a virtual assistant named Hawa. Hawa serves as a familiar expert colleague rather than just an anonymous chatbot. Third, future proof with LLM Gateways - Sid emphasized the importance of staying model agnostic. By using an LLM gateway, they can switch between different AI models with a single line of code, allowing them to adapt as local language performance improves or policies change.</p>
+              <p>Fourth, ROI is more than cents per token - when discussing costs, Abraham argued for a broader view of return on investment. He noted that we must measure the hidden savings, like the reduced transportation costs for families and the avoidance of expensive hospital stays that occur when a case is successfully managed at the community level rather than being unnecessarily referred.</p>
+              <p>That’s our show. Please like, rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us at podcast@dimagi.com with any ideas, [00:49:00] comments, or feedback. This show is executive produced by myself. Prana Bhand and Michelle Lencia are our editors. Natalia Georgiou is our producer, and cover art is by Sudan Kath.</p>
+              <p>A final note in the spirit of transparency - we use AI to assist with guest research, copywriting, and post-production so a small team can produce a high quality show. All AI assisted content is reviewed and edited by humans, and we retain full responsibility for what you hear.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">AZ</div>
+            <div class="person-info">
+              <p class="person-name">Abraham Zerihun</p>
+              <p class="person-role">Ethiopia Country Director, leading delivery of HEP Assist on the ground with the Ministry of Health.</p>
+              <span class="person-org">Last Mile Health</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SR</div>
+            <div class="person-info">
+              <p class="person-name">Sid Ravinutala</p>
+              <p class="person-role">Chief Data Scientist, architect of the RAG system and evaluation approach behind the AI assistant.</p>
+              <span class="person-org">IDinsight</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/38eXeICeW1MSqIHtrDxQFf" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

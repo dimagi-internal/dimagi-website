@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 32: Building Digital as a Horizontal Foundation: Insights from Growing Dimagi’s Marketing Team | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jonathan Jackson interviews Amie Vaccaro on her career and building marketing as a horizontal shared service at Dimagi, with lessons for any digital team.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep32-building-digital-as-a-horizontal-foundation-insights-from-growing-dimagis-marketing-team/">
+<meta property="og:title" content="Ep 32: Building Digital as a Horizontal Foundation: Insights from Growing Dimagi’s Marketing Team">
+<meta property="og:description" content="Building marketing as a horizontal shared service at Dimagi, and what it teaches anyone leading digital across an organization.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>April 3, 2023</span>
+          <span class="dot"></span>
+          <span>39 min</span>
+        </div>
+        <h1 class="ep-title">Building Digital as a Horizontal Foundation: Insights from Growing Dimagi’s Marketing Team</h1>
+        <p class="ep-deck">The script flips: Jonathan Jackson interviews Amie Vaccaro on her path into social-impact marketing and the lessons from building marketing as a horizontal, foundational team at Dimagi, with lessons for anyone leading a shared service.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/5r9TsHN0pA4cd3bSp9lOUk?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 32 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/5r9TsHN0pA4cd3bSp9lOUk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000658955672" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/5SaqRHr_M3g?si=fk7bFxQ98XSP8cMo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/f24dcd16-0667-4015-9755-5062fb5822b7/high-impact-growth-building-digital-as-a-horizontal-foundation-insights-from-growing-dimagi&amp;#039;s-marketing-team" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">8 to 10</div>
+          <div class="ep-stat-label">people on the marketing team today, up from 3 when Amie joined</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">6</div>
+          <div class="ep-stat-label">business divisions at Dimagi that marketing supports horizontally</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">80</div>
+          <div class="ep-stat-label">standalone digital health applications once in use across Malawi, cited as the siloed-vendor problem</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode Dimagi flips the script: CEO and co-founder Jonathan Jackson interviews co-host Amie Vaccaro, Senior Director of Marketing, about her career journey and the lessons she has learned growing the marketing team at Dimagi. Amie traces her path from studying psychology, through management consulting and social-impact work, to product marketing roles at companies including Salesforce, Change.org, and Autodesk, before joining Dimagi.</p>
+        <p>The conversation draws a parallel that runs throughout the episode: digital only unlocks its potential for iNGOs and governments when it becomes a foundational, horizontal layer that supports every part of an organization, rather than a siloed vertical project. Amie has been building marketing the same way at Dimagi, as a shared service that supports all six divisions.</p>
+        <p>Amie and Jonathan unpack the hard parts of standing up a horizontal capability: earning trust and buy-in, balancing big strategic bets against day-to-day requests, empowering a team to push back, and shifting the conversation from whether a request is useful to whether it is the most valuable use of time.</p>
+
+        <blockquote>
+          <p>&ldquo;Good shared services should have an infinite backlog. That&#x27;s why they make sense to create a shared service in the first place. And shifting into a value-based discussion is the key unlock.&rdquo;</p>
+          <cite>Jonathan Jackson, on running a horizontal team</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Flipping the script</strong>: Jonathan interviews Amie on the career path from psychology and consulting to social-impact product marketing</li>
+          <li><strong>Digital as a horizontal foundation</strong>: why projects fail when they stay siloed in one vertical and cannot add value across an organization</li>
+          <li><strong>Earning the mandate</strong>: building buy-in and trust with no clear mandate, and why Jonathan made Amie earn it</li>
+          <li><strong>Big rocks vs. blocking and tackling</strong>: balancing step-change strategic work against the constant flow of division requests</li>
+          <li><strong>From reactive to proactive</strong>: shifting marketing from executing requests to partnering on strategy and understanding the real problem</li>
+          <li><strong>Useful vs. valuable</strong>: why almost every ask is useful, and how a value-based discussion is the key to prioritizing a shared service</li>
+          <li><strong>One Dimagi</strong>: lifting all boats, over-communicating, and tying every effort to impact, team, and profit</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi about the role of technology and creating a world where everyone has access to the services they need to thrive. I’m Amie Vaccaro, senior director of marketing at Dimagi and your cohost. Along with Jonathan Jackson. Dimagi CEO and co-founder. Today we flip the script and Jonathan Jackson interviews me scary.</p>
+              <p>Here’s why the potential of digital to support ING. And governments. Can only be really unlocked when it becomes a foundational layer that supports all aspects of an organization’s work. We often see digital projects failing when they’re focused on one specific, vertical or silo and are not able to add value across an organization.</p>
+              <p>I’ve been in the process of building out the marketing team at Dimagi in a very similar way, trying to make it a foundational layer to everything that Dimagi does. And ensuring that it supports all divisions within Dimagi. So today Jonathan wanted to interview me to tease out some of the lessons that may be applicable to anyone leading digital within an organization.</p>
+              <p>You’ll also get to hear a bit of my backstory. Hope you enjoy.</p>
+              <p><span class="spk">Jonathan:</span> We are here with Amie and I’m really excited to interview her, given her diverse background in marketing across a range of industries. And the reason I thought this podcast episode would be fun to record is we’ve been talking a lot with governments and funders and our partner.</p>
+              <p>Around some of the challenges of unlocking the potential of these platforms, be it Comcare or other, as kind of horizontal capabilities that create impact across multiple areas within a government or within a an enterprise. And as I’ve been telling this story, one of the things I always reference is like, think about your own organization.</p>
+              <p>You know, think about how hard it is to stand up a new horizontal capability and how. Challenge there is with the existing business units and vertical teams. And then I was like, oh wait, Amie is currently fighting this battle inside of DGI on marketing. And so I thought it’d be great to to have this discussion with you, Amy, and I’m really excited to, .</p>
+              <p>but before we do that, to answer your question around who this is for, I think this is a, a massive problem from a governance perspective, from a planning perspective of how. sequence the value creation to users, to program managers as you try to build horizontal systems. And I think it, it, again, you know, we’ll have a lot of parallels to your journey.</p>
+              <p>Building up the marketing division here at tamagi. And I want to first go back into your background, cause I think we haven’t actually shared a lot of, of your background here on the podcast. So, Amie, just take us through like what, what has your career been to date, and then how did you end up at.</p>
+              <p><span class="spk">Amie:</span> Oh man, Jon. Okay. Let’s see. So I started my career, actually I studied psychology in undergrad. I wanted to be a therapist because I really, I really love people. I love helping people. And I had a little bit of a change of heart where I realized that. As a human. I’m a very sensitive human and I kind of take people’s problems on, and so I imagined my world as a therapist as like a really dark world where I would be taking my, my patients’ problems home with me, and I just couldn’t imagine how I could really create proper boundaries there.</p>
+              <p>So in college, I ended up finding a job at a management consulting firm at. Mostly because they were recruiting heavily on campus and they had a really great value prop of like, just a great intro job to sort of learn the ways of the world, and the ways of business really. So I got that job.</p>
+              <p>I, I would say I was probably a mediocre management consultant. I wasn’t great at it, and that was actually really hard for me, to not be great at it because I was used to doing really well in college and school and being able to, you know, master things, right. And even getting the job in consulting. a proof point that I could figure things out.</p>
+              <p>And I also realized that there was something missing for me when I was in the consulting world where I really cared about creating a positive impact in the world. And I didn’t really know that there was this thing called social enterprise. It wasn’t a thing yet. And I also was very passionate about the environment too, as an issue.</p>
+              <p>So I was able to find my way kind of into a social impact consult. space for a bit, and kind of got introduced to the entire sort of social enterprise world, which was just super fascinating to me. Spent some years doing various types of consulting. I actually, I, I opened my own LLC at one point and was doing literally anything someone would like a social enterprise would pay me to do.</p>
+              <p>I was doing sales, I was doing recruiting, I was doing writing, I was doing marketing, I was doing social media, and I really had no background in any of these things. But it was a lot of fun and it was also quite stressful. and I wanted to sort of be more like in-house again. So I ended up getting a job at a company, called Going On Networks, and I really have a lot of gratitude to the CEO there who really I think took a chance on me in some ways.</p>
+              <p>And he said, you seem smart. I want you to come into this role of product marketing manager. And I didn’t know what that meant, and I learned through him. I think he really, he taught me on the job what it meant to be a product marketer. It turned out I loved product market. And I’ve been doing product marketing pretty much ever since.</p>
+              <p>That was back in, I don’t know, 2011, something like that. And so from there I kind of, that sort of started my career in marketing, really working at tech companies, but always trying to find that angle of like, how is technology being used to create a better world and how can we leverage these advances of technology to help more people thrive around the world?</p>
+              <p>And always with that like human lens too. So. , you know, that that journey took me, I, I worked at Salesforce for a period. I worked at, change.org for a number of years. Really loved it there. Moved back east, worked at Autodesk for a number of years, worked at another kind of social enterprise. And I think during the pandemic I had a bit of a moment where I realized I was, I was burning out, in my role, at a, you know, big, big software company.</p>
+              <p>It was a great, great company. Incredible. But I realized that the level of like heart and soul I put into my work, it didn’t feel aligned to the impact that I wanted to have in the world. And I realized the work I was doing was really, you know, at the end of the day we were, we were driving towards profits.</p>
+              <p>Even if the company had a great, you know, could tell a really great story about its mission, it wasn’t, I knew in my heart of hearts that like I could be adding more value to the world. and I think I also feel like someone who. very, very privileged, throughout my life, throughout my career.</p>
+              <p>And I think because of that privilege, I feel really compelled to give back. So I had this moment. I did a coaching program and they had me literally write my obituary. And as I was writing this obituary, I wrote something about how I wanted to be known for having this incredible impact in the world.</p>
+              <p>And I just realized, , I’m not having that right now. As much as I love my team and the work, I, I’m not having it. And so that’s when I started sort of like thinking about what comes next. And luckily, one of my friends who I’d worked with at a previous organization was at DGI and had been raving about DGI for actually many years since she had joined.</p>
+              <p>And so finally I was like, okay, yeah, I’d like to talk to, to Dimagi and see what this is about. And that was the beginning of, of our conversations, Jon. And here I am a year and a half.</p>
+              <p><span class="spk">Jonathan:</span> Well, it’s, it’s been an awesome year and a half, and as long as I get to be. Interviewer position. I didn’t actually know the, the first part of that story that you shared, around starting your own llc. So I think you, have been in that situation where you can see early stage social enterprises how hard it is to build out these different functions that, you know, you can imagine as it matures and you have a Salesforce and marketing team and all these things.</p>
+              <p>Yeah, you can get the positive feedback loops, but when you’re early stage and you’re trying to help organizations and you know, social enterprises, Relatively, early on back then, 10, 20 years ago. And so I, I am excited to take some of that into the discussion we’ll have, because one of the huge things you and I have talked a lot about with product marketing or marketing is what is appropriate for the stage.</p>
+              <p>Dimagi is currently at, you know, wants to be at, and each of our business units, we have six, six divisions at d. where they are in, how they’re trying to support our partners to create more impact. And I think this is also challenging in the digital health ecosystem because the adoption curve for technology within Ministry of Health is not uniform.</p>
+              <p>You know, the, the community health division may be at one point the TB division may be at a different point. And so how you, you know, blend the capabilities and services you’re bringing to the. Is, is, something I I wanna dig into. So we started talking, you know, about two years ago, and we, we fortunately, had some amazing conversations right away, and, and I think we kind of both sensed this could be, you know, an amazing partnership.</p>
+              <p>And, and fortunately, it, it’s been great and exceeded my expectations. And hopefully the same on your end. And I gave you a pretty significant charge though when I was interviewing you, I was like, yeah, I kind of want you to come in and. , get us way better at marketing and figure out how to do it.</p>
+              <p>And by the way, like, I don’t know how we’re gonna do budgeting. I don’t know what the interfaces will be with the other divisions. And so I’m curious, you know, a, did that scare you? Did that sound exciting? And then B, how did you think about what you were worried about in terms of creating the buy-in you needed, you know, creating those early wins and how to work with me as the person who could ultimately provide a lot of cover.</p>
+              <p>But I was constantly pushing you of like, I want you to get the divisions bought into this vision of marketing.</p>
+              <p><span class="spk">Amie:</span> Yeah, it’s such a good question, Jon. So. . I will say that the first six months at D Monge were really hard because I could feel that level of expectation and also that uncertainty of like, what this even looks like, right? Like you really didn’t, to your point, you really didn’t give a ton of like guidance.</p>
+              <p>You answered all my questions, you spent a lot of time with me. You were very generous with your time, but there was no clear mandate. And so I feel like in a lot of ways I. Trying to figure out my mandate over time. And also, but using like kind of your input to help guide that. Right. So I think in my first year there were certain things you said to me that kept coming back to me.</p>
+              <p>Like you would say things like, you know, you should be thinking about things that lift all boats. Right? What’s gonna add value for every division that maybe they don’t even know about? Right. And that actually kind of guided me to some of the employer brand and the culture work that we got to do. You know, helping understand Damon’s values and really articulating those.</p>
+              <p>And yeah, I mean I think it’s, it’s definitely been, it’s been a challenging ride and I think in the last year has, when it’s actually gotten to be fun. Like I think at the beginning I could tell there was something there. I knew it was worth pushing through, but it was, I was scared. Yeah, for sure.</p>
+              <p>Like, this was probably the biggest mandate I’d ever had. You know, I think. . It depends on, it depends on the company, right? The stage. But I think for whatever reason, I feel like I’ve put more of myself into the work at Dimagi than I actually have in previous jobs. Even though I’ve always been someone who, I, you know, I call myself a workaholic, which I, is not a good term.</p>
+              <p>I don’t, I don’t support that in others. I, I try to, you know, I, I don’t think it’s a good thing, but I do, I do love to work and. , I’ve felt more challenged and like there’s a bigger opportunity at DGI than any other company, and I think it’s because working directly with you and really trying to tease out where we’re going as a company has just opened up a huge opportunity for me to sort of think beyond just marketing.</p>
+              <p><span class="spk">Jonathan:</span> I’m thinking back to some of those early conversations and one of the things I kept kind of trying to think through with you and, and we would struggle with this, is how to balance. , a lot of the stuff you said, you know, we, we call ’em the big rocks, right? So the big things that you were working on as a team, trying to make sure you could demonstrate significant value and create a step change within the organization.</p>
+              <p>Whether that was our rebrand or shipping our values or our five year strategy, like so much stuff we’ve done over the last 18 months. But I also, you know, stressed, we still also need to get kind of the basic blocking and tackling. Done. Divisions are gonna need PowerPoints and two pagers and, and website updates and these things.</p>
+              <p>I think it was really challenging for you and I to figure out like, what’s that right balance? You know, how do we show immediate value to organizations and divisions within our, our enterprise? And again, that parallel to digital health platforms of thinking through what’s the balance of, you know, what the team is going to attempt to accomplish top down.</p>
+              <p>And whether that’s building a new app or you know, a new virtual care program or whatever. And then also kind of the more. You know, fix our data collection system or fix our analytics. You know, at the, at the division level, and this is something I think is a huge, strength of yours. We started this podcast.</p>
+              <p>We did a lot, but you had enough capacity to make progress top down so people could see the expertise and the value that we were getting. You know, because we were investing in marketing. And so there was this kind of belief of, okay, magic stuff happens because the marketing team on their own can. And then there was this stuff that was more at the partnership level, which is like, I need to do 50% of the work and marketing needs to do 50% of the work.</p>
+              <p>And again, I think that’s a big parallel to digital health because you, you have incredibly busy ministries. You know, you have incredibly busy and geo partners and it’s not like people just have three fts sitting around waiting to give you the requirements to build these applications. And even if they did, you know, they’re probably wrong about half of it.</p>
+              <p>Just like, you know, on marketing, like half of what we request is probably ends up being a waste of. And that blend, I think is something that’s really important. And one of the things that made this, I think, really successful is how much value you were able to create top down so quickly because of that, you know, amazing strength you had in product marketing, as you mentioned, and this podcast that we launched and a lot of the work we did together.</p>
+              <p>And I’m curious from your perspective, I know kind of, if I had to guess, I would think marketing would love to just only do the big rocks, only do the big. Never have to worry about any of the small stuff. But the divisions probably a little bit want the opposite, right? They’re just like, do what I say, you know, just like whenever I need it, I need it right away, and then that’s all I want.</p>
+              <p>And you can go do those big rock things whenever you have extra time. How do you think about that balance? How does the team feel about it? And as, as somebody who’s led this new horizontal, you know, program within dimagi that’s both strategic and doing more operational work, how does that blend work? How do you support the team to figure out how to balance those things?</p>
+              <p>Because. . I think this is huge parallel as to how we think about creating digital health platforms that are supporting programmatic division.</p>
+              <p><span class="spk">Amie:</span> Yeah, so I think it’s interesting, you know, I think coming in, and I can imagine this with, with digital health as well, there’s a lot of requests that come in, right? People have a lot of ideas of what they want, and I think something I’ve been really trying to be mindful of, and I, I wouldn’t say. , I think I could probably do better at this, really.</p>
+              <p>But it’s trying to understand like the problems, right. And really trying to kind of, especially with, so for listeners Dimagi, the way Dimagi’s structured, we have six different business divisions and each of these divisions they’ve got, you know, different audiences.</p>
+              <p>Mostly they’re working and selling with Comcare, but there’s a few other offerings as well. We just acquired another company, so there’s a lot of different things going on and. , I wanted to shift from just someone who’s responding and sort of saying, okay, I can get this done in three days. Let me execute on your request to someone who actually really fundamentally understands what is the problem so that I can more, articulate, say like, actually, I don’t know if another case study is really gonna move the needle in this case.</p>
+              <p>I don’t. , I’ve nailed it necessarily. I think I, it’s, it’s like an ongoing thing because every, everyone at Dimagi is, is ambitious and has a lot of things they wanna do, and they think of marketing as this team that can help them execute. Like I really, this year for me is really about shifting from being this reactive team that sort of receives requests and executes them to a team that’s proactive in saying, look, we wanna partner with you, we wanna help formulate your strategy. And then, based on that strategy, right? Figure out what are those right campaigns, the right messages, the right ways to position our offering that’s gonna gonna really move the needle.</p>
+              <p>And so it’s definitely taken a lot of investment in embedding and I, and I wanna do a lot more of that. I also just wanna give a shout out to like my team that I’ve been able to hire over the last year and a half. So, we’ve grown the marketing team to, eight to 10 people right now.</p>
+              <p>And really hiring. Phenomenal humans who, want to also understand the problem, and really take a, a proactive role in coming up with, with the answer as opposed to just kind of responding to requests. And so I love, I love when people on my team kind of push back on things and push back on each other.</p>
+              <p>Like, I, I love to see that because I want us to all be thinking critically. And I think when I think about sort of a challenge within digital health, right? I keep thinking. Jonathan to your conversation with, Mr. Sime and Yoi in Malawi. And I think that, that, that was an episode, we’ll, we’ll link to it in the show notes.</p>
+              <p>That was a really powerful moment for me and I think the pains that he was describing feel similar to the pains that I feel. And so, for folks that didn’t hear that episode, Mr. Yoi is the head of digital health for Malawi, and he talks about, you know, when he came into that role, I think there was something like 80 different standalone applic.</p>
+              <p>For digital health, various like point solutions for digital health in use across the country from dozens of different vendors. And every single vendor wanted to claim success and sort of do a case study and show, like, look at what we did in Malawi. And he had to basically be like, stop all that. Like we need a, a focused, top-down strategy and everything needs to align to that strategy.</p>
+              <p>And I kind of think in some ways what I’m trying to do, Jonathan, is similar to that, right? Where I’m trying to really work closely with. even this year, I think there’s more work to be done here, but to, to really define what is that top level strategy that ties together all of this incredible work that the team is doing so that we can make sense of it.</p>
+              <p>And so that it, it, it pushes us in one direction as opposed to, pushing us in all different directions, right? And, nobody’s wrong to reach out and say, Hey, like, I want this app to be in place, or I want this project or this, this, you know, event to be launched. but I need to be able to say like, is this taking us forward on this path?</p>
+              <p>Where we wanna go to really drive impact team and profit at dma.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, that’s, a great, summary and link back to, to that episode, which I, I definitely agree. Part of why I wanted to have this episode was that discussion, and I think one of the things that you articulated that is, Really important with respect to thinking about how to get successful buy-in to kind of get over the hump.</p>
+              <p>As you mentioned, we now have a team of eight to 10 people. When you came on the team was three. And we’d always struggled to know, like, should we invest more in marketing? Should we invest more in communications? And one of the things that you and I had talked about was like, I’m, I’m gonna commit to you, Amy, like just, here’s a budget.</p>
+              <p>Go, go. Just show value. Just do do whatever you think is best and show value. And I can’t tell you exactly what the problem definition. On a 12 24, 36 month timeframe, cuz I need to better understand what marketing can even do at Tamagi. And I think often that that’s similar to digital health, where you’re like, I know I want digital health.</p>
+              <p>You know, so I’m the Minister of health. I know I want digital health, but which departments are ready for it? Which departments can articulate the problem in a way that we can solve. And one of the really fortunate things we had on our marketing team that I think is critical in digital health teams too, is I had no.</p>
+              <p>about our skill. You know, as you had mentioned, you had come from the tech world, you had product marketing skills, you had marketing skills. And when we were talking during the interview process, I was like, look, one of the really important things to me here is that you are not gonna feel any concern around risk of did we have the skill to pull?</p>
+              <p>Like we could have had the right vision, but we didn’t have the right team or the right skill. And I think often with digital health, you have so many independent variables. Was it the right product? We chose to do this with. , the right DevOps team. Was it the right design team? Did we deploy it correctly?</p>
+              <p>Did we train correctly? And this is such a difficult thing because you could do a project, it could fail to create the value you had hoped it could, and you could take away the completely wrong thing, which is that was exactly the right project to do. That was exactly the right problem statement. And the execution failed, or that was a terrible problem statement.</p>
+              <p>The execution was perfect. And I think this is something that is so critical from a governance standpoint is. no upfront. You can’t know at the end of the day whether it was a strategy problem or an execution problem necessarily. Sometimes it’s really clear at the end of the project, but when things go wrong, it could have been either.</p>
+              <p>And it’s really important to kind of do a retro and disentangle those two things. And, and you and I have talked about this, you know, some of our divisions with some of our new strategies, like we can’t articulate the problem to specificity that marketing can really. and we’ve talked, you know, and, and so it said, great.</p>
+              <p>Let, let’s put that on the back burner. We don’t need marketing in that area this year. Let’s wait till next year. And similarly with digital health, I think it’s so critical, right? To have the processes and the structures in place that you can get a wide nephew so that you, Amy, can look across our divisions and say, okay, I think the best bets are going to be abc, d e, nf.</p>
+              <p>They’re good ideas, but they’re just not as good as a, B, and C. And often when you get a horizontal, system in place. Like everybody just loads in, you know, the backlog. Like, Amy, I need this, I need that. And your team gets overwhelmed with that day-to-day backlog. So I’m sure, you know, from my perspective I’m like, oh, this is working great.</p>
+              <p>But I’m sure you still face constraints and challenges as you just articulated in your last comment, but I’m curious, like what has been working well and what do you wish was easier or that, you know, would, would help us unlock more value from marketing again? Cause I think this is the exact parallel.</p>
+              <p>how we think about horizontal digital health.</p>
+              <p><span class="spk">Amie:</span> One thing that’s been really key and has been a really fun sort of growth area for me is, is switching from this mode of like, okay, let me see what the company’s trying to do and let me try to like make that happen. Support that with marketing to let me really like partner with you, Jonathan, to really try to try to understand the strategy and to.</p>
+              <p>help define the problem that we’re going after, and, sort of staying at that high level as much as I can. Although I do, I also do love, doing execution work. So I, I, you know, getting to do both is, is super fun, but also quite challenging. I think, you know, one thing that’s really key is sort of keeping the, the marketing team morale up, because I think it can be really tiring.</p>
+              <p>And, you know, if I think about some of the, the challenges, I, I think that. , it’s really easy for my team to feel kind of squeezed, right? Where, to your point, like people are kind of loading on their backlog of like all these things they want to get done. And in some ways, like teams, you know, we’ve got these six divisions, they all want more, more, more of marketing than, than we can give, right?</p>
+              <p>And so, it’s really easy to start to feel like, okay, people are just squeezing us, we’re humans. We’re, you know, . I think for me, like the big aha has been, it can’t be about how many of these requests did we deliver on. I think when I started Jon, like I was, you know, I was putting out these monthly reports of like, here are all these things that we delivered on, right?</p>
+              <p>Here’s all these requests that we delivered on. Look at all these requests we’re getting right. Just take a look at it. And now I’m sort of like, okay, I actually don’t, there’s many requests I don’t wanna deliver on and I want to really focus on like at that top level, how is this moving, moving us? And setting that vision, I think is really important for, for my team to feel like the work they’re doing matters, right?</p>
+              <p>And like ensuring that they have a voice too, so I appreciate from you, Jonathan, like you saying that like, yes, Amy, you and the marketing team can say no to things if you don’t think things will work right. If you think something’s a better use of time, do that. So that has definitely freed up me to, to empower me and my team to basically say like, okay, does this seem like the most important thing?</p>
+              <p>If not, we need to push back and have honest conversations with our, our divisional leadership. I think the other thing I’m thinking about and just in terms of, you know, what have been like essential elements here? I think absolutely, like brick building trust has been really important in creating, sort of a steady cadence of, of connection points with key leaders across the company.</p>
+              <p>And I think that has taken a while to really get into place. and really just, you know, building up those relationships, um, showing, you know, showing the path that we’re taking them on, showing how it’s going to, you know, support them, making sure that it reflects the problems that they’re, they’re sharing with me, right?</p>
+              <p>Cuz they, every, every division has deep, deep problems and deep needs for sure. I think over communicating has also been really key. So, just trying to be radically transparent about everything that marketing does and creating shared files and structures in. quarterly report out on everything marketing’s working on and how we’re moving forward on these big rocks.</p>
+              <p>I think also my vibe has really been one of one dimagi, and I think I’m trying to really imbue that across the team and across all my interactions, right, of like, this is one team. We have one goal. Yes, we have different divisions, and those divisions are all needing to hit their own profitability and their own impact targets.</p>
+              <p>But we need to be moving together as one. Really trying to find synergy there, across divisions. And then I think also like to your, your reminder to me early on of like, just look at, look at things that are gonna lift all boats, right? What’s gonna add value across divisions and focus on those things.</p>
+              <p>And I’d say combining that also with like, finding things that I feel really passionate about and. , I know this is gonna work even if nobody else thinks it’s important. Right. And I think the rebrand was probably one of those things where you were kind of like, eh, I don’t know. Sure.</p>
+              <p><span class="spk">Jonathan:</span> I think, I think May is an overstatement of the reaction I gave you when you first proposed it, that that’s. With overselling my response.</p>
+              <p><span class="spk">Amie:</span> yeah, yeah, it was, that was definitely challenging and I think that like, that’s actually been sort of a, a growth area for me really is like building the, the thick skin of being like, okay, these are things I think need to happen and I’m. Push through on them, right? I’m gonna try to like, hear all the objections, try to respond to them.</p>
+              <p>You know, I think you’ve been really great at coaching me on writing a doc that establishes what I’m trying to do and like letting people like weigh in on the doc asynchronously, add comments and you know, add FAQs and just like really over documenting things to that overcommunication piece.</p>
+              <p>I think that’s been really key. the last thing I’ll say on this point, just in terms of how to think about. Creating this shared value and creating maximal output. I think from a, a shared service like marketing or a digital health, system, I think that thinking about the success measurement is really important.</p>
+              <p>And this has been something I’ve been reflecting on, Jonathan, cuz I think you, you know, you pushed me regularly on, on metrics and there’s definitely metrics that we are tracking that I, that I’m, I’m keeping an eye on. , but at the end of the day, they don’t necessarily matter on their own.</p>
+              <p>And so I think something I’ve been thinking a lot about is like, how do I make sure that mar like marketing is, is the company strategy, right? So if, if marketing is having a great quarter, but we’re actually not hitting our, our impact team profit goals, like what, what good is that? Right? So just making sure that like everything we’re doing ties into those goals of impact team and profit.</p>
+              <p>And I think. maybe like balancing the focus across those three. Right. I think last year in a lot of ways, some of the work I was doing was, was focused more on team and impact, and I think this year, like I really wanna hone in on, on profit and really getting that piece of the flywheel spinning and, and just ensuring that marketing efforts are tying to revenue.</p>
+              <p>So yeah, I guess that’s one other, one other piece.</p>
+              <p><span class="spk">Jonathan:</span> That’s amazing. And the point that you were just bringing up around the KPIs and the value, I think is so critical because one of the biggest things that we’ve talked about and, and you’ve been frustrated that sometimes when I give you this answer, but I think hopefully you come around on it, is like, it’s not possible to get people to stop asking you for things because it wouldn’t be useful to have, like, everything you get asked for is plausibly useful.</p>
+              <p>The question is, is it maximally? , and I think this is a huge trap that a lot of people fall into on shared services, which is arguing over like, is this two pager useful? Is this new deck useful? Like yes, definitely useful. Is it 1% more valuable than using the existing deck? Is it 50%? Is it 200%? And that is the dialogue you have to shift into to successfully deploy horizontal shared services.</p>
+              <p>And you need to be able to have a value-based discussion of, look, there’s always gonna be more work to. and more requests to do than could possibly be managed. And as you said, you know, your team and, and every shared team at dam, I think feels like they have a huge backlog because in fact they do like good, good shared services should have an infinite backlog.</p>
+              <p>That’s why they make sense to create a shared services in the first place. And shifting into a value-based discussion is the key unlock, in my opinion, both for marketing internally at DMA and also for, other horizontal capabilities is when you can start talking to the business teams or the vertical.</p>
+              <p>about value, and you can successfully get people to accept a tie break outside of their own team. You know, so you can get the HIV team, or you can get our India team to accept a trade off. That time is better spent for Damu as a whole on our shared goals in some other division. And that ultimately then you can really start to get to the strategic planning and strategic prioritization.</p>
+              <p>But it starts from shifting the question from is it useful or is it gonna, you know, improve something? Absolutely. Almost every idea. But is it the most valuable thing we can do? And that value is, is so important to me. And it’s so difficult because there’s a million assumptions that go into value. You know, how good is the output going to be?</p>
+              <p>How impactful is that good output going to be? And so while it’s critical, it’s also squishy. You know, there there’s some things that have clear roi. How many inbound meets do you generate em? How many CHWs did. , but those are, as you mentioned, only intermediate KPIs, right? That’s not ultimately driving impact team of profit in our case, or better health outcomes in a government’s case.</p>
+              <p>And, that discussion is really hard and it’s also, it costs political capital to have. a lot of the time. Right? Because when you go to leaders and you’re like, Hey, instead of doing what you asked me to do, can we like take a a step back and really talk about what you’re trying to do and you’re like, no, do what I said.</p>
+              <p>Like I absolutely not. Can we take a step back? So, yeah, like I’m curious, how have you been able to successfully engage in that conversation with our leaders?</p>
+              <p><span class="spk">Amie:</span> I think in many ways I’m still grappling with this because in some ways it’s less about, hey, you know, this one division versus other division. Like which project is like, I’m not gonna go to one divisional leader and say, this project’s actually less impactful than this other project.</p>
+              <p>I think the thing that I’ve been trying to do is actually in some ways like. define the top level goals and then sort of show how that actually plugs into the division’s needs, and solves it in a certain way, but kind of creating parameters on how we’re gonna solve for that. So, and we’ll see how that goes.</p>
+              <p>I think that that’s kind of, in some ways, a little bit of a new approach to this year, right? Where, throughout the year we got a lot of requests for, presentations and one pages and two pages and messaging and all this stuff. . I haven’t really dug into that because I’m sort of like, is this really gonna be the thing that moves the needle?</p>
+              <p>I’m not sure. Right. And instead, last year I really wanted to focus on things that felt, like they had more value to me. But again, those are, those are hard conversations to have. So I think for this year, you know, I’m trying to tie all of those requests for, for collateral. You know, this initiative that we’re working on right now, which I’m calling the one Dimagi revenue kickoff, which is, you know, sort of equivalent to a sales kickoff</p>
+              <p>but really trying to kind of partner with every division to really make sure we’re, we’ve got a strong storyline for that division that will help serve them for the whole year. Right. And that’s actually not the way they’d want to engage. They’d much rather engage and say, look, look, I need this one deck for this one presentation next Tuesday, and I’m saying no to all of.</p>
+              <p>I’m saying, this is how we wanna partner with you, and then this is how it’s gonna feed into other things you wanna do. So it, it’s challenging. We’ll see. We’ll see how it goes. So far people have been very, you know, open to this new possibility. But again, like, it’s all an experiment. It’s all a learning, right?</p>
+              <p>We’re gonna, we’re gonna see how this.</p>
+              <p><span class="spk">Jonathan:</span> And I, I think one of the reasons why I think you’re seeing receptivity to this, both from myself and from the other leaders at dma. You had enough time when we first got this going to demonstrate value, right? The things that you claimed were gonna be important that you could deliver on, you did deliver on, and you were able to do that while also meeting the needs of the divisions.</p>
+              <p>And so I think like maybe if you had your way, we wouldn’t have needed to kind of like earn that trust, but as I was very clear with you, like, I’m going to make you run that trust, because that’s ultimately gonna make this successful at Tamagi. And so getting off the ground, you know, to the point where we can now be more s.</p>
+              <p>More aligned and, and move the needle hopefully in a, in a bigger way. We went through that period where we made sure, a, to invest enough money, B, to have enough resources that we could both be strategic and, and deliver on some big areas and show that value still accomplished some of the more operational things, and then continue to invest and grow that team.</p>
+              <p>And I think those are kind of critical elements of success. And so as you think about setting up these horizontal digital health capabilities, you need that similar. You know, level of investment, team size, structure, ability to be strategic. And one of the other things I just wanted to give a, a shout out to you, Amy, you also had the ability to personally go deliver, you know, on some of these things, like co-hosting those podcasts with me and others.</p>
+              <p>And that’s typically very hard to find in a leader, right? Like often leaders of teams, like they don’t necessarily get in the weeds, personally, and I think that also really showed other leaders like what the team was gonna be capable of and competent of. . I think also that’s a, that’s not always possible.</p>
+              <p>But in these shared services, having leaders or senior staff members who can deliver themselves, I think also just really accelerates that ability to get buy-in and trust.</p>
+              <p><span class="spk">Amie:</span> Yeah, I think that’s interesting. And I do, I do notice that I think across to Monge actually, where. , many of your leaders are, you know, what I would call player coaches, right? Where they can deliver on their own too. Right. And, and, there’s, there’s very few people at Tamagi that I see in just pure manager roles, like everybody’s in the work.</p>
+              <p>And I think there’s, personally, I think there’s a lot of, a lot of value in that. And yeah, I, I, I honestly love, I love doing the work and I think I, I have to sort of push myself to try. pull, pull outta the work sometimes because it’s, it can, it can just be really fun. But it’s also been super fun to try to, build capacity in my team and just see my, my team grow into new roles, as we take on new things.</p>
+              <p><span class="spk">Jonathan:</span> Awesome. Well, this was so much fun talking to Amy about, this topic. Our listeners. I think you’re hearing the parallels between, you know, what it looks like to stand up a shared service inside of the social enterprise. And I also wanna stress, and I, I, I’ve said this a lot, in conferences I’ve been at recently into government officials.</p>
+              <p>We are an organization that is like very fortunate to have capital, extremely high performing in my opinion, and still struggle with this despite the fact that we totally believe in marketing. So if you think about how hard this is to. It, it’s just really difficult even when everybody’s totally aligned because of all these things that get in the way that we were just talking about.</p>
+              <p>And so, you know, building these horizontal views and platforms, and particularly that value feedback that we were talking about, this is challenging work. And so it’s something that I think we as an industry need to make sure we’re spending the right amount of time in addition to making sure the software works and gets off the ground and, and those critical areas.</p>
+              <p>But what is that long-term vision of how you’re going to create this horizontal view that’s really, And having a discussion based on value. So thank you Amy, so much, for playing this role on the podcast today.</p>
+              <p><span class="spk">Amie:</span> Yeah, and actually I wanna have, I wanna give one, sort of shout out to a couple, a couple things, that have come up for me. So, one is that I work with a coach and I wanna give a shout out to my coach, Christine Nick Bloomer. She’s awesome. And so, you know, just on a regular basis, having someone to kind of talk to about the challenges I’m facing and feed me with new ideas and really.</p>
+              <p>create and set my boundaries so that I can actually, you know, do my best work in the hours that I’m able to give and, and, you know, relax outside of that. I also wanna highlight a book that has made a huge difference for me, which is multipliers, by Liz Wiseman this was a book that my coach recommended and has been just really instrumental for me in thinking about, you know, Jon, to your question at one point around like, how do you get more value from an existing team?</p>
+              <p>And, really thinking about how. , you have to treat people like they know the answers and, and just kind of coach them on their way. And I think multipliers just gave me, a framework for that, which has been really, really helpful. And then also just finding, finding people out there that are doing work, like the work you’re doing and are sharing their knowledge.</p>
+              <p>And so hopefully for, for folks in digital health industry at Ministries of Health and I, NGOs like this podcast is one of those sources for you. But, that’s been super valuable for me too. , finding people that are out there sharing their journeys and learning from that because, you, you have to be, I have to be constantly learning.</p>
+              <p>And I think there’s no, there’s no way that I can be static at Dimagi. Certainly other jobs I could be, but, I have to be constantly growing and, and that’s been, um, that’s been really fun and also challenging. So thank you Jonathan, for this conversation. This was super fun.</p>
+              <p>Thank you so much for listening. It’s fairly meta to do takeaways from this one, but here we go. My top three takeaways from this conversation, as I think they apply to creating any kind of shared service to support an organization. First allow horizontal teams to get a wide enough strategic view and invest in the teams, such that they have some space to take a strategic approach.</p>
+              <p>Otherwise they’ll get bogged down in day-to-day requests. Support this by empowering that team to push back and align closely with the top level vision of the organization. Second. Ensure horizontal teams are encouraged and motivated to build relationships and credibility across the organization.</p>
+              <p>This trust will allow them to have maximum impact in the long run. Third support horizontal teams to change request conversations from conversations about usefulness of an ask to refocus on maximum value to the organization.. Every request has use, but you need to be able to prioritize, solving the pain points that will create the most value and impact for your organization in the long-term.</p>
+              <p>And horizontal teams need to be empowered to have those conversations as hard as they may be.</p>
+              <p>That’s our show. Please like rate, review, subscribe, and share this podcast. If you found it useful, it really, really helps us grow our impact. And you can write to us anytime@podcastatdimagi.com. With any ideas, comments, or feedback? This show is executive produced by myself. Danielle van wick is our producer brown and DeRoose is our editor and cover art is by suit on Chicano. Thank you.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols" style="grid-template-columns:minmax(0,560px);justify-content:center;">
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/5r9TsHN0pA4cd3bSp9lOUk" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

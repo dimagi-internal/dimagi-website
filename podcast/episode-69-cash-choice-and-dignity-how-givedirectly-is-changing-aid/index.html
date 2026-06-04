@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 69: Cash Transfers in Aid: GiveDirectly’s Bold Approach | High-Impact Growth | Dimagi</title>
+<meta name="description" content="GiveDirectly&#x27;s Stella Luk on unconditional cash transfers, the evidence behind them, and how mobile and telco data reach people in extreme poverty.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/episode-69-cash-choice-and-dignity-how-givedirectly-is-changing-aid/">
+<meta property="og:title" content="Ep 69: Cash Transfers in Aid: GiveDirectly’s Bold Approach">
+<meta property="og:description" content="GiveDirectly&#x27;s Stella Luk on why unconditional cash transfers may be the future of aid.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>April 23, 2025</span>
+          <span class="dot"></span>
+          <span>41 min</span>
+        </div>
+        <h1 class="ep-title">Cash Transfers in Aid: GiveDirectly’s Bold Approach</h1>
+        <p class="ep-deck">Stella Luk of GiveDirectly joins Dimagi&#x27;s Erin Quinn to ask a simple question: what if, instead of deciding what people need, we gave them cash and trusted them to choose? A conversation on dignity, evidence, and the future of aid.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/37Mp4MLrvzg8UhrOqNRLxN?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 69 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/37Mp4MLrvzg8UhrOqNRLxN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000704570598" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/nguOW0S9Uxo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/895bbd74-1584-4da5-bdcc-6b565f50212c/high-impact-growth-cash-choice-and-dignity-how-givedirectly-is-changing-aid" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">20%</div>
+          <div class="ep-stat-label">of humanitarian assistance now delivered as cash, by GiveDirectly&#x27;s estimate</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">2%</div>
+          <div class="ep-stat-label">of global development aid spent on unconditional cash, by some estimates</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">38%</div>
+          <div class="ep-stat-label">income increase still seen about four years after a lump sum transfer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode, we’re joined by Stella Luk, Regional Director at GiveDirectly, and Erin Quinn, Dimagi’s Senior Director of Customer Success, to explore a fundamental question: What if, instead of aid programs deciding what communities need, we simply gave people cash and trusted them to make the best choices for themselves?</p>
+        <p>GiveDirectly has pioneered direct, unconditional cash transfers to people living in extreme poverty, challenging long-held assumptions about traditional aid. Stella shares powerful insights from the field - how cash empowers recipients with dignity, choice, and long-term impact. We also discuss the skepticism surrounding cash transfers, the evidence supporting their effectiveness, and how technology is helping reach those most in need.</p>
+        <p>With global development funding in flux, could direct cash transfers be the future of aid? Listen in for a thought-provoking conversation on how this model is reshaping humanitarian response and development efforts worldwide.</p>
+        <p>Related Resources:</p>
+        <p>GiveDirectly.org</p>
+        <p>Related and referenced podcast episodes:</p>
+        <p>The Journey to Scale: Lessons learned from supporting the largest digitally-enabled Frontline Worker program in the world with Kriti Mehrotra, Shayoni Mazumdar and Stella Luk</p>
+        <p>Improving Health Worker Jobs to Improve Outcomes with CommCare Connect</p>
+        <p>Hosts: ⁠Jonathan Jackson⁠ and Amie Vaccaro</p>
+
+        <blockquote>
+          <p>&ldquo;There&#x27;s the old anecdote about teach a man to fish and he&#x27;ll fish for the rest of his life rather than give him a fish. Our response to that is that maybe the man doesn&#x27;t want to fish.&rdquo;</p>
+          <cite>Stella Luk, on unconditional cash</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Why not cash?</strong> Moving the question from why cash to why not cash, and where it fits alongside long-term system strengthening</li>
+          <li><strong>The flagship model</strong>: saturating the poorest communities with a roughly $1,000 lump sum, equivalent to handing someone $30,000</li>
+          <li><strong>The evidence base</strong>: RCTs showing sticky income gains, less spending on temptation goods, and minimal inflation effects</li>
+          <li><strong>Dignity as a values choice</strong>: paying medical bills, debts, and funeral costs are human dignity things recipients deserve to decide on</li>
+          <li><strong>Reaching people faster</strong>: partnering with telcos and mobile money data to find extreme poverty and remotely enroll people in crises</li>
+          <li><strong>CommCare in the field</strong>: offline enrollment, GPS supervision, and localized languages for officers crossing rivers and hills to reach recipients</li>
+          <li><strong>Aid in flux</strong>: stop-work orders, paused programs, and why cost-effective cash may matter more in an uncertain funding climate</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth, a podcast from Dmgi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amie Vaccaro, Senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson Dimagi, CEO, and co-founder.</p>
+              <p>Today, we ask the question, what if the most effective solution to poverty was the simplest one, just giving people money. We are joined by Erin Quinn, Senior Director of Customer Success, and Stella Luke, Regional Director at GiveDirectly, the world’s largest nonprofit delivering unconditional cash transfers to people living in extreme poverty.</p>
+              <p>Stella takes us on a journey through her experiences in global development, from working with refugees and human rights law, tech-driven health interventions, and now transformative cash-based programming. You’ll hear how GiveDirectly is challenging the status quo of global aid, the surprising results that come from handing people cash with no strings attached, and how they’re using mobile technology and telco data to reach those in need faster than ever.</p>
+              <p>Whether you’re a skeptic or a believer, this conversation will make you think differently about what empowerment really looks like and who gets to decide how aid is spent.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Welcome to the podcast. So I am here with my co-host, Jonathan Jackson. Hey John. Good to see you. We also have Erin Quinn here, who is Dag Senior Director of Customer Success joining for this conversation. Hey, Erin</p>
+              <p><span class="spk">Erin:</span> Hey,</p>
+              <p>Amy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> and hey, and we are honored to be joined by a special guest today, Stella Luke, who is Regional director at Give Directly. Uh, Stella. Welcome to the podcast.</p>
+              <p><span class="spk">Stella:</span> Thanks, Amy. Thanks for having me here. Excited to be here.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. So Stella, can you share a little bit about your work in global development space generally, and like what got you interested in it and where did you get your start?</p>
+              <p><span class="spk">Stella:</span> Well, I started out as a programmer initially, uh, and then as a human rights lawyer working with refugees in North Africa. But my longest stint was actually at, uh, at Degi, where initially I started DE’s um, work in West Africa, setting up a regional office there. Then shifted over to India to manage, uh, India operations and work in South Asia in particular.</p>
+              <p>Uh, the, then at the then time, largest Comcare deployment. Uh, in the worlds, uh, equipping 650,000 frontline workers to better serve over a hundred million people, uh, in the space of community nutrition and health. Um, after that, uh, I shifted over to Africa where I, uh, oversaw and managed some of the largest scale digital transformation efforts, , that, that we were working on at the time.</p>
+              <p>Uh, working with Ministries of Health in Ethiopia, Malawi, South Africa, Madagascar, and beyond. After that, I took a shift and, uh, came to give directly, which, uh, as you mentioned earlier, uh, is the largest organization in the world dedicated to unconditional cash transfers to people living in extreme poverty.</p>
+              <p>At GiveDirectly, we believe, uh, that recipients deserve the agency and the autonomy to decide for themselves how cash should be spent, uh, and how they would like to lift themselves out of poverty. Here as regional director, I oversee programs across Northwest and Central Africa. Mostly focused on fragile and crisis affected areas.</p>
+              <p><span class="spk">Jonathan:</span> There’s multiple episodes, um, that we can link to in the show notes for the massive work we did in India. And Stella was our country director and, and, you know, very integral to that work. Um, , so I greatly appreciated all the contributions you’ve had. I wonder if you’re happy to share how your theory of change and your impact thinking has gone over time. I found it really funny when you told me, um, when you were going to give directly, like how you were simplifying your, your distance to the impact you were making as, as your career progressed.</p>
+              <p><span class="spk">Stella:</span> Yeah. And, uh, I, I mean, for me, the role of, uh, technology, , for frontline programs, uh, remains something that’s very close to my heart and something that we are actively, , advancing at GiveDirectly, , as well. Using, using the CommCare tool. Um, but one of the things that made me think about GiveDirectly as I was looking to explore, , , new opportunities, uh, is an experience I had with the community health worker in Benin. Uh, when I first started working at Dimagi, I think, uh, her name was Augustine. We were working on a project to increase, , health seeking behaviors, , for pregnant mothers, , and their babies. And one of the challenges that Augustine, the health worker told me about is that as we sensitize pregnant mothers, , to go to clinics, , to receive health services, to get, , their, uh, signs of, dangerous pregnancies reviewed, uh, and to understand whether there’s any issues. One of the challenges that would happen is that they would receive prescriptions. To, , to purchase medication, , or be told to go buy this and that supplies and often wouldn’t have the, uh, in that context wouldn’t have the, the money, uh, to be able to purchase those supplies. And so at the time, for, for me, that was very eyeopening time, uh, spending many months in the fields, , in a rural area of Benin called oi. Um, , and so there I saw very much the role that technology can play in, in frontline healthcare and also the role that cash. Uh, can play that is complimentary to enable people to, achieve the socioeconomic determinants of health, , as well as, , to decide for themselves what they need when they need it, uh, as well. Um, that was a bit of an anecdote, , but, uh, but more broadly, cash is, is direct. It is immediate. And so in some ways it’s kind of on the other end of the spectrum of the long-term health system strengthening, uh, which is also very important in its own way. And so I’ve kind of ping ponged, between those, those two journeys, um, both of which are of course important.</p>
+              <p><span class="spk">Jonathan:</span> And the, and the, you know, upstream of the work you did at the bank or human rights and things or even, even more complex topics in, in a lot of, um, areas. And so , it was really cool when you told me you were gone there and I was just like, man, that’s, that’s pretty awesome to, to be able to go into an intervention.</p>
+              <p>’cause we see that a ton in our work too. You know, you can get some self doubt. You’re like, is giving out smartphones and, and trying to do this really the best use of money? Or would it be better, you know, to hand this. A community health worker or the clients she’s trying to serve, um, cash.</p>
+              <p>And I think it give directly, I think your argument is like, it would be better to give them cash a lot of the time, um, you know, in terms of the, the impact it can have on the community. And so, really just cool work that give directly to is a ton of people, , on the pod know about ’em. And, and their, I’d say probably one of the most publicly known, uh, entities in, in the space and does amazing work. I’m curious, you know. Three and a half years of learnings there and, and all the work they’ve done. How, how do you think about, , system strengthening versus cash? Because, uh, cache is pretty appealing, , particularly in today’s, , climate. Um, you know, so when, when you were thinking about this and within GiveDirectly model, um, , why isn’t the answer to all of global development?</p>
+              <p>Just give out cash. Um, , how do you think about the, the balancing of, other interventions if you do or, or isn’t the answer, give out cash to everybody.</p>
+              <p><span class="spk">Stella:</span> Yes, the thought provoking question, John. Thanks for that. Um, firstly, I would say that cash, , has many purposes, in the same way that, uh, Comcare is a multi-purpose job aid for frontline workers. Cash is kind of a multi, I think of it in some ways as a multi-purpose life aid for our recipients. Um, and I do think cash is, has an important role to play in system strengthening. Uh, when it comes to building capacity with governments, uh, I see it, it come up a lot more with ministries of social protection and ministries of gender, uh, than necessarily, , ministries of health or agriculture. But there are cash programs as, um, uh, as, as we’ve both seen in, in many ministries in many places, ,</p>
+              <p>In terms of uptick of cash in the humanitarian sector and in the development sector, it’s really hard to come up with solid numbers around this, but by our estimates, this has increased substantially in the last 15 years. Specifically in the humanitarian space, we estimate it is now about 20% of humanitarian assistance.</p>
+              <p>And in the development space, we estimate less than 5% of official development assistance is spent on cash. No one is tracking the numbers for unconditional cash transfers systematically, but some estimates have this as low as 2% for us. We don’t have a target in mind of what it should be, but there are many reasons to believe it should be double those figures easily.</p>
+              <p><span class="spk">Stella:</span> Given the range of RCTs and studies that have come out in the last 15 plus years demonstrating its effectiveness and relevance across a wide range of outcomes.</p>
+              <p>So, so mostly , I think, uh, what we want to see is, is a movement away from like why cash to something about like why not cash? There are things that cash doesn’t do. Cash doesn’t build clinics. It doesn’t, uh, make the quality of teachers in schools, better. It does help children show up at school more often. Uh, for example, uh, and in places where there’s cash transfers and good health infrastructure, there’s good results when it comes to child mortality. Fighting child mortality and so forth.</p>
+              <p><span class="spk">Stella:</span> Um, but definitely, and my experience at Dimagi, uh, sort of bring, gives me a, a good perspective on, on broader range of, of health and, um, agriculture and livelihoods interventions. Uh, , there’s a whole range of things that are needed in order to serve people where they are.</p>
+              <p><span class="spk">Jonathan:</span> That, that’s fascinating. About the 20% versus 2%, I didn’t know that and I would’ve abstractly thought, you know, the humanitarian space is typically a slower mover. Than global development and changing and adopting evidence. Um, and I think that speaks to the, the kind of challenge with top down projects, um, and how they can often fail to meet the needs that they were trying to, they can get very expensive.</p>
+              <p>You’re procuring goods internationally instead of locally. All sorts of those things. So it makes sense that it’s very effective in humanitarian response. But as you said, I would think it’d be even more effective in some kind of traditional. Development projects, um, as well. I know, as you mentioned, there’s a ton of RCTs on GiveDirectly work, specifically in cash generally, what are some of your favorite kind of evidence points of just how effective cash is?</p>
+              <p>Um, for those who, , heard the Comcare Connect episode, the new platform that we’re building, a lot of the outcomes based funders or folks like GiveWell and other effective altruist, they actually use cash as the benchmark. They have to exceed. Because cash is so effective. Um, so I’m just curious to hear from your perspective, like what, what excites you about the evidence base, um, that demonstrates just how effective cash can be.</p>
+              <p><span class="spk">Stella:</span> Yeah. Um, there’s, there’s a lot of different, uh, sort of facts and, and factoids. I think one thing more broadly is that. Um, there’s a range of, there’s a range of outcomes that cash can achieve, and the way that a cash program is designed can increase effect on certain outcomes, uh, versus others. So there’s no one right way to, to do it. But there’s a, a major RCT in Kenya looking, comparing large lump sum transfers versus smaller transfers over two years versus smaller transfers over an even longer period. Um, and it’s been really striking, seeing the, the results. Of comparing after two years, a large lump sums transfer once off versus flow payments for two years, or even flow payments for a lot longer. With the lump sum, uh, cash transfer, , we see a massive increase, uh, in income generating activities, uh, major investments in livelihoods, long-term sticky results. Um, and a different study showed that a lump sum transfer after about four years, still had about a 38% increase, uh, in income of, uh, people who had received that transfer.</p>
+              <p>So the relative stickiness, particularly for some of the things that you might expect, like income generation, uh, livelihoods, ownership of productive assets. Is quite, is quite good. And then there’s also some, maybe less expected, um, but still interesting results in terms of multipliers in the community. Um, I mean, spill over effects of economic activity in the community, uh, for flow payments reductions, , in intimate partner violence, uh, improvements in nutrition and diverse diets, , for children. But, um, I could talk about that for a long time, so probably not good to, to get me started too much on, on that, uh, down that road.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Stella, I’m curious, you, you mentioned like lump sum versus flow payments. Um, what is GiveDirectly model and is it a, is it a mixture of both? Like can you say more about this, the cash mechanism?</p>
+              <p><span class="spk">Stella:</span> So given directly has, uh, its flagship model, which it is. Which we’re best known for. Um, and in the flagship model, there’s a large lump sum that the, that we saturate the poorest parts of certain countries on. So that means every household in a given community will get something like a thousand dollars, uh, in, uh, in two or three transfers. It would be the equivalent of if you or I, somebody came to our door and give us $30,000, um, or an even larger amount. Um, usually amounts that, uh, people have never had the opportunity to, to think and plan. What they might do with. Um, and so that’s one of the things that we’re best known for. Um, we actually do, do a range of different programs, uh, of all shapes and sizes, uh, including flow payments.</p>
+              <p>Sometimes that’s a better example to, to demonstrate to governments. It, it also helps achieve different outcomes, and, has good. Relevance in terms of like basic income type work as well. Um, and more recently, uh, another type of model that we’re doing is, is using telco data, partnering with telcos, and leveraging telco data to track aggregate information, uh, create eligibility lists using telco data and remotely enroll people using mobile messaging and mobile surveys so that in a time of crisis, uh, or like during the Covid pandemic, uh, or when there’s, um, you know, floods in Nigeria. Uh, or in Bangladesh, people can self-enroll and receive automatically cash transfers, uh, directly into their mobile money accounts, , in a couple of hours or a couple of days, uh, when previously it might take us a couple of weeks or months to properly enroll them in a field-based method.</p>
+              <p><span class="spk">Jonathan:</span> That, that’s, uh, really, really cool and that brings. Into a question of like, how how does the objections to doing this come up? Like, how, how are they voiced and is it, is it around eligibility? Like, are you finding the most important households to reach? Is it around waste? You know, do people have this like, obviously wrong mental model of, oh, these people won’t use the money well. Um, like what, what are the biggest objections you get? And then, um, in particular that, that point that you mentioned around partnering with telcos or. Eligibility I’m very curious about, so you mentioned the flagship program is saturated in the community.</p>
+              <p>Do you also do more, you know, targeted down to the household level, um, type</p>
+              <p>interventions, and is there a difference in the outcomes when you do one versus the other?</p>
+              <p><span class="spk">Stella:</span> Great question. One critique or question that we often get is whether, when we give unconditional cash transfers to people living in poverty, whether they might not waste the money, quote unquote, spending it on alcohol or tobacco, or what are called temptation goods. In fact, there’s about 30 studies across Latin America, Africa, and Asia looking at this exact question.</p>
+              <p>And these studies have found that people actually spend less on, uh, these so-called temptation goods, alcohol, tobacco, drugs, and gambling after receiving transfers. This isn’t to say that the a given recipient might not spend some of their transfers on, let’s say a bottle of beer or something like that.</p>
+              <p>Um, but overall, when we look at the aggregate data and the aggregate trendlines and results, the amount of spending is less, uh, with these transfers. Um, and so any question about this has already been resoundingly answered by the evidence. Um, another question that people have is around inflation. , and so we, there’s, uh, another study that happened in, uh, Kenya looking at when large lump sums come in, what is the inflation effect in a given area? Uh, and even with large lump sums to overall communities, the overall effect on inflation was very minor. That’s not always the case. If there’s, uh, you know, a very restricted like, uh, market, and, certain contexts there can be some effects. But overall, the, the inflationary effects are not, um, not significant.</p>
+              <p>And we’re in the process of partnering on a. A bigger study to study it in greater detail, um, for, for a larger scale program that we have going in Malawi.</p>
+              <p><span class="spk">Erin:</span> I’m curious, you’re talking about, um, like, selecting a community and going in and, and flooding them with cash and giving them this like, opportunity they would never have had, uh, before. What is like the next over village feel like, , when their neighboring village gets that?</p>
+              <p>Um, I’m curious like how this has played out just from like a social perspective and have you seen any sort of, um, like, uh, negative effects in terms of like the haves and the haves nots when you’ve been implementing this model?</p>
+              <p><span class="spk">Stella:</span> Yeah. Yeah, yeah. Certainly. I think visiting the field, it’s one of the things that one feels acutely is, is sometimes when there are neighboring, , communities, um, that wish they had been enrolled. Um, although that function is not a different thing about cash than any other program, every program has a budget and a geographic scope. Um, for us, given our saturation model, we plan our. Program so that we, we certainly never would stop halfway through a village and only enroll half the village and not the other half. Like that is not responsible or appropriate, and that is not what we do. But it is, it is sad. Uh, and in some cases, uh, quite heartbreaking when you have two villages right next to each other on the perimeter of like, what a, you know, what a budget could fund, uh, what, where we’re authorized to work in a given geography and, and we’re not able to. To cross and, and enroll the next village, um, which is, you know, why we do fundraising, I guess, so that we can keep on expending our programs.</p>
+              <p><span class="spk">Jonathan:</span> And just, just as an aside on some of the inefficiencies within global development until this call right now, I hadn’t thought to ask Stella, how are you doing the village targeting? And we’re literally like solving this problem in real time. For how to target villages that need vitamin A or bed net distribution. And so I bet there’s 30 organizations right now who are highly cost effective, all independently trying to figure out. About which village gets what and what do you do about the next village over. Um, so there’s a lot of opportunity for cost effective interventions to be better collaborating on how you targeted Aaron, to your point, maybe one’s getting cash, but the other one’s getting a different intervention.</p>
+              <p>Or maybe all of ’em should go to the same village. When gift directly thinks about cash in general, um, how. What are the alternative programs that other people are doing?</p>
+              <p>You know, you mentioned the flow model, the lump sum model.</p>
+              <p>Um, and why I assume give directly hopes and thinks its model is, is compelling and, and more cost effective than other opportunities. But cash voucher systems, vouchers rather than cash. All these different mechanisms or you know, have been used in the humanitarian space and, and. Plus, so to your point in global development, um, but it’s a growing area of our customer base that uses digital, uh, technology. And it’s got a lot we can talk about there. But I’m curious from your perspective, like as you refine the model over the years, people who agree cache is good, but maybe think your model specifically could be tweaked to be more effective.</p>
+              <p>Like what are their, what are their things they say and then what do you say back, uh, you know about No, no, no. This is the right way to do it.</p>
+              <p><span class="spk">Stella:</span> Yeah. Uh, and, uh, there are. Like our, the kind types of cash programs we do are all, all different, uh, kinds, um, including targeting like specific populations, uh, or, you know, youth or, you know, um, households with, you know, girls in, in grade 12 or, um, any which, any which way. So there’s all kinds of cash programs that we run. I think the commons through line, through all these cash programs, uh, is that all of our programs are unconditional, uh, for the recipients. Uh, and the reason that we have, uh, that. Approach is, is one. Um, when you sort of tally overall the, the costs of tracking, controlling policing, uh, the how cash is spent, uh, it ends up actually incurring quite a lot of costs and reducing the cost effectiveness of the overall intervention. Um, and hence, uh, in our logic, making it, um, less feasible to maximize the number of dollars to recipients, which is something that’s important to us in our cash programming, um, and being very cost effective. Um, the other piece of it though is that, at a, from a values perspective, uh, that we, we think it’s the right thing to do. There’s, uh, I’m, I’m probably not gonna say the story very well, but there’s the, you know, there’s the old, uh, anecdote about teach a man to fish and then they’ll, uh, fish for the, and he’ll fish for the rest of his life, uh, uh, rather than gim him a fish. Uh, our response to that is that maybe the man doesn’t wanna fish.</p>
+              <p>Maybe he wants to do something else. Maybe he wants to farm. Maybe he wants to start a band. Maybe he wants to, you know, move to the city. Uh, let him decide, , in part because. You know, we, we sit in our, in this hangout meeting, in, in the places that we do, we’re like, so far away from the realities of, uh, of, of people’s lives and like the economic opportunities, the aspirations, um, all of the other things that are required to live a good life.</p>
+              <p>Like one of my colleagues from Rwanda. I was talking to her about how you measure extreme poverty and what does poverty mean, and if a cash transfer can help someone pay the medical bills to, to save their father’s life, you know, how much, how much is that worth? Like how much is that like, uh, something that, that people can measure, or programs that can be designed for. Um, because people do do things like, you know, purchase mattresses, uh, pay off debts. Um, cover funeral, funeral costs, like these are human dignity things, , and they deserve to be covered. , as well. It’s, it’s not, it’s not for us to, to say that that’s, you know, that people don’t need that. For example, they do.</p>
+              <p><span class="spk">Jonathan:</span> That, that’s an awesome answer. Very, very well aligned to, to that value statement. And so do people, um, in the industry, you mentioned the 20% in humanitarian response, the 2% in global development, is there a pretty big, um, you mentioned unconditional cash transfers, the alternative being conditional. Cash transfers.</p>
+              <p>So getting paid to go get a behavior done or being limited in what you can buy with the</p>
+              <p>voucher trade of things. Is there a pretty big contingent or is it shifting into, you know, if you weighed</p>
+              <p>the, the 20% of the 2%, is it like more on the unconditional side now or is it, have we on the conditional side or a mix?</p>
+              <p><span class="spk">Stella:</span> It’s hard to tell. Uh, really, , to my knowledge, people don’t report, uh, numbers of that, uh, in a way that distinguishes between unconditional and unconditional cash. Honestly, though, people just did more cash overall.</p>
+              <p><span class="spk">Erin:</span> St still is fine with conditions if it comes with cash. Yeah. I will say I feel like 15 years ago when I was in grad school, the, the conditional cash transfer was like the, the new thing. Um, I studied a lot of like outta school kids and I think like conditional cash transfers where your kids had to be in school was just like the thing everyone was trying.</p>
+              <p>So, um, it is really exciting, I think to, and, and it was to your point, Stella, like so much monitoring that had to go into tracking school attendance.</p>
+              <p><span class="spk">Jonathan:</span> What, and Aaron, you’re, you’re working with not just GiveDirectly with Comcare, but a lot of our cash and voucher systems</p>
+              <p><span class="spk">Erin:</span> a ton of people who are doing CVA work. what is interesting is in the humanitarian sector, I think it is very unrestricted because I think there is this sense of like, yeah, you have no idea if, if someone has just been displaced or you know, they’re coming here, they, they literally have almost nothing or they have whatever they’re carrying on their backs, and so there is no.</p>
+              <p>Way to know what they need, but they probably need a million things. So yeah, just giving them cash is the way to go. So I think a lot of the funding that we’re seeing in our cashing voucher assistance programs for humanitarian is re, um, unrestricted where it’s just, you know,</p>
+              <p>go take this money and do what you need with it.</p>
+              <p>Um,</p>
+              <p>so I, I, I have no percentage point, but, but my vibe shift is going from, from conditional to unconditional.</p>
+              <p><span class="spk">Stella:</span> . to be clear, conditional cash transfers, , are like, if one only cares as a funder about one thing, like one only cares about like x outcome. Uh, not surprisingly conditional cash transfers will do the job. Um. That’s, that’s fine for a funder that only cares, uh, about, uh, about one thing. But from sort of a more human centered, humanistic perspective, if, you know, people spend their money doing lots of different things and there spillover effects and there’s other things that are, that are achieved, , the more holistic value comes, with unconditional cash transfers. And again, in some ways it reminds me of the, the value proposition of the CommCare tool as a multipurpose job aid. Uh, which is that it doesn’t just necessarily, you know, in improve just, uh, you know, adherence to vaccines if there’s like a vaccine tracker in the application.</p>
+              <p>It is a holistic tool to support everything that’s involved in a health worker’s, job. And so in a, in a similar. Holistic cost effectiveness analysis. Uh, we think cash comes out on top if one, is able to think more holistically about human aspirations.</p>
+              <p><span class="spk">Erin:</span> So Stella, if I do candidly say I’m a funder, I’ve got a lot of money and I do candidly really mostly care about Outof school kids. Um, and I’m like working in an area or, you know, or I wanna fund an intervention in an area where there is a huge like school in the area.</p>
+              <p>What is the pitch that you give to me to sell me on the idea that a conditional cash transfer is not the right way to go? Like, like what would you say to me as someone who actually kind of is this like single issue person to say like, what you, what you think you wanna do is not what you wanna do. You should do what I think you should do.</p>
+              <p><span class="spk">Stella:</span> Yeah. I’m not usually in the business of trying to convince</p>
+              <p>want the wrong thing. That wouldn’t be very unconditional to me. Right. Um, but what I would say to [00:25:00] your, uh, to your challenge, uh, is that. I would wanna look at the evidence and see what the evidence says about school attendance and its linkage with conditional or unconditional cash transfers. We do, there can be sort of nudges and encouragement that come with our cash transfers as well. It’s just that we make it clear when we’re doing enrollments that the choice at the end of the day belongs to the recipients. Um, but, uh, it wouldn’t surprise me. I’d have, I’d have to check, but it wouldn’t surprise me if unconditional cash transfers with some kind of sensitization about, school attendance, uh, in like the right targeted neighborhoods could achieve, comparable effects, at lower, lower costs, or rather more dollars to recipients.</p>
+              <p>And, lower overheads, than a conditional cash transfer program. Um, there definitely are studies that show cash transfers, uh, increased school attendance. , over overall. So, so that’s, that’s what I wanna look at. And if the evidence says that, and that lines up with what you want, then I would come talk to you and, and show you that.</p>
+              <p><span class="spk">Erin:</span> No, that’s perfect. And that’s interesting to, because I was wondering about that, if you guys ever did any sort of like behavior change, communication kind of alongside that, so it’s not just like, you know. Here’s your a thousand dollars. It’s like, here’s a thousand dollars. And by the way, like here’s some important information we think you should know</p>
+              <p>as well.</p>
+              <p><span class="spk">Jonathan:</span> I’m, curious about that. So you mentioned, the, the urgent humanitarian response if somebody is in a flood zone or others, and then, but with the more typical, like going into a community, do you tell ’em, you know, why they were selected?</p>
+              <p>That they can do anything with the money. Like how much, how much work goes in before, like the check clears, you know, into, into the house.</p>
+              <p><span class="spk">Stella:</span> Yes. Well, I saw when I left Mug and joined give directly that, uh, cash would be a whole lot simpler, than, than many, many other kinds of work that I’ve done. My conclusion is that everything is. Has its own complexity. Um, everything, takes, something to get right. Uh, and so for getting cash out, there’s a few steps associated with that. Um, one of them is targeting, figuring out the area. Um, the next is, uh, community Sensitizations, which we call barraza. Um, it’s a Swahili word. Uh, and then there’s the enrollment process, which involves a lot of sensitization and explaining, um, and letting people know at that moment that, yes, this is a cash program.</p>
+              <p>We’re coming, this is what you can expect. Usually giving people phones for the first time or, or, uh, giving them the option to use some of their transfer money ahead of time to get phones, uh, explaining how to use them, how</p>
+              <p>to use sim</p>
+              <p>cards and so on.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Can you just explain what sensitization is? I don’t think we’ve, I haven’t heard</p>
+              <p>that term used before. Yeah.</p>
+              <p><span class="spk">Stella:</span> Yes. yes. Uh, for community sensitization, what that means is that we, we go and we introduce ourselves to, to basically the whole village. Um, and so try and get as many people together, maybe not everyone, but like as many people together as, as, uh, as are available community leaders, uh, and introduce ourselves. We, we want to work as partners in the communities in which we operate. Because sometimes there are misimpressions about cash. Our programming has been, confused, uh, for being. Like we’ve been called Satanists in, in, in some places and, um, or scammers and others. Um, and so it’s important to like have that little introduction at the beginning, to explain, , that we are a legitimate organization doing cash transfers, um, working in, in the country for quite a long time and having a long history and, and partnership with governments, uh, to do that. And then there’s the enrollment part, and then the, and then uh, some checks, uh, and then finally the transfers, uh, that go out, uh, with some follow-up that occurs after that. So, so there’s a whole, whole process, , that’s involved, um, and a, and a whole journey that’s involved to make sure that we, set it up right, that we do it right, and that we</p>
+              <p>make sure</p>
+              <p>people are okay afterwards as</p>
+              <p>well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> such a great, framework to understand the, process. And I, I am curious to know a little bit more about the role of tech in this. I think you mentioned something about giving out phones. I know you, you are using CommCare. Can you share a little bit about how. Technology is, is enabling the work that you do.</p>
+              <p><span class="spk">Stella:</span> Yeah, for sure. I think one of the interesting things about our work is because most, in most places, we issue out transfers, uh, through mobile money. And so we have very much an incentive in all our programs to be equipping recipients, uh, with phones to explain how mobile money works, uh, to help people register for mobile money accounts, uh, if they’ve never had a mobile money account before. Because that is so much of the work that we do, there’s a particular synergy between our work and telcos, mobile money providers, in a number of countries. And what is interesting and exciting about that? Is that telcos have a very rich, real time data sets, , of, of everything that goes on.</p>
+              <p>When, like you and I use a phone, who we call where we are, da da da da, we don’t access that directly, obviously. But uh, we partner with telcos, um, who look at mobile phone data. And from that mobile phone data can tell one, what are pockets of poverty in a given country or in a given city? And two, within those pockets of poverty. Who within those pockets are living in extreme poverty. Um, and as, uh, as we’ve seen together at Dimagi, people living in extreme poverty use cell phones in a different way. Um, from you or I with our monthly subscriptions and our, you know, 20 gigabytes or 50 gigabytes of data, , they use it much more like a payphone, if anyone still remembers payphones, um, charging it, uh, well, having a few sim cards in your pocket, going to the place with the cell phone coverage and the phone charged, uh, sticking the sim card in, making one phone call receiving the SMSs.</p>
+              <p>And then, and then that’s it. And done for the next couple of weeks. Um, and so. As you can imagine, if that’s what’s happening, then there’s a way to tell through the, the trends and the patterns and subscriptions, um, the amount of mobile data that’s being purchased. Uh, the location data that’s sent through cell towers, you can tell, uh, who’s living in, in extreme poverty.</p>
+              <p>In fact, it’s very much in commercial m and o interests to understand also who is poor and who’s rich, that they’re naturally more interested in, in the rich, if I do say so myself. So anyway, that’s one way that we use technology. Um, the other way that we’re excited about is using Comcare</p>
+              <p>so at the moment, GiveDirectly is rolling out Comcare, uh, in all of our programs. Uh, that’s already begun. There’s a lot of excitements, uh, in, uh, in Kenya. I. Uganda, Malawi, uh, in, in various corners of, of, you know, the countries in which we work across this continent and beyond, uh, to use the Comcare system. One of the things that is really exciting about Comcare is the ability to, um. In a much more streamlined way, , copy and reuse some of the content across different forms, uh, because prior to that, we’ve been doing that in a very manual way, and that has limited our ability to really unleash the potential to like unlock learnings across.</p>
+              <p>Different projects and programs because we keep on reinventing the wheel. We had, we had been reinventing the wheel and doing things a bit too custom. Um, but some of these features, , make it much easier and a much more streamlined, uh, to build on, , experiences from one project Portland to another without like manually having to, to do it.</p>
+              <p>And so one that’s amazing. Two is a lot of features that. I know Comcare has had for a long time, but still very exciting. Uh, such as behind the scenes GPS capture in the phone, uh, for supervision and remote monitoring, uh, what our, like who our field officers are enrolling and like where they’re enrolling them, uh, is another example. And then the third, which I’m bringing in from the tech team since I asked them is around the API secure API integrations, uh, because we have many systems in our, organization, um, and it’s really important to have good, well documented APIs, uh, for, um, data to securely transfer. So they’re very excited about that.</p>
+              <p>Thank you Dimagi for that. Um, a lot of, a lot of excitement here.</p>
+              <p><span class="spk">Amie Vaccaro:</span> yeah, it’s great to hear the excitement and also yeah. We’re honored to be partnering with you. , Can you give an example of the kind of role that Comcare is playing in one specific like story of somebody receiving cash.</p>
+              <p><span class="spk">Stella:</span> Yeah, yeah, yeah, for sure. Um. So in practice, the way that we’re using comp care is that we have a, we have a, a cadra of, uh, frontline officers, um, and different frontline officers. , one that goes in censuses, gathers data about recipient communities. Another that goes and enrolls them. Um, and then a third that might, uh, come back later to do follow up. We do different teams for, um, as sort of a control, sort of a check and balance, uh, against each other, which is quite different from a regular community health worker model. , and so inside the Comcare application, how that, like, how that would play out in practice is that our, one of our field officers, uh, would have this Comcare tool, uh, would go into the community, go door to door, uh, enrolling people, uh, and using the Comcare tool as a prompt to walk them through every step that they need to, um, fill in and the sensitization that they need to do. And, um, and make sure that we’re doing proper things like capturing consent appropriately, making sure that we’re sort of capturing, um, uh, identification data, um, doing the right kind of sensitization. And so very practically, like another thing that’s, uh, uh, exciting and helpful with the Comcare tool is, is just the, the streamlined ability to localize languages. Um, a lot better than what we’ve been doing because till date, uh, some of it has been just in English and our field officers have been doing the translations themselves. During some of these recipient visits, um, but now we have more optionality, the ability to like tailor fine tune, increase, like, provide better messaging, , particularly around like sensitive, uh, topics, that’s, I mean, from the, in a, in the recipient interaction, that part is important from a field officer perspective, conquers offline functionality. Like our, our field officers are climbing up and down hills and far from places, taking boats, going on, bridges like, uh, in, in Dr. Congo, our field officers, uh, piggyback on other people to cross these rivers of mud during the rainy, rainy season. Uh, to be able to reach, , our recipients in, high altitude, uh, difficult places to reach. Uh, and often there, uh, what we’ve been doing is. Kind of like leaving the forms, incomplete, uh, or open. But the Comcare tool allows, the form submission to happen offline and then to sync when people are back in connectivity at the end of the day, uh, which is going to be a so much better experience, uh, both in terms of data quality, but also in terms of data security, um, that no one’s coming back in later and, and editing the forms and, um, uh, and reshaping information.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. We, we love to hear it and we’re really excited about the partnership and the, you know, ultimately the potential to make the experience better for the field officers and the clients that you’re serving. Um, so it’s, it’s really great to hear that. I wanna pivot to the least fun topic we’re gonna talk about, which is, you know, the, the turmoil in our industry right now and. With everything going on, you know, all of us don’t know where things are are headed. Um, obviously there’s gonna be a lot of change with whatever the industry looks like three to six months from now. Um, but proven cost effective interventions like cash are probably gonna be even more prominent in, um, you know, the future and, and, and things that, people are talking about.</p>
+              <p>So, you know, obviously things are super uncertain, but I’m curious, how are. How are you thinking about it at GiveDirectly? How are you thinking about it for the cash, you know, community writ large? Um, given this, huge rate of uncertainty, [00:36:00] uh, that we’re, we’re at now.</p>
+              <p><span class="spk">Stella:</span> Mm-hmm. Yeah, and I, I, I acknowledge of course, that it’s a time of an uncertainty for, um, for many organizations, for many people, uh, and of course, uh, difficulty for, recipients and, and beneficiary communities, uh, all over the world. World. For us as an organization, uh, we’ve had about, uh, eight programs in four countries that have been, uh, paused, uh, with the, with the stop work orders. , we’ve remained to see what is, uh, what is gonna happen with that. Uh, and there are a lot, obviously many questions, um, that, that we have, but we remain, you know, hopeful and optimistic that cash, as you said, has a. Has a role to play in a highly dynamic, uh, and fluid environment because it’s cost effective, because it’s multipurpose.</p>
+              <p>Um, because it, it can be relevant, uh, in a lot of ways. And so, um, and so we’re really just, uh, gearing up and, curious to understand what’s next and how we can best, uh, serve and, um, and support and, uh, help [00:37:00] out recipients in whatever way, shape or form, uh, that comes. And, and then separately our other programming. Continues, which is, which is helpful, uh, as well. But, um, but yeah, and I mean, we don’t, who knows,</p>
+              <p><span class="spk">Erin:</span> Definitely none of us know, that’s for sure. Um, I am curious. I’ve, I’ve seen some interesting, um, work before with, looking at like, I, I think it was actually at Net Hope that I saw like a, a Mercy Corps project that was doing cash stuff where they’re actually trying to pair up families where, you know, it was like the Guatemalan diaspora.</p>
+              <p>So it was like, if you have someone in the us, you have someone in Guatemala, we know there’s gonna be a hurricane in Guatemala, can we link you up so that. Okay, we get the weather forecast, we text your American relative, you send money. So like things like this where we’re trying to get cash more from like individuals.</p>
+              <p>I’m curious right now how much of GiveDirectly is funding comes from regular people like me and John and Amy. And if you see like if any part of your strategy is shifting more towards trying to get just like average humans as like a bigger part of your funding base and what that might look like.</p>
+              <p><span class="spk">Stella:</span> Yeah, no, it’s a good question. I think roughly half our funding, uh, is coming from individuals. Admittedly, a good chunk of that is high net worths, uh, or ultra high net worths, uh, who. Um, you know, who, who believe in our, our mission or are, um, excited about the work that we do. , but there is still a good, solid kind of chunk in base that keeps us, uh, keeps us honest, uh, and it keeps us engaged of, uh, of regular people, like us. Who are, who are donating to give directly, quite annoyingly, uh, my partner donates to, to give directly, which really puts the pressure on me when I’m, uh, you know, doing my work and, and travels and things to be quite, uh, quite judicious, uh, about it, uh, as he is</p>
+              <p>there with his funds holding my feet</p>
+              <p>to the</p>
+              <p><span class="spk">Erin:</span> It’s a, it’s a, it’s</p>
+              <p>accountability, Stella, accountability,</p>
+              <p><span class="spk">Stella:</span> do. yes, yes, it’s very immediate day-to-day accountability for better force.</p>
+              <p><span class="spk">Jonathan:</span> Well, that’s great. So you’ve been so generous with your time. We gotta let you go. Um, but this was an awesome conversation and um, congrats on the work you guys are doing and, and you know, wherever the industry is landing cash is, is gonna be a really important role to play. And we’re excited for the partnership we have.</p>
+              <p><span class="spk">Stella:</span> Thanks again for inviting me and, and thanks for making, uh, our work possible as well. Uh, really great, uh,</p>
+              <p>connecting and reconnecting, uh,</p>
+              <p>with you all.</p>
+              <p><span class="spk">Amie Vaccaro:</span> so much, Stella.</p>
+              <p><span class="spk">Erin:</span> Thanks, Della.</p>
+              <p>Thank you to Stella, Luke, and Erin Quinn for joining us today. This episode gave us so much to reflect on. Here are a couple of my top takeaways. First, cash is powerful and versatile. Give directly as evidence backed approach shows that unconditional cash transfers can drive a range of important and positive changes in people’s lives.</p>
+              <p>Second, unconditional aid is a values choice. Stella reminds us that dignity matters instead of prescribing what people should do. Give directly trust recipients to know what’s best for their lives Third, technology is a game changer. The conversation highlighted the exciting role of digital tools like Comcare in making cash delivery more efficient, scalable, and recipient centered.</p>
+              <p>Fourth, cash is still underutilized. Despite being one of the most rigorously studied interventions, cash makes up just 2% of global development aid compared to 20% in humanitarian response. That’s a gap. Still a believes should be closed. And as we’re seeing aid changing quickly, it’s clear that cash has an important role to play. That’s our show. Please like, rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact.</p>
+              <p>And write to us@podcastatmgi.com with any ideas, comments, or feedback. This show is executive produced by myself, Bertha and Bhand and Michael Kelleher are our producers. And cover art is by Sudan Chi K.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SL</div>
+            <div class="person-info">
+              <p class="person-name">Stella Luk</p>
+              <p class="person-role">Regional Director overseeing cash programs across Northwest and Central Africa, focused on fragile and crisis-affected areas, and a former Dimagi country director.</p>
+              <span class="person-org">GiveDirectly</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">EQ</div>
+            <div class="person-info">
+              <p class="person-name">Erin Quinn</p>
+              <p class="person-role">Senior Director of Customer Success, working with organizations running cash and voucher assistance programs on CommCare.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/37Mp4MLrvzg8UhrOqNRLxN" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign In | Dimagi</title>
+<meta name="description" content="Sign in to your Dimagi product account. Access CommCare, SureAdhere, or Connect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=11">
+<style>
+/* ── Sign In page ── */
+
+body {
+  background: #f5f7ff;
+  min-height: 100vh;
+}
+
+/* Page layout */
+.signin-page {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px;
+}
+
+/* Card */
+.signin-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 32px -8px rgba(10,6,32,0.12), 0 2px 8px -2px rgba(10,6,32,0.06);
+  padding: 48px 40px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.signin-logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 32px;
+}
+
+.signin-card h2 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 32px;
+  line-height: 1.3;
+}
+
+/* Product buttons */
+.signin-products {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.signin-product-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms, box-shadow 150ms, filter 150ms;
+}
+.signin-product-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.22);
+  filter: brightness(1.05);
+}
+.signin-product-btn:active { transform: translateY(0); }
+
+.signin-btn-commcare {
+  background: var(--indigo);
+  color: #fff;
+}
+.signin-btn-sureadhere {
+  background: #0DA89D;
+  color: #fff;
+}
+.signin-btn-connect {
+  background: #005B99;
+  color: #fff;
+}
+
+.signin-product-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.signin-product-name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.signin-product-tagline {
+  font-size: 11.5px;
+  font-weight: 400;
+  opacity: 0.78;
+  line-height: 1.3;
+}
+
+/* Arrow icon */
+.signin-arrow {
+  margin-left: auto;
+  font-size: 16px;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+/* Separator */
+.signin-sep {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.signin-sep-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.signin-sep-text {
+  font-size: 12px;
+  color: var(--muted-soft);
+  white-space: nowrap;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+}
+
+/* Help text */
+.signin-help {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+/* Back to home */
+.signin-back {
+  font-size: 13px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 150ms;
+}
+.signin-back:hover { color: var(--indigo); }
+.signin-back::before { content: "←"; }
+
+@media (max-width: 480px) {
+  .signin-card { padding: 36px 24px 36px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../">
+      <a class="logo" href="../index.html">
+        <img class="logo-img invert" src="../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../professional-services/index.html">Professional Services</a>
+        <a href="../company/about/index.html">Company</a>
+        <a href="../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+  <div class="signin-page">
+    <div class="signin-card">
+
+      <img class="signin-logo" src="../assets/dimagi-logo.png" alt="Dimagi" loading="eager">
+
+      <h2>Sign in to your account</h2>
+
+      <div class="signin-products">
+
+        <a class="signin-product-btn signin-btn-commcare" href="https://www.commcarehq.org/accounts/login/" target="_blank" rel="noopener">
+          <div class="signin-product-label">
+            <span class="signin-product-name">CommCare</span>
+            <span class="signin-product-tagline">Frontline data collection</span>
+          </div>
+          <span class="signin-arrow">→</span>
+        </a>
+
+        <a class="signin-product-btn signin-btn-sureadhere" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">
+          <div class="signin-product-label">
+            <span class="signin-product-name">SureAdhere</span>
+            <span class="signin-product-tagline">Medication adherence platform</span>
+          </div>
+          <span class="signin-arrow">→</span>
+        </a>
+
+        <a class="signin-product-btn signin-btn-connect" href="https://connect.dimagi.com/accounts/login/" target="_blank" rel="noopener">
+          <div class="signin-product-label">
+            <span class="signin-product-name">Connect</span>
+            <span class="signin-product-tagline">Worker engagement platform</span>
+          </div>
+          <span class="signin-arrow">→</span>
+        </a>
+
+      </div>
+
+      <div class="signin-sep">
+        <div class="signin-sep-line"></div>
+        <span class="signin-sep-text">Not sure?</span>
+        <div class="signin-sep-line"></div>
+      </div>
+
+      <p class="signin-help">Not sure which product you use? Contact your program administrator for the correct sign-in link.</p>
+
+      <a class="signin-back" href="../index.html">Back to home</a>
+
+    </div>
+  </div>
+</main>
+
+<script src="../assets/js/nav.js?v=4"></script>
+</body>
+</html>

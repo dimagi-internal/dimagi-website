@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 27: How Will Advances in AI Impact Global Health and Development with Clayton Sims | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi CTO Clayton Sims and John Jackson on how AI will reshape global health, from language models to biometrics, copyright, and on-prem hosting.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep27-how-will-advances-in-ai-impact-global-health-and-development/">
+<meta property="og:title" content="Ep 27: How Will Advances in AI Impact Global Health and Development with Clayton Sims">
+<meta property="og:description" content="Dimagi CTO Clayton Sims on what AI really means for global health: language, biometrics, copyright, and hosting.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>February 20, 2023</span>
+        </div>
+        <h1 class="ep-title">How Will Advances in AI Impact Global Health and Development with Clayton Sims</h1>
+        <p class="ep-deck">Recorded at the Global Digital Health Forum, Dimagi CTO Clayton Sims joins John Jackson to separate the AI hype from the practical, from language models and biometrics to copyright, on-prem hosting, and what it all means for global health and development.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/0ZEGglK4jjbPPLGILIoonb?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 27 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/0ZEGglK4jjbPPLGILIoonb" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000642518058" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/JAAcFXFJ0FI?si=Gc3H-uRXY0UHAu2D" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/32ed84a0-f2e5-4c07-8a5d-0b74c47ec760/high-impact-growth-how-will-advances-in-ai-impact-global-health-and-development-with-clayton-sims-dispatches-from-the-global-digital-health-forum-2022" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Recorded live at the Global Digital Health Forum, John Jackson sits down with Clayton Sims, Dimagi&#x27;s Chief Technology Officer, to talk through the opportunities, realities, and open questions of artificial intelligence in global health and development. Returning for a second appearance on the show, Clayton reflects on how the field has matured since AI was last a hot topic at the forum, and why this year the conversation finally moved from abstract excitement to practical, everyday use.</p>
+        <p>The two explore where AI already touches Dimagi&#x27;s work, from threat detection on servers to the bias baked into models trained on what counts as a normal business, and where it could genuinely help: language models that reach frontline workers in their own languages, voice to text that maximizes time with patients, and image processing and biometrics on increasingly capable devices. Clayton is candid about the limits too, including the conservative guardrails of tools like ChatGPT and whether global health use cases will survive them.</p>
+        <p>The conversation closes on harder structural questions: the copyright and IP implications of generative models trained on people&#x27;s code and art, the risk that AI pushes people to stop sharing openly, and the infrastructure reality that training modern models on-prem is nearly impossible. Clayton argues the path forward is not a binary cloud versus on-prem choice, but a thoughtful approach to when and how to use the cloud while keeping private data protected.</p>
+
+        <blockquote>
+          <p>&ldquo;I don&#x27;t want AI tools to be the reason people stop being open about what they share, and that to me feels like a real loss.&rdquo;</p>
+          <cite>Clayton Sims, on open source and generative AI</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Hype versus practice</strong>: why AI finally felt mature at this year's Global Digital Health Forum after years of unmet excitement</li>
+          <li><strong>AI you don't notice</strong>: how Dimagi already relies on it for server threat detection, and the bias of models that flag any server not in a US data center</li>
+          <li><strong>Language as the differentiator</strong>: translation and chatbots that could let small organizations reach frontline workers in their own languages, from Malagasy onward</li>
+          <li><strong>Conservative guardrails</strong>: the risk that safety filters on tools like ChatGPT quietly cut out the very global health topics that matter most</li>
+          <li><strong>Copyright and open source</strong>: what generative models trained on people's code and art mean for IP, fair use, and the willingness to share openly</li>
+          <li><strong>The on-prem problem</strong>: why training modern AI models on local hardware is nearly impossible, and how to rethink cloud use without giving up data ownership</li>
+          <li><strong>Biometrics and image processing</strong>: where on-device vision and tensor processing are heading, and when they cross the line to being useful</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We’re here on High Impact Growth with Clayton Sims Dimagi’s CTO. You’ve heard him on a previous episode talking about some of the history of CommCare and our product strategy. Uh, Clayton is always one of the fan favorites here at the Global Digital Health Forum on his talks and this year, um, he gave a great talk on AI, so I wanted to just hear more from him and share it with our listeners.</p>
+              <p>So Clayton, everybody already knows you’re a CTO, but I’m curious why AI this year and what were you thinking about, um, with respect to it when you prepared your talk?</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah, absolutely. I think, uh, it was very timely. I think this year especially, uh, there were a lot, there’s a lot of discussion and it’s interesting to me because it’s a topic that I think was really hot maybe six years ago when we came to the Golden Health Forum, when AI was really in kind of a nascent phase and there was a lot of excitement about it, but I think there was a little bit of a, a drying period where some of that initial excitement and hype didn’t pay off.</p>
+              <p>But this year it was a huge topic and not, not kind of as a, a burgeoning technology topic, but. As some people are really excited about abstractly with not a lot of idea, but also really practically. And it was interesting to see both of those arms come up. You know, people who are really using AI every day to make decisions and then people who are still kind of stuck in like AI is just a word we associate with something that’s fancy and we don’t know what it does.</p>
+              <p>So it was cool to see both of those kind of things still exist, but also really exciting to see the maturity in the field. I think with that in mind, the big reason I kind of picked that topic is I think we’ve been making bigger jumps in AI tech, not in our. , but in the broader kind of space in consumer technology.</p>
+              <p>And I think there’s not a lot of awareness or maybe insight in how that’s going to affect the future for us as practitioners, people who use kind of normal consumer devices to do our job. So I think that was a really interesting topic for me to help people maybe get away from thinking about AI as something that’s purely beneficial to our space or negative in our space from our intent.</p>
+              <p>But it’s something that’s going to affect our lives no matter whether we want it. It’s a very eloquent way to say that. And at DGI Clayton and I speak a lot about new technologies and there’s always some positive aspects you can imagine, some negative aspects, but AI certainly seems like it’s going to be, you know, just a huge influence on so many different industries as it comes in.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So, what did you think about, like, what was the perspective of, of what you talked about and like how is this going to impact our.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah, it’s been interesting for us because we, you know, passively have already started integrating AI, you know, people. Like, what are your big AI projects? And we say, oh, our threat detection tools for our servers, right? , like we integrate AI in all these ways, uh, kind of passively just because they’ve become the standard of delivery for a lot of really hard, you know, machine scale problems.</p>
+              <p>And along with that, we’ve actually experienced some of the challenges that I spoke about and, and my talk, which is the notion of, you know, training these models on what normal businesses. Is not always the best dressing global health. You know, we get these, these pings on our active threat detection tools that say, you know, you’re talking with sketchy servers.</p>
+              <p>Servers we think aren’t okay. Like, there’s probably an attackable look, Andre, like those are just in Africa. Like, that’s, that’s your perception of a dangerous servers, a server that’s not in like a US data center. So, you know, we’ve already started to experience that a little bit. Um, and I know we’re going to.</p>
+              <p>increasing our uptake of AI, probably because of our increased security posture and because of our need to kind of solve these global problems. So we’ve had to start being aware of that, uh, I think as DMA and as a company, and I’m excited for us to kind of be thought leaders in that space. You know, I’ve already had some of those great conversations with other leaders here about how they’re adopting AI and how they’re kind of factoring those things in.</p>
+              <p>Uh, but I’m sure it’s going to be a hot topic for us</p>
+              <p><span class="spk">Jonathan Jackson:</span> so I think there’s a lot of interesting areas, uh, as, as you said, things that we don’t even think about. Like until you just gave that example, I wasn’t like, oh yeah, we use AI in our threat detection in our, our data centers. What are some of the things that people should be. Conscious of, you know, particularly like there’s a lot of excitement you can imagine using AI for diagnostic interpretation.</p>
+              <p>You can use AI for chatbots. You can use AI for maybe analytics, although we’re still trying just to get analytics to work in a lot of ways. But, you know, as you think about this topic, like what are the key things both technical specialists should be thinking about, but probably more importantly, our audience of, of non-technical specialists.</p>
+              <p><span class="spk">Clayton Sims:</span> I think probably language is the biggest one. Uh, I know we were just chatting, uh, the other day about some of the G P T language models and about some of the capabilities there. But I think as we begin kind of a journey of, of trying to communicate and engage more directly with the broader audience of kind of frontline workers rather than frontline programs.</p>
+              <p>The ability to communicate directly is going to be such a huge part of that. And knowing that there’s such a, a set of people with such a broad array of kind of communication styles and languages that we’ll need to engage with. I think knowing the state of the art in translation, translation or in chatbots or in kind of that capacity is probably going to be one of the hugest differentiators for small organize.</p>
+              <p>About their global reach, right? It’s the difference in being able to speak to a global audience or an audience that’s restricted to the three languages you have in, you have expertise on. But I think the verdict is still so far out. You know, I think we still haven’t gotten, uh, any insight on the malagasy translations that we were talking about through some of those tools recently.</p>
+              <p>And I think that’s going to be an interesting differentiator for, for our organ, for other organs, is the in-house expertise to not just kind of know the technology, but know how to. You know, like how many experts do you need on staff to know how good the tech, the language models are before you can use them.</p>
+              <p>Um, so I think language models are probably the one that’s I think we’re going to see, see the most. And then I guess there are going to be some of these kind of physical device things as tensor, uh, processes become more common on mobile devices. And as we start seeing some of those, uh, kind of GPU style pieces integrated into chips, we are going to see a lot of image processing still continue to be a big part of that.</p>
+              <p>I think a lot of those features still feel like toys right now. You know, it’s a. Editing people out of images and stuff like that. But you know, we, every two years we engage a lot more with people who are doing, uh, you know, image scanning, face scanning, those kinds of things. So I think the biometrics and the, the image processing on devices are probably going to be the other kind of burgeoning place where we’ll see a lot of this in commercial tech.</p>
+              <p>And then knowing when it’ll cross the line to be useful for us is, uh, going to be an interesting one.</p>
+              <p><span class="spk">Jonathan Jackson:</span> The language models is a, a great example. Um, clay and I were talking, and I, I just put into chat, G P T, which for our listeners who haven’t played with it yet, is a new model that’s gotten a ton of, um, excitement and hype and concern in the, the global community around, um, just how amazingly sophisticated it can be with certain questions and answers.</p>
+              <p>And I put in a simple prompt saying, um, you know, write an encouraging message for a healthcare worker who’s in the top third, um, performance tier. And Clayton’s like, well, can I do it in Malagasy? And so I put it in and like some Malagasy language came back out, but Clayton and I can’t read it. So, um, this is a really exciting potential area.</p>
+              <p>The ability to encourage clients or healthcare workers with natural language could be huge. Another area I’m excited about, we’ve spent a ton of time on human computer action with CommCare. Um, if we can be doing automatic, um, you know, voice to text, uh, translation, really maximizing the interpersonal time that a community healthcare worker has with the patient.</p>
+              <p>So a ton of exciting stuff. But, but to your point, Clayton, the, when it’s going to be appropriate for some of the contexts we work in is very unclear.</p>
+              <p><span class="spk">Clayton Sims:</span> When we were chatting , with some of the other AI folks in the field here, and I think one thing I’m especially, uh, I guess, uh, worried about or kind of concerned about with these things is when OpenAI release chat, G P T, one of their big goals and they’re really candid about it, kind of amusingly, was they put it out to the world.</p>
+              <p>And kind of subtly encourage people to go try to get it to do bad things, right? Like the, if you ask them internally, they’re like, no, that was the whole point, right? We put it on the internet to get people to convince it to like spit out something really bad. So we can train against that. And they know that putting that on the Internet’s the best way to get that kind of red teaming.</p>
+              <p>Um, and I, I think one thing that I’m a little concerned about with that approach is that when you get these big language models that are trained on really unintentional data sets and then try to make them safe, the easiest way to make them safe is to prevent them from. Right. So when you ask gpt P questions and it thinks you might be kind of trying to cross the line or get it to spit out something that’s violent or something that’s, you know, biased, it’ll just give you back a result that’s like, oh, I’m not allowed to talk about that.</p>
+              <p>Right? Like, I was trained on data that doesn’t let me speak to that. And in the global context, I can imagine that might end up just kind of increasingly cutting out more and more and more of the topics that it doesn’t know how to better. You know, when you, when you bias us towards that hyper conservative approach and you don’t have a realistic global kind of vetting, you know, how many Maasi speakers do they have, right?</p>
+              <p>If they think that might spit up something bad, we may lose the ability to kind of go across some of those lines, even if it can spit them out just because they don’t know they can do it safely. So I think that’s going to be a really big test for these tools is not just whether they can kind of spit something out today, but once they’ve decided what their guiderails are, whether we’ll still even fall.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So, we obviously spend a ton of time in the global development context, in the global health context, but you were playing around a lot with these different models and um, you know, one of the examples you gave me is a technology that can kind of deconstruct an image. And then like reconstruct the image at a higher resolution, like, kind of like that, that thing you imagine in the movie is where there’s like an outof focus license plate and then it, you click a button and it focuses.</p>
+              <p>What are some of the just really impressive technologies you have come across in the last few months as you were like, thinking about this talk and, and just looking at the landscape.</p>
+              <p><span class="spk">Clayton Sims:</span> Yeah, so I spent a lot of time on this talk, kind of digging deeper and maybe testing a lot of my own assumptions and skepticisms about, uh, some of these AI systems. And I actually had the chance to kind of contribute code back up to some of them while I was doing that to make them, uh, work on hardware that was more accessible than some of the researchers hardware.</p>
+              <p>That’s a little bit, uh, higher touch or harder to get access to these days. And I, I think the, the interesting thing. There’s this really big split in a lot of kind of artistic communities about these image processing tools because there’s, there’s a significant amount of effort going into upscaling is, is a problem you identified and kind of recreating context on image sets that are kind of weirdly represented on the internet.</p>
+              <p>Is, is a funny way to say it. Like there’s a lot of effort going into animation, scaling because there’s a lot of CorpU, there’s a huge corpus of animation data and it’s actually fairly consistent between cells or between kind of the things. Anything where there’s a big corpus of stuff that just looks similar.</p>
+              <p>Is getting this big race ahead. And that’s been really interesting to see. And I think there is just a lot of industry advantage and a lot of that, you know, I look at game designers and people who spend a lot of time doing like texture design or spend a lot of time doing really just tiny nit picky stuff that now those are real things that look pretty similar in any game design or look pretty similar in any sort of like visual processing language.</p>
+              <p>And I think that’s going to be really interesting to. What industries are just able to race ahead now because they have tools that can generate stuff that isn’t that important, right? It’s not, it’s not actually critical that if you’re going to make a game that your asset base needs to be, you know, all hand designed, you know, authentic, artisan kind of inputs.</p>
+              <p>If you can use these tools, even if they’re limited to kind of make your fancy rings or your like visual design easier, I think it’s going to expand a new set of people to technology and to like independent authorship, I guess is the way to say it, rather than needing teams or rather than needing four skillset.</p>
+              <p>I think a lot of people are going to be able to use these AI tools to kind of be a single person who can like, replicate what the internet can do and add their own kind of like piece to it. And so I think those pieces of tech I think are going to be really interesting. Um, and I am really looking forward to some of the kind of advances that we’ll get from people just having that autonomy, uh, in places that just aren’t that important.</p>
+              <p>You know, like things that are something where the consequences are lower than maybe we’re a little bit used to.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And I think there’s, um, so much I’ve seen on the generative AI space around giving a prompt like, you know, paint me a living room with a green couch and just get this amazing image. Um, obviously there’s also been talk both with, um, GitHub’s co-generation tool and with some of this generative AI of what is it trained on.</p>
+              <p>what are the copyright implications? What are the IP implications? Um, for dgi, we obviously have a huge proponent of open source, both, um, strategically and because governments are, are going to own CommCare at the end of the day, and we want them to feel that. But with models, all this is kind of new territory.</p>
+              <p>Um, what, if anything, have you found interesting about like, just, I mean, it’s nacent obviously, but like what, what were you reading about, what were you thinking about from a model standpoint? Like how this IP might, might play out in the.</p>
+              <p><span class="spk">Clayton Sims:</span> That’s a, that’s a great question and this is definitely a super scary time. , if you are someone who’s like, livelihood, depends on those questions. You know, I mean, I think I had way fewer thoughts about this back when my exposure to it was largely the CodeDX based systems, you know, the um, GitHub style co-generation tools.</p>
+              <p>And just because that’s a domain, we’re an open source. I think we’ve always been very open. Like, we’re not particularly concerned about our, our code ip, honestly. And I think there are e there are open source contributors who want their code. But want a lot more control over it, right? They want like their three lines of contribution to an open source code base to be theirs in perpetuity, like that kind of thing.</p>
+              <p>And I, you know, I respect those, those attitudes, but I think it’s never been our kind of approach. So when you know, you see people saying like, oh, like is G P T ethical? Was it fine to trade it? I didn’t have super strong opinions. And then I saw these other generative tools doing bodies of text or bodies of like visual generation and like literally spinning out images that artists like, like the name of your artist is like in the description and it spits out something that like very clearly looks like they could have made.</p>
+              <p>And people are like, this is fine. And like that, that actually does not seem right to like, there’s clearly some IP concern here about treating fair use the way that we have. That has really made me take a a step back on some. And remember the kind of examples people have talked about with, um, the codex based systems of like spitting out code that like, obviously copy pastes from another code base that say no, it learned to spit that code back out even though it’s identical, right?</p>
+              <p>Like skirting those concerns I think is a really dangerous place that we have not landed on. And I’m really concerned now that we’ve got gone too far, right? That we’ve gotten so far ahead of making these tools, like generating these tools, putting them on the market that it’s going to be too hard now to go back and answer these in a hard way because, I’ve already done it, you know, and I think with, with possession being nine tenths of the law and the existence of something being nine tenths of copyright law in some ways here, I, I don’t know that we’re ever going to roll that dragon back, you know?</p>
+              <p>So I think what we may see is actually a shift away from publicly hosting anything, right? People’s code may stop being hosted on GitHub. People may be less open with their things because they don’t want them to be in these public data sets and in these public cycles. And that’s a really scary output from my side, right?</p>
+              <p>Like, I don’t. I don’t want AI tools to be the reason people stop being open about what they share and that to me feels like a real.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s a, that’s a fascinating example where if you have enough training data and enough history at the individual level, you’re not just saying output this code or output this text. In general, you’re saying output, you know, offline, mobile first code. as, as Clayton Sims would write it. Right. And, and you’re, you do have enough training data with some individuals that you can, you can really do that.</p>
+              <p>And that obviously sounds like something that shouldn’t be free or at least not consented by these individuals who are now capable of creating these models. On flipping to, um, a more positive lens, like just within our community, you know, here at the Global Digital Health Forum, what has been exciting from your perspective around like conversations you’ve had?</p>
+              <p>Um, tools you’ve come across are projects that, that are AI oriented.</p>
+              <p><span class="spk">Clayton Sims:</span> I think it’s just been great. AI has put a, a renewed focus on some of the fundamental value propositions of data science, which I think has been great. You know, putting a new interest back on, understanding just how to use data is always positive and how to, uh, get confidence in what we’re kind of producing and understanding how we measure it.</p>
+              <p>And so I think that focus has just been really helpful. And I was talking, uh, with some of the folks in pa. And one of the really interesting things that they’re doing is comparing their AI outputs performance to kind of a decision tree version of their algorithms performance to just a logistical regression version of their algorithm.</p>
+              <p>And I love that concept of saying like, we’re not just using AI to like presume AI is the right output. We’re using AI to quantify the difference between IT and other decision making methods, and then give you back like confidence about which one of which you can. As an add-on to it. And I think that isn’t something we, we were doing a lot of before ai.</p>
+              <p>Right? It’s really like spurred on interest again in how you calibrate, like what your goals are, like how you’re intending to use data systems. And so I think talking to people and seeing people be interested in that level of maturity from data scientists has been really, really cool to see. And I’m, I’m glad that even if you don’t choose the neural network version of it, cuz you want more interrogation from the algorithm, I’m still really happy that we’ve.</p>
+              <p>Seen that value proposition made it intentionally and gotten that back into people’s minds.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. Um, I want to close by by nerding out on a question that that just sparked in my. , you mentioned GPUs and TensorFlow and, and some of these technologies that are pretty specific to AI. Previously, obviously our industry spent a ton of effort and time supporting governments to host on-premise if they want to.</p>
+              <p>Making sure governments feel full ownership of this. Um, from my lens, like it’s kind of converging on big tech and they’re all creating proprietary silicone and, and different ways of, of doing this where it may not be fe. To pull some of these AI models on-prem, regardless of the environment or context.</p>
+              <p>Um, as we close, like what, what are you thinking about from that perspective? What should of listeners be thinking about with like, where AI’s going to be five years from now? Like, will it be possible to host these things on prem? Like how, how do we think about that from a infrastructure standpoint?</p>
+              <p><span class="spk">Clayton Sims:</span> No, I mean that, that is a great question and anyone who’s been in the AI community for the last three or four years has kind of, uh, seen the reality of how tricky it is for the industry to be so dependent on a very strange set of physical hardware that there’s a lot of competition for at both kind of the consumer level because they’re using these things for GPU computation, for AI, for like block blockchain processing and for like consumer video games.</p>
+              <p>That’s such a funny set of competing incentives in terms of pricing. But I, I think anyone would tell you that realistically getting enough physical hardware to do model training for a lot of these systems on-prem is, is a huge lift, right? Like you haven’t been able to get the, uh, v a m specs on GPUs to be able to do training.</p>
+              <p>Reliably for three years now, right? Like you can get them on the cloud. It’s very, very, very difficult to get the physical hardware in your hands, and that’s going to be a huge challenge for all these systems where we know there’s going to need to be inherent training in any adoption, right? Any biometric system for the next five years that’s based on the standard state of the art that’s going to be vision based or facial based.</p>
+              <p>Those need retraining. There’s none of those algorithms that are really today responsible to roll out in a context without training against the data sets that you know are in. So I think that understanding and coming to terms with how to share data in unlimited ways and how to share de identifiable data and putting those things into the cloud just for training.</p>
+              <p>Even if you can run the practical algorithm in practice once it’s trained on lower spec hardware, I think there is going to need to be some reckoning there where we really come to grips with how to make data private, de-identify data and start thinking about our engagement not as a binary cloud or non-cloud, but as a, when do we use the cloud and how do we use the cloud?</p>
+              <p>For those tasks so that we can then go back to the on-prem things for the actual private data.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Awesome. Lots, lots on this topic to come. Obviously we’ll have Platon on the podcast again to speak more in detail on this and other technical topics, but we really appreciate you coming by. Thank you. Yeah,</p>
+              <p><span class="spk">Clayton Sims:</span> so much.</p>
+              <p><span class="spk">Jonathan Jackson:</span> so much.</p>
+              <p>Thanks so much to Clayton for joining the podcast for a second time. And I’m sure he’ll be back again in the future. There is a lot of density in that conversation. So I’ll share a couple of my takeaways, but I also recommend if you’re interested, listen to it again. Cause you’ll hear new things each time.</p>
+              <p>First AI is here to stay and we really can’t back that train back into the station. AI will affect us whether or not we want it to positive, negative, neutral. We’ve made huge jumps forward in technology without a lot of awareness as to the unintended consequences. We will need to be mindful and vigilant at the ways AI is developing, allow it to be useful in a global health and development context.</p>
+              <p>Second while Clayton seems overall concerned about the rest of AI. He also highlighted some of the most useful areas for our work. Including language models to help us communicate globally. Image processing and biometrics as well as clear use cases in diagnostics, chatbots, threat detection, and more.</p>
+              <p>He also talked about how AI tools. We’ll help create more autonomy and expand the skill sets of an individual, which is pretty interesting. Third, one clear drawback I heard is that AI may cause people to not want to share their stuff because AI can use all of your material, your artwork, your code, et cetera.</p>
+              <p>And forth. And finally, I think overall Clayton is worried and rightfully so. Chat GPT, for example, was put out in the world without a lot of proper guardrails. And instead. They invited the community to step in and help test it. Will the use cases that support our work and global health and development fall within those guardrails. Once they decide what those guardrails are.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatdimagi.com with any ideas, comments, or feedback. The show is executive produced by myself. Danielle van wick is our producer. Brenna DeRoose is our editor and cover art is by Sudan. Shrikanth thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CS</div>
+            <div class="person-info">
+              <p class="person-name">Clayton Sims</p>
+              <p class="person-role">Chief Technology Officer, sharing how AI is reshaping global health and development and where it touches Dimagi&#x27;s work.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/0ZEGglK4jjbPPLGILIoonb" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 75: A Radical Bet on Simplicity and Affordability | High-Impact Growth | Dimagi</title>
+<meta name="description" content="After the 2025 USAID cuts, Dimagi MDs Gillian Javetski and Ismaila Diene on the 'diamonds' forged under pressure and a radical bet on simple, affordable tools.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-75-a-radical-bet-on-simplicity-and-affordability/">
+<meta property="og:title" content="Ep 75: A Radical Bet on Simplicity and Affordability">
+<meta property="og:description" content="Dimagi MDs Gillian Javetski and Ismaila Diene on building durable global health tools after the 2025 USAID cuts: simplicity and affordability as strategy, not compromise.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>October 10, 2025</span>
+          <span class="dot"></span>
+          <span>49 min</span>
+        </div>
+        <h1 class="ep-title">A Radical Bet on Simplicity and Affordability</h1>
+        <p class="ep-deck">After the 2025 USAID cuts, Dimagi Managing Directors Gillian Javetski and Isma&iuml;la Diene on the &lsquo;diamonds&rsquo; forged under pressure, and a radical bet on simple, affordable tools.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2yGrhGP6WXP1tuu8yy9Oqa?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 75 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2yGrhGP6WXP1tuu8yy9Oqa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000731033913" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://www.youtube.com/watch?v=4FCbk1yJHq0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/284a7406-fc19-4f41-8a82-b00b938f7272/high-impact-growth-a-radical-bet-on-simplicity-and-affordability" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In early 2025, massive funding cuts from USAID sent shockwaves through the global development sector, leaving many to wonder what would come next. The money was gone, but the problems remained. Dimagi Managing Directors Gillian Javetski and Isma&iuml;la Diene rejoin the podcast to talk honestly about the aftermath, and the unexpected diamonds that pressure can produce.</p>
+        <p>They make the case for radical simplicity and affordability as a design philosophy rather than a compromise, and share how that thinking is shaping the next generation of community health information systems (eCHIS), built to be big enough, simple enough, and cheap enough to last.</p>
+        <p>It is a frank look at building durable tools when budgets shrink and the stakes stay high.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>The aftermath of the 2025 USAID funding cuts</li>
+          <li>The &lsquo;diamonds&rsquo; created under financial pressure</li>
+          <li>Why simplicity and affordability are a strategy, not a sacrifice</li>
+          <li>The next generation of eCHIS</li>
+          <li>Designing tools that are big enough, simple enough, and cheap enough</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://ssir.org/articles/entry/big_enough_simple_enough_cheap_enough" target="_blank" rel="noopener">Big Enough. Simple Enough. Cheap Enough, by Kevin Starr (SSIR)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=4FCbk1yJHq0" target="_blank" rel="noopener">What's New in CommCare webinar</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Ismaila Diene: So we used to sell a really expensive car with all the features. now. Like they have to focus on the value. So maybe right now what you need is just like a four wheel that takes you to point A to a point B.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amy Vaccaro, senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson Dimagi, CEO, and co-founder. Today we ask what happens when the funding dries up, but the problems don’t go away. Before we dive in, I wanna acknowledge the devastating real world impact that recent funding cuts have had on health outcomes.</p>
+              <p>The conversation we’re having today is focused on our small part in closing the massive gap in access to services in this new reality, and the innovations born from necessity. Nine months after massive sector-wide funding cuts sent shockwaves through global development.</p>
+              <p>We’re checking in on the aftermath. Today. We’re rejoined by two of our managing directors at Dimagi, Gillian Gki, who leads our CommCare division, and Isla Deen, who runs our global solutions division. Last time they were on the podcast back in March, the mood was somber. We were reeling from the aid cuts.</p>
+              <p>Now we’re digging for the diamonds created from the pressure. Specifically, we’re digging into a new offering. MGI just launched as a direct response to this crisis, a national scale electronic community health information system for just $5,000 a month., We explore the radical bet that the future lies not in adding more features,</p>
+              <p>but in becoming simple enough and cheap enough to achieve scale. If you’re a leader in global health, a funder or technologist, grappling with this new reality, today’s conversation will give you a candid take on how demo’s adapting. Innovating under pressure, and redefining value when resources are scarce.</p>
+              <p>Amie Vaccaro: Welcome to the High-Impact Growth Podcast. So I’m really looking forward to our conversation today. I’m joined by Jonathan Jackson, as always. Hey John. Good to see you.</p>
+              <p>And we are rejoined today by two of our more popular past guests. So we have Isla Deen and Jillian Dsky both managing directors at Dimagi. and we are bringing you guys both back on the podcast after. pretty intense year. Were both on back in March, which was really shortly after the beginning of the unraveling of U-S-A-I-D and the entire sector was really reeling from those cuts. The mood was quite somber. but excited to have you both back on to check in on how things have gone since then. So welcome back</p>
+              <p>So I wanna start with you, Jillian. when we spoke back in March, you really hoped that eventually we could talk about the diamonds that were created from all the pressure of funding cuts. several months later, what does the new normal actually look like and feel like for you and for our partners?</p>
+              <p>so many people. Our industry and maybe even outside of it. Definitely outside of it feel this way, but it feels six months ago was 10 years ago. There’s just been so much that’s happened and so many different things. yeah, I think just like looking back from where we were and to where we are now and just trying to focus a little bit on the good things.</p>
+              <p>Gillian Javetski: I know for us personally, like on our team. We tried to take a lot of the frustration with a lot of cuts and the impact on global development and really channel that into our product. It reminds me a little bit of we did a similar thing when COVID happened, where it was like a rallying cry for the team to come together and say we know exactly what we have to build, we’re gonna go for it.</p>
+              <p>And this was similar, like we knew just from seeing the impact to our partners, it was very clear the things that we had to do. And so we knew we had to lower pricing. That was the first thing and something we talked about, I know on [00:04:00] the last podcast. It’s been great to see the impact with that.</p>
+              <p>Like we didn’t quite know what would happen when we did it, but we have seen a number of locally led organizations be able to afford Comcare for the first time, which is incredibly inspiring, especially in this year. And I, beyond that, we just knew we had to make the product. Be able to work for teams that were much smaller that had new folks who were being thrown into Comcare to take over a system that their previous colleagues ran.</p>
+              <p>So we had to focus on really making the platform a lot more usable. That has been a big one, making it easier and faster for teams to use and make sure that for data managers, for example, they’re spending less time doing like manual data editing. We did a lot of things around that. We added a, aI chatbot just to provide better support to folks.</p>
+              <p>And then also an EU cloud option too, just for a lot of our European organizations that we’re working with. It’s been, I wouldn’t have expected that a year like this with all these cuts that we were able to take something like this and really I think, use that pressure to turn into like just as much of [00:05:00] diamonds with our most prolific ear on the product.</p>
+              <p>And I know we just had a webinar, which is great, that goes through this and I think it really showed our team all things we’ve been able to do.</p>
+              <p>Amie Vaccaro: Yeah, I appreciate that. And we will include a link in the show notes to the webinar that kind of gets into just all of the incredible. The work that the Comcare product team did this year to really make the most of a rough year. I wanna turn to you Asmah, and one of the quotes you had from our last session that just really stuck with me was basically saying the problems are still here, the money’s gone, but the problems are still here. How have conversations with our partners, especially governments, changed since then and what are they asking for now?</p>
+              <p>Ismaila Diene: I always come up with quotes that I’m not sure I can back on all the time. But but yeah, I think the, obviously the problems are still here today. And in terms of the conversation we have with governments, I feel like we went through different cycles. The past nine months. I think when we had the last POD podcast in March we had a few governments [00:06:00] scrambling to. To find alternative funding. Yeah making sure that the work that was running was not stopped that we continue the implementation or different activities that were running, especially on the digital side could continue to be supported. So I think that was like the first two, three months. And then I think that there was actually the realization that there was no funding out there, especially because I feel like in terms of, post USA cuts, even other funders like went quiet for a while. So it created this kind of like big gap and governments, while they had hope at the beginning to come up with new funding, I quickly realized that it would be like a tough year anyway.</p>
+              <p>So I think there was like a, another six month where things were really quiet from that end a lot of the discussion we, we had in March, or a good decision we’re continuing to have now. And I think more recently with as well some of the funding cuts coming to un land, like there was also another runoff scrambling. We literally had today a government sending us an email and saying, Hey we have a campaign next week. We know the subscription is over, but we were able to find some some last minute funding. Can you just reactivate Comcare so we can run it, et cetera, et cetera. So I think. That, that was the phasing. And I think from our point of view, our discussion because we were not just passive and waiting for governments to bring these discussions to us. It was about, our role was to think about what is what are we, offering? What are we putting out there for the governments to be able to to sustain some of these programs? And I think with the. The new offering we are putting on the table, especially for community health workers in our Ichi system, yeah, so just the, that new ECHS offering I think is our response. And right now we are, we’re seeing there are at least some positive response from from governments. Understanding that this can be a game changer for them to be able to to stay, sustain this problem.</p>
+              <p>so yeah, I think it’s a, it’s been a rollercoaster. I think we’re in a standing phase now with a lot of positive discussions. And we hope that [00:08:00] continues into 2026 into more, more positive.</p>
+              <p>Amie Vaccaro: I definitely wanna get into the E-C-H-I-S offering, which stands for Electronic Community Health Information Systems. But even before we get there I do wanna ask a little bit around, Creative partnership models. Ismail, are you seeing new or more creative partnership models emerging to fill some of these funding gaps?</p>
+              <p>Or what are you seeing from government partners?</p>
+              <p>Ismaila Diene: I am hearing a lot. I’m not seeing a lot to be fully transparent. I think obviously like people, has been like a devastating ev event in our sector. So nine months in in the lifetime of a government or in the cycles of a government, it is not enough time to see the changes and the new partnerships and the new angles. That we’d want to see w with something like this happen if you just think about it like a government budget is annual like we’re not even into the new budgets for most of these governments. So it’s natural that like some of these partnership are not formed and I’m not sure they’re gonna be forming the, in the short term.</p>
+              <p>So I think at least now we were, we’re not seeing that, but I think people are trying to think about simplification and that’s a term that. That is coming back a lot generally on, on the market, how it’s transcribed. In reality, that’s something else. But simplification is something that’s coming.</p>
+              <p>More and more. Local ownership has been a discussion we’ve been having for forever now. But it’s also coming often. So more than new partnerships and new way of funding, it’s about, okay, how do we make the total cost of ownership of these things cheaper? so that the governments or the local actors can owe them and can run with them.</p>
+              <p>So that ties a lot with what Gina was mentioning just before, like really trying to make sure that smaller teams can run these systems. And I think that’s where as well some of the discussion in the market have been. But in terms of like purely new partnerships I have a ways of [00:10:00] partnering, a new innovative way of partnering.</p>
+              <p>I haven’t seen. At least something like that, that, that was like amazingly clear coming from the market.</p>
+              <p><span class="spk">Jonathan:</span> And to build on that we just had the UN General Assembly in New York a couple weeks before this recording. there’s a significant amount of talking, Amy, about new partnership models, new kind of global development. Global health architecture was a word used a lot. So I do expect to see those coming out in 2026, as is Myla mentioned.</p>
+              <p>But these are gonna take time. The, there’s a. is a massive undertaking. The amount of disruption that happened is just, unparalleled and devastating. but the silver lining to your quote from Jillian, earlier of what’s gonna merge under all this pressure, just gonna be, have to be new ways of working.</p>
+              <p>’cause it’ll be out of necessity that, that we will see these things. But is Milo said it’s gonna happen when you. Literally have to write your budget down and figure out who your partners are gonna be and what subcontracts you’re doing. we’ll start to see that towards the end of this year heading into 2026, because it just literally must happen in [00:11:00] some way.</p>
+              <p>Amie Vaccaro: Jillian, one thing I wanted to ask you about is digital public. It goods. which for folks in the audience, I think most of, you’re probably familiar with that term, but these are open source data tech products that are used across many countries and have long been seen as a really key element of digital health programming and advancement. Jillian, since the start of the year, what has been the impact to digital public goods? Comcare being one of them.</p>
+              <p>Gillian Javetski: Yeah I think similar to what John and Smile are saying, like there are still things that we are waiting for to see. There’s been lots of discussion from I know the Digital Public Good Alliance has done. A really great job of convening different tech together to look at different like hybrid business models and exploring different ways.</p>
+              <p>And I know that a lot of that conversation’s still happening from other organizations too, that are helping facilitate it. I think that’s going on and at the same time, there’s a little bit of, I think a silent [00:12:00] shift that I’m seeing at least, which is that. There are just immediate decisions that these organizations need to make.</p>
+              <p>And I think this goes back to John Asla, what you were saying about like, when you have a budget in front of you, that’s when you’re gonna make a decision. And so for some of these, like they’re looking at how they’re gonna maintain their teams over the next year. I think what we are seeing is before maybe a lot of lumping together as digital public goods in one bucket, and there’s a bit of a divergence between.</p>
+              <p>Organizations like ours where we have a software as a service model and are leaning more heavily into that and focusing on simplicity, just like you said as byla, like I think similar thing, like we’re doubling down on that. I’m very excited to see a few more doing that as well. Like open FN has really they’re one of our really close partners.</p>
+              <p>They’re n another digital public good. And they’ve also embraced their SaaS model too. So we’re seeing a little bit of that. On the other side, I think there’s also. An unfortunate thing too with other digital public goods that are struggling to maintain profitability really as an organization to run these.</p>
+              <p><span class="spk">Jonathan:</span> I think, we’ve had a lot of discussions on. With DBG providers, with the consortium globally, we’ve been saying for a while like it’s quite hard to support the number of digital public goods that are out there with viable business models.</p>
+              <p>And I think what we’re seeing now is a lot of having to switch to more of a community-led model, which I think it’s unclear whether that community. Has the resources to really drive continued future RD one of the criticisms Dimagi has had rightfully is that number of contributors to Comcare over the years have almost exclusively been inside of Dimagi. that was a purposeful choice in that we wanted to build the ecosystem at the implementer level on top of the software layer, and we wanted to build a viable business model to fund the development of Comcare. And that’s the business you’re running, which is our SaaS business that brings in that money. And we’re incredibly fortunate that you as Myla and Dimagi have built that SaaS business that can now fund the [00:14:00] RD engine for Comcare indefinitely. But we are seeing the consequences now of the models that were heavily grant funded, heavily donor funded, not necessarily having a clear path to ongoing sustainability, even though the code they’ve written to date is great. Now there’s this big uncertainty. gonna happen to that.</p>
+              <p>code base going forward?</p>
+              <p>Gillian Javetski: I will say, I think before all this happened, there was a little bit of a we’re together. We’re all digital public goods, right? We’re all the same.</p>
+              <p>And I think there’s something that this has shown, which is just we’re just not Contributing to an open source code base for features is one thing. Making sure those tools continue to run is a totally different thing. And that has nothing to do with open source development.</p>
+              <p>And that is the biggest challenge that I’m anticipating we’re going to see in 2026. With a lot of these tools and roller racing it at the national level, like some of these tools are going down for several weeks at a time. And what does that mean? Especially when we don’t have this global development funding that’s there.</p>
+              <p><span class="spk">Jonathan:</span> And as Myla mentioned, our new Comcare. CHIS offering. And, we’re incredibly excited. It’s already been publicized, but we’re now offering Comcare for national scale CHW programs at $60,000 a year, or $5,000 a month. And we think this is an unbelievably good value on 10 years of CHW programs. We’ve been doing 15 years of developing Comcare and something that we’ve gotten really positive response as Myla mentioned now. Whether we can ultimately convince governments that the trade off of, running an a SaaS environment hosted in the EU or elsewhere that’s secure. So two compliant and all these things is worth it to time is ultimately gonna be up to the country. But we think if they want to go forward with digitizing their ch HW workforce, there’s simply not gonna be a better option buying Comcare for 60 KA year.</p>
+              <p>And that, that’s our hope and that’s what we’re pushing to. But as you mentioned when we first brought this up, you were like. You want me to run a national scale program for 60 KA year and I’m,</p>
+              <p>like, about what an amazing problem that would be to have, right? It was like the problem we had as government wants it, believes in the value.</p>
+              <p>There’s too many active users. ’cause everybody loves it. [00:16:00] a great problem to give an engineer like I’d like nothing better than to go solve that problem opposed to the problem we’ve been solving historically and many other DPG providers the next feature set to do the next shiny thing with the product. Instead of just making what already works today, work even better tomorrow. Be even cheaper tomorrow. Be even simpler tomorrow. And that’s the big shift that we’ve had with this moment that we hope is one of these diamonds that comes out of all this pressure is incredibly high value offering that Amy, we can link to, to the conversation we just had with Kevin at Malago, is good enough, is cheap enough and is simple enough governments to really. Get the value in these national scale programs. But the only reason we’re in this position to do it is, the significant amount of DPG funding we’ve gotten over the years that built all of the platform, business model innovation that you led, Jillian making SAS runable and maintainable and scalable at this price point and the amazing work our services team has done over as Myla bringing together 10 years of learning. Into [00:17:00] what we think is a relatively common offering now that. can get 80% of the way there right out of the box and get that last 20% configured really quickly. we do have to make trade-offs and I think this moment in time, this new that we find ourselves in, I think. governments, asking ourselves to be more honest about the trade-offs is hopefully viable in a way that I think last year or the year before, like we, we frankly couldn’t really force people to make trade offs.</p>
+              <p>We would have to promise everything, charge a lot for it, and then we’d hope that, that collectively, with a lot of effort and a lot of new feature development would get to where we needed to be. now I think we’re saying, look we’ll be 90% cheaper than we were. We’re offering the value that already exists today, and we’re not offering committing to more value tomorrow, although we absolutely think we’ll deliver on that, either think it’s worth what we’re doing today for 60 K, or you don’t. And that’s what we wanna be able to offer to governments in a very clear way have them either say, yep I agree that sounds great for 60 k, or no, we either don’t want Comcare or we just don’t wanna do this project as a priority. we’re really excited to see, what the market response is gonna be to this.</p>
+              <p>Gillian Javetski: John couldn’t agree more. And I think there’s something I’m hearing, which is like, Amy, going back to your original question, like what are those diamonds? The things I’m hearing are like simplicity and trade-offs, which I think means focus, right? And that is the thing I think we’re trying to get more clear on is like there are a lot of issues before with our industry.</p>
+              <p>Like anyone who works with global development knows that, right? But if there’s something that we can do from this and emerge from this where we are more focused and clear that’s something we wanna move into. And. Even with this ECHS offering it’s something we need to do quickly, right?</p>
+              <p>That’s the other thing here, right? Which is we do not have a lot of time to do this, which is partly why when this first came up, I was like, oh man, 60 K, right? Like these programs like used to run for a million dollars and work, you had like custom builds and everything, but we just have to go for it because otherwise we’re gonna miss a moment.</p>
+              <p>Amie Vaccaro: I wanna dig in further on the strategy, but even before that, I think it’s helpful for the audience to just give a little bit more just context on what is this E-C-H-I-S offering? What we’re saying, $5,000 a month for national scale community health worker programs. What does this product do?</p>
+              <p>Gillian Javetski: I’m happy to start with like how we’re envisioning it from a SaaS offering. That is why I’d love just to hear from you too on how, conversations have been and what like you think the transition would look like. But just to say, so there are several countries who use Comcare as their national tool for their electronic community health information system.</p>
+              <p>A lot of those systems have like custom development on them. They’ve been the product of years and years of, work in hours, thousands, millions of hours. I don’t even know from our teams that have built these. Our goal with this offering is to take those and adapt them to be a productized real SaaS offering.</p>
+              <p>And so what that means is that we are moving a lot of that custom development into our core platforms so that not only those programs can benefit, but all users can benefit. That’s a big component of it. And then the other component is that we are offering this at $5,000 a month for all governments up to 15,000 users, which is I don’t even wanna do the math of how much money like that is, like less than our normal projects.</p>
+              <p>But I think just like John was saying this is something that we just know we have to do in this moment.</p>
+              <p><span class="spk">Jonathan:</span> to build on that, Jillian, like historically, the big challenge we have on these national scale projects is building new features fast enough to keep up with the government’s expectations and demands. And a lot of those features may not have been necessary, may not even get used that much, but again, we were in an environment where you just couldn’t say no. Now, the problem we want to have is, can we make those cheap enough, fast enough? Like we have just loads of evidence, randomized control trials, demand from governments that show the value of Comcare. Myla and his team put together a what we call a content solution internally, but like a best practices toolkit to accelerate application building that we deployed with Senegal less than 90 days for what could be scaled nationally now.</p>
+              <p>And we’ve worked with other countries because we’ve been doing this for 10 years, seen it so many times. We now know what the best [00:21:00] practices application looks like for kind of a standard community health worker. There is no standard community health worker. All of them were doing, household based maternal, child health, infectious disease, and a lot of other components that now we’ve made it turnkey to turn on. the reason I’m so excited about where we’re headed is we’re taking that 10 years of learning and all of this work we’ve done scaling Comcare and making it super performant and available and secure, and really combining these two things, which frankly, in the past had felt different internally at the Magi. We had this my list team that worked on project based funding cycles, working with U-S-A-I-D, with the multilaterals, doing these big huge seven figure builds. And then we had Jillian’s team selling four figure deals, to enterprises who were doing all the app development themselves. And now we think we have this beautiful solution that’s in the middle of those two things, bringing together all of this expertise that we gained from years in the field and everything we know about how to run products. And trying to then combine that to offer governments this amazing deal. But we have a lot of uncertainty how as to whether government’s gonna say yes. And so it’s a very different relationship. We’re not trying to support governments and saying, look, shouldn’t be spending seven figures on your ECHS anymore.</p>
+              <p>You should be spending 60 KA year, and you should be compromising on what you’re gonna get out of it so that you have a much value price point. Because yes, you could invest and get more of what you want, but maybe that’s not the best use of our limited resources anymore. The best use is getting what you can for 60 K and then spending that money elsewhere, whether that’s on other software, on commodities, on healthcare worker salaries, in many of these other areas. and so it’s really, it’s a, it is a totally different problem space and totally different relationship we’re trying to form with our government partners now. And to sell our E-C-H-I-S systems and SMILE would, fly all, all around the world talking about our partners. used to sell this to funders.</p>
+              <p>We’re now only interested. In selling this directly to governments, you think it’s worth 60 KA year?</p>
+              <p>Ismaila Diene: Yeah. And the analogy I’ve been using with this is like the car analogy. So we used to sell a really expensive car with all the features. So you had the automatic gears, you you had the ac you had the, like a tactical screen. Massages, et cetera, et cetera. And because the money was there, we could afford do that. And government, like they would ask because Hey, we can get money from this funder or this funder. We could add now. Like they have to focus on the value. And I think for me, that’s gonna be the biggest shift.</p>
+              <p>That has been the biggest shift for team internally to say, okay, what are we selling? It is the key, the core value. So maybe right now what you need is just like a four wheel that takes you to point A to a point B. If I’m in Senegal, I might add the ac, but that’s the only thing I’m gonna add because it’s really hot here.</p>
+              <p>So does the government want the AC and the car that can take them to point A to 0.8 because that’s what we can offer at 60 K? Or do they want to add all these other things? And if it’s the case, unfortunately the Maggi is not able to offer that. With the condition of the market. So I think for me, that’s gonna be the biggest shift as well.</p>
+              <p>It’s not just about cheaper or whatever it is, like settling on what is the core value that they want. And we believe Comcare offers that today way more than that actually. We offer more than the ac, CN and a few other things. So I think that’s why we believe this offer is so competing. And I think one point will come up as well from all this point, and that has been one of the. Point government have been anchoring on with local hosting. It’s hey, we want the data to be stored in the country, et cetera. We are also offering a feature where you can basically duplicate the data on a local database to be that box and say, Hey we are able to get the a plus solution with as well our data stored in a local database.</p>
+              <p>So I think for us. It’s really end-to-end. We believe we have the best solution at the really cheapest price on the market. And I, I am excited to, to really talk to to this with government and seeing their response about this. Now, there are many challenges ahead because we know we talked about it earlier, right? So the cycles of funding of government, like their annual contracting with the government takes a lot of time. the, all of that is still challenges in front of us, but I think we’re at the point where we are excited about this and we believe government are.</p>
+              <p><span class="spk">Jonathan:</span> I’ll add onto that perspective beyond just the scope of Dimagi. and Jill and I have talked about this a ton in the context of those DPG discussions. Like I really think this is where every digital public, good provider needs to be thinking is, there’s not gonna be a lot of money for new feature development anywhere in our industry with a foreseeable future. It’s all about can we bring the cost down? So many public goods, Comcare included and I’d argue, among the best, provide a lot of value already. The goal I don’t think is add even more features able to claim, to provide even more capabilities. It’s take what you have and can you get the price so compelling it can be used as is. [00:26:00] And that’s the inverse of the game. Everybody’s been playing for the last</p>
+              <p>Decade with public goods, it was always about selling the next big thing you could do if you got the next big check and now it’s gotta be, can you get the price point low enough with what you can already deliver right now? And I think this right now piece has also been top of mind. I’ve talked about the.</p>
+              <p>our leadership team at Dimagi and the whole company a lot about this. Unless you can really deliver it tomorrow, you can’t get a real answer today because if we’re talking about delivering 3, 6, 12 months from now. It’s wildly open to interpretation. Anybody can hang whatever they want in those expectations.</p>
+              <p>It’s gotta be, this is what I can offer you at this price point. And if you say yes, you have it tomorrow. And I think our industry will benefit a lot from that being more of the discussion that’s happening with all of our digital public goods.</p>
+              <p>Amie Vaccaro: It feels like two of the most important pieces of all of this is the simple enough and cheap enough, and I’m curious. I’d love to hear, actually, both from a smile and Jillian a bit on this, with us Myla, from the perspective of our government partners. I guess can you share a little bit of what how are they seeing simple enough in practice?</p>
+              <p>Is that something there’s an openness to? How have those like early conversations gone sharing this?</p>
+              <p>Ismaila Diene: Yeah, that, that’s a really good question and I think, can try to break that down in several pieces. So if you go back in the old world you hire D Magee for, let’s call it a million dollar, and we come in from day one, we actually put together your requirements. We build the application we help you deploy it.</p>
+              <p>So we train your trainers. We go in the field, we support you. Then we offer you a period of like support where like any issues that comes in we take it on, we can fix it and deploy a new version, et cetera, et cetera. So that’s a really heavy effort. And. The, even the second phase after building that, which is obviously the biggest effort the run and maintain is still like a heavy effort.</p>
+              <p>Like it’s three, four people in my team that, that can go train people, but as well answer to question, et cetera, et cetera. And we never got to a point where. Governments like either developed the internal capacity or or had the means to really take over that from our team. when we’re talking about simplification and cheaper, those two things are linked. It’s not just about obviously the feature set being simpler to build or whatever because that we believe where we get to that point. But it’s as well, like the maintenance. And once the government takes it. Can you run Comcare with one to two people instead of 10? a simplifi oversimplification. But that’s the idea of this. So it’s about as well, like making sure that we we find a way to, to not just say, Hey, you paying it cheaper, but if you’re paying it cheaper, but you still have to pay 10 people. To maintain it. That doesn’t make any sense. It’s not cheaper for you at the end of the day. So the simplification is as well about that, those processes and how we transfer the capacity and what they have to do to make sure that the system is still running and be maintained. And one, by using SaaS at this cheaper price.</p>
+              <p>We think we lowers that down. But the second thing is our team of solution is not gonna operate in the same way. We will operate like maybe at your onboarding or maybe. need some capacity building of your team, but we won’t be a team that will hold your hand to to push you. So part of the the simplification of the tool and the features integrating them in the core tech is about that.</p>
+              <p>And not having engineers always needing to be present to to to support the government. So yeah. So I think that’s. those two things are linked, simplification and and lower price. And that’s the only way we are able to get like a government to, to run to run the these programs. We believe there are other things we’ll be able to do in the future, especially if you look at of the total, if you look at the total cost of ownership of these programs a lot of the effort goes into the training into the deployment and into the support at the end. And I think now today with tools that are not within Comcare, but you can use in Concor with Comcare chatbots and other things, like you can find way to as well, reduce. The complexity of how to run a system like homecare. I’ll give a simple example just to finish. If you scale in average average number of CHWs, let’s say in the countries we’re supporting is 25,000.</p>
+              <p>If you go at full scale if you just do the math, 25,000 users using everyday system, if even like of them have an issue on a monthly basis, you can. You can see how many issues you have to fix. So if a government is not able to have a system and a process and a framework to support those, let’s call them two 50 or 2,500 or whatever it is, issues that’s creating like more challenges down the line.</p>
+              <p>So the simplification is not just about the tech, but it’s as well the whole process of running these systems.</p>
+              <p>Gillian Javetski: I think that’s a [00:31:00] great point. Asla, like that’s exactly it. Which is like when we say simplification, sure. The features may be different, right? But when we think about the foundation that it’s built on, like that’s really where the value is, right? Is like you are not going to find another global good out there.</p>
+              <p>And feel free to quote me everyone listening to this, where there’s an SLA for uptime, right? We can guarantee like the system’s gonna be on and running, that you have a support, SLA where you can reach out to an organization that will answer your questions and go through this, right?</p>
+              <p>That’s something that governments will get now. There’s just, I think those are all like the foundations of running a platform that we wanna make sure are also a part of that, and that’s always existed for Comcare, but we wanna make sure that’s something that like continues to run for these governments too.</p>
+              <p>Amie Vaccaro: This is really helpful and I think what I’m hearing is just like how big of a shift in how we work. This is requiring to be able to meet this moment and deliver this E-C-H-I-S. That’s simple enough and cheap enough, but [00:32:00] really it’s changing how our team shows up as well. and.</p>
+              <p>Ismaila Diene: and quickly</p>
+              <p>Amie Vaccaro: Yeah.</p>
+              <p>Ismaila Diene: you an a concrete example of like how. That could work. It is not on the E-C-H-E-C-H-S con context, but on what we call like public health campaign context. On our side we have a. we are working with government to deploy these like heavy campaigns, like a master drug administration or or polio campaign or whatever. And these campaigns, they happen over a course of two weeks, three weeks, sometimes one week. And they are like heavy operations. So you have sometimes 10,000 users if you go to Nigeria, 25,000 users or whatever, like trains. like using the system for two weeks. And, in, in simplifying really the operations, what we’ve done before was like, Hey, you had these WhatsApp groups, like you created these systems.</p>
+              <p>That was like, Hey, every time like there was like an issue, it came directly to someone at Dimagi someone at the government is super complex. So one of our team members were like, Hey, there are chatbots out there. 90% of these issues, they can be answered really quickly. So let me set up a chatbot. That all queries of the us the users will go through and the chatbot will triage what it can answer and what has to be escalated. And just by doing that, and by setting up like a sup a support framework with the government, and some people in the field are level one, some government people I live to at level three, we’re able to like, get like these. Thousand issues to like just a dozen that comes to the Maggi Durang campaign. And that shows you like what, like process and as well, like simplifying, but like technology the right way. Can help something like this. So I think like the, there is the core part that Jillian is running with the tech and making sure that it’s cheaper and simpler and there is as well everything that we’re doing externally with the government that needs as well to be simplified and optimized.</p>
+              <p>Amie Vaccaro: yeah, this is the quote of necessity is the mother of invention is coming to me right here. Where it’s like we’re being forced to innovate in these ways and to rethink some of these things to make, really streamline efforts. I do wanna also hear from you, Jillian, a little bit.</p>
+              <p>You mentioned really. Continuing to invest in this platform, being able to really stand by our uptime service level agreements, our support service level agreement. I’m curious to hear a little bit more of what is it like actually embedding all of this incredible functionality that’s been available for these massive government scale country national scale programs into the core Comcare product, which. Really hasn’t been done before. But that’s required for this to happen, right? To make Comcare simpler and more accessible. So I’d love to just Yeah. Dig in a little bit from your side of like how is that going and what’s required there.</p>
+              <p>Gillian Javetski: I think a lot of people have a lot to look forward to next year if you’re using Comcare, and if not, you should sign up. You’re about to get some fancy things in the system. So yeah it’s interesting for like our government partners, right? They may see that like the system is simplified a little bit for our Comcare users that are these governments, right?</p>
+              <p>They’re going to be getting some really cool features. I think that’s going to be the main focus of next year for us. And again, this is something that we just, we have to do in this moment. Like we have to take, years and years of custom development that we’ve done in Comcare for these national scale programs that Ismail’s team has expertly led for a decade like Isman.</p>
+              <p>Really just thinking of working at faa, like you personally were on that project, and started the system like more than 10 years ago, right? We have to take all that from all these systems and bring it into our core platform. So it’s a massive undertaking, but it’s also something that our team, when we made this decision is really excited about because it really does.</p>
+              <p>Represent for the first time one platform that we have for Comcare that we’re excited by, we’re standing behind. We’ll be, I think in a lot of ways more focused on service delivery, which is great. That’s something we also want to ensure Comcare is continued to be prioritized around. And yeah, I think there’s a lot of like good things to come.</p>
+              <p><span class="spk">Jonathan:</span> To, just to give a concrete example of what we mean, Jolene. ’cause that’s a great articulation. In that project you mentioned in Burino that we started over five years ago, amazing partnership with the government. One of the things we wanted to do was display a growth chart for child over time as they came back to the clinic multiple times in a row that required building the ability to view a mobile graph. On Comcare, no big deal. So we implemented that, making that feature like robust so that you can’t break it and anybody can use it and it can display not just four data points, but a hundred requires all this additional work that sometimes our team couldn’t get to because we built it, it worked for Pina, and then we needed to go on to the next feature for the next government. it’s taking all of those things that we’ve built over the years, they’re incredibly powerful. Were great feature requests. But maybe we’re only available to Burkina ’cause it was built specifically for them or only available to Ethiopia. and now those will be available for everyone.</p>
+              <p>But it’s a significant amount of work to switch our mindset into saying, look. What we have with Comcare is more than enough value. It’s more than enough for the users. It satisfies 80 to 90% of what you need. We need to focus on just making this robust and bulletproof and scalable instead of continuing to hang the next feature. So it is a huge shift for us. From a wine side, just all across Dimagi from ISO’s team, Jillian’s team Amy on product marketing. How I’m thinking about talking to our partners. And it’s exciting ’cause I it’s fun to be able to stand behind our products and services and be like, we know this is. Amazing value. If you don’t want this value, we feel really good about just saying we’re not the right partner anymore, opposed to kinda like always getting into this, oh yeah, we gotta build these two extra features for you type of discussion. So it’s exciting to be embarking on this.</p>
+              <p>Gillian Javetski: One group that I think is also going to really love this is in addition to all of our users, right? Who will have access to all these things. I’m really excited when we get to announce for the first time that like we have, I think about 26 organizations in countries that are certified Comcare providers.</p>
+              <p>So they’ve gone through lots of. Tests and have to prove to us that they’ve deployed Comcare projects in a great way that meets our standards. And for the first time, those organizations will have access to all the features that like our team has too. And so it’s not just for users, but it’s also an amazing opportunity for organizations in countries that still want more in-person support from organizations that are in their community can help them with too.</p>
+              <p><span class="spk">Jonathan:</span> That’s such a great point, Julian, and it’s not unique to Comcare or Dimagi, but. Lots of people buy very robust, very mature enterprise software like Comcare, whether that’s a Salesforce or HubSpot or some of these big products, you’re like, cool, how do I unlock that vision that you sold me on?</p>
+              <p>And you’re like, oh, cool. Just have a center of excellence with 15 people. go talk to every leader and have a harmonized data model and shared enterprise backlog and you’re like, I’m sorry what do what are we talking about with 15 people here? So it’s it’s exactly what you said, Jillian, of we are so excited to unlock all this power and be like to is minus this point.</p>
+              <p>It’s half an FTE for three months, not five FTEs for three years. In terms of what it takes to deliver scale and maintain these things. And again, we gotta deliver. This is still a non-trivial execution effort on our part. We’ve gotta be right that we can deliver this as affordably as we think we can. But it’s that I think a ton of software, not just us, has to grapple with in today’s how do you bring that total cost of ownership, not just down, but like comically down, from where it used to be last year.</p>
+              <p>Amie Vaccaro: Yeah, this is, it’s definitely a really major undertaking and something we’ve talked about a lot on this podcast is like the product model, right? And this is one way that we’re really as Dimagi embracing what does the product model look like in global health and development, which is really hard.</p>
+              <p>I will say, I’m very encouraged by just the incredible progress and I think one thing. Just reflecting on what I’m seeing from the teams, like there’s a huge team right now working on this effort, right? To bring all of this incredible customization that’s been built in Comcare over the years for specific [00:40:00] projects and bringing that into the mainline code base.</p>
+              <p>It’s a huge effort. Yeah, I just wanna give a shout out to the team involved in that and also to the three of you on this call as well, because I think. It takes a lot to get a team rallied around a goal. And I think you’ve done a really beautiful job of rallying the troops on this goal, right?</p>
+              <p>Amidst this chaos, like creating this rallying cry of this is our chance to, in the project internally is called GA or bust. So general available or bust for all the features. And yeah, so very exciting and I’m sure that. love to do a follow-up conversation in six months to hear how this is playing out, because I also feel like there’s a little bit of an energy here where we’re saying take it or leave it.</p>
+              <p>We’re gonna see, we’re gonna see what happens. We’re gonna learn a lot I think in the next months and we’re very helpful that there’s, the appetite that we think is there. Yeah, we’re at this place where we’ve got this team mobilized working on this effort, but I am curious to hear, starting with you John, a bit about what was the journey to get [00:41:00] to this place where we have this clarity, like it, I feel the clarity in the room of yes, we’ve got this offering, it’s five KA month. Take it or leave it. We feel really proud of this. But what did it look like to get to that decision?</p>
+              <p><span class="spk">Jonathan:</span> It is a great question, Amy, and it’s I’d love to hear the smile and Jillian’s version of their tra journey. For us when this happened, we first recorded the episode together back in March. Like we all knew this was gonna be devastating for the. The global development industry and that CHWs were probably gonna really struggle this year next to be prioritized. also felt like we’re about to learn, And I think I quoted this on a different podcast, but we’re about to learn if anybody really wanted Comcare. ’cause they’re just gonna turn it off if they didn’t. Still to date, no government has turned it off. That was using Comcare at that point. And so we thought, okay, we know we gotta simplify this.</p>
+              <p>We know we gotta get it cheaper. And so as Mylas team, Jillian’s team went back and said, okay, we need a couple million dollars of RDA couple million dollars to really get over the hump and then we can offer it for $200,000 a year. And we got really positive response from funders.</p>
+              <p>Although everybody right now seems to be just supporting their current portfolio, it’s really hard to engage funders in, new investments right now, though. I do expect that’ll change going forward. But we said even if we got that several million dollars. $200,000 just still feels like too much money.</p>
+              <p>As Myla and I would be sinking one-on-one, we’d be like, if we pull off the core funding, is this really viable? And it was the day before we got together as a management team a couple months ago that I was sitting in my office and I’m just like, it’s about price. We just know in our, like those conversations were all telling us, we just know this is still too expensive. We knew the value was there. Deeply believe the value of Comcare is there. And again, it’s proven through evidence, but I was just like 2K. That’s a lot. That there’s a lot of money you’d be paying every year for anything right now. so that’s where we said, I slacked Joey, right? Said what do you think about 5K?</p>
+              <p>Like the day before we’re heading into to management planning? And she was like, I love it. Let’s do it. Again, if we fail to deliver on that price point. [00:43:00] fail at that, if we’re gonna fail at something. And so that got me really excited. And then I shot an email off to a good friend of mine who runs a foundation.</p>
+              <p>I was like, Hey, are you interested in potentially supporting this? And she loved the idea and so we now have one funder on board to help support this journey. So it’s really exciting. But for us, I think at that 200 k price point, we knew we were only half in. We’re like, this is still a little bit too expensive.</p>
+              <p>Like you can see somebody really being passionate about digitizing their CHWs being like, you know what? 200 K is too much. Whereas we just think, and again, we have to prove it out. We have to get feedback. But at 60 K, we’re just like, this is a no brainer, like this is. is something that hopefully comes in below your existing training costs on an annual basis. That’s how we’re thinking about it. so yeah, it was, but it was hard. There was a multi-month period Jason Morris, who’s been on previous podcasts with us, Amy, we reaching out to him being like really feeling the struggle of, are we in this [00:44:00] moment, doing everything we can to support community health workers, to support our government partners. And until we kinda landed on this, it didn’t feel like it. And now we are, extremely proud that we do think we’re just amazing value and taking this awesome shot at something that can really be transformative in the next couple years.</p>
+              <p>Ismaila Diene: one of my other legendary records inspired him. I think I said like, if CHWs are doing this for free we should do better. So some, something around that way. But I think that was the, for me personally, that was the motivation of trying anything and failing potentially because we might still fail at succeeding in this, but at least like trying to, to, to really offer something that, that we believe is the right price. And the right value. Because CHW really deserve this they, they are amazing people doing amazing work and critical for a lot of these countries. Yeah.</p>
+              <p>Amie Vaccaro: Yeah. Thank you so much. quick lightning round on my final question, which is for folks listening to this episode, [00:45:00] the single most important takeaway in terms of how we as an industry should be adapting to this new market?</p>
+              <p><span class="spk">Jonathan:</span> Our experience, and I think what other people should be doing, like the next couple years, it’s gonna be about price. It’s about price is about simplicity.</p>
+              <p>And so I think that’s the big takeaway that we believe is gonna happen in the marketplace and that I, think other digital providers and governments should be thinking and talking about when, Amy, your opening question about are we seeing those new partnerships? I think a lot of it’s gotta be based on a more simple structure and a more valuable structure going forward.</p>
+              <p>Ismaila Diene: I was about to say, the other part, the other side of it is like focus on the real value, not just the value. Because I think value is sometimes like a a word that is overused and misused but really focus on the real value that these systems can bring. We. don’t wanna say we play that game.</p>
+              <p>I think we were focusing on the value, but we were focusing on other things. So we probably didn’t bring all our energy on the right thing during this time, even if we had a, an amazing product. But I [00:46:00] think the context before forced you to look at other things rather than focus on the core value that these systems are bringing.</p>
+              <p>And then I think just by flipping down, it obviously like. the price down and other stuff like Will, will really go a long way in the industry.</p>
+              <p>Gillian Javetski: in the next few years, I expect that we’re going to see a lot more clarity in terms of what these systems are. And not all these systems are the same. I think it’s been a model we’ve been operating in a lot for the last few years, maybe since really the inception of like global development and technology at the community health level especially.</p>
+              <p>And these are just not the same systems and I. I’m excited about that. I’m excited about us finally being honest and saying these are different things, ​</p>
+              <p>Amie Vaccaro: Awesome.</p>
+              <p>Thank you so much to our guests, Jillian Ky and Asla Dian for such a transparent look into navigating this challenging year. And as always, thanks to each of you for listening. This conversation held incredible insights around adapting under pressure. Here are a couple of [00:47:00] my takeaways. First, in a resource scarce environment.</p>
+              <p>The game is no longer about adding features, but about radically lowering the price. The challenge for digital public goods has shifted from selling the next big thing to making the existing proven value so affordable that it’s a no-brainer. It’s about focusing on the core real value a system can bring.</p>
+              <p>Second, this new reality demands and embrace of simplicity and honest trade-offs. To make solutions sustainable, we must move away from the million dollar custom build. And towards a standardized model that allows partners to get 80% of the way there for a fraction of the cost, even if it means compromising on some features.</p>
+              <p>Third true productization requires internal transformation to deliver a simple enough and cheap enough solution. MGI is embracing radical changes across our organization from engineering by moving years of custom code into the core platform. To services by redesigning support models with tools like chatbots to be leaner and more scalable for smaller teams and budgets.</p>
+              <p>Finally, the crisis is creating a critical inflection point for digital public goods. Sharpening the focus on long-term sustainability. It’s making the distinction between different business models like SaaS versus community led clearer than ever. Pushing every organization to prove it has a viable path to lasting impact.</p>
+              <p>That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us at podcast at Dimagi dot com with any ideas, comments, or feedback. This show is executive produced by myself, Ana Bhanda and Sudhan are our editors. Natalia Gki is our producer and cover art is by Sudan.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/guests/gillian-javetski.jpg" alt="Gillian Javetski" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Gillian Javetski</p>
+              <p class="person-role">Managing Director at Dimagi, working on simple, affordable digital tools for frontline health programs.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/guests/ismaila-diene.jpg" alt="Ismaila Diene" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Ismaila Diene</p>
+              <p class="person-role">Managing Director at Dimagi, focused on sustainable delivery of community health systems.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2yGrhGP6WXP1tuu8yy9Oqa" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

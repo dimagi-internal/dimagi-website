@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 19: Evolve By Learning and Sharing Openly: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 3) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Four Dimagi leaders unpack the value &quot;Evolve by learning and sharing openly&quot;: out-collaborating, starting with why, using data, and speaking up.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep19-evolve-by-learning-and-sharing-openly-articulating-dimagis-culture-and-values/">
+<meta property="og:title" content="Ep 19: Evolve By Learning and Sharing Openly: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 3)">
+<meta property="og:description" content="Dimagi&#x27;s culture series, part 3: out-collaborate, start with why, use data, and speak up. Learning and sharing openly.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>December 19, 2022</span>
+          <span class="dot"></span>
+          <span>15 min</span>
+        </div>
+        <h1 class="ep-title">Evolve By Learning and Sharing Openly: Articulating Dimagi’s Culture and Values with Lucina Tse, Gillian Javetski, Avni Singhal and Simon Kelly (Part 3)</h1>
+        <p class="ep-deck">Part three of Dimagi&#x27;s culture series: four team members unpack the value &quot;Evolve by learning and sharing openly,&quot; from out-collaborating rather than out-competing to learning candidly from failure.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/0UEu6UtYVh4O27CRbg2ZXW?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 19 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/0UEu6UtYVh4O27CRbg2ZXW" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000622149237" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/_uqrB3ZaNso" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/5e868d12-49ef-410a-b82e-55bf976b8835/high-impact-growth-evolve-by-learning-and-sharing-openly-articulating-dimagi%E2%80%99s-culture-and-values-with-lucina-tse-gillian-javetski-avni-singhal-and-simon-kelly-part-3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>“I think the out-collaborate piece really stands out for me on this value. And a lot of our partners come to my mind. Dimagi’s had a lot of experience working across healthcare, across agriculture, across education. Yet we always approach a new partner as a unique new project that we’re starting from scratch. We have a strong product, we have a strong method, but we’re always looking to learn through our partners.” – Avni Singhal</p>
+        <p>“Another thing that it brings to mind is learning from our failures. And I think that’s another thing that can be quite uncomfortable. But, in the interest of open learning it’s so critical that we look at our failures, and try and figure out what went wrong and how we can do better next time…this is something that we do quite well on our teams.” – Simon Kelly</p>
+        <p>Co-hosts, Jonathan Jackson and Amie Vaccaro chat to four team members at Dimagi – Lucina Tse, Chief Operating Officer; Gillian Javetski, Chief of Staff; Avni Singhal, Senior Customer Success Manager; and Simon Kelly, Director of Server Engineering – to discuss the third in Dimagi’s newly articulated values: Evolve by learning and sharing openly. At Dimagi, we care deeply not only about what we do and the impact we have, but also about HOW we do it. Articulating our values has become incredibly important as we continue growing. Listen to this episode to hear candid reflections on what it looks like to evolve by learning and sharing openly and why this is so important to supporting our high-impact growth.</p>
+        <p>Full description of the newly articulated value:</p>
+        <p>Evolve by learning and sharing openly</p>
+        <p>No single person or organization can achieve our vision alone. We must work as partners (not vendors) to proactively understand our respective challenges, the impact we want to make, and to collaboratively chart the best way forward. We learn from what we’re doing and are unafraid in sharing those lessons, even when we wish the results were different.</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;We always approach a new partner as a unique new project that we&#x27;re starting from scratch. We have a strong product, we have a strong method, but we&#x27;re always looking to learn through our partners.&rdquo;</p>
+          <cite>Avni Singhal, on out-collaborating</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Out-collaborate, not out-compete</strong>: why partnering across the industry beats competing in a field with too little profit to win alone</li>
+          <li><strong>Start with why</strong>: how shared understanding of goals makes feedback easier to give and prevents misaligned priorities</li>
+          <li><strong>Partners, not vendors</strong>: approaching every new partner as a fresh slate and learning through them, even after years across health, agriculture, and education</li>
+          <li><strong>Learning from failure</strong>: no-blame retrospectives, owning your mistakes, and why that is harder at the individual level</li>
+          <li><strong>Speak up</strong>: the discomfort of offering constructive feedback, and why Dimagi trains teams to give it well</li>
+          <li><strong>Data to drive decisions</strong>: the annual engagement survey, the field visit where "average" meant something different on the ground, and acting on what the data shows</li>
+          <li><strong>A growth mindset</strong>: how leaning into new and uncomfortable skills makes Dimagi a place where teams get smarter fast</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to high impact growth. A podcast from Dimagi about the role of technology and creating a world. Or everyone has access to the services. They need to thrive. I’m Amie Vaccaro, senior director of marketing at Dimagi. And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder. Today, we’ve got the third and a really special mini series of episodes about company culture.</p>
+              <p>Dimagi is just completed a process of articulating our company values. Which are intended to define how we get great work done together. We want to be as proud of how we get our work done as we are of what we actually do. And as we grow, we need to be clear about that. How so today, Jonathan and I are speaking with Lucina Tse chief operating officer Gillian Javestki chief of staff of Avni Singhal senior customer success manager and Simon Kelly. Director of server engineering</p>
+              <p>to hear about our third new value, which has evolved by openly learning and sharing. First I’ll read through the value.</p>
+              <p><span class="spk">Amie Vaccaro:</span> No single person or organization can achieve our vision alone. We must work as partners, not vendors, to proactively understand our respective challenges, the impact we wanna make, and to collaboratively chart the best way forward. We learn from what we’re doing and are unafraid in sharing those lessons, even when we wish the results were different. And then within that we’ve got four sub bullets. We start with why we out collaborate rather than outcompete. use data to drive decisions and we speak up. So I’m really curious to hear from folks on this call. What does this value mean to you? Why is this so important to Dimagi?</p>
+              <p><span class="spk">Avni Singhal:</span> Yes. I think the out collaborate piece really stands out for me, on this value. And a lot of our partners, come to my mind, like Dimagi had a lot of experience working across healthcare, across ag, across education. Yet we always a new partner as a unique new project that we’re starting from scratch.</p>
+              <p>Like we have a strong product, we have a strong method, but we’re always looking to learn through our partners. And I think that’s what makes us really strong, that there’s always value in approaching things from a fresh slate.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Simon over to you.</p>
+              <p><span class="spk">Simon Kelly:</span> Yeah. Thanks. There’s, there’s a couple of things that come to mind with this value. One is, whilst we may have specialists on the team or individuals who have strengths and weaknesses, the team as a whole, can really be, uh, learned together, on different things and, upping the team’s, uh, overall skill and overall learning has, can have a step change in terms of what the team is able to accomplish. Particularly as, you know, individuals have, uh, take leave or, uh, are available at specific times. having broader team knowledge is, is really critical. Um, one of the. The pieces there that we said though was, um, we start with why. And I think is one that for me, I, I really like, because I like to know why we are doing things. Not just, you know, why, why are we trying to solve this problem or why are we helping this partner? But even within processes, why are we doing scrum? Why are we, you know, doing estimations and tracking our velocity? What are we doing with that? Is it helping us? , and understanding those, uh, those whys, really helps to, um, motivate and helps to get us on the same page as to where we are going and what we’re trying to accomplish. And then like and said, art collaboration, I think that doesn’t, to me, that doesn’t just mean inside of Dimagi. To me, that means in the industry as a whole, you know, Dimagi is interested. In solving these big social problems, and we realize that we can’t do them by ourselves. are, we are providing, you know, components of that, but we need to work with our partners, and not just be a vendor and a supplier, but really partner with, with others, and not just with organizations using our software, but other organizations in the same space who are doing similar work. Um, So that together we can raise the bar, on a global.</p>
+              <p><span class="spk">Lucina Tse:</span> I, I also like how this value shows up on so many different levels, both externally, internally, so like externally, some folks I’ve talked about already, how working with our partners and, and, uh, to understand how they make them impact and not make assumptions on like what we know best. I remember one of the field fitts we’re, we’re producing a dashboard for. For, for a project that we were working on and after that field visit, we realized average actually meant something completely different to the users on the ground and people were interpreting it versus what we would understand as average. So it’s so important to not make those assumptions and like be continually learning from our partners at the Dimagi level.</p>
+              <p>I think this is a reminder to us that we have to continually learn and continually improve. And so one of the things that we do on the people operations team is it is called our annual engagement survey, where we, we send something to the whole company and ask for input across like the whole company of things that we’re doing well and things that we’re not doing well. And we take it really seriously. Uh, So the people operations team spends a lot of time looking at the data across the teams to look at where we should. where we should be making new, investments and better supporting the team, and upgrading things that we’re doing. So I view that like on a very important level as well. Finally, like on the individual level, as like Simon said earlier, like, we’re individuals, we’re individuals as a part of this team, and so how do we continuing learning and growing as a team and how DMA supports that is something we’re trying to do better as well. So enrolling out like our professional development budget and other tools to think about growth, and skills growth on the team.</p>
+              <p>I think like this really speaks to how we have to continue improving to, to be able to do that.</p>
+              <p><span class="spk">Gillian Javetski:</span> I think one of the, the things that I was really excited about is, it’s no surprise that some of these values intertwine a bit, right? So one of the thing values that I think a lot of us are really excited about is doing really bold things here. We’re often the first people to do things.</p>
+              <p>And as long as we’re bringing that humility, we like go for gold and, and strive to do big things. I see that really ingrained in this value in some ways where this is something that I know, we can provide better guidance to our team on, is that. If you have a bold idea, that’s great. And we also wanna make sure that you’re kind of going through the evolve by openly and learning and sharing process.</p>
+              <p>So you’re able to articulate that bold idea with starting with why, why are we pursuing this? How are you backing it up with data? Are you able and ready to take feedback on your idea? Right? So when you propose something, do you have the sort of like emotional stamina to get feedback and have the iterative process? And that may not be for everyone. Like there are people that, wanna start with, with an idea and, and kind of run with it and aren’t looking to have that openly learning and, and sharing process. And so I think teams.</p>
+              <p><span class="spk">Jonathan Jackson:</span> to be, or I want to be at a company that is constantly recognizing that its. It doesn’t have all the right answers and and needs to grow its processes and its knowledge base, and is a place where individuals and teams get smarter, you know, as fast as possible.</p>
+              <p>And that’s critical to our five year strategy in achieving exponential growth because to do that year over year requires constantly being better than you were last year. And so I think that’s a key part of this for me, that really resonated when I saw it. The other on we speak up, I think is an interesting, one that I definitely agree with, but is not for everyone.</p>
+              <p>And we just talked about this again when I was in, uh, South Africa with a lot of our teams from different countries in Africa. And that’s not necessarily comfortable for a lot of people. In any culture. Um, But, uh, there’s a lot of challenges in speaking up and trying to offer feedback to people and making your teammates better.</p>
+              <p>For a lot of people, it’s easier just to stay quiet and, and not, you know, offer that insight or feedback to help your teammates improve. And here we really expect that, we expect that from people because by not sharing that feedback, you’re not helping your teammates get better. And by not helping your teammates get better, we’re underperforming and not achieving our impact team or profit goals.</p>
+              <p>But that’s something that is certainly not for everyone. And. Lu seen and our people operations team have been spending a ton of time training the company, um, training, um, each other on how to provide really, Pointed positive and, and useful feedback and speaking up about how to achieve that. Growth in each other is critical, and I know we’ve all probably been at companies where, that wasn’t true and it really hinders your ability to evolve and, and get better at your role when you don’t have.</p>
+              <p>Really useful, positive feedback and constructive feedback, you know, from your peers and your manager. And that’s something that I think we really expect from each other. And that’s, that’s certainly an example of something that’s not for everyone. You know, I can, I can imagine a lot of people don’t wanna sign up for that being their responsibility, but it’s certainly something we expect here.</p>
+              <p><span class="spk">Simon Kelly:</span> Another thing that that kind of brings to mind is, um, learning from our failures. And I think that’s another thing that can be quite uncomfortable. but in, in the interest of open learning, It’s so critical that we look at the things, look at our failures, and try and figure out what went wrong and how can we, you know, do better next time?</p>
+              <p>How can we, what can we learn from those? and this is something that we do quite well on, on our teams with, you know, retrospectives and, and like no blame retro and that kind of thing. But it’s a lot harder on at a more individual level. And I think, that’s something that I certainly find I need to constantly work at, rather than just picking myself and, and moving on, but actually taking a moment to, think about what happened and what can I learn from.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And that’s also why the, um, starting with the why is so important in some of these instances because it’s, it. Often a misalignment of goals. You know, I thought we were just doing this to get the client off our back, and somebody else was like, no, this is the most important thing on the project. You know, why, why didn’t we be more specific or gather better requirements here or internally when, you know, two teams, you know, have a huge disagreement on the prioritization or the, value of a, a thing that we’re doing.</p>
+              <p>And so starting with that, why, to create that shared understanding, that in and of itself is a critical skill that enables that feedback to be much. , easy to give and deliver, uh, to help your teammates grow is because we’ve had that shared foundation of why we’re doing it in the first place. Without that clarity, it can become very difficult to give feedback because we weren’t aligned on what we were even trying to accomplish together as a starting point, I.</p>
+              <p><span class="spk">Amie Vaccaro:</span> This has been just really cool to hear, hear folks’ reflections and, and examples here. And I think, recently picked up Carol Dweck’s mindset, which is about kind of the growth mindset. And I think it’s been really fascinating to read that because I feel like I see that in action at Dimagi in terms of how, how we approach things and just really being open to the need to, to learn new skills, to figure out how we need to take this company forward and have the impact we wanna have.</p>
+              <p>And, I think it’s, it definitely makes Dema a really special place. And, you know, I can say just from having been here a year and a half, like I’ve learned more in the last year and a half than a lot of phases of my career. Because I’m actively pushing myself to, to try new skills, learn them, go outside to find those skills. And I see it on, you know, I’m, I’m on the marketing team and across the marketing team, right, where people daily are picking up new things and new things that scare them, , and kind of leaning into those that, those new types of tasks. And I think it makes it, it makes it really fun and, Again, it’s also not for everyone, right?</p>
+              <p>But there’s a certain type of, of person that wants to be, or needs to be growing, and De Monia attracts those types of folks. Was there anything that we didn’t mention around evolve by openly learning and sharing that you wanted to share or add?</p>
+              <p><span class="spk">Avni Singhal:</span> I think like when, when Jillian was talking about how Dimagi and even Amie when you were talking about how Dimagi not for everyone, the one thing that comes to mind is that we have a very strong culture of own up to your own mistakes. So raise your hand whenever you feel like that is something that you could have done better. either to get support or to just own up to it. And I think that can be particularly challenging because as humans we’re, when we make a mistake where we’re inclined to be defensive, we’re inclined to be a little, we find another way out of it. But at least for me, it’s pushed me to. a little more real with myself, not just for my work, but how do I take this back into my life where I understand where I could have improved? and I think that’s not very easy for a lot of us and we, we consistently push the boundaries even at a personal level.</p>
+              <p>So I really appreciate that.</p>
+              <p><span class="spk">Gillian Javetski:</span> I would also just add to that, I think we have a culture as well where, for example, like when we do our biweekly all hands meetings where the whole team comes together and we present on a topic, and we always have an open q and a session at the end, we have a rule that we, no matter what question you submit, it’s going to be</p>
+              <p><span class="spk">Jonathan Jackson:</span> is on the out collaborate rather than out compete. One of the reasons, this was also a tagline that I used, you know, over 10 years ago, and one of the reasons for this was there’s not enough. Profit in our industry to successfully outcompete each other.</p>
+              <p>Um, Like the only way we’re gonna create our shared goals is by being better and better at collaborating with each other over time. You know, the need in the world is so great. The, the amount of funding going to it is not increasingly at the rate we need it to with war and climate change and all of the preexisting problems we had.</p>
+              <p>And so the only way that we’re going to. As an industry is by getting smarter collectively and by collaborating better collectively and by sharing collectively. And so that’s something that we deeply believe and and we live that up both internally and externally, but our competing people just doesn’t work in our industry because there’s not enough profit to succeed with that kind of mindset.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thanks so much to Lucina, Gillian, Simon, and Avani for joining us today. To unpack, evolve by openly learning and sharing. I also want to give a shout out to Dimagi values council who crafted these values. Of neon Simon, who you heard from today, as well as Clara Kim, Candice Kodu, Kai Zoho habe one and Olivia.</p>
+              <p>And a shadow to a couple other folks who helped us along this journey. Michelle Melendez, Shane Metcalf, Katherine Turner. Dimagi is diversity equity and inclusion council, and many, many Dimagi peers who gave input along the way. That’s all for today</p>
+              <p>on the next episode, we’ll continue with Dimagi is fourth and final value. Embrace complexity for impact. Please take a moment to rate review, subscribe to this podcast and share this episode. If you found it useful, it really helps us grow our audience and our impact.</p>
+              <p>And write to us@podcastatdimagi.com. With any ideas or questions we’d love to hear from you. Thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LT</div>
+            <div class="person-info">
+              <p class="person-name">Lucina Tse</p>
+              <p class="person-role">Chief Operating Officer, reflecting on how the value shows up externally with partners and internally through people operations.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GJ</div>
+            <div class="person-info">
+              <p class="person-name">Gillian Javetski</p>
+              <p class="person-role">Chief of Staff, on pairing bold ideas with the discipline to start with why and stay open to feedback.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">AS</div>
+            <div class="person-info">
+              <p class="person-name">Avni Singhal</p>
+              <p class="person-role">Senior Customer Success Manager, on out-collaborating with partners and owning up to your own mistakes.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SK</div>
+            <div class="person-info">
+              <p class="person-name">Simon Kelly</p>
+              <p class="person-role">Director of Server Engineering and Dimagi values council member, on team learning, starting with why, and learning from failure.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/0UEu6UtYVh4O27CRbg2ZXW" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

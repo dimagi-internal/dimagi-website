@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 68: The People &amp; Planet Parts of Running a Sustainable Company | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi&#x27;s Emily Gutman and Molly Broderick on running a sustainable company: employee-first people operations, climate neutrality, and carbon offsets.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-68-the-people-and-planet-parts-of-running-a-sustainable-company/">
+<meta property="og:title" content="Ep 68: The People &amp; Planet Parts of Running a Sustainable Company">
+<meta property="og:description" content="Inside Dimagi&#x27;s approach to sustainability: employee-first people operations and the path to climate neutrality.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>March 20, 2025</span>
+          <span class="dot"></span>
+          <span>34 min</span>
+        </div>
+        <h1 class="ep-title">The People &amp; Planet Parts of Running a Sustainable Company</h1>
+        <p class="ep-deck">Two leaders from Dimagi&#x27;s People Operations team join the hosts to unpack what it really takes to run a company sustainably for both its employees and the planet, from rebuilding performance management to reaching net zero.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/5ZyI8CtQGtpdzRD4WWFKHs?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 68 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/5ZyI8CtQGtpdzRD4WWFKHs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000700179061" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/e3AYy3Kl6qs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/313d752d-7084-4949-8f85-3c6ace5793f7/high-impact-growth-the-people-and-planet-parts-of-running-a-%E2%80%9Csustainable%E2%80%9D-company" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">20+</div>
+          <div class="ep-stat-label">countries where Dimagi employs people</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">100%</div>
+          <div class="ep-stat-label">renewable energy elected for Dimagi&#x27;s Cambridge office</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">2021</div>
+          <div class="ep-stat-label">year Dimagi pursued climate neutral certification, measuring its 2020 global footprint</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode, hosts Jonathan Jackson and Amie Vaccaro are joined by two leaders from Dimagi&#x27;s People Operations team, Emily Gutman and Molly Broderick, to explore what it takes to run Dimagi in a way that is sustainable for both its employees and the planet. As a benefit corporation, Dimagi treats sustainability as a suitcase term spanning people, profit, and planet, and the conversation digs into the social and environmental sides of that balance.</p>
+        <p>On the people side, Molly describes what being employee first means in practice: putting the employee experience at the center of every decision across more than 20 countries, even when it adds significant logistical load. She walks through a two-year effort to scrap and rebuild Dimagi&#x27;s performance management system around the company&#x27;s values, while Emily traces the environmental journey from a 100 percent renewable office to climate neutral certification and annual carbon offsetting to reach net zero.</p>
+        <p>The group is candid about the hard parts, from the controversy and gray areas around carbon offset markets to the tension between in-person impact, business travel, and AI&#x27;s growing energy footprint. They close with practical advice: measure early, reduce before you offset, lean on frameworks like B Corp and Climate Neutral, and use your business voice to push for climate policy.</p>
+
+        <blockquote>
+          <p>&ldquo;There&#x27;s a way to treat people like people, which sometimes is actually harder to do and stay legally compliant. And what we always try to do is balance those things.&rdquo;</p>
+          <cite>Jonathan Jackson, on the Dimagi way</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Sustainability as a suitcase term</strong>: why Dimagi frames it across people, profit, and planet rather than revenue alone</li>
+          <li><strong>Being employee first</strong>: putting the employee experience at the center of every decision across 20-plus countries</li>
+          <li><strong>Rebuilding performance management</strong>: a two-year effort to scrap the old system and rebuild it around Dimagi's values</li>
+          <li><strong>The road to net zero</strong>: from a renewable-powered office to climate neutral certification and annual carbon offsetting</li>
+          <li><strong>Greener data centers</strong>: how measuring emissions surfaced a tech-team win that cut both carbon and cost</li>
+          <li><strong>AI's energy problem</strong>: weighing field impact and AI investment against a teetering environment</li>
+          <li><strong>The trouble with offsets</strong>: an honest look at the gray, skepticism-laden carbon credit market</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to high impact growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development. About raising the bar on what’s possible with technology and human creativity. I’m Amy Vaccaro, senior director of marketing at Dimagi.</p>
+              <p>And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder. We’re living in pretty uncertain times, especially here in the U S where I’m based. With so much change happening. I think the role of companies becomes even more important. Particularly when it comes to taking care of both people and the planet. That’s what makes today’s topics so timely?</p>
+              <p>We’re diving into sustainability. Specifically the social and environmental sides of it. I’m joined by two amazing leaders from Dimagi is operations teams to give us a glimpse into how they’re thinking about making Dimagi sustainable, both for the people who work here and in terms of our impact on the planet. At Dimagi, we’re all about sharing our approach to work, especially when it’s something we’ve thought deeply about and feel could inspire or guide others. So today we’ll walk you through how we’re working to run. Dimagi in a way. Then not only avoids harm, but actively creates good in the world. You’ll hear about the journey of our people operations team and how Dimagi is approach stands out.</p>
+              <p>Let’s get into it.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right, welcome to the podcast. I am so excited for today’s conversation. We are joined by two of my incredible colleagues, Emily Gutmann, who is Senior Director of Operations on our People Operations team, and Molly Broderick, who is Global Director of People Operations. And we also have Jonathan Jackson with us here today, as always, my co host. Hey everyone,</p>
+              <p>nice to see you all.</p>
+              <p><span class="spk">Emily:</span> Hey!</p>
+              <p><span class="spk">Jonathan:</span> Thanks for coming, I’m William Molley.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, let’s do quick intros.</p>
+              <p>Emily, you want to. introduce yourself?</p>
+              <p><span class="spk">Emily:</span> Hi, I’m Emily. As you mentioned, I am the director of operations on our people operations team, and really what that means is I do a lot of the back end process design work and operations side of our HR function at Dimagi, and I’ve been here almost four years in the beginning of next year.</p>
+              <p><span class="spk">Molly Broderick:</span> hi, I’m Molly. I’m our global director of people operations, which essentially means I lead our people operations team, which is what Dimagi calls human resources. Um, I’ve been at Dimagi for nine years um, oversee all the different people operations functions.</p>
+              <p>So,</p>
+              <p><span class="spk">Amie Vaccaro:</span> So for today’s conversation, the theme is sustainability, which I realize is 1 of those words that someone at Dimagi uses the term suitcase term, it just brings a lot of meanings And in this case, it absolutely does.</p>
+              <p>We often on this podcast, talk about profit and generating sustainable revenue growth. And that’s really important aspect of Dimagi’s sustainability for the long term . Today, though, we want to explore other aspects of sustainability that are equally um, perhaps even more so important, which is the environmental side of sustainability, as well as the kind of people side of sustainability. So [00:03:00] maybe I’ll start with just like the high level frame of , how do each of you on this call define sustainability and how do you think about it?</p>
+              <p><span class="spk">Emily:</span> I think for me, There is that triple bottom line theory of like people plan at profit and I think those are the three main buckets for me it’s bringing your business sustainability in connection with your environmental sustainability in connection with keeping your team together and it all works as one to create total sustainability……</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah, I think for me, I’m just heavily focused on the team slash people side of it. So when I’m definitely different ways you could be thinking about sustainability in that could be from the business perspective of how can we , treat our employees as well as we can while still being a sustainable business and being responsible in that way.</p>
+              <p>And then the other side of this would be how can we treat our employees as well as possible where it’s. sustainable for them to work at Dimagi and they can continue [00:04:00] to like feel sustainable long term and not see us as something that is kind of like a temporary thing, but long term won’t be a good fit for them.</p>
+              <p>Um, so I think both of those lenses probably for me.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, , I like both those definitions a lot. And in our journey as a benefit corporation, the term sustainability definitely feels like a suitcase term. Like I don’t think the industry has defined it in a, in a way that has consistent meaning across Organizations, or organizational units. For us we use the word sustainability a lot, whether it’s, business sustainability, team effort sustainability the team that Emily leads working on environmental sustainability concerns. But for me, the ethos of what I think sustainability is getting at as a suitcase term is are you balancing all these things, as Emily put it, people, profit, and planet. in a way where it’s good for your employees, good for your customers, good for the world, and I think that’s what drew me to, the terminology around benefit corporations. I mentioned on a very old podcast we had that we were one of the first benefit corporations in Massachusetts.</p>
+              <p>We’re climate neutral certified. So we participate in a lot of these active areas that try to make sure businesses are behaving in such a way that they’re quote unquote sustainable.</p>
+              <p>So for us, , it was an easy choice of, should we adopt these standards and try to be better than we currently are to be more quote unquote sustainable.</p>
+              <p><span class="spk">Amie Vaccaro:</span> John, I appreciate, what you said, almost, thinking about sustainability as this, holistic thing of, like, is it can we move this organization forward in a way that, does no harm and does good and propels itself forward?</p>
+              <p>That resonates for me. We’ve got Emily and Molly here who are really experts on and have been leading a lot of the work that Dimagi has done on the environmental side and on the people side. So I want to start on the people side a bit with you, Molly. I’m curious, what’s different about how Dimagi approaches people and talent?</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah I think one thing that’s pretty unique for Dimagi is the amount that we focus in on. Uh, kind of the people experience and the concept of fairness across our team. Uh, we have a pretty complicated structure where we’re in, I think, over 20 countries now and in the U. S. we’re in 20 to 25 states. Um,, and with that, brings forward lots of different people, questions around anything from benefits, payroll, different customs, things like that. And a lot of our time is spent thinking about what’s the fair experience we want our employees to have, and how can we have that be consistent around the globe.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, absolutely. It feels like, as I’ve been, Hiring folks at Dimagi, there’s very few limitations to where we can hire, which I realize just adds a lot of complexity. But enables, , Dimagi to bring in incredible talent too.</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah, absolutely.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. John, I’m curious from your standpoint, like, because I know there was, there was a Dimagi before People Operations. Like, how did that team come about?</p>
+              <p>Jonathan-1: Well, I think, as we grew throughout our probably first five to 10 years, we grew organically like many small companies at the time where you’re just kind of, trying to move as fast as you can, constantly worried about budgets and trying to figure out how to make ends meet and then when you start to get to the point where you’re like, okay, this is too big and creaky for this to work without dedicated professionals focusing on this part of the business we started to look for our first director of people operations and then continued to grow out the team from there. And like many organizations we tried to, have different people contribute to supporting HR or people operations functions who are not dedicated professionals and you get the result you would expect, which is not as much support, not as much Of the right approach as you would with somebody who’s, got the professional expertise and background and had space to dedicate to it. So I think there were many books written about the time period when a lot of tech companies , were going through this and, uh, I think we’re, an average company at that time under investing in those things. And so I think it was a great transition for us to really put the resources behind what we needed for people operations and. I think we see it in the amazing team engagement and approach we have as a team now. But it was definitely a learning journey to, to get there. And it’s one of those things that I think a lot of companies look back in hindsight and say, you know, it doesn’t matter if we put money into way better than we should have.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And Molly, I’m curious, , what does it mean that Dimagi is employee first, right? Like that we’re really putting people at the center of our work and how have you, what are some of the ways that you’ve gone about like operationalizing that?</p>
+              <p>And I know that a lot goes into it. So curious to hear from you.</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah, I think being employee first means that you’re really putting the experience of the employee at the forefront of the decisions that you’re making as a team. So, as an example um, be very easy for an organization, and I think a lot of organizations do this, where, you know, something come up like a health insurance renewal. And we just. Take the big pay increase, and we put it on the employee, or um, we, cut certain benefits within that health insurance renewal, and we don’t think as much about, well, how is this going to impact each of our employees? So, whenever we’re doing anything, whether it’s a new initiative, rolling out a new plan, Process or anything really of that nature.</p>
+              <p>We’re always thinking how the employee experiences and how can we make this as best an experience for the employees? Even if it adds significantly to our logistical load on our team to make sure the employees have the best experience they can working here.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, that’s great. And , I will say that as an employee, I definitely, I feel this, like, I think there are ways that Dimagi probably puts more thought into every decision than, I’d say the average company which I see you like, sighing a little bit. I think it probably makes your work, your job quite, quite hard.</p>
+              <p>How do you think about, the driving of people operations strategy in this, in the context of the larger Dimagi strategy, right? Because Dimagi is also a company that’s just trying to do so much.</p>
+              <p>Jonathan-1: And yeah, I just want to jump in before Molly contributes. I think Molly, , when Molly and I have a meeting these days with our CEO, I think she’s always dreading them because like usually I’m asking for the meeting or having a meeting because I’m like, is there like a Dimagi way to do this? So I think a lot of people look at ways that companies behave and like the standard way you can do things and they’re legally compliant and all these things, which is important. But there’s a way to treat people like people, which sometimes is actually harder to do and stay legally compliant. Because you, need to worry about liability or these things. And what we always try to do, and Amali does an amazing job of, and Emily as well, and everybody on our team, is like, try to balance those things. Like, obviously we have to protect the business, and you have to make sure we’re sustainable and around. But you also want to be able to just treat people like real people, and have honest conversations, and do right by people.</p>
+              <p>Um, There’s a lot of tough conversations, but what I love about what we try to do is make sure we can have those tough conversations and not hide from them. I think a ton of what corporate policy and sustainability and all these things, they’re all just like You know, whether it’s liability from your board or your shareholders or your employees or your customers. And it’s really unfortunate because it massively gets in the way of creating an amazing organization where people can do their best work.</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah, I mean, it’s a total tradeoff, right? A lot of other companies might not do it the way that we would, because it is true. We’re putting a lot of headspace, a lot of time thinking through things, a lot of time on communication that other organizations will not do, um, around even just how do we position this out to the employees so they can understand it as Crisply and clearly as possible. Um, this is a trade off because you then as a team need to be able to put all this time into preparing and upholding that as a team</p>
+              <p><span class="spk">Amie Vaccaro:</span> yeah, that resonates even on the marketing side as well. It feels like the Dimagi way, I mean, I guess it’s in our values, it’s embrace complexity for impact, right? That’s, like, the heart of what we do. I’m curious, Molly, one effort that you’ve spearheaded recently is the overhauling of our, performance management process. Do you want to speak a little bit to that? I think that was kind of an interesting journey.</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah,</p>
+              <p>no, absolutely. Um, probably two years ago. I said, Hey, let’s look at the performance management system. And that was at the time. Um, you and others had brought out values and we were thinking about what’s the best way to incorporate our values into the day to day in a really [00:13:00] authentic way. , and. On the people up side, we’ve been thinking a lot about how do we want to improve our performance management system in general. Um, through that, I met with lots of different organizations who legitimately said, I like my performance management system. I know that can be rare. And then a lot of companies, it’s like, just get it done and put it in the folder and call it a day.</p>
+              <p>Um, and we kind of did a two year process to try to make it um, as good as a system as it can be. I don’t think anyone’s ever going to say it’s love performance management. I count down the days to get there every year or anything like that. Um, but really working with the teammates across the entire organization to build the system. So it works. So we’re going to be talking about how we use custom words for each of our individual teams in a more custom way through using career paths, through really looking at even how we rate employees and what’s the best practice there. Through incorporating best practices to prevent bias, like really doubling down on calibrations that we do with teams. So just really taking a whole look, scrapping the system, building it out, and then we just used it for the first time and I think overall it went well. So.</p>
+              <p>Jonathan-1: Yeah, I think I was really excited Molly with all the work that you and the team did to improve it. And we’ve rebuilt our performance management system multiple times. I mean, we, we keep trying to learn from best practices, both from big companies, from the tech sector, outside the tech sector. And as Molly said, it’s a challenge that we had a couple different consultants that we were working with. And one of my questions, ’cause we’re going through a lot of like. Generative ideas on how to do performance management improvements. I’m like, do you guys work with anyone who likes the performance management system?</p>
+              <p>We have two expert consultants and they both immediately answered. And once said yes, someone said no. And so I was like, okay, the experts don’t even agree on whether like our goal should be. System people like our system people put up with, and I’m really excited because I think people like our system.</p>
+              <p>So yeah, it’s been great and it’s definitely only possible because we’ve invested a lot of, Dedicated, time from Molly, her team, and others who can really think deeply about this problem. You can’t kind of just put a little bit of effort in and get a good system at the other end. Um, So it’s a huge, huge undertaking over the last couple years. And just like, you know, Amy, the massive effort yo undertook on our values and things like always and like skeptical. When we start these things, ’cause sometimes they don’t pay off. And you have to be willing to invest in those types of areas of sustainability, whether it’s environmental or people and be willing for not everything to pay off, right?</p>
+              <p>You gotta like, do these things and be like, meh. In hindsight, I wish I didn’t do that, but it was still worth trying. And then you go try the next thing. And that’s part of it too.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I think that’s, that seems like a good segue to, To get into kind of the environmental side of things and bring you, Emily, into the conversation and Molly, feel free to just chime in , as you want. Just to kind of recap, I love that story we rolled out these values. We wanted them to sort of, Usher in kind of an evolution of the culture and like, really embed them more in the culture. And so we’ve now got them codified in our performance management system, which Molly led across the team in the last year.</p>
+              <p>So, love that. We’re just like, constantly thinking and rethinking about these things that are are super important. And so on the, flipside, I’m also curious to just learn a little bit more on the environmental sustainability side. And this is a piece where Emily, you’ve been really driving with a few other folks across the organization. And environmental sustainability is something that’s actually really near and dear to my heart. I think that was like, my original cause that I cared about. But I feel like we don’t, we don’t talk about it enough. So I’m excited to just hear from you a bit about the journey there. So I’ll hand it over to you</p>
+              <p><span class="spk">Emily:</span> So as John mentioned, we were early in certifying as a B Corp and a benefit corporation. And with that, environmental sustainability has always been on our minds and a consideration in our business decisions. And historically kind of showed itself in the fact that we have an environmental policy or that we elected for 100 percent renewable energy in our office here in Cambridge and made those decisions pretty seamlessly.</p>
+              <p>And then I think we really took a big step when in 2021, we decided to go through the climate neutral certification in which we measured our total global footprint in for 2020. And then offset it by purchasing carbon offsets to be a completely net zero operation. And we’ve now done that every year since, learning more about where our carbon emissions are and working to try and both reduce them while also 100 percent offsetting them and operating at that net zero.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s so cool. I’m, I’m curious, like that Impetus to do that in 2020. Were you like, kind of a driving force behind</p>
+              <p><span class="spk">Emily:</span> Actually, no, so I had just joined in 2021 and John, I think you had come across the climate neutral certification and was like, this looks interesting. Let’s do it.</p>
+              <p>Jonathan-1: Yeah, so I think I saw it as like, Oh, this is a great thing for us to be doing.</p>
+              <p>We, we don’t have a huge supply chain. We’re a tech company. So, it’s not uh, something that’s been part of our ethos in terms of really understanding our suppliers or things like that, but we fly a lot. We’re, we’re a big professional services company. So we’re, we’re contributing a lot of carbon emissions that way. And then as a tech company, it’s easy to like, be like, Oh, we’re tech. We don’t count, but like data centers are such a huge driver of, energy consumption. Now that it’s also important to think about that. And I wasn’t thinking about that when I wanted Emily and team to embark on this, but when they came back with like the biggest things we could do to reduce our footprint, one of the interesting things was like move data centers because one of the data centers we were in with Amazon wasn’t yet green. And the newer one, like we were one of the original Amazon data centers and the newer data centers were green. So that was really cool that we could track down like that level of. Our quote unquote supply chain, even though it’s software. But my, my goal with that was just like, this feels like a really important thing to be able to contribute to.</p>
+              <p>I don’t think we’re a huge emitter obviously as a, as a small tech business, but every little bit you do matters. And it was, uh, one of the things that drew me to both Benefit Corporation and Climate Neutral was like, there’s a methodology you can follow. So I get drawn a lot to be like, Oh, here’s a good process.</p>
+              <p>We can follow. There’s going to be expertise we can draw from and an endpoint where we can declare success. And before that, it’s like, yeah, you want to be better for the environment, but how? And so I was really drawn to the fact that there was like a process and a clear way to engage with trying to improve our environmental approach.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What have been, like, are there major trade offs we’ve had to make or major changes we’ve made as a result of going through that process?</p>
+              <p><span class="spk">Emily:</span> I don’t think there has been huge major changes, but we definitely have made some. So what John brought up about the data centers and AWS is we did actually work with our tech teams. And while we didn’t end up moving data centers, AWS went on their own journey to actually update that specific data center with renewable energy.</p>
+              <p>We did work with the tech team to go through a project of better optimizing the amount of energy we weren’t using, which both helped lower our carbon footprint and the cost. And that’s kind of a lot when you think about environmental sustainability and business, a lot of time being more environmentally sustainable connects directly.</p>
+              <p>to a lower cost as well. Not always, but, but sometimes. And that was one case where measurement and understanding where our carbon emissions were coming from led to this joint teamwork with the tech team to lower both carbon emissions and cost and was a really good success story.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I’m curious, I’m sure there’s many folks in our audience who are running organizations, part of organizations, probably wanting to push these topics internally. Are there any lessons you’ve learned or pieces of advice , you would offer to another organization that’s like looking to push their climate neutral, their environmental</p>
+              <p>sustainability forward?</p>
+              <p>Thank you.</p>
+              <p><span class="spk">Emily:</span> I think measurement, is first off the most important. You can guess and estimate all that you want, but until you actually know what amount of carbon you’re responsible for, and as John mentioned, we don’t have a supply chain, so we’re not looking at water or waste as a company.</p>
+              <p>We pretty much center on looking at our carbon emissions, but getting that data behind you is going to be really one of the most influential things to kind of make that case of we should really consider we have X amount of a footprint. I think after that is actually where our benefit corporation status comes in, because as a benefit corp, we are legally required to look and make decisions based on a number of stakeholders, not just profit or profit maximization.</p>
+              <p>And so we are legally allowed to say, hey, we’re going to spend the funds to offset our carbon emissions without having to convince either shareholders or boards or management that. There is a revenue impact on it a positive one. And so, that really helps us, I think, in making that and pushing that decision.</p>
+              <p>Jonathan-1: And for our listeners, I think the The thing I would encourage is like the earlier you start doing this stuff, it balances against other stuff that we could have been doing or that Molly could have been doing. But once you get that first kind of process done, get the data collected, it’s so easy to keep doing it. And the bigger you become before you do that first time, the bigger the hill is to climb. So, I strongly recommend, adopting these standards as early as you can, because it just makes it so much easier to keep it going. And we were fortunate to have a, the willingness to put a ton of time into climate neutral work when we usually did it.</p>
+              <p>And then Benefit Corporation is a pretty big undertaking to, to keep both the board reporting going and the B Corp certification. But again, having all the data together, knowing all your policies and procedures are compliant, the earlier you start on that journey, the better off the organization will be.</p>
+              <p>And as Emily mentioned, a lot of these things end up being win wins. You, you realize by getting all this data, you’re like, Oh, I can save money here. I can fix the supply. Supplier issue here or, yeah. I never did bid this out to three local vendors. Maybe I should look at that. And they end up being cheaper.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So there’s a big upside operationally often when you first go through these processes.</p>
+              <p>Yeah. , so Emily and Molly, you both are quite active in the B Corp community within Boston and internationally. I’m curious, like, what are some of the things that are top of mind for folks in, in people operations and thinking about these topics especially with the U. S. administration changing? Yeah. Curious. What’s the, what’s the, The hot gas in the space.</p>
+              <p><span class="spk">Molly Broderick:</span> Yeah, I think one thing, and this isn’t related to the administration changing um, on more of the people upside and the environmental side is how to think about AI use in the workplace. And this is very hot across um, I think the whole range. on the people upside, it’s thinking a lot about. What is the appropriate use of AI where it really helps in the workplace, helps the employee overall, where, the line where it’s actually now you’re. Using AI too heavily, and we’re getting rid of that people experience that we want for our clients or for our peers who um, we, we, are working with and wanting them to have a great experience working with us.</p>
+              <p>So, that’s, I mean, I could go on about that for a while. I know Emily has a lot of thoughts on AI in the environmental</p>
+              <p><span class="spk">Emily:</span> Yeah I think that is definitely one of the things most communities are talking about, especially on the environmental side, not just in businesses, but in our whole new world. It’s becoming so AI focused and it’s no secret that the amount of energy it takes to power AI is extreme. And so what is that balance of using this from an efficiency perspective versus like further destroying the environment that we know is already kind of teetering?</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, I do wonder about that too. And I see, OpenAI, like, thinking about it, it feels like Sam Altman is often, like, investing in ways to reduce the cost of energy because he’s aware of how energy intensive it is. But. it also feels like a little bit invisible too, as like, you’re in chat TPT, like, I don’t know how much, like, this is free to me, like, I’m just going to keep searching away and asking questions.</p>
+              <p>And yeah, I’m curious is there, is there a way in which,, you think about that in terms of how Dimagi is approaching AI,</p>
+              <p><span class="spk">Emily:</span> I think from my perspective, it’s a very similar challenge as with our other products and services. As John mentioned, we do a lot of business travel, and I kind of think about it similarly. We often come to this fork in the road where we need to decide, are we going to prioritize like our impact as an organization?</p>
+              <p>Or the environmental impact. And I think that’s the largest challenge in businesses in general is a lot of times, while the environmental choice can also, as we said, lower costs, it can also impact revenue. If we opt not to invest in AI, or we opt not to travel to be on site with the end users of our technology, that.</p>
+              <p>could lower revenue, but also could lower our impact, which is a huge part of our ethos. And so there’s that constant juggling and thinking through that fork in the road.</p>
+              <p>Jonathan-1: I think for us right now, We’re so extremely small in the grand scheme of things in terms of data center use or AI use. And so we’re more than happy to have the ethos right now. Like we’re definitely going to go in the field, have that impact, build the next generation products and fund the carbon offsets in order to remain at net zero. And if we grew so large that was, becoming a six figure check instead of a five figure check or others, I think it would get more difficult to know, like, what’s the right business decision. Fortunately right now, it’s like, it’s affordable enough, with, within our profit to be able to do all the offsetting we need to. But, one day if we get big enough where, that becomes a huge line item it is going to raise questions of how do we think about, optimization. So we’re not emitting carbon in the first place. And then the most cost effective way to fund some of those offsets, as you said, , I think the AI community is well aware of, the massive consumption of energy that it’s going to undertake.</p>
+              <p>So we’re looking at ways that we can build these next generation of data centers in a renewable way. And one of the interesting things with AI is like, it’s really transforming a massive, 10 trillion industry. And so over the next decade, we’re talking about not only the energy to run these data centers, but all the new equipment we’re going to have to buy, all the new buildings we’re going to have to set up.</p>
+              <p>So this is like a huge. infrastructure upgrade and upgrading stuff while it’s great for the next generation also leaves you with all this legacy stuff. And so I think the industry, will be on Dimagi’s purview needs to figure out like what happens with all the current generation things and how do we make sure that’s not, I mean, that was waste because there’d be an immense amount of waste.</p>
+              <p><span class="spk">Amie Vaccaro:</span> John, are you saying that, like, the, the infrastructure that hosts our current tech can’t handle AI and needs to be, like, actually replaced? Yeah.</p>
+              <p>Jonathan-1: Yeah, I think not necessarily replaced. There’s a great uh, YouTube, uh, conversation with the CEO of NVIDIA that we can link to in the podcast, but he talks about how, there’s this massive amount of disruption and change that’s going to occur with, the next generation of chips, that NVIDIA is making and all the hardware that, Everybody else is competing on, but yeah, a lot of the AI technology, it’s like on a new generation of hardware. And so, Google, Tesla, Amazon Apple, Facebook, all these companies, they’re building massive next generation data centers. They’re not using the current infrastructure they have. Now, the current infrastructure is still needed, so it’s not like that’s going to go away, but over time, we’ve seen such a rapid change in the technology industry.</p>
+              <p><span class="spk">Amie Vaccaro:</span> It’ll be interesting to see what happens in terms of how we leverage what’s already there, and And then we build out the, the massive need that we have for, for ai.</p>
+              <p>One thought I was having as you were talking about just the offsetting, is offsetting the thing to do? Is there controversy on offsetting?</p>
+              <p><span class="spk">Emily:</span> Best thing to do is reduce. The best thing to do is to not put it out there in the first place. The offsetting environment at the moment is a little gray. I would say I think there are some companies that are doing the work. To show that the carbon is actually being recaptured or not emitted based on buying the offset credits.</p>
+              <p>I think that is challenging to do, and I think a lot of times projects don’t pan out in the way that was expected when you bought the credits. And so it’s a relatively developing area and I think that the. oversight on it. And granted, I’m an auditor, an ex auditor, so I have probably different insights on this, but I don’t really know that they have the guidance that they need to make it 100%.</p>
+              <p>Jonathan-1: But I believe that they’re doing something, and I believe that by purchasing offset, we are putting money into projects that will help either reduce or recapture carbon .</p>
+              <p>There’s a lot of skepticism I think in the carbon credit markets right now. So the, the industry, you know, you go to the Fortune 500. You audit their books and you’re like, okay, you need to buy X tens of millions of dollars worth of credits. And then those same companies are the ones putting together the projects that sell the credits to those companies. So there’s a really big incentive if you’re in the middle there to, take as much as you can out of that transaction. And so, there’s a lot of work that can be done to make sure both the claiming of the credit is honest, but also just the way the market functions. So there’s not as easy of a time taking from both ends. Cause that makes for a pretty inefficient marketplace usually. So yeah, I think there’s a good amount that needs to be done. I think, Although the premise of it’s great in terms of trying to, create a market for people to buy into.</p>
+              <p><span class="spk">Emily:</span> Working with the climate neutral certification, they vet and give us a list of offsets that we can purchase from, and they must meet all of their required compliance items in order to be actually purchased them and then be considered net zero or climate neutral. And so that helps a lot working with that third party that does some of the vetting for you</p>
+              <p>Jonathan-1: and just to give an example from our work, like we, we We’ve dabbled in exploring whether the fact that we’re digitizing community health workers, since they’re not on paper, they’re sitting on transport could be turned into some type of carbon credit. But like, Dimagi’s, if that were true, Dimagi’s not changing our behavior at all, because we figured out that we can call that a carbon credit, we’re just selling that onto the market now.</p>
+              <p>So it’s not like we, successfully reduced anything, or did something we weren’t otherwise going to do. And I think that’s, Part of the criticism a lot of people have, which is like some of the most sophisticated carbon credit projects, you’re like, well, you were going to do that anyways. Like you, you wanted to preserve that forest for 15 reasons, not just the carbon credit or we’re trying to do. CHW work for all sorts of other reasons. The fact that we can then figure out how to spin up the carbon credit on it may or may not be a net good for the world. So I think like that’s one of the challenges. But if we are in fact saving paper and saving travel, gas, that should count.</p>
+              <p>So it’s, I think it’s just a challenge to know what’s the right balance there.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank, thank you all. This has been just a really fascinating [00:32:00] conversation and I think really gives more robust view of what does it mean to be sustainable in every way? Something that’s super, super important to me.</p>
+              <p>I’m curious as we close this out, are there. Any calls to action that you would give to folks in our, in our audience,</p>
+              <p><span class="spk">Emily:</span> Yeah, I think from the business perspective, businesses should let their local legislators know that they care about the environment and about getting environmental policy into laws. Businesses carry a lot more weight than I think they think and can really make a difference when it comes to drafting new legislation for climate mitigation.</p>
+              <p>And so, your voice matters.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, it seems like another call to action here is to check out B Corp and also Climate Neutral Certifications. Those seem like really great frameworks that we are helping guide and elevate our efforts to.</p>
+              <p>Thank you so much to Emily Guttman and Molly Broderick for joining Jonathan and I today. As we wrap, I wanted to share [00:33:00] a couple of my biggest takeaways. First sustainability is about balancing people, profit and planet in a way that benefits employees, customers, and the world overall</p>
+              <p>it’s about moving your organization forward in a way that not only avoids harm, but actively creates good. Being an employee. First organization is central to this. It means prioritizing the employee experience, treating people like people. And designing systems that genuinely support your team. Sometimes that might even require rethinking or rebuilding foundational processes. Like Dimagi has done with performance management.</p>
+              <p>Because the culture you create relies on getting those core systems. Right. On the environmental side, start by measuring your carbon footprint,</p>
+              <p>and do it early because starting sooner makes the process much, much easier. Focus on reducing your emissions before turning to offsets offset should be a last resort after you’ve done the hard work. Of identifying areas for reduction. And you don’t have to do this alone. Leverage existing frameworks like B corporation and climate neutral certifications.</p>
+              <p>They’re powerful tools that provide structure and guidance for your sustainability journey. And finally don’t underestimate the power of your voice, speak up and let your legislators or government officials know that environmental sustainability matters to you. Advocacy is a key piece of this puzzle and driving broader change. That’s our show, please like rate, review, subscribe, and share this episode.</p>
+              <p>If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. This show is executive produced by myself. Prarthana Balachandar and Michael Keller, our producers and cover our is by Sudhanshu Kanth.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">EG</div>
+            <div class="person-info">
+              <p class="person-name">Emily Gutman</p>
+              <p class="person-role">Senior Director of Operations on the People Operations team, leading back-end process design and the company&#x27;s environmental sustainability work.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">MB</div>
+            <div class="person-info">
+              <p class="person-name">Molly Broderick</p>
+              <p class="person-role">Global Director of People Operations, leading Dimagi&#x27;s HR function and its employee-first approach to talent.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/5ZyI8CtQGtpdzRD4WWFKHs" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 14: The Journey to Scale: Lessons learned from supporting the largest digitally-enabled Frontline Worker program in the world with Kriti Mehrotra, Shayoni Mazumdar and Stella Luk | High-Impact Growth | Dimagi</title>
+<meta name="description" content="How Dimagi scaled ICDS CAS to more than 600,000 of India&#x27;s anganwadi nutrition workers, and the hard lessons of reaching and sustaining national scale.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep14-the-journey-to-scale-lessons-learned-from-supporting-the-largest-digitally-enabled-frontline-worker-program-in-the-world/">
+<meta property="og:title" content="Ep 14: The Journey to Scale: Lessons learned from supporting the largest digitally-enabled Frontline Worker program in the world with Kriti Mehrotra, Shayoni Mazumdar and Stella Luk">
+<meta property="og:description" content="The ICDS CAS story: scaling CommCare to 600,000+ of India&#x27;s anganwadi nutrition workers, and what it taught Dimagi.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>October 13, 2022</span>
+          <span class="dot"></span>
+          <span>58 min</span>
+        </div>
+        <h1 class="ep-title">The Journey to Scale: Lessons learned from supporting the largest digitally-enabled Frontline Worker program in the world with Kriti Mehrotra, Shayoni Mazumdar and Stella Luk</h1>
+        <p class="ep-deck">The inside story of ICDS CAS, the largest digital health project Dimagi has ever taken on, equipping more than 600,000 of India&#x27;s anganwadi nutrition workers with CommCare, and what it taught the team about scaling at the national level.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/34L5XVDQBlePHZdPajJb7X?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 14 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/34L5XVDQBlePHZdPajJb7X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000616658014" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/MF0V3DuctRo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/b5eda3e6-7cb1-42f1-9b64-0ea8ef40baa4/high-impact-growth-the-journey-to-scale-lessons-learned-from-supporting-the-largest-digitally-enabled-frontline-worker-program-in-the-world-with-kriti-mehrotra-shayoni-mazumdar-and-stella-luk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">600,000+</div>
+          <div class="ep-stat-label">anganwadi workers using the ICDS CAS software by February 2020</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">100 million</div>
+          <div class="ep-stat-label">households registered in the system</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">73%</div>
+          <div class="ep-stat-label">increase in uptake of at least three antenatal care visits in the Bihar trial&#x27;s intervention group</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>“It’s not just getting started or getting to scale it’s…how are you going to keep improving at scale?” – Jonathan Jackson, CEO and Co-Founder, Dimagi</p>
+        <p>Today we tell the story of the largest digital health project Dimagi has ever worked on supporting the Government of India’s Integrated Child Development Services, which is the largest public health and nutrition program in the world. Launched in 2018, the Common Application Software (ICDS CAS) helped tackle malnutrition by digitally equipping Frontline Workers with a mobile solution to strengthen service delivery and enable effective monitoring, timely interventions, and enhanced decision support.</p>
+        <p>Hosted by Jonathan Jackson in conversation with  Kriti Mehrotra, Dimagi’s Impact Advisor, Shayoni Mazumdar, Dimagi’s Director of Strategy and Operations, and former Dimagi VP of Global Services, Stella Luk, you’ll hear unique perspectives and learnings from the scale-up of the project, including navigating procurement for physical materials, scaling teams and processes, practicing user-centered design, and how Dimagi grew and evolved to meet this challenge. This is part 4 in a 5 part series highlighting pivotal moments in Dimagi’s history in honor of our 20th anniversary.</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;You&#x27;re driving a car, but you kind of reassemble it as you&#x27;re driving it and turn it into a plane at the same time.&rdquo;</p>
+          <cite>Stella Luk, on reinventing the team to meet scale</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From a Bihar pilot to a million-plus workforce</strong>: how a sub-thousand-user project in one state became a bid for national scale across India</li>
+          <li><strong>The Mathematica RCT</strong>: the rigorous trial that isolated CommCare's effect against a fully funded control arm and gave the team conviction to go big</li>
+          <li><strong>No more pilots</strong>: how government championship pushed Dimagi past safe, incremental steps toward ambitious scale from day one</li>
+          <li><strong>Procurement as the real bottleneck</strong>: the years-long struggle to buy phones, SIM cards, and airtime, and why getting it right mattered more than going fast</li>
+          <li><strong>Decoupling scale from improvement</strong>: the hard-won lesson that running what you built and continuing to improve it need separate teams and processes</li>
+          <li><strong>Designing for a program, not just a user</strong>: keeping malnutrition outcomes at the center as the team specialized and the India office grew more local</li>
+          <li><strong>How the role ended</strong>: COVID, annual procurement cycles, and a government decision to rebuild in-house, plus what it taught Dimagi about sustaining value at scale</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth. A podcast about the role of technology in creating a world where everyone has access to the services they need to thrive. I’m Amie Vaccaro, your cohost. Today we have a really important story from Dimagi’s history. This is part four of our five-part series about pivotal periods of time into McGee’s history.</p>
+              <p>That we’re creating an honor of Dimagi his 20th anniversary, which is this year 2022. This is the story of the largest digital health project that Dimagi had ever worked on. And the largest of its kind, the world had seen to date. It paints a picture of what’s possible with digital health and also illustrates just how hard this work is. We refer to this project as ICDSS. So you’re going to hear that acronym throughout this episode.</p>
+              <p>It stands for Integrated Child Development Services. Common application software. And it refers to the platform that the Indian government built to support their nutrition workforce, that we were able to support.</p>
+              <p>So you’ve heard us talk before. Many times about reaching national scale. Where CommCare is used across an entire country to support its frontline healthcare workers. To deliver high quality essential services.</p>
+              <p>Today’s story is one of approaching national scale in India, working with the government of India’s ministry. For women and child development. Along with the bill and Melinda gates foundation and many others.</p>
+              <p>Before we jump in, I wanted to share a bit of context. So malnutrition had long been a challenge in India. In 2018. A global nutrition report that was reported on. By the economic times. Reported that India was facing a malnutrition crisis and that it helped nearly a third of the world’s burden for stunting. At that time, it had 46.6 million children who are stunted, which essentially means that they are too short for their age. And it’s a result of poor nutrition and other causes.</p>
+              <p>So nutrition has been a challenge. And back in 1975, the government of India launched the integrated child development services or ICDS. Uh, which is a scheme that they describe on their site. Which I’ll share in the show notes as one of the flagship programs of the government of India. And it represents one of the world’s largest and unique programs for early childhood care and development.</p>
+              <p>So ICDSS runs a large network of centers. And so these anganwadi centers are essentially community centers that provide health and nutrition services to. Pregnant women and kids under the age of six, as well as their mothers.</p>
+              <p>You’ll hear us talk a lot about anganwadi workers. These are frontline workers that work at these anganwadi centers.</p>
+              <p>So according to a study in the BMJ open called effects of an M health intervention for community health workers. Uh, maternal and child nutrition and health service delivery in Which I’ll link in the show notes. There were early observational studies that found that this ICDSS program was associated with better coverage and better delivery of services.</p>
+              <p>But. There were also major gaps in the service delivery. And so the government of India was looking for ways to improve.</p>
+              <p>In Bihar India in 2012, they piloted an M health intervention. That we worked with them on to improve service delivery and. This intervention. Was found in a Mathematica randomized controlled trial. So kind of the gold standard for. Research to have a positive impact on health outcomes. And you’re going to hear us talk more about this particular study later in the</p>
+              <p>Um, but essentially that we’re going to be har. Gave folks this conviction that. An M health intervention could help. And so. That fed into what was called the common application software. Kaz. ,</p>
+              <p>and this included a mobile application for these anganwadi workers to provide a job aid and a way to collect data. Uh, as well as. Data dashboards for visibility within the government of how things were going. And so essentially our work on this project was supporting the government of India. With their vision to improve service delivery by equipping these anganwadi workers.</p>
+              <p>With this ICDS software. This project was huge. So in February of 2020, according to a dashboard and the government of India’s website. It reported that more than 600,000 anganwadi workers were using this ICDS software. And a hundred million households had been registered. Now there’s a lot. We could say about the system we built and how it worked and the benefits and the features, but that’s not what this podcast episode is about.</p>
+              <p>This episode is about how Dimagi rose to this massive challenge and what we learned from the effort. And how we change as an organization, as a result, We’ll also talk through how our role on this program ended. This was a momentous project that many, many Dimagi is poured their heart and soul and energy and time into and really showed what’s possible. When you enable frontline workers with a thoughtful, customized mobile application. To support their important work.</p>
+              <p>To tell the story I’m joined by Jonathan Jackson, our CEO, and co-founder as well as three of the many demographers who played key roles in this project. CRE team Shoney Mazumdar and Stella, Luke.</p>
+              <p><span class="spk">Kriti Mehrota:</span> My name is Kriti Uh, I am in an impact advisor role at the Margi now. I spent a large amount of my time with the Margi out at the India office and I joined the Mar largely following up like a couple of friends who knew where they wanted to be in the global development sector. Found my way here and have not left for over eight years.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Thank you, Kriti and Shayoni. Do you wanna go next?</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> Hi I’m Shayoni. I joined the Dimagi six years back. And the reason why I joined the Margi was uh, not very um, story, but I wanted to create impact I was tired of the corporate world and I came to the Maggie and I’ve lasted here six years. So been a great time for me.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you, SHA and over to you, Stella.</p>
+              <p><span class="spk">Stella Luk:</span> Hi everyone. Yes, I’m Stella. I was a VP at Dimagi. The reason I joined Dimagi originally was I’ve always been interested in technology and development. And at the time that was when DMA was starting. Some of its early work, both in west Africa and other locations and the opportunity to do digital health uh, do it in various uh, geographies was just so um, and has been such a really exciting</p>
+              <p>And what are you up to now? Stella.</p>
+              <p><span class="spk">Stella Luk:</span> , And currently, uh, I’m a regional director at give Uh, so I’m overseeing Morocco, DRC, Liberia, Uganda uh, and some exploratory work in other countries delivering unconditional cash transfers to</p>
+              <p>I wanna start with just like the basics. Like Before this project happened, so, where was Dimagi at when this project came around and how did we go about even getting this project.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks Amie. So this project, had roots in a very long history of our work in India together, digging all the way back to our work with the development innovation ventures program that you heard about in our previous. and the work that we did led to our partnership on the ground with green foundation and bill and gates foundation in the state of Bihar, where we worked with wan workers and Asha workers, two different cadres of amazing frontline workers in India there are about 2 million making them the largest uh, healthcare and nutrition workforce in the world.</p>
+              <p>And we had digitally equipped them with CommCare to provide maternal child health, nutrition, counseling, and referral. and throughout that project, back in 2012 to 2014, we gained a lot of exciting evidence with Mathematica and other and E efforts that really made us confident in the potential for digital to have a huge impact on this workforce.</p>
+              <p>And this was in spite of very environments and circumstances and literacy levels and the results. We were literally high fiving each other. When we got the preliminary data back from Mathematica on a randomized control trial, they. so we’re in 2014 and we’re so excited by these results.</p>
+              <p>And we’re in the state of Bihar in India. We’re, you know, how do we scale this up? How are we gonna do this with the state of Bihar? And that was our first of just how difficult it is to scale this stuff up. Even when you have proven evidence base, even you have positive user feedback, even when you have a funder who is willing to support you to go to scale, how challenging this can be.</p>
+              <p>And so we were working with the state to be hard, trying to figure out how to scale this. and then concurrently discussions shifted to the central government where things really picked up on deploying the system on the nutrition workforce, the wan workers at a significant scale. And so we shifted our focus from the state of Behar to working with the central government in India.</p>
+              <p><span class="spk">Amie Vaccaro:</span> . So it sounds like this is like early 2010s. We had gotten funding from the U S a I D div, which is development. ventures program um, to do a bunch of pilots.</p>
+              <p>That work led into a pilot that we ran in Bihar,</p>
+              <p>where we were working with two different causes of frontline workers equipping them with calm care to help them do their jobs. And this included nutrition services, child health services, and other services.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And through that work, it sounds like you, there was actually hard data like you did a study with Mathematica that showed that there was, there was actual quantifiable impact from this work. Is that right?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And the, the development innovation ventures program, you know, was pan India. So we’d worked with 40 different organizations that led us to our deep partnership with care, who was leading this work on the ground in Bihar. This was part of a mega effort by the bill and Linda Gates foundation. So over a hundred million had gone in over a multi-year period to support And CommCare was one component of those interventions that scaled up through 2012 and 2014.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I am actually curious that mathemat. Can anyone speak to that? And like, what was like the, the, that moment of like high fives, when you really saw that there was impact, can you share more about.</p>
+              <p><span class="spk">Stella Luk:</span> Let me try. Okay. So in terms of the, the mathematical at the time and potentially still till date that was the the biggest, most rigorous, RCT that had been run looking at the use of a digital tool.</p>
+              <p>Will like the kind of things that Dimagi does comparing it with a really rigorous control I mean, there’s a lot of studies that compare digital to nothing, in implementing digital, there’s so many sort of trainings and other interventions, again, that get added onto it, that the studies are not clear.</p>
+              <p>And what was And so across a variety of indicators there were tremendous improvements in the intervention versus the control and on some of the other ones where there were less improvements, it was in part because there wasn’t much room to improve in those areas.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So, .. thing that made us so excited about these results was often when you do a digital health study back then, but even at argue now not really testing the digital component in isolation because the intervention arm, the workers who got the phones, they also got extra training, better supervision more money, and, and other attributes.</p>
+              <p>So it’s hard to disentangle. isolate what the digital health component did here. Part of the reason we were so excited by these results was the control arm. So the people who did not get CommCare a huge, a hundred million dollar program was also supporting them. So we really felt like this was a, a, you know, true randomized control trial with the intervention group had CommCare on trying to isolate the effects of just CommCare.</p>
+              <p>we saw the effects of CommCare were huge compared to the control arm um, relative to the investment that went in. But that was one of the reasons why we were so excited is we’d already had a lot of evidence. And now our evidence base is massive, but we often worried that we weren’t really testing just the digital health intervention.</p>
+              <p>We were testing overachieving research assistance and PhDs and, and lots of stuff that went into the intervention arm compared to the control arm. this was one of the first that we were excited about because it, it was such a massive investment that went in everywhere. And then we just added digital to the intervention arm.</p>
+              <p><span class="spk">Stella Luk:</span> And to add to what Jon is saying. There was an increase in the intervention group of 73% in terms of uptake of at least three, a C visits, an increase of 58% in terms of mothers taking RPH folic acids, tablets, and an increase of 36% in terms of using permanent methods of contraception, as well as other improvements across a range of other indicators as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s amazing. So just to kind of recap, it sounds like the, there was two groups of folks that were being studied. One were getting an intervention that. Non-digital and the other one was getting that same intervention plus digital with CommCare and the folks that were in that digital arm, we saw incredible increases in the numbers of antinatal care visits.</p>
+              <p>Percentage of folks taking folic acid, using contraception and other kind of interventions that they were trying to roll out.</p>
+              <p>We’ll be linking to both that Mathematica study and the CommCare evidence-base that shows all of the data collected to prove out the impact of CommCare in the show notes. If you want to dig in on those.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jon, you mentioned that at this point they, you started to pick up conversations with central government about scaling this program.</p>
+              <p>So, so what happened next?</p>
+              <p>One thing just to clarify on the, the conversations is that we, we didn’t necessarily pick up the central government and this was one of our big learnings, was the balloon women gates foundation, the world bank, other of the government were having these conversations we never could have had these on our own.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So we were definitely just one part of this ecosystem that mobilized quickly with the government, but seller loved to pass it off. Yeah.</p>
+              <p><span class="spk">Stella Luk:</span> The second real turning point that happened in the journey of ICDSs CAS is when there was a meeting that happened between Melinda gates and mennea Gandhi, where the minister of women and child development men Gandhi asked Melinda gates to provide the digital backbone for the nutrition system in India.</p>
+              <p>And so now that the government had signaled that need the gates foundation needed to look at the partners that I had collected and find out what was the intervention that was evidence backed, that was proven, that was demonstrated in low resource contexts. And given the results that we had from the Bahar study, we were really able to come back and really highlight the experiences from that and rise to the prepared as we had been from those experiences</p>
+              <p><span class="spk">Jonathan Jackson:</span> And this came at a point for Dimagi in our journey also where we, as an organization were just starting to see a lot of other countries go to national scale.</p>
+              <p>And so when Stella emailed us to, to let us know the news, it was both incredibly exciting, but also scary. The, the project we’d done in Bihar had less than a thousand users total. And we were talking about a workforce of a million plus users probably the biggest digital health projects in the world at that time were all less than a thousand users.</p>
+              <p>So this was about to be a massive undertaking. knew we were up for, but we also knew just how daunting this would be ahead of if this really went to national scale.</p>
+              <p><span class="spk">Stella Luk:</span> I wanna add a C anecdote to Jon’s but yeah, so we had this opportunity to scale up this tool and initially what happened was the gates foundation. And Dimagi proposed a pilot uh, this idea to do 2000 plus 2000 plus 2000 UNW workers in three different states, know, try it out in different contexts and then scale it up. at that time there was then sort of a, a change in staffing. Things slowed down. We were little crestfallen. But then in the next meeting with the new government official who had come in and joint secretary at the time uh, he really, and this is where we learned that the importance of government championship, government leadership, he really pushed us.</p>
+              <p>He was like, no more pilots. If they fail, they fail, let’s do this. Let’s do this big, let’s be ambitious.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Wow. Okay. So then from there that was when we kind of made the decision. Okay. Let’s go all in and go for this full, full scale. 1 million plus scale.</p>
+              <p><span class="spk">Kriti Mehrota:</span> I think just this sort of government champion and, you know, as Jon was describing, like we were coming out of this div phase, we’ve been doing a bunch of you know, small projects that we’re calling and testing and trying to understand this.</p>
+              <p>And so very much trying to continue that momentum and. do a pilot, let’s gather those learnings, then let’s get to the next stage and then let’s get to the next stage and seeing this one government um just kind of flip that on its head a little bit and say, you know, happen all the time.</p>
+              <p>What I know we want is to reach scale in this country. let’s do that. Let’s wide, go big, which is scary, but also ambitious. And I think to Jon’s point, like I think all the next steps that came with us stepping up to meet this kind of what seemed like a crazy goal at the time, given where we were coming from, from the size of the projects that we had done was just a very pivotal moment.</p>
+              <p>I think probably for all of us in our project psychology and like growing from that point on.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And it’s also hard to know what the outcome’s going to be. Right. So there’s a lot of project. Done where there’s a big commitment up front and then it kind of Peters out. so we also were a little bit worried that that might happen here. And I’ve, , I’ve just froze of emails from Stella on the heartbreak of, you know, momentum um, you know, hitting a brick wall or somebody who was really passionate about the project and the government leaving or procurement issues.</p>
+              <p>And then we’ll dive into some of those. But I do remember I was in some of the early meetings with the government and like the level of commitment they had for achieving this mission to you know, decrease malnutrition and then nutrition issues in India was, was so solid. And it was so exciting to be around the government.</p>
+              <p>Um, Who, you know, were really willing to put a ton of effort, energy, and political capital behind making sure this project was a success. And that has certainly become a huge. Factor for us when we look at what has the potential to be sustained at scale and grow at scale is really is the will of our state partners or our national partners and the ecosystem.</p>
+              <p>And like, you know, how committed are we, how committed are they to see this through? Because it’s going to be tough, then it’s going to be a lot of effort to see these things grow up.</p>
+              <p>How did this project compare to other projects in terms of scale at that time?</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the things we learned on the technology side is to look at things by kind of an order of magnitude. I’ve read a blog That’s like, you know, don’t worry about the exact number. Think about as, at one 10, a hundred or thousand, like think about things in order of magnitude.</p>
+              <p>And so at that time, the order of magnitude was in the thousands. Right? So we, we had projects that were in the thousand. the initial target, was to go to 2000 plus 2000 plus 2000. So not like a huge, scary jump, but that immediately turned into 10 plus thousand, right? So that was one order of magnitude.</p>
+              <p>And then when it went to the central level, wanting to scale it nationally, now we’re talking about a million. So we went from thousands to 10 thousands, kind of skipped over a hundred thousand that we did end up staying there for a while, all the way up to a million. So this is this like crazy, you know, order of magnitude.</p>
+              <p>And I think as we look at the industry, we should be thinking in order of magnitude, both in terms of user count, but also in terms of how we create orders of magnitude more value in the software that we’re creating and the partnerships that we’re creating.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That sounds wild, like that, leap from a thousand users to a million users, did we ever consider not doing this? Like, was there a moment when we just asked ourselves, should we, should we do this?</p>
+              <p><span class="spk">Jonathan Jackson:</span> There was never a moment where we um, thought about not doing it because of the scale, at that time. Every project that was big, went through management committee approval. so there was a go, no go email that went out, Stella the go, no go email.</p>
+              <p>it was kind of you know, it was a little bit funny cause obviously we were, we were gonna go for it, but I was really surprised how strongly enthusiasm was to go for it. You know, I expected certain people to be hesitant on how much work it was gonna be the technical challenges or the funding, cuz it was, you know, well funded, but that wasn’t very profitable.</p>
+              <p>It was a ton of work too. But across the board, you know, everybody was like, this is our shock. We’re we’re going all in. We thought Bihar was gonna go statewide. We put a ton of time into that project. We thought we had the evidence base.</p>
+              <p>And so we were really crust fall end of like, if we can’t make it work there where we just proved this works, like what, where are we going to be able to make it work? And so we were really ready to, to go after this pretty, pretty significantly and pretty swiftly.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. So we decided to say, yes, we were kind of geared up for this. It sounds like this was almost like a chance to, to prove ourselves after some earlier heartbreaks of projects, not going to scale. What, what happened next?</p>
+              <p><span class="spk">Jonathan Jackson:</span> , one of the early meetings, so I was in India with Stella and several of the other team members. And we were trying to, set a timeline for the kickoff. So we were there with the gates foundation, the ministry of women, child development, and their initial suggestion was okay, let’s go live in two months.</p>
+              <p>And we’re like we might need a little bit more time to, make sure the application is ready for the users. And that we’ve got enough feedback from the users to make sure they really love the software. this was something that um, we got extremely fortunate in how um, certain delays played out. So we were ready to go in two months.</p>
+              <p>We immediately, you know, this meeting was on Friday, I think, or Saturday still everybody came to the office on Saturday and Sunday and we just started working 24 7 for basically the next five years. But we had. were, you know, we knew how, how stressful this was going to be. We were ready for it.</p>
+              <p>But we also thought a lot in that meeting to say, look, we we’ve got to spend our time on user center design with the users to make sure we build an amazing application, because if we have that confidence in the application, we’ll make it much easier to scale later. So we had built a team that went to the field to work with a dedicated set of a hundred or 200 users.</p>
+              <p>And then that ended up much longer than we’d originally planned. but Because procurement was so challenging and this was where we really learned for the first time working um, in close partnership with the government, how challenging their job is to set up the right procurement for the phones, for the airtime, for the trainings.</p>
+              <p>And it was really eyeopening for us being this close with the government, trying to help them uh, support this how much work this was. And it was just a phenomenal amount of work. The government had to undertake. To um, do this and, again, a lot of heartbreak during this process as well, but over to U Stella are.</p>
+              <p><span class="spk">Stella Luk:</span> I remember uh, talking to the government, we had a, a nice sort of model of going from 10 to 500 users then scale really trying to convince. It, this is, you know, that we should take that approach. The 10 users they bought into, and we set up a nice pilot site, as Jon mentioned, for the 500 users.</p>
+              <p>They were having none of it with, again, the ambitions for scale, which makes sense. but organically we kind of had our our opportunity to go to that 500 stage because the procurement process only worked for for two states before being able to sort of scale up to, to the rest of the states.</p>
+              <p>And so it’s interesting because there’s this whole machinery to bring about change, to bring about scale that needs to be fought and that needs to be pushed. and sometimes, and in this case for us organically, it happened that our moment to kind of really the, the protocols for scale and like the, the, the field operations and so on and so forth. we, we got that even. Actually intentionally planning for it the procurement points that that Jon is speaking to. This is this is something that I think you know, we’ve seen in many governments is that uh, procurement is an important process. There are certain constraints and restrictions associated with it.</p>
+              <p>It’s also very challenging even for, you know, committed government officials trying to do the best uh, for their country to, to make, you know, the different ministries, coordinate and, and do these things at scale. right. We supported the government in running a few different, attempts.</p>
+              <p>And by the, the third attempts to procure some of the essential equipment that was needed to be able to scale up across the country uh, it still hadn’t worked and it was the third try. And so I remember at the end of that year we were talking to ourselves and also to our partners and the government that okay.</p>
+              <p>If we continue to face these challenges, the fourth time. Like, maybe we should just call it quits. You know, at that point it had been over a year, just struggling with that procurement. Like our software had been ready, for quite some time. But I remember our team sort of getting together and talking about it that regardless of what happens in the year to come, regardless if we succeed or we fail that we, that we were never more set up for success, more set up to succeed one way or another at that time.</p>
+              <p>And so whether it was this opportunity or the next one, we would be ready for it. But the good news is that it did work fourth</p>
+              <p>apparently not the third and after that, like, then</p>
+              <p>Side note here, when we’re talking about procurement, this is like the purchasing of the phones for the anganwadi workers and the sim cards and the servers and all of the physical materials that are needed to support this intervention</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I, I had a really learning personally for this, because I’d worked on a ton of projects at this point. I was fighting with the gates foundation saying like, why don’t we just go buy them a thousand phones so we can get to the next stage and learn. And both the, the ministry and the foundation were like, no, we have to get this procurement, right?</p>
+              <p>If we’re gonna go to scale. And like, we have no interest in just going 2000 users. That’s not the point. The point is to go big. And if we don’t fix procurement, then we don’t have a, a pathway here. And that was something that I think was in hindsight, a huge success factor is how rigid. the gates foundation and the ministry were about doing this in a way that could scale from day one, as Stella said, you know, they bought into the small pilot, but they were totally against the medium sized next step up there.</p>
+              <p>Like we’re going big after we build this. And I, I learned a lot from that experience personally, because up until then, we’d always been like, well, let’s incorrectly. Try to just, you know, live to fight another day, get the users, get to the next stage. And I think more and more, this was, you know, seven years ago at this point, but more and more, even now we need to be thinking that way, which is like, if this can’t go to complete scale, what are we doing here?</p>
+              <p>And making sure that you’re putting up the time and energy and investment up front to set these things up for scale.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What did supporting this scale mean for DEMA? Like what did, what did we have to do organizationally to support this project?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, Sharon, I wanna throw it to you. What did you get recruited in on as a job description? And then what did your job turn out to be? Once ICDSs cast really started digging out.</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> Oh, that’s very interesting. Um, I think. I got recruited to uh, run these small which is like a 20 user pilot do requirements, gathering, design applications deploy building, and, you know, really get the satisfaction of rolling out 20 users. And finally, when I started working on ICDSs cast, it was discovering new things every day.</p>
+              <p>Uh, So every day we had a challenge that we had never faced before uh, either on project operations or on support or on product or on, what one state wanted, which was not aligned to what another state wanted uh, catering to different needs. And I think that the entire of cats was, was something Yeah, I think we needed to have really agile teams something that we learned over time, because we not just had to support this scale, but as a, as an organization, we had to grow that much to be able to support that many users, be it from a rollout perspective, from a translations perspective. So there were many localizations that were needed to be done.</p>
+              <p>Um, And we needed to have our internal processes also ramp up at that faster pace. Um, I think that was the biggest Everything broke. Right. As we started to scale, like the team was super stressed out. Like it was, it was a really difficult period for demoing internally, but we were all, you know, it was also awesome, you know, we’re going to scale.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So there was plenty of impact to keep us all motivated, but it certainly internally we just knew like this isn’t working well. Like what do we do to fix it? of the huge learnings. I had was separating the difference of scaling what you’ve already built versus continuing to improve the project. And it took us a very long time to figure out how to decouple those two things across the team in a way that one team just working on what, what we already built in scaling that out, which is its own huge problem.</p>
+              <p>And then a separate team, which was working with the government on new requirements and new reports and new application features. we had that all in one unified team for a long time and that got very difficult. How you would ever trade off between two of those area. and going to something show you mentioned on translations, this is typically a two day task that you do with the end of a project after you’ve already built it.</p>
+              <p>And you’re about to go deploy it. had three people whose full-time job to manage translations and they weren’t even doing the translations. They were working with the states and the government to take the translations and put them into the application because the turnaround time on getting the applications so that you were ready for the training was so intense.</p>
+              <p>And that’s just one piece that’s usually thought of as a, you know, add on task at the end of a project management cycle. And this needed to be multiple people’s dedicated role. And it took us a long time to understand to scale something that’s already built versus how to continue to improve the product.</p>
+              <p>And that’s something we talk with a lot of our other government partners now about making sure you separate those two things early on so that you’re designing and building the appropriate processes and systems for both. But that was, I just remember, this was an incredibly stressful period for all of us.</p>
+              <p>You know, and then 7, isn’t that big of an exaggeration on how hard people are working at this time to support this project.</p>
+              <p><span class="spk">Stella Luk:</span> Jon will soul remember that many sort of like late night shouting sessions. What are we doing? We’re doing this, we’re doing that. But the levels of stress were I think out of this out of this world. But to your question I think to what ch was saying as well, is that it’s a.</p>
+              <p>Very different team. We really had to reinvent ourselves because there’s the, the kind of role that involves spending like months and months, kind of, you know, designing from scratch, something that hasn’t been tested versus another kind of role that, you know, spends three hours a day in government meetings, or is really kind of like fine tuning.</p>
+              <p>The, the software to help state governments do translations into Indian languages . And so like who we were, it’s kind of like, you’re, you’re driving a car, but you kind of reassemble it as you’re driving it and turn it into a plane at the same time is, is sometimes what it what it felt like. another piece that I thought was really interesting and learned from that experience was that the actual application that was piloted in Bihar was piloted both for Awadi workers, nutrition workers, well as ASHA’s</p>
+              <p>Side note to share that anganwadi workers and ashes are two different cadres of frontline workers in India. So I’m going to let you workers, we’ve talked about. Through this episode, work in the anganwadi. The centers and their nutrition focused.</p>
+              <p>And then Asha is our accredited social health activists.</p>
+              <p><span class="spk">Stella Luk:</span> It was designed for both. And the opportunity we had to scale was with the AWA workers that are more based as in working in community nutrition centers versus ASHA’s who go door to door to provide services. so when the opportunity to scale comes along, like you need to grab it. But as it scales up, the part that I think I realized later than I should have, is that it really becomes a different kind of intervention as it scales. And we really needed to like optimize the sort of like the workflows, like the UI, the logic critique was all over this stuff to really make it work, especially for on and WTI workers, because that’s the train that we got the ticket on to scale up.</p>
+              <p><span class="spk">Kriti Mehrota:</span> Yeah. I mean, it’s, it’s such an interesting question. But I think just to start with the team side, I think there was so much evolution that we went through.</p>
+              <p>The India office was sort of developing. We talked about, you know in the in the of episode about sort of the size, the team, and that started to just kind of and need to explode to, to create that kind of support.</p>
+              <p>So from a team perspective, I think, you know, recognizing. Specific skill sets that we needed to start to specialize in. I think we were like a small, in a very different way, very agile team who would, you know everyone would be able to do about three different things. And we would be able to jump in and out of stuff and realizing that to do this kind of like massive thing, we needed to specialize a little bit more and that there were gaps that when we started to specialize, we were like, oh, none of us is actually the best at this one thing. you know, just starting to work with the government directly, as Jon mentioned, a lot of that was happening through the bill gates foundation who were. like support pillars in, in sort of handling this new, space for us as well as we started to, to talk about this scale. but also bringing on people onto the team who were specialized in working with certain types of stakeholders and guiding us on how to best make the value arguments to lead in the right direction and to really understand the stakeholder better.</p>
+              <p>If, you know, we didn’t have that sort of perspective ahead of time. And, and, and the composition of the team in India, I think really started to grow in size. And along with that growth become sort of more local. I think like we you know, had the small team, lot people were um of mouth some amount of international experience, some amount of local experience to be able to contextualize and do really good work locally, but we kind of became a much more local team who understood the context a lot better, which was pretty important in just the, almost like character definition over time off our India office specifically, which I think was very cool. And then think the, some of the project management things that ch and, and Jon already mentioned, I mean, that translation bit was one of the anecdotes that had like sprung to my mind of just talking to me, being like, you know, I remember at one point we were sitting , you know, just jumping, like, it doesn’t make sense for us, us to have a two day deadline to tell someone that we can turn something around in two days when we are not the ones doing it, we have to separate out the parts of this process.</p>
+              <p>We have to say, we will turn things around in our step in two days, and then we just have to do that. Like, we cannot miss that two day thing that we are setting, then we have to. Then we wait, like when you get us back the next step, then we go into our next two day cycle and we will get it back to you in two days again.</p>
+              <p>And just starting to think about some of these processes in, from a different perspective, and grow and sort of fight for autonomy at all these different levels internally and not fight against each other. I think it’s almost fight. Ourselves. Like, I think there’s this like reliance when you’re a small team everyone’s working so closely I think it was a definite shift in mindset for me to be like, wait, we have to function a little bit differently than we have been to like do this. And I think that was a big part of like individual growth. And a lot of the team members went through that. That was like a real, like, we have to think differently than we have been so far to like achieve this.</p>
+              <p>And I think that was a very real thing. But like the technology, like the degree to which we evolved and grew and made our underlying technology more robust to really sit and feel like, you know, if something breaks, this is not 20 people who we can almost like three of us get on phones and talk to and be like, we’re okay, we’re talking to the partner.</p>
+              <p>We’re reflecting like a scale that we cannot reach that they’re you know, it is incredibly critical for them to feel confidence in the system that they’re using not feel like. Their services are not being delivered or that their data is not being correctly recorded, even though it was, but they might not know that. so that level of responsibility and ownership and taking on and saying like, we’re choosing to be responsible for this amount of, service across the country. Um And all the technology growth that, that sort of comes with that. So you know, just to probably some of the challenges that our engineers faced and did remarkable work to get us, you know, to a very, being able to support at Jon’s point like orders of magnitude of scale higher in like a pretty time box period was amazing to see.</p>
+              <p>This sounds like a big shift, you know, rolling out to thousands of users and then reaching this incredible scale. She only what were your reflections or learnings from that time</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> Yeah, I think one big that I think on the team at that point of time really faced was uh, the ability. let it go when you can’t really see what the end user is doing, because when we were you know, rolling out to 20 users, we could personally go and get from those users.</p>
+              <p>But when you reach a scale of even 10,000, even, even 1,010 thousand, don’t really know, you know, and you have to rely on the systems that have been put in place. And, and that’s fine because that’s how systems should work, but it was a big mindset, mindset change for us because we were so used to seeing everything end to end.</p>
+              <p>And I think just letting go of that, last mile uh, but</p>
+              <p><span class="spk">Amie Vaccaro:</span> So I wanna ask, could you speak to the impact that this project had? Right. I think we we’ve talked a lot about sort of how. what this meant for us internally, how it forced us to grow, but like, what was the overall.</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> Um, I think for me, ISCS C</p>
+              <p>Lac. meaning a hundred thousand. So that’s about 600,000. I’m going to buy two workers.</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> for, the six slack workers who are today at least much more empowered than they were before the cast program started. Um, And specifically uh, I think uh, had the opportunity to go to the field once and they introduced us as, you know, folks who have come from Delhi, which is often what they do, without introducing, you know, the Margie or cast.</p>
+              <p>And the, the Amary worker was actually showing, cast to us, our team with so much pride and dedication talking about what she was doing on the phone and how she was using the phone, that it was really heartening. And I think that’s, that was really uh, that’s what stands to me as the impact of cats uh, what the worker. Took for took from this program is I think what the, what the impact of CA is. And I think CA is overall a big landmark for the ma, but I, feel that it’s a big</p>
+              <p>I still agree that this project is really a landmark for digital health overall, which is why I’m so grateful to get to be telling this story now.</p>
+              <p><span class="spk">Amie Vaccaro:</span> For the ONW workers that were in this program, um, was this the, the first and only cell phone that they had had.</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> So I think it differed across, the different uh, states and even within the states, there was a variation, but yes, there were a lot of, a lot of Ary workers who, for them, it was the first phone that was itself. I think, a matter of pride for them. Uh, Because typically it was uh, you know, other members of the family who own their phones uh, and they were uh, they were really excited to have this device, that they could, almost, you know, It was certainly one of the first, uh, smartphones,</p>
+              <p><span class="spk">Stella Luk:</span> Uh, for many of them. and we were quite impressed and amazed by how quickly, even the ones who initially were quite timid to use it would pick it up. I recall. There was one who we don’t know. I think until this day, whether it was young and wa worker or maybe one of her kids went in and edited the images in the application and turned like all the, you know, pregnant ladies green inside the application, something like this.</p>
+              <p>And when we heard about that, we were like, The,</p>
+              <p><span class="spk">Jonathan Jackson:</span> The level of technical sophistication that people, exhibit it in the application. I mean, just the media and this isn’t unique to demo’s projects or this project, but it’s always heartwarming when you see it, which is why get it out the field. That’s so important. And I remember going on a field visit and the uh, workers had started using icons at the end of people’s.</p>
+              <p>add additional images of what was going on that wasn’t in our filter screen. So they’d have a skateboard if it was a boy, a flower, if it was a girl and like other icons they’d added um, and just really clever ways to pour more and more information into the application. So it could be more productive for them.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that and I can really cool that the, the power of, , giving this entire cadre of frontline workers access to, to phones and really kind of supporting their digital enablement journeys, which , will have impact for the rest of their lives. We hope. , and Shannon, you mentioned that this was also really a landmark in terms of digital health.</p>
+              <p>anyone speak to that more in terms of like, what is this, what does this project represent in the, for the larger field?</p>
+              <p><span class="spk">Kriti Mehrota:</span> There’s like an extremely large number of paper that this project replaced for these workers. They were carrying, you know, kilograms of paper along with 11. and it I think the way I think about it is. It is part of a digital transformation for this to have happened. And I just think we have, we’re so grateful to have been at the helm of seeing that happen. You know, if it potentially, if it hadn’t been us, it would’ve been someone else. And if it hadn’t been, then it would’ve been some other time, but it was, it was that we got to be, we got to be at the front lines and see that and make that transformation happen for people.</p>
+              <p>And that’s a very real thing. Like, you know, people are carrying that number of, of paper also scary. I think like shiny was alluding to this, but just the amount of excitement and. Courage that it adds for people to let go of those of those papers and be like, I know what it looks like on paper.</p>
+              <p>I use a pencil and I see it there. And then instead I touch the screen and something’s supposed to happen. And it’s like a little bit believing, you know, we had these diagrams that would explain how the data would like reach their supervisors and their supervisors, supervisors. And it’s like this data data’s like floating into a cloud and it’s, it’s like, there, there, someone’s gonna see it.</p>
+              <p>You know, your, your data is being recorded. That’s a pretty big shift. For someone who may not have used you know, digital device or as smartphone before that. so I think there was a very real day to day impact. I think there was. Paper work that they used to have to do in terms of tallying things.</p>
+              <p>earth medic, graphing certain things, just because those were the reports that were required. Being able to take that away and have them spend more time at these you know, community nutrition centers with the kids and, and doing early childhood education and, and actually the giving away the food rations and, and feeding kids at lunchtime. I is a very real impact. I think like that is a big part of what the digital health transformation is about, is being able to have people focus on roles and have digital technology take away the pieces that it can take away. It’s not going to replace what the humans can do. It’s only to free up the humans to do what they do best.</p>
+              <p>And I think that this, really enabled us to see that happen in real time. And very</p>
+              <p>gratifying</p>
+              <p><span class="spk">Amie Vaccaro:</span> that. Any other kind of commentary around just like why this, why this project matters</p>
+              <p><span class="spk">Jonathan Jackson:</span> well, I think there’s a lot of projects that have been um, you know, have been and will to be important um, for, for, in the field of digital health. But the time, this was really the first one to go to scale up this big um, you know, the, the entire hadn’t seen a project that had reached a hundred thousand workers, much less um, 600,000 plus workers.</p>
+              <p>And so it was really exciting to see that, and also for it to be done in such a way that the application was of an amazingly high quality that the government had gone paperless with it, that it was doing performance based payment schemes. I mean, this was not only the biggest. um, That we had worked on to date, but it was also one of the most well projects that we’d worked on to date in terms of the quality of the application, the number of features it was using our platform, the fact that it had, you know, reports and   messaging and growth charts and case management, all these core features that we for, they were all here.</p>
+              <p>So that was one of the things that was so impressive about this project to us as well, was just how expansive the government’s vision was what they wanted to do with digital. And it really leveraged a lot of the unique capabilities and built many more unique capabilities into the platform that we were really excited by.</p>
+              <p><span class="spk">Stella Luk:</span> I think the Other piece that I would add to it is that with regards to the, the scale up, we couldn’t have done it uh, by ourselves. There was obviously the national government state government’s um, uh, care as the training agency, other partners that came in with interesting content. and so there’s lots also pilots where like an NGO gets some funding and does some small thing.</p>
+              <p>Um, But to have a program where the government itself hired thousands of people in the field and in each of the over 20 states where. There was a sort of a state cell uh, where staff was put in specifically to handle pieces and like the overall management of the operations implementation this whole system was a level of, of buy-in and the level of scale that the, at the time, at the, at least in probably still to this state, because it’s the largest community nutrition worker program in the world uh, that the, that the digital</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> go Okay</p>
+              <p>was not just about the numbers. I think um, given that it was across in 28 states, just the diversity of the states itself in terms of the, kind of uh, the way that the programs were rolled out in these states were different. for a system to be able to be centralized in a way that is able to cater to all of these states the localizations and language and multimedia.</p>
+              <p>I think that itself was a phenomenal</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. And one of the things sh that’s so important there is we released, I don’t know how many different application versions um, you’re releasing this across 26 different states and languages and to people who have internet. Right away. And some people have internet once a week. And the number of challenges we bumped into trying to out subsequent upgrades of the application, subsequent training content taught us so many things and cost so much in engineering time and capacity that you only learn about in year four of a scale up project or in year five of a scale up project.</p>
+              <p>So there’s this work we had to do that we kept hitting the Shannon said earlier, a new challenge every day. And there are tons of challenges that you never get to in our industry, because usually your project’s done by year five plus one, or, or even year three, but when you’re running it that long, you’re like, oh, wow, that worker who hasn’t updated the application in 12 months, but is still submitting data.</p>
+              <p>What do we do? And was another huge learning is just what it takes to not only go to scale, but keep running at scale how much effort that took to keep running at scale, I think was another huge learning for us and, and a big learning for the digital health ecosystem.</p>
+              <p><span class="spk">Kriti Mehrota:</span> I think they did the digital health piece that also stands out to me is I think a phrase that was like echoed in my mind, was that part of what it, what it really represents is that this is possible. I think like leading up to it at multiple points, we’d be like, this going to be insurmountable?</p>
+              <p>Is that going to be insurmountable? And like Jon stalls spoke so much in the early days about all the challenges and all the places where there was heartbreak and, and slow down in momentum. And you question whether it’s gonna continue to go forward, but it’s, it’s kind of incredible that, you know, every time we hit something and we were like, is this going to be the thing that’s gonna trip something up. It didn’t and we found ways forward. And I think really, to me, it stands out that like this, this type of scale, this type of impact is These types of well designed programs, can happen with the right set of circumstances, intentions and people. And that, that sharing said it’s a journey.</p>
+              <p>It continues. And so I think it’s really exciting to see that know this is possible because it, it happened and continues to happen.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So, you know, we’re in 2022 right now and the project is no longer running the way we built it. Um, what, so what, what happened.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So we had in 2018 and 2019 massive scale up. So we got, you know, to over 600,000 users heading into 2020, and we thought we were doing a great job transitioning into the government. So they’d explicitly asked us to wind down our role and be able to hand it over. Um, To the government. So we just spun up the whole training team.</p>
+              <p>were training tens of their staff on how to maintain the SCS cast system. We were excited, the trainings were going well, the technology going really well and then COVID hits. And so we’re entering COVID everything shuts down across the world at that time, but also all the UN and w centers.</p>
+              <p>So it, the itself kind of went on pause during COVID because of all the concern around household contacts and, and going into the on and wa center. And this also froze our ability to keep doing the technology kind of everything came to a standstill. So we had all this great momentum.</p>
+              <p>And then it came to a grinding halt in March, April of that year. So we continued to try to do what we can remotely. but this was a heavy face to face project in terms of our ability to work with the government and our ability to do a lot of our work. And so that remote um, was pretty tough for us to maintain continuity and consistency.</p>
+              <p>And then we get to, June of 2020, and this is when we really hit one of our first big challenges and gave us a lot of learnings around procurement, which was contract they we had set</p>
+              <p>It Was an annual that needed to keep getting renewed. And that creates a huge barrier from a procurement standpoint, when the government isn’t really in session because of COVID. And so one of the first challenges we hit was, okay, do they want to keep having. Capital outlay year after year. And that started raising um, with the government in terms of wait a minute, you know, this is an ongoing cost. Every year we have to pay for it. A lot of bureaucrats had turned over, so they weren’t there with the initial, working of the CS cast system.</p>
+              <p>And maybe weren’t as bought in as the, the bureaucrats who had initially built this with us. So there’s a lot of different questions of, oh, well, can we potentially rebuild the software cheaper now that we have all these learnings and the smartphone are already out there, can we do it in house?</p>
+              <p>And do we, do we want to do this large technology transfer go with a different was obviously ultimately for them, which, which path they wanted to take and they chose that. They thought they wanted to build it. In-house you know, take those learnings from the first five years of ICS cast.</p>
+              <p>And so they rolled out a new application version. They took a different approach to the users starting in 2021. and that’s now the act of software that the Yani worker program uses. So still have the large, know, nutrition, digital backbone, but it’s transitioned off our um, current and, and into a different platform for those users.</p>
+              <p>were obviously incredibly sad. Um, You know, that that’s the way the decision went. We thought, CommCare and the CS cast software that we both, both them would’ve been great, but obviously it was ultimately up to them.</p>
+              <p>I think there’s definitely a ton of learnings. I mean, one is, and we, we keep learning this time and time again as a company. And also as an industry, like it’s. , it’s not just getting started or getting to scale it’s how are you going to keep being at scale and how you’re gonna keep improving at scale?</p>
+              <p>And some of the challenges that we thought we’d overcome, Stella mentioned procurement. Well, guess what, you gotta buy new phones every four years. So you not only have to bite that battle the first time, but then you have to get the government to keep investing phones every four years and replace phones.</p>
+              <p>And you gotta coordinate logistically, like, you know, the first two states that got phones, they got older phones much quicker than the last states that adopted phones. So just that simple, idea of like having, making sure an on work worker has a working. Is a massive undertaking and we constantly need to make sure that we’re not just able to clearly articulate value solutions providing to the government under the priorities they have, but also how it’s gonna provide more value than it is today.</p>
+              <p>And I think that is something that we still have to find the partnership models, the ecosystems allow that to be true. And one of the things you, you may have heard me talk about previously you know, as you get to scale, it actually has this perverse incentive. I remember many mediums when the government was asking, Hey, we add X or Y to the system?</p>
+              <p>And technically you could, but programmatically, we were like, we are heroin fighter, just trying to scale. What’s already. We can’t add extra. Y not because it’s technically impossible, but just because like, we don’t have capacity um, time, or it’s gonna add more risk to the system. And that is tragic for the users because if extra Y is actually helpful to them, you’re leaving impact on the table.</p>
+              <p>And this is something I struggled a lot with in talking with our funding partners and many others across the industry. I’m like, look, we have, you know, 10 X, the number of users in this program, as we do across all demo systems combined and across the entire industry combined at this time, why are we doing other new startups right now in terms of new countries we’re working in or new things, rather than trying to figure out how to put more and more effort into ICS, CAS, know, because something working for a hundred thousand users or 500,000 users, it’s already at scale is going to create much more impact.</p>
+              <p>the problem is this challenge of with limited people, both our limited in our team in India and the governments live the capacity you run out of human capital. And so the, the labor and the humans become the rate limiter in all these projects. It’s not the funding. And it’s often not the software, although we have plenty of software issues as well, it’s that human capital of how do you create and partnerships that can continually improve the value and the impact we’re providing to the users?</p>
+              <p>Not just today, but so the government and us are having aligned vision to create more impact tomorrow, right? Because it’s not sufficient just to maintain these systems. It’s gotta be ability to improve these systems over time. And it’s gotta be in a way that resonates with the decision makers at the government who ultimately make these decisions.</p>
+              <p>And I think we try to focus more and more on that, but it’s very difficult, right? Because when you’re doing these systems level changes, it’s hard to articulate. What is the value of just a great application for a frontline worker or what is the value of a great data system? And lot of these do not have clear objectives that you can necessarily align to, but have to be part of a shared vision.</p>
+              <p>That’s aligned to what the government’s ultimately trying to do in the public sector, at least.</p>
+              <p>How was Dimagi different or better or worse off because of this project?</p>
+              <p><span class="spk">Shayoni Mazumdar:</span> Shift, uh, in terms of mindset that C uh, really drove. um, The, the perspective of users and who we were building for. So we’ve always said design under the mango, frontline workers are your core, and that’s always been the case and continues to be uh, for the marque. But I think at the same time being cognizant of the fact that you’re designing for a program um, a program that whose ultimate aim is to reduce malnutrition and your design from the beginning needs to be able to, incorporate that so that your data, your visualizations, everything that the younger money workers is filling actually moves towards improving that one indicator being more outcome oriented.</p>
+              <p>So I think that’s one big mindset change that we had uh, at least from uh, from IDs gas, because we really saw the scale and the potential for it to make a change.</p>
+              <p><span class="spk">Kriti Mehrota:</span> And a small thing I wanted to add from like a overall impact perspective, but is that you know, shin, you mentioned earlier the separation that we had from the frontline vocal is we started to reach that massive scale, think a little bit. The flip side of that, that stands out to me is that five, six years ago, when we started this project, we had a colleague who’s family member.</p>
+              <p>I think cousin, if I remember correctly was an Ang body Wil their um, which was an interesting sort of reach in one direction. And then as recently, as two months ago, I met someone socially who’s mother was an Ang body worker who like recently retired, but who also used the caste system.</p>
+              <p>So there’s just this kind of the feeling scale in very many different ways. I think like when you’re on the project and you’re working with the stakeholders and designing, as I said for a program, and then also just meeting individuals who. No real people who are using this system. It’s it’s kind of a wild realization how widespread we had managed for the technology to really reach with the support of all of these partners and the government.</p>
+              <p><span class="spk">Stella Luk:</span> I, do also Think that uh, um, uh, as far as I’ve, I’ve seen in the, in the Indian context, like the idea of what we created starting, like precasts with our work in Bihar, but also in up, and like in other states you can see kind of like the design decisions, the functionality of the features, both in Cass, and then come up as kind of just like, course your app that is gonna be used by this or that frontline worker has, must have this kind of functionality. And so I think that part is is, is rewarding to see the way that the work that we’ve done really sort of change the norms and the expectations, both at the state government</p>
+              <p><span class="spk">Amie Vaccaro:</span> There’s a lot to unpack here, but I’ll share five of the learnings that I’m walking away with. First set things up for scale from the beginning.</p>
+              <p>If you don’t have a path to scale wishful thinking, isn’t going to be helpful and you have to do the hard work and the painful work to set it up from the start.</p>
+              <p>Second. Separate out scaling what you’ve built versus improving the project.</p>
+              <p>Third learned to When you’re going to scale, you really can’t personally be in control of every user and their experience. You have to rely on the systems that you’ve built. Fourth.</p>
+              <p>Every phase of growth brings its own challenges. Scaling is hard. And so it’s running at scale. And so it was improving at scale. And once you reach scale, it’s essential to show that you are actually improving and creating more value for</p>
+              <p>Fifth massive scale and massive impact are possible for digital health as a whole. But they will most certainly come with a lot of pain and learning along the way. I hope what we shared today is helpful for others looking to support important global health and development efforts with technology.</p>
+              <p>That’s our show. Please rate, follow, and share with anyone you think might find this valuable, an email ideas or questions to podcast@dimagi.com.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">KM</div>
+            <div class="person-info">
+              <p class="person-name">Kriti Mehrotra</p>
+              <p class="person-role">Impact Advisor, based largely out of Dimagi&#x27;s India office and a key player throughout the ICDS CAS scale-up.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SM</div>
+            <div class="person-info">
+              <p class="person-name">Shayoni Mazumdar</p>
+              <p class="person-role">Director of Strategy and Operations, who moved from running a 20-user pilot to helping support a national rollout.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SL</div>
+            <div class="person-info">
+              <p class="person-name">Stella Luk</p>
+              <p class="person-role">Former VP of Global Services who helped land and scale ICDS CAS, now a regional director at GiveDirectly.</p>
+              <span class="person-org">GiveDirectly</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/34L5XVDQBlePHZdPajJb7X" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

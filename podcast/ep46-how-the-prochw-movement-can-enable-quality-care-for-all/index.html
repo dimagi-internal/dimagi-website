@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 46: How the proCHW Movement Can Enable Quality Care for All with Dr. Madeleine Ballard | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dr. Madeleine Ballard of CHIC on the proCHW movement to make community health workers salaried, skilled, supervised, and supplied the norm worldwide.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep46-how-the-prochw-movement-can-enable-quality-care-for-all/">
+<meta property="og:title" content="Ep 46: How the proCHW Movement Can Enable Quality Care for All with Dr. Madeleine Ballard">
+<meta property="og:description" content="Dr. Madeleine Ballard on the proCHW movement to make community health workers salaried, skilled, supervised, and supplied.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>July 25, 2023</span>
+          <span class="dot"></span>
+          <span>45 min</span>
+        </div>
+        <h1 class="ep-title">How the proCHW Movement Can Enable Quality Care for All with Dr. Madeleine Ballard</h1>
+        <p class="ep-deck">Dr. Madeleine Ballard of the Community Health Impact Coalition on the proCHW movement: making community health workers salaried, skilled, supervised, and supplied the global norm, and what that means for technologists and funders.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/1tsqS9trfMaH3B8ORa3IJO?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 46 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/1tsqS9trfMaH3B8ORa3IJO" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000622149237" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/h11-1hvI2l0?si=fUUpYWqdjCthIi30" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/6d1090ca-9b4f-46b5-bbec-d366f53263de/high-impact-growth-how-the-prochw-movement-can-enable-quality-care-for-all-with-dr-madeleine-ballard" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">86%</div>
+          <div class="ep-stat-label">of community health workers in Africa are not salaried</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">1/3</div>
+          <div class="ep-stat-label">of the time CHWs face essential medicine stock-outs</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">34 of 137</div>
+          <div class="ep-stat-label">countdown countries currently accrediting and paying CHWs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Community health workers are proven, again and again, to be the best way to get care to the poor, the rural, the stigmatized, and the underserved. Yet millions are not salaried, skilled, supervised, or supplied. The WHO recommends remunerating CHWs, but more than 80 percent of those in Africa are unsalaried, and most are women. CHWs also face essential medicine stock-outs about a third of the time, leaving them less able to treat common causes of illness and death like malaria, diarrhea, and pneumonia.</p>
+        <p>Dr. Madeleine Ballard, CEO of the Community Health Impact Coalition (CHIC), joins Amie Vaccaro and Jonathan Jackson to make the case for professional CHWs (proCHWs). CHIC is a coalition of CHWs and aligned health organizations in about 40 countries working to make professional CHWs the norm by changing guidelines, funding, and policy. Ballard explains the countries leading the way, why female labor has been treated as cheap and optional, and how CHIC&#x27;s policy dashboard tracks progress across the 137 countdown countries.</p>
+        <p>The conversation also confronts the role of technology, which Ballard insists is never neutral. Used well it can make health workers&#x27; jobs better, surface and dignify their labor, and even grow the movement, as a free digital advocacy course has done by reaching thousands of CHWs. Used poorly it becomes extractive. The episode closes with a clear call to action: join the movement for proCHWs so that everyone, including those who provide care, has the support they need.</p>
+
+        <blockquote>
+          <p>&ldquo;There hasn&#x27;t historically been an organization of community health workers, this idea that they haven&#x27;t been at the table. And so, as we know, that means you&#x27;re on the menu.&rdquo;</p>
+          <cite>Dr. Madeleine Ballard</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The 4 S's framework</strong>: why CHWs must be salaried, skilled, supervised, and supplied, and how far reality falls short</li>
+          <li><strong>Inside CHIC</strong>: a coalition of CHWs and aligned organizations in about 40 countries changing guidelines, funding, and policy</li>
+          <li><strong>The policy dashboard</strong>: tracking which of the 137 countdown countries actually accredit and pay community health workers</li>
+          <li><strong>Why the choice isn't free</strong>: how poverty, gender norms, and a boiling-the-frog promise of pay keep CHWs working unpaid</li>
+          <li><strong>Technology is not neutral</strong>: avoiding extractive tools and building ones that make health workers' labor visible and dignified</li>
+          <li><strong>Partner, not vendor</strong>: Dimagi's stake in the ground that technology must focus on creating better jobs for CHWs</li>
+          <li><strong>A call to action</strong>: how technologists, funders, implementers, and policymakers can join the proCHW movement</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> All right. Welcome to the podcast. So I am so excited for today’s conversation. Jonathan Jackson and I are here with Dr. Madeline Ballard, . Welcome Madeline. Thank you so much for joining us today.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Great to be here. Thanks so much for having me.</p>
+              <p><span class="spk">Amie:</span> So we’ve got a lot of questions for you and I’m excited to really dig in, but I’d love to hear, a little bit about your story and your background and how did you get into this work of leaving the Community Health Impact Coalition?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Sure. I think it’s pretty simple, really. I think, you know, we all know how it feels to be sick. A lot of us have been lucky enough to access, Adequate healthcare, we’ve needed it. And, and my story is really that I grew up in Canada where health was a right. , and then suddenly, at 18 years old, I found myself living in a country, unnamed, but right next door where it wasn’t.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And in the tumult of my transition to adulthood in that period when everything I think was getting a little bit. Grayer more complex. The right to health kinda stood out as a really rare and compelling area of moral clarity. Particularly at that time I was connected with, h I V activists.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> There was still a waiting list for h I V drugs, in the United States at that [00:03:00] time. , and that felt, of search me. You know, you take an antiretroviral pill, you live a long and happy life, and if you don’t, you die. And obviously a lot has changed since I was 18 years old, but that sort of, Sense of intense moral clarity kind of remains, with me.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And, community health workers were obviously kind of the pioneers of the HIV movement and have been kind of proven again and again in a number of disease areas to be the best way to get. Care to everyone, to the poorer the rule, the stigmatized in cities, the underserved. And yet we’re in this place where their labor gets taken advantage of , and their own health is not a priority.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so, yeah, I was just compelled to kind of keep working, with , these folks and ensure that the fantastic work that they’re doing. , and that is they, advocate for their patients. That there’s folks also advocating with them for their own salaries, skills, supervision, supplies, we know how to make that happen.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> [00:04:00] Sure. Well, I mean, it really emerged from that dilemma that I just described, right? You have millions of community health workers who are not sari skilled, supervised, and supplied. I think that’s surprising to a lot of folks. You tell them, Hey, you know, 80 plus percent of the community health workers, in the continent of Africa are un salaried.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And folks are bewildered by that. They say, how could that happen? And then you say, well, 70% of them are women. You know, there hasn’t historically been an organization, of community health workers, this idea of that they haven’t been at the table. And so, as we know, that means you’re on the menu.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> We’ve, over many decades, there’s been this. Dual-sided human rights issue that’s emerged where you have CHWs both being exploited from a labor perspective, and then less effective for patients if you’re out of stock a third of the time. You’re not exactly bringing it when it comes to [00:05:00] malaria, diarrhea, pneumonia, all these really common cause of illness and death in our world.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So, and that’s really important because as you, you talked about before, Jonathan, you know, there’s a billion people. We’re never gonna see a health worker in our world. And so we wanna make sure that, that, that coverage is there and then when folks are, in contact with health workers, that that experience is excellent.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And the community health workers are supported to deliver the fantastic care that we know that they can provide. So, community Health Impact Coalition is comprised of enforced CHWs. We are CHWs aligned health organizations in about 40 countries. Or trying to make professional CUNY health workers the norm, by changing guidelines, funding and policy.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And by professional, I really just mean, salaried, skilled, supervised, supplied, what you would expect in any type of job, for any type of health worker, but just what isn’t the case here. And so we, do three things together. We do research to kind of equip international norm setters with the evidence to sort of, Create, have the health guidance that is used by issues of health when [00:06:00] designing care in their countries.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> We obviously do a bunch of advocacy together, specifically around influencing global financing institutions to increase the amount of money, allocated for professional CHWs and close what is right now, as a multi-billion dollar financing gap. And then third, we, we activate, we mobilize in-country CHWs, to win.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> National, you know, professional CHW policy. And, if there was kind of a sentence about Chic, it would just be, you know, we exist because CHWs work, there’s a double entendre there. You know, they reduce the amount of sickness and death in the community, and they do that by really busing their humps. And so how do we make sure that as we march towards care for all, that includes, those who provide it?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> [00:07:00] [00:08:00] If you are listening along and you go to Google right now and you search Sheik, c h I C. Policy dashboard, you’ll see, a beta version of kind of what it would look like to track progress across this field. It’s basically a map that summarizes CW policy across the 137 countdown countries.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And it’s something that we’re building together as a field. And to your point, Jonathan, about barriers, you’ll see that only 34 of 137 countries are currently accrediting and paying CHWs. So the barriers are real. For a program to succeed on a national scale, you need political will. You need financing, you need good system, sign implementation.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And that’s not easy. At the same time, when we think about progress, The good news is that map is actually changing very rapidly. You have [00:09:00] countries like Ethiopia that have long, had a national, professional CHW cadra, but they’re quickly being joined by others.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> You know, in the last five years in Liberia, Malawi have created professional CHWs cadres. You had Margaret Edra from Kenya on the podcast, in May of this year. And as we speak, Kenya is literally through the efforts of community health workers, like her creating. And National c w Cadra after, demonstration, after demonstration, after demonstration, in county after county.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So, I think I’d say two things. If you’re listening from a country, that accredits and pays CHWs, that’s purple. On that dashboard, on that map, you might be thinking, well, you know, our health system’s pretty imperfect. We don’t really have a ton to teach folks. And, and I think what I’d say is that’s incorrect.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> You know, if you’re in one of those countries, recognize that you’re actually on the vanguard of what is a global movement, a movement that’s expanding rapidly, and a movement that really requires you to be a people of invitation. People who say, Hey, you know, come and see. We’re doing this.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And I think if you’re [00:10:00] listening from a place that’s not, from the Purple Gang or not about to join the Purple Gang like Kenya, I’d say look at that map. Because what you’ll see are countries that pay in a credit CHWs that are, poorer than yours, that are more unstable, that share the particular regional challenges of the place where you live or where you work.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so, you know, are there ways to. Find people from those places and sort of say, how do you do it? You know, how can we, how can we join in? And I think that’s what, looking at problems from a field level view gives the opportunity, to do,</p>
+              <p><span class="spk">Amie:</span> This, movement to salary, supervise, supply and support, community health workers. Is there a country where you can kind of describe like, what does this look like in practice?</p>
+              <p><span class="spk">Amie:</span> Like what is it moving from and to and I know, one of the things that I love about your work as Sheik, is that You’re traveling around and you’re meeting with community health workers and you’re really in the trenches with them to help inform the policy work that you’re doing. So is there maybe a [00:11:00] country or a story that you could tell that kind of illustrates, like, what does that movement look like? Where is it starting? What does a day-to-day look like for a community health worker today versus, once they kind of implement some of these policies?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Sure. So, let’s tell the unfolding story of Kenya and maybe we can conclude it  we have a country, I mean, it’s a very decentralized health system, first of all. So there’s not one national policy. There’s each county has its own policy, but let’s. Let’s just pick one county, and pretend like that’s, that’s a metaphor for the whole country.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> What you have are folks called community health volunteers. And, community health volunteers are doing tons of work. They’re doing promotive work, right? They’re doing health talks, connecting folks, in rural areas or urban areas to essential information. They’re doing preventative work.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> They’re screening children for all. Sorts of, conditions, making sure they’ve had their vaccinations, maybe doing something as complex as, screening a whole population for [00:12:00] eyeglasses. And then they’re doing curative care. , in Rwanda, CHWs cure, half of all malaria cases are treated right there in the community on the doorstep, and we see a trajectory whereby the more.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Community health workers are supported the more they can take on. So they’re getting care to people who’ve never had it or closer to folks, to whom it was previously. Maybe, a 48 hour walk through a dense rainforest jungle to get to. But, in Kenya, and again, , in a lot of countries in Africa, those community health workers are maybe getting.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> They’re outta stock up to a third of the time, which is not a problem with the supply chain because often the health sectors to whom they’re attached are outta stock maybe only 10% of the time. So it’s really a gap between them being recognized as part of that supply chain. So they don’t have the tools that they need, which is frustrating for them.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> It’s frustrating for their patients. They are not getting the latest training that they need, so maybe they saw. A U S A I D,[00:13:00] PowerPoint 10 years ago and they were told someone was gonna come, supervise them and coach them, but kind, no one ever came. The backpacks worn out. The supplies are empty. And kind of what next? And that’s what they’re asking. They’re hungry for knowledge, not able to, to get it. And again, often, it’s not the supervisor’s fault cause that supervisor Has her own full-time and a half job.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So how is she supposed to be in two places at once, you know, on a motorbike going to remote villages, or even just different areas of town in a city and supervising and coaching health worker workers as while she’s also supposed to be seeing patients in the facility. So, often really left.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> High and dry and adding insult to all this injury is, yeah, they’re often in salaried and the only potential, quote unquote encouragement that they get in their role is maybe they get a paragon boots or maybe sometimes some little tiny financial incentives related to, Vertical disease campaigns.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> For example, if a, a team is coming through to vaccinate children and they help mobilize the community, they might get a little token of appreciation for that. But in the meantime, they’re there day in, day out. They’re the one being called at two in the morning, when something [00:14:00] goes wrong, when a child is sick.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And, it’s just not sustainable. And what ends up happening is either, there’s no care in the community cause the healthcare worker needs to go find an income source somewhere else. Or, and it’s usually kind of a mix of both that healthcare worker is devoting hours working under terrible conditions, providing lower quality care than we know that they’re able to provide.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And coming home at the end of the day, I mean, I was just with Margaret, RA in Nairobi, and one of her colleagues was saying at a big national, meeting she was saying, listen, You know, my kids are confused cuz they know mom works, but they also know, you know, mom can’t pay their school fees.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So what’s going on here? And I think we wanna go from that situation, which is quite common to a new vision where we support keen health workers perform like the professionals that they are. And I think this is something that’s intuitive to most people. If you had a factory and you didn’t pay the workers, you didn’t supervise the workers, you didn’t supply the workers, [00:15:00] you know, what type of product would you get?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Probably a pretty crummy one. And I think that’s what we see with healthcare in a lot of places. And we know that this is just, not optional, whether it’s your angles, pen, then preparedness, whether your angle is, you know, youth employment or rural employment or women’s empowerment. Just pure financial return on investment.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> It’s not just the right thing to do. It’s a smart thing to do to, to make that investment. And, that’s why I think what we see more and more countries like Kenya making that shift saying, Hey, I’ve actually, we’ve been experimented with this. It’s not getting us the results that we need.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And we know that if we just make minor investments to, to bring workers into the supply chain, so they have the tools that they need, we invest in some coaches for them, like any other employee. We make sure that they’re. On payroll and it’s expanding. The wage bill is always contentious, but it’s possible, and it’s been done in country after country.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Then the dividends that we’re gonna reap, will far exceed that initial, investment just in terms of, these dramatic reductions that you can see in death, and in sickness, in women and children, across the board.</p>
+              <p><span class="spk">Amie:</span> [00:16:00] Thank you so much for painting that picture for us, and it’s fascinating to hear you describe it because. It feels improbable on both sides, right? Like I even having spoken with Margaret in depth, it’s like I hear the situation that community health workers are in, and I’m like, why would you stay in a job that’s not paying you or supporting you and is probably incredibly stressful, right? Because you’re getting calls from people that need help and you’re not able to help everyone to the best of your capacity. You haven’t been even trained to do all the things that you probably need to do.</p>
+              <p><span class="spk">Amie:</span> So on the kind of worker side, it seems improbable. And then on the government side too, it just seems like, it makes no sense to me. And so I’m curious if you could unpack for me a little bit of, from your perspective of having. You know, worked across countries and across programs like, if you have any visibility on the why of both sides of this wild equation.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Absolutely.  I think it starts with, us considering the concept of choice. And I think we ask that question, right? Like, why [00:17:00] would Margaret choose to work with without pay that’s a weird choice. And I think it’s a weird choice until we. Contextualize it and in a context of high employment, and in a context of low opportunity, in a context of, gender, dynamics that are maybe not favorable, to women, suddenly the choices are really, constrained.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so, it often makes a lot of sense where poverty, unlimited access to decent work opportunities, especially for women, means that it’s not really a free choice, but it’s kind of a form of wage slavery, where you have women, and men taking up these unsolid roles who have either an implicit or an implicit desire.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> For paid employment. And they hope that, hey, if I volunteer and I volunteer, that will aid, transition into, a paid role. And, [00:18:00] there’s this rhetoric often, around women’s empowerment that’s kind of used to provide moral cover for these types of programs that are using female workers as volunteers.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> But it really downplays, that reality, right? That female labor is often cheap. In settings with low female literacy, high employment, and these gender, norms of disadvantage women. I wrote a little Lancet commentary with Margaret on this topic.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And she referenced in that commentary, a colleague of hers and he was a man, but he, I think he’d worked for like 17 years and just, I haven’t seen a dime, and I think it’s kind of a boiling the frog type of thing. Next week, next year it’s coming and it never comes. And then on the flip side, I think ministries of health are not the baddies here.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> You know, they are operating also with a huge ton of constraints where they’re maybe filling 60%, of their health budget with domestic financing. But then their. Needing to go and look for resources from global health initiatives or [00:19:00] from from bilateral funders. And there are those entities create constraints.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> They might say, Hey, we wanna. Make this investment and the World Bank turns around with them, with their neoliberal advice and says, you know, no cut public sector, you don’t expand the public sector. You cut the wage bill. You don’t balloon the wage bill. That makes their free choice in many ways.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> It limits it as well. And so it’s a hard situation, but I think, That’s where something like the policy dashboard is exciting because you can sort of see, hey, you know what, we can actually call someone up in our region, in East Africa and say, Hey, Malawi next door.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Like, you just did this. How did that happen? Can we talk to your ministry of finance? Can we talk to your ministry of health? You know, what debt financing, what grants? How did the financial piece come together? How did the policy piece come together? And how can we make this happen? And I think the fact that we’re seeing a bunch of. Secular trends, from labor organizing, being back on the map in the way that it really hasn’t been since like the 20th [00:20:00] century, and this becoming more of a women’s issue. And health being on top of people’s minds after Ebola and covid means that suddenly, it’s health of politicians as well because it’s, it’s, there’s a political demand for it that maybe, after many frustrating years of everything staying the same, there hasn’t been for some time.</p>
+              <p><span class="spk">Amie:</span> Thank you so much for that, Madeline, and I think you, you did a beautiful job sort of. Pointing out the privilege inherent in my first question, right? Which is like, I’m coming from this place where, I expect to be paid for my work. And there’s so much privilege in that expectation.</p>
+              <p><span class="spk">Amie:</span> And so just like helping kind of break down some of those layers. And I think the boiling the frog metaphor is so apt, right? Because you probably get into the work and then. There’s a stringing along as well. And I think Margaret did a really beautiful job in the previous podcast episode describing that and what that feels like.</p>
+              <p><span class="spk">Amie:</span> It also sounds like you see this as like maybe an inflection point moment, in sort of things are shifting. Can you tell me a little bit, what do you see, like for these countries that are turning purple right on this map and we’ll link to the policy [00:21:00] dashboard , you described and I was just looking at it. What are some of the things that they’re doing well that’s enabling them to, roll out more advanced policies around CHWs.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Listening to patients, I think so often big changes that we see, and this is where we are learning from, you know, the Positive People’s Movement, HIV movement, where I started and, and so many did as well, or disability rights movement. Whenever I. Get asked to speak these things, I usually say no, not unless it’s a community health worker.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And the reason I said yes to this one is like, well, you see, you already talked to, you know, yes, I’m coming after. And I think that that’s, as it as it should be, because no one, better than the person, in the room, with a child. With the fever, with the sweat, you know, at night, like knows what’s necessary in that moment.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so, I think the emergence of, key CW leaders that are active not only in a national and a regional scale, but even on a global scale [00:22:00] is something that we have not seen in the community health, space. Right? I think there’s, there’s been.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> To your question, what momentum there’s kind of been, if you guys, enthusiasm for CHWs has come in waves, right? This is not the first time that we’ve been all hyped up on CHWs. There’s were the barefoot doctors in China during the fifties. There was kind of this post, Alma Ata period, this big conference that took place, in the late seventies where the idea of how for all was, was first developed and popularized.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And that was followed by this big enthusiasm. And then again in the millennium development goal era, when we realized that we were really short on healthcare workers and we need to. Do this thing called cash shifting, in order to reach all the folks that, were becoming sick in what was then an outta control, H I v, pandemic at all.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> These times people are like, oh, community health workers, you know, but I think what’s different this time is. Unlike the eighties, where if you look up, actually this is a fun, health, public health history, fact, if you look up the Declaration of Alma, the declaration that talks about how you know the world’s [00:23:00] gonna achieve health for all by the year 2000, it’s like an 80 page document.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And there’s one paragraph that talks about financing. So it’s like, okay, we’re not making that mistake. And there were no community health workers at that meeting. It’s like, okay, we’re not making that mistake. And so I think with each of these waves, we’re learning new things about that triptych of the political will, of the financing of the good program design, and who needs to be in the room to, to have a productive conversation and set this policy up.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so, I think that’s why the countries that are kind of purple on that map. And some of them were trailblazers, like in Ethiopia. And some of them are more newly purple. But they all kind of have several of those elements, in common where they’re looking at the numbers. They’re listening to female health workers in a meaningful non tokenistic way.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And then they’re taking that best evidence, which is only again, recently emerged the W Hos. First ever guideline on how to support community helpers and their work came out in 2018. You know, so this is a century old [00:24:00] story, but it’s a story that has really seen, a huge number of developments even since that last wave,</p>
+              <p><span class="spk">Jonathan:</span> a lot of the points you’re making, Madeline are. Ones that we often make one level lower at the enablement of CHWs with technology. You know, whether it’s a financial argument of better training, more effective work, whether it’s a, quality of care argument or an access argument. But we’ve really, at aligned on focusing on better jobs, you know, through the work that we’ve.</p>
+              <p><span class="spk">Jonathan:</span> Gotten to participate in as a member of Chic and just the work we’ve done in country, we kind of wanted to put a stake in the ground and be like, if we do not focus on improving the jobs of CHWs with technology among many other things, it’s obviously not the only answer. We’re never gonna serve CHWs correctly and they’re not gonna be able to better serve their clients and communities.</p>
+              <p><span class="spk">Jonathan:</span> So much of technology can be extractive, you know, oh great. We can have CHWs go do our household census. We can have CHWs. Input what [00:25:00] services they’re delivering inside my dashboard, even though I’m not using that to do anything. you have a ton of members in the, the, community Health Impact Coalition that are at the, leading edge of how to use technology to enable CHWs and CHW programs.</p>
+              <p><span class="spk">Jonathan:</span> You have technology partners directly in the Sheik membership. But technology is double-edged. We’re taking a, thing that could be very helpful and valuable to community healthcare workers, but lots of us have experienced software systems. Our employer, organizations tried to give us that we hated, that were counterproductive to our work.</p>
+              <p><span class="spk">Jonathan:</span> So what, you know, excites you about technology as one component of this journey, and what do you worry about with technology? Cuz it’s very, you know, as you said, we’re in one of those ways where it’s very popular right now. Lots of national digital health strategies talk about. Rolling out electronic community health information systems, which, is great.</p>
+              <p><span class="spk">Jonathan:</span> But, as with everything you can, you can do it well and you can do it poorly. And, and it’s a, it’s a challenge given where the fundamental alignment of the value community healthcare [00:26:00] workers create may not be aligned to focusing on better jobs or focusing really on the c h w enablement as the end goal.</p>
+              <p><span class="spk">Jonathan:</span> And so just curious to get your opinion and your take again, given your seat of seeing this across so many countries.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> No, I really liked the way that you framed that, question, Jonathan. I think, yeah. Technology again holds immense, potential. And, there’s some really sharp, double edges there. I think the folks that are doing technology best, are folks like dgi, others within the Community Health Impact Coalition community that you reference who understand, first and foremost, the technology’s not neutral.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> It’s amazing that folks can still think that sometimes or act with that assumption. In this day and age where we know all about algorithmic bias and we know, , about privacy concerns, and we, see the way that, platformization has reversed, I think many of the gains that the labor movement has made for the 20th century, and still think that.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> The way that we build these systems, doesn’t have anything to [00:27:00] say about whether we’re nudging towards more humanizing or more dehumanizing care. So I’d start there. And I think that even, this idea that a, technology company or what some folks would call a vendor, which I think is a real undersell what ACH does, but yet would have an opinion about these things, is novel for a lot of folks.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And I don’t think it should be because, these are issues that. Unless you’re being intentional about them, you’re just kind of floating down the stream. And you might need to be swimming up current actually, if you’re not wanting to try to recreate some of these harms that we’re seeing.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So, yes. For the proceeds heavy movement. The sky’s the limit. I think we, know all about deficient data management, you know, facilitating remote training, not just for better health outcomes. This idea that we can actually finally have you know, electronic medical records that can be accessed, at any point of care.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Like these dreams are so close to becoming reality and with change care for so many patients and allow providers to see patterns, [00:28:00] to correct mistakes, to, be able to make better decisions. And I think the monkey’s on the leading, edge, of that, and even within. The coalition we’ve explored together, more like novel and interesting use cases.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> One stat that we came across during the pandemic is that, CHWs with leadership training are two to four times more likely to engage in, political, civic, and workplace advocacy. So and we know that, we’ve talked about, performing National association students can kind of address some of these.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Power asymmetries that we’ve talked about. Win, proceed policy, and then holding hold governments accountable to deliver that policy, and ensure it doesn’t get. Reversed, which is another thing that I think we’ve seen around the world, that some of these gains that have been achieved through advocacy, they’re not permanent.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> You have to fight for them every day. And so the experience with some of the, by coalition technology partners have creating something like cw advocates.org, the free digital training, tool that equips CHWs with advocacy and [00:29:00] storytelling. Skills has also been funny and amazing cause we came into this work really thinking about how can technology, be improved so that it supports community health workers and their day-to-day work rather than hinder them, as you just said.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> But we weren’t really thinking about how can technology grow this movement, , to improve working conditions and patient outcomes. And that’s what we’ve seen just over the last. 24, 36 months with this course. It’s just been a huge funnel where thousands and thousands ofs have kind of accessed it through peers, through friends, through family, just on WhatsApp and fiber, again, other technologies.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And then once they’re connected with, a leader in their community like Margaret, or maybe it was Margaret that told them to the course in the first place. And all of a sudden, understand potentially for many the first time in their career, like, Hey, this is not just a local thing we’re facing or a national thing we’re facing.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> There’s actually folks next door in my region or globally that are, are all part of the same story that I’m part of. And now suddenly I have this platform to speak about these issues, of concern. Not only locally, but nationally and internationally, as well. And it’s [00:30:00] really funny because I think if you remember the Strat thing, but as a community we were kind of originally thinking through, well how are we gonna take that stat and, and make advocacy trading available for community health workers?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Our first thought, because we’re just old school people, was, well, we need to do it in person. And then we only pivoted to technology because of covid. And what a fortuitous pivot because the scale and speed at which CHWs are being connected to the movement would not be possible with that technology. So, I think it’s really exciting.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> How do we make Technologies’s ability to make community health workers work better and more efficient? Make the work of those, around community health workers, facility based workers, data based decision makers in the Ministry of Health, more efficient, and also. Facilitating the processes of CHWs season power through organizing, and allowing us to walk with him in that process. So, really just incredibly exciting.</p>
+              <p><span class="spk">Jonathan:</span> I love that anecdote of how technology has helped that advocacy course reach, more community healthcare workers and then the knock on effects [00:31:00] of what that leadership training and that advocacy can do. And one of the things that we’re really excited about and have discussed with you and many members of Sheik is also thinking through.</p>
+              <p><span class="spk">Jonathan:</span> Programs that employ tens of thousands of people at scale are just very difficult to run. It is likely you don’t want a completely uniform job description for every single one of those workers. Or maybe you want a uniform job description, but how they choose to optimize their time based on the needs of their communities and clients.</p>
+              <p><span class="spk">Jonathan:</span> Is probably going to be different. And the other thing that I think technology, that we’ve barely scratched the surface of as degi, as medic, as many of the, the partners of these organizations is how you combine the top down support. You know, so what, what does an national government need to support CHWs at scale?</p>
+              <p><span class="spk">Jonathan:</span> What does a, health system design and, and that level of expertise, but then also how can technology really. Empower community healthcare workers and create a bottom up approach where the C H W has the [00:32:00] tools he or she needs, primarily to provide the right services in her community. And without technology helping to demonstrate the value, helping to assist and the training, helping to support, that care delivery, it’s really difficult to imagine how we can unlock that bottom up approach.</p>
+              <p><span class="spk">Jonathan:</span> But as I look at these programs, and the analogy I give, based in the United States, and the analogy I give a lot is with, Teachers, you know, we do all this national standardization of school curriculum, these things, but like communities are so varied across the United States. Like obviously what makes sense in a rich urban area or poor urban, urban area is not the same as a semi-urban or rural area.</p>
+              <p><span class="spk">Jonathan:</span> And the same is true for CHWs. And so the, the technology empowerment for community healthcare workers, and again, I think we have so far to go on how the software platforms that are used can support this, but to. Right Fit the way technology can support CHWs, which is not with one big top-down design necessarily, but with a top-down strategy, but a bottom-up approach where the CHWs are [00:33:00] really empowered to provide the right care based on their local context.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> That resonates a lot. And, I think, the word ai, it’s kind of implicit in your question. And how do we learn, in a systematic way about some of those differences across communities and tailor care provision, to them is. Not just a community health issue, it’s a health large issue globally.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And there’s so many applications, as you said, just even across fields. And, I think I am a so excited to think about what is care gonna look like, in five years from now, 10 years from now, and are we gonna achieve the potential of this? And then b excited in the present tense for how some of these.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Questions that are emerging, as you say in the current site, gu. But how can we, undo some of the harms of standardization and provide more tailored care, and potentially use AI to do that. Or other means are beginning actually to shine a spotlight on kind of some of the longstanding, structural violence that undermines those use cases.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> So, I remember precision medicine [00:34:00] kind of came onto the, OR was coming onto the scene prior to the pandemic, and there was actually a group that tried to use, AI to improve community health workflow. Like how do we more efficiently target households? But be given the limited data available, the algorithm basically came back with, well, every household in this village is poor.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Every household has a woman of childbearing aid and every household has children. So it just, it had nothing, you know, and that’s in a place where households had at least been like mapped, and the chemo workers had been counted. And that’s just so far from where we are. And so, , when we take seriously the mission of actually how can we close like the underlying health infrastructure and data gaps, and imagine what’s possible, when we do that, I think , that’s a really beautiful story, that technologists can tell, with, public health nerds kind of together, and ensure that the fruits of, technology that, we’re seeing in some parts of the world, as precision medicine. It gets embedded into, I don’t know, an Apple watch, becomes available to all of the world’s patients. And I think that’s a feature that, is very much within our grasp in, the short [00:35:00] term.</p>
+              <p><span class="spk">Jonathan:</span> And, I love that anecdote and I think there’s is so much potential with ai. We recorded an episode, a few weeks back. We can link to in the show notes, but. Very excited. Also somewhat scared, you know, we’ll see how all this progress goes. But the point that you raised is so critical in terms of how we will use technology, be it non-AI or AI that’s really relevant to community healthcare workers, right?</p>
+              <p><span class="spk">Jonathan:</span> It doesn’t do any good to know that if people are poor, they need care, because a lot of the geography served in a lot of areas, that would, every household would potentially qualify depending on what you meant, but really understanding what do CHWs truly need help with? Like they often know a lot about their communities, a lot about the households, and they just need to be paid what they should already be paid to go do that great work.</p>
+              <p><span class="spk">Jonathan:</span> And given the supplies and no fancy AI algorithm is going to change outcomes if we don’t fix those underlying, concerns. And so I think that is so exciting, but also just some of the. Some of the basics are gonna [00:36:00] create such a massive roi because you can see it in programs where they are supplied regularly, where they are supervised regularly.</p>
+              <p><span class="spk">Jonathan:</span> You don’t need this huge increase in technology to create much better outcomes. And then if you get those baseline factors, solved for, then as you said, the sky’s the limit with what you could potentially be doing with technology. But it’s gotta be coupled with those basic components. Again, which is what you mentioned.</p>
+              <p><span class="spk">Jonathan:</span> Often we are, sometimes viewed as a vendor, but we have a, a tagline that we think of ourselves as a partner, not a vendor. And as a partner in creating those better jobs, we know how powerful technology could be, but also how limited its value might be in circumstances where those basics aren’t taken care of, for community healthcare workers.</p>
+              <p><span class="spk">Jonathan:</span> And so we really view it as one piece of the puzzle, but I totally agree, like there’s a lot of exciting potential and. I like the advocacy that the Gates Foundation is doing, making sure AI is used equitably and funding that they’re gonna be putting towards that. But, the trend of how tech helps workforces like community [00:37:00] healthcare workers in countries like those we’re targeting unfortunately has a very poor track record, over the last decade or two of successfully reaching that.</p>
+              <p><span class="spk">Jonathan:</span> So that’s something we’re gonna keep, advocating for and directly contributing to, but it’s something that I think the global community needs to really. B putting effort into making sure that the immense potential of these technologies reaches this incredibly powerful workforce, in the way that’s going to really help as opposed to be extractive.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> You see the difference in the types of questions people are asking and like, I’ll give a shout out to Dema here. You know, I think because you’re listening, and aligning yourselves with health workers, the question that you asked with the latest. You know, some of the work that you’re doing around Comcare and some of the newest releases you know, the question you’re asking is not how do we try to make a better precision care algorithm, with limited data than the one that’s already in the community health workers head?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Because we need several more years of data to do that. If you’ve talked to any community health worker, they’ll say, oh, this person’s expecting man. That person has, you know, measles. Like, yes, that kid has, they, they, [00:38:00] they are a precision fair machine already. That’s not the problem that they need help with.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And I think, , it’s through talking to health workers that then deba you, is able to sort of say, well, what is the problem that we need help with? It’s making that work visible and tracking it. I think that that’s sort of some of the things that you’re looking at with. Some of the work that you’re doing, and so rather than asking who’s asking the question, and rather than trying to solve a problem that may not be a problem on this scale or in this context, can we solve a problem that that certainly is, um, and, and slot technology in there.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> And so just, you know, how we’re even approaching the issue, I think, really dictates, the success of the failure that we see. And it’s really. Nifty to tell both those stories side by side of, you know, one being about trying to replicate something that already exists in ch HIV’s brain. And one being about how to, create, a visibility and a dignity and respect for their labor that wasn’t previously there. And I think those are, two very different and, probably equally technically complex, but, potentially, one more interesting than the other, [00:39:00] applications of quote unquote technology.</p>
+              <p><span class="spk">Amie:</span> Madeline, in our last minute together. Tell us a little bit about where are you going from here and maybe built into that. What is the number one takeaway you want our audience to walk away from this conversation with?</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Yeah, we’re turning the dashboard purple. More research, more advocacy, more activating national c h w networks all the time, everywhere. The CHWs League, the charge. You know nothing about CHWs without CHWs, until professional CHWs are the norm. And so if there’s one thing that we would love listeners to take away from this is, please join us. There is a role for you whether you are, a digital technology partner, whether you’re a healthcare worker, whether you’re a funder, an implementer, a policymaker. This is. A big issue, where everybody can play a role and folks have already gathered, around some momentum towards solving this issue and creating a world with, care for everyone. And, [00:40:00] sustained cooperation, collaboration is how we win. And so if we can be together, have our voices be stronger, have our resources go further, and ultimately do more for patients, then I think we’re gonna win. So, yeah, join us.</p>
+              <p><span class="spk">Amie:</span> I love that. Thank you so much, Madeline.</p>
+              <p><span class="spk">Dr. Madeleine Ballard:</span> Thanks a lot guys.</p>
+              <p>Thank you so much to Dr. Madeline Ballard for joining us today. I’m going to share my top takeaways, but there’s so much in here. So I definitely recommend listening to this episode again.</p>
+              <p>The biggest thing I take from this is that we need to cover the basics. First. We need to get community health workers, professionalized. I love the memorable 4s framework that Dr. Ballard offers. CHWs need to be salaried, skilled, supervised, and supplied.</p>
+              <p>Once we get there next gen technology can take it to the next level. But at this very moment, it’s not AI that’s needed.</p>
+              <p>Community health workers have the ultimate intelligence. What we need to do is first unleash their intelligence by properly supporting them. Before we should even be thinking about rolling out the [00:41:00] perfect AI algorithm to make them more effective. This isn’t to say that we shouldn’t also be thinking about the role of AI we should be, but.</p>
+              <p>It’s so important to get this foundation in first.</p>
+              <p>I also wanted to reemphasize John’s point the community health worker model empowers individuals within their communities. Which challenges, this rising trend of healthcare becoming more and more transactional. , by supporting and enabling community-based health advocates, we can create a real shift in how healthcare works.</p>
+              <p>And make it more personal and human.</p>
+              <p>I also appreciated Dr. Ballard’s clear message to technologist technology is not neutral. You have to be intentional about how technology is used. If you want to avoid creating harm or becoming extractive. And Dimagi is cases is something we think about and talk about a lot when it comes to creating tools for health workers.</p>
+              <p>A job aid for a health worker can easily become an extractive data collection, only tool. Where we’re asking health workers to get a long list of data that interrupts the flow of their job [00:42:00] and actually makes their job harder. Versus a supportive tool and we have to be mindful here.</p>
+              <p>I also want to highlight what Dr. had shared around how technology. Can not only make jobs better as a thoughtful job aid. It can also connect and amplify important movements.</p>
+              <p>As we’ve seen with community health workers who are taking an advocacy course and being able to better speak up and advocate for themselves in their communities, which is so essential.</p>
+              <p>And you heard from Dr. Ballard, how important it is that we are continually fighting to maintain gains that we’ve earned through advocacy.</p>
+              <p>The last thing I want to elevate from this conversation. Is really distilling down what we heard from Dr. Ballard around the work that she is doing.</p>
+              <p>To turn the Sheik policy dashboard. Purple sh. As Dr. Beller describes currently only 34 of the 137 countries that Sheikh is following. Are paying an accrediting community health workers one of those 34 is a DOPs. And actually in a future episode, we’re going to hear in more detail about some of the work that’s happening there and all of the effort and thought and investment [00:43:00] that’s had to go into it.</p>
+              <p>And if we look at the countries that are leading in this movement to professionalize community health workers, Dr. Ballard shares a few key things that they’re doing right. They’ve got strong political will. They’re willing to listen to female community health workers. I love this point that Dr. Ballard makes.</p>
+              <p>She said. If you’re not at the table, you’re on the menu, which is just so apt and describes her approach for doing nothing about CHWs without CHWs involved. Community health workers need to be in the room, contributing to the program design. Countries also need to be thinking through. The financing to support a salaried community health worker program. Something that funders need to support as well.</p>
+              <p>. And lastly, they need to be reviewing and continuously applying the evidence to improve.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">MB</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Madeleine Ballard</p>
+              <p class="person-role">CEO of the Community Health Impact Coalition, leading a global movement to make professional community health workers the norm.</p>
+              <span class="person-org">Community Health Impact Coalition (CHIC)</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/1tsqS9trfMaH3B8ORa3IJO" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

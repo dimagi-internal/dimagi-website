@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 64: Strategic Data Management for Violence Prevention Impact | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Cure Violence Global&#x27;s Dr. Charles Elliott on treating violence as a public health issue and using data and CommCare to track interruption, behavior, and norm change.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-64-the-strategic-role-of-data-management-in-cure-violence-globals-work/">
+<meta property="og:title" content="Ep 64: Strategic Data Management for Violence Prevention Impact">
+<meta property="og:description" content="How Cure Violence Global uses a public health approach and CommCare data to prevent violence and empower frontline workers.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>October 17, 2024</span>
+          <span class="dot"></span>
+          <span>54 min</span>
+        </div>
+        <h1 class="ep-title">Strategic Data Management for Violence Prevention Impact</h1>
+        <p class="ep-deck">Dr. Charles Elliott of Cure Violence Global on treating violence like an epidemic, and how a thoughtful data strategy built on CommCare helps frontline workers earn credit, build trust, and prove their impact.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/5EEWcs4n4a6zlMVz5fAYEZ?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 64 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/5EEWcs4n4a6zlMVz5fAYEZ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000673444531" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/j2ZpqvgnXHA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/06f60cde-5d85-4929-9013-de19f269178e/high-impact-growth-the-strategic-role-of-data-management-in-cure-violence-global%E2%80%99s-work" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">25 years</div>
+          <div class="ep-stat-label">of research and practice behind the Cure Violence approach</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">15 to 20</div>
+          <div class="ep-stat-label">participants each outreach worker builds a relationship with</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">two weeks</div>
+          <div class="ep-stat-label">timeline to customize and implement the system for the Uruguay national program</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode of High-Impact Growth, hosts Jonathan Jackson and Amie Vaccaro talk with Dr. Charles Elliott, Director of Data Management at Cure Violence Global (CVG), an organization using a public health approach to prevent violence. Dr. Elliott shares insights into how CVG views violence like an epidemic, applying data-driven methods to map and reduce violence in communities around the world.</p>
+        <p>Dr. Elliott articulates the value of a thoughtful data strategy using a tool like  CommCare to measure and track critical indicators such as violence interruption, behavior change, and norm change. Dr. Elliott highlights that for Cure Violence, technology is not just a tool but a long-term investment that powers program funding, staffing, and programmatic decisions.</p>
+        <p>The conversation covers the challenges of quantifying the impact of violence prevention, the significance of trust-building in communities, and the role of data in driving both local and national violence prevention strategies. Dr. Elliott also touches on his personal journey from military service to data management, emphasizing the importance of creating systems that empower community workers, who often play a crucial role in violence prevention programs.</p>
+        <p>Dr. Elliott shares his guidance for other organizations looking to leverage data as a strategic advantage and impact accelerant:</p>
+        <p>Show Notes:</p>
+        <p>Sign up to our newsletter⁠, and stay informed of Dimagi’s work</p>
+        <p>We are on social media – follow us for the latest from Dimagi: ⁠LinkedIn⁠,X, ⁠Facebook⁠⁠⁠, ⁠Youtube⁠</p>
+        <p>If you enjoy this show, please leave us a 5-Star Review and share your favorite episodes with friends.</p>
+        <p>Hosts: ⁠Jonathan Jackson⁠ and Amie Vaccaro</p>
+
+        <blockquote>
+          <p>&ldquo;I think one of the main things that people need is to adopt a system that helps people get the credit for what they do. It&#x27;s like silencing an entire army of people who have really important dialogue.&rdquo;</p>
+          <cite>Dr. Charles Elliott on data as empowerment</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Violence as an epidemic</strong>: how Cure Violence applies disease control and epidemic reversal strategies to prevent violence in communities worldwide</li>
+          <li><strong>Credible messengers</strong>: why culturally sensitive outreach workers and violence interrupters are the heart of the model, with their credibility as their shield</li>
+          <li><strong>Measuring the hard to measure</strong>: tracking interruption, behavior change, and norm change across hundreds of indicators in CommCare</li>
+          <li><strong>Data that empowers</strong>: how a common system lets local programs get credit, leverage funding, and tell their own story</li>
+          <li><strong>Privacy by design</strong>: collecting no names or addresses to protect participants and build community trust, with evidence that trust in police rose in places like Brooklyn</li>
+          <li><strong>From the field to the dashboard</strong>: translating ground-level realities up to national stakeholders, the airplane at every altitude</li>
+          <li><strong>A rapid international build</strong>: customizing the system for a national program in Uruguay on a two-week timeline</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible. With technology and human creativity. I’m Amie Vaccaro, senior director of marketing at Dimagi.</p>
+              <p>And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder. Today we are joined by Dr. Charles Elliott, director of data management at cure violence global. This is an organization that takes a public health approach to violence prevention, applying epidemic reversal strategies to cure violence. We all know that an organization’s approach to data can be a differentiator. But it’s often challenging to execute. Today’s conversation reveals how one organization’s thoughtful data strategy has enabled them to achieve outsized impact. You’ll hear about the roles of relationships, trust, empowerment, and transformation and cure violence is approach. You’ll also gain insights on how even small teams with limited resources can distinguish themselves and drive greater impact through data collection and management using Comcare.</p>
+              <p>Enjoy.</p>
+              <p><span class="spk">Amie Vaccaro:</span> All right. Welcome to High Impact Growth. So I am so looking forward to today’s conversation. I am here with Jonathan Jackson, my co host And today we are joined by an incredible guest, Dr. Charles Elliott, who is Director of Data Management for Cure Violence Global. Welcome Charles.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Thanks for having me.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, great to have you here. So I’ll share my understanding of the incredible work that CURE is doing. And then I’ll ask you to share a bit of your story and what brought you to this work. CURE Violence is on a mission to reduce violence globally using disease control and behavior change methods. And you treat violence as a public health issue, which I love and believe the communities and individuals can transform themselves. which is another statement that I just truly, really resonates with me. You at Cure Violence, you’re also a partner of ours and you’re users of our software. So I’m really excited to dig into your work, but let’s start with a little bit of just background story for you, Charles. What’s your, what was your path into this work around violence prevention?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Oh, absolutely. Growing up, I was no stranger to violence. Like I live in the city of Atlanta and there’s violence all around me and grew up in a pretty rough neighborhood, moved out of there and realized at a young age that, there was violence all around me and that kind of was where it started.</p>
+              <p>But I think it resurfaced later during my time in the military, I was a veteran and I fought in two separate wars. The experiences that I had took me to some of the most turbulent places in the United States also, and like abroad. So I got to see a lot of like inner city violence, but also like international conflict as well.</p>
+              <p>So I think, rather to, succumb to all the despair of violence and everything I had this approach, this passion to understand and to fight violence and to try to understand how we can, to resolve those issues.</p>
+              <p>And I think further is the journey to cure violence has been really strongly based on the work that I’ve been doing surrounding violence prevention for the last almost two decades. I started going to school after I got out of the military and focused really hard on international conflict.</p>
+              <p>So I was really focused on, how do people resolve, war between tribes or parties, conflict resolution within state to state conflicts but also focusing on interpersonal conflict as well. So I did a lot of like, psychological, work where I</p>
+              <p>was focusing on conflict. So that kind of led me to the area. Of</p>
+              <p>studying interpersonal violence and understanding conflict mediation. So that I think besides the aspect of data that</p>
+              <p>we, measure at the organization, it’s</p>
+              <p>also very, theoretical in my background.</p>
+              <p><span class="spk">Jonathan Jackson:</span> we’ve</p>
+              <p>That’s great, Charles. And I</p>
+              <p>remember when I first heard about Cure’s model, It was one of those models that you hear when you’re like, really, that works and you’re skeptical if you don’t know anything about</p>
+              <p>the field or the</p>
+              <p>approaches, I’d love to just get an</p>
+              <p>overview of the conceptual model, how it works at a high level for our listeners. And then I have a bunch of follow up</p>
+              <p>questions on how How you got</p>
+              <p>convinced as an organization, as leaders</p>
+              <p>in this approach and how</p>
+              <p>it has resonated within the public health and local communities that you help support.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> That’s a wonderful question, Jon. I think CVG, obviously works around the globe to stop the spread of violence. That’s our main focus. And it’s, and like Amie mentioned, it’s a public health approach. So it uses an epidemic reversal strategy. So looking at how violence spreads through cities or communities like a disease and it’s a methodology.</p>
+              <p>So cure violence is in itself a methodology outside of our organization, which is cure violence global. It’s evidence based, so again, 25 years of research has supported this approach to violence prevention in multiple places around the world, and, we also examine behavior change, so there’s a lot of aspects of psychological approaches to how we measure risk within the participants of our programs.</p>
+              <p>But it’s also, what’s really special, Jon, is it uses these culturally sensitive, credible messengers in these communities. These are individuals that go out into the community and spread the word that violence is not acceptable. Put our guns away, so to speak and let’s resolve things from a mediation standpoint.</p>
+              <p>Working with people who have been really troubled throughout their lives and creating, like I said, like this culturally sensitive background between the outreach worker and the participant of the program.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And the idea that you can convince some of these neighborhoods in the United States and globally that have, very significant violence issues. Yeah. Poverty Issues, many other challenges to put their guns away and talk it out. That’s the thing that I think to a lot of people might sound like, Really?</p>
+              <p>That works? And so I’m curious, what was the origin of the approach for CVG? And then, I presume there was a lot of skepticism that you could, A, get credible messengers to opt in to being the messengers, and then B, that, once that happened, people would buy into this approach.</p>
+              <p>And so I’m curious if you can share, what was that journey like? What was the evidence, how much skepticism was there in this approach? How has that shifted over the last 25 years? And just share that journey a bit.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> With any great idea, there’s always going to be skeptics, and I think that, Surrounding the approach at first, there was some, confusion about how it worked and there was some definite challenges to the work itself.</p>
+              <p>And I think that over time it’s become better and more and more clear. And I think with any idea like this, where you’re being introduced to a public health approach to violence prevention, there’s a little bit of wariness because typically violence is dealt with from a law enforcement perspective.</p>
+              <p>And I think, there’s absolutely nothing wrong with that, but it’s just one of the pieces to the puzzle to us. I think that you also have to look at it from the perspective of science and how things are spreading in these communities and how people. can influence each other to stop being violent.</p>
+              <p>And I think also how that resonates with people’s cultural and social norms to reduce violence in their own communities through campaigns or canvassing and things like that. So I think that there’s some deeply personal aspects to it, but I think, that those things really have grown in the national spectrum, in the spectrum of violence prevention, now being recognized by the CDC and the White House and, all these other people starting to focus on CVIs is what they’re called Community Violence Intervention Programs.</p>
+              <p>And there’s a whole ecosystem of work being done in this area and CureViolence is, has been doing this work for a very long time. And is acknowledged pretty readily in that area, but I think when it comes to the focus of the science and the practice of what we do, it’s been really strongly</p>
+              <p>supported by the work of thousands and thousands of outreach workers, telling their stories and connecting with individuals in the community to help show people, not just to say, but to show people what violence and reduction really looks like and changes to violence in those cities.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles I’m curious stepping back a little bit and just reflecting on your journey into this work and your kind of interest in violence. What have you learned about conflict and interpersonal violence and sort of like the root causes there?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, I went to school for a super duper long amount of time to study violence before I joined CVG because I was just genuinely interested from, like I said, the war and just seeing poverty and understanding how there’s a lot of factors related to violence. And it’s mathematically speaking, I was really interested in that.</p>
+              <p>But I think, taking a step back I think what I’ve really learned over time is like this aspect of relationships, it’s so important. With CVG, we manage hundreds and hundreds of relationships daily navigating these intricacies of training and process development and challenges with programs, and I think simply knowing the leaders of the field is not enough.</p>
+              <p>You really have to know the people of the field, all of the different workers and what this looks like from a 40, 000 foot level, or maybe even a 10, 000 foot level for a lot of people, so you have to be able to change your perspectives to understand the different parts of the field.</p>
+              <p>And I think over time, I’ve spent a lot of time really forging connections through the stories that have been shared via. CVT database or CommCare and fostering those personal relationships through trainings with those people in cities. So I, I walk up to people in those cities and say, I’ve been looking at your data for years, and now it’s so exciting to get to meet you and to see and to talk about all the things you’ve been telling us about aspects of community impact.</p>
+              <p>that you’ve been delivering, and, witnessing the transformation of the impact of that data in our system has been very like humbling and exciting, and I think that the CVG approach absolutely is working strongly in these areas where people are measuring this approach and I think oftentimes, like I said, I liken it to the airplane cruising at various altitudes, you have some people at the ground level, Working really strongly, and you have to be able to interpret and translate that data to the people at the 40, 000 foot level, and this is a challenge of the field, and I think it’s also really challenging to be able to sit at different levels at the same time, in your head, when you’re thinking about these problems, because you have people at the ground level who can’t translate what they’re trying to say to the people at The very high national level, and then you have all the people in between as well.</p>
+              <p>So I think this is a revelation that I’ve had since, learning about violence and working at CVG and being the director of data management, I think is, has definitely been a humbling experience, and I think I tried my best to understand all those perspectives and create systems and process that works for everyone.</p>
+              <p>Not just the people at the top or the people at the bottom. Although I do take the bottom up approach. So a really upstream approach to managing the data of our organization and of the national space.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, that’s great. And we’ve loved highlighting the amazing work you’ve been doing. On the data side, obviously, we’re excited that it’s powered by CommCare, but I’d love for you to share a bit about the way in which data is used in the context of your work. And in particular, one of the challenges with a lot of public health interventions, and we see this in mental health too is the cost to introduce these programs is definitely not zero.</p>
+              <p>You’re taking people’s time who are. The violence interrupters, the local community members you’re doing engagement and so it’s non trivial investment. But the cost of not doing it is just astronomical in terms of human life, in terms of morbidities and it can be very difficult for all sorts of different public health interventions that have this kind of public benefit, but a little bit hard to measure and provide a concrete ROI the same way, medical claim.</p>
+              <p>has a very easy opportunity to do that. So I’d love to hear a bit about, how do you think about the data system that you’ve built and what is it helping support in terms of the kind of value based argument of why and how communities can think about the introduction of these programs.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> This is why I love talking to Dimagi. You guys are asking excellent questions. I think, yeah, of course, and I think the ROI conversation has been a challenge of this field for longer than I’ve been in it, a lot longer. It’s like, how do you quantify death? How do you put a dollar sign on that or whatever?</p>
+              <p>I think it’s a really challenging thing to do. And I think some of the other national organizations like Every Town for Gun Safety or the NIH have, or the DOJ have done a lot of work to try to quantify that for cities and jurisdictions. But one thing I would point to, Jon, is that everywhere we look, violence is very different.</p>
+              <p>Even there in Cambridge, you have different levels of violence versus here in Atlanta or in Chicago, and these are different types of cultural violence based on forged relationships, based on groups that exist in those areas and if you go to places like the Sinaloa, and Mexico or Juarez, you have a lot of a very different type of violence.</p>
+              <p>So again, like understanding that it’s really hard to standardize the quantification of the ROI in those places to create this like picture of what it looks like. It’s very blurry. And I think that is the theoretical challenge of that work. But I think the database that we created almost 20 years ago, around the time that we started the organization has grown and grown and grown.</p>
+              <p>And that’s because we’ve learned more and more about what we should be looking at, how we should be measuring it. What are the aspects of change that we want to record? and try to focus on those things in terms of program management, but also in terms to what we can say about the programs, and what the programs can use the system to say about themselves to help leverage support.</p>
+              <p>for their organizations. So again, there’s a lot of things happening at the same time with the database. And I think what’s really important to me is that we can use the database to help programs leverage themselves, gives them the power to talk about what they’re doing and not leave them with, this awkward silence about how they can, focus on violence from a perspective of the local.</p>
+              <p>aspects of what’s happening there in the cities that they work in. So I think that the system empowers people to do that because of the customization that we’ve been able to add to the system. And also just focusing a little bit on kind of the KPI of our model, we’re looking at interruption, we’re looking at behavior change, and we’re looking at norm change.</p>
+              <p>These are three very important aspects of our approach, and we’ve been measuring these things like hundreds of indicators in CommCare. And I think that it’s fantastic because when I show the system to people, it’s like there’s, they’ve never seen anything like it. Most of the time people are using Google Sheets with maybe two columns to track what’s going on in their city.</p>
+              <p>Maybe they’re just shootings or homicides or something like that. It’s very police, law enforcement driven ideas. When we show them what this data collection process looks like and we show them all the things that they can get credit for, at their program site, like that, that just changes the game for a lot of people.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, I think that what you just said, just to kind of underscore there, there’s three aspects of your program. There’s the violence interruption, there’s the behavior change and then there’s like the bigger picture norm change. And you mentioned you’re measuring this through hundreds of indicators, collecting that in CommCare. I’m curious to hear a little bit more. I loved what you said about how you’re collecting this data and then making it valuable for the, your partner organizations on the ground in each of these communities. And I’d love to just understand a little bit more of what that looks like and how. How the data is adding value back into those programs.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And just one more thing on what Amie said, it’d be great just to get an overview of who are the users of the system that those data elements that you were talking about, who’s, using the system, inputting that data and thinking about that at the local level just give the listeners a sense of what the system is.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Oh yeah, that’s a great question. And thanks for your clarification there, Jon. I think, when it comes to the users of the system They’re everyday average people, but a lot of them I see them as family now because they, the, of the relationships again, like this is a huge part of it, but, they’re not just staff, in some city to me that I know them all by first name, a lot of them and I interact with them daily and provide support with them daily.</p>
+              <p>And there’s thousands of them. So obviously it’s a gargantuan task to to focus on, but I think when it comes to the work that they’re doing, with the system, there are many different individuals working in there. We have roles, essentially. We focus on roles and assignments for how people are entering information.</p>
+              <p>We have outreach workers, violence interrupters at the staff level. We have supervisors above them, program managers above them, and then usually program directors above those individuals. But then we have city based individuals or county based individuals. We have local organizations if they exist at those levels above those individuals.</p>
+              <p>So again, there’s, all of these people have the capability to enter data into the system. So they can focus on their role whether it be through supervision or whether it be just capturing violence interruptions that they’re capturing, out there and, catching in the field, so to speak.</p>
+              <p>But then also we, the outreach workers have this very intimate relationship with around, 15 or 20 participants for every outreach worker. There’s a whole plethora of participants in the system, roughly three times the amount of staff that we look at and focus on the changes of behavior in those individuals as perceived and recorded.</p>
+              <p>by the outreach workers. So it’s a very intricate system, again, it has a lot of indicators, like you mentioned, but I think when it comes to the focus of the system itself, we want to give everybody the ability to say something about the violence in their city, whether they’re at the highest level or the lowest level.</p>
+              <p>I think everybody should have some way of contributing to the data set.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, that’s great. And I think the as you said, the ability to. Get all the way down to the individual change and attribute that to a single individual. And then all the way up to, those aggregate program management indicators is a huge Holy grail for a lot of programs that are doing frontline work, but need to then go build the business case and the aggregate argument.</p>
+              <p>The programmatic ROI. And it’s so fascinating that you’ve been able to do that in so many different communities with what I assume is a massive diversity of on the ground realities and needs with a common data system. And I think this is something a lot of our listeners struggle with, which is, you can be bought into community health work or mental health work or violence interruption, but you build your program a little bit differently.</p>
+              <p>You build your data system. a little bit differently. And then it ends up being that those thousand local entities all have slightly different data systems. And you’ve actually managed to have a common approach that really creates huge efficiencies and ROIs with local communities who can use the CVG system like as is, and just get on boarded and get incredible value out of that.</p>
+              <p>Is that a correct understanding?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> 100%, Jon. Yeah, that is our goal. And I think it’s been our goal for, like I said, 25 years is just to empower people to be able to spread the message that violence is not acceptable. It’s not an acceptable norm. We got to stop the spread. And I think that, it started off as like in Chicago in 1999, where, Dr.</p>
+              <p>Gary Slutkin our founder, was a part of the WHO and he saw how infectious diseases were spreading. And he was so focused on the similarities on the charts and the graphs and the analysis of disease. Then he looked at violence and he’s this is the same, it’s happening the same way.</p>
+              <p>So it spreads the same ways, it trans, it’s transmitted the same ways. So why can’t we look at violence like a public health approach? And at first, obviously you can imagine there was some pushback on that, from, multiple officials at different levels of politics. But violence should not be to me, a politicized issue, even though it very much is, right?</p>
+              <p>I think it should be a public health concern, people are dying, so we should look at violence as if, we should, just like you would look at a disease and I was on the phone with somebody the other day and I was talking to them about this question that you brought up about the different levels of empowerment, and I said, you saw COVID 19’s rollout of data structure, where you have Jons Hopkins creating this beautiful dashboard that everybody can access and see and watch.</p>
+              <p>Thank you so much. And I’m like, what do we have for violence? Absolutely nothing. So it’s a huge issue to me and I’ve worked really hard to try to put the CVG database into the limelight so people can see that we do have standardized process that we can follow to track and record based on evidence and a lot of evidence of that.</p>
+              <p>And I think, it’s very interesting to me to see people’s reaction to the system and to say, wow, this accomplishes so many of our goals right away. So I think that’s wonderful.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles, I’d love to hear maybe if there’s one specific example, like I feel like I’m following what you’re saying, but I want to almost bring it down to the level of one of these local organizations. And what does this partnership that you have with them and their use of CommCare and their access to this data? What does that mean for them? And maybe talk, there’s an example you could talk through.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, there’s a lot of, there’s a lot of examples there, and like I said, they’re all based on local jurisdictions. But I’d say our, my best example would be like where we set up a program, and they’re specific. So I’ll just say, there’s a program in Texas and we work really Hard with this program.</p>
+              <p>They have different areas that they work in, but these are areas where they know there are problems. Just to think about the context, these are repeated areas. You’re your very violent housing projects or the street corners where the activity is happening and these guys know where they need to be.</p>
+              <p>So it’s a. An aspect of contingency, like where they’re positioning their staff, they’re positioning their workers, so they know they need to record what they do. They know they need credit for working in these areas. Because they won’t get credit otherwise, the credit will be placed on some other entity or say, oh, violence went down because of X.</p>
+              <p>But really, what we’re trying to understand is why is violence going down, and what things are contributing to the causes of violence. And we’ve been looking at this problem for a really long time and I think that these programs have adopted our methodology because they know it works. So I think it comes back to That relationship of these people know when they use the system, they can talk about the things that they do with the system.</p>
+              <p>I think that’s really important for them. But I think in terms of an individual example, there, programs have started data collection process as early as like 2020. And now in 2024, they have four strong years of data collection that they’ve been able to show to help support funding for their program, to help to support staffing patterns, to help support where they’re doing their work.</p>
+              <p>So what areas, what locations, right? Geolocationally they’re working in. And we can talk about GIS if you guys want for a while. But I definitely think, it’s, There’s a lot of stuff on the Cardiff model for law enforcement, and I think that it’s really interesting to work with law enforcement to understand these programs.</p>
+              <p>And how they’re interacting with law enforcement in a positive way to say, Hey, you guys are doing your job. We’re doing our job. We have a public health approach and we’re trying to use that specifically. And I think that it is really wonderful because oftentimes there’s really positive interaction between law enforcement and the communities that are doing this work because obviously the law enforcement know, Hey, this is, these are cure violence people.</p>
+              <p>They’re out here trying to make a difference in a different type of way. And I think that individually really helps people to get that job done and to maintain their credibility in spaces where sometimes law enforcement can’t go.</p>
+              <p><span class="spk">Jonathan Jackson:</span> You, you mentioned law enforcement there, Charles and I’m very curious this is probably, with community members who maybe don’t have a high trust level in law enforcement or might even be worried about where the data is going that the local organization is collecting and some very curious how you thought about that challenge of trust how trust evolves over time as the program is more successful.</p>
+              <p>And then what is that relationship like. With. Law enforcement and that, that intersection between, the justice parts of the system and the public health parts of the system and how do you manage privacy and make sure that people can engage without fear of, the data going somewhere they don’t want it to, or having an adverse outcome for themselves.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, a couple of great questions there, actually. So I’ll start in reverse. I think when it comes to the confidentiality and the compliance of our system, we don’t collect any information that is. confidential in nature. So we don’t have anybody’s names or their addresses or their birthdays or anything like that in our system.</p>
+              <p>We don’t collect any information like that on any of our participants. So we just collect our participants, like year of birth, their gender, their ethnicities. But we don’t really go into detail about who those people are and what they do. record their names and stuff. It’s not like your typical case management system that we’re like working with.</p>
+              <p>We’re definitely focused on keeping everything HIPAA compliant as well, because there are information in their system about injuries that have occurred to some of these individuals, like whether they’ve been shot or assaulted and what they’re connected to, in a lot of ways. But I think in the aspect of like collection, and trust.</p>
+              <p>I think that’s a really aspect important is like people see the system and they know they can trust it because that information is withheld and they know that it’s not going to get anybody into trouble, so to speak. And I think that over time, that has been a really strong way of getting some people who have issues with trust to adopt the system and to use it to help gain credibility for their programs.</p>
+              <p>And I think on a scientific level, Jon. We’ve had work externally evaluated by places like Jon Jay in New York or Jons Hopkins, for example, and they found that, when these programs are implemented in communities like, for example, in Brooklyn in the Flatbush area in New York City trust in police went up.</p>
+              <p>A lot. So trust in law enforcement was increasing based on these programs, and I think that’s a really fascinating result because it just shows that there’s cohesion at a community level with the way that these individuals are doing their work and the way that law enforcement does its work. So again, like I mentioned, the Cardiff, like there’s a little bit of similarity here in terms of the way that we geospatially map violence and understand violence.</p>
+              <p>As a community, but also from a local perspective it’s important to bring those people in to say, Hey, is this, is what Cure Violence is finding? Is this what you guys see? So we can have this conversation at a local level with those individuals as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles, I know that you’ve done work in many countries around the world, as well as many communities within the U.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, absolutely. I think when it comes to the program there, it’s super unique. When we were working with the program, they, they didn’t have the data that they needed, they didn’t understand what levels they could measure things, and our international program director Lupe came in and introduced them to the approach from a nationals perspective, so the whole country is looking at it from the ministry perspective.</p>
+              <p>And they saw a lot of things that they liked about it. Obviously the public health part of it is really important to them, but what’s really stood out to them is all of these different ways that we can measure things. And I think what’s, what was really interesting to us is we got a message back with, more of a a laundry list of things they wanted us to be able to do.</p>
+              <p>So we really dug into that and we really customized the system through CommCare to enable them to measure the things that they wanted to measure. And these included like gender and child violence also violent masculinity and things like that in those places. And what was really difficult for us, it’s we also had to do this very quickly.</p>
+              <p>It was like a two week timeline that we had to implement this. through using the system, we were able to really quickly adapt and create something that worked really well for them. And they’re using it today. Right now, as we speak, hundreds of thousands of cases are being entered into the system.</p>
+              <p>And just very quickly. in just two months of time. So they’ve been doing a whole lot of work in the system. It’s really fascinating. Obviously all of it’s written in Spanish, so it takes a good amount of of leverage to turn that back into English for stakeholders and people in the U S including our board.</p>
+              <p>But like we’re very focused on that information in those programs because you can really see how it’s empowering the people in Montevideo where the program is located. To go back out in their community and use one of these approaches. And what I’ve typically found in regards to these these programs is they do really well.</p>
+              <p>And not contrary to, to, to programs in the U. S. that do really well. It’s just, there’s a different style of involvement with international programs and the Cure Violence approach where they’re just fully dialed in. It’s like a way of life for them.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Thank you so much for sharing that. That sounds like really incredible, fast, adaptable work that you’ve been able to do. And one of the things that you mentioned in our earlier conversation was that this program in Uruguay is now collecting more violence data than local governments, military, neighboring governments, and international organizations.</p>
+              <p>And it’s all enabled through CommCare. Can you speak a little bit to that and what that means for you?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, absolutely. I think when we show people the, our international version of the database. They are captivated because it is way more advanced than what they’re typically used to. There’s a lot of work being done in the GIS spectrum where we’re doing a lot of assessment city to city in the U.</p>
+              <p>It is an extremely useful tool for them, and also helps them to define methodologically what they’re doing to combat violence in those areas. There’s it’s really important for them and as you mentioned, it, it is way, way more robust than what they’re used to. So typically when they see it, they’re like, this is a lot of information that they’re able to capture.</p>
+              <p>And I think that gives them a lot more power and leverage to talk specifically about what things are changing in their communities, but also what their staff are doing to get credit.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I’m curious for the folks in that program who are using CommCare to collect all this data how do they see does the app them? Does it, what does it do to their job to then also, how be doing this incredibly important potentially dangerous work in the community, interrupting violence. How do they view their use of this CommCare app?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah. That’s one of the really important things that we paid attention to early on in the development of the CommCare applications was like, did these apps help people do their jobs? Or were they just. Things that people did at the night, they logged in. It was like a chore. We didn’t want it to seem like it was a chore for them, or like it was a thing they had to do to get paid or something like that at the end of the day, we wanted it to be something that they could engage with on a personal level to really help them understand what they were doing in terms of their impact.</p>
+              <p>So the system itself allows the staff to follow up on conflicts. It allows them to track changes in their behavior of their participants over time. It allows them to track public education campaigns. community events, participant activities with their participants. It also allows them to map and locate violence in their community based on cross streets.</p>
+              <p>Again, we don’t do addresses, but we have cross streets in there. So we’re able to see like where the hot spots are in major cities based on like block data. So it’s really important that we build like little data sets for them to be able to analyze. And then later, what we do is we take all that data and we empower them through creating reporting for their programs.</p>
+              <p>So CWG creates a ton of custom reports for our programs every month, hundreds and hundreds of PowerPoint slides worth of reporting. And we send that out to all our programs. So they have something evidence wise to bring to the table. When it comes to their program, so they can show people, this is what we did last month.</p>
+              <p>This is what we did in July. This is what we did in June. They can go all the way back sometimes years and years of data through all of that experience. So it’s really important for them to have the ability to focus on. What they’re doing and then it also gives them the launch pad, so to speak to figure out where they can improve.</p>
+              <p>It’s really fascinating to see some of the differences between many of these programs as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s so cool, Charles. And that makes me really excited to hear that that, this app isn’t just, Something where they’re like checking the box to make sure that they get paid and that their work has been seen, but it’s actually got all this information, useful data and information that’s actually helping them do their day to day job.</p>
+              <p>That’s something that’s super important to us as Dimagi as we’re building these tools, right? That these apps aren’t making jobs worse, which they can, we know that. So yeah, I really appreciate you sharing that and it’d be cool if there’s any, Links you can share with us for the show notes to any materials about the apps that you’ve built.</p>
+              <p>I’m sure folks would love to see some of this as well.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, absolutely. And we’re happy to demo with anybody who’s interested in the CVG database, obviously to get them started and to think about the program. And it’s flexible, it’s customizable at many levels. We have a basic edition of it, but we also have a very robust reporting process that we can offer for custom reporting and everything like that as well.</p>
+              <p>People having their own project spaces, for example. But I think, what’s really cool is to think about, this aspect is that people have came up to me and said, I love CommCare and I just, it makes me so happy when people say that because I’m like, me too, it’s super cool and I love working in building things custom, if I was working in a system that wasn’t Customizable.</p>
+              <p>I think I would be severely limited in my ability to do my job severely limited. So I think they’re, they feel the same way as me. They’re like, this system empowers me to be able to do better work because it is designed for me. And I think that is a super important thing. It gives me chills when I’m sitting in these trainings in front of 50 people.</p>
+              <p>And everybody’s given me a 10 because they love this. stuff so much, before, before CommCare, I’m sure they were working with a system that limited their ability to put things in. But now it’s I always turn it back on the crowd and say, what do you guys want us to add? And we just, it’s so fun because everybody comes in with all these things.</p>
+              <p>And then we go back to our chief executives of the organization. And we say, what do you guys think? And they’re like, yes, let’s add all this stuff. And it’s so exciting to see the next time we go back to that city. Everybody’s yes, you added that question. That’s super awesome. And it just helps.</p>
+              <p>Empower those people. And that, that is, that I think is life changing for a lot of people because they absolutely get fired up and get really excited about data. And I’m like, wow, we should be putting people asleep here, but everybody’s fired up and they all have so many questions. So that’s really fun and cool to me.</p>
+              <p>We remind everybody press sync every day because we’re constantly adding new features and new exciting things to the system and sometimes taking things away too that don’t make sense to people, that absolutely has helped us grow as an organization to see like what things are working, what things are not working so well, but also like scientifically speaking adding really strong quantitative measures or adding really great qualitative measures in there that can really fill the puzzle piece gaps, so to speak, about where data is missing in this, in these approaches.</p>
+              <p>for other CVIs to see and say, Oh, wow. Okay. Cure violence is measuring gender violence. Now they’re measuring domestic, looking at domestics and things like that and understanding how those things are impacting the ability for people to capture that information. And I guess one other thing I’d add is some things are not totally capturable.</p>
+              <p>So that one of the challenges is How can we capture the uncapturable or to capture the moving targets, so to speak. And I think that, that has been data wise a really interesting challenge for me over the years is like focusing on, those things. And oftentimes those questions are not posed from city managers or city level individuals or politicians.</p>
+              <p>They’re posed from people directly on the ground. So that just shows you the level of engagement that these people have. They’re saying, this question is missing because they absolutely want to answer that question. So I think that is a huge part of it all.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles, I’ve been thinking a lot about product and product management, and it’s almost like you’re a product manager, right? And this app is the product and you’re able to iterate and improve and refine and take things away. And build it based on the feedback you’re getting across the thousands of users that you have.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, that’s absolutely true. Somebody asked me the other day What would you define? We know you’re the director of data management. What does that mean? I’m like, there’s so many hats, that have to be worn, especially at a small organization.</p>
+              <p>It’s like super challenging. You have to be a little bit of a social chameleon. You have to know how to code switch. When you’re talking to different people and I think that it absolutely is a translational challenge, understanding and I think, a lot of that focus for me has been on just trying to make everybody get everybody on the same page, make everybody understanding of there’s a lot to be done and there’s a lot being done, but also we need to focus on, how we can record and capture evidence in a meaningful way.</p>
+              <p>And I’m not trying to say that there, there aren’t. Program, other programs, other approaches out there for violence prevention that aren’t capturing evidence, they absolutely are, but I think the aspect that we are trying to show is that through public health approaches, we have a very strong methodology, in, in terms to epidemiology and we can use that epidemiology kind of approach to look at violence in a very robust way based on research that’s been for a long time, so I think that’s really important too.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I’m curious, Charles, to learn a little bit more about the Community Violence Interrupter. So these are like the front line of your program. You spoke about that hierarchy of different users in CommCare and folks that you’re working with. And I don’t think we’ve spoken about this model at all on this podcast. But that sounds like just really important and also really dangerous work. I, could you share just maybe a little bit more about what a community violence interrupter does? And then perhaps also like how their, how, what does their use of CommCare look like? And how is CommCare helping them?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah. I think to my friends in Washington, DC, Amie who do a lot of this work and I’ve known many of them for, for five or so years now since I’ve been at CVG and working with these individuals to hear their perspectives. But I think when it comes to the interrupter they’re a very special type of person.</p>
+              <p>And, when you ask them about their safety or how they feel in the community, They, a lot of them do this work because they want to give back. And I think that’s a very important part of it is like they’re giving back because they know that there are things that they took when they were young, or, there were things that they did that, that were not so great.</p>
+              <p>And obviously they’re now focused on changing. And I think that it’s a very special type of person. That’s a, it’s a really hard shoes to fill sometimes in some places, but I think these individuals working really hard to focus on, changing the norms of these communities to be more peaceful, but also focusing on how they can use their credibility to impact.</p>
+              <p>individuals in the community. So I think the, these guys, like you said, are in a position where it is sometimes scary. But I think, that they, their credibility is their shield. It’s what keeps them safe because people in the communities know who they are. They’re very well known usually in the communities for the work that they do.</p>
+              <p>For example, I could give you a real life kind of story where we go out into the community with interrupters all the time and we walk the communities with them. as data people, because we want to know what that looks like. And, people will walk up to them and, high fives and handshakes and hugs.</p>
+              <p>And it’s they’re very well known from everybody there on the street. And it’s explicitly clear that they’ve had impact even before they started their work in the Cure Violence approach. There’s this long standing. effort by not just them, but by others in the community who we call key individuals to focus on violence, like a disease and they understand the approach explicitly well.</p>
+              <p>So they’re out there working really hard to show people that this can work for them too.</p>
+              <p><span class="spk">Amie Vaccaro:</span> This the reality that many of these folks are have gone on a transformation journey, right? Like they’ve been in, they’ve been seeped in violence and then they’ve made a transformation and now they want to give back and prevent that violence. I’m not sure if I have that right, it reminds me of that element of your, I think it was in your mission or vision around, we believe in the power of people and communities to transform themselves.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> That’s absolutely correct. Yeah. I think that is the fuel, I think for a lot of the work. And I think that, half the people in this organization have been doing this work, whether or not. It being violence prevention named or whether it be cure violence approach for a very long time, it’s just many of them have seen the effect that cure violence has had on their community and they’ve started to to fall into that approach and more and more we see individuals like coming to the family of the CVI kind of ecosystem, looking at solutions to violence and care violence tends to be the number one typically when it comes to that.</p>
+              <p>So I think the approach speaks for itself, but I think what’s really important again is like these relationships. Because, these people have been forging these relationships for decades, long before care violence, and now they have a way, a method to act. And I think that is really strong for them because they can use, like I said, evidence to show what they’re doing is working.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Absolutely. I’m curious. You’ve been at Cure Violence for, I believe, a number of years and you’ve been on this unfolding data journey, um, partially through the partnership with Dimagi, which we’re so grateful for. Are there ways that your approach has evolved and matured and changed over time?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, absolutely. I mentioned a little bit earlier that like we learned as we were growing, and I think that has definitely impacted and changed. The way that we do things, but I think it also has been very exciting because we see, again, like this realization that there’s a scarcity of information surrounding violence, and we want to make sure that people understand what violence actually looks like.</p>
+              <p>So I think that has helped us to change and evolve how we measure violence, but also, maintaining the focus of our approach over time and what that looks like to people looking in. And I think, there’s a lot of information out there already around the cure violence, but I think there’s a lot of there’s a lot less information around violence prevention as a whole that’s comprehensive in nature.</p>
+              <p>So looking at the kind of the standardization of the evidence surrounding violence prevention.</p>
+              <p>And</p>
+              <p>know, Cure Violence has done a lot of work to clean up its data collection process, to make things more easy for people to access, to, focus on the technological advancements of the field in terms of tracking or initiatives. But those things are still very rudimentary, so we’re still working, as a field through those things.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I’m curious, in, in our conversations, it’s clear that care violence feels very mature in terms of how you’re thinking about collecting, leveraging, using data, providing it back to these organizations. Even though you are a small organization, what advice would you give to other organizations that might be a little bit earlier on in their data journeys?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> That’s a great question. I’ve thought a lot about this question over time because I am often asked in my position to provide feedback. to jurisdictions whether, I call them jurisdictions, but there’s all different types of things, cities, states, counties, institutions, research, centers about how to collect better data on violence.</p>
+              <p>And obviously, it’s easy to say, use the CVG database, that’s obviously going to help a lot. But, I think one of the main things that people need is to adopt a system that helps people get the credit for what they do because oftentimes the systems that they’re using and I’m not going to name any names, but, they’re not helping people get credit.</p>
+              <p>And I think what, that’s really sad because there’s a lot of case management work that’s being done with different software. There’s a lot of systems that have been created for certain purposes, politically or apolitically. And they don’t really focus on the stories of the people who are out there doing the work, which is extremely important.</p>
+              <p>It’s like silencing an entire army of people who have really important dialogue. And I think the focus should be on creating. easy to understand principles for those individuals because some of them are operating on a sixth grade level, and I think that, you have to really work hard to make systems that are going to work for those people and to help them share their stories about what they’ve experienced in the field of violence and understanding how you can enable these individuals to have huge goals through the data that they enter to change lives, to change the perspectives of others.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s awesome.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Charles, I’m really curious. You are a veteran and you mentioned going back to get your. Postgraduate degree after having come back. I think a lot of us who have not been in the same situation as you might think that you could become very despondent or cynical about the ability to have an impact in this area after having, gone into a conflict area or seen really challenging circumstances on the ground.</p>
+              <p>And so I’m curious just for you at a personal level what experiences kept you wanting to try to solve the problem after what I imagine is, some pretty challenging environments that you’ve seen and pretty dire circumstances that could, I would imagine burn some people out from trying to fix these problems.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Yeah, that’s super great question, Jon. I, I absolutely have something inside of me that pushes me every day to make an impact. And I think that everybody in our organization is that way. I’m truly surrounded by an amazing group of people. I was discussing this with my wife the other night saying everybody in our organization is so special.</p>
+              <p>They all have amazing stories, decades and decades of impact that they’ve, done. My, my work in the military was really important because it taught me how to capture data. I was doing analytics for logistics when I was overseas. And I spent a lot of time kind of understanding the work that people were doing in different places and for the headquarters of the military.</p>
+              <p>But I think that later stemmed to my passion for. understanding growth through quantitative information, but when I went back to school, like as you mentioned, and I focused really hard on understanding the stories of people who experienced conflict, case studies, for example, or qualitative information, if you will it really opened a new door for me.</p>
+              <p>I really started to understand mixed methodology and I really wanted to know more about how does that get introduced into conversations at political or local or city levels surrounding violence? And what impact does that have? Because oftentimes that’s the part of the story that’s not really told.</p>
+              <p>You have these charts and graphs and statistics on violence all the time, right? You never hear from like the community members about what they’re seeing or what they’re feeling about violence in their community and how it’s accepted as norms. So coming back to school really changed my perspective to a very upstream perspective.</p>
+              <p>holistic kind of focus which I definitely needed to sort out after the war and everything. I think it was like really turbulent times for me emotionally, physically. And I was like, okay, I need to focus my brain on something that I can change, I want to focus on this change methodology and cure violence.</p>
+              <p>I found just through. It was like random chance, and I think that is really interesting. Sometimes things just fall in our lap. It’s like serendipitous, that we were brought to the places that were brought in life. And Cure Violence is absolutely one of those places for me where I was just brought to the organization actually by a fellow Dimagi staffer.</p>
+              <p>So they said, Hey, Charles, we know you well and there’s this job we’ve heard about and maybe you can help them. And it absolutely was the case that I was able to help. And like you mentioned, Amie over time, my relationship and my understanding and my passion has grown, I wake up every day excited to do what I do, because I know that we make a difference, not just on thousands of people’s lives daily, individually, through them being able to capture what they do, but also on a very high level.</p>
+              <p>in terms of the evidence surrounding the approach. So I think it’s really important to focus on, that, that aspect of being driven by doing things in a very powerful way. When it, in the work that you do.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles, this has been so fascinating and I love hearing about this approach and the really thoughtful way that you’ve been able to leverage data collection and tools through CommCare to really support this work and enable better funding and better support of the local organizations that you’re working with. For folks that are listening to this conversation, what would you say is the most important takeaway and message that they, you want them to take home with them? And also are there ways that they can get involved and support your work?</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> absolutely. I think, reach out to us. We have our website. It’s cvg. org. We definitely can help communities implement those effective violence prevention approaches in their areas. And so that would be a huge part of, contributing to the movement. We want to make sure that people understand that we can provide expertise on how to make communities safer.</p>
+              <p>And definitely we can perform assessments and help those communities grow in terms of their violence prevention strategies. People can also email us at cure at cbg. org with any questions. We’re happy to answer any questions and if anybody has any questions for me, they can always reach out to me as well.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Charles, thank you so much for your generous time today. This has been a real pleasure and I think our audience is going to get a lot from this. So yeah, thank you so much for the incredible work that you do and that the entire organization does and for your partnership as well.</p>
+              <p><span class="spk">Dr. Charles Elliott:</span> Noah, it’s my pleasure. It’s super great to see you both again and to talk to you. And yeah, again it’s always humbling to be able to speak about our work that we do as a team, and I think, I’m just one of the members of the team but we all have, We have a fascinating team full of super amazing people who I, whom I call family.</p>
+              <p>So I think, we absolutely are very engaged and happy to interact with Dimagi any chance we get. So for being great partners to us as well.</p>
+              <p>Thank you to Dr. Elliott for joining us today. Here are a few of my takeaways for others who may also be on the unfolding journey of leveling up your use of data. First start with a well-defined program, clear goals and agreed upon KPIs to measure progress effectively. In cure violence is case they’re measuring violence, interruption, behavior change, and norm change.</p>
+              <p>And they’re able to collect all this data in Comcare. Second build relationships. Foster strong relationships with data users at all levels to understand their needs and communicate the value of data that they’re collecting. Third build user centric tools, ensure data collection tools are useful and easy to use for those on the ground.</p>
+              <p>Enhancing their workflows rather than hindering them. For cure violence, the Comcare application lets users map violence in their community is truck follow-up and access reporting for their programs. Fourth prioritized data, privacy and security to build trust with users and stakeholders. And fifth and finally take a longterm investment approach to technology.</p>
+              <p>Your tech platform is an investment in lasting impact rather than a short-term project expense. Cure violence is able to use the data at collects to drive funding, design, staffing patterns, and informed geolocation of their work.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode.</p>
+              <p>If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. This show is executive produced by myself, Michael Kelleher. Her is our producer and cover art is by Sudhanshu Kanth.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CE</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Charles Elliott</p>
+              <p class="person-role">Director of Data Management, leading the data strategy and CommCare-powered systems behind the organization&#x27;s violence prevention work.</p>
+              <span class="person-org">Cure Violence Global</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/5EEWcs4n4a6zlMVz5fAYEZ" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

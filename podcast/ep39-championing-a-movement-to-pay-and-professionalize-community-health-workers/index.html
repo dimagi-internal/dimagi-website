@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 39: Championing a Movement to Pay and Professionalize Community Health Workers with Margaret Odera | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Revisiting CommCare&#x27;s origins in 2008 Tanzania, where community health workers co-designed the app under a mango tree and shaped features still used today.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep39-championing-a-movement-to-pay-and-professionalize-community-health-workers/">
+<meta property="og:title" content="Ep 39: Championing a Movement to Pay and Professionalize Community Health Workers with Margaret Odera">
+<meta property="og:description" content="How community health workers in Tanzania co-designed CommCare under a mango tree in 2008, and why it still matters.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 29, 2023</span>
+          <span class="dot"></span>
+          <span>47 min</span>
+        </div>
+        <h1 class="ep-title">Championing a Movement to Pay and Professionalize Community Health Workers with Margaret Odera</h1>
+        <p class="ep-deck">Returning to a mango tree in Tanzania, where in 2008 Dimagi co-designed CommCare alongside the community health workers who were its earliest testers. A conversation about privacy, trust, and the human relationships behind the technology.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6QWATW74f4FC9QE3EGuAc1?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 39 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6QWATW74f4FC9QE3EGuAc1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000614872304" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/K-AmaYVtOqs?si=BVfR64EdaLDOEIdZ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/f0492621-d75c-4405-a4cd-934031c80a84/high-impact-growth-championing-a-movement-to-pay-and-professionalize-community-health-workers-with-margaret-odera" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">2008</div>
+          <div class="ep-stat-label">the year Dimagi began co-designing CommCare with community health workers in Tanzania</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">70%</div>
+          <div class="ep-stat-label">of community health workers are women</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">six weeks</div>
+          <div class="ep-stat-label">of training health workers received before joining the community-based care program</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>This episode revisits the origins of CommCare in Tanzania, returning to the community health workers who were among its very earliest testers. Amie Vaccaro is joined by Brian DeRenzi, Dimagi&#x27;s global director of research, and Gayo, who worked with Dimagi in the early days of CommCare in 2008, recruiting and training community health workers to use the application on their phones as they delivered home based care.</p>
+        <p>Gayo recently went back to the Kiba area in Tanzania and held five conversations with some of those first community health workers, recording and transcribing their reflections on what changed when they moved from paper to a small mobile phone. They discuss the heavy stigma around HIV at the time, how a discreet device protected client privacy where bulky paper registers had drawn attention, and how features like password protection, referral tracking, a demo practice mode, and a supervisor tool emerged directly from the workers&#x27; own suggestions.</p>
+        <p>Running through the conversation is the philosophy Dimagi calls design under the mango tree: sitting with the people you aim to serve, handing them a pen and paper, and letting them shape the tool. As Brian reflects, the technology ultimately boils down to relationships, the trust health workers build with their communities and the trust Gayo built with the health workers themselves.</p>
+
+        <blockquote>
+          <p>&ldquo;These community health workers, they&#x27;re just people who are not well educated probably, but if you give them a chance, give them a piece of paper and say, how would you like the application to be? They&#x27;ll just draw down what they think the application should be.&rdquo;</p>
+          <cite>Gayo, on designing under the mango tree</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>Design under the mango tree</strong>: how Dimagi sat with health workers in Kiba, Tanzania in 2008 to co-design CommCare from their paper forms</li>
+          <li><strong>Privacy by design</strong>: why a discreet phone reduced HIV stigma where bulky paper registers had exposed clients, and how password protection was born</li>
+          <li><strong>Features the workers asked for</strong>: referral tracking, follow-up reminders, a demo practice mode, and a separate supervisor tool all emerged from their suggestions</li>
+          <li><strong>The genesis of case management</strong>: how a request to keep a list of patients led to one of CommCare's most important capabilities</li>
+          <li><strong>Teaching the belly button and delete</strong>: the trainings that built digital literacy among workers who had never used a phone</li>
+          <li><strong>It boils down to relationships</strong>: Brian DeRenzi on why the technology matters only because of the human trust behind it</li>
+          <li><strong>A vision for interoperability</strong>: Gayo on fully digitizing health services from community to facility to referral hospital</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi, but the role of technology. And creating a world where everyone has access to the services, they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost. In recent episodes, we’ve had the privilege to hear from community health workers directly with stories from Jared Lawrence and RUCA.</p>
+              <p>Three CHW supported by Loyola. And most recently, Margaret Adara today, we’re continuing this series. Joining me today is Dr. Brian Derenzy. Dimagi is global director of research and our special guest Gaiam Rahila</p>
+              <p>who worked with Dimagi in the early days of Comcare back in 2008 in Tanzania. For those of you who’ve been avid listeners to this podcast. You may recall episode 10, where we delved into the origins of Comcare. In that episode,</p>
+              <p>we pointed out the guy whose voice was missing from that conversation. As we’re the voices of the community health workers who are early testers of Comcare. And this is something we’re rectifying today.</p>
+              <p>This episode showcases highlights from five conversations that Geico conducted. Speaking directly with the earliest users of Comcare about their experiences with our solution. This research, it brings us back to the time when Brian and others were working diligently under the mango tree. At the Kabota health facility in Tanzania, designing and testing Comcare alongside community health workers.</p>
+              <p>And of course that early work gave birth to the concept of design under the mango tree the defines how we engage users in designing our products. Comcare. Isn’t your typical SAS product? Its roots and unique development journey. Truly set it apart.</p>
+              <p>Something you’ll appreciate as you delve into the evolution from its early days to its present form, we hope you enjoy this deep dive into the history and the voices that have shaped Comcare. Enjoy.</p>
+              <p><span class="spk">Amie:</span> Welcome to the podcast. Today we have a really special episode. I’m joined by Brian Dezi, who leads to MA’s research and Data team, who you’ve heard from before. And we have a very special guest, GAO , who is here to talk to us about a project he ran recently where he reconnected with some of the earliest testers of Comcare who were community health workers in Tanzania, who worked with us under the Mango Tree to, test and, use and give feedback on Comcare. So, GAO, can you introduce yourself and a bit about how your work has intersected with DMAs over the years?</p>
+              <p><span class="spk">Gayo:</span> Yeah, sure. Thank you. As I mentioned, my name is . I was connected with the Marge in 2008, , working at the stage of Homecare where I was involved in recruiting and also training the community health workers on the use of Homecare application on their phones as they performed their, home based care, services,</p>
+              <p><span class="spk">Amie:</span> And so for this project that we’re gonna be talking about in this episode, you went back , to Dar in Tanzania, near the Kaba Health facility, I believe. And you met with some of those first community health workers who were testing and using Comcare.</p>
+              <p>I think you had five different conversations. You recorded them, you transcribed them, we wanna kind of hear about those conversations and hear about what you learned. So maybe set the scene for us and share a little bit about who did you meet with, and where did this all happen?</p>
+              <p><span class="spk">Gayo:</span> Yes, actually, I was lucky to, be one of the, Person who went back to Kiba area in Gabo district. And I happened to go to the Kiba facility and they didn’t meet, , some of the areas, community health workers, there were a number other people who were part of the team that we worked together,</p>
+              <p>and, it was an exciting time because some of them have moved on to other roles, but they could remember a number of, incidents as community health workers. So we did talk about the work they were doing at that time. And what they’re doing right now and why they were interested to be community health workers.</p>
+              <p><span class="spk">Amie:</span> Awesome. And so, let’s start there. You asked them, you know, why did they become community health workers? , can you share a bit about what you heard of why these five community health workers got into the field?</p>
+              <p><span class="spk">Gayo:</span> Yeah. They were very, moved by the work of community of workers based on the, problem of H I V and other chronical I diseases, such as diabetic. And, some of them had, some tuberculosis problems.</p>
+              <p>So it was a range of chronical, problems with those patients. That’s why, there were a number of, organization working with the Ministry of Health. They created a program of, community-based care where they recruit members from the community to become helpful to their fellow members in the area.</p>
+              <p>So community health workers were trained in order to go house to house. First of all, identify if they are people who are sick, and try to encourage them to go sick. Healthcare at the health facilities. But also the community health workers were going to the health facilities to receive best training on how to take care, the patient at home.</p>
+              <p>And so community health workers, decided to join the program because they wanted to help their fellow community members, their relatives, and other people around their villages on the streets. So they received the training of six weeks, and then they joined the program, and what motivated them is actually they wanted to help their fellow, community members.</p>
+              <p><span class="spk">Brian:</span> One thing I wanted to bring up was in the early days of Comcare, gao and I spent a lot of time with, different community health programs</p>
+              <p>that existed in Tanzania. So the particular program that we were working with in Kiva Cayo, correct me if I’m wrong, but I think the specific focus there was around supporting HIV positive individuals.</p>
+              <p>So the health workers, the community health workers there were specifically tasked with going and following up with members of the community who were HIV positive, providing social support and encouragement, to keep up with, the medicines and regimens that they’ve been prescribed, and check for all the things that GAO mentioned, check for additional sickness, do some referrals to the health facility, et cetera.</p>
+              <p><span class="spk">Gayo:</span> Yeah, I think Brian, there was a range of, problems that made community health workers to join the program. Some of these issues, may not be HIV related. HIV was one of the, issues, but, I remember even visiting people who had, for example, , there were a number of people who had, stroke, for example.</p>
+              <p>Okay. People had stroke. And so community health workers would play a role of going to the, household. And of course, talk to the members to make sure that people take the person who had a stroke to hospital, but also, providing some simple exercise Okay. To make sure that people do exercise.</p>
+              <p>If you remember correctly at the time when we went to career core area with community health workers, visiting some clients, and I wouldn’t call them patient because community health workers, Would never call those people’s patients. They’ll say they are clients, but at the moment you say patient, you are somehow introducing stigma to the community. They are clients. Those were their clients. And so , we went there and they weren’t. People who have, , high blood pressure, for example, they’ll remind them to take medications for high blood pressure.</p>
+              <p>They’ll remind people to take, tests for diabetic. And people who had H HIV V for example, would be reminded to take their medications regularly. Cuz once you start the regimen of hiv, you have to take that every day. And so they will remind the time to make sure they do not skip the medication, especially when you have to get a refill.</p>
+              <p>Okay? You have to go, they will remind people to go get the medication of the hospital whenever they needed it. And sometimes some of the community s would even go to the health facility, get the medication, bring to the household for their patients when it was necessary to do so.</p>
+              <p>Yeah, and I think Guy, I think that’s so important. I think the piece that you’re highlighting, if I were to generalize it, is just, how skilled and passionate these community health workers were. I mean, this wasn’t just a, I need a job. This was the first one I saw available, so I took it. The people we were working with, the community health workers they were actively engaged in their community. They cared about people. They went above and beyond sort of the standard job description to make sure that people were getting tested to make sure that the, the in charge at the health facility understood what was happening in the community to help reduce that stigma.</p>
+              <p><span class="spk">Brian:</span> It really resonates and kind of underscores the importance of, the work that the community health workers are doing and, they’re the thing that matters and community health programs is how good the community health workers are.</p>
+              <p>So, we need to be doing everything we can to, to support them and make sure that they have all the tools that they need.</p>
+              <p><span class="spk">Gayo:</span> Yeah. And one, of the interesting parts, I remember, just visiting, talking to community health workers and even, And the rade is visiting with them in the households it took time before the client disclosed to be HIV positive, for example. Before a client disclosed, they had their relative who was HIV positive at that time.</p>
+              <p>So the first thing they did was to create a relationship. It took a month and sometimes even weeks before the person disclosed to say, actually, I tested it for HIV positive. Oh, actually I have this. It was easier for other problems people could talk about if is a tub issue. I mean, people would talk about it, but with HIV it was tough and community health workers would defined even later whether the person they are serving is HIV cost.</p>
+              <p>So that’s an area I think, which the work of community health workers is very important when it comes to the point of, helping a person but not knowing exactly the disease</p>
+              <p><span class="spk">Brian:</span> yeah, that’s an excellent point. And, to put in that time and energy to build that relationship and build that level of comfort so that in, you know, we’re, we’re speaking specifically about H I V and we’re speaking about a time that was, you know, 15 plus years ago. So to, get to the amount of stigma that existed in the community , and in the country around H I V and, to really build the relationship and get the trust required to, be able to disclose that,</p>
+              <p><span class="spk">Gayo:</span> yeah. And I remember once people understand that this is a community health workers who’s providing services for people who are chronically ill, That was the term that was used during the village meeting when they were introducing these community health workers.</p>
+              <p>Usually they’ll go to a village meeting and then the leaders of the village will introduce the person who has received training as a community health workers that here is a person who has gone for training and he’s your community health workers in your community here. He will be coming around households to help you with some, community health education. So people know that this person is going out, around to help people who are chronically ill. And that’s why, when they didn’t really mention specifically about HIV directly. Because the moment people saw the person going with that probably bag, then people, they associate that in that household there is somebody who is probably HIV positive.</p>
+              <p>And so they were trying to always remind the people that they are serving chronically ill patients, not necessarily with HIV patients. So that to reduce the stigma, and that’s why you would always hear chronically I patients as a term that was used very much at the same time when we brought the use of Comcare for the first time. Our worry. I mean, we were discussing like, okay, how are they going to take this? It was very much the opposite, that they are used to carrying a bag with all the books, and then the paper screening form.</p>
+              <p>But when we introduced Nokia, actually, as the first phone we used, everybody had phones at that time, at least in the village. So even when they sat down with a patient to start going through those screening questions, nobody could actually notice that as a community health worker who is serving a client here, because people would look at the person with a phone and just, going through the phone is different from somebody who is holding a piece of paper.</p>
+              <p>People wonder what, is happening in that household if somebody’s asking questions. This is one of the examples how Comcare, helped, the community of workers.</p>
+              <p><span class="spk">Amie:</span> I think that’s so interesting. And, I did see that in the transcriptions so these are community health workers that had been using paper for their visits and the paper was like quite hefty, right? And so when they would show up at someone’s home, it created this, and at the time there was a lot of stigma around HIV status, or sickness status.</p>
+              <p>And so, people would feel embarrassed that a community health worker was at their home. And when they switched to testing out Comcare, they were able to get this, much smaller phone. And it was a lot more discreet in terms of, why would they were in somebody’s home. I’d love to hear a bit more from you Gao, around, what were some of the things, and I know that was one of the areas of questions that you asked, what were some of the themes that you heard around, reactions and responses to com care back in, this is 2008.</p>
+              <p><span class="spk">Gayo:</span> That’s a good question. It actually took me all the way back when we introduced Comcare for the first time, in Kiba area, under the Mango tree. I mean, the first thing, we actually had requested their paper forms so that we could match exactly what was in their paper form, put it electronically, but also, telling them that we can even automate some of the things that they were required to do manually.</p>
+              <p>Okay. For example, counting the number of patients so the phone would give them how many patients they have visited. , one of the interesting thing that came up very quickly was the issue of privacy. And I remember people talked . They had this like big not book. Where they would write down, The initial of their patients because they did not want the other members in the family to identify their clients.</p>
+              <p>And they had to remember with those initials. So when we talked about the phone, what they said, okay, if somebody got a hold of this phone, would they be able to see the list of my clients? And they remember immediately they wanted to have a password in the application and that’s when we came up with, a login password for Comcare, right in Ibada. And we separated between the demo side and the side where they could be actually recorded their clients, where they could put their password.</p>
+              <p>And then kind of if somebody gets a hold of that, their phones, they didn’t have to worry that they will receive their clients. That was an interesting part. And the other part that actually, was also very much, of interest the community health workers on Comcare was the referral. When they went and asked their series of questions, Comcare would somehow, prompt that give referral to this client, and they would then record which referral is that?</p>
+              <p>So whenever they gave a referral, they could actually see the kind of referral that has been given to a client. That was the second part. And the third part, cause whenever they gave a referral to a client, they were required to come back to see if that patient has actually gone to the health facility. If not, they continue to emphasize the importance of going to the health facility. So what happened was with Concare, it’ll remind the community health workers that these are the clients you gave referral and these are the clients you should make follow up to see if they actually went to the health facility.</p>
+              <p>And I think that was very interesting as we worked, on Comcare with community health workers.</p>
+              <p><span class="spk">Brian:</span> This is great stuff, guy. I’m so impressed at how much you remember, and obviously you had a chance to talk to the community health workers and get some more information, but, I think those are two important points, that you raised. So I just wanna restate them quickly.</p>
+              <p>One is that by having Comcare, they were able to suggest the feature and we were able to add the, the feature of having a password so that everything was password protected so that they moved from having these paper notebooks that were open to anybody’s peering eyes, even though they tried to obfuscate it a little bit by using, just some initials instead of the full name.</p>
+              <p>So there was an added level of privacy that that came in with Comcare and, , the digital tool. And then I think the second piece that you’re bringing up is a really good point too, which is, without. Comcare without the digital tool, there was nothing to remind them to go and follow up with patients who required some sort of follow up. Like, for example, they were referred to the health facility to go get an HIV test and or some other test or, get some additional educations or things. And, the tool was able to remind them to go and follow up with that person.</p>
+              <p>Whereas previously they would’ve had to try to remember themself or make a note in their notebook and hope that they check it and were able to, to get there in a timely manner.</p>
+              <p><span class="spk">Amie:</span> And actually I’ve got a couple of like direct quotes or these are obviously translations of the quotes. But I wanna read one, on this theme of privacy. And they say that the phone ensures privacy because it is mine and it is always with me. But with papers you may leave somewhere or even in the cupboard, anybody can pick it up and read it. But any information in this phone is ours, only me and you. And where I send the reports, my clients understood and they liked this. Another quote on this same theme, my customers received it very well because it had no humiliation. When you go to the patient, you don’t hold anything.</p>
+              <p>So really that privacy theme came through. I think another thing I was looking at in the responses, and maybe this has to do with kind of automating some of the work and the referral workflow that you both mentioned, is just general, the way that Comcare was able to help reduce their workload, it was easy to use and it was actually able to like help streamline their efforts, which I really liked seeing.</p>
+              <p><span class="spk">Gayo:</span> Yeah, Amy, the other piece that was suggested, because at first when we introduced concare, they had to go back, talk to their supervisors, and they just remember. Community health workers were in the community and their supervisor was always at the, nearby health facility.</p>
+              <p>So at first when we introduced Comcare at the community, they had to go back, they would use Comcare, and then they had to go back to their supervisor, with a summary sheet as a report to their supervisor.</p>
+              <p>So then they requested saying, is it possible to create a supervisor tool for our supervisor to be able to see the work we do using compare. And that’s when we started thinking, actually we have one piece here.</p>
+              <p>And so I think Brian, they worked, very hard , to design their supervisor or two, with the community health workers and their supervisors as to what kind of information the supervisor would like to see from the community. And then we created a tool, that actually helped a lot to bring acceptance of care.</p>
+              <p>At the supervisor level. So then they started seeing how many patients have been visited, how many patients have been given referrals they had a statistic. Every day they could run whenever they wanted to know the kind of service that has been provided by the community health workers every day</p>
+              <p><span class="spk">Amie:</span> yeah, I love that. So just the supervisors were getting much better visibility and able to kind of understand the work and get that in real time..</p>
+              <p><span class="spk">Brian:</span> So many of the features that we take for granted in Comcare and that are useful across the world and in various Comcare deployments have their origin story in the co-design that that GAO and I were doing back then, the supervisor. Even the idea of building another application for supervisors, that wasn’t something we came up in with necessarily.</p>
+              <p>It was something that emerged out of this collaboration we previously mentioned the, passwords and the referral tracking and there’s just so many of these features came out of the relationship GAO that you were able to build with the community health workers who in turn built a relationship with the community and the relationship GAO that you had with the community health workers the trust that you engendered with them really enabled them and empowered them and allowed them to participate as equals in the design process to bring these, these additional features that they wanted to ask for, for these things.</p>
+              <p>And, I think that’s, the role that you GAO played in this, I think is, really important to highlight. But, to shift the focus momentarily back or kind of back to the community health workers? It’s really, it’s their tool. It’s their work. Our job, is to empower these community health workers and to strengthen the work that they’re doing to amplify the impact that they’re having.</p>
+              <p>And so it was really about listening to them and letting them drive, where so much of this goes because they’re the ones who come in with the passion, the relationship with the community, the knowledge and, the energy , to make this change.</p>
+              <p><span class="spk">Gayo:</span> It reminded me the design part. Of the Comcare application. I mean, at first when there were only forms that you could be filled and they submit. And I remember Brian sitting under that mango tree where they said, how will we get a list of our patients?</p>
+              <p>We need to keep a list of our patients, right? And so we’re like, okay, we thought we were just filling this form and submit. And that’s when we came up with a case, , a tool, where we can keep a record of, the patients there and designing those what we call the paper prototype.</p>
+              <p>It’s my favorite part that I remember all the time yes, they are not probably, it guys, these community health workers, they’re just people who are. Not well educated probably, but if you give them a chance, give them a piece of paper and say, how would you like the application to be? They’ll just draw down what they think the application should be or should look like and just put in a piece of paper very simply and say, if we did this and this, and there were a lot of drawings, on those papers, and then we would use those to turn into the design of the application.</p>
+              <p>I think that was very interesting where the committee health workers would take a piece of paper with a pen and say, can we have it do this and do that, and that was very interesting to involve people in the designing, moment.</p>
+              <p><span class="spk">Amie:</span> That’s so cool. And I love hearing these stories, GAO, and essentially what you just described sounds like the genesis of case management within Comcare, which is one of the most important things that Comcare can do is create a case around a person so that you can follow up and, and follow them over time.</p>
+              <p>I wanna read one other quote that kind of stuck out to me from your interview as GAO that really just speaks to how momentous that shift from paper to digital was. And they write, they said, we were so encouraged when Comcare came before we were gathering patient’s information using papers about six forms.</p>
+              <p>So we were bringing six books with us as we visited patients. there were referral forms, patient’s information like age. It was hard. and Once you’re with a patient, you’re supposed to fill in one book after the other. But after having this Comcare, for sure, it came to simplify our work because all the forms were in the phone and we were trained on how to use the Phones.</p>
+              <p>So I love that. And Gao, if we think about sort of creating digital comfort and literacy, what did you hear from these community health workers and what did you see in terms of how did their experience using Comcare kind of help them? Did it help them get more comfortable with technology and how did they speak about that?</p>
+              <p><span class="spk">Gayo:</span> thank you. That’s interesting question. Amy, we had the community health workers who had knowledge on how to use a phone, but we had a number of community health workers who had never used their phone before.</p>
+              <p>They could read and write, but they didn’t have access to the mobile phone. So, I remember what we did was the first time we entered into the community was first to identify and know, which community health workers have knowledge about the use of a mobile phone?</p>
+              <p>And so the way we would do it, we would take a person who had never used the phone before, the person who have used the phone, put them together in a pair. And then we actually asked a community health worker to train the other community health workers on how to use a phone.</p>
+              <p>The first training we we provided was. How to use a mobile phone, a regular user for mobile phone, and it was much easier for their fellow community health workers to train another community health workers rather than me training a community health workers. That was the first part. In the second part, we had rowings, we had flip chats where we drew a picture of a mobile phone with buttons, and then we had it to actually map each button with the use of which button.</p>
+              <p>Lets say, here’s the button. When you press here, you actually, you hang up a call. Here’s the button. If you press this, you make a call. Here’s the button. So I have a picture of those drawings that we marked, and we will just put on the wall, in a training place.</p>
+              <p>People start playing with their phones as part of practice as a result. Brian, you may remember this. Because they wanted to practice using Comcare. They requested they didn’t want to mix the information they put in for practice with the REALI information where their patients are. They requested to have two sites of the application.</p>
+              <p>They, we call a demo. And they even requested you to put a reminder, you are actually entering using a demo demo for only practicing purposes. Demo is not for Lilly patient. If you are actually visiting your client, switch login using a password so that you can, provide service to the client. So that was the kind of training that we provided.</p>
+              <p><span class="spk">Brian:</span> Yeah, we learned so much in those trainings and, two fun stories that I remember. Io from, from our time was, one the Nokia phones that we were using with one of the projects there was a big center button. So there was kind of the four arrow directions and then the whole keypad below that.</p>
+              <p>And in the middle of the four arrow directions was the big center button. And we didn’t have a good name for that button. And I think it was with the community health workers that we decided that we would call out the belly button of the phone. So that was the word that we used in Swahili, was we’re gonna press this button here, the belly button as the center button and that’s how you accept things.</p>
+              <p>And that the second story I remember was, training around delete, cuz there was a problem or a, ui, bug, but maybe feature of those early Nokia phones where if you selected the application and you unintentionally hit one of the contextual menus, it would pop up another menu and everything was in English.</p>
+              <p>So if they unintentionally press the belly button of the phone, then it goes to delete. There’s a confirmation that pops up. And the first thing that’s highlighted is yes. So if they just keep mashing that belly button, they’ll accidentally delete the application, which happened at kind of later stages.</p>
+              <p>And so we had to train on the word delete and what it meant. And I remember the training that we ended up with after working with these community health workers was, look, if you take a piece of paper and you throw it in the rubbish bin, that’s not delete. Cuz you can always go to the rubbish bin, pull out the piece of paper, figure out what it said.</p>
+              <p>Again, delete is as, as if you lit this thing on fire. And, and the whole thing burned up. And, and there was, nothing left. So let’s make sure we don’t delete, So yeah, there were, lot of good learnings , from training. But again, like you were saying, the community health workers were so good at training other community health workers that we, not only did we learn how to design the application from them and have all these features that we added, but we also learned how to train, and teach</p>
+              <p><span class="spk">Amie:</span> I wanted to share a couple of the quotes that kind of jumped out to me from those interviews GAO, around kind using technology. So one community health worker described that, you know, after using Comcare, they were able to start using other digital tools. And, she said, Comcare enlightened me and built me up.</p>
+              <p>And another, one wrote or said, today I use my smartphone for so many things. I use Google, Instagram, WhatsApp, and Facebook. So many things. But I got experience from Comcare. So it’s kind of cool to see like, just all of that intensive training that you did kind of led to this more, comfortability with technology.</p>
+              <p>So Gao, I’m curious, to hear like, what’s your message , and not just for DGI, but for our broader audience. like what would you want our audience , to know, and be thinking about?</p>
+              <p><span class="spk">Gayo:</span> Well, I think, from my side, based on the experience, we’ve had so far with Biaggi and even other organizations working on the digital, world, my suggestion is we needed to digitize a hundred percent of our health services. So we need to have a link from the community to the health facility and to the referral hospitals. It should all be connected.</p>
+              <p>This will help a lot in terms of understanding where the case was identified at the community, the second point of care at the health center or dispensary, for example, if there was a referral to a hospital so that you have a complete, loop of digital information. I’m very grateful for DeMar specifically, looking at how much it has grown as a company, but also looking at Comcare.</p>
+              <p>And I’ve used Comcare recently on other cases, apart from community health workers. I’ve used it for, surveys in Kenya, for example. I’ve used it, as a data collection tool as well. And, the work I think Biag has done, to develop Comcare. It’s something that need to be supported, very much, in terms of the capacity, but also scale at the national level,</p>
+              <p>how do we scale homecare at the national level? For example, if a country wanted to use a digital tool, Can they rely on Comcare today to use at the community level, at the dispenser level, at the referral hospital level? how can you make sure there is an internal availability between Comcare and the other tools?</p>
+              <p>That you’re available. So basically integration, I’m talking of the inter accountability where data can move from one platform to another so that these different platform can talk to each other, but I think is something that need to be encouraged.</p>
+              <p><span class="spk">Amie:</span> Absolutely. These are all visions that I think we share as well in terms of really creating more seamless connection between health providers to better support patient care. And also ensuring that, all the tools can talk to each other. Thank you so much, GAO.</p>
+              <p><span class="spk">Brian:</span> Yeah. Thanks Kyle. That was really fantastic and it’s wonderful to have you on here as, someone who is so critical to. Developing Comcare to interfacing with the communities where we’re working, et cetera. And it, it just makes me think , that Dimagi is a technology company and on this podcast we talk about technology and we talk about new things in technology or how technology is affected things or the origin of certain technology pieces.</p>
+              <p>But so much of this over this conversation with you today, so much has kind of reminded me that really all boils down to relationships. Whether it’s the relationships that the community health workers are able to build with the community, or it’s the relationships that you. Gao, are able to build with the community health workers.</p>
+              <p>The whole thing is about building tools to support the innate, compassion and dedication that these community health workers have for the health of, their peers and, fellow community members. And so I think it can be easy to get distracted by the technology piece, but at the end of the day, it’s really just about the humans.</p>
+              <p>Thank you to Gaia and Brian for joining us today. Here are a few of my takeaways and reflections from today’s conversation. At its core technologies about enhancing human relationships. This is particularly evident when considering the stigma that community health workers confront when dealing with diseases like HIV.</p>
+              <p>The role hinges on fostering trust within the community. Challenging vital aspect of their job, that they are uniquely positioned to do. In this light, we discussed how Comcare offers privacy and discretion rather than carrying large conspicuous paper registers. Community health workers can now use a small discrete mobile device.</p>
+              <p>Thus improving, not only data security, but also the perception of their role within the community. This is just one of the ways that digitizing health workflows has improved efficiency and dignity in community health work. Success for a digital health tool means creating value for every user.</p>
+              <p>From streamlining the workflow for community health workers to providing better oversight for supervisors, campier has proven its worth at multiple levels. And I loved hearing this. Today’s discussion vividly paints. The picture of what designing with users truly looks like. As reiterated by rush Kumar and a recent episode, sitting with the people you aim to serve</p>
+              <p>and collaboratively crafting solutions to improve their jobs is vital. We call it design under the mango tree at Dimagi. Moreover the benefits of digital health tools extend beyond efficiency tools like Comcare, foster, digital literacy, and with 70% of community health workers being women, it’s easy to envision the ripple effect of empowering women through technology.</p>
+              <p>And lastly Gaia emphasize the potential of fully digitizing health services from community to facility and to government levels. Interoperability is essential for maximum impact a concept that we at Dimagi and as creators of Comcare care deeply about. That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful.</p>
+              <p>It really helps us grow our impact and write to us@podcastatdimagi.com with any ideas, comments, or feedback. This show is executive produced by myself. Danielle van wick is our producer. Brenna DeRoose is our editor and cover art is by Sudanshu Kanth.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GR</div>
+            <div class="person-info">
+              <p class="person-name">Gayo</p>
+              <p class="person-role">Worked with Dimagi from 2008 recruiting and training Tanzania&#x27;s community health workers on CommCare, and recently reconnected with those earliest testers.</p>
+              <span class="person-org">CommCare early collaborator</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">BD</div>
+            <div class="person-info">
+              <p class="person-name">Brian DeRenzi</p>
+              <p class="person-role">Global director of research, who helped co-design CommCare with community health programs in Tanzania in the early days.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6QWATW74f4FC9QE3EGuAc1" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 57: Solve One Problem: From vision to global impact with Chesca Colloredo-Mansfeld, Co-Founder of MiracleFeet | High-Impact Growth | Dimagi</title>
+<meta name="description" content="How Chesca Colloredo-Mansfeld built MiracleFeet from one idea into a global organization treating clubfoot, on track to reach 100,000 children.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/episode-57-solve-one-problem-from-vision-to-global-impact-with-chesca-colloredo-mansfeld-co-founder-of-miraclefeet-2/">
+<meta property="og:title" content="Ep 57: Solve One Problem: From vision to global impact with Chesca Colloredo-Mansfeld, Co-Founder of MiracleFeet">
+<meta property="og:description" content="Chesca Colloredo-Mansfeld on building MiracleFeet to make clubfoot treatment reach every child born with it.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 13, 2024</span>
+          <span class="dot"></span>
+          <span>80 min</span>
+        </div>
+        <h1 class="ep-title">Solve One Problem: From vision to global impact with Chesca Colloredo-Mansfeld, Co-Founder of MiracleFeet</h1>
+        <p class="ep-deck">Chesca Colloredo-Mansfeld left the corporate world to co-found MiracleFeet and bet that one simple, low-cost treatment for clubfoot could reach every child born with it. A story about following your instincts and backing them with data.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6eUWKMW4DuBLwBKzccG6Wi?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 57 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6eUWKMW4DuBLwBKzccG6Wi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000655418390" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/POExwUE5VXs?si=hqbX3hlJqiVz9RZ2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/50ef08ae-5d21-4987-9290-73a8d991450f/high-impact-growth-solve-one-problem-from-vision-to-global-impact-with-chesca-colloredo-mansfeld-co-founder-of-miraclefeet" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">1 in 800</div>
+          <div class="ep-stat-label">babies born with clubfoot, a treatable condition</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">100,000</div>
+          <div class="ep-stat-label">children MiracleFeet is on track to have served</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">$500</div>
+          <div class="ep-stat-label">cost to change the trajectory of a child&#x27;s life</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>One in 800 babies are born with clubfoot, a treatable impairment that, left untreated, prevents a child from walking and becomes a root cause of illiteracy, malnutrition, and poverty in many parts of the world. The condition is routinely treated at birth in high income countries, but children born in low and middle income countries have historically lacked access to quality care.</p>
+        <p>Chesca Colloredo-Mansfeld co-founded MiracleFeet in 2010, driven by the idea that a newly accepted, low-cost, non-surgical treatment, the Ponseti method, could have an outsized impact. Co-hosts Jonathan Jackson and Amie Vaccaro talk with her about leaving the corporate world to become a social entrepreneur, raising money for a problem no one had heard of, and the role data and CommCare played in proving impact and earning a GiveWell grant.</p>
+        <p>Today MiracleFeet is the largest global organization solely dedicated to ending clubfoot as a solvable problem. The team is on track to serve 100,000 children, with a goal of treating 70% of clubfoot cases in the countries where they work.</p>
+
+        <blockquote>
+          <p>&ldquo;This is so fixable. There aren&#x27;t many problems like that, where you&#x27;re kind of like, this is a no brainer. We have to do this.&rdquo;</p>
+          <cite>Chesca Colloredo-Mansfeld</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From corporate to clubfoot</strong>: the moment a dying doctor's research convinced Chesca to leave business and solve one pressing problem</li>
+          <li><strong>Following your gut, backed by data</strong>: trusting instinct, then proving it with research, evidence, and ROI</li>
+          <li><strong>The hardest sell in fundraising</strong>: raising money for a condition most donors had never heard of, starting with friends and family</li>
+          <li><strong>Earning a GiveWell grant</strong>: 13 years of persistence, Cochrane evidence, and the data CommCare helped collect</li>
+          <li><strong>Data for the front line, not just funders</strong>: building a tool that made clinic visits easier and put data in local partners' hands</li>
+          <li><strong>An exit strategy that sticks</strong>: training medical schools and ministries so clubfoot care outlives MiracleFeet</li>
+          <li><strong>Letting go of what you built</strong>: a founder transition, a new CEO, and life after handing over the reins</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to high impact growth. A podcast from Dimagi for people committed to creating a world where everyone has access to the services, they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity. I’m Amie Vaccaro, senior director of marketing at Dimagi.</p>
+              <p>And your co-host along with Jonathan Jackson. Dimagi CEO and co-founder.</p>
+              <p>Today we have the honor of speaking with Chesca Colorado Mansfield.</p>
+              <p>Jessica co-founded MiracleFeet in 2010, driven by the idea that a newly accepted. Low cost non-surgical treatment. Could have an outsized impact. On children born with clubfoot in low and middle-income countries. If you don’t know of MiracleFeet, they’ve been tremendously effective. There’s the largest global organization solely dedicated to ending the solvable problem for every child born with it. So there’s a lot to be learned from Tesco’s approach In today’s conversation and Chesca shares her story of leaving the corporate world and reinventing herself as a social entrepreneur, focused on a mission to solve one pressing problem. This is a story about following your instincts and backing it up with data. It’s about the power of a can-do attitude. Business skills and laser focus on an important problem. Enjoy.</p>
+              <p>Jessica, we are so happy to have you here today with us. And I have been reading a bit about your story and just such an inspiring arc, , most recently as CEO and co founder of MiracleFeet. , but I’d love to start with a little bit of , your backstory, um, and how you came into this</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Sure. Uh, well first, thank you so much for having me and Dimagi has got a very special place in our, in, in the MiracleFeet story because it’s played such a big role. So we’ll, I’m sure we’ll get into that, but I’m very excited to be here today with you both.</p>
+              <p>Um, so the little bit of the backstory is that I, um, grew up living. Mostly in low and middle income countries as a child, my father worked for the British Diplomatic Service and we moved around a lot and primarily in Africa and Asia. And I think that really left an imprint on who I am as a person. And I sort of grew up with this assumption that at some point in my life, it was going to be really important that I gave back to people, to people.</p>
+              <p>particularly children, to make their lives a little bit better, because I had seen, you know, at that really impressionable age, the difference between the opportunities that I had, and that most of the people around me had, and it didn’t make sense to my eight year old self. So that was sort of part of who I was, but it took me a long time to figure out how I was going to do that.</p>
+              <p>I ended up working in the corporate world, um, coming out of undergrad. I’m from England originally, came over to the U. S. on a scholarship to go to the University of North Carolina, and ended up taking jobs in business in part because I really needed a visa because I had met the person I thought I would marry and indeed did marry.</p>
+              <p>So that part all worked out. So I found myself in business and I love business, but I also never felt like it was quite enough. And I love the people. I love the challenge. I learned a ton. It was, um, often, you know, very intellectually challenging, but I always felt there was this part that was, it wasn’t quite enough.</p>
+              <p>Being successful in business was that I needed to do something that really impacted people. So I was constantly looking around for that opportunity and realizing that it’s quite difficult. If you’re not something useful, like a teacher or a doctor, it’s like, how do I help? Right? It’s, it’s not, it’s not simple.</p>
+              <p>And I was just really fortunate. I ended up working at the business school at the University of Iowa. And it’s a long story how we ended up My husband’s an academic. He’s It’s an anthropologist. It was his first tenure track job is the University of Iowa. And I’d been working in the internet world and the bubble had just burst.</p>
+              <p>And I was no longer employed by the, by the amazing internet startup that had been, you know, rising like a, like a torpedo into the sky until the bubble burst.</p>
+              <p>And so I’m, I’m working at the university and someone walks into my office and they say, there’s this amazing doctor here at the university. He’s in his nineties and he has spent his whole life doing research.</p>
+              <p>Figuring out how to treat this condition called clubfoot more effectively. I’d never heard of clubfoot. Um, I hadn’t heard of this doctor But this gentleman explained it. He showed me some video of children a child in Uganda With his feet completely turned in looking through the window of the small house that he lived in and through that we saw doorway you could see children running around and playing and he was standing there on twisted feet looking you know with his head down cast and it was sort of a silhouette and you knew that this kid was going to be on the sidelines he was going to be in the shadows looking out at everybody else running around and playing and that image just did something to me and i burst into tears at my desk and i i had just had our third kid the other two played soccer the whole thing you know couldn’t have been you know perfect Um, created more perfectly and he said this doctor’s dying wish is to get this treatment to the rest of the world.</p>
+              <p>It’s now finally after 40 years of fight, of battle, um, within the U. S. being accepted as a preferred way to treat this condition. And his dying wish is to get it to everybody else. And I was, I sort of was like, I think this might be it. I think somebody just handed me a gift on a plate and I can choose to step up or I can yet again, sort of say, Oh, I’m not really the right person to do that and walk away.</p>
+              <p>So that’s kind of the beginning. And I, you know, I can get into what is Clubfoot and all the rest of it and why did it matter? And I did a lot of research obviously before I, um, launched Miracle Feed and took quite a long time between that conversation and actually creating the organization. And there were lots of other people involved.</p>
+              <p>It was not a solo effort by any means.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I love that story, Jessica.</p>
+              <p>And I’m, I’m curious if you would, like, Tell us more about that moment or that decision that you made, right? Because that’s a huge decision, right? To give up this kind of corporate career that you’ve had and take this leap of faith to solve this one problem that you’ve just discovered.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Sure. And of course, like any of these things, it was complicated, much more complicated than I probably just made it sound right. But there was a real emotional, visceral reaction. to this presentation of this idea. And I, I remember going home that evening and telling my husband said, I think I finally figured out what I need to do with my life.</p>
+              <p>I don’t know how, and I don’t quite know when, but this, this is something really important. And so that was a very kind of like saying that to myself, saying that out loud, I think was, was kind of like, okay, you know, this is real. If you can’t keep talking about trying to do something, you actually at some point have to do it.</p>
+              <p>So. I then started doing, you know, I’m a very analytical person, so then I start analyzing the whole situation and trying to figure out, you know, how big is Clubfoot and why does, is this real, is this real? And we, um, My husband got recruited back to the University of North Carolina. So shortly after this conversation, we actually moved away from Iowa City to back to Chapel Hill, North Carolina.</p>
+              <p>And so that was kind of a moment of change and transition for me. I did actually take another job once we arrived here, but I wasn’t super happy with it. And this idea of, of how do I address this issue kept eating at me. My husband’s work takes us to Ecuador. I, we were back in Ecuador that summer and I saw a woman crawling across a street and I was pretty convinced that she had untreated clubfoot and it was this, you know, it was like this wham again, like, you know, wait a minute.</p>
+              <p>You said you were going to do something about this. And then you look at the state that this woman is in and the, and the terrible, um, you know, life that she’s having to lead that doesn’t need to happen. That this could, this is fixable. And it, again, was sort of just reinforced the idea that there’s somebody needs to do this.</p>
+              <p>And it was sort of clear to me also that nobody was doing it. You know, you look around, it’s like, wait, this seems really obvious that someone needs to fix this problem. It’s very fixable. The doctors figured out the difficult part. It’s really an implementation. Uh, problem at this point. I think I can do that.</p>
+              <p>And, and, you know, even though I’m not qualified in public health, I’m not a medical person, like, it just seems not that complicated. That was very naive, of course, but it was fortunate, maybe, because I probably wouldn’t have taken that leap. So there was, there was some, um, A combination of this really makes sense.</p>
+              <p>It fits with what I’ve said, told myself I’m looking for in my life that is really important for me to give back. And I think it checks that box. It also happened at a time in my family’s life where my husband, you know, was now on a nice tenure track. position. My kids were a little bit older. The youngest, we had, we had three kids and the youngest was five, six at that time, probably a little young, but I felt like, I felt like, okay, maybe it’s now my time to, to, you know, kind of do what I really want to do.</p>
+              <p>And, um, I think our family can handle that. Financially, we were also in a position where I could kind of take a risk and, and stop earning money and, you know, go out, quit my job and decide that I was going to try to do this full time. So there were a lot of things that kind of came together. that made it possible.</p>
+              <p>And then the final piece, which was also important, was as I got out there and started talking to more people about, about the issue and people who actually knew something about Clubfoot and about the treatment, I was, I gathered, I sort of discovered that there were a few other people that were interested in doing something and had actually even been having some conversations and they were families that had children treated with this new treatment called the Ponseti method after the doctor.</p>
+              <p>And they had, um, come to learn that kids in low income countries were not getting any treatment and they were just horrified that something that seemed so simple and so fixable here in the U. S. was just a devastating and debilitating lifelong problem for most kids. So they, you know, there was, there were conversations going on.</p>
+              <p>So I was, I was, you know, connected to those people and, and that’s, you know, that’s what also made it possible. So it was a lot of factors coming together.</p>
+              <p><span class="spk">Jonathan Jackson:</span> and I remember, I don’t remember if you had first spoken to our team in our Boston office or if we had met in my office first, but I remember one of the first times we met in person and you were taking me through the treatment. I was just like, This is the coolest thing ever. You like, you can actually fix a problem in global health.</p>
+              <p>You know, I think a lot of times we’re, you know, we’re at the systems level and one of the projects I’m working on right now is giving out reading glasses. You know, like 500 million people need reading glasses around the world and don’t have them, you’re like for two bucks, you can like actually hand somebody something to fix it.</p>
+              <p>And when you were talking to me through the treatment and you’re like, you can get the full cure, you know, with, with, uh, something that’s actually affordable. I was just like, this is so cool that you can, um, you know, have that kind of impact and durably, you know, have that kind of impact and affordably.</p>
+              <p>So I was really, really. Shocked that that existed and I hadn’t heard about it. And I was so impressed with the model, uh, when I first learned about it and talked with you and I’m curious, you know, it sounds like this should be an easy sell, right? Given everything. We just said, what was it like trying to get this off the ground and try to build that fundraising base?</p>
+              <p>Like, was it resonating pretty quickly or were you like, Oh boy, this is way harder than I thought.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> I had no idea how I was going to do the fundraising part. And I, if someone had said to me, do you think you’re someone who could raise money? I would have said no, because I, whenever I was put on a committee for like, you know, the preschool fundraising committee, I would just write the check because to me, it was so much easier than going to ask all my kids parents for a 50 check.</p>
+              <p>I’m like, I can’t do that. So, um, what I, So, learned about fundraising was so fascinating, which was essentially, I was so passionate about this, and I had so drunk the Kool Aid and believed that, you know, just like you’ve said so beautifully, this was so fixable. There aren’t many problems like that, where you’re kind of like, this is a no brainer, right?</p>
+              <p>We have to do this. It became very easy for me to talk about it. And I think, um, my passion and my, my dogged persistence, which drove some people completely crazy, uh, had a lot to do with it rather than my fundraising skills, but, but I really started with friends and family. And I, I was so lucky that I had worked in places in investment banking and consulting, and then gone to a business school where lots of people had at this point made a decent amount of money.</p>
+              <p>I had a network that I could go to and tap. And I don’t know how I would have done it otherwise, because we were trying to raise money for something that nobody had ever heard of, and that nobody knew was a problem. And so, you couldn’t just say, you know, we’re bringing clean water to people in, in villages in Africa, you had to go through this whole, well, one in 800 children is born with this birth defect, and it’s the same problem.</p>
+              <p>Same incidence rate here in the U. S. as it is in Zimbabwe or India. And, but the difference is that kids in those countries don’t get treated while here they do. So you have to go through this whole preamble to kind of explain what Clubfoot is, explain why it’s even a problem because a lot of people think maybe it’s just like pigeon toes or that it, you know, they don’t understand that.</p>
+              <p>This prevents someone from walking and then educating people on what it’s like to live with a disability in a low income country, which is quite different, although very challenging here. There are resources and there is support. You’re born in, you know, rural Tanzania. with a disability and you’re not able to walk properly, life is truly ghastly.</p>
+              <p>You’re probably never going to get to school. You don’t get fed properly. You do just don’t get treated the same way as other, other kids do because of the stigma and the sort of embarrassment around the issue of, of disability. So it was, it’s, it’s not been an easy story to, to tell, and it takes a while.</p>
+              <p>You, you, you don’t sell it, you know, in a, in a sort of one pager and, and people are like, Oh, I get it. So it. It was a hard sell, but I was really, really fortunate that I had a number of, of just friends who I, some of whom I didn’t even know had made money that stepped up in ways that were so lucky and so generous and so trusting that I could do something about this.</p>
+              <p>That, I mean, it’s, it’s kind of, you know, it’s, it’s sort of. When I reflect on it, there were just sort of a couple of conversations that led to people contributing at a level that if they hadn’t done that, we wouldn’t be having this conversation today. So part of it was luck. you know, part of it was my circumstances, but, but that was luck, right?</p>
+              <p>So it was definitely the fundraising. The early days of fundraising came primarily from friends and family, a lot of people from venture capital and private equity who really appreciated the return on investment story that we could tell, right? And when they understood that 500 could completely Change the trajectory of a child’s life.</p>
+              <p>They were sold, right? That it, it solved a problem. It sold, solved it forever, and you could, you know, the return is higher than Warren Buffett can ever deliver with in terms of, you know, you invest $500 and that person could go on and, and earn an average living for the rest of his or her life. It’s pretty compelling.</p>
+              <p>So I think. From a fundraising perspective, this is also a relatively straightforward proposition, if you can get it in front of people that think that way.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And have you, have you gotten in front of the groups that are, are very significantly into cost effectiveness like GiveWell or USAID’s DIV program and others like those resonated in, in your programming?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> we have been able to. That’s taken a long time. So we, we know it, we identified pretty early on, um, that we felt that we were a great fit for, Let’s use GiveWell as the example that, you know, when you read their criteria, which are very specific, that it’s like, wow, we actually check all these boxes.</p>
+              <p>However, trying to create the body of evidence to prove that to the degree that a GiveWell needs was, it took us time, and it took a lot of data, which is where Dimagi came in, right, and helped us. Um, gave us, helped us build the capacity to, to collect that data and the capacity also to analyze it and really be able to measure the impact that we’re having.</p>
+              <p>So I would say we, we started off with a lot of high net worth individuals that morphed into family foundations. And some of those were particularly large family foundations, but we got in there through personal connections. So again, it was kind of like half the, half the story is getting in front of people, um, once we.</p>
+              <p>Got larger and we had a lot of data to show the impact that we were having in the success rates. Then we were able to start seeing success with some of the larger foundations. We, um, we had an early grant from USAID, Div actually, before we had all that data, because they were really interested in pieces of, of, Innovation that could result in revenue streams.</p>
+              <p>And we developed a very low cost brace, which we developed with Stanford and that sort of put us on the map and the DivGrant that we got came through that. GivWell was much more challenging and GivWell are very, very exacting in terms of the, degree of evidence that they expect. And this was, it’s, it’s a, it was a really interesting story because they, they will not look at anything medical unless there is, there are peer reviewed articles that have been reviewed by the Cochrane Review, which is this, I guess, I don’t know, entity in England that reviews medical breakthroughs.</p>
+              <p>And because treating with this new non surgical treatment that this doctor from Iowa had developed called the Ponseti method, that was replacing surgery. And before Clubfoot had been treated with this really invasive surgery, it didn’t have great results. And because it was so complicated, it just wasn’t done outside of wealthy countries because it was, it didn’t work very well.</p>
+              <p>It wasn’t cost effective. They didn’t have the ORs. They didn’t have the medical professionals, the orthopedic surgeons who could do it. So, um, GiveWell said, we can’t look at this until there is a Cochrane report showing that the Ponseti method is better than surgery. And by this point, the train had left the station, right?</p>
+              <p>The whole, the whole of the U. S. and the, the, you know, Europe, most of Europe, not all, but most of Europe had accepted that this was the gold standard treatment now. And one, there was a study done in Norway, where someone had got, tried to go back and prove they were doing a randomized control study on looking at.</p>
+              <p>Surgery versus the Ponseti method. And it was shut down by their ethics board because the results were so clear. And yet GiveWell wouldn’t accept that. They kept saying, you can’t check this box. We can’t move forward until you can check this box. Then they fortunately kind of softened their stance and there was just so much written about Clubfoot.</p>
+              <p>And, and I just kept very gently, and I’ve done this with a number of quite large foundations and it’s worked, you know, you get an, you get the initial no, or no, this isn’t a great fit. Sorry. You know, And I just kept, about every three months, I would ping them with some piece of information, or a little update, um, with, you know, with a message saying, I don’t expect a reply, and if this is annoying, let me know, and I won’t send you any more messages.</p>
+              <p>But, you know, this, this really good, um, article’s just been published, um, about the, um, long term impact of the Ponzetti method, or here’s a great little video that shows what life with untreated clubfoot looks like versus the child who’s treated or whatever it was. And so I never gave up on them. And I was, I was utterly convinced.</p>
+              <p>In fact, I told a couple of people, like, I’m not quitting until we get money from GiveWell, because I am totally convinced that we should get money from them because we meet the criteria. But I, I, uh, I looked at it the other day and we, we, I think we talked, we got through, four or five different contacts at GiveWell, each of whom turned us down and then luckily left.</p>
+              <p>So then we would start again until we, you know, and it was a combination, I think, of, of just, again, the persistence, but also really listening to them and trying to figure out how we could answer whatever question they felt needed to be answered to be able to move us forward. So we took that very seriously, like, okay, this is what you need.</p>
+              <p>We don’t have that right now, but we’re going to go and try and figure out how we can. Get something to, to check the box for you on that, because we recognize that you’re in the driver’s seat here. You get, you get to call the shots, so we need to meet them. So it was, it was very, very exciting when we did finally get that grant and that was about a year ago.</p>
+              <p>Um, so it’s fairly recent. I was doing this for 13 years before that came through, so it was a long time in the making. Uh,</p>
+              <p><span class="spk">Amie Vaccaro:</span> Wow.</p>
+              <p>Congrats on that persistence. , going back to your your story of coming into this work. , what I notice is, like, you were really listening to your gut, right?</p>
+              <p>It started with this emotional response and you were able to trust that and follow that and then layer in the analytics and the data and the research that you wanted to do. But that, that gut instinct you had. I’m sure has served you, right? Because it meant that you were incredibly passionate about the work, right?</p>
+              <p>And could sort of weave that into your storytelling. And I think that reflects in sort of what you’re saying about storytelling too, right? Where there’s, you need to be able to tell the story from this emotional standpoint, but you also need to have the data and be able to speak to ROI.</p>
+              <p>I’m sure that you’ve learned a lot as a storyteller and as a fundraiser, and I’m curious if you maybe can reflect a bit on sort of your learnings of like, how do you, um, how do you convince people to become as passionate as you are about a topic like this?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> yeah, that’s a good question. I, I’m going to go back to the, the, where you started with that, which is using your gut. Right? And, and I am, I’m a very analytical person. I’m very driven by numbers, but I also, um, do tend to There’s a bunch of things where I just feel like I know we need to do this. I feel like this is important.</p>
+              <p>I can’t quite explain why. So I think I am someone who’s been driven by instinct. Sometimes that’s good. And sometimes that’s not so good because, you know, hopefully you back it up with bouncing it off lots of other people and make sure that other people agree with you. Um, but one example actually is what led us to Dimagi, which was, we got the opportunity, uh, to present to Google.</p>
+              <p>Having submitted an application for how would we use Google funds to apply technology to help with disability. They had a specific call for action or a, yeah, an RFP for, for, for grant funding for disability and technology. And I didn’t really know what to do. what the system we needed to build was, but I had this gut feeling that if we could build a system that was really easy for all of the doctors that we work with all over the world to use in the clinic, and it helped them treat children more easily, And at a higher level that, that this would become a really, really important part of our model.</p>
+              <p>And I, I had an hour and I went in sort of unprepared. The meeting was very unexpected. I happened to be in San Francisco and they were like, well, since you’re here, why don’t you come in? And I was like, Oh my God, I don’t even know what I’m going to say. And I sort of made it up. And I, and I just, I just started talking because I had this deep feeling inside me that, that I, this was right.</p>
+              <p>This was really necessary. And we’d always collected data, but we were using all these terrible tools and it was really difficult. And it was, it was making life really hard for our partners in the countries, which is exactly what we swore we would never do. It’s like, no, we have to make life easier for them.</p>
+              <p>We can’t put extra hurdles in. Life is hard enough as it is. Right. And I talked for an hour and, and, um, Bridget, who is the person running Google’s foundation, I think it was Bridget, said, Okay, if you can write everything you’ve just set up and send it to me within 24 hours, we’ll do it. We’ll consider this.</p>
+              <p>Well, I was getting on a plane and it was a red eye across the country. And I, I was like, okay, I’ll do it. Thinking to myself, oh my God. So I, I would like get on the plane in my economy seat right at the back and I’d get out my computer and it’s dead. There is no battery and there is no charger because I’m in a seat way at the back of the plane and I’m like, Oh my God, this is, this is a total disaster.</p>
+              <p>And I went to the, to the poor, you know, the staff of the stewardesses on the, on the plane and said, um, Is there any way you can plug this computer in? Like, and then I explained the whole story. There are all these children born with clubfoot and I’ve got to do this. And I’m sort of in tears or at least pseudo tears.</p>
+              <p>And, um, you know, to their credit, they were like, okay, crazy lady. We’ll, we’ll find you a place to plug this in. And I literally spent the six hour flight writing it up and I sent it off the next morning. And we got a million dollar grant, which allowed us to work with Dimagi and others to build this extraordinary system that became the, The sort of, you know, really, really allowed us to scale, um, and allowed us to raise a lot more money because we, we had a robust story to tell.</p>
+              <p>So that’s a little bit about gut instinct and sort of sometimes you do crazy things. And I think you, I think the founders in particular sort of have to step up at those nutty moments. And you know, you look back and you’re like, why did I do it? I don’t know. Maybe not everybody would have done it, but it worked, so we did it.</p>
+              <p>So how does that relate to storytelling and instinct? I think, um. I’m not a marketing person. I’m not, I’m not very good at marketing and I have a hard time kind of imagining. I, I, I remember the early days our board would get a little frustrated with me because they kept saying, well, you’re doing a great job on this and we’ve solved this problem and this is going really well, but, but how are you going to tell the story and how are you going to market this?</p>
+              <p>And I, I, I understood That we needed to show the promise we needed to show what treatment unlocked for children. The, the story had to be, we were not gonna put a child looking sad with tears in their eyes, struggling to walk. We were not gonna tell that part of the story. We were, we were gonna tell was the, the family feeling the shock.</p>
+              <p>and the worry about what was the future for the child they just had, and then show what treatment unleashed and, you know, how easy that was. And, and really, but the, you know, the child running, the child going to school, the child jumping, we knew that we had to do that, but I didn’t have a clue how to do it myself.</p>
+              <p>I mean, I sort of like, I, again, instinctually, I knew we wanted only to tell a happy story. We really wanted to give the kids all the dignity that they deserve and the families the dignity, and we were not going to use that. You know, we weren’t going to use the sob story to raise the money. We were going to use the promise and the positive.</p>
+              <p>And then we were lucky enough to find someone, you know, we advertised for somebody to come and do marketing. I couldn’t even describe what it was. And the right person walked in the door and I knew it. I was just like, this is the person. And she really, Developed our marketing, what’s the right word, the look and feel of who MiracleFeet was.</p>
+              <p>Sort of the brand beyond the logo and the name, right? Everything beyond that, and she ended, she’s no longer with us unfortunately, but she really set the stage for that and I think, so finding the right person who can articulate what you know in your gut, and you, but you don’t know how to do it. Um, is just such an important part of building any organization and, and, you know, I can repeat that story for the medical side, the clinical side, you know, you name it, um, you’ve got to find that those right, those people who fill in the gaps and the inadequacies that you have and what you can do.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, that’s a, there’s a lovely way to think about it.</p>
+              <p>You know, we’re talking about a lot of moments of what sounded like very good luck, but obviously you were extremely well prepared in position to seize the opportunity when it was in front of you. And for a lot of our listeners who were earlier in the stage, I guess for every story you have like this of good luck, you have the opposite story of horrendously bad luck, you know, at the same time.</p>
+              <p>And so it’s about seizing those moments when you have that cross country flight and you got that, you know, You know, lucky timely meeting because you happen to be in town and having the data, you know, having the pitch, having that next thing you want to do, having the ability to create the role for the person you just know you need to hire.</p>
+              <p>All those things I think are luck on the one hand, but also by doing the hard work and being ready to move when those opportunities present themselves is such a critical part of building a successful social enterprise.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Yes. I mean, you create luck, right? You have to do sort of the right activities, and you try a lot of them, and some of them go badly wrong or don’t stick, and then the one or two that do are great, and you then call it luck. But really, you know, it is doing the right things, and you hope that one or two will stick.</p>
+              <p>I will say I have a very bad ability to predict, like, when I’m fundraising. I, for a while, thought I could figure it out and that I could tell you who I thought would give money and who wouldn’t. I’m, I was never right. And, you know, the meeting I would go into thinking like, this is a slam dunk, you know, I’m definitely, this is going to be a win.</p>
+              <p>You’d come out with your tail between your legs, like, whoa, I totally misread that one. And then, you know, there’s somebody else that you have no idea. And they write, they turn around and write you a check for, you know, many, many times what you ever thought. So I’m. I haven’t gotten much better at predicting which of the many things you try are actually going to work.</p>
+              <p>And I think that’s also true on, um, partnerships. Sometimes we, our entire model is about building capacity locally. And so we’re very, very dependent on, um, selecting the right partner in each country. And then they are our implementing partner to, to roll out and implement the program and grow it to be a national, to, to, to have national reach.</p>
+              <p>And. especially in the early days when we were so small and we were still trying to figure this out, we didn’t really know, we didn’t have the, the criteria nailed down about what was going to make a good partner. And so we met, we definitely made some mistakes and we sort of, you know, kludged it together for a while.</p>
+              <p>And in some cases we ended up making it work and in other cases we had to walk away and those feel like a total failure at the time. But of course you learn from that and then hopefully the next time you’re less likely to make the same mistake. But there’s, there’s plenty of setbacks and it, it always.</p>
+              <p>It’s easy to tell the story in retrospect because you glob onto the successes and you’ve, you’ve managed to push those, those times where you went home and cried to the, to the background, but there were many of those.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, and, and, and the, Ability for you to see just what you’ve been able to accomplish over the last 14 years. Obviously you didn’t do it, you know, alone, but we’re so integral to it. When you won that million dollar grant, what was your annual revenue at that time?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Oh gosh. Um, I’d have to look it up, but that was back in, when was that? 2015? I think. So we’d been around for about three years. I’m guessing it was 500, 000 or something.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Right. So this is a huge, it was a</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> it was huge. It was beyond what we thought we could manage really. Yeah. I mean, and that’s why it was so crazy that they, you know, Google’s going to do this really?</p>
+              <p>Like, I’ll have to go. I can confirm that number. Um, but I, I, uh, I’m pretty sure it was somewhere in that range. I think the million dollars was, was, was probably more than our budget at that time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> so you’re, you’re able to use that. You invest in a incredibly smart decision to hire Dimagi as one of your</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> course.</p>
+              <p><span class="spk">Jonathan Jackson:</span> but, but then scale up. But I was, I was just trying to, to find this. So the, the give all grant was 5 million. And I think your annual revenue is now over 10, if I’m not mistaken. Is</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Yeah, it’s just over 10. Yep.</p>
+              <p><span class="spk">Jonathan Jackson:</span> It’s just an amazing, um, ability to, to go from starting an organization. I mean, there are very few organizations that can grow that rapidly. You know, the, the numbers that we think about in the private sector, you know, they’re talking about like 10 billion companies and, and this stuff, but to build a 10 million company.</p>
+              <p>Social impact organization in 13 or 14 years. That’s just unbelievable success. You know, congratulations on,</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> thank you. It didn’t always feel like that. You know, I,</p>
+              <p><span class="spk">Jonathan Jackson:</span> It never feels like that.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> it never</p>
+              <p><span class="spk">Jonathan Jackson:</span> know,</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> like that. There’s so many more kids. That’s the problem, right? So you look at success and you’re like, yes, but we’re only reaching a third of the kids in Nigeria and we haven’t even gotten to, um, Mongolia yet, you know? So you just constantly are feeling the pressure of, but there are more kids out there.</p>
+              <p>And I think, you know, for a, for a for profit you’ve got the motivation of, making money, right? For your shareholders, for your investors, for yourself, whatever it is. And that really drives people to push hard and, and to go for growth. And we, I was actually just having a meeting with a, with an amazing, uh, donor couple last night.</p>
+              <p>And, and he was reflecting on his experience of doing that in the private sector. And he said, but you guys have just got to keep that pressure on yourselves for all those parents out there, because each one of those needs you to push that much harder each year and to keep growing because that compounding impact of the growth just it, it, it gets you that hockey stick and that huge, you know, it gets you from starting at 30, 000 a year to 10 million.</p>
+              <p>dollars. And You know, we, we treated 50 kids our first year and we’re now very, we’re nearing, um, the total number that, that we’re coming up on is 100, 000 kids, which we think we’ll hit in September. So it’s just, you know, when we first started, we thought it would be 10 to 20, 000. That’s what we sat around the boardroom table and we said, if we could treat 10 kids, we would feel really good about ourselves.</p>
+              <p>So it’s,</p>
+              <p><span class="spk">Jonathan Jackson:</span> So a hundred thousand total. That’s amazing. How many are you reaching per year? And what’s</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> it’s about 15. So it’s about 15, 000 children every year. Or this year, and then it’ll be more next year and more the year after that we, you know, continue to grow. The total addressable market for MiracleFeet is about 60, 000 children are born every year in countries that we have, um, that are on our target list that we’ve classified as being high priority.</p>
+              <p>And our goal is to, is to enroll up at least 70 percent of all children born in each country that we’re in within the, within a year of being born. Right? So, we don’t just go into a country and go to the capital city and treat sort of the easy ones, the low hanging fruit. Our goal, if we’re going in, we’re going in to give access to every child.</p>
+              <p>We do 70 percent because we figure some kids have the means that they’ll go find private treatment somewhere or fly somewhere else. And then there are always families where they’re just so far from Being able to access health care or their, you know, the conditions that they live in that just, you know, preclude them poor family, even trying to figure out how to solve this.</p>
+              <p>So we, we feel like 70 is a good number. We’ve actually exceeded that in a, in a number of countries and we’re at about 50 percent in eight countries. So, you know, again, we kind of pulled that number out of the air and said, doesn’t seem like something we could really attain, but let’s shoot for it. And, you know, you look at it, you put the number out there and, and.</p>
+              <p>You get there. It’s amazing. Aiming high. Aiming high works.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. So that’s 42, 000 a year. And you’re already at 15. Like this is.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Well, we gotta, no, sorry, the 60, 000 includes the 70%. So we still have to, we’ve gotta quadruple what we’re doing.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. But I mean, you went from 10 million. What’s,</p>
+              <p>what’s for us</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> We can quadruple. I’m, I’m, I’m with you. We can do this in my lifetime. No problem. Uh, it depends on the money, but again, if you, if you’re ambitious and you set high targets, I believe people respond to that as well.</p>
+              <p>Like having a, having an exciting vision, having, being able to sit down and tell a donor they can be part of solving something forever is very compelling. And people want to be part of that. What</p>
+              <p><span class="spk">Jonathan Jackson:</span> so you obviously have a grasp of the numbers here. What, what did you do from a technological standpoint? Obviously, I know we were part of that, but you had much bigger vision than just what you’re doing with Dimagi. But how were you thinking about not adding burden to the providers on the ground, getting the data you needed to tell the story, getting the data you needed to prove to, The ROI community or the cost effectiveness community, whatever.</p>
+              <p>Um, so what was that tech journey like, like you got that Google grant and then what’d you do next and where are you at now?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> So the, the tech story is that Quality is just as important as quantity, right? If not more important. I mean, if you don’t have quality, why bother? You don’t really get out of the door. And when we first started, we assured quality by going and looking at what was going on, right? Well, you can’t do that when you’ve got 400 clinics in 36 different countries around the world.</p>
+              <p>And we knew that. So we early on worked with a number of other people who had. been working on Clubfoot for a long time to figure out what are the key things that we need to measure in order to, to understand whether we’re delivering quality at each stage of treatment. And the treatment’s very simple, which helps a lot.</p>
+              <p>And it’s, there are various stages of the treatment. So we, we didn’t take that much to come up with four very simple metrics that we felt encapsulated quality overall. And We had, as I said, we’d had some systems in place that we were trying to use. So we knew we had some experience with the data. So by the time we came to Dimagi, we were able to have a really clear vision of what bits of information we needed to collect.</p>
+              <p>And we were very disciplined. And I think you, your team really helped us with this as well in not letting anybody add optional things. It’s like, nope, keep this to the absolute minimum. What is the minimum? You know, what are the pieces of information that are non negotiable? Those are going in and everything else is out.</p>
+              <p>So yes, I know you’d like to collect information on religion, but that does not matter for quality, right? So we’re not going to ask people for that. There’s a bit of a bad example, but people were pushing for that. so the The data that I keep referring to is really what enables us to be certain that our partners are delivering really high quality treatment.</p>
+              <p>It’s done in the form of a simple electronic medical record, right, but tailored to club foot treatment, which is the same everywhere. And we’re very, very, um, serious about sticking to the medical protocols that Dr. Ponsetti developed because we’re not doctors. So we’re not going to be the ones doing it.</p>
+              <p>allowing anyone to change it. So it having that information made it easier for doctors. So they, they have incentive to put the information in because they’re not scrabbling through bits of paper. Um, they’ve got everything about the child. They, you know, often it’s somebody else treated them the last time.</p>
+              <p>So they’re able to look back and be like, you know, exactly what that person did. The, there’s a lot of things that help the clinic flow. Go more smoothly while giving us the data that we need to make sure that they’re actually delivering on quality. So it’s this sort of combined sweet spot that the tool helps everybody in the clinic and it helps us monitor and figure out where we need to invest more time and resources if there are problems.</p>
+              <p>So that information, the quality information, allows us to measure impact because we can tell from that how many kids who start treatment end up with a good result. And we can show everybody the patient records and that’s very compelling. And on top of that, we’re, we’re sort of delivering it for between 87 to 90 percent of kids get through and have a great result.</p>
+              <p>So, you know, it tells a really, really strong story. So it’s, it’s not very complicated, but it’s a common, it was a combination of the ease of use, right? And that’s what Dimagi does. does, did so well. And then providing us with data in a form that we can analyze, Slice and dice and really detect what’s working and very importantly, what’s not working to make sure.</p>
+              <p>So, for example, if there’s a clinic in one country where kids are dropping out before they reach the end of casting, that’s a, that’s a huge problem. And we can send somebody in to kind of like, you know, Take a look and figure out is it because the doctor doesn’t know what they’re doing or he or she needs more training or is it because this is a particularly poor area and people are really struggling with transport so we can provide the families with some transport subsidies so that they can get, you know, pay to get back to the clinic for the next visit or, you know, whatever it is that you can go troubleshoot that.</p>
+              <p>And having all of that be detectable remotely, so you don’t have to be in the clinic to figure that out. It’s just, you know, that, that is a, just a huge piece of being able to scale.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jessica, I’m so curious. I’m loving hearing all this. And I think one of the things that you said there that I think can be so tricky and is something that we think about a lot as Dimagi is how do you make sure that these tools that are at the end of the day, they’re collecting data that they can also be really used for service delivery and actually help the providers in their work.</p>
+              <p>So I would love to kind of drill in a little bit on that. I think you, you, you brushed over it so quickly. Like, what did, how did you make that possible? Right? That this tool that you were creating. was actually adding value step by step in those clinic visits.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Um, well, that was definitely a combined effort with our experience coupled with putting the versions of the tool in front of the users, the end users, and really making sure that. It was working the way we thought it was and, and, and there was, there were lots of changes made in each of those stages.</p>
+              <p>Right. And, and again, your team helped us figure out that process. We also, um, we, we, we also sold it pretty hard. I mean, so there is a, there is a, um, There was definitely hesitation and resistance and a lot of questions even from our own team in terms of, you know, is this really possible? And in the end, what we discovered was that the clinics that were in the most technologically challenged places.</p>
+              <p>So for example, Liberia, where they at the time had very, very intermittent internet and had very low bandwidth. And we were trying to ask them to use a tool that required them to be online to do anything. And that just didn’t work. And they put into the data and then they would lose it all. So when we showed up with something that was on a mobile phone that, that, that could be used offline and then, you know, whenever it got a signal, it was going to upload it, that.</p>
+              <p>suddenly made their lives so much easier. Now, that didn’t make the life of being in the clinic. They knew that we needed the data and that was kind of non negotiable. So, so it made the data collection piece easier. The, the actual sort of making sure that the data helps, um, the providers was really design and understanding what information did they need when they’re putting a cost on a kid.</p>
+              <p>What else did they need to know to do that? to make that easier, right? And knowing how many other casts have been put on, and you score the feet and we collect all those scores, knowing what the score was in the previous one, you know, all of that information sort of helped them be better doctors, and they appreciated that.</p>
+              <p>And then the other piece that I think is important is we’re trying to build local capacity. And, you know, We, when we first started this, it was, okay, you have to use this tool and you have to collect the data. And there was this sense that, that they had to collect the data for us. And we’ve been able to re, re, turn that around.</p>
+              <p>And, educate our local teams to say, no, no, no, this data is not for us. This data is for you because this is your program and you should be making the decisions. You should be using this data to tell us that you need more money to do X, Y, and Z because you’d like to expand to five more clinics or whatever it is, right?</p>
+              <p>Or we, um, we need, a better tool to do X or Y, you can then use that data that you’re collecting to, to get what you need from us so that we can be a better partner to you. So it’s sort of turning the conversation around and reorienting people to say, no, we’re not collecting this for us. We’re collecting for you.</p>
+              <p>And you’ve just got to figure out how to use this well. And for some people, for the, for the surgeons, it’s that they can go to a fancy international conference and present on their cases because they can go into the tool and get all of this great. Medical information out and, and present, you know, just like the American doctors do, which they haven’t really been able to do because everything’s been on paper and it takes way too much work to, to pull it all together.</p>
+              <p>Um, and then the local, the local partner, the local NGO that we partner with in each country, you know, should be able to use this to kind of. Direct the conversation to, to change the balance of power a little bit, right? And, and there’s a lot of discussion about that. And the donor, the donor grantee relationship is, is a tricky one.</p>
+              <p>Um, but empowering people with data is a very good place to start in changing that power dynamic. So sort of trying to get people to rethink it. Cause we did hear a lot of like, Oh, we just have to collect this data for you. And we’re like, no, no, no, no, that’s not the right way to think about this.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And, and I think that that point on the power dynamic, obviously there’s a huge push in certain funders to do more locally led development. And one of the critical things that everyone needs to keep in mind is you need data, you need decision making support. You need, you can’t just. Lead good decision making locally if you don’t have access to the things you need to make good decisions, right?</p>
+              <p>And so, um, I feel like what you just said is so important and something I feel like a lot of donors are skipping over. Being like, oh yeah, we’ll just do locally a lot of developments. Like, where’s the infrastructure? Where’s the, the support people are going to need to make good decisions locally, right?</p>
+              <p>Just because the decisions are made locally doesn’t make it a good one.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> totally agree. And I, like, there’s a lot of talk about trust based philanthropy. And, um, I think that works great. If you have an organized, a local organization that has figured out what the metrics are, they have a way to report back on those. They’ve got reports in place and they generate reports so that they know what’s going on, right?</p>
+              <p>If that’s not in place, this isn’t going to go well. This is not an experiment that will work. will go well. There will be a lot of money without having the impact. And, and that isn’t to say that these organizations can’t get there. They just need some support, right? And they need help. We all do. We, we didn’t start off with all of those things in place.</p>
+              <p>We had to build them and we had to get grants from Google to build them. It was expensive and it took a lot of time and effort and people have to recognize that that capacity needs to be built in order to have the impact that everybody’s hoping to get. Just</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so you, you, you scaled up, you supported these partnerships, you’ve learned a ton, you continue to grow. And then you’ve also transitioned your own personal role within the organization. So talk us through how, you know, that came to be and how that felt doing that and what it’s like now.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Well, that’s, you know, that could be an hour podcast on, on that whole process. I knew in my heart of hearts that success would be that Miracle Feat continued on without me. Right. And yet it’s really hard to let go of something that you’ve built. And I had felt at many times that if I wasn’t there holding this thing up, it wouldn’t survive.</p>
+              <p>And that was not a great feeling, right? I would wake up in the morning feeling kind of this sense of slight panic of like, how am I ever going to get out from under this thing that I’ve now created? And it’s amazingly rewarding. And I, it’s the most fulfilling thing I’ve ever done. I love it, but boy, it’s a lot of pressure and it’s a lot of, um, weight on my shoulders and I’ve got to figure this out.</p>
+              <p>And I, and I just looked around and, and this was, I had a number of really wise, very smart donors. And they were the ones who were kind of raising this partly because they knew me as friends and they kind of saw the strain it was taking on my life. And also sort of the sacrifices that I and my entire family were making.</p>
+              <p>And I’m kind of like, you know what, you’re not going to be able to do this forever and, and you do need to think about how you’re going to hand this over. And, and. So I started having the conversation with the board and the more I talked about it, the more I realized this made sense, right? Even though there was a part of me that’s like, but I really love this.</p>
+              <p>And I’m kind of defining myself as the CEO of MiracleFeed. How am I going to let that go? What happens next? I, I, I did know rationally that it was something that had to happen. And so then we embarked on a process of sort of like, okay, well, I didn’t feel like we had anybody on the team at the time. That was kind of a natural successor.</p>
+              <p>We had wonderful people, but that none of them, I don’t think actually wanted to do it or, or would would’ve had the right collection of skills to be the right person to take it on. So we. We hired a headhunter and we do what people do. Of course we launched it and then COVID happened. So that was tricky because we had to do the whole thing without meeting anybody in person and we swore that we would absolutely not hire anyone unless we met them.</p>
+              <p>Um, but we, we weren’t able to do that. So we, we brought somebody in and the way we worked it to make sure that that person was the right person was they came in under me and reported to me for two years with a sort of, um, Um, very explicit understanding that if they liked MiracleFeet and we liked them, that at some point over some period of time, yet to be defined, but somewhere between two and four years, they would take over as, as the CEO and, and I would step down.</p>
+              <p>So that, which, which was not easy to, to sort of come up with that process and there’s a lot of opinions on the right way to do it and the wrong way to do it. And some people felt really strongly that the founder needed to get the heck out of the way and that having that crossover period was a really bad idea.</p>
+              <p>I couldn’t imagine somebody kind of coming in and just doing it. from, from zero and that the learning, you know, the sort of loss of institutional knowledge and the loss of especially the donor relationships would just be too much for the, too much for this person to manage. And, and I, and I think that was right.</p>
+              <p>Um, And I once, um, our new CEO is Daphne Sorenson. She’s fantastic. And she, um, really kind of took over the programs first and did a great job of that. And I continued to be the person raising the money. And then when she became the CEO, I still stayed on and helped, um, at a 50 percent level of kind of in an advisory role and also raising the funds.</p>
+              <p>And I’m now, um, pretty much just on the board. I do still, there’s about 10 donors that I still am the primary caretaker for, steward of those donors, because they’ve, they’re really friends and people that I knew before MiracleFeet, and I just want that to go well for everybody. So it’s, you know, but it has not been easy for me.</p>
+              <p>I, I cannot pretend that, that I, I, there’s, I have enormous joy in that I no longer, you know, that, that I have handed this on and there is somebody who I have enormous confidence in, but it is not ha, it’s not easy being on the sidelines and, and no, you know, there are lots of times where I’m like, ah, I’d love to say something and they’re like, no, no, keep your mouth shut.</p>
+              <p>And occasionally I do say something and then I regret it. Um, so I, I’ve not been perfect, but I think. I think Miracle Read is in a really strong position and I’m very excited that we have been able to make the transition and I’m now feeling really sort of liberated in, like, wow, there’s a lot of things I can look at and do and I’m, I’ve dived into a whole bunch of things, all of which are pro bono, which is sort of experimentation on my side of how do I want to spend my time and I, I, I’m not ready to just sit and do the gutwork.</p>
+              <p>Do the gardening. Although my garden’s looking better. That is, that’s another upside, is 13 years of neglect has been taken care of. So</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s, that’s, uh, the, the garden’s looking better should be a quote somewhere for, for what these transitions look like, but I think that’s, that’s fascinating. So yeah, I would think most stereotypical advice. For founder transition would be like, do not overlap that long. There’s going to be this big power dynamic problem.</p>
+              <p>Everybody’s still going to run to you. Um, so how did you support that? Because I do think the flip side is like, if you pick the wrong next person, it is catastrophic. For the organization. And so yes, that founder transition can be difficult, but equally equal downside of getting out quickly is like, if that’s the wrong person, you are in a whole world of trouble.</p>
+              <p>So how did, how did that dynamic play out?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Messily. I, I think, no, I think generally very, generally quite smoothly, in part because I had a really deep respect for the experience that Daphne, the person that we hired, brought to the table and I felt that miracle feat was, you know, I’m an entrepreneur, I love growing things. I really don’t like putting policies in place and kind of doing the main maintenance part.</p>
+              <p>I am, I, I love the, the, the, the shiny new thing, kind of the, you know, what’s the new innovation that we can bring in? What’s the new country? Um, and she is a much more patient, much, uh. Kind of gentler person than I am and I, I think there’s a real, you know, I do, I, I think that entrepreneurs share certain characteristics, um, and, you know, you have to have such passion, such persistence and sort of, uh, working at a level that nobody, you can’t really expect anybody else to work at.</p>
+              <p>And I. I knew that, that I kind of pushed the team beyond where people were going to be okay with for, for, for much longer, and that we needed someone else who could come in and do that. And I, I also knew that I, I don’t find the sort of the policy piece and the, the more putting in place the, the, not the infrastructure because, because There’s a lot of infrastructure that needs to happen to create an organization that could be scaled, but the kind of the maintenance infrastructure, you know, the policies about travel.</p>
+              <p>I’m like, do we really need those? Like, but, but yeah, at some point you do, you know, so I, I, I think I recognized, you know, that there were parts of the role that I no longer loved and that I also wasn’t that very good at. And it was lovely to have somebody else who was much better at it than me do those things and get them off my plate.</p>
+              <p>So there was sort of, you know, some things I really missed, but other things I was very happy to let go on. I mean, you get stale after a while and I, I think, you know, I was at 13 years. That’s a long time under one person, and I’m still around if anyone has questions.</p>
+              <p>I go to the board meetings.</p>
+              <p>I</p>
+              <p><span class="spk">Jonathan Jackson:</span> I</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> pay, I pay a huge amount of attention. I mean, I love it, right?</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I think it’s such a struggle because there’s a ton of social entrepreneurs that I talk with and mentor me that I mentor that, you know, are friends or colleagues and burnout’s a huge issue, you know, among them, um, everybody who’s a founder, their entire identity is wrapped up in, in their role and the success of their organization.</p>
+              <p>You’re never even close to finished, you know, so it’s not like there’s an end point and, um, you know, it’s. It’s so important to recognize when your skills are aligned with what the organization needs right now. And then when you, you either outgrown the organization or the organization’s outgrown you, right?</p>
+              <p>And if you hold on too long, it’s a recipe for both burnout and like poor performance either by</p>
+              <p>yourself or</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> a sad end, right? Like, yeah. Yeah, but it’s not easy. I, I would not. You know, everyone said it was going to be difficult. I was like, no, no, no, we’ve got this figured out. Definitely. And I get on so well, it’ll be fine. And sure enough, there’s been moments where it’s like, oh boy, this is what everyone’s talking about.</p>
+              <p>I get it now.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah, this is, I really appreciate you sharing a bit about that, Jessica, because I think as you’ve been sharing, the thing I’m reflecting on is it, that’s so important to the sustainability and the long term impact of this organization. Right? So, and it’s, it’s also just so human. Um, and I love that you kind of.</p>
+              <p>Reflecting on how you’re able to kind of bring in your strengths and sort of follow where your strengths are and where you want to be spending your energy and sort of being able to shift your, your sort of role within the organization based on that too. Um, I’m curious,</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> sound a lot cleaner than it was. Yeah. Storytelling. It’s what it’s all about. Right.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Exactly. And, and so now that you’ve had, you know, what is a, uh, by any reasonable definition, an amazingly successful journey. Are you considering starting something again? Do you want to play more, you know, across the, you can say within club feet.</p>
+              <p>Are you like, one of the, one of the really interesting exits I’ve seen of some founders is to then play more at a level above their organization to try to help the entire field move in a certain direction</p>
+              <p>. And so that’s one thing I’ve seen. Um, and I’m just curious, what is resonating with you right now?</p>
+              <p>And what are you excited</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Yeah, so I don’t think part of the problem of playing a role within Clubfoot, I have thought about that and I may come back to that. I haven’t completely ruled that out. But MiracleFeet is by far the largest piece of that. And it just it’s, it’s almost like, I’m not, it wouldn’t be far enough away from MiracleFeet for me to be effective, you know, and people would see me.</p>
+              <p>The other organizations that are sort of working on Clubfoot are much smaller and definitely we’re a little bit of the 800 pound gorilla. And so then having me come in and be on top of all of that, it’s like more MiracleFeet really, you know, even though I would think I could be impartial and not be kind of like representing MiracleFeet.</p>
+              <p>So that is a little bit different. But what I’m really enjoying, and I think is the space that I’m most interested in playing in, I’m currently mentoring, um, the founders slash CEOs of four small organizations that are much earlier stage. They’re all working in global health. They all happen to be in Africa.</p>
+              <p>And really just sort of being there to, uh, Advise someone else who’s, you know, got a fantastic idea. They’ve got the organization in place, um, and they’re trying to figure out what do they need to solve next? And I think as someone who’s been through that, I didn’t know what I didn’t know until, you know, you get there.</p>
+              <p>And so I’m kind of pointing out, particularly in, in two of these organizations, kind of like, okay, you’re doing a fabulous job of this, but now you really need to work on your board, or now you really need to work on your pitch deck, or now you need to do this, and, um, I’m finding that without a huge amount of.</p>
+              <p>That’s, this is going to sound bad, without a huge amount of effort on my part, I can be incredibly helpful with things that seem really not very deep or, or intellectually important. They’re just kind of like, oh, well, this is how we solve this. This may not work for you, but there’s this, this, and this, and this, you know, think about all of those different perspectives and the feedback is, is really, really positive that it’s like, Oh my goodness, it would have taken me weeks to figure that out, but you’ve just told me the format I need, or you’ve given me a template I can use, or you’ve given me the three things I need to think about as I put together, you know, my board and, and make sure that I’ve got the right group in the room, it, I’m finding, you know, And, and maybe people are just being nice, but I’m, I’m feeling like I’m really making a difference and it’s, it’s, it’s very relevant to the people I’m working with and very helpful and, and quite efficient and quick.</p>
+              <p>And so it’s really kind of adding value in a pretty easy way for both sides. So I’m, what I’m trying to figure out is if there’s a way to kind of institutionalize that. And I.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Well, it’s important that it’s quick. Cause your garden, garden probably still needs</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> The garden, yeah, yeah. And I’m also in better physical shape, so I’m doing a lot of exercise too, which so those two</p>
+              <p>things are very good for my mental health.</p>
+              <p><span class="spk">Jonathan Jackson:</span> two things you’re bringing up, though, I think are, um, I think they’re part of the job of a young CEO. You know, one is taking care of yourself. So you have the energy day in and day out to come to work and be in the right mental space and capacity with the others to seek out Mentorship from people.</p>
+              <p>And I, I was too slow on this early in my career and it would have accelerated, um, my understanding of, of organizational dynamics and certain things that I hadn’t previously experienced. But I think that’s so, um, it’s exactly what I would expect that you’re experiencing is your wisdom and your learnings from, you know, building a successful enterprise are immediately transferable very quickly because you can pattern match, Oh, I saw that happen in my organization, or, you know, I know</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Oh, we screwed that up. And this is, you know, so don’t do this. You know, I am finding that if I keep it within global health too, I think because we worked with public hospitals and that’s a very complicated thing to do, and a lot of organizations trying to tackle global health, by default, you sort of have to work with government hospitals because that’s where most people get their health care.</p>
+              <p>And so that knowledge of what that dynamic is like, I think allows me to be that much more helpful. And I think, so I do think there is some sort of subject matter. grounding that’s helpful to match up. I think if I was trying to help somebody with a agricultural and, you know, social enterprise, I would be less helpful.</p>
+              <p>So</p>
+              <p>it, it is relevant broadly, but I think sticking to sort of global health makes it even more impactful.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And, and, and that’s fascinating. I hadn’t put that together, but I think that is extremely unique advice one could seek from you around that relationship you had with those public hospitals. Cause you were, in fact, you were funding the procedures, right? So you would fundraise and then support some of the, the ability for them, maybe not directly or indirectly, but they, that 500 that goes to treat a child, you’re helping the hospital actually earn revenue</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> No,</p>
+              <p>we actually weren’t. We were, the 500 went to all the programmatic pieces that, that went around the hospital, that we didn’t, we did not pay the providers, the healthcare providers, because they were all government employers and they’re being paid by the government. So we did not want to sort of add a weird incentive for them to treat Clubfoot, so that if we had to ever pull out, which we’ve never had to do, but eventually we’ll leave, we want them to continue to do it.</p>
+              <p>So we were using government facilities, so the space, we never built any infrastructure. And then. um, the healthcare providers who are actually putting the costs on were all paid for by the government. But we provided all the training, we provided all the M&amp; E tools, we provided the braces, we provided any other materials that weren’t there, and then we, we did a lot around, because nobody had ever treated clubfoot, families, you know, there’s, there’s an enormous amount of education and awareness raising that has to go on across the country so that a, a Family that has a kid with clubfoot is told, okay, this isn’t a problem, this is where you go.</p>
+              <p>Instead of being told, oh, this is not treatable, you should just hide your child forever, or this will self correct, which, you know, neither of those lead to a solution. So, um, the programmatic piece wrapped around the clinic, is pretty important. So I would say the 500 gets spread out between materials for the treatment, support in the clinic for parent counseling and follow up, but not the actual doctor, the braces, and then the rest of it is kind of the programmatic, making sure that we’re capturing all the kids and they get into the clinics at a young age.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Jessica, I’m, I’m curious, um, to hear you reflect on your ability to focus. Like, as I hear story, it’s, I think about like, wow, it was incredible that you were able to just, to choose this one really important thing and just laser focus on it. And then I also. Have the thought of like, oh, well, you’ve got this incredible network set up.</p>
+              <p>Like, are there other interventions that you, MiracleFeet, could be thinking about getting into? How do you, how, yeah, how did you, how do you think about that as MiracleFeet</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> That was suggested frequently by many different people that, you know, well, could you help with hip dysplasia or other orthopedic issues. And. for the most part, the systems that we put in place, um, really didn’t apply very well to other conditions. So clubfoot is one of the few conditions that a pediatric orthopedic surgeon can actually solve.</p>
+              <p>Most pediatric orthopedic conditions, unfortunately, are things that that child is going to live with and the doctor’s trying to make them more comfortable. So things like spina bifida and cerebral palsy and that have orthopedic components to them, neurological, but also orthopedic, um, are, and there are a lot of syndromes and, and we see those kids, because actually a bunch of those kids have, have clubfoot as well, weirdly.</p>
+              <p>Um, so things like osteoporosis and the, the fixability of this sort of made it. Um, very easy to kind of take to the side and say, Okay, this is one we can solve so everyone can get behind it and we can just take care of it. The other things required a lifelong commitment. lifelong support of those families.</p>
+              <p>And it was sort of a different, you know, equally needy. I mean, maybe more needy, but much, much, much harder. And the, the technical skills of the doctors are very different and much harder to train. You know, this Clubfoot is this weird little package, but, you know, it’s non surgical. You can train a physical therapist to do it just as well as an orthopedic surgeon.</p>
+              <p>In fact, most of our treatment programs in Africa is certainly done by, by, by physical therapists and not by orthopedic surgeons because there are so few orthopedic surgeons. That’s a bit different in Southeast Asia and, and Latin America. Um, but we looked at it quite often and, and we just, in the end, we decided we just wouldn’t be very good at it.</p>
+              <p>And that part of the donor appeal, but also the fact that, that the programs were So effective was because it was so focused, but that was hard to do because the world doesn’t like that. Um, the funding world, the big funding world is looking for this, you know, broad health systems change. Which if anybody can define that for me and convince me that anybody actually knows what that means, I would be really happy.</p>
+              <p>Um, because I’m, I’m I think what we’re doing is health systems change. It just happens to be this way and not that way, but everything we’re doing this way contributes to many other things. So if we’re out looking for kids with, with clubfoot and we’re finding, we find a kid with spina bifida or with hip dysplasia, we’re going to make sure that kid gets to the hospital and gets referred.</p>
+              <p>So there’s, you know, there’s skill sets that we’re, we are putting in place that help much, very broadly. Even changing the way people view disability, you know, helps, contributes. Um, the way doctors are collecting information and using information, they’re going to take that to other things. So I would say, I would argue that we’re absolutely building, we’re strengthening health systems, but You know, we’re really, really good at it within Clubfoot and, and that’s valuable, but yeah, when, when you talk to some of the, the larger organizations, we, there, there are sort of a number of them where we wouldn’t qualify to get funds from them because they really only want to work broadly.</p>
+              <p>I mean, the good news is you need both. So if they’re funding that and other people are funding the funding, the, the horror, the verticals, which way? Vertical, horizontal. Yeah. We’re in the vertical, they’re in the horizontal. Um, there are different donors for different pieces. Um, so eventually it all gets done.</p>
+              <p>Ideally, we’d like to actually pack up and go home at some point. Right. I mean, you know, and that’s one of our, one of the arguments is if, if we can build this capacity and we can normalize it, and we can make this something that is just routinely treatable in a public hospital, you know, and, and all, all the materials are there, then.</p>
+              <p>You don’t need Miracle Feed anymore, and that’s a beautiful thing,</p>
+              <p><span class="spk">Amie Vaccaro:</span> Yeah. Yeah, I was wondering about that. Like, what is that ideal future state look like? Where,</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah, and do you have a, do you have like kind of a, you know, the same way you talked about quality and the steps for treating an individual, um, club foot case. Do you have like, these are the milestones we want to see a particular country be able to go through to, to be off our, our list?</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> exactly. Um, we do intellectually, but we have yet to actually really make much progress in getting anybody off the payroll, so to speak. Um, I, I think that’s really our next challenge. We talk about it all the time. This is the, no pun intended, the Achilles heel of, of what we do is that it really ought to be, um, mainstreamed and it wouldn’t cost the government that much to take it on because it’s so cheap to treat.</p>
+              <p>It’s plaster of Paris. The only real extra expense are the braces. And I, you know, that’s something that we could continue to provide low cost braces if that was what was needed. Um, But we are starting to push. We’ve identified three or four countries where we have a really strong relationship with the Ministry of Health and they understand the importance of this.</p>
+              <p>They’ve seen the progress that we’ve made, and so we’re trying to work with them to map out what are the stages. What pieces of this could you take on that we would no longer have to deal with? Fund. It’s yet to really happen. I mean, they’ve, they’ve done some things that are nice, but don’t take cost out of the system.</p>
+              <p>So, for example, they’ve developed guidelines for Clubfoot, and they’ve agreed that Clubfoot is something that, uh, midwives should be, it should be added to the list of things that midwives are trained to do and part of their list of responsibilities is identifying and referring kids with Clubfoot. That doesn’t take that much out of our cost structure, right?</p>
+              <p>So we’re still training the midwives on that. And then, and then, you know, we’ve never paid them to do it. I think a really good example, um, and one that I, I feel should be doable, although again, we haven’t got a great example, we’ve had some, some. Government say they’re going to do it, but it’s never actually happened, which is to take the training that we, um, that we use and put, integrate that into the curriculum of the physical therapists and the medical schools, so that when doctors and physical therapists are coming out of college, they’re already trained in the Ponseti method, and they might need a little bit of extra training, but at least they’d have the basics, right?</p>
+              <p>And again, the government, we can give them the curriculum. They’ve got people in medical school. They’re just making the time available to make this part of what they teach. That’s, you know, those are the kinds of things that, that I am frustrated we haven’t been able to get anybody to actually step up and do, but we’re pushing pretty hard.</p>
+              <p>And I think, you know, one of the things that Daphne brings is much more experience working on the policy side and the advocacy side. And so she’s focused more time and energy and investment on that. And I’m hoping that we’ll see some results.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And I think, um, that’s an upstream exit strategy to use the. Terrible term that we use in our industry that I haven’t ever heard somebody propose of like, we’ll go to the medical schools, teach them how to do the thing we’re teaching everybody to do, and then they’ll know it forever because it’ll be part of the curriculum and then we never have to train people again</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> No, nobody’s, nobody else has suggested that. That seems</p>
+              <p>like,</p>
+              <p><span class="spk">Jonathan Jackson:</span> I, can’t remember anybody having said that as, as the exit to currently and just like thinking off the top of my head.</p>
+              <p>But no, I mean, I think it’s, um, yeah.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> And I mean, to be fair, it’s not, it’s not the only thing that has to happen. Right. I mean, there’s many things, but it’s one little piece, right. And we spend a lot of money on training, so that would take real cost out of what we do.</p>
+              <p>And, um, other things that we’re doing, like, you know, we’re you know, training midwives, training maternity hospitals, training rural health clinics, that, you know, how to identify Clubfoot, which is not difficult, and where to refer people. That you, I feel like it takes a fair amount of investment in the early stages, but eventually that just sort of becomes self fulfilling, right?</p>
+              <p>So it, you build it in, in, and you’re not, you don’t have to keep going back to do that. There’s sort of a, some tipping point where it’s like, oh yeah, everybody knows that Clubfoot’s treatable, right? Of course it is. And so I, you know, you, you’d think that you could start reducing costs. We have yet to see it in part because we do focus a lot of time and energy on making sure that we’re reaching kids in rural areas.</p>
+              <p>So we go to the easy places first, and then the, the, the harder places, which we go to later cost more because they’re further away from the centers. You’re working usually with less skilled healthcare professionals. The families live further away, you know, everything that they’re probably less educated, there’s less public transport, you know, all the problems just get that much harder as you go.</p>
+              <p>Deeper into rural areas. So you end up sort of going up in cost instead of down. You think scale, right? Like, okay, we’ve got economies of scale and all the costs will come down. And then you’re like, Oh, I forgot that it takes seven hours to get there. You know, that adds some cost.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Before you started MiracleFeet, it looks like you had experience in product management. And as you were describing some of the ways that you’ve been using CommCare and building this cast app within MiracleFeet, I kind of, it brought to mind like that sort of attitude of like, you were building a tech product to help drive the organization and I’m curious to hear one, if that resonates to you and two, like, how did you go about building that capacity and function within MiracleFeet to sort of, Continue to leverage technology in innovative and new ways, right?</p>
+              <p>Because one of the things we, you know, John and I talk a lot about is you can’t just set up technology and walk away from it, right? You need to be continually investing in it, improving it and adding more value. Um, so curious if you have any thoughts on that.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> Yeah, I think, um, I definitely believe very strongly that all of the things I did in the business world prior to starting. working on the clubfoot issue really, really helped me. They, they were skills that I applied in the nonprofit world. And I think, um, a lot of people who start nonprofits come from the nonprofit world and don’t have that.</p>
+              <p>And I, and I think we sort of, in some ways we looked, we looked different, um, in the, I think we’ve always run this more like a business or with a sort of business mentality. And I think, you know, the product management, um, part of. My resume or my experiences were all in early stage internet companies. So it was less kind of like product marketing in a traditional P and G kind of way, and, and much more about technology and the internet was just starting and everyone was trying to figure out how the heck we use this thing.</p>
+              <p>And, you know, eToys was one of the early, you know, that was right at the time that Amazon started, you know, we know who won that one, but, um, it was. So, so my, my experience coming into Miracle. com Core Feet was very tech heavy and I was very energized and excited by that. And I also sort of learned what starting a new organization was all about and how exciting that was and how much I loved that world.</p>
+              <p>So I definitely brought all of that with me. I think that also the, the, the, the. Management Consulting that I’d done four years with BCG was really, really helpful because sort of the analytical side of it just came naturally and the kind of creating the frameworks and thinking about how do you scale this and what does that, you know, that, that kind of, um, breaking down the problem into manageable pieces and describable pieces, I think was very helpful.</p>
+              <p>Most of the people on the board were business people at the beginning, and that also helped. So, one great example is we were really struggling with the braces, and this was the first product that we came up with ourselves in house. Well, well, not completely in house, but by, which we created, or we solved that problem.</p>
+              <p>And we looked at what, we looked at the ways we were, we were trying to solve the problem of braces, which was to buy really bad locally made ones that were custom made and very expensive, Not high quality. And it was really hard to scale that. So every time we would go to a country, we’d be like, Oh, now we got to find someone who can make a brace, you know?</p>
+              <p>And that’s like a whole new problem. Or by recycling old braces. And that was terrible because they would be broken or it was the wrong, you know, you’d get one shoe that was a size three and a size four, and you were trying to piece it together and you’d have to ship them. So we had this. terrible, um, solutions.</p>
+              <p>And the board just sat there. I’m like, this isn’t very complicated. It’s just a bar with a pair of shoes on it. Why can’t we make one? And I think that’s not the way most nonprofits think. I think we all, you know, it was like, okay, here’s a hurdle. Here’s a problem. We’re not going to go around it. We’re going to solve it.</p>
+              <p>And then we’ll be able to move forward. And I think we did that. We’ve done that. Many times. And I really do think that’s a more business. I think that that comes more naturally to people who’ve worked in the business environment because that’s how you win is by solving the problems better than, you know, in a better way.</p>
+              <p>Right? And I think a lot of nonprofits work around things. Um, so I think, I don’t know if I’ve answered your question, but I, I, I do really believe, I mean, and maybe it was because I didn’t have the clinical background. I didn’t have the, the, how do you build a non profit background. I didn’t have the medical background.</p>
+              <p>So all I knew was to kind of apply that. These business concepts, you know, that, that was sort of what I did because I didn’t know what else to do with my, when I sat down at my kitchen table on the first day of saying, okay, this is, I’m going to, this is what I’m going to do. And I don’t know how to do it.</p>
+              <p>I don’t have anyone to help me. I sort of went business on it. I went, I went. management consulting on it and tried to break the problem down and talk, you know, do lots of interviews and talk to lots of people and then bounce it off lots of people until I got something on paper that everybody was like, Oh, well, maybe that’ll work.</p>
+              <p>Um, so I think I really do credit my business background. in helping me be successful with Miracle Feed. I don’t think that’s the only way. I mean, I think, you know, every, there’s so many different ways, but for me, that was all I had, so I sort of had to use it. And then in the places where that didn’t work, I had to bring in people who had that expertise.</p>
+              <p>So obviously you, you build that. the rest of it around you with the people that you bring in. But it was very appealing when we talked about how we ran MiracleFeet, that really appealed to the kind of donors that we attracted. A lot of them would say, you know, what I love about this is you run it like a business and your bottom line is feet and not money.</p>
+              <p>But that’s the way you’re thinking about it. You’re trying to optimize for that all the time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s awesome. Well, you’ve been so generous with your time and, uh, this is awesome to get</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> It’s been fun.</p>
+              <p><span class="spk">Jonathan Jackson:</span> much more deeply. Yeah. I appreciate you coming on and, um, really look forward to whatever ends up, you know, on your plate next and, and we’ll be</p>
+              <p>cheering you.</p>
+              <p><span class="spk">Chesca Colloredo-Mansfeld:</span> you. Yeah, well, I’ll probably be knocking on your door asking for advice. So, um, it’s not, it won’t be the last you hear of me probably, or I hope not anyway, but thank you so much for letting me talk and having great questions and sharing a little bit of the MiracleFeet story. Really appreciate it.</p>
+              <p>A huge thank you to Chesca for joining us today I’ll share a couple of reflections</p>
+              <p>On a personal note, the things that really stand out to me. one Tesco’s ability to really listen to herself. And some of those really pivotal moments, she was able to tune into. Her gut instincts and decide to follow them and listen to them. And she, of course backed it up with lots of data and analysis, but I think that ability to really tune into yourself is such an asset</p>
+              <p>I also want to commend her ability to focus. She really chose one problem. She fell in love with that problem</p>
+              <p>and she made incredible progress on that problem. The next reflection I wanted to share was really about how does this tie into how Dimagi sees technology in global health and development. And so you’ve heard us talk on this podcast and elsewhere about Impact Delivery. So Impact Delivery is our approach to leveraging technology that allows you to get more Impact, better impact and sustained impact with the same amount of resources, because we know that every organization out there is facing incredible resource constraints. And we believe firmly . In raising the bar on what’s possible with technology. So first let’s unpack better impact. What we mean by better impact is that you’re able to use technology to support you in collecting data from your programs, but that same technology can also be used to improve the service delivery. And that’s what we heard Jessica talk about. Where she was able to use Comcare to collect information about those four quality metrics and ensure that they’re delivering high quality services. But that that same application was also making the providers jobs better and allowing them to do their jobs better. On the more impact side you heard Jessica talk about scaling the scaled to 34 countries at this moment.</p>
+              <p>And they’ve been able to deliver these services to Almost a hundred thousand kids. And then lastly, she talks about sustained impact and a few different ways that they’re thinking about that one is about thinking about how can this program become part of the government health system in the countries where they work. Another is how she’s thinking about her transition.</p>
+              <p>Right. She was really thoughtful about having a successor come into the organization, learn and being able to hand off that role of CEO so that the organization could be. Sustainable. That’s our show. Please like rate, review, subscribe, the show is executive produced by myself. Sarah Strauss is our editor. Michael Keller. Her is our producer and cover art is by Sudan. Don’t you can’t.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CC</div>
+            <div class="person-info">
+              <p class="person-name">Chesca Colloredo-Mansfeld</p>
+              <p class="person-role">Co-founder and former CEO who built the largest global organization dedicated to ending clubfoot, now serving on its board and mentoring early-stage founders.</p>
+              <span class="person-org">MiracleFeet</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6eUWKMW4DuBLwBKzccG6Wi" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

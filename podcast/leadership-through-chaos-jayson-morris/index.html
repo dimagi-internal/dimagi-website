@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 74: Leading Through Chaos: Grief, Healing, and Emergent Leadership | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Leadership coach Jayson Morris on a new playbook for uncertain times: navigating grief, anger, and fear while leading with authenticity and resilience.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/leadership-through-chaos-jayson-morris/">
+<meta property="og:title" content="Ep 74: Leading Through Chaos: Grief, Healing, and Emergent Leadership">
+<meta property="og:description" content="Leadership coach Jayson Morris on the 'leader as healer,' embracing emergence over rigid plans, and why slowing down can help teams move faster.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>September 22, 2025</span>
+          <span class="dot"></span>
+          <span>55 min</span>
+        </div>
+        <h1 class="ep-title">Leading Through Chaos: Grief, Healing, and Emergent Leadership</h1>
+        <p class="ep-deck">Leadership coach Jayson Morris on a new playbook for uncertain times: navigating grief and fear while leading with authenticity and resilience.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/5hsx81wEzV4mpP7gX4552E?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 74 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/5hsx81wEzV4mpP7gX4552E" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000727851448" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/f5c6a2f1-4464-4225-b587-dafc43108fac/high-impact-growth-leading-through-chaos-jayson-morris-on-grief-healing-and-emergent-leadership" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>What happens when the leadership skills that once fueled success no longer serve in today's climate of uncertainty? Leadership coach Jayson Morris returns for a candid conversation with Dimagi CEO Jonathan Jackson and host Amie Vaccaro about leading through genuine turbulence.</p>
+        <p>Jayson unpacks the idea of the leader as healer, the power of embracing emergence over rigid strategic plans, and why slowing down can actually help teams move faster. You will also hear honest reflections on burnout, on balancing boldness with humility, and on the tension between going down swinging and pivoting to new opportunities.</p>
+        <p>If you are leading a team through turbulent times, this conversation offers practical wisdom and a much-needed reminder that you are not alone.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>Why old leadership playbooks fall short in uncertain times</li>
+          <li>The &lsquo;leader as healer&rsquo; paradigm</li>
+          <li>Embracing emergence over rigid strategic plans</li>
+          <li>Why slowing down can help teams move faster</li>
+          <li>Honest talk on burnout, boldness, and humility</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://www.withinsight.coach/about-me" target="_blank" rel="noopener">Jayson Morris, WithInsight Coaching</a></li>
+          <li><a href="https://amzn.in/d/j1TIytV" target="_blank" rel="noopener">Leader as Healer, by Nicholas Janni</a></li>
+          <li><a href="https://amzn.in/d/j4qDoan" target="_blank" rel="noopener">The Lion Tracker's Guide to Life, by Boyd Varty</a></li>
+          <li><a href="https://youtu.be/uKICVreo5tk" target="_blank" rel="noopener">Simon Sinek on How to Build Your Confidence</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amie Vaccaro, senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson, Dimagi, CEO, and Co-founder. What if the leadership skills that brought you success yesterday are exactly what’s holding your organization back today? In a world that’s experiencing constant change and uncertainty from market shifts to the rise of ai, the old playbook for leadership simply isn’t enough.</p>
+              <p>Today we’re thrilled to welcome back leadership coach Jason Morris for a candid and timely conversation about navigating this new reality. We’ll explore the profound challenges leaders are facing for managing personal grief and anger to inspiring [00:01:00] teams. Amidst overwhelming uncertainty, we debate when to go down swinging for a cause you believe in versus when it’s time to pivot.</p>
+              <p>And we unpack the idea of the leader as healer. If you’re leading a team through turbulent times, this episode offers a framework for leading with authenticity and building the resilience needed to move forward.</p>
+              <p>Enjoy.</p>
+              <p>Amie Vaccaro: All right. Welcome back to the podcast. Um, so excited. Today we are rejoined by Jason Morris. Jason, great to see you again.</p>
+              <p>Jayson Morris: Yeah, I’m excited to be back. I’ve been wanting to come back since the, since the last recording. So</p>
+              <p><span class="spk">Jonathan:</span> Yeah, we’re</p>
+              <p>Jayson Morris: fun to be here.</p>
+              <p>Amie Vaccaro: Yeah., I have to say, yeah, the last episode we did together, pre kind of market melting down. Um, that was one of our most popular episodes of the year. but I also just remember after the conversation feeling like, oh my gosh, there was so much more we could get to. so because of all that, we were just excited to, to bring you back onto the podcast., Feels like a really ripe [00:02:00] time to revisit some of the conversations that we started then. . Before we dig in, well, maybe the first question to start to dig in is I’m curious, Jason, how you’ve been doing, in the last six months, navigating, just a lot of changes in turmoil, that, you know, D’s been facing and I’m sure you’re seeing it as well.</p>
+              <p>Um, yeah, curious just</p>
+              <p>Jayson Morris: Yeah.</p>
+              <p>Amie Vaccaro: check in with you.</p>
+              <p>Jayson Morris: Yeah, it’s, it’s interesting times for for sure. And I think, I think we connected over the last summer, so last June or July. Um, and since then it’s been a whirlwind. Um, my father passed away in the fall, uh, which was, um.</p>
+              <p>Amie Vaccaro: I’m so sorry to hear that.</p>
+              <p>Jayson Morris: you. It was both sudden and, um, we could see it coming, but it, um, it was really, it brought me an acute awareness of this paradox of life, that it’s both short and fragile, uh, and can feel very long and, uh, and unpredictable.</p>
+              <p>Um, so it really connected me with what matters most in terms of family and friends and [00:03:00] doing. Uh, meaningful work and having meaningful connections. Um, but, um, that, that was kind of in October and then, you know, with the, uh, the beginning of the year and the, the, uh, elections and everything that’s happened since this, there, it feels like, um, uh, nested Russian dolls of change and chaos and uncertainty.</p>
+              <p>Um, and I think many people are, are going through that. So excited to. That, that we get to unpack some of that, today. And, um, yeah, other than that, things have been thing, things have been pretty good. Um, bringing a lot of, fun and play back into my life after it kind of going dormant, after COVID, uh, and also just really having meaningful conversations and connections with teams and, and with leaders in, in coaching, uh, and trying to navigate this, this.</p>
+              <p>,</p>
+              <p>Amie Vaccaro: you were mentioning a little bit about bringing [00:04:00] play and adventure back into your life. I’m curious to hear a bit about that.</p>
+              <p>Jayson Morris: Yeah, since the beginning of COVID, I think, there was a lot changing in, in my life. Uh, my, my dad had some health issues back then, but almost this, um, I think a lot of us turned inward and, um, you know, we were in lockdown and think people kind of came out of it and, and went back to normal or new normal at different phases. And one of the things that I noticed was I had just gotten more. of conservative in, uh, how I was living my life. And, my father’s passing was a, a reminder of this preciousness. Uh, and, um, there was a spark that was lit in me to, to go out and have adventure. I can’t remember if I mentioned it in the first podcast, but I spent three years backpacking around the world in my twenties. and, and so travel and, and adventure [00:05:00] has always been something that’s been near and dear, uh, to my heart, but has been on pause, for a number of years. so I just kind of de fibbed it. Uh, I went out, uh, and did, some epic scuba diving in the Pacific.</p>
+              <p>Uh, and um, just decided that I needed to bring some of that in and also bring play in. I think play is, is really important for all of us. So I started playing pickleball in January, uh, which gets my competitive juices flowing, but it’s a wiffle ball, so you can’t take it that seriously.</p>
+              <p><span class="spk">Jonathan:</span> I, I call the bad version of tennis,</p>
+              <p>Jayson Morris: People do, and then they try it and then they get hooked. Um, it’s a democratized tennis really, because everybody can play</p>
+              <p><span class="spk">Jonathan:</span> Yeah. But if you grow up playing tennis like I did, you want, you don’t want it democratize. You wanna feel superior to, to everybody else who’s playing. Um, but yeah, no, it’s, it’s, uh, fun. And, and that, that point of the COVID switch is, is interesting because if you think about a lot of people’s arcs, right?</p>
+              <p>You know, we had this [00:06:00] crazy two year period of. Um, you know, just everything changing and then obviously physically being much more conservative, um, for almost all of us, either by, you know, legal requirement or just, you know, culturally. then obviously, we many people, Dimagi specifically had a much bigger work from home. So you’re, interacting with people a lot less physically and in person. and then if you’re in the development industry, um, things changed again. So we’ve had, one, one massive change after another for, um, the last five years now. Um, and it’s been something that I think takes extremely dedicated thought to, how you wanna show up, how you want to prioritize different components of your life.</p>
+              <p>Um. Right now and, um, with work being. As challenging as it had been. One choice my, my wife and I made was, you know, we really wanted to, to go on some big adventures with the kids, um, our, our [00:07:00] two sons. And that’s been awesome. Um, but it, it’s a lot of hard work to plan. It takes a lot of resources and so it’s, it’s a definitely a choice for the family, to try to prioritize, um, doing some of those big adventures, um, and finding the time to take away from work and things.</p>
+              <p>So it’s, it’s. I’ve taken very deliberate effort, you know, in a way that I,</p>
+              <p>Jayson Morris: Yep.</p>
+              <p><span class="spk">Jonathan:</span> remember work feeling like it needed to be so deliberate at, at past points in my life. I don’t know, um, if that’s just, remembering fondly, you know, the past, um, in a different way. But it definitely feels like it takes a lot of proactive effort, uh, these days to, to find that time for adventure and find that time for joy.</p>
+              <p>Jayson Morris: Yeah, and giving ourselves permission. I</p>
+              <p><span class="spk">Jonathan:</span> Exactly. Yeah.</p>
+              <p>Jayson Morris: with, I mean, there’s so much going on in the world that’s, that’s horrible. Um, we don’t need to go into that, but, but I think sometimes we won’t give ourself permission to have fun, to experience joy, and we need it. We need that fuel. It’s what builds the resilience to do the tough work.</p>
+              <p>Amie Vaccaro: Yeah, it’s really [00:08:00] fascinating to think about like the COVID happened, it was this massive shift, but it’s so far in the, in the in hindsight, that I think I forget and there’s. It’s interesting to like just unpack some of the changes that happened that are still present today. And Yeah, even just like within my own little nuclear family, I feel like the last few weeks my wife and I have been like talking about entrepreneurial ideas that like we had pre COD and then during CVID we were just like, nah, we just want full-time jobs.</p>
+              <p>Right? Um, we just wanna be secure, stable, you know, insurance, all of that. Then we kind of just forgot about them, you know? And, so just starting to like open up some of those ideas with my, my wife is, um, has been taking care of our daughter right now and she’s not going back to, um, the, my daughter’s gonna go into daycare soon, so she’s got some time opening up.</p>
+              <p>So just brainstorming there. But it’s, yeah, it’s [00:09:00] fascinating to like un unpeel some of those layers of like risk aversion that maybe came through COVID. Right. Um. And, and other factors. Yeah.</p>
+              <p><span class="spk">Jonathan:</span> and, and I would say risk aversion that might have come through COVID, but also, um. You know, the, the news is as, as Jason said, is very challenging day in and day out right now, and, and is, you know, catastrophic for the development sector. And it’s, incredibly hard to have an entrepreneurial mindset right now, or a mindset of, of curiosity.</p>
+              <p>Jason and I will be having a session coming up with, myself and one of our executives trying to figure out, like, how do we get back to that place of, of mutual curiosity? ’cause it, it’s so hard to. of feel open to things right now. I think, you know, on the one hand, if you’re an engineer by training like I was or running a tech company like I am, you’re just like, all have jobs in five years when, AI keeps getting better?</p>
+              <p>And then coupling that with, just everything that’s changing in, in terms of [00:10:00] what is the future gonna look like for my kids? It’s, it’s really hard to, to come at it from the right angle of. know, an open mindset and an adventurous mindset, a curious mindset versus just kind of closing up and, and to be kind of heads down and be like, well, so let’s just get through this next week.</p>
+              <p>You know, and, and you keep doing that and all of a sudden you’re halfway through the year and you’re like, what, what, what just happened?</p>
+              <p>Jayson Morris: Yeah, and there’s all these compounding circumstances. So we’ve got kind of the whole individual and collective trauma that was COVID, um, and some of the fallout there. We’re increasingly getting more isolated. You know, I mean, zoom is wonderful. I use it all the time, but know I don’t get out of my house some days. Um, quite literally. And then AI, again, a powerful tool that we might talk about later and, and has its ramifications all of this impacts us and. Those social fabrics, that sense of belonging that we need, that is going to help [00:11:00] us. increasingly harder to access. We ha feel like we have less time, we’re under more stress, and then we pile shame on top of that.</p>
+              <p>And we think it’s just us, you know, we’re the only ones struggling. So it’s, it’s a, it’s a recipe for, for challenges right now.</p>
+              <p>Amie Vaccaro: Yeah, I do wonder about the ways that AI is shaping collaboration, right? Because whereas it used to be you’d go to your coworker and ask a question, like, you now can take that question to AI and to GPT and get probably a better response immediately. Um, so like, how does collaboration. You know, what does, how does collaboration evolve right, in this new world?</p>
+              <p>Um, it’s, yeah, fascinating to see. Um, and speaking of kind of evolution, Jason, I’m curious, you know, I think in our last conversation we were talking about this idea that the leadership skills that got us where we are today are not what’s needed for the future. And that [00:12:00] feels so much like, so true, even, you know, perhaps, especially more so today.</p>
+              <p>Um, what are you seeing and what are you feeling around, like what new or different leadership qualities are you seeing as required of leaders today in this, in this moment in time?</p>
+              <p>Jayson Morris: Yeah, I can’t wait for John’s thoughts on this too. Um, I mean, I think over communication was what really jumped to the top of my list. This the, I mean, things are changing so fast. and that, that need, I think leadership, it used to be this notion that the leader had everything figured out, uh, and needing to be in these places of not knowing and supporting emergence, uh, and, um, sensing, but, but normalizing that.</p>
+              <p>And so being that role model. Um, and the other one that’s been coming up a lot with clients is this concept of leader is healer. And, um, there’s, that title comes from a book written by Nicholas Yani, leader [00:13:00] is Healer. But this idea that, uh. In these challenges, it’s, it can be more than than business. Um, and that, being grounded, being empathetic, um, being a source of stability amidst all of this chaos, um, as a leader you can have profound impact on everybody in the organization and on your team. and so it’s not just what you say, but what you do and how you show up energetically that people are looking to. For guidance, uh, in these, in these really trying times.</p>
+              <p><span class="spk">Jonathan:</span> That, um, how, how leaders are showing up right now, whether it’s at, CEO level or executive level, I think has such a profound impact on, um, people because again, with, with the Zoom culture that we’re now in, get tiny moments of, you know, EQ and, and reading body language and [00:14:00] energy and these things that, um, you might have one half hour call with a ton of people back to back, but that’s the only time. That team of people was seeing the CEO of the company and how they’re showing up that week. Right. And so, um, it is, uh, it is very difficult for me personally to, um, uh. Grapple with that when, you know, the things going through my head might be pretty pessimistic at various points in the day, you know, or, or various points in the week.</p>
+              <p>Um, just given what I’ve seen in the news or, other things. But being, um, you know, being that ballast for other people to, to not just see that energy, see that curiosity, see that forward momentum, but um, be able to latch onto that and use that as hopefully positive feedback loop. Um, we just had our management team together a couple weeks ago and, and like. Man, it every, it’s getting more true every time I see people in person where I’m like, it’s just not working to be remote. Um, nearly as well as it used to two [00:15:00] years ago, or even during COVID, like in-person time. And, and even you mentioned that, you know, how’s AI changing collaboration? But there’s the, you know, there’s the literal, are we collaborating to come up with a better plan or a better idea in this one meeting or for this one idea, but then there’s all of the other. Aspects to what collaboration causes between humans who were in that moment of collaboration, who were building that interpersonal relationship that then pays off down the road. You know, so it might not be that that one idea got any better. In fact, it might be worse than if you just iterated with an ai, now you’re not building up that trust and that human capital. Or social relationship capital, um, with your colleagues. And so the next time you have a really hard debate that you do, can’t go to an AI for, ’cause you’re trying to convince somebody that their idea is wrong or could be better. They’re trying to convince you. Um, you don’t have that. Capacity, uh, you know, to, to do that.</p>
+              <p>And so, for, for me, like particularly just given how challenging everything is right now, like I really am trying to figure out ways [00:16:00] to, to see people in person, to make sure I maximize that time when we are together and the way that we’re showing up. Um, you know, to be positive and, and despite very challenging times, and I think that the, the positive energy that, that you try to project through Zoom can be extremely tiring, to, to do. And, and Amy, I just had to sink and she’s like, how are you doing? I’m like, ah, know, so I didn’t, I wasn’t even doing it an hour ago with Amy.</p>
+              <p>But, um, it’s, it’s something that I think is, is really important for leaders. Whether it’s the CEO or others right now, um, or just a manager for their team, because it’s really hard out there right now, for a lot of folks in our, in our industry.</p>
+              <p>Jayson Morris: I love what you were just saying, John, and, and as I was thinking about that whole thing about, well, that, of the intangibles of that collaboration outside of the idea and it really, what comes to mind me, I have a, a, a mentor. A guide, uh, who says, trust is sewn one stitch at a [00:17:00] time. And it, and it, and it’s that notion of social fabric and, all of our social fabric that relating happens. much of it happens, underneath, the verbal. um, think that we are such a, uh. Society that values the head and the ideas and only that output that we’re forgetting. Um, and in your case, remembering, uh, which is wonderful that, that there’s so much more that we need, um, for our own for our own safety, for our own, um, social wellbeing.</p>
+              <p><span class="spk">Jonathan:</span> And I, I think also in like the. This moment of just severe uncertainty with, you know, from just a pure business lens of what markets are gonna be profitable, who’s gonna accrue the profit in the development sector, what funding is gonna be left and, and what’s it gonna look like. Um, one of the sessions I recently did was some other CEOs was talking about, um, how [00:18:00] to lead with huge uncertainty. And, you know, COVID was actually one of those periods where we had this massive uncertainty. You just had to move. Um. in general, you know, people like to have more evidence of the direction they want to head in, um, than they’re, they’re gonna be able to. And, and for me personally, like it feels pretty uncomfortable at various times to, asking the company to, you know, move in this huge big direction with less certainty than I would like. But we just have to, you know, in, in today’s moment, there’s no option to stand still. There’s no point to trying to, you know, stay and. Businesses or markets where you think it’s gone. so you do have to find that next, um, next place to land, but it’s way less certain than any of us would like right now.</p>
+              <p>So you also have to be able to, to bring all this energy, bring all this curiosity, and somehow. know, also lead with authenticity where you’re acknowledging Yeah, there’s massive uncertainty. You know, I, I wish I was a lot more [00:19:00] confident what the future looked like, but that’s just not the times we’re living in right now.</p>
+              <p>You know, that’s not the, the position that the global development market is in. I.</p>
+              <p>Jayson Morris: And one of the things I appreciate about your leadership style, John, is that you do the self-reflection. and then you share, uh, quite candidly what is known and what isn’t known, and, and that’s. One of the things that I think is so that humility to say, Hey, I don’t know, or I am scared or worried. Um, you know, courage is not the absence of fear. It’s feeling the fear first and then acting. And, um, I think you bring that, I’ve seen you bring in, in, in group settings. Um, so I think leaders need to, to embrace that.</p>
+              <p><span class="spk">Jonathan:</span> I, I, I appreciate that and I think one of the things that, that really helped when, when we were talking offline, you know, I was. On behalf of Dimagi, but I was really, you know, struggling with this decision of, we both [00:20:00] continue to do what we know is high impact, what we know is working in the field, what we know is creating, um, huge amounts of, of, of value for our users, for our communities. but we know the market is changing rapidly from underneath us. How do we go to where we hope the market ends up, where we think we can create unique value? And we had this, you know, phrase that you and I were, were talking about, which is like, you know. We want to go down swinging. And, and you really made it, um, had had some good insight of like, well, why, why is that the thing that’s noble, you know, to go down swinging if you think you’re gonna miss, right?</p>
+              <p>Why is that? How’s that noble versus trying to move as quickly as you can to where you think you might actually hit the ball? You know? And that’s a huge mental struggle, I think right now for a ton of us who spent decades, you know, Dimagi, but many other firms just doing amazing work in the field and just watching it evaporate. Wanting to fight for every single last drug, every single last patient, every single last household you can help. [00:21:00] also saying, we have this amazing team. We have these amazing skills, amazing learnings and experience. Where do we need to apply that next? As well. And, what is the, you know, noble thing to do, um, for if, if we want to use that word, um, that maximizes the potential to, to create as much impact as we can.</p>
+              <p>And it’s, it’s a huge struggle for, for us as a firm right now, for me as a leader to figure out that right balance. Um, you know, with what, what we had been doing and what we had been so good at, what we want to be. Shifting into, and it’s, it’s, for me at least, there was no other way to kind of lead without being transparent that like, this is really hard.</p>
+              <p>It’s not as if I’m claiming we should just completely jump to some other new market. ’cause there’s as much uncertainty there, you know, as there, there is in the current markets in some ways.</p>
+              <p>Jayson Morris: Yeah.</p>
+              <p>Amie Vaccaro: I wanna, dig in on that, like go down swinging concept. Uh, I don’t, I don’t like that. I don’t, I don’t like the go down part. The swinging. Yeah. I can get behind. Um, yeah. Curious.</p>
+              <p><span class="spk">Jonathan:</span> magi [00:22:00] will go down, but I think, you know, unfortunately there’s a lot of parts of our business, um, that, you know, particularly health system strengthening funding that might just be gone like the entire market,</p>
+              <p>Amie Vaccaro: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> work that we found incredibly impactful that I think was great ROI, um, in a lot of areas.</p>
+              <p>But that finding, you know, I don’t think an RFP has been released in the last six months to do that kind of work, uh,</p>
+              <p>Amie Vaccaro: Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> the style that Dimagi would’ve been on. So when I talk about go down swinging. don’t want to give up on that work. I never wanted to give up on that work. You know, I thought, I thought we were great at supporting that kind of work.</p>
+              <p>And so the, challenge for us though is if nobody’s funding that work, what, what does that mean for us? And, and how do we apply our skillset in, in a new way? And there’s, you know, one school of thought that could be like, well, governments still need this. We should still be doing it. Even if nobody can fund it.</p>
+              <p>Let’s just, you know, hope somebody will come to the table or they’re saying like, look, the, nobody’s gonna come to the table. We still need the, the things that we’re doing now more than ever, but it’s gotta show up in a different way [00:23:00] in the market. Um, so yeah, I don’t, I don’t mean that the is gonna go down swinging, but I just mean for some of our business verticals, like, I’m not ready to give up on ’em.</p>
+              <p>We, we were doing great. I don’t, our staff is absolutely phenomenal at, at doing a lot of the areas that unfortunately think though that the revenue’s not . there anymore You know, the, the funders aren’t there anymore and we, um. We could quote, unquote, go down swinging and like hope that some funding comes in, or, um, figure out how to, how to transform ourselves into where we, we think there might be more potential.</p>
+              <p>Jayson Morris: And, and one of the interesting parts of the conversation and then the, the conversations with the rest of the leadership team</p>
+              <p><span class="spk">Jonathan:</span> Perfect.</p>
+              <p>Jayson Morris: what is going down swinging, you know, in a finite resource environment is going down, swinging, spending every last dollar on something that you’ve always been doing that we know has impact until that runs out or is going down swinging, grabbing the resources you have, stepping back and saying, how can we. Parlay this into something else that’s gonna [00:24:00] give us a chance to, to try something different. Um. And, uh, you know, we played with a number of different analogies and then, I got to leverage the, the, and harness the power of AI to really some of the case studies of companies that have done that.</p>
+              <p>You know, Kodak went down swinging, uh, on print film, Fuji. Went down swinging by saying, this is not gonna work. Let’s, let’s figure out what we know, what are our core competencies, let’s go out and try all of these different things from pharmaceuticals, to chemicals, to all kinds of things. And Fuji survived.</p>
+              <p>So, um, you know, there’s a, um, uh, we, I, one of the other examples was the notion of the QR code, and I, I think it was Takeda. Um, but they knew that this QR technology was incredible, but there was no market there, uh, yet. And so what they did is they went down swinging by saying, we’re gonna build this code then put it on a shelf.</p>
+              <p>And then it came back, uh, several times and [00:25:00] it went dormant several times. that notion of where do we put our resources, um, is, I think for a lot of leaders right now is, is really hard, uh, to figure out. ’cause the landscape is shifting and we don’t know how things are gonna turn out.</p>
+              <p>Amie Vaccaro: Jason, something that you said earlier, um, was supporting emergence. For teams. Um, and I haven’t, uh, I’m not like familiar with that term and I’m curious to kind of explore that a little bit and thinking maybe it kind of dovetails into what we’re talking about here.</p>
+              <p>Jayson Morris: Yeah. Um, uh, it, heard it in a few different, uh, or learned it in a few different coaching schools. Emergence is kind of this idea that, that the path unfolds in front of us.</p>
+              <p>Amie Vaccaro: Hmm.</p>
+              <p>Jayson Morris: Um, and that we, you know, we used to have this idea, and I think this is really challenging in [00:26:00] business right now, where we could create these three to five year strategic plans and we could see the path as it was laid out and see the obstacles and know exactly what we need to navigate. idea of emergence is more sense making of, of, um, taking the next step and seeing what. Comes from that, how the vantage point shifts, um, how our own sense of what needs to happen shifts. And, uh, there’s a beautiful book, uh, that uh, I have a few clients, uh, reading right now called The Lion Tracker’s Guide of Guide to Life. Uh, and it talks about. This, this concept of emergence as it relates to what do we wanna do with our lives? But lion tracking is not about knowing where the lion is. It’s about finding the first track then sense making. Where’s the second one? Uh, what can we learn from this track? ’cause every track has all kinds of meaning to it. And then slowly [00:27:00] taking steps and sometimes having to back up ’cause we’ve lost the track. And that, that is a beautiful metaphor for, being fully present in the moment and seeing what is unfolding, what is emerging from there.</p>
+              <p><span class="spk">Jonathan:</span> I, um. I love that analogy. And, and, um, the video I recently watched, um, that we were discussing, uh, in a peer group with, um, it was Simon Sinek talking about confidence and, and exactly that concept of, you know, and, and certain moments. You can’t wait for the evidence, you can’t wait for the confidence. It’s all about follow a path your confidence and your evidence actually comes from following the path.</p>
+              <p>You gain more confidence, you’re on the right trail. As you see those steps unfold, you gain more confidence. You need to backtrack, um, and, and take a different approach, and that so hard when you you had it. You know, I think for a lot of people coming outta COVID. The development industry was pretty good in 20 23, [00:28:00] 20 24.</p>
+              <p>You had these five year plans coming out. You had, um, funding coming in. You had trust-based philanthropy and big bets and like, so it’s just, it’s such whiplash to go from, oh, I had this great five year plan that I released and then we had to do this. We literally had, you know, tore up our five year plan because we’re just like, this doesn’t make any sense anymore. Even that strategic planning construct doesn’t really make sense right now. Um, uh, it is, it is hard to get back into that mode. One when you, when you were like excited by your plan, thought you had a good plan, thought you had a good strategy, and then you, you know, within two months everything changed on you and you gotta go into a totally different mode of leadership. Um, you know, into a totally different way of, trying to, um, chart a course. Um, that’s tough and, and I think, um, it’s, it’s really still a struggle for me to, to try to figure out how, how do I change how I’m showing up? How do we change how we’re, um, guiding the company? In moments like this, when there’s so much uncertainty historically you [00:29:00] kind of think, oh, your job as a leader, your job as the CEO is like, you come up with a direction, you know. Um, that you’re confident is the thing. Everybody should be aligned to set up your organizational structure and, and go take the hill. And it’s like one step at a time right now, you know, it’s not point to the hill and go take it, right? It’s, it’s just, let’s just go on this track and see what, what happens tomorrow.</p>
+              <p>Um, and that’s, it’s just a very different. Of trying to operate and, trying to also connect with the staff to be like, look, we’re, we’ll all need to show up differently in, in this moment. Um, it’s not gonna be this, you know, five year plan that we can, uh, take, you know, slow, rational steps towards.</p>
+              <p>Jayson Morris: And you and I have talked about it, there’s a step in there of grieving, uh, you know, the loss of strategic plan, the vision. All that’s been invested has been the rug has been. out from underneath you on underneath so many people. And there’s, there’s emotion that comes with that and, and that need to process it.</p>
+              <p>[00:30:00] There’s sadness, there’s grief, there’s frustration, there’s anger. it’s, uh, it’s a key piece in that being able to then, like you said, take a breath and rededicate yourself to, to something entirely different.</p>
+              <p>Amie Vaccaro:, I appreciate the, acknowledgement of, of grieving, right? Like it’s really hard to move forward without kind of moving through all of the feelings., One of the like. Visuals that I’m, is coming to me with all this kind of talk of going down swinging and sort of sense making is actually like a monkey, like going through a jungle, swinging from like branch to branch or something, and like just being, like having to be so present to, figure out where is that next branch gonna be.</p>
+              <p>Right., And John, I’m, I’m curious . This is such a hard time for, for a leader., And yeah, I’m curious to kind of hear your, your reflections on like, how you’ve noticed yourself evolving and, and changing through this period., And like both what you’re [00:31:00] seeing and also like what you’re wanting, from yourself in this, in this moment.</p>
+              <p>And, and that probably leads into what, what you want from your teams as well.</p>
+              <p><span class="spk">Jonathan:</span> That’s a, that’s a big question, Amy. Um, I, I would, I mean, I would say mostly not being very successful, showing up as the idealized leader I’d wanna be right now. I mean, it’s just, there’s too much stress, there’s too much there. um, and there’s too much anger, frankly, you know, at, at just how. happened to our industry, what’s happened to our colleagues, um, you know, it’s, it’s hard to overcome that anger and that grief, um, for we’ve seen.</p>
+              <p>And so been a big challenge to overcome. I think I’ve been incredibly fortunate to, you know. um, good health in my family and extended so I don’t have additional stressors, you know, coming in right now, has been great because the, the amount of stress I feel at work is pretty, I don’t know, that could take a lot more, um, you know, [00:32:00] beyond that.</p>
+              <p>But at the same time, we, I think put the company on a trajectory years ago, um, coming outta COVID. That is in, in a lot of ways, even more relevant today. In this massive disruption in our market than it was when I set ourselves on this course back in 20 22, 20 23. So there’s also been a fair amount of, um, quiet confidence and comfort that I take in the direction that we all have been excited about for the last couple years, that now we have to accelerate way faster than I thought we would. Um, and, you know, rather than it being a both, and it might be an either or, um, with some of the. we wanted to serve and, and some of where we wanted to get to with our pay for outcomes and pay for success ideas. Um, but it all comes down to, to trying to out what is our unifying factor going forward.</p>
+              <p>Um, and I think I’m, I’m really excited that we, we have [00:33:00] aligned on, you know, creating more value per dollar workers, for communities, for governments. Um. really trying to change how we offer products and services in the market to do so. Um, but it’s hard, you know, and, and so much of what we’ve been great at for the last 20 years has changed so dramatically under the last six months right up from under us.</p>
+              <p>And kind of mad about it, you know, so it’s, it’s, it’s hard to, on the one hand lead, um, you know, with, with confidence and. Give people the space they need to try and fail. It’s not like, you know, on the one hand, AI’s changing everything, the market’s changing everything. On the other hand, like, we’re the same people we were yesterday, still need to have the, the chances to try and fail.</p>
+              <p>We still need to learn by doing. We still need to, to do all these things. And so I also have this like big impatience too, you know? ’cause I feel like, oh, Dimagi is so fortunate. The position that we’re in right now relative to. A lot of the challenges our peers are facing, and, and we still have, [00:34:00] significant resources and, and great ideas and great support. Um, and so I also wanna get there faster, know, so I’m angry at the market. I’m angry at, at, um, the way things are, are playing out in certain ways then like inpatient, you know, at the same time to, to get to where we’re going. So, um, at, at a high level, it’s, it’s very, very challenging. I’d say this is the hardest. Period I’ve had of like, trying to do emotional regulation and, just, you know, nerves and how one shows up, um, that I’ve had, you know, in, in a really long time, possibly forever. I mean, the only other period can remember this challenging was COVID. Um, you know, in terms of the, the little stress and things I.</p>
+              <p>Amie Vaccaro: Yeah. I, I, I hear that and, and I also think like we’ve lost the critical kind of in-person co-regulation moments, right? Like, which, you know, I know for you John as a, as a extrovert, like, is super valuable, right? So you’re, um, [00:35:00] maybe feeling more isolated even though you’re on Zoom all day long, um, through all of that.</p>
+              <p><span class="spk">Jonathan:</span> definitely more isolated, but also. It’s not just isolation, it’s definitely that, but it’s also like, it’s just too annoying to argue with people over Zoom now. You know? I think like, it’s just like, it’s just too, nobody has like, I don’t, and the other person on the other end of the Zoom doesn’t, you know, like it’s, uh, I think we drain the battery, you know, and it is really hard to fill it back up.</p>
+              <p>I think when we entered COVID. Everybody’s battery was full, you know, ’cause most of us were in person a lot. So like when we went through that period, you had a lot of battery reservoir have those arguments over Zoom to be constructive, to show up in the right way. now I find it’s just really challenging to have constructive conflict, you know, remotely.</p>
+              <p>Jayson Morris: Well, and, and I think it’s, it’s probably remote versus in person, but also just. The, all of these events that have happened, you know, since COVID, not that there weren’t problems before, but it [00:36:00] feels like one after another. I think people are exhausted from that.</p>
+              <p><span class="spk">Jonathan:</span> Yep.</p>
+              <p>Jayson Morris: was no kind of, Hey, yay, we made it through COVID.</p>
+              <p>Let’s all take a break. and uh, so I think that there’s just a individual and collective fatigue.</p>
+              <p><span class="spk">Jonathan:</span> And, and I think, you know, I don’t know what, um, I’m sure there’s better ways to articulate the, balance, but you know, people talk about how in DC, Democrats and Republicans would duke it out during the day and then, you know, go drinks together the evening. And that dynamic of like, we can kind of. Be pretty fierce, you know, during a meeting. And then not personal. It’s not, um, you know, an attack on you. It’s trying to get to a better place overall. then we can, go have dinner, go have drinks or something. But like, you’re just completely missing that second part of the, thing. So it does, it can feel like an attack. ’cause you’re like, I’m gonna talk to you for, you know, 30 minutes this week and you’re telling me my work’s bad. [00:37:00] Um, or, you know, you don’t like my idea. Um, it can feel a lot more personal, I think. ’cause there’s no, nothing to offset it. Right. That’s the only interaction you have with people. So it’s like there’s no offsetting. Oh, right. You weren’t like attacking me. You were just trying to get, you know, the project to a better place or the product to a better place.</p>
+              <p>Jayson Morris: you’re not gonna see ’em in the hallway later that day and say like, Hey, just checking in to make sure we’re okay. It’s like you’re off to</p>
+              <p>Amie Vaccaro: Right.</p>
+              <p>Jayson Morris: other Zoom calls or whatever.</p>
+              <p>Amie Vaccaro: Yeah. And those comments are just kind of bouncing around in somebody’s head for the next week, and you have no idea where that, where that lands. Um, Jason, I’m curious for your, like, how do you guide leaders who are coping with that? Like just the anger, right? Or the grief or the frustration.</p>
+              <p>Jayson Morris: Uh, I think the first step is, is normalizing it, acknowledging that, that, uh, it’s okay and it’s expected that people are gonna be feeling this. Um, and I think that’s really important because I think. [00:38:00] Leaders can normalize that within their teams as well. And John said something earlier, um, that have anything, it’s like giving people, outlets, uh, to process what, uh, their emotions are, whether it’s grief, whether it’s anger, uh, giving them ways to channel some of that. Um, and I think that’s one of the unique things that entrepreneurs do. It’s like alchemy. being able to take anger and frustration and despair and turn it into something creative. Um, so normalizing is one thing. Um, feeling it really, uh, you know, and John will probably laugh, but it’s like slowing down and feeling the feelings and the body sensations is really important.</p>
+              <p>’cause otherwise we tend to it. Either push it down or try and distract ourselves from it. And then it can really, um. You know, left unconscious, it, it controls the system. Um, and then lastly is, is exercises. And this is where we get into some of the somatics of how do we [00:39:00] move it, and we can move it gently through walking or through talking to people.</p>
+              <p>We can also really, as it relates to anger, bring it up and then find healthy ways to express it. Uh, and I think if we look around and you look at, particularly on the road these days, people do not have healthy ways to express anger. So it leaks out, in very unhealthy, very toxic ways.</p>
+              <p><span class="spk">Jonathan:</span> De definitely, um, feel that the anger can leak out in unhealthy and, and toxic ways when you don’t find more positive outlets for it. Um, one thing, Amy, that, that you and I have talked about too is, um, you know, how do you balance that, um, grief, anger, vision setting, you know, what’s the right balance of these things for the team? Right. And what is the team. Want to hear and need to hear, um, you know, various points in, a company’s journey. And, and that’s, that’s also just, you know, [00:40:00] crazy hard to, to think about right now. Um, and, and what do I need, right? Like, as the leader, like how do, I need to think about that? of the emotions I didn’t name, um, aside from the anger and the grief also is like fear. If, if you’re, um, in a position like myself where I’ve been, you know, on one trajectory for a decade plus, and then, you know, think we made amazing bets and, and strategies along the way, but like we didn’t plan on, you know, the development sector going to zero. And had we bet on that, we would’ve maybe acted differently.</p>
+              <p>And so you also have this fear of like, oh, did I just screw it up for the last decade plus, and. Am I leading us into something that, is another, um, worthwhile bet and at a intellectual level, the answer, you know, I take a step back. I’m like, absolutely. It’s like we were, we, we’ve made great bets. We, I, I’m proud of every single thing we’ve done along the way and I’m, and proud of where we’re heading, but emotionally, you’re like, oh, it feels like you just lost. And it feels like you lost big. so also grappling with that and, and [00:41:00] what that does to your psyche, which is probably, you know, much more subconscious than conscious in terms of the way it’s affecting how I think and, and how other leaders might be thinking. But um, ’cause I would’ve said historically, one of my strengths was leading with, you know. Significant levels of uncertainty, um, in the business, in the, in the outcome. Um, but something definitely feels, I mean, the magnitude of this is different, but something feels different internally to me too, you know, in, in a way that I haven’t felt that as much in the past. that, that I’m also trying to grapple with.</p>
+              <p>Amie Vaccaro: Yeah, and it seems like just such a challenge to like, how do you show up? Confidently, right? When you’re also just processing all of this and how do you, you know, as a leader, carve out the space to, to go through this and really embrace it, but then also be mindful of like how you’re, how you’re showing up.</p>
+              <p>, I think one, one thing I’m noticing even just for myself, in doing a lot of like thinking and sort of [00:42:00] introspection around. The importance of regulating my own nervous system and how I, you know, how I show up for my team., It’s a little bit of this like balance between like showing up, calm, regulated, like just able to take the balance, the energy right in the room and like notice like take that like peripheral vision, like wide wide angle view of things.</p>
+              <p>All of that with the . Reality of like my own sort of like ambition and impatience and desire to kind of move something forward and, yeah, how do I, like, I don’t really know how to hold those, those things feel like at odd sometimes. Um, and how I show up as a leader and it’s, you know, it’s new territory.</p>
+              <p>Uh, so curious, Jason, if that sparks anything for you in terms of your guidance.</p>
+              <p>Jayson Morris: Well, that’s so funny. I I, when I heard you talking, I was like, wait, acknowledging your humanity leaders are allowed to do that. But it’s so true though. Like there’s, there is, there’s kind of the issue and the emotions and then there’s how we hold it. And, and one of the [00:43:00] things that I appreciate about what both of you have said, and one of the things that I work with leaders on is it’s okay to have fear to, to, Have different emotions moving around. So how do we actually hold that and model that holding of our, of our humanity that I think leaders can be really inspiring for teams, um, and beyond teams with that, um, this notion of like the bionic leader, I think is, is a total fall. I mean, you see it out there still and it, but it of. You can tell that it’s a facade in so many ways. Um, so that authentic leadership of, Hey, these are the challenges, or this is part of what I’m bringing in and dealing with, but I’m going to, like you said, Amy, like. Bring a groundedness acknowledge the fear, and we’re still gonna act with courage. Um, type of [00:44:00] steadfastness centeredness inspiration, I think is what people yearn for. the pedestal leaders, you know, there, there’s, there’s no connection can’t relate. Uh, and so then it just perpetuates this kind of differentiation and isolation. So I think bring them both and, and label them both.</p>
+              <p>Amie Vaccaro: Yeah. I, I really appreciate that response. Um, Jason, one of the things that we dug into a bunch in our last conversation was burnout. And you really. Candidly shared your own story of burnout., I’ve definitely been through burnout phases, that really shaped me. I’m curious, like are you seeing burnout at a whole new level right now given like your work across sectors?</p>
+              <p>Like how are you holding that and creating space for it?</p>
+              <p>Jayson Morris: Yeah, that’s a great question. Um, I went through another kind of, I wouldn’t say it was burnout, but I, you know, I mentioned [00:45:00] obviously the passing of my father and there was work stuff and estate stuff and supporting my mom and my own emotional processing. And I got through kind of April, man, I was like, man, I’m tired. And it just felt it at a different level. And for the first time, I think. Ever I gave myself permission to rest, uh, and um, to not be on all the time. And, um, I think that that is something, so that’s my own personal experience with it. But with leaders, I, yeah, I think there’s new levels of fatigue and there’s a frenzied ness to everything.</p>
+              <p>There’s so much going on in the world. As a species, we continue to accelerate rather than decelerate. And AI is another version of this credible resource, but we’ve got this. We’re being sold this dream that somehow it’s going to solve the time crunch and the mortality. You know, you’re all of a [00:46:00] sudden gonna be able to have time to relax. We know where that goes. so I think it’s, again, it’s this idea that. Acknowledging it, first of all, and really allowing, giving people permission to feel hired, um, to feel that, to touch into the despair of it all. Um, and then what are the practices? And there’s a lot of my coaching right now I’d say is micro practices and what, what in. Some of the coaching language in, in some of the schools where I’ve learned is called immediate concerns. Like things are coming at us right now so fast, and so we’re in that defensiveness. And so how do we take a breath there? Um, and, and how do we. Feel okay taking a breath there, because a lot of times there’s guilt that comes with that.</p>
+              <p>Well, um, and I, and I sit [00:47:00] here today, you know, speaking from a place of privilege in San Francisco and in a, in a single family home. And, so we need to acknowledge that, but, and not have that kind of, not be ashamed of that, but also, um. Really give people from this place a, a, a, a chance to process, put on their own oxygen mask as leaders and then support people.</p>
+              <p>’cause we can’t do it if we’re burned out, if we have no resource, we can, we can’t offer that, which we don’t have ourselves.</p>
+              <p><span class="spk">Jonathan:</span> Yeah.</p>
+              <p>Jayson Morris: Go ahead Joe.</p>
+              <p><span class="spk">Jonathan:</span> Well, I, I think. The, one of the points I, I raised with, um, our leadership team when we were together was um, word than you were using, but I was talking about selfishness, you know, I was like, in this moment we need to selfish on what we need [00:48:00] leaders. Um, you know, the types of teams we want to run, the types of projects we wanna work on.</p>
+              <p>’cause if we don’t do that and, and we’re, you know, trying to, to do it for the greater good or do it for Dimagi, like, I just don’t think. People are gonna make it through without being burned out, you know, in, in this climate right now. And so that was a big theme, what we talked about. And, and similar to what you were saying, of giving yourself permission to, to feel tired, to acknowledge you just needed space or a break or whatever that was.</p>
+              <p>I’ve never, I’ve never told people to be selfish before, um, myself included. That’s not why we, you know, started this company. And that’s not a word that has positive connotation, but just think it’s necessary. Otherwise, like, I just, I just know we’re not gonna. as, as individual leaders. If you’re not working with teams you wanna be working with, working on projects you wanna be working on. and, and how uncertain everything is, um, you know, right now. And so that resonates a lot with, um, having to, to accept different things, acknowledge different things, label [00:49:00] things differently, um, today than we would’ve in the past.</p>
+              <p>Jayson Morris: Yeah, and I would say having self-interest is not being selfish. Uh, and if we, if we swing to either side of that. Pole too much. It, you know, whether we’re to the selflessness side so much that we burn out or we swing to the selfish, selfish side so much that we isolate or, or, or harm. Like either pole is not gonna support us.</p>
+              <p>It’s finding the middle ground.</p>
+              <p><span class="spk">Jonathan:</span> On that, Amy on the middle ground, a lot of the team was like, one of our values is people bit humble. And they’re like, how about we be more bold and less humble. For a little bit? So, um, you know, fi figuring out like, you know, where do you, we center, um, things. I think it’s, it is, it’s funny, but it’s also very serious.</p>
+              <p>I mean, you know, we, evolved the, our, our company, our values and, and how we show up as leaders under one set of circumstances, which are now extremely different. Than the circumstances we find ourselves in. we have to [00:50:00] figure out what that means, um, for us as, as leaders and as an organization, um, in terms of and how we wanna be contributing.</p>
+              <p>Amie Vaccaro: Yeah, absolutely. And luckily that that is one of our values, right? We evolve and learn and share openly. Something like that. I’m getting the wording wrong, but Yeah. Um, well this has been a, a, a wonderful conversation. I feel like there’s so much more we even didn’t get to dig in on. Is there any, closing words that you’d wanna leave with folks, um, starting with you, Jason?</p>
+              <p>Jayson Morris: I had say we’re in it, we’re in this really challenging times. Um, um, just giving ourselves grace and I, you know, kind of like John was saying, kind of that sensing into where to be bold, where to be humble, um, where to be strong, where to be soft. Like it’s embracing the duality. And the paradox of it. Um, so I think [00:51:00] it’s just, it’s challenging times. So wherever leaders are right now and wherever their organizations are, or individuals, it’s, it’s acknowledging it and accepting it, giving ourselves that little bit of grace ’cause it is part of the human experience. And then figuring out what. What’s right, what’s the right next step?</p>
+              <p>If we take it back to the lion trackers, like what’s the track? Where should we go? Um, and then boldly go there. Um, but don’t be afraid to reverse course and, and find another track if needed.</p>
+              <p>Amie Vaccaro: Yeah. I, I, I love that. I think one of my mantras lately has been. Slowing down, right? Like how it’s okay to slow down. Um, and that actually might be the best way to move faster in the long term or, or move further. Um, so that really ties to that. John, any final closing words from you?</p>
+              <p><span class="spk">Jonathan:</span> Um, I will, um, build on, on the the grace comment. Jason that you mentioned. ’cause when I, when I talked about selfishness, people are like, can we, can we call it giving [00:52:00] ourselves grace instead? And I was like, no. I mean selfish. But, uh, I think that’s, uh, it’s, it’s a better way to articulate it. But Matt thi, who recently rejoined us, um, he, he brought up at, at our management summit, um, a, a saying that I’ve also heard on my running app, um, that is slow study.</p>
+              <p>Study is smooth, smooth is fast. So I think in a lot of ways, in this moment in particular, um, slowing down might actually be the fastest way to, to make, um, progress on, on where you’re ultimately trying to get to. Um, and it’s impossible to, to really internalize that, at least in my head. But I’m trying, um, at, at various points.</p>
+              <p>Jayson Morris: I was gonna use that quote too. Uh, I used to be a self-defense instructor and we used to say that slow is smooth, smooth is fast.</p>
+              <p><span class="spk">Jonathan:</span> Yeah.</p>
+              <p>Jayson Morris: So</p>
+              <p>Amie Vaccaro: Yeah. Great. Great place to end. Thank you both. Really appreciate it.</p>
+              <p>Jayson Morris: yeah, this was fun. Hopefully there’s a part three, as</p>
+              <p><span class="spk">Jonathan:</span> Yeah, definitely.</p>
+              <p>Amie Vaccaro: there [00:53:00] is, I think there’s a part three in store. Yeah.</p>
+              <p>Jayson Morris: Anytime, anytime.</p>
+              <p>A huge thank you to Jason Morris for rejoining us and sharing his incredible, timely wisdom and experiences. And thank you to each of our listeners for tuning in. For me, this conversation was a powerful reminder that in times of great change, how we show up as leaders is more critical than ever.</p>
+              <p>A few key takeaways that are staying with me are first. The shift from expert to healer. In a chaotic environment, a leader’s most vital role can be to provide stability, empathy, and a grounded presence for their team, acting as a source of calm amidst the storm.</p>
+              <p>Second, embrace emergence over rigid plans when the future’s unclear. The goal isn’t to have a perfect five-year plan. It’s to be like a lion tracker. Finding the next track, taking a step and seeing how the path unfolds from there, adapting as you go. Third, [00:54:00] we must process difficult emotions to lead effectively.</p>
+              <p>Jason reminded us that feelings like anger, grief, and fear are normal. The key is to normalize them, allow ourselves to actually feel them, and then find healthy ways to move that energy so it doesn’t control us. Finally, remember that slowing down can be the fastest way forward In a world that demands constant acceleration, giving ourselves and our teams the grace to be deliberate, can lead to smoother, more sustainable progress.</p>
+              <p>And as the saying goes, slow is smooth, and smooth is fast. That’s our show. Please like, rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us at podcast at Dimagi dot com with any ideas, comments, or feedback. This show is executive produced by myself, Ana Bhanda and Michael Kelleher.</p>
+              <p>Our producers and cover art is by Sudhanshu Kanth.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">JM</div>
+            <div class="person-info">
+              <p class="person-name">Jayson Morris</p>
+              <p class="person-role">Leadership coach helping founders and executives lead with resilience, authenticity, and emergent strategy.</p>
+              <span class="person-org">Leadership Coach</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/5hsx81wEzV4mpP7gX4552E" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 37: Equity and AI in Global Health: Exploring Large Language Models, Building Chatbots and Embracing Discomfort | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Dimagi&#x27;s Brian DeRenzi on using GPT-4 and large language models to build global health chatbots, advance equity, and sit with the discomfort of AI.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep37-equity-and-ai-in-global-health-exploring-large-language-models-building-chatbots-and-embracing-discomfort/">
+<meta property="og:title" content="Ep 37: Equity and AI in Global Health: Exploring Large Language Models, Building Chatbots and Embracing Discomfort">
+<meta property="og:description" content="Brian DeRenzi on GPT-4, global health chatbots, equity, and embracing the discomfort of the AI moment.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 15, 2023</span>
+          <span class="dot"></span>
+          <span>35 min</span>
+        </div>
+        <h1 class="ep-title">Equity and AI in Global Health: Exploring Large Language Models, Building Chatbots and Embracing Discomfort</h1>
+        <p class="ep-deck">Dimagi&#x27;s Brian DeRenzi joins John Jackson and Amie Vaccaro to explore how GPT-4 and large language models could advance equity in global health, from natural-language SMS to voice for non-literate populations, while embracing the discomfort of this moment.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/3EsWgd26tjZgWktxmgxAON?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 37 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/3EsWgd26tjZgWktxmgxAON" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000613076043" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/4uyffiNHdUI?si=b1Gnq2NJ1sS-TnOF" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/8ddab64b-9be5-4ae0-969a-0287874b1dac/high-impact-growth-equity-and-ai-in-global-health-exploring-large-language-models-building-chatbots-and-embracing-discomfort" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">160</div>
+          <div class="ep-stat-label">characters in an SMS, the constraint natural-language bots help overcome</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>John Jackson and Amie Vaccaro sit down with Brian DeRenzi, who leads Dimagi&#x27;s Research and Data team, to talk through Dimagi&#x27;s early work exploring large language models to build chatbots for global health and development. A self-described skeptic at first, Brian describes the aha moment that changed his mind: getting GPT-4 to read and write Sheng, a mix of Swahili and English spoken in Nairobi, with a degree of accuracy he was not expecting. The team is building single-use-case bots and evaluating them against four metrics: utility, accuracy, adherence, and safety.</p>
+        <p>The conversation digs into how AI might increase equity even as it risks decreasing it. Because bots can now operate on natural language rather than rigid numbered menus, SMS becomes far more useful and reaches people left behind by smartphone-only chatbots. Voice to text could open services to non-literate populations, an approach friends at Digital Green are piloting with their Farm Chat product in Hindi. The group also weighs harder questions: market dynamics that favor big tech, the risk that good-enough AI lets society off the hook on equity, and the irreplaceable value of human-to-human connection in care.</p>
+        <p>Throughout, Brian and John return to the theme of sitting with discomfort and uncertainty. They compare this moment to the early days of the pandemic, when no one knew which way things would go, and argue that the way to avoid a dystopian outcome is to keep building while actively keeping marginalized communities top of mind. As Amie summarizes, now is the time to start paying attention, and the value of human connection must remain paramount.</p>
+
+        <blockquote>
+          <p>&ldquo;We don&#x27;t want to be transitioning towards a world where the only form of informational and emotional support that the world&#x27;s marginalized communities are allowed to use come from GPT four.&rdquo;</p>
+          <cite>Brian DeRenzi, on the risk of leaving communities behind</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The aha moment</strong>: getting GPT-4 to read and write Sheng, a blend of Swahili and English spoken in Nairobi, with surprising accuracy</li>
+          <li><strong>Four metrics for a good bot</strong>: how the team evaluates utility, accuracy, adherence, and safety on single-use-case chatbots</li>
+          <li><strong>SMS, reborn</strong>: why natural language frees users from long numbered menus and reaches people without smartphones</li>
+          <li><strong>Voice for non-literate populations</strong>: speech to text as an equity unlock, including Digital Green's Farm Chat work in Hindi</li>
+          <li><strong>Equity cuts both ways</strong>: how to keep the AI revolution from making the already-productive richer while leaving marginalized communities behind</li>
+          <li><strong>Healthcare between humans</strong>: why human-to-human connection stays irreplaceable, and AI should support frontline workers, not replace them</li>
+          <li><strong>Embracing the discomfort</strong>: sitting with uncertainty, like the early pandemic, as the way to steer AI toward positive impact</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth, a podcast from Dimagi about the role of technology. And creating a world where everyone has access to the services, they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost. Along with Jonathan Jackson, Dimagi CEO and co-founder.</p>
+              <p>Today, Jonathan and I are joined by Brian Derenzy, who leads to McGee’s research and data team.</p>
+              <p>Brian is leading a new effort to build chatbots that will support global health and development use cases using GPT four. He was initially a skeptic that AI could add value for our work, but describes his aha moment. When he realized there was really something here. We get into detail on the most important question on my mind, which is how can AI increase or decrease equity.</p>
+              <p>This is a conversation I’ve been dying to have, and I’m sure it’s the first of many, as we’re all collectively grappling with how to wrangle AI for good.</p>
+              <p><span class="spk">Amie:</span> Welcome to High Impact Growth. So I am here with Jonathan Jackson, as always, and Brian Dezi. Brian Dezi, you have heard from on previous episodes. And he is currently into AI world and chat. G P t so I’m really excited to chat with him, to hear what. What’s going on there and how we’re thinking about AI as DGI and within his team. So Brian, do you wanna maybe kick us off and share a little bit about, kind of high level, what are you working on these days? Around ai.</p>
+              <p><span class="spk">Brian:</span> Sure. So we’ve jumped full in on chat, G P T and, and specifically using G P T four and exploring how large language models can be used to increase, equity and, support individuals and frontline workers in the, the settings where Dimagi works. We’ve been thinking about different ways that we can use models to improve existing chatbots that we have and, and tools that we have.</p>
+              <p>As well as thinking a little more generally about how to create some tooling to, to be able to evaluate and think through different metrics around those. And we’re specifically thinking about four different metrics. The utility of the bot, how useful it is. If people can get information out of it and, and get the information that they need, how accurate it is in terms of the information that it’s conveying to folks, how adherent it is to its core, use and how safe the bot is.</p>
+              <p>And so we’ve really been thinking instead of having a very large general purpose chatbot like chat, g p t is, we’ve been trying to think about and, and kind of hone in on. Bots that have a single use case. And, and thinking about those four different metrics and how to evaluate them.</p>
+              <p>So we’re very much in the early days, playing around. But we’ve had some good early success, which is exciting.</p>
+              <p><span class="spk">Amie:</span> Brian, what’s an example of one of these bots? Like, I’m curious, just to give the audience a sense of how would these bots be used? I think. The audience is probably familiar with Comcare, but maybe not as familiar with our chatbot work in general.</p>
+              <p><span class="spk">Brian:</span> Sure. So one of the bots that we started playing with, actually has nothing to do with global development, but, but was a good, test case for us to, to kind of explore and, and think about these different metrics. , and so we created a bot to help people practice. Mock interviews. So the bot starts by asking what job they want to interview for you.</p>
+              <p>Give it a job, and then it will ask you a series of mock interview questions relevant to that job. And every couple questions, it will provide some feedback on the responses that. The user has given, and try to encourage it to, try to give some, some positive feedback around what went well as well as some, opportunities for improving the, the answer, the way that the user’s responding to those questions.</p>
+              <p>And we found it super interesting from, from the beginning. There’s a, a certain, I hesitate to use the word slightly so I say it with a grain of salt, but there’s a certain common sense that’s built into the large language model. So, for example, if you tell the bot that you want to be a pirate, it says like, oh, that’s not a real job.</p>
+              <p>Gimme a real job. But if you come up with some, you know, obscure, but real job, it’ll, it’ll kind of proceed and, ask questions, and kind of go from there.</p>
+              <p><span class="spk">Jonathan:</span> And so obviously, everybody’s playing with chat G p t now and, and, it’s the, the fastest grand product of all time. So we’re not alone in, this exploration of chat G P t, and, and there’s lots of exciting articles that have been written about this and, you know, it’s just exploding.</p>
+              <p>What caused your aha moment? You know, when were you like, oh, we need to dive into this. Dimagi has been working on conversational agents for years. We’ve done, you know, primary research in this area. We’ve done scale work in this area and I think everybody has their own individual, kinda aha moment where you’re like, wow, this is blowing my mind for you.</p>
+              <p>When did you kind of experience that plane with these large language models?</p>
+              <p><span class="spk">Brian:</span> I’ll tell you about my aha moment, but I’m gonna go backwards a little bit to, to talk about my not aha moments at the beginning. So I, in early December, I was at a conference and, and was speaking to some folks and chat. G p t had kind of just come out and there was lots of buzz and, and people were starting to get excited about it and I hadn’t used it.</p>
+              <p>But I was familiar with, with how these things generally work or large language models kind of up to that point, you know, pre-chat G P t and my response people was like, oh, you know, it’s just a next token predictor. All it does, you know, it’s trained on a whole bunch of different things and it’s mostly trained on English data and it’s just going to predict the, next word.</p>
+              <p>You can never really guarantee what information’s gonna come out of it. And for me, I think , the biggest, the, like the real aha moment where I was like, oh, no, no, this is, we’re like ready for primetime or we’ve, we’ve gotta figure out how to use this for, for good and, and to support people.</p>
+              <p>Was, uh, when G P T four came out and I, first used that and I got it to, to use Shang, which is a, a mixture of Swahili and English that’s spoken in in Kenya. Specifically in Nairobi, not only does it involve a bunch of slang words, but it mashes up English and in Swahili in these, these really interesting ways.</p>
+              <p>And the chat, G p t was able to, you know, with G P T four, was able to write and understand Shang, with a really high degree of accuracy that, that I was, not expecting. So at that point it felt like, You know, all of the, the previous caveats of like, oh, but it only works in the rich country languages.</p>
+              <p>And, you know, is this just gonna be another tool where we’re forcing people to speak English or adapt to some, post-colonial vestige or something, that, that kind of went out the window. And, and, I got really excited about the opportunity to build tools to support people, using this tech.</p>
+              <p><span class="spk">Jonathan:</span> And we’ve been mid-flight and some pretty exciting work on family planning and, behavior change. Communication for pregnant mothers in other areas with kind of hard coded scripted bots and, and prompt based bots. And we rapidly, based on your experience and some others on the teams have decided to go pretty significantly into, large lingual models.</p>
+              <p>In your experience so far, and we’re only, you know, a few months into this, at this point, how would you compare the performance we’re getting off of the large language models with, you know, the previous work we’re doing and my. When I explain this to people without being deeply immersed in the work like you are, I’m kind of like, it’s already better or it’s already equivalent to what we had spent, non-trivial amounts of time, you know, building by hand.</p>
+              <p>And so I’m curious, what, what is your feeling on the inside of, of doing a lot of this work more deeply?</p>
+              <p><span class="spk">Brian:</span> So I think, it’s tempting to say that there’s the non G P T work that we were doing, which was very scripted and everything. And then there’s full on G P T, which is, a thin wrapper around chat G P T and let it loose. And I really think that there’s a spectrum of how we use the technology. So there’s an information bot that lives in the middle where we tell the api, we tell G P T four, we tell chap, G P T, here’s the source material. This is what I’m giving you. This is the source material. You have to answer all questions from the source material. If you can’t find the answer in the source material, you have to respond that you don’t know.</p>
+              <p>And so there are ways to kind of box it in and start to shift a little bit more towards the scripted world. I mean, I think there’s, there’s like a, the, the most basic, maybe this is a bad use of, of the large language model and the natural language processing that it brings, but. One could imagine still having the scripted bot where you have these different menu items and every time you get a message from the user, you send it to chat g p t and say like, okay, the menu items were one through seven, which menu item do they wanna go to? And then have chat, g p T, do the natural language processing. And then you move, and so you kind of stay in the scripted bot world.</p>
+              <p>And so I really think it’s a spectrum in terms of how much we apply this, this technology. But I think there are a. Bunch of things that are really exciting, including there’s a big step forward for equity. You know, in the early days we were trying to do a lot of messaging over sms and it’s tough.</p>
+              <p>You have 160 characters or whatever it is, that you’re able to send information to the user and, and that you’re able to receive message from the user. , and with those 160 characters, you can only. Share so many, menu items before you have to break it up into multiple messages. And the whole user experience just like unravels very quickly and it becomes kind of pointless.</p>
+              <p>You know, I think in the , early days people were trying to do data collection over sms and you have to be highly structured and it all kind of, falls apart. But now that we can operate more truly on natural language, it really opens up that spectrum and it, it opens up a whole bunch of of users that were sort of being left by the wayside, you know, because of the difficulties of sending menus of, items to, to individuals.</p>
+              <p>All of the chatbot work had previously been shifting towards. WhatsApp or Telegram or some smartphone based messaging product and now that we can operate on natural language, we can go back and, and all the people that don’t have access to a smartphone and we’re sort of left behind for those chatbot products, we’re able to, to engage with them again, I think.</p>
+              <p><span class="spk">Amie:</span> So let me just make sure I’m understanding this, Brian. So you’re saying that, you know, in the before days when you were trying to use SMS to kind of work with an end, client and an individual. You’d be kind of sending these long lists of like numbers, like respond with the number that responds to your request.</p>
+              <p>Right? And now with chat j b t, you’re actually able to just have more natural conversations with a bot, over sms. So it kind of opens up the capacity and the power of using sms. Is that right?</p>
+              <p><span class="spk">Brian:</span> That’s right. So in the old days you might say, you know, respond with one. If you wanna learn about kangaroo mother care, respond with two. If you wanna know about nutrition while you’re pregnant, respond with three if you want. You know, and you can imagine these messages get very long and it’s. Tough to kind of cram them into an SMS or, or a few SMSs that you send to people.</p>
+              <p>And then even once you dive into one of those, in order to increase information density of our bot, we would often have sub menus. So, you know, you go in for, for nutrition information and says, oh, do you want nutrition information for a newborn? Or do you want nutrition information while you’re pregnant?</p>
+              <p>Or, you know, and, and those are all sub-menu options. And so you can imagine how that’s, pretty difficult. And obviously we haven’t tried. I should be clear. We haven’t tried any of this stuff out, but I think the opportunity, to be able to say to the user, you can ask me anything you want about maternal health or about your pregnancy right now, and then.</p>
+              <p>Allowing the user to express like, this is the thing I want, or, maybe we can prompt it with some stuff. Why don’t you ask me about kangaroo care? Or, you know, we can, we can kind of push some information and we can pull some information, and then users can kind of navigate that information using natural language and, and using the power of the natural language generation and understanding that, G P T four affords, allows us to navigate all of that, in a, more interesting way.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. And I think that you’re a hundred percent right on the power that provides, even if the information we’re trying to convey isn’t notably different. We still know that kind of corpus we wish people had access to that ability to. Offer the user on interface that is very natural, you know, as opposed to menu driven, I think is, is a huge boon.</p>
+              <p>And then, as you were speaking, Brian, it got me thinking also around the challenge of literacy. You know, a lot of populations were trying to reach, literacy could be a huge issue. Have you started playing with any of the speech to text, things that are now potentially possible. Have you heard of other groups that are doing this?</p>
+              <p>Because to me that could be a huge equity. Improvement. If you’re recording a voice note over WhatsApp and then you can send that in and get a response back, that’s verbal. That’s just, you know, game changer in terms of, who you could engage with these, models.</p>
+              <p><span class="spk">Brian:</span> Yeah, we’ve been talking about it and thinking about it. We haven’t done it yet, but we do have colleagues and friends out in the community who are doing it. So Farm Chat is a product that, our friends at Digital Green are working on and piloting, and they’ve, they’ve been using voice notes to record.</p>
+              <p>Messages from agriculture extension workers in Hindi, and then they send that through some speech to text. Pass it through to g p t to look through the corpus of, of, you know, the huge amount of information that they’ve built up over time on local farming practices. Pull out information, either send the text directly back or, if they want, send that text through a text to speech synthesizer and, and send back a voice note.</p>
+              <p>That could help as well. But you’re, you’re absolutely right. And, and even just from text, the ability to handle typos and misspellings and. Mixes of languages, is really impressive in sort of our early testing. But I think, a next step is exactly what you’re saying is trying to take some of those off the shelf tools that exist to do text to speech already, and kind of plug those on top, or speech to text rather, but either direction, and plug those into the, to the power of, of what we have access to</p>
+              <p><span class="spk">Jonathan:</span> and the team that I run, Brian, is research and data. Obviously, data analysis is a huge. Effort that we put in internally at Tamagi. It’s a huge effort all of our partners put into, with their programs. We’ve done previous podcasts on, you know, the many challenges and opportunities within m and e. One of the things I’m interested in watching, and I haven’t played with any of these tools myself, but is on how large language models can take.</p>
+              <p>Natural language requests of data and, and provide it back to you. If you’re saying, you know, can you show me the top, highest performing frontline workers and the top lowest performing frontline workers out of this data set? My understanding is now that, some of the stuff coming out, by multiple companies is actually making that much easier and more accessible, which again, I think, opens up, not equity and necessarily.</p>
+              <p>The traditional sense of the word, but opens up data access to a lot more people to gain the insights they need as opposed to having to go through a dedicated team that knows how to write database level queries or other specific languages. Have you played with any of those tools yet?</p>
+              <p><span class="spk">Brian:</span> I haven’t, I’ve sort of done the, the normal simple thing of using chat g p t to, summarize big blocks of text or help to generate blocks of text or lists or things. Things like that. And I think you’re right. I think large language models are having a bit of a moment right now.</p>
+              <p>And kind of, there’s an incredible amount of, you know, I was joking to a friend that it feels like this probably not true, but like, it feels like 80% of of people on GitHub are, are now turning their attention towards large language models. And, it’s. Impossible to keep up with, with all of the developments and kind of iteration that’s happening.</p>
+              <p>I think there’s a lot of excitement around being able to incrementally train on top of some of these open source models and, and kind of what that looks like and how quickly things, things can get going, and then, I think what you’re alluding to is, is taking some of those models and focusing them on more specific tasks and training them to be better.</p>
+              <p>I mean, obviously chat, G p T is trained to be a chatbot. It’s trained to to be conversational and, and respond in a natural human-like way, which is. Kind of amazing on its own and, and for that, but to take the natural language power that it’s all kind of given and then focus it in on specific tasks like data analysis. I think we’re gonna, we’re gonna see this interface kind of plugged all over the place.</p>
+              <p><span class="spk">Amie:</span> Yeah, it’s interesting. , from my perspective as a, a marketer, I’m definitely seeing like an explosion of, of marketing tools leveraging ai. For example, HubSpot, which is the marketing CRM that we use. Released a tool called Chats Spott, where you can do kind of John what you’re saying. You can just kind of query your own database.</p>
+              <p>And it kind of helps speed up analysis, in theory that we’ve just started kind of playing with. I think one of the things that I wanna hone in on with, with both of you is when I think about ai, you know, first of all, like I’m fairly optimistic about it, strangely so, and excited.</p>
+              <p>But I’m also really worried about like where it will naturally go, like where the markets will take it, which is. It’s gonna be developing. And so far this is what I’m seeing is just like tons and tons of new tools for someone like me who’s a marketer, and needs help writing right, or needs help creating videos or kind of these, use cases that are, that are cool, and have a lot of potential but aren’t necessarily gonna open, improve equity over time.</p>
+              <p>And so I’m wondering like, how, how do you guys both think about. Like, how do we make sure that this, this AI revolution that we’re going through doesn’t just result in the rich getting richer, the already productive, white collar worker is getting more productive, and sort of increasing gaps in equity globally.</p>
+              <p>Like how do we make sure that that does not happen? I wanna hear from, from both of you on this.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think there’s so much written about this already that I, I won’t try to comment relative to, some extremely smart people who are thinking about this, but I think my, my general feeling of where we’re at and where we’re headed is just so much uncertainty. There’s a, there’s a world in which.</p>
+              <p>These large lingo models kind of hit a wall and they’ve trained on all the data we have available. And then all the, the things people are thinking might come to pass don’t. I think that’s not very likely. I think we’re in some weird explosion of, of progress. Not weird. I mean, people have been working on this for a long time, but I think it’s gonna continue and I do think there’s a huge amount of concern if you look at the market dynamics right now.</p>
+              <p>You know, the mega tech companies, the biggest companies in the world are poised currently to, be driving this. And I think that’s a, not necessarily the structure we would ideally want for a technology that’s powerful. And, you know, there’s obviously massive AI implications. You’ve already seen Palant here who’s a major defense contractor to the United States government, talking about how this can be introduced into their battlefield products.</p>
+              <p>Some massive implications for global security. And Bill Gates wrote an, an article we can lo link to in the show notes, but speaking about, you know, chat, G p T and, and large link models is like one of the most potentially transformative technologies he’s seen in the last couple decades. And so I think there’s just huge changes that are about to happen and I, I can’t foresee them.</p>
+              <p>You know, and there’s a lot of futurists who are predicting, many different things that could be out there. But one of the things that’s interesting to reflect on is the, the way that the internet and smartphone penetration really did a bad job of reaching a lot of people that it could have had a huge impact on.</p>
+              <p>And what can our role be as dgi? What can, what can we do in the global development community to attempt to cause that not to happen again? And as Brian said, I also kind of had this view towards large language models and artwork of like, oh, they’re gonna be trained on Western data sets. There’s gonna be a lot of like more advanced micro-targeting marketing crap that Google’s gonna deal with it, or more advanced generative AI for Hollywood.</p>
+              <p>But like, not stuff that’s necessarily relevant to our market. And we’re seeing it is already, you know, relevant in our market. There are already ways we can think about increasing access and equity. And hopefully that only gets bigger and better as we go forward. And I think, you know, we’re gonna head into a place where both aspects of the dystopian future, everybody’s worried about are.</p>
+              <p>Gonna become reality, but aspects of all the positive things of this are also gonna become a reality. So I think it’s gonna be both good and bad, as we move forward. The, aspects that really excite me from a, an technology standpoint within global health and development are just the, the potential of this, as Brian already alluded to, Explicitly with equity, the ways in which, not just large link models, but other advances in AI can support diagnostics, can support better global data analysis, aggregation of data.</p>
+              <p>These are all, you know, hypothetical things that sounded interesting, that like, really could become quite easy. One of the things that’s fascinating about what’s happening right now is the thing that was just unforeseeable 12 months ago, that a random open source developer on GitHub could do. Is now like a Saturday project, you know, and like, and the ability to link these tools together.</p>
+              <p>And, I just wrote a blog article yesterday. I don’t understand the. The technology behind what it was alluding to. But as Brian mentioned, the ways in which these models can now be layered in the open source community, there’s one view that you have to spend billions of dollars creating these models.</p>
+              <p>It’s a huge training cost. You need to be an open AI or Google or somebody to create these models. And then there’s another school of thought, which is no, you can link together a bunch of incremental open source progress and you’re gonna go even faster. And if that’s true, That’s both terrifying because open source is really difficult to control.</p>
+              <p>It’s, it’s much more difficult to, to regulate, but at least that doesn’t have the big tech problem, you know, of, of one company owning such a powerful technology or several companies owning such a powerful technology. So not a ton of new insight from me and, and I’ve been trying to just read and consume and podcasting these things.</p>
+              <p>But, it is a really. Exciting and terrifying, you know, point to be, I have ki I have two young boys, six and eight years old, and I’m like, are they ever gonna write a research paper, you know, in school? Like, what? So, you know, just, just like the normal stuff, like how different their lives are gonna be growing up with this technology.</p>
+              <p>And just imagine what it’s gonna be two years from now when my oldest is in fifth grade. It’s a, it’s a funny thing. We were talking to a teacher this year about spelling. You know, and it’s important to be a good speller anymore cause like everybody’s got spell check and now it’s gonna be like writing, you know, it’s important to be able to compose a sentence or do you just speak to chat g p t and it, you know, spits out the answer for you.</p>
+              <p>So that’s some of the stuff flowing through my head that’s not, you know, too specific to global development. But even just within my own life, I think this is gonna be a huge change for my children who are gonna grow quite different than, than I did.</p>
+              <p><span class="spk">Amie:</span> It feels like AI can make most individuals way more productive, but it’s like, How do we make sure that the people that are already doing incredible important equity improving work are actually the ones getting on that train.</p>
+              <p>Right? And then it’s not just, the tech bros in, in Silicon Valley that are working on better ad targeting. Which is why I’m also just like very happy that, you know, Brian, you and your team and other parts of DMA are starting to dig in on this because I think it’s moving so fast and it is being really dominated by these, these large tech companies, which.</p>
+              <p>Which concerns me. So yeah, Brian cares to hear your take, on this, that, that same question around equity.</p>
+              <p><span class="spk">Jonathan:</span> Amy, just one thing to add in before I forget. I was listening or reading. I can’t recall something that was looking at the productivity improvements that happened due to the internet and smartphones. You know, if you had told you’re 1985 self, if you’re older, that everybody was gonna have, a smartphone as powerful as they are today, everybody was gonna be connected to the internet.</p>
+              <p>You could. Communicate with anyone anywhere you had translation technology, how much more productive do you think society will be versus our current trajectory? You would’ve probably guessed much more productive than it’s ended up being. So as a lot of this AI productivity discussions come up, a lot of people are now looking back at being like, well, that didn’t happen to the degree we thought with the.</p>
+              <p>Explosion of the internet and smartphones. And so there’s also this potential that it’s incredibly distracting. So while it could hypothetically make us way more productive, it’s also gonna be crazy how distracted we can get. And we’re already a pretty distracted society from my vantage point.</p>
+              <p>So that’s one of the, the other interesting things that fascinates me. Cause I do think there’s lots of examples already of how individuals could be more productive with chat g p T, but for every like useful. Chat, G P T thing I’m having to do, whether it’s reading an email or summarizing, I’m like messing around with it.</p>
+              <p>Wasting time during this day trying to just like play with it. Right? So did it really make me more productive? Like it could, what is it going to?</p>
+              <p><span class="spk">Amie:</span> Yeah, I feel I’m feeling the same way right now when I use Type p d. It doesn’t actually save me time, but I feel like I’m like learning how to use it and that feels like a valuable use of time. But. Yeah, no, and I would say with the internet overall, like it probably just made us way more distracted.</p>
+              <p>Gave us way more information that takes us down rabbit holes. But yeah. Brian, over to you.</p>
+              <p><span class="spk">Brian:</span> Yeah, I have a few thoughts to piggyback there. And then one other point I wanna make and the thoughts to piggyback to your most recent, in terms of playing with chat u p t and kind of learning how to get useful information out of this. I don’t know if anybody’s worked with somebody who hasn’t used the internet before recently, but it’s actually a skill to Google things or to look things up on the internet.</p>
+              <p>We take it a little bit for granted now, but if you work with. Older people or, or people who haven’t traditionally had access to the internet or something. It’s not as intuitive as it feels to us. And so there, there is kind of some skill that one develops over that. And so kind of that skill is shifting towards prompt engineering or like learning how to get useful, outputs from from chat G P T or something.</p>
+              <p>And then I kind of wanted to settle back into the, the discomfort, that John was bringing up and the uncertainty, cuz to me it feels really similar to the early days of the pandemic. When, Covid came out and there were sort of all of these different directions that thing could go and like nobody quite knew, like, I don’t know, in three years is everybody think back to normal?</p>
+              <p>Or like, is this the new normal that we’re all kind of shifting this way? And, and so I think there’s, there’s like an analog there in terms of the uncertainty and sort of the multiple paths that, that AI could take and everything there. And so I also kind of oscillate between being inspired by all the things that we.</p>
+              <p>They, it could do for good and terrified about like how far it could go. And then also thinking like, yeah, maybe everything can go back to normal. So it’s a little bit unclear, but the other point I wanted to bring up is, I was chatting to a colleague of mine, an academic friend, and, she was bringing up the point that, like</p>
+              <p>how do we prevent communities from being left behind? So, not in terms of using the technology, but, but rather the opposite. Like, we don’t want to be transitioning towards a world where the only form of informational and emotional support, that the world’s marginalized communities are allowed to use come from G P T four, you know, large language models or you know, whatever the next version of all this is.</p>
+              <p>And, these are the things that I wrestle after hours of like, are we contributing to that by, figuring out how to, use these technologies in place. And I don’t want to create a world where, only rich people get to interact with real doctors and everybody else has to go through G P T doctor, unless it escalates up to some, like terrible state or, you know, and then replace doctor with mental health specialist or, or any of the other things.</p>
+              <p>But also I don’t want to, I’m like actively trying not to live in the current, we’re trying to change the current world where. Millions and millions of people across the world who need mental health services just don’t have access to them at all. So , how do we balance that and how do we, how do we push towards equity and how do we push towards, uh, supporting people in, in marginalized communities?</p>
+              <p>And I, I don’t have an answer to it, but, that’s, that’s like something that’s, that’s went on my mind and some of the conversations we’re having internally at, at d Maki</p>
+              <p><span class="spk">Jonathan:</span> I like sitting with that discomfort, Brian. And another thing that gives me. A lot of discomfort. Particularly around the massive hype that we’re in is, is this finally the time that Silicon Valley is like, right about the hype? You know, we just went through this huge crypto boom, which is just ridiculous.</p>
+              <p>And, there, is just a very common hype cycle around these technologies. To me, the rate at which this one’s like kind of demonstrated value has been surprising. You know, like it’s, it feels different. But then there’s always this other side of me that’s like, this is just the next one.</p>
+              <p>You know, they’ll be the boom and bust of hype. But, I agree with you. I think there’s, lots of ways that, well-meaning approaches to doing this could be just like really bad product ideas or great money-making ideas and really bad, like structural changes for society, right? Because what if we. View that digital chatbot for mental health is now good enough and stop worrying about solving the equity problem that it’s, you know, should be abor to all of us. That millions of people don’t have access to the mental health services they need. And lets people off the hook of trying to solve some of society’s more difficult problems because like, oh, now it’s good enough, just throw.</p>
+              <p>Throw AI at it and then let all the rich people have access to the better version of everything. And I do think that, it’s a huge dystopian world that we, we wanna actively avoid.</p>
+              <p><span class="spk">Amie:</span> I think there’s also like this open question though. And I’ve seen some early studies recently comparing like an actual doctor’s response with a G P T response. I’m sure you guys have seen those as well, and, and actually saying that like the G P T responses were in some ways stronger and more empathetic and more clear and, and all these things, right?</p>
+              <p>So I feel like in hearing you both speak, like there’s this assumption that like the hu the actual human contact is better, but I don’t know that that’s always true. And that’s a great point. Maybe we can link to that study in the, in the show notes. But, I was actually just talking with my, group chat with my friends about this and, and one of the doctors chimed in and he’s like, well, that was comparing. A random doctor talking on Reddit to a person he doesn’t, or she doesn’t know.</p>
+              <p><span class="spk">Jonathan:</span> That wasn’t comparing the best doctor with the, the most effortful version of that conversation they could have had. And then you say, well, you don’t get the most effortful version of a conversation from a doctor. And it’s like, well, should we maybe be fixing that part of the problem? Right. It’s like, okay.</p>
+              <p>Yeah. So the current quality of service may be good or bad in a given area that we’re trying to apply AI to, but. If our answer to like how humans are behaving is, oh, accept that underperformance, or accept that bad trait and then design around it with AI as opposed to being like, what is going on that doctors aren’t given the time and the space to have the appropriate conversation with their patient and is throwing AI into it, the answer.</p>
+              <p>But yeah, I think that’s a great example. And, it’s, it’s double edged, right? Cause you’re like, well, On average it is better. And you’re like, but should we be accepting the current average as the thing to beat to drive up that human engagement? And, no answers to these questions, but I think all important things to be factoring in.</p>
+              <p><span class="spk">Amie:</span> I mean, I think what you said earlier, like, let’s not let AI be the reason that we’re letting ourselves and other humans off the hook. Right? I think we actually still need to be aspiring to, to better. I also, I read a quote recently. It was on a friend’s like LinkedIn profile. It was one of his core beliefs, and it said like, healthcare occurs between a human and a human.</p>
+              <p>And, and it definitely resonated with me, right? Even though I’m all pro ai, I do, you know, the, the value of human connection is irreplaceable. And I think as dgi, that’s actually one of the things that I’ve really liked getting to see is that, you know, I would say that that feels kind of core to who Dimagi is as well, right?</p>
+              <p>Like, we’re not trying to replace community health workers. We’re trying to support them so that their lives are better, their jobs are better, and they can actually deliver better outcomes, right? So there is a tension here for sure.</p>
+              <p><span class="spk">Brian:</span> I just wanna go back to something John said earlier about Silicon Valley. Like maybe this is the moment that Silicon Valley is, is correct, and I would say Dimagi has taken a skeptical. Stance to most AI and, and sort of, you know, we didn’t do anything with blockchain. We didn’t do anything with crypto.</p>
+              <p>We didn’t do anything with these, some of the, the hype cycle that, that John was alluding to before. And I was talking to a, a partner recently and they were like, oh, I thought Tamagi was kind of anti AI or wasn’t interested in, now you guys are going all in on G P T and the answer was kind of like, well, yeah, it, it wasn’t useful before and now it seems like it’s useful.</p>
+              <p>You know, like some, somehow it’s. It’s like a, it’s reached a, a state of maturity or, or utility that, it can actually be useful in, the environments we’re working on. And, and I think there really is, there is something exciting there with the uncertainty and, and unease of the potential dystopian future, we really wanna avoid.</p>
+              <p>So I think as long as we’re staying in that space of unease and discomfort. I think that’s, how we avoid it, is to, to work on this stuff, but to have that kind of top of mind and actively be thinking about what we’re doing and how it can affect things in a positive way for marginalized communities as opposed to, increasing, disparity.</p>
+              <p><span class="spk">Amie:</span> I love that Brian, and it kind of reminds me of like, I think parts of like cognitive behavioral therapy and other forms of therapy where like part of it is like to just sort of sit with the discomfort, right? And that’s kind of where we’re at collectively right now. Brian, in closing, what would you say?</p>
+              <p>You know, I’m, a number of folks in our audience are at kind of peer organizations that are also kind of grappling with technology and global health and development. What would you recommend for them to be thinking about right now or doing, um, when it comes to ai?</p>
+              <p><span class="spk">Brian:</span> I think the same thing that everybody else is doing. I mean, I think it’s important to, to highlight, maybe I’ll, I’ll sort of restate this or something, this is very early days. Debachi’s involvement in this stuff is weeks old.</p>
+              <p>And, uh, there is this step function, leap, you know, this big step up that, that’s kind of happened with, with some of the, the most recent large language models and the attention that it’s getting and, and sort of rate and, and pace that things, Seem to be improving. Time will tell is, is really, is really kind of fast and furious.</p>
+              <p>And so, I think, I think the only thing to do at this stage is, is to explore, keep that discomfort in mind.</p>
+              <p>Thank you so much to Brian for joining us today. Will very likely have a followup conversation with Brian and perhaps some of his colleagues to follow on this journey of leveraging chat TBT. And large language models to advance equity and global health and development specifically focused on chatbots.</p>
+              <p>For now I’ll share my takeaways. So first is that large language models have reached a state of utility for global health and development.</p>
+              <p>So now is definitely the time to start paying attention and exploring how you can leverage them in your work. A few examples we talked about today. One is SMS. Chatty beauty opens up a huge potential for text messages, making them more useful and expanding access to information and services. Second is voice to text. It opens up the possibility for us to better use voice to text, which can support non-literate populations.</p>
+              <p>It also advances accessibility of doing data analysis . . We’re in a very uncertain and uncomfortable moment in time where it’s really not clear where this will take us both the best possible outcomes and the worst possible outcomes could both become true.</p>
+              <p>We have to sit in that discomfort and actively look for ways to ensure that AI is used to advance equity. If you’re listening to this podcast, you’re doing something good out there. I know it. So I hope that you take this as a bit of encouragement to jump in. And lastly, we can’t let people off the hook because of AI.</p>
+              <p>The value of human to human connection is paramount. So let’s look for ways to leverage AI, to maximize what humans can do and let’s not create a world where only rich people get to interact with human providers.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback. In particular i’m curious to hear what are you thinking about when it comes to ai i’d love to hear from you the show is executive produced by myself danielle van wick is our producer brianna DeRoose is our editor and cover art is by sudan shrikanth</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">BD</div>
+            <div class="person-info">
+              <p class="person-name">Brian DeRenzi</p>
+              <p class="person-role">Leads Dimagi&#x27;s Research and Data team and a new effort to build global health chatbots using GPT-4.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/3EsWgd26tjZgWktxmgxAON" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

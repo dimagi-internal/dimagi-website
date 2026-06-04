@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dimagi &#x2502; Digital Solutions for Frontline Work</title>
+<meta name="description" content="Enabling global NGOs and governments with cutting-edge digital solutions and data collection software for impactful frontline work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/">
+<meta property="og:title" content="Dimagi &#x2502; Digital Solutions for Frontline Work">
+<meta property="og:description" content="Enabling global NGOs and governments with cutting-edge digital solutions and data collection software for impactful frontline work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=11">
+<style>
+/* ── Homepage-specific ── */
+
+/* Hero (single column, text-forward) */
+.hero-copy { max-width: 820px; }
+
+/* Hero background video (real homepage asset) */
+.hero.has-bg-video { background: #0A0620; }
+.hero-bg-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-bg-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(160deg, rgba(10,6,32,0.90) 0%, rgba(22,0,109,0.80) 42%, rgba(56,67,208,0.52) 100%);
+}
+.hero.has-bg-video > .container { position: relative; z-index: 2; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video { display: none; }
+}
+
+/* Stats band — official indigo-100 light band */
+.stats-band {
+  background: var(--indigo-soft);
+  border-bottom: none;
+}
+.stats-band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(45,54,166,0.16);
+}
+.stats-band-cell {
+  padding: 44px 32px;
+  border-right: 1px solid rgba(45,54,166,0.14);
+  text-align: center;
+}
+.stats-band-cell:last-child { border-right: 0; }
+.stats-band-num {
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 200; line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-2);
+  margin-bottom: 12px;
+  font-feature-settings: "tnum";
+}
+.stats-band-num span { color: var(--indigo); font-weight: 300; }
+.stats-band-lbl {
+  font-size: 14px; font-weight: 400;
+  color: rgba(20,16,58,0.62); line-height: 1.45;
+}
+
+/* Partner logo marquee (reuses global .logo-strip/.logo-marquee/.logo-track) */
+.logo-strip.partners { background: var(--paper-2); }
+.logo-strip.partners .logo-org-img { height: 44px; max-width: 170px; }
+@media (prefers-reduced-motion: reduce) {
+  .logo-strip.partners .logo-track { animation: none; }
+}
+
+/* Products section */
+.section-products {
+  background: #FAFBFF;
+  padding: 100px 0;
+}
+.product-logo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  align-items: center;
+  margin: 48px 0 56px;
+}
+.product-logo-row img {
+  width: 100%; max-width: 220px;
+  height: auto; margin: 0 auto;
+}
+.product-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.product-col {
+  display: flex; flex-direction: column; gap: 18px;
+}
+/* Responsive 16:9 YouTube embed slot */
+.product-video {
+  position: relative; width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0A0620;
+  line-height: 0;
+}
+.product-video iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: 0;
+}
+.product-col-headline {
+  font-size: 17px; font-weight: 600;
+  color: var(--deep-purple); line-height: 1.35;
+  letter-spacing: -0.01em; margin: 0;
+}
+.product-col-desc {
+  font-size: 15px; color: var(--muted);
+  line-height: 1.65; margin: 0; flex: 1;
+}
+.product-col-actions {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.product-col-actions .btn {
+  padding: 10px 18px; font-size: 13px;
+}
+
+/* Services section — soft lavender (distinct from white Proven Impact) */
+.section-services {
+  background: #EAEDFA;
+  padding: 100px 0;
+}
+.services-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.svc-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.svc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -12px rgba(10,6,32,0.14);
+  border-color: var(--indigo-300);
+}
+.svc-card-label {
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--indigo);
+}
+.svc-card-name {
+  font-size: 22px; font-weight: 500;
+  letter-spacing: -0.025em; color: var(--ink); margin: 0;
+}
+.svc-card-desc {
+  font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; flex: 1;
+}
+.svc-card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--indigo);
+  transition: gap 150ms;
+}
+.svc-card-link:hover { color: var(--indigo-deep); gap: 10px; }
+.svc-card-link::after { content: "→"; }
+
+/* Proven impact — white (distinct from lavender Services) */
+.section-impact {
+  background: #ffffff;
+  padding: 100px 0;
+}
+.impact-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 56px;
+}
+.impact-col {
+  display: flex; flex-direction: column; gap: 18px;
+}
+.impact-col-screenshot {
+  width: 100%; height: 200px;
+  border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--line);
+  background: var(--paper-2); line-height: 0;
+}
+.impact-col-screenshot img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.impact-col-title {
+  font-size: 17px; font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink); margin: 0; line-height: 1.3;
+}
+.impact-col-body {
+  font-size: 15px; color: var(--muted);
+  line-height: 1.65; margin: 0; flex: 1;
+}
+.impact-col-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600;
+  color: var(--indigo); letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: gap 150ms;
+}
+.impact-col-link:hover { color: var(--indigo-deep); gap: 10px; }
+.impact-col-link::after { content: "→"; }
+
+/* About section: 2-col (text + photo) */
+.about-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-copy { display: flex; flex-direction: column; gap: 20px; }
+.about-body {
+  font-size: 18px; line-height: 1.75;
+  color: rgba(255,255,255,0.78);
+  margin: 0;
+}
+.about-body strong { color: #fff; font-weight: 600; }
+.about-photo-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden; line-height: 0;
+}
+.about-photo-wrap img { width: 100%; height: auto; display: block; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .impact-cols { grid-template-columns: 1fr; gap: 32px; }
+  .services-2col { grid-template-columns: 1fr; }
+  .about-2col { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo-wrap { display: none; }
+}
+/* 3-up product grid stays 3 across on tablet, then collapses straight to a
+   single centered column — never an orphaned 2-up row. */
+@media (max-width: 820px) {
+  .product-cols {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 680px) {
+  .stats-band-grid { grid-template-columns: 1fr 1fr; }
+  .stats-band-cell:nth-child(3) { border-top: 1px solid rgba(45,54,166,0.14); grid-column: span 2; }
+  .product-logo-row { grid-template-columns: 1fr; gap: 28px; }
+  .impact-cols { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="./">
+      <a class="logo" href="index.html">
+        <img class="logo-img invert" src="assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="professional-services/index.html">Professional Services</a>
+        <a href="company/about/index.html">Company</a>
+        <a href="contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section id="main" class="hero hero-dark on-dark has-bg-video">
+  <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="assets/video/hero.webm" type="video/webm">
+  </video>
+  <div class="hero-bg-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        Every worker <em>equipped</em>.<br>
+        Every client <em>supported</em>.<br>
+        Every service <em>verified</em>.
+      </h1>
+      <p class="hero-sub">
+        Twenty years of building toward a world where every person has access to the services they need to thrive.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-on-dark btn-arrow" href="#products">Explore products</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="contact/index.html">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── STATS BAND ───── -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band-grid">
+      <div class="stats-band-cell">
+        <div class="stats-band-num">130<span>+</span></div>
+        <div class="stats-band-lbl">Countries</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">76<span>M+</span></div>
+        <div class="stats-band-lbl">Registered by national systems</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">1.5<span>M+</span></div>
+        <div class="stats-band-lbl">Connect services delivered</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── PARTNER LOGO MARQUEE ───── -->
+<section class="logo-strip partners" aria-label="Organizations that work with Dimagi">
+  <div class="container">
+    <p class="logo-strip-label">Trusted by governments, UN agencies, NGOs, and research institutions delivering frontline programs worldwide</p>
+  </div>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <div class="logo-set" aria-label="Organizations that work with Dimagi">
+        <img class="logo-org-img" src="assets/logos/usaid.png" alt="USAID">
+        <img class="logo-org-img" src="assets/logos/unicef.png" alt="UNICEF">
+        <img class="logo-org-img" src="assets/logos/bmgf.png" alt="Bill &amp; Melinda Gates Foundation">
+        <img class="logo-org-img" src="assets/logos/undp.png" alt="UNDP">
+        <img class="logo-org-img" src="assets/logos/crs.png" alt="Catholic Relief Services">
+        <img class="logo-org-img" src="assets/logos/rti.png" alt="RTI International">
+        <img class="logo-org-img" src="assets/logos/egpaf.png" alt="Elizabeth Glaser Pediatric AIDS Foundation">
+        <img class="logo-org-img" src="assets/logos/terre-des-hommes.png" alt="Terre des Hommes">
+        <img class="logo-org-img" src="assets/logos/lwala.png" alt="Lwala Community Alliance">
+        <img class="logo-org-img" src="assets/logos/stanford-medicine.svg" alt="Stanford Medicine">
+        <img class="logo-org-img" src="assets/logos/washington-doh.png" alt="Washington State Department of Health">
+        <img class="logo-org-img" src="assets/logos/tula-salud.svg" alt="Tula Salud">
+      </div>
+      <div class="logo-set" aria-hidden="true">
+        <img class="logo-org-img" src="assets/logos/usaid.png" alt="">
+        <img class="logo-org-img" src="assets/logos/unicef.png" alt="">
+        <img class="logo-org-img" src="assets/logos/bmgf.png" alt="">
+        <img class="logo-org-img" src="assets/logos/undp.png" alt="">
+        <img class="logo-org-img" src="assets/logos/crs.png" alt="">
+        <img class="logo-org-img" src="assets/logos/rti.png" alt="">
+        <img class="logo-org-img" src="assets/logos/egpaf.png" alt="">
+        <img class="logo-org-img" src="assets/logos/terre-des-hommes.png" alt="">
+        <img class="logo-org-img" src="assets/logos/lwala.png" alt="">
+        <img class="logo-org-img" src="assets/logos/stanford-medicine.svg" alt="">
+        <img class="logo-org-img" src="assets/logos/washington-doh.png" alt="">
+        <img class="logo-org-img" src="assets/logos/tula-salud.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PRODUCTS ───── -->
+<section class="section-products" id="products">
+  <div class="container">
+    <div class="section-head centered">
+      <span class="eyebrow muted">OUR PRODUCTS</span>
+      <h2 class="section-title">Three products. <em>One mission.</em></h2>
+    </div>
+
+    <div class="product-logo-row">
+      <img src="assets/images/connect-logo.svg" alt="Connect by Dimagi">
+      <img src="assets/images/commcare-logo.svg" alt="CommCare by Dimagi">
+      <img src="assets/images/sureadhere-logo.svg" alt="SureAdhere by Dimagi">
+    </div>
+
+    <div class="product-cols">
+
+      <div class="product-col">
+        <div class="product-video">
+          <iframe src="https://www.youtube-nocookie.com/embed/eyDDRv-v1Bk" title="Connect demo: pay for verified outcomes, not effort" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="product-col-headline">Pay for verified service delivery, not planned activity.</p>
+        <p class="product-col-desc">Connect delivers high-impact interventions in the places where the need is strongest, through a marketplace of local, government-aligned organizations, with every service independently verified the moment it&rsquo;s done.</p>
+        <div class="product-col-actions">
+          <a class="btn btn-indigo btn-arrow" href="https://connect.dimagi.com/" target="_blank" rel="noopener">Learn More</a>
+          <a class="btn btn-ghost btn-arrow" href="contact/index.html">Schedule a Demo</a>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <div class="product-video">
+          <iframe src="https://fast.wistia.net/embed/iframe/o4y7gg9ssm?seo=true&amp;videoFoam=false" title="CommCare intro video" allow="autoplay; fullscreen" allowtransparency="true" scrolling="no" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="product-col-headline">The digital platform for impactful frontline work.</p>
+        <p class="product-col-desc">Build powerful apps for frontline teams without code. From data collection to complex case management, CommCare is the software platform you&rsquo;ll never outgrow, used by hundreds of organizations across 130+ countries.</p>
+        <div class="product-col-actions">
+          <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/commcare/" target="_blank" rel="noopener">Learn More</a>
+          <a class="btn btn-ghost btn-arrow" href="contact/index.html">Schedule a Demo</a>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <div class="product-video">
+          <iframe src="https://fast.wistia.net/embed/iframe/htl85vr750?seo=true&amp;videoFoam=false" title="SureAdhere video-observed therapy" allow="autoplay; fullscreen" allowtransparency="true" scrolling="no" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="product-col-headline">Person-centered virtual care for treatment adherence.</p>
+        <p class="product-col-desc">The leading platform for medication adherence, combining video-observed therapy with continuous patient accompaniment to improve outcomes in TB, infectious disease, and clinical trials. 96% TB treatment completion.</p>
+        <div class="product-col-actions">
+          <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">Learn More</a>
+          <a class="btn btn-ghost btn-arrow" href="contact/index.html">Schedule a Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───── SERVICES ───── -->
+<section class="section-services" id="services">
+  <div class="container">
+    <div class="section-head centered">
+      <span class="eyebrow muted">OUR SERVICES</span>
+      <h2 class="section-title">Build with a team that has <em>unmatched frontline expertise.</em></h2>
+      <p class="section-lede">We partner with governments and organizations to deploy, scale, and sustain digital solutions, now amplified by AI, backed by 20 years of frontline implementation expertise.</p>
+    </div>
+    <div class="services-2col">
+
+      <div class="svc-card">
+        <div class="svc-card-label">Global Solutions</div>
+        <h3 class="svc-card-name">Global Services</h3>
+        <p class="svc-card-desc">10+ years supporting national-scale programs across Africa and Asia. Now pioneering next-generation national community health systems, for just $5,000/month, radically lowering the cost of digitizing frontline health workforces.</p>
+        <a class="svc-card-link" href="professional-services/global-services/index.html">Learn more</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-label">United States Solutions</div>
+        <h3 class="svc-card-name">United States</h3>
+        <p class="svc-card-desc">Trusted digital modernization partner for state and local government, with deep expertise in behavioral health, case management, and public health data systems. Scaling sustainable digital solutions with partners like the Colorado Behavioral Health Administration.</p>
+        <a class="svc-card-link" href="professional-services/united-states/index.html">Learn more</a>
+      </div>
+
+    </div>
+    <div style="margin-top:40px; text-align:center;">
+      <a class="btn btn-indigo btn-arrow" href="professional-services/index.html">All professional services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PROVEN IMPACT ───── -->
+<section class="section-impact" id="impact">
+  <div class="container">
+    <div class="section-head centered">
+      <span class="eyebrow muted">PROVEN IMPACT</span>
+      <h2 class="section-title">Evidence-backed.<br>Government-trusted.<br><em>Customer-loved.</em></h2>
+      <p class="section-lede">Dimagi&rsquo;s software platforms are backed by rigorous published research, trusted by governments at scale, and used every day by hundreds of organizations around the world.</p>
+    </div>
+
+    <div class="impact-cols">
+
+      <div class="impact-col">
+        <div class="impact-col-screenshot">
+          <img src="assets/images/home/research.jpg" alt="Field research and data collection">
+        </div>
+        <h3 class="impact-col-title">The peer-reviewed evidence base</h3>
+        <p class="impact-col-body">CommCare&rsquo;s 100+ peer-reviewed studies span maternal health, infectious disease, and nutrition, recognized by WHO and leading global health institutions. SureAdhere&rsquo;s 28 publications contribute to TB treatment guidelines from the CDC and WHO, with 96% treatment completion in the landmark NYC study.</p>
+        <a class="impact-col-link" href="professional-services/research-data/index.html">View Research</a>
+      </div>
+
+      <div class="impact-col">
+        <div class="impact-col-screenshot">
+          <img src="assets/images/home/community-health.jpg" alt="Community health worker in the field">
+        </div>
+        <h3 class="impact-col-title">Government-scale deployment</h3>
+        <p class="impact-col-body">CommCare is the selected electronic national community health information system (eCHIS) in 9 African countries, collectively more than one-third of the continent&rsquo;s population. Across the US, Dimagi&rsquo;s platforms run in 21 states and territories, supporting state public health programs from Alaska to New York.</p>
+        <a class="impact-col-link" href="professional-services/global-services/index.html">View the Next-Gen eCHIS Offering</a>
+      </div>
+
+      <div class="impact-col">
+        <div class="impact-col-screenshot">
+          <img src="assets/images/home/field-outreach.jpg" alt="Frontline outreach worker with community members">
+        </div>
+        <h3 class="impact-col-title">Used every day, around the world</h3>
+        <p class="impact-col-body">Hundreds of paying customers across 130+ countries, from small NGOs running their first digital program to multi-country organizations deploying at scale, pay to use Dimagi&rsquo;s platforms. Their commitment funds continuous improvements and a sustainable model that keeps us here for the long haul.</p>
+        <a class="impact-col-link" href="https://dimagi.com/commcare/solutions/" target="_blank" rel="noopener">View Sectors</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───── ABOUT DIMAGI ───── -->
+<section class="section dark" id="about">
+  <div class="container">
+    <div class="about-2col">
+      <div class="about-copy">
+        <span class="eyebrow on-dark">ABOUT DIMAGI</span>
+        <h2 class="section-title">A global <em>social enterprise.</em></h2>
+        <p class="about-body">Founded in 2002, Dimagi is a certified Benefit Corporation powering impactful work through scalable digital solutions, with teams around the world.</p>
+        <p class="about-body">When historic cuts reshaped global development, we didn&rsquo;t wait for the next grant cycle. We rebuilt our product offerings around radical simplicity, affordability, and AI. <strong>The problems didn&rsquo;t go away when the funding did. And neither will we.</strong></p>
+        <div>
+          <a class="btn btn-on-dark btn-arrow" href="podcast/index.html">Listen to our podcast</a>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <img src="assets/images/about-photo.jpg" alt="Dimagi team">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA BAND ───── -->
+<section class="cta-band" style="background:#f5f7ff; color: var(--ink);">
+  <div class="container">
+    <span class="eyebrow">READY WHEN YOU ARE</span>
+    <h2 style="color:var(--ink); margin-bottom:20px;">Let&rsquo;s build something that <em>lasts.</em></h2>
+    <p style="color:var(--muted); max-width:520px; margin:0 auto 40px; font-size:18px;">Tell us about your program and we&rsquo;ll help you find the right path, whether that&rsquo;s a product, a partnership, or a conversation.</p>
+    <div class="cta-actions">
+      <a class="btn btn-indigo btn-arrow" href="contact/index.html">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="professional-services/index.html">Overview</a></li>
+          <li><a href="professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="professional-services/united-states/index.html">United States</a></li>
+          <li><a href="professional-services/india/index.html">India</a></li>
+          <li><a href="professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="contact/index.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="company/about/index.html">About Us</a></li>
+          <li><a href="company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="podcast/index.html">Podcast</a></li>
+          <li><a href="company/careers/index.html">Careers</a></li>
+          <li><a href="./press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="legal/privacy-policy/index.html">Privacy</a>
+        <a href="legal/terms-of-service/index.html">Terms</a>
+        <a href="legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/nav.js?v=4"></script>
+</body>
+</html>

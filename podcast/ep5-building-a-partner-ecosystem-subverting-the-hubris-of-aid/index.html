@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 5: Building a Partner Ecosystem &amp; Subverting the Hubris of Aid with Rowena Luk (Exponential Growth Part 2) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Rowena Luk, Dimagi&#x27;s Chief Connector, on building a local partner ecosystem around CommCare and subverting what she calls the hubris of aid.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep5-building-a-partner-ecosystem-subverting-the-hubris-of-aid/">
+<meta property="og:title" content="Ep 5: Building a Partner Ecosystem &amp; Subverting the Hubris of Aid with Rowena Luk (Exponential Growth Part 2)">
+<meta property="og:description" content="Rowena Luk on building Dimagi&#x27;s partner ecosystem and subverting the hubris of aid.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>June 22, 2022</span>
+          <span class="dot"></span>
+          <span>22 min</span>
+        </div>
+        <h1 class="ep-title">Building a Partner Ecosystem &amp; Subverting the Hubris of Aid with Rowena Luk (Exponential Growth Part 2)</h1>
+        <p class="ep-deck">Rowena Luk, Dimagi&#x27;s Chief Connector, on building a thriving partner ecosystem of local developers and implementers, and why opening up CommCare as infrastructure is how communities lift themselves out of poverty.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6Or7Hu0Jhyb8Vnje4jES4u?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 5 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6Or7Hu0Jhyb8Vnje4jES4u" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000567438585" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/XRqhq4ZrwQc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/7859428e-7be8-4c69-b900-c42b303ca1e5/high-impact-growth-building-a-partner-ecosystem-subverting-the-hubris-of-aid-with-rowena-luk-exponential-growth-part-2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">24 hours</div>
+          <div class="ep-stat-label">for a local partner in Nigeria to deploy a COVID-19 application on CommCare in 2020</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">60%</div>
+          <div class="ep-stat-label">of the world&#x27;s cinnamon comes from Indonesia, where a partner uses CommCare to manage the value chain</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">12 years</div>
+          <div class="ep-stat-label">Rowena spent at Dimagi before taking a sabbatical</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Central to Dimagi’s strategy of sustaining exponential growth is building and scaling a thriving partner ecosystem, a community of local developers and implementers that can create content, build applications and drive innovations with CommCare to suit specific localized needs.</p>
+        <p>In today’s episode we talk to Rowena Luk, Dimagi’s Chief Connector, about the role of partnerships in creating high-impact growth. You’ll learn about Rowena’s journey to global digital health, including how a Canadian physician working in Ghana convinced her of the need for technology to improve healthcare in Africa. She discusses what it was like being one of the first female hires at Dimagi, and why she left Dimagi for a sabbatical after 12 years. And we dig into what brought her back to Dimagi – a desire to build out the technology ecosystem in Africa.</p>
+        <p>Rowena shares how the partner ecosystem can help topple what she calls the hubris of aid: “The hubris of aid is believing that we can help people better than they can help themselves. And that’s not a mistake that we’re making. There are people in these communities that understand agriculture that understand finance and understand health and malaria and HIV so much better than we do and can speak to the communities we serve so much better than we can. And being able to open up this ecosystem of partners is how we unlock the potential for these communities to lift themselves out of poverty.”</p>
+        <p>Even though investing in partner companies could be directly in competition with Dimagi, Jonathan shares why he was eager to do this: “We’ve always believed the communities have the answers and that we could be great at providing the digital infrastructure. But the solution itself would always be locally driven.”</p>
+
+        <blockquote>
+          <p>&ldquo;The hubris of aid is believing that we can help people better than they can help themselves. And that&#x27;s not a mistake that we&#x27;re making.&rdquo;</p>
+          <cite>Rowena Luk, Chief Connector at Dimagi</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From engineering to global health</strong>: how a Canadian physician working in Ghana convinced Rowena that technology could change healthcare in Africa</li>
+          <li><strong>The first female hire that stuck</strong>: joining a room full of MIT guys in 2009 and helping shape Dimagi's culture</li>
+          <li><strong>Why she left and came back</strong>: a 12-year run, a sabbatical that launched the Aid Evolved podcast, and a passion for building Africa's tech ecosystem</li>
+          <li><strong>CommCare as infrastructure</strong>: why an open-source platform built for others to build on is not in competition with local partners</li>
+          <li><strong>Partners moving faster than Dimagi could</strong>: a Nigerian team deploying a COVID-19 app in 24 hours, and a cotton farmer using CommCare to manage Indonesia's cinnamon value chain</li>
+          <li><strong>Subverting the hubris of aid</strong>: decolonizing aid, the design under the mango tree philosophy, and impact over revenue</li>
+          <li><strong>Why now</strong>: how Dimagi's growth finally created the bandwidth to invest in long-term partnerships</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome back to high impact growth. I’m Amie Vaccaro in today’s episode, we’re continuing to unpack. Dimagi second strategic priority for the next five years, which is to sustain exponential growth. One of the key ways we’re approaching. This is by investing in partner ecosystems. Which means helping developers and local implementers build content and application specific to their needs with Comcare.</p>
+              <p>First let’s hear from Jonathan Jackson, Dimagi CEO who shares that this isn’t the first time we’ve tried to do this.</p>
+              <p><span class="spk">Amie Vaccaro:</span> How are you thinking about building the local partner ecosystem today?</p>
+              <p><span class="spk">Jonathan Jackson:</span> So know this is something that was always a passion of ours. We, 10 years ago, tried to get an initiative called code and country up off the ground supporting partnerships with local developers in country, and we failed to get that off the ground because we kept having to trade off speed versus. Cost and effort to do capacity building.</p>
+              <p>And so this time around, we’re really trying to be much more cognizant of recognizing that that trade-off is still going to be there. So what needs to be true to support their party’s diplomat without us, or to support third parties to with us, but then take over on behalf of a client or to just support the client to build themselves directly.</p>
+              <p>So we’ve invested a ton over the last couple of years in our technical documentation capabilities for. Our application builder and our ability for people to self host. And we’re in fact doing an update to our Dimagi academy, which should make the content more accessible and the courses more enjoyable to leverage, but really looking at, you know, can we shorten the amount of effort and time that goes into capacity building so people can build faster in Comcare, but then also can we enable.</p>
+              <p>More valuable features of the platform to be more accessible. And so a lot of our partners are actually doing a lot around learning right now. So they’re using Comcare as an e-learning platform. That’s not a use case that would be obvious to you if you were looking at our website or just using the platform, but all the core capabilities are there and our platform.</p>
+              <p>And so for those. Common use cases that we’re trying to enable our scene, our ecosystem doing on their own. How do we surface those and provide guidebooks or cookbooks on how to do that on their own? So when we think about exponential growth, it’s not just that the software layer, although that’s been our biggest success to date, it’s much more also the content and the communities of practice and the best practices and the able men.</p>
+              <p>And that’s what we’re really excited to be focused on as well. In 2022.</p>
+              <p>There are many people at Dimagi working on building out our partner ecosystem. For today’s episode jonathan and i spoke with Ruina, luke</p>
+              <p><span class="spk">Amie Vaccaro:</span> . Ravina Luke, thank you so much for joining us. I’m really excited to have you on the podcast today. So you are chief connector at Dimagi. You were also host of the eight evolved podcast, which I have to say was an inspiration for this podcast. So thank you for blazing that trail. And you’re one of the earliest Dimagi team members.</p>
+              <p>Before we jump into exponential growth talk. I wanted to ask you a bit about your story and how you came to Dimagi. Why you joined, how did that happen?</p>
+              <p><span class="spk">Rowena Luk:</span> It’s a pleasure to be here, Amie. Thanks for inviting me on the show. So my story with digital health, I think begins when I was in graduate school. You know, I finished engineering figured I’d go work at a Google or Facebook or something. And then I was, you know, in graduate school, just getting ready for all of that.</p>
+              <p>And I’d always be interested in doing something good for the world, like working with amnesty and organizations like that. In graduate school. I discovered there was a research group called technology and infrastructure for emerging regions. And I’d never heard of this before. And as someone who’s really passionate about technology and wants to do some good in the world, I was like, oh, this is insane.</p>
+              <p>Like the idea that I can use technology and do some good, like that’s, that’s really intriguing. So I followed the team members around until they, they let me join their project and brought me to Ghana. It was in Ghana that I, the very first person I met actually at the airport was Dr.</p>
+              <p>Silva vortex. He’s a Canadian physician who also does a bunch of programming in his closet. And I remember thinking at the time, you know, I’m an engineer, like, I don’t know what I can do with those skills. You know, let’s let the doctors do their doctor things. But he, as a doctor, it was the first one that said.</p>
+              <p>Got a needs more technology gonna needs to be doing things better and faster and differently than before. And it was because of those words of encouragement for him, then I was like, okay, like, yeah, I think, I think this is the career for me. Fast forward a few years. Roaming around in Canada. I was trying to set up a non-profits to do telemedicine work in west Africa, not doing a terrible job of it, to be honest.</p>
+              <p>And as I was applying for a grant, I started chatting with this fellow named Neal Lesh, whom you might be familiar with. And he was like, oh yeah, you know, this is, this is a really interesting idea that you have, have you, have you heard of Dimagi and what they’re doing? This is 2008 and I looked over and I was like, wow, these guys they’re doing exactly.</p>
+              <p>Got a needs. They’re doing exactly what we need in west Africa. And they’re way ahead of me. I need to close up shop enjoying what they’re doing. So that’s how I joined Dimagi back in 2009.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So RO. In the first couple of episodes we were asking about the founding story of Dimagi and. We hear a lot of male voices. I’m wondering were you one of the first female hires at dimagi</p>
+              <p>I don’t know if I was the first female hire at Dimagi, but I think I was the first female hire that stuck. I remember joining the organization and walking into this room full of all these hardworking MIT guys. It was a pretty busy time, so everyone would eat lunch at their desk. And I remember thinking to myself, man, I would love to have lunch with this group of people, but because I was the only woman, I just, you know, I didn’t want to beat that woman.</p>
+              <p>He was approaching all these guys, so. Just sat quietly at my desk and you know, not too long after that Danny Roberts joined the company and he wasn’t afraid to be weird or different. And he would just walk up to these guys who were clearly busy and say, Hey, let’s have lunch. And he’s a big part of how Dimagi got to the amazing culture that it has today.</p>
+              <p>I think if I had it all to do over again, I wouldn’t be afraid of being weird or different, or the only girl in the room. I would just worry about.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I’d say,</p>
+              <p>And that started right around the time when rose joined.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Well, thank you Roe, for leading that charge. And you know, I think that the organization is. Evolved a lot since then. Roe, you recently took, I’m not sure if you’d call it a sabbatical or sort of took a break from Dimagi and then decided to come back.</p>
+              <p>What did you do in your sabbatical and, and what, what brought you back.</p>
+              <p><span class="spk">Rowena Luk:</span> Oh, that’s a great question. I think I went on sabbatical because at that point I’d been with Dimagi 12 years, which is a long enough time for anyone to be in any organization and just wanted to take a breath. Have a broader look at what was going on in the ecosystem. You know, I spent 10 years, very much heads down.</p>
+              <p>Like, let’s get this company off the ground, let’s grow, let’s deliver the project. Let’s deliver impact. And I felt like I was missing the perspective. What’s going on with the rest of the world. What’s, you know, what’s going on with, with technology in Africa. So when I was on sabbatical, that’s when I launched the podcast eight evolved and I took that opportunity to speak with a bunch of the folks that are working in the nonprofit space, in the digital health space.</p>
+              <p>And then also to reach out to. Technologists founders and leaders in Africa that are doing really interesting work, changing the game and starting organizations in Africa. And I really valued that experience. We continue to value that experience and in a funny way, it’s also what, what brought me back because I remember chatting with Jon about, okay, you know, I’ve gotten my break, I have my energy back, you know, what’s next.</p>
+              <p>And Jon asked me, well, what are you passionate about? What’s gonna motivate you. And I, and I told him, And this conversation. I was like, well, Jon, here’s the thing. I am really interested in building out the technology ecosystem in Africa. And I think it’s a direct competition to what Dimagi does. And Jon said, I think that would be super high impact.</p>
+              <p>Let’s do that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. I think when Ruina started at eight of all podcasts, I was an avid listener too, and I was fortunate that she had beyond, but I think that outside learning is always something RO you’ve you’ve sought for Dimagi to be better at and try to, you know, not just focus on. Our organization as the main project, but how do we fit into the broader ecosystem?</p>
+              <p>And it’s really hard to do that when you know, our margins are so thin and growing so hard. And so it’s something that I am excited that we finally have the opportunity and the bandwidth and the team size that we can really invest. And it’s been something you and I had talked about for many years you know, with different partnerships and opportunities.</p>
+              <p>And this is something that I’m really excited to see what we can do now in this new phase.</p>
+              <p><span class="spk">Amie Vaccaro:</span> I really liked that story road, cause I think it speaks to a theme I’ve seen across folks at Dimagi where. People change roles over the years as their interests and their passions evolve. And I think it’s it’s just a really impressive thing that Dimagi is able to be flexible enough to allow folks to explore passions within Dimagi as well as let them step away and come back.</p>
+              <p>Right. Which you’ve done.</p>
+              <p><span class="spk">Rowena Luk:</span> When I, when I joined, I figured I’d be around for two years and then go out and do the next thing, because I have a very short attention span, but you know, one thing led to the next and now it’s been like 14 years.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s really impressive. So, For this episode where we’re really digging in on strategic priority, number two in Dimagi is five-year strategy document that we just laid out that priority is sustained exponential growth. And as I was reading through it, one of the pieces.</p>
+              <p>It’s really weaved throughout that strategy is considerations around our ecosystem, enabling other organizations to really build with care. That’s at the heart of your role, right? And that’s at the heart of what’s brought you back to Dimagi. Why, why this strategy now?</p>
+              <p>And I think, I guess I’m asking that because it sounds like Jon, what you shared with me is that, this is a strategy we’ve, we’ve considered before. Um, It, maybe didn’t go as we thought it would. Why are we recommitting to this?</p>
+              <p><span class="spk">Rowena Luk:</span> I believe now is the best time to build on this. When Dimagi. A smaller organization. You know, before we demonstrate a profitability, when we were just trying to cover our costs and not lay off our staff we really needed to look more short term, you know, the deals in front of you.</p>
+              <p>Like, how do you close it? How do you move it forward? While still delivering impact? But more short-sighted I think with where the organization is now we can expand the work that we’re doing and we can look a little bit more longer term the McGee has. Been very strong on the partnership side.</p>
+              <p>Like, you know, our work involves partnering with governments, nonprofits, and research institutions. Now we’re in a space where we’re building out new kinds of partnerships, where we need to very carefully craft the value proposition so that we’re creating value on all sides of the table. The local technology ecosystems or with other players be they universities or content, content experts, subject matter experts or other technology players.</p>
+              <p>And at this point, The Mindshare we have the market share, and we have an understanding of what’s going on in these industries enough that we can intentionally craft that value proposition. And we can take the time to build the partnerships, you know, like any relationship partnerships, take time to build.</p>
+              <p>And I think we didn’t have the luxury to invest as much in it in the past as we might’ve.</p>
+              <p><span class="spk">Jonathan Jackson:</span> From my perspective. It was really exciting when Roe came to me and said you know, that she was excited about building the taquito system in Africa. I think we’re out of position.</p>
+              <p>And our flywheel is kind of working fast enough that if it ends up being competitive to what Rowe originally talked me. That’s going to be okay. And that’ll be a good thing for us to learn. And if we contribute to accelerating the ecosystem, even if it doesn’t benefit con care, we’re now fortunately in a position as an organization to do that.</p>
+              <p>But more importantly, I think we’re finally at a place where it’s win-win the amount of demand we’re seeing for CommCare, the amount of emphasis on local ecosystem development, local technology vendors, and the, the financial funding for that I think is making it a good business value. But most importantly, I think the innovations on top of CommCare are going to come from local partners.</p>
+              <p>They’re going to have the best understanding of the market, the best understanding of how to potentially use CommCare and , what not to use CommCare. You know, when we’re selling confidence, obviously everything looks like it needs CommCare, but it can be really helpful to partners who it’s one of several tools they offer and can really make the best option for what their partners need.</p>
+              <p><span class="spk">Amie Vaccaro:</span> we’re just in a better. Place to be able to think longer term. So can you tell me Rowena, like, what is this partnership program looking like? How has it taking shape and how are you thinking about building.</p>
+              <p><span class="spk">Rowena Luk:</span> I think what makes it so interesting and what I really love about this work is that there are so many different kinds of players out there. Let me, let me give a few examples just of how it’s coming together. And I think the key here is recognizing. When that we, the value, the product that we provide and the platform and the infrastructure that we give can enrich the work of other players out there.</p>
+              <p>And also recognizing that there are ways and opportunities in which other actors in these ecosystems can really create impact or create value in a way that Dimagi can’t. So there’s certain amount of. Understanding that shared value as well as amount of humility and understanding our place in the market.</p>
+              <p>So let me give you a few examples. So one of our, one of our partners in Strat in Nigeria, they’re our local digital health organization. When COVID nine. Broke in 2020, they were able to respond within 24 hours and deploy a COVID-19 application on CommCare in Nigeria. That was announced by the Oregon state’s commissioner.</p>
+              <p>And that’s just, we don’t even have staff in Nigeria right now. Like it was amazing that they could move that quickly. And that’s not something that we would have been able to do. Another one I’ll highlight is the story of ag impact or now OI in Australia. Stewart grew up, he spent his whole life as a, as a farmer growing cotton and sorghum and a few other commodities.</p>
+              <p>And then he actually found CommCare , independently. He was doing research to figure out like, what was the best tool for managing the agricultural value chain? And he found CommCare selected it from a suite of other. And then used it for his work and because of Stewart CommCare is now being used to manage the value chain.</p>
+              <p>Of the largest buyer of cinnamon in Indonesia. And I don’t know if you know this, but 60% of the world’s cinnamon comes from Indonesia. And 90% of that comes from Sumatra, the island where Stewart works. I’m certainly not an expert on cinnamon. I don’t think I personally would have ever been able to build out that particular app, but to me.</p>
+              <p>I just find it crazy and amazing that someone like Stuart can get a tool like CommCare and make it, do all these things in geographies around use cases that we might not have even imagined when we created the platform. And then I think those are examples of the kind of creativity, the kinds of innovation that we can unlock as we build out this partnerships ecosystem.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Sorry. And I wanted to ask about competition, right? So if you think about these local technology providers, you might think that the are, they’re actually competing with what Dimagi does and what CommCare offers, but you’re saying it’s not competitive. Why, why.</p>
+              <p><span class="spk">Rowena Luk:</span> So many answers to that question and Amie it’s, it’s a really good question. On, on the one hand, there’s the piece that Jon has already spoken to about how we’re targeting high impact exponential growth, and our vision for the future is one in which there’s so much demand and so many different corners of this landscape that we want as many players in there as possible to create value using these open source products that we’re offering.</p>
+              <p>I think the other piece. Worth being mindful of is, is a role that CommCare has a platform plays in the ecosystem. I think of CommCare as infrastructure, you know, Comcare isn’t, it’s not a single application that we’re selling because if it were a final application, then we would be competing directly against and other mobile apps that are out there.</p>
+              <p>CommCare is a solution for. Mobile solutions. It’s it’s infrastructure and infrastructure is something that open source software is very well suited for matching. Like if you look at, if you look at the get hub state of open-source, the open-source projects that are most successful are the ones that are creating that, that heart, that backbone.</p>
+              <p>But the point of infrastructure is to build on top of. And so the reason that we need these local technology players, you know, local universities, local content experts, and so that we can really use this infrastructure to allow. To help themselves. The hubris of aid is believing that we can help people better than they can help themselves.</p>
+              <p>And that’s not a mistake that we’re making. There are people in these communities that understand agriculture that understand finance and understand health and malaria and HIV so much better than we do and can speak to the communities we serve so much better than we can. And being able to open up this ecosystem of partners is how we unlock the potential for these communities to lift themselves out of.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Wow. Rowena. I think that’s so, so powerful. And. I almost want to stop there and have you repeat that, aid aid tends to hinge on this idea that , , we know what’s best for someone else. Right. And you’re basically saying that’s not our approach.</p>
+              <p>Say a little bit more about that? I’d love to impact that.</p>
+              <p><span class="spk">Rowena Luk:</span> Oh, absolutely. I mean, I think there’s, there’s no shortage of the debate right now on decolonizing aid and the inherently paternalistic side of aid. You know, why do we have all these white people from the Western world coming in to tell people how to make their own lives better? Dimagi from day one has adopted this design under the mango tree approach.</p>
+              <p>And it’s really important that that same kind of philosophy permeates itself into our strategy into our longterm vision. Even as we grow and we become Mircera chair, we become the organization that we are today and the way that we are looking now at taking this, this ability to create meaningful and powerful CommCare apps and opening that up to the broader ecosystem.</p>
+              <p>Is has incredible leverage. And I think it’s a particularly powerful move. Because you know, Jon here, here we out because. Doing that kind of content creation on the platform has historically been such a major revenue driver for Dimagi. But the point of Dimagi, the reason it exists is not to create revenue.</p>
+              <p>The point is to create impact. And because of that, we’re opening up this ecosystem of content creation to a broader variety of players and partners.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Absolutely RO and you know, this has been something that we’ve tried multiple times to figure out ecosystem approaches that could work for us because we’ve always believed the communities have the answers and that we could be, you know, great at providing the digital infrastructure. But the solution itself would always be locally driven.</p>
+              <p>And this is a. You know, we’re fortunate to be in a position now with our aggressive growth over the last couple of years and our success to really be able to invest in and crack this. And I’m super excited to see what we can do.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Any final words either of you want to add?</p>
+              <p><span class="spk">Rowena Luk:</span> I think the other thing that makes this. Particularly relevant for me as well. As you know, now that I live in South Africa, both of my children were born here in South Africa.</p>
+              <p>It has a certain personal significance that we were able to tap into talent on this continent in a way that we haven’t.</p>
+              <p>That’s our show for today before I close, I want to share some of my takeaways. Today’s conversation really underscored for me, just how essential our partner ecosystem is to high impact growth. By seeing Dimagi his role as an open source infrastructure provider. We show respect for the communities.</p>
+              <p>Who truly know what’s best for them better than we can. Where we going to touches on what she calls the hubris of aid. Which is that white Western cultures know what’s best for communities in need around the world. And that simply isn’t true. Dimagi his role and point of view on decolonizing aid will certainly come up in future podcast conversations.</p>
+              <p>But our investment and our partners today. Is one way that we are unlocking the potential for communities to lift themselves out of poverty.</p>
+              <p>And also as someone who joined a muggy. About a year ago. I’m really grateful to be joining when we’re in a position to be thinking longterm. We’ve always known partners were important, but we haven’t always had the luxury to have staff focused on them.</p>
+              <p>Lastly, I want to thank Rowena for blazing a path for Dimagi in many ways, as one of the first female hires who stuck. As an advocate for a partner program. And as creator of the aide evolve podcast, which I highly recommend. So on the next episode, you’re going to hear from Dave Moray, senior director of product, about how we think about building calm, cares, capabilities, and functionality to support exponential growth.</p>
+              <p>Thanks for joining.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">RL</div>
+            <div class="person-info">
+              <p class="person-name">Rowena Luk</p>
+              <p class="person-role">Chief Connector at Dimagi and one of its earliest team members, leading the build-out of a local partner and technology ecosystem in Africa. Also creator of the Aid Evolved podcast.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6Or7Hu0Jhyb8Vnje4jES4u" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

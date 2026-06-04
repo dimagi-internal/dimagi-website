@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 20: Must-Listen Guidance for Technologists in Global Health from Malawi’s Head of Digital Health, Simeon Yosefe | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Simeon Yosefe, Malawi&#x27;s Head of Digital Health, on aligning partners to government strategy and replacing siloed systems with comprehensive digital health.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep20-must-listen-guidance-for-technologists-in-global-health-from-malawis-head-of-digital-health/">
+<meta property="og:title" content="Ep 20: Must-Listen Guidance for Technologists in Global Health from Malawi’s Head of Digital Health, Simeon Yosefe">
+<meta property="og:description" content="Malawi&#x27;s Head of Digital Health, Simeon Yosefe, on building comprehensive, sustainable digital health systems.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>January 9, 2023</span>
+        </div>
+        <h1 class="ep-title">Must-Listen Guidance for Technologists in Global Health from Malawi’s Head of Digital Health, Simeon Yosefe</h1>
+        <p class="ep-deck">Simeon Yosefe, Malawi&#x27;s Head of Digital Health, joins Jonathan Jackson to share hard-won guidance for technologists in global health: align to the government&#x27;s vision, build for the long term, and replace siloed vertical systems with comprehensive, sustainable ones.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/78xbHhjDdSJgdd7BE9ypok?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 20 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/78xbHhjDdSJgdd7BE9ypok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000623967396" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/waebrCQaQHg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/164b4f58-080d-4f48-ad35-e6f5590d5823/high-impact-growth-must-listen-guidance-for-technologists-in-global-health-from-malawi%E2%80%99s-head-of-digital-health-simeon-yosefe-dispatches-from-the-2022-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">40+</div>
+          <div class="ep-stat-label">different digital health systems found running across Malawi during the landscape assessment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Must-Listen Guidance for Technologists in Global Health from Malawi’s Head of Digital Health, Simeon Yosefe</p>
+        <p>“For us as a country, we want to implement and deploy comprehensive systems. A system that actually encompasses everything. Not only focusing on one company. HIV may be a starting point, but we want these resources not only to be limited to HIV, but they should cover everything. And by doing that, we ensure that we are taking care of everything. If a mother is pregnant, is HIV positive, or also has TB – all these will actually be taken care of because we have brought all this work together and those who are providing the care will actually provide this care within the same framework and the same environment. That will definitely improve the situation.” – Simeon Yosefe, Head of Digital Health, Ministry of Health of Malawi</p>
+        <p>Jonathan Jackson talks to Simeon Yosefe, Head of Digital Health for the Ministry of Health of Malawi, to discuss the challenges and opportunities of digitally transforming Malawi’s health system. You’ll hear about the importance of aligning digital health systems closely to the vision and digital health strategy of the government, how Malawi is creating policy guidance to ensure that its digital health systems work for Malawi, and why we need to take a comprehensive approach to digital systems. Malawi has been a leader in digital health laying out a bold digital health strategy and this episode is a must listen for any digital health practitioners working or wanting to work with Ministries of Health.</p>
+
+        <blockquote>
+          <p>&ldquo;For us as a country, we want to implement and deploy comprehensive systems. A system that actually encompasses everything. HIV may be a starting point, but we want these resources not only to be limited to HIV, but they should cover everything.&rdquo;</p>
+          <cite>Simeon Yosefe, on building comprehensive systems</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From statistician to Head of Digital Health</strong>: Simeon Yosefe's path into transforming how Malawi manages health data</li>
+          <li><strong>40 systems and counting</strong>: an assessment that surfaced duplicated, siloed, partner-named tools, many already abandoned</li>
+          <li><strong>Harmonizing work plans</strong>: pooling partner priorities to see where resources cluster and where critical needs go neglected</li>
+          <li><strong>Infrastructure over dongles</strong>: pushing partners away from short-term fixes toward long-term connectivity investments</li>
+          <li><strong>Policy with teeth</strong>: drafting an enforcement framework so alignment survives when grant deliverables conflict</li>
+          <li><strong>Beyond the vertical program</strong>: caring for the whole patient who may have HIV, TB, and a pregnancy at once</li>
+          <li><strong>Shared value</strong>: how to reevaluate whether a multi-year digital investment is delivering the health outcome it promised</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Welcome to High Impact Growth. I’m here with Simeon from the Ministry of Health in Malawi at the Global Digital Health Forum. Very excited to speak. Simeon, can you start just by sharing your background and your role within the Ministry of Health?</p>
+              <p><span class="spk">Simeon Yosefe:</span> Yeah. I’m Simeon um, currently I’m actually head of Digital Health in Mara. My background is not really from the IT field. I’m a statistician by profession, so I have spent all my years as a statistician and I started now focusing on the technology. I think starting from 2014 when I joined Minister of Health, because I actually intended to change the way things are done within the ministry, especially in terms of data management.</p>
+              <p>And when that happened, the issues of. Uh, probably digital. Digitizing the services came in and then, yeah, we, we actually took it from there. And up, up to now, the minister appointed me to, to head, digital health,</p>
+              <p><span class="spk">Jonathan Jackson:</span> Wonderful. That’s a, that’s a big role. Malawi’s been at the forefront of some amazing digital work over the years and has a, an aggressive and, and bold strategy going forward. Can you share a bit about the projects that you’ve overseen so far and what you have in your roadmap coming out?</p>
+              <p><span class="spk">Simeon Yosefe:</span> Uh, in terms of the projects, um, yeah, we have quite a number of them. I think serious changes have actually started to, to take shape in 2021, after Covid, but also, uh, when the, uh, management of the, department Okay. Changed, uh, hands from, the initial department where digital health was rocket.</p>
+              <p>Uh, directed a lot of quality to planning, where now I was actually made to actually head the, the digital health division. Uh, we actually looked at the, the way things were done and then that most of the investments in digital health were actually siloed, were project based.</p>
+              <p>And because they were project based, most of the issues would actually, uh, probably lack, sustain. , uh, we have so many systems that were actually probably deployed by various partners who actually wanted to invest in digital health, and these systems have not really made it, um, so long after the, the expire of the, the, probably the client that actually initiated the, the pay system.</p>
+              <p>And when we looked at the moment I just came in, I looked at the issue of trying to understand what the landscape is. So we did an assessment and then we actually discovered that we had more than 40 different systems running in the sphere. And that was not sustainable. And some of these systems probably they had actually died long time ago, but they were still being reported that we have these kind of systems in the, uh, in the facilities.</p>
+              <p>And the other issue was like these systems were mostly named after who actually initiated, or who actually implemented that. there was that, not that kind of ownership from the, the facilities where the systems were running because it was actually named after the, the partner who supported. So if the support goes, even the lo uh, healthcare workers who are using the system also stop using the system because it, it doesn’t actually have any support any longer.</p>
+              <p>And that has really affected the, the way, uh, systems are and even the gadgets. They could not be maintained. The ones who are supposed to come to maintain the, the, the gadgets are not there. So it has actually, put us in a very awkward situation. And in some instances you could actually probably have a situation where a patent has come say, okay, our grant is coming to an end.</p>
+              <p>We want you to adopt this system. And what I have always actually said , to people is that, uh, or to the partners, is that for government to actually adopt a system, it’s not an. and is a thing because if they were not actually engaged from the word go, then it means they were not actually planning for it.</p>
+              <p>And for you to say, okay, we want you to take this while they were not actually prepared, then that means that system is not going to have the support that is required. Uh, in the end it’s going to die. Uh, so a after that I said, no, let, let’s do the assessment of all these different systems that we.</p>
+              <p>we did the assessment. Uh, we, we actually realized that these systems were just duplicating each other. And, uh, what was really sad at that time, it was like much of the work or much of the resources that were spent would have actually been put to a better use if we are more coordinated. And then I said, okay, in that case, let’s try to establish these systems and.</p>
+              <p>which ones are actually just duplicating the other and see if we could probably, if those that are duplicating each other, if they would just be made to run on the same platform and then have those people who are supporting those kind of system come together and support that. And the other thing that I also discovered in working in that, that is that I think patterns, they have a, a very good motive of actually coming in to work, but.</p>
+              <p>The issue that really takes the center stage is the issue of visibility. They want to be seen that, they’re the ones who, uh, have actually probably implemented A, B, C, D in the end. Uh, it it, it actually makes them to start working in a more of competitive way instead of being complement to each other.</p>
+              <p>So we are also trying to regulate those kind of things and then, . The other area that we, we, we felt really needed attention is the area of infrastructure. Uh, much of the projects that I have mentioned, whether you are talking of the EMRs as that have been deployed in the facilities whatsoever, you talk of probably community based whatsoever.</p>
+              <p>We have lack infrastructure that could sustain these different systems. And because of that we, we started now seeing what, what is it that we can do best and then we. Probably emphasizing this to all the partners that no, if you really want to work with us in digital health, you also need to focus your attention on the infrastructure because we can’t keep on, uh, let’s say for example, someone comes with a dongo or comes with a MiFi, a MiFi, or a dongo.</p>
+              <p>If it has actually probably, uh, a steady, stronger, it’ll not actually exceed, exceed. It’s, it’s, it’s going to be gone. And that was the situation where now a lot of partners will actually say, okay, we are implementing this. We are actually giving you this dongo. We will be giving you a data bundle so that you can actually do this.</p>
+              <p>We are trying to get rid of that so that we, we now focus on, uh, long-term investments and, and yeah, it’s, it’s good that now it’s, it’s opening up. We, we, uh, partners have actually opened up. They’re actually willing to probably, , uh, long term infrastructure and I’m sure we are going to, to actually get better.</p>
+              <p>I think by the end of 2023 we should have something bigger than within the country.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great to hear. Uh, Simon, we, uh, we’ve been working in, in Malawi for over a decade and have seen this huge shift, as you said. You know, it used to be very, partner led doing a lot of vertical programs that were all going away at the end of the funding cycle, uh, to this much more strategic position.</p>
+              <p>That obviously sounds like the right way to do it, but is difficult to get there. So as, as you’ve gone through this process and the government’s gone through this process, what successes and, you know, recommendations have you had in how you were able to transform this mindset and what challenge? Did you bump into, you mentioned visibility and, and partner motivations.</p>
+              <p>And this is a huge problem, you know, as a tech partner, we want to, , serve the government and, and the strategy you have, but obviously we’re also chasing funding. You know, it’s so exactly as you said, we have that conflict where on the one hand, yes, of course we wanna line to the national digital strategy, but on the other we, we want to get, you know, funded for our work.</p>
+              <p>And so Absolutely. Right. , but yeah, we’d love to hear successes and c.</p>
+              <p><span class="spk">Simeon Yosefe:</span> The first thing that I actually, um, undertook even before doing the, the assessment of the different systems that, that are being implemented by different partners. What I did first was to actually harmonize the work plans for all. The players in, digital health because why I actually, decided pushed for that is to understand what is it that the patenters are focusing on, because I know that they are, they are, uh, partners when they, they, they come.</p>
+              <p>They have specific areas of interest. What is it that they want to put their resources on so that they could actually get what is it that they’re interested in? Much as they actually are supporting us, they also have the interest that they would actually want to get from this investment.</p>
+              <p>So what I did was to make sure that the work plans are actually harmonized. We, we pull these, We see where are much resources going and which areas are actually neglected. It’s when we actually identified that infrastructure was one of the neglected components because a lot of partners we are running away from that they were just focusing on somewhere where they would probably get the, the, the results immediately.</p>
+              <p>Probably within months they get whatever they want and then off they go. So we actually thought of, okay, let’s try to harmonize our, we. And we see where we have duplications and how much resources can we free for where there are duplications so that we can now shift these resources to the areas which are integrated.</p>
+              <p>It’s when now we started talking of what kind of infrastructure, okay, we need to come up with the blueprints for the infrastructure. When we are actually talking of putting up infrastructure in the facilities. What should be the standard? That blueprint was actually prepared. And then in terms of, okay, when we want actually to talk of like the connectivity, what are we talking about?</p>
+              <p>What is it that it needs to in include? We actually had all those and then we had the launch of the digital health strategy, which is now a blueprint for us to actually see where we are going to go and then I still realized that we were liking the, the word enforcement mechanism because whatever we were doing, we did not have alleg greater document, which would really like enforce that, okay, if someone breaches this, what would be like the outcome?</p>
+              <p>So we, we realized that we didn’t really have that guiding document, which was a policy. At the moment, we, are like in the final stages of drafting the policy. What is remaining now is to actually probably, uh, come up with a, uh, cabinet paper, which is actually going to present this policy to cabinet for, for deliberations and possible, uh, deliberations, empowerment for it to actually be passed.</p>
+              <p>Why we have actually done that. It’s like we, we don’t want, like, partners to have like a leeway or in other ways to find a loophole that, okay, we could actually, we can do this. Um, we will say, no, we, we didn’t have any likeor. What is it that we have actually contravened? Or what, what framework have we actually breached?</p>
+              <p>We would not actually have anything. So what we want is, okay, this is what we, we are looking. , we have actually indicated the issues of how to can new systems be brought into the, the space sphere, because that’s very critical and someone cannot just decide today that, okay, um, I have this system, I have developed this system.</p>
+              <p>I want this to be implemented. It’ll actually have to go through a liros process for it to be approved so that it’s actually, uh, deployed within the, the. , we are doing all those to, to bring sanity, but at the same time, to, to make sure that whatever investments we are making in that, that area, they’re actually sustainable.</p>
+              <p>So yeah, those, those, those are the kind of situations I think in, in terms of the challenges, I think, yeah. Initially the implementers and patterns altogether, they did not really understand what was the concept that we were trying to put forth. They thought that we just want probably to. Tell people to stop in using their systems whatsoever.</p>
+              <p>They didn’t understand that what we are trying to look what is the issue of such an ability. So af after we had actually taken the process, engaging them whatsoever, now everybody can understood that, that that was the best direction for us to take. Uh, much as it would mean that some of the systems that probably partners have actually, uh, cherished most will actually have to be discontinued.</p>
+              <p>We, we have to do that for the sake of the country, and we want to make sure that whenever we are coming in with resources, with support, it should really be going to where it’s going to make the difference so that the common people of MAI actually benefit from these investments.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And the need to have a clarifying policy, I think is a huge thing to stress because it’s one thing for all the partners to agree to have a technical working group and align behind a vision until it conflicts with their grant deliverable or until it is financially not in their interest.</p>
+              <p>Then all of a sudden they work around. Yeah, the. . Yeah. And so I think going into that policy framework, giving it real clarity and teeth, you know, to say, look partners, if you want to be here to support the Malawi people, you’re gonna get behind this policy document. That sounds like excellent advice. Um, one of the things I’ve been talking with other, uh, partners about, and I mentioned this on my panel within, uh, the Ethiopian context, is defining shared value.</p>
+              <p>You know, defining, we’re gonna pay million dollars for this system over five years. What’s the health. We’re gonna get as a result. How do you think about that and how have you reached that level of discussion within the policy or the strategy that you’re having in terms of not just what do we think is gonna happen, but how do we reevaluate whether this is having the value we expected it to have and either continue or discontinue?</p>
+              <p>Because these digital health investments, they’re not one time. Yeah, right. You have to continue to operate ’em with scarce resources and, and so how do you think about that challenge?</p>
+              <p><span class="spk">Simeon Yosefe:</span> Yeah. We really have challenges because, when partners are actually investing. They have specific deliverables that they would want to see. They have specific issues that they would want to achieve within a certain period. Now, having that in mind, what I have always probably discussed with, with the team or the partners as they come is that as government, we have a broader vision of where we want to go.</p>
+              <p>Now as we have a broader vision, Whatever partners really want is a subset of what government wants. So as they are trying to support that subset that they’re interested in, they should not only focus on that subset, but they should focus the whole vision that government has because it’s, by doing that, they will not only support what they’re interested in, but they also drive the agenda of the government.</p>
+              <p>Why that is very critical. As government, we have a wide range of areas where we really, we really see that here. There is a need that we really need to address why, for an implementing partner or the donor, they would just be interested. I, I can give an example of, probably Pep. Pep would be interested in issues only to do with.</p>
+              <p>But for us, what we are actually saying now is, okay, we can actually talk of HIV V. Yes, but what about the person who is both HIV, has tb, is actually pregnant or has some kind of like some kind of non-communicable diseases. What is going to happen with this person? Will you only take care of the HIV component</p>
+              <p>and then we, we, we had discussions at that point. They said, okay, no, I think in, in that case, we, we should actually start like flexing our procedures and rules that really govern our support whatsoever because what, what I have always said is if you go in countries, and this is happening to most c.</p>
+              <p>You actually hear that? No. For us, we had like HIV system is doing very well because it’s supported by C D C O. It’s supported by a pep. It’s supported by this one. They have moved in that. But then what about the other components that they’re living out, which are actually found within the same patient who is HIV positive?</p>
+              <p>They haven’t taken care of. and we, we had really, uh, like discussions on this and we, we finally agreed that, okay, now it has today to be opened up. So that’s where now what we said is, okay, for us as a country, we want to implement, deploy comprehensive systems. A system that actually encompasses everything.</p>
+              <p>Not only focusing on one company. HIV may be a, a starting point, but we want these resources not only to be limited to hiv, but they should cover everything. . And by doing that, we ensure that we are taking care of everything. If a mother is pre pregnant, is HIV positive, or is also tib all these will actually be taken care of because we have brought all this work together and those who are providing the care will actually provide this care within the same framework and the same environment, that will definitely improve the situation.</p>
+              <p>So we had those kind of discussions and it, it was not easy to actually drive home the. , but we actually made it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s such an amazing example and I think is reflected in a lot of PEPFAR’s global thinking Now. In their latest release of their five year strategy. It, it is exactly resonant with what you just said. And not only that, but it’s often cheaper to do it the right way. Siloing off these digital systems for these vertical use cases can often be harder than making it comprehensive for all of these different functions at the clinic, at the community level.</p>
+              <p>Um, so just an an excellent point, Simon. Thank you so much for coming by. We really appreciated the time.</p>
+              <p>Thank you so much to Mr. Simion USFA there was a lot of rich guidance, both for people within ministries of health and digital health partners working on technology solutions. I wanted to share a couple of my quick takeaways. First digital health providers need to align closely to the vision and digital health strategy of the government of the country that they’re working in.</p>
+              <p>Second Malawi’s working on policy guidance. That will ensure that digital health systems work for Malawi. This seems like a really strong move to ensure that partners are aligned to the government. And its goals. And the donor or partner priorities. Don’t conflict.</p>
+              <p>Lastly, I heard so clearly the need for digital systems to take a comprehensive and human centered approach. I love Mr. Yosefe’s example of a woman with HIV who may also be pregnant. And a program and digital tool that only supports HIV. Justin doesn’t work. We are whole complex people with intersecting needs.</p>
+              <p>And digital technology needs to support all aspects of wellbeing.</p>
+              <p>Thank you so much. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact and write to us@podcastatdimagi.com. With any ideas, comments, or feedback.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SY</div>
+            <div class="person-info">
+              <p class="person-name">Simeon Yosefe</p>
+              <p class="person-role">Head of Digital Health, leading the effort to align partners to national strategy and build comprehensive, sustainable systems. A statistician by training.</p>
+              <span class="person-org">Ministry of Health of Malawi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/78xbHhjDdSJgdd7BE9ypok" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

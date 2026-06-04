@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 43: Empowering TB Patients through Technology: The SureAdhere Impact | High-Impact Growth | Dimagi</title>
+<meta name="description" content="TB survivor and advocate Chris Buri on his diagnosis, video directly observed therapy with SureAdhere, and the case for person-centered TB care.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep43-empowering-tb-patients-through-technology-the-sureadhere-impact/">
+<meta property="og:title" content="Ep 43: Empowering TB Patients through Technology: The SureAdhere Impact">
+<meta property="og:description" content="TB survivor Chris Buri on video directly observed therapy with SureAdhere and the case for person-centered TB care.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>June 28, 2023</span>
+          <span class="dot"></span>
+          <span>26 min</span>
+        </div>
+        <h1 class="ep-title">Empowering TB Patients through Technology: The SureAdhere Impact</h1>
+        <p class="ep-deck">Chris Buri, a TB survivor and patient advocate, shares how he contracted tuberculosis from a contaminated cadaver bone and how video directly observed therapy with SureAdhere gave him his freedom and his schedule back during a yearlong treatment course.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/7cAninwzcWfxmCxnYY8Vj2?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 43 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/7cAninwzcWfxmCxnYY8Vj2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000618667362" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/h-vXzHYtje4?si=P9yIZ6DJe4A3_BYm" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/79f57887-8e33-4d01-a87e-3d84ae2ed371/high-impact-growth-empowering-tb-patients-through-technology-the-sureadhere-impact" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">8,300</div>
+          <div class="ep-stat-label">estimated TB cases reported in the United States in 2022, per the CDC</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">110</div>
+          <div class="ep-stat-label">patients contaminated by the infected cadaver bone batch</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">365 days</div>
+          <div class="ep-stat-label">length of Chris&#x27;s TB treatment regimen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In this episode, Jonathan Jackson and Dr. Kelly Collins, Dimagi&#x27;s Director of Digital Adherence, speak with Chris Buri, a tuberculosis survivor and patient advocate. Chris contracted TB from a cadaver bone implanted during back surgery, part of an outbreak that affected 110 patients and was traced by the CDC in a matter of days during the height of Covid. Diagnosed quickly and placed on a yearlong treatment regimen, he credits a coordinated care team at Denver Public Health for earning his trust.</p>
+        <p>Chris describes his transition from in-person directly observed therapy to video directly observed therapy using SureAdhere, which let him record his medication on his own schedule, even while traveling in the Colombian Andes. He raises candid feedback on privacy, patient comfort, and the need for an in-app chat function, and Kelly shares how the platform is evolving toward a more holistic virtual care model. Now an advocate with We Are TB, Chris makes the case for more research, funding, and elevated patient voices in TB care.</p>
+
+        <blockquote>
+          <p>&ldquo;VDOT here gave me freedom. It gave me my schedule back. It gave me some ownership of my day.&rdquo;</p>
+          <cite>Chris Buri, TB survivor and advocate</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>A unique infection</strong>: how Chris contracted TB from a contaminated cadaver bone implanted during back surgery, one of 110 patients affected in an outbreak the CDC traced in days</li>
+          <li><strong>Drinking from a fire hose</strong>: navigating a TB diagnosis during Covid while still recovering from major surgery</li>
+          <li><strong>Caregivers need to earn trust</strong>: why Chris credits Denver Public Health and a coordinated care team for his outcome</li>
+          <li><strong>Freedom through VDOT</strong>: transitioning from in-person directly observed therapy to recording his medication on SureAdhere, even from a coffee plantation in the Colombian Andes</li>
+          <li><strong>Privacy and comfort</strong>: why not every patient feels comfortable on video, and how patient education and HIPAA and GDPR compliance matter</li>
+          <li><strong>Product feedback in real time</strong>: Chris's call for an in-app chat function, and the new chat feature SureAdhere added in response</li>
+          <li><strong>From patient to advocate</strong>: Chris's work with We Are TB and his call for more research, funding, and patient voices in the fight against TB</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to high impact growth. A podcast from Dimagi about the role of technology and creating a world where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi. And your co-host along with Jonathan Jackson, Dimagi CEO. And co-founder.</p>
+              <p>So far on this podcast, we’ve featured conversations with people across the digital health ecosystem. International non-governmental organizations, ministry of health officials, community health workers, journalists, funders. Technologists and more.</p>
+              <p>But we haven’t had any conversations with people. Receiving services provided through digital health tools until today. Today Jonathan Jackson and Dr. Kelly Collins Dimagi is director of digital adherence. Speak with Chris burry at tuberculosis survivor and advocate. Tuberculosis remains a significant public health concern in the United States with an estimated 8,300 cases reported in 2022. According to the CDC.</p>
+              <p>Which is up from over 7,800 cases reported in 2021.</p>
+              <p>And it often goes unnoticed due to a lack of awareness, misconceptions, and stigma surrounding TB. This leads to delayed diagnosis and inadequate treatment. Efforts to raise awareness about TB are crucial and addressing this public health challenge and ensuring that patients received the care and support they need.</p>
+              <p>Chris’s personal experience with TB has inspired him to become an advocate for TB patients. He understands the challenges that patients face. During their treatment and the impact on daily life.</p>
+              <p>During his treatment. Chris found the use of video directly observed therapy or VDOT as we’ll hear it mentioned in this episode to be helpful. As it allowed him to take his medication while still maintaining his daily activities. He’s now advocating for the wider use of video T as a tool to improve treatment adherence and patient outcomes.</p>
+              <p>Chris’s advocacy efforts are not only aimed at increasing awareness about TB, but also at improving the lives of those affected by TB. Enjoy.</p>
+              <p><span class="spk">Jonathan:</span> thank you so much for being here with us today, Chris, amazing, background. And I’m also here with my colleague Kelly Collins, who’s head of our digital adherence division and an expert in TB herself. We’re, pleased to have Chris with us and learning more about your background and your journey with tb. So, to start us off, walk us through the beginning of your TB journey. How did you first find out that you had TB.</p>
+              <p><span class="spk">Chris:</span> Well, about, seven weeks after, some serious, back surgery. My surgeon called and, he said, Chris, you need to sit down. I have some bad news. We were puzzled, because I had significant and continuing pain, which, should have long, been eased, in the seven weeks.</p>
+              <p>And so, after that cautionary note, He came right out and said, you have contracted tb. The method that, it was you contracted by was, during the back surgery procedure. It was standard procedure to insert a cadaver bone next to, the S one L five joint in my back, lumbar region, which, the cadaver bone was to spur, the fusion.</p>
+              <p>But, this batch, Was infected with TB from the donor. This was a very unique case. But with that being said, all TB cases are unique. And, The way my neurosurgeon found out about it was that, during a period of about six weeks, my surgery was April 14th, 2020 21. So March of 2021 through May of 2021, a hundred.</p>
+              <p>And 10 patients were contaminated with this, tb , contaminated, cadaver bone. Cases started to pop up on the, on the East coast. And when cases of tb, are, are found, the c d C is notified. And so the c d C saw that there were clusters, that were in, Delaware, in the Midwest.</p>
+              <p>So they started investigating it. , let’s put this in context too. This was in the middle of Covid. So, the C D C not only had the Covid issues, but now it had this, pretty unique situation of 110 people being contaminated by tvb. They quickly, found out, what the source was in the matter of days, and started contacting all the, public health officials, on a state level. The state, went and was able to contact, a register of. Who received the cadaver bone? So it went from, the c d C to the state, to, , in my case, Denver Public Health, and believe there were two cases here in Denver. And then, , my neurosurgeon was notified and, He notified me the next morning. So, I was slotted into see, Denver Department of Public Health, TB and Infectious Disease Clinic the following day. The c d C had mandated that we be all treated, as, active TB patients. In my particular case, I did not have active tb. I had what they were, what they call non pulmonary. Tb. So, it was not contagious. It was, encapsulated, in the bone, in my lumbar region. And the C d C said, don’t even test for tb. Just start them on, the 12 month regimen they did the cursory, check-in of me. So I had my checks, my chest X-rayed, and, vision test, blood test. That’s how it happened.</p>
+              <p><span class="spk">Jonathan:</span> That’s, that’s quite the initial, story. So you get told by your doctor to sit down, like what’s the first thing that goes through your head when he informs you? You know, your cadaver bone was infected with tv.</p>
+              <p><span class="spk">Chris:</span> I call it, the Lament of Job, in Biblical, story. His famous quote was, why me Lord? Putting it in context, I had just come off of, about a year Of significant back pain. It took a long time to, get in to see doctors because of covid. It took a long time to schedule the, surgery.</p>
+              <p>By the time I went into surgery, I was in a walker. And, for me, I was 70 years old at the time, and I took a lot of pride in, my fitness level and my activity level. You know, I’m an avid cyclist, a skier. And, my immediate thought was, why, and. You never wanna do that because it’s an unanswerable question. So, I just, kind of reset what my, rehab was going to look like. I felt pretty confident that I was, in good hands. I felt very confident that, my caregivers were, treating each other as colleagues. Dr. Rubin initially said, I’m afraid I’m gonna have to go in and remove the hardware. Another surgery. But first he said, I’m going to talk to Michelle Haas, after talking to, Dr. Haas, my neurosurgeon said, Hey, Let’s try this out. I think it’s the best route to go. So, I’ve been very, very lucky in so many different ways, and I’ve come through this with an overriding sense of gratitude.</p>
+              <p>I had, caregivers who earned my trust. I had caregivers who talked to one another, and put me on the right program. Both Julie and I were retired. I, heaven forbid, if I was working at the time because, for I would say six to eight months, it was during Covid. I had back surgery, I had tb. So, , I just didn’t have enough emotional bandwidth for all of that. It was overwhelming. My mantra was, we can get through this. Okay. And again, luck would have it that I wasn’t isolated, that I was diagnosed quickly. And, because so many TB patients go undiagnosed or misdiagnosed in some cases for years.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, I think that’s a huge challenge in case finding, making sure people have access to treatment. And as you were very fortunate to have providers that earned your trust. And you know, we’ve, both Kelly and I have had the pleasure of working with Colorado’s Department of Public Health and Denver’s Department of Public Health and just amazing dedicated public health professionals there. TB though is notoriously a difficult treatment course, you know, and so when you were first notified of this and what that was gonna look like and the side effects, how do they educate you on this? How do they share kind of the journey that you were about to be on, at that point in time?</p>
+              <p><span class="spk">Chris:</span> Yeah, a good question. Well, it’s a blur. There was just so much coming at us. But, the presentation, uh, by Dr. Haas and her staff was very matter of fact. They, Expanded on the whole process that the C d c had gone through. Which, again, you’re contrasting this with what was going on in the media at the time that the c d C had no idea what they were doing. Well, here is a situation where the science worked. Okay. We felt reassured, but there was a certain amount of resignation of, what we have to do. This is what we have to go through.</p>
+              <p>Your questions only come afterwards. The information coming at you is like trying to take a drink of water out of a fire hydrant. You’re in shock. I’d been in a process of, continuing pain for, going on eight weeks now. And, here was a whole new challenge put in front of us.</p>
+              <p><span class="spk">Kelly:</span> Yeah. Chris, I wanna to kind of hit on a point that you made, you said that you were really drinking from a fire hose in terms of the information that the health department was giving you. You’re trying to deal with your back pain and then also at the same time navigating a really challenging disease.</p>
+              <p>And it sounds like the health Department gave you really wonderful resources, that, you know, helped move you into your TB treatment. Tell me a little bit more about. You know, some of those educational resources that you received from the health department, or did you go out and find more information about TB on your own?</p>
+              <p>Because it’s not a common disease in the US And I think oftentimes, I’ve heard from from other patients that, you know, they didn’t know anything about TB before being diagnosed with it. So wondering how you navigated learning about the disease and learning the importance of staying on treatment, et cetera.</p>
+              <p><span class="spk">Chris:</span> Well, again, you asked me what my reaction was when I was told that I had tb and, it, I kind of thought, isn’t TB eradicated? Because it’s totally off our radar screen and, certainly, for someone of my generation and, here I am a 70 year old. White, male who, is, not exposed to a situation where there’s a TB in my sphere. So, it was a real shock. And, uh, then also like, A little bit of curiosity you know, I have been through enough surgeries, where I know that, part of, recovery. The responsibility is on me. , it’s not a passive role. So, you could get caught going down a rabbit hole. By getting online and researching and trying to diagnose, your symptoms and your issues. I will tell you, that the staff, over at, Denver Department of Public Health, they were so professional. I mean, the ease and with the, the thoroughness, I walked out of there kind of going, they know what they’re doing here my role is to, be proactive and, I get back to this whole caregivers need to earn your trust. That’s the expectation that I go into situations with.</p>
+              <p><span class="spk">Kelly:</span> Tell me a little bit about when you were diagnosed and you got all this great information from your health department, Denver Health, was really supportive and sort of bring you onto this care journey. And it sounds like you did a lot of research on your own and started asking great questions.</p>
+              <p>Tell me a little bit about, your journey towards being observed, taking your medications, because I know that’s one thing that often comes up with TB patients that I’ve spoken to in the past, that this concept of having to be watched, taking your medicine every single day is difficult, to come to terms with at first.</p>
+              <p>And many haven’t even heard of the disease much, less need to understand that they’re going to be observed taking their medications. Tell me a little bit about that process. Because most of the public health nurses I know are so wonderful about working with patients through that process. I’d love to hear how that looked for you.</p>
+              <p><span class="spk">Chris:</span> Well, Denver Health, They were spot on in laying out what the process was going to look like. You can hear what the side effects are going to be, But it was the standard. I was put on a 12 month regime, which is a misnomer because it’s not 12 months, it’s 365 days. So when I started in June, I didn’t end in June of the next year. I had to go into July because they had to, take me off of the Rifabutin and put me on Ethambutol. And, my liver count, spiked and it was crazy. The in care people who came, were great.</p>
+              <p>They showed up when they said they were going to, not that anybody was going anywhere. I was retired. It was c and, V D O T sch here, gave me freedom. It gave me my schedule back. It gave me some, some ownership of my day. Who’d ever been on a Zoom before and, you know, everybody’s on Zoom and now, you know, within, six months, I’m on sure here, which, it was very easy to use. Download the app, no problem. As long as I had wifi connection, it was great. You know, towards the end of my, 365 days, I was traveling, in the, Columbian Andes, and, here I am using sh here, to V D O T, my drug intake. So, I thought that was, a little interesting.</p>
+              <p><span class="spk">Kelly:</span> Did it work? Did it work in the hills? Were you able to get internet connection</p>
+              <p><span class="spk">Chris:</span> yeah, we were staying in a large coffee plantation up in the mountains of Columbia. And so this was about 10 months. After my surgery. There was only one part of the veranda. That had internet connection. So here I am in the middle of the jungle, and Columbia is a fascinating place. It’s the most biodiverse country in the world. And we were in a place where they were feeding all these tropical birds that they’d come to the veranda and here I am. Doing my vo V d O T, in the middle of Columbia. So, there, it gets back to that freedom piece. Now have talked to other, TV patients. And in fact, one of whom, was, part of the group that, of my group that was infected and he bristled at having. To, do, V D O T, because, he was, I don’t trust them, with keeping private information. And, I never thought of that. I just thought isn’t this wonderful, to use technology? And yeah, so that’s kind of where I went.</p>
+              <p><span class="spk">Kelly:</span> That’s a fantastic point, Chris. Privacy considerations surrounding the adoption of v O T for TB Treatment support has been a critical part of our discussions with public health programs when we’ve worked to scale v o t in the past decade. Our team has been, Really dedicated to ensuring that our platform adheres to international security standards, for storing private health information like HIPAA in the US and GDPR in Europe.</p>
+              <p>But even with these high, standards for data protection, it doesn’t always mean patients will feel comfortable sharing a video of themselves to a technology platform. So patient education by the provider is key to help individuals understand where their data is going and who will be looking at it.</p>
+              <p>So, I’m really glad that you raised this consideration because it makes the point that not everyone will feel comfortable using v o t, and that’s okay too.</p>
+              <p><span class="spk">Chris:</span> I blew right by that, the benefits of it for my freedom and also, I mean, if, Denver Health is sending people to my house, okay, now again, I’m blessed. Denver Health is 15 minutes away. So, in order for them to come here, My location gave them a lot of flexibility. So If those caregivers to do their d o t are having to drive an hour, how is that affecting care of other patients because they’re on the road all the time.</p>
+              <p><span class="spk">Jonathan:</span> That’s a great point, Chris. And , the burden of observing therapy on the patient and that travel time, the burden on the system, what those providers could otherwise be doing. These are some of the reasons why I think, having virtual support for this process and as you said, you know, gives you your time back as a patient, but also gives the provider their time back. So those limited moments can be dedicated to other patients</p>
+              <p>who, who may need them. Chris, you mentioned that you started on in-person d o t. Can you talk a little bit about the transition from in-person D O T. To moving towards video dot. What was the process that, that Denver Health took to, to transition you to video dot? Did it start at the very beginning of your treatment or did it start sort of mid treatment? Can you talk to that a little bit?</p>
+              <p><span class="spk">Chris:</span> They did d o t for two weeks and then, there was a couple of, sessions, , at the end of those two weeks where, they watched while I did V D O T. They were there to help. Which, it was a little confusing though. So, there were a couple of times where I thought I was recording, took all the meds. And then realized that I wasn’t recording. So if there’s a kind of a prompt or something, where it says recording on the, app, that might be helpful. And then, it was a really easy transition to go from d o T to V D O T. Here is what was cumbersome. You should have a chat function on the app. With linked up to whoever is, looking at, the video with Denver Department of Public Health because there were times when, we did all our communication via text. So if you could have a chat function on that, That I’m not using two different technologies.</p>
+              <p><span class="spk">Kelly:</span> We have heard similar feedback from other patients and providers using Shared here, and I’m really glad that you brought this up. As part of our journey to evolve the technology towards a more holistic, wraparound virtual care model, we have actually added a chat feature to the platform, that will go live later this summer. And, our goal is that future TB patients will have the benefit of communicating directly, with their provider from within the platform itself. So really great to hear this feedback and to be able to, have a response with new functionality coming out very soon.</p>
+              <p>Chris, I wanted to switch gears for a moment and talk a little bit about your work as a TB advocate. You went through this incredibly stressful experience with your diagnosis and your treatment, and you’ve come out the other side, and now you’re working as an advocate. And I wanted to hear a bit about your work with we are tb, how you got involved with them, and how you’re advocating for individuals affected by TB going forward.</p>
+              <p><span class="spk">Chris:</span> Sure. Well, one of my first reactions when I found out about this and when I found out it was, a contamination, I had two goals. One was to, get healthy and the next goal was to get even and, I think I mentioned that to my daughter once, who’s a registered nurse.</p>
+              <p>And she said, . You wanna make sure this doesn’t happen again. So find out how your story. Can provide, more of a window into, what it’s like to have, tb, what you went through, how you felt about it, and, advocate, for, more research, more money, and, just be there, for, for support it’s funny because, certainly we are TB gives you the opportunity to talk to TB patients and TB survivors and, that’s a, self-selected group that, we encourage one another and, and Kate O’Brien is fantastic. She is just, she’s the head of we, R t b, incredible person, but also, having the opportunity, to talk to N T C A. Boy. The feedback after my presentation, was we don’t hear enough from patients, So that just was a clarion call to me of, oh, there’s something that I can do and sharing my story is good therapy.</p>
+              <p><span class="spk">Kelly:</span> I love hearing that you really wanted to start advocating for more money and resources, research funding, for tuberculosis. I think that’s something that, in this fight against TB has, been an issue worldwide. TB research and funding and having patient voices really elevated, I think we’ll start helping, Bring donors to the table. So hopefully, your voice can continue to be elevated and keep bringing funding to the table so we can really end this</p>
+              <p><span class="spk">Jonathan:</span> Yeah, Chris, thank you so much for joining us here today and sharing your story. It’s very powerful and as you mentioned, in so many different diseases, the voice of the patient can often be lost in a lot of the work that health systems and public health professionals are doing. So it’s wonderful for you to come on, share your story, and thank you so much for spending time with us.</p>
+              <p><span class="spk">Chris:</span> Well, thank you, for all the work you do, and how, you’re using the technology to act as a very effective bridge. Video remote is the wave of the future, so, everybody’s going to have to get used to it.</p>
+              <p>Thank you so much to Chris for sharing his story with us today. My takeaways for the digital health community, listening to this episode. One caregivers need to earn trust technology. Can’t replace a caregiver. But needs to actually help them build that trust over time second. Digital health tools like shared here is video directly observed therapy tool.</p>
+              <p>Have tremendous potential to give us our freedom and lives back. Even during challenging periods of time, like a year long TB treatment course. And lastly, I heard the importance of caregivers collaborating with each other and coordinating care. And the need for technologies like shared here and others to connect to each other, to streamline the process.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">CB</div>
+            <div class="person-info">
+              <p class="person-name">Chris Buri</p>
+              <p class="person-role">TB survivor and patient advocate who contracted tuberculosis during back surgery and now works with We Are TB to raise awareness and funding.</p>
+              <span class="person-org">We Are TB</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/7cAninwzcWfxmCxnYY8Vj2" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

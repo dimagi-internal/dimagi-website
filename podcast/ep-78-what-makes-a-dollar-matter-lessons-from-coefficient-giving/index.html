@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 78: What Makes a Dollar Matter? Lessons from Coefficient Giving | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Coefficient Giving's Deena Mousa on the frameworks behind one of the world's most analytically driven funders, and how to find where a dollar does the most good.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep-78-what-makes-a-dollar-matter-lessons-from-coefficient-giving/">
+<meta property="og:title" content="Ep 78: What Makes a Dollar Matter? Lessons from Coefficient Giving">
+<meta property="og:description" content="Coefficient Giving's Deena Mousa on evidence-driven philanthropy: the ITN framework, social return on investment, and finding where a dollar does the most good.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>December 12, 2025</span>
+          <span class="dot"></span>
+          <span>52 min</span>
+        </div>
+        <h1 class="ep-title">What Makes a Dollar Matter? Lessons from Coefficient Giving</h1>
+        <p class="ep-deck">Coefficient Giving's Deena Mousa on the frameworks behind one of the world's most analytically driven funders, and how to find where a dollar does the most good.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/62QmvxLIvNiV2lgzW46LB9?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 78 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/62QmvxLIvNiV2lgzW46LB9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000740721723" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/65d41efe-033c-4ee4-8b5c-ceffcd32390c/high-impact-growth-what-makes-a-dollar-matter-lessons-from-coefficient-giving" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>What if you could identify exactly where your philanthropic dollar would save the most lives or improve the most years of healthy living? Deena Mousa, lead researcher at Coefficient Giving (formerly Open Philanthropy), walks us through the rigorous frameworks that guide one of the world's most analytically driven funders.</p>
+        <p>From evaluating causes using importance, tractability, and neglectedness to calculating social return on investment, Deena explains how Coefficient Giving approaches everything from malaria prevention to far less crowded cause areas, an organization that has directed over 4 billion dollars in grants.</p>
+        <p>It is a clear window into evidence-driven philanthropy, and a useful challenge to how the rest of us think about where to give.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>The question at the core: what makes a dollar matter?</li>
+          <li>The ITN framework: importance, tractability, and neglectedness</li>
+          <li>Calculating social return on investment</li>
+          <li>How Coefficient Giving directs grants across global health and beyond</li>
+          <li>What evidence-driven philanthropy can teach every funder</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://coefficientgiving.org/" target="_blank" rel="noopener">Coefficient Giving</a></li>
+          <li><a href="https://www.givewell.org/" target="_blank" rel="noopener">GiveWell</a></li>
+          <li><a href="https://newsletter.deenamousa.com/" target="_blank" rel="noopener">Under Development by Deena Mousa</a></li>
+          <li><a href="https://causeprioritization.org/Importance,_tractability,_and_neglectedness" target="_blank" rel="noopener">ITN Framework: importance, tractability, neglectedness</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amy Vaccaro, senior Director of Marketing at Dimagi, and your co-host, along with Jonathan Jackson Dimagi, CEO, and co-founder.</p>
+              <p>Today we’re joined by Dina Musa, lead researcher at Coefficient Giving, formerly known as Open Philanthropy, one of the world’s most analytically rigorous and impact focused funders. We recorded this episode before the name change went live, so you may hear us refer to the organization as Open Philanthropy.</p>
+              <p>Dina’s work sits at the intersection of cause prioritization, cost-effectiveness, and AI’s role in shaping global health.</p>
+              <p>In this conversation, we explore how Coefficient Giving, identifies where each dollar can have the greatest impact. What it means to learn as fast as possible as a funder and how AI could become a true force multiplier for global health systems if applied thoughtfully.</p>
+              <p>If you’re curious about what smart evidence-based funding looks like, or how AI could reshape equity in global health, this episode is one you don’t wanna miss.</p>
+              <p>Amie Vaccaro: All right. Welcome to the podcast. So I am so excited for today’s conversation. We are joined by Dina Musa, who is lead researcher at Open Philanthropy. Uh, welcome Dina. Good to see you.</p>
+              <p>Deena Mousa: Thank you.</p>
+              <p>so much. It’s great to be here.</p>
+              <p>Amie Vaccaro: Yeah, and John is here as well. Hey, John.</p>
+              <p><span class="spk">Jonathan:</span> Hey everyone. I’m really excited to chat with you, Dina, and I got the pleasure of meeting Dina in New York during UNGA as well.</p>
+              <p>Amie Vaccaro: Oh, good. Nice. That’s. That’s fun.</p>
+              <p><span class="spk">Jonathan:</span> Coffee shop, coffee shop for that week.</p>
+              <p>Deena Mousa: Yeah, I think every coffee shop in Midtown East is basically overrun for the week of unga, which is, um, yeah, I’m sure that’s the, their busiest week.</p>
+              <p>all year. Uh, but it was great.</p>
+              <p>Amie Vaccaro: Yeah, it seems like New Yorkers dread UNGA week, uh, for just the crowds. Um, cool. Well, um, Dean, I’d love to start. By hearing a bit about your journey into global health in philanthropy, like what drew you to Open Philanthropy, um, and how did your role evolve over time? It looks like you started as chief of staff and now you’re leading the research team.</p>
+              <p>I’d love to start with your, your story. I.</p>
+              <p>Deena Mousa: Yeah, absolutely. Um, so starting way back, I guess I studied philosophy and economics in college. Um, I went to Yale and at the time I was really. Interested in how, Countries and communities got on radically different trajectories, or at least it seemed like that to me. So in, in some places, for example, um, diseases that had been eradicated in other areas were still massive health burdens. Um, in other senses, some countries got on these very rapid economic growth trajectories and development trajectories, whereas others saw much slower economic growth. Um, the degree of difference in outcomes seemed like, uh, a really interesting and important problem to me. and so I, uh, got really interested in that when I was, when I was studying in school. Um, after college I spent some time in consulting, um, partly because I thought it would help build a really broad analytical toolkit that was useful, but also partly because it seemed like a really good opportunity to understand how a lot of very different organizations and systems actually function, um, with the sort of hypothesis that in a lot of cases, somewhat small or seemingly unimportant differences in how.</p>
+              <p>Systems or organizations are set up can lead in the long term to these like really radical, uh, different outcomes. so that was great. I spent a lot of time working on global health and life sciences projects, including some COVID crisis response work, um, which was, I think a, a particularly interesting time to be thinking about public health. Um, so I’m, I’m really grateful for that opportunity and I learned a lot about how. how organizations answer really big, high level strategy questions, but also the practical challenges that arise day to day, even when you know what should be done in actually getting things done. Uh, which I think is really important experience because it’s so easy to, to, um, underrate these problems if you’re looking at something from a sort of mile high view. Um, but I, I knew I wanted to work on global health and development problems after a few years in consulting, and I was drawn to open philanthropy as a place to do that because, uh, I realized and I learned how strongly the power law applies to doing good, that, you know, some opportunities for impacting people’s lives are. of times more cost effective than others. Uh, more impactful than others. And so the idea that you could apply some of the same analytical frameworks that I learned in economics and that I.</p>
+              <p>applied in, uh, management consulting to philanthropy, felt both really intuitive but also kinda under explored to my view. And I started at Open Fill as, uh, a chief of staff, which I think gave me a lot of insight into all of our program areas, their strategies, how they worked, and also like how high level organizational decisions get made. and in that role I did a lot of, you know, sort of research shaped projects and made exploratory grants as well. And so I think that experience collectively made the shift too. Cause prioritization research feel like a very natural progression. Um, and so now my, my focus is on cross-cutting research and identifying new areas where we could have outsize impact, and also evaluating the impact we’ve already had on the world and, and how we can maximize that today.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. And Open Philanthropy is one of the, you know, leading impact maximization, uh, foundations out there along with GiveWell and, and, um, some others. Can you just give a quick background on Open Philanthropy? I know a lot of our listeners are familiar with global development in general, but the field of impact maximization and, and trying to, as you said, apply those analytical frameworks to how to make dollars go further, um, can feel a little bit foreign compared to how majority of aid is, is currently spent.</p>
+              <p>Um, and so can you just give that that quick background?</p>
+              <p>Deena Mousa: Absolutely. Yeah. So, uh, for those who aren’t familiar, open Philanthropy is a philanthropic funder and advisor, and we’re focused on doing the most good possible with the resources we have. Um, and a lot of funders are of course, focused on that. But I think what makes us. Somewhat different is that I think a lot of giving happens to some degree because someone has a personal connection to the issue.</p>
+              <p>So, uh, donating to your alma mater for example, or supporting cancer research because a friend recently was diagnosed. Um, we start from a neutral standpoint. We are open to, in theory any cause area. And are trying to select the ones where we can get sort of the most impact per dollar. And over time we’ve researched, I think, hundreds of cause areas and, and have chosen a few to focus on so far.</p>
+              <p>Um, so I think that is, uh, what, what really characterizes open philanthropy as, as maybe distinct from some other funders.</p>
+              <p><span class="spk">Jonathan:</span> And I, I wanna, um, make an aside here that for a lot of our listeners who are in need of the field, they’re starting to. Companies in the field, um, it, it might seem obvious that funders are supposed to have that thesis. And in fact, very, very few foundations would say, like, our stated goal is to maximize the impact per dollar spent.</p>
+              <p>A lot of foundations have. goals or have, you know, systems level goals that are great and, and totally valid. but if you think you’re entering a rational market to sell, you know, your improved intervention, which can be delivered at a lower cost, um, you really have to understand in your field and your, um, sector, our funders agreeing with the premise that like their job. Is to maximize the impact per dollar spent. And that is something that sets apart, I think, the impact maximization foundations, um, in, in their claim. You know, as you said, Dina, like any, any cause and theory, like how do we make the most good with the resources we have?</p>
+              <p>Amie Vaccaro: So Dina, thank you so much for that, that primer. Um, what are the area like, given that sort of like neutral starting point? What are the, what kind of areas are you focusing on?</p>
+              <p>Deena Mousa: Yeah, so my work is focused on what we call global health and wellbeing, and this. Sits alongside two other broad areas of funding, um, one on animal welfare and one on?</p>
+              <p>navigating. The consequence of AI development, um, with global health and wellbeing is broadly composed of four types of grant making. Um, first, we support direct health interventions in the developing world through an organization called Well, and this includes things like mosquito nets to stop malaria or vaccines or vitamin supplements. second, we do work in global health science and r and d, which is essentially trying to, um, diagnose, prevent, and treat neglected diseases, um, that primarily affect people where the market doesn’t necessarily solve by itself. Third, we do some bundle of policy work, which includes macroeconomic growth, which includes environmental public health threats like lead exposure or poor air quality, and improving the way that global aid allocated. Um, and then fourth and finally, we work on abundance and growth in high income countries, which means. Trying to reduce rate limiting factors on scientific and technological progress. Um, working on things like, like housing reform, for example. Um, yeah.</p>
+              <p>Amie Vaccaro: That’s awesome. And um, I’m curious like within those causes. Um, what does like, cause prioritization and cost effectiveness, like research actually look like in practice? And maybe you could walk us through, through an example.</p>
+              <p>Deena Mousa: Yeah, absolutely. so I’d say a, a key motivation to our work is that there are a lot of cheaply preventable problems in the world. Um, so for example, in many developing countries, people experience, uh, a lot of suffering from problems that can be addressed relatively cheaply. Um, and these are problems that develop countries have already solved, and there’s no reason in principle that the same approach can’t work elsewhere in the world. Um, one case is malaria, which has. Basically been eradicated throughout the developed world. Um, if your grandparents grew up in the south and the US they might have been at risk for malaria, but it isn’t really around in the US today. Um, but meanwhile, in the rest of the world, roughly 600,000 people die from malaria each year, and the vast majority of those deaths happen in Africa, uh, and particularly to children under five. Um, and there. well tested ways to prevent deaths from malaria. Things like mosquito nets, uh, for example.</p>
+              <p>And in this case, the best estimates we have show that we can prevent a child’s death for on the order of a few thousand dollars. Um, so I think that that is sort of the, the background with which we go into the cause prioritization. Um, effort. and I think in large part we think about two main objective functions of our work. Uh, the first is improving health in terms of, uh, more healthy years of life. And the second is increasing income, uh, in terms of percent increases in income. and you can imagine using a lot of other things as a North star for one’s work.</p>
+              <p>Some people think about terminal outcomes as. Things like access to education or a greater sense of agency or improved gender equality. This can vary significantly. Um, but we look at health and income. I think because we consider them to be pretty good proxies for things that enable you to get live a good life in a foundational way that should flow into a lot of other things that you might care about.</p>
+              <p>So if you are healthy and living longer and you have the money you need for the things that make you better off, you are more likely to be able to do a lot of other things as well. Um, so when making grants, we try to model how much benefit we expect to get in the form of increases in health or income for every dollar spent on the grant.</p>
+              <p>And we call this a social return on investment or an SROI sort of modeled after the, the private sector term of a, of a return on investment. Um, and across our cause areas we have a sort of minimum bar for the benefit. To cost ratio a grant should have for us to be willing to make it. and then on the whole, we try to set budgets for different areas of our work such that they are all able to make any grants that they can find that are above that bar. Um, that is, we try to make it such that the social return on the last dollar spent in every program is the same. And so that there’s no way you could move money from one program to another, uh, in a way that would do more good. Um, if that makes sense.</p>
+              <p>Amie Vaccaro: No, this is, I’m smiling, actually one of my very first jobs. Right after I did some management consulting was actually at a, a firm that was looking at SROI. Um, so just smiling to hear, hear that term referenced. And I love just like the simplicity of improving health and improving income. Like, just like boiling it down to those two metrics just feels really, really clarifying.</p>
+              <p>Um, I’m curious, you know, you mentioned malaria as one example, but could you share an example of a cause area where you’ve like recently. Either moved forward or decided to, to not move forward on something and And what did you learn in that process?</p>
+              <p>Deena Mousa: Yeah, absolutely. So the method I mentioned above is really helpful when you’re making a specific grant, but there’s another framework we find helpful to compare broad areas where we have less knowledge, um, and less of ability to model. Specific expected impact, we call it IIMT, which stands for importance, neglected is, and tractability. Uh, so importance is how many people does the problem affect and how intensely does it affect them? Neglected is how much attention and funding does this problem receive already? And then tractability is, are there clear ways for a philanthropic funder to make progress on addressing this problem? I would say some, some areas are relatively strong on all three axes, um, whereas others might spike very highly on one or more areas. So a recent program we launched, um, economic growth in low and middle income countries is an area that is very apparently important. I mean, getting a country on a trajectory to higher growth. Could yield significant positive benefits. Um, but it’s also an area That’s very hard to get right and where there is conflicting evidence on what worked. Um, and so that is, that is a case where, um, conviction in the, in the importance, um, you know, was, was critical to us being, uh, confident in the area. And I’m really glad we, we ultimately decided to make a bet on it as a program area. Um, but that’s an example of us sort of applying this framework to, to look at one area.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. And do you have, do you have an example of one that. Um, didn’t quite meet that threshold across one of those dimensions. And share a bit about, um, maybe why? I think it’s one of the criticisms and, and you know, we’re, we’re huge, um, advocates of, of impact maximization in this approach.</p>
+              <p>And, and our new platform connect, um, is really focused in this area. But there, there is a lot of criticism of, oh, but you’re picking these like super vertical, super narrow issues. And part of that’s because, um. A lot of systems level issues are very important and very hard, but they’re not necessarily tractable.</p>
+              <p>Um, you know, it’s, it’s unclear. You can acknowledge that’s a big problem and then it can be unclear how to solve it. So, I’m curious, do you have ones you got close on that you guys were like, oh, know, almost, but, you know, we just, we don’t know how we could apply money to, to fix that problem, even though we agree important problem.</p>
+              <p>Um, you know.</p>
+              <p>Deena Mousa: Yeah, absolutely. I mean, sometimes we look at an area that seems perfectly reasonable and plausible, um, but there are. Sometimes like common pitfalls that we might, uh, fall into where we don’t feel confident moving forward with a full program at the time. Um, and there are also cases, of course, where at one point we investigate an area and we just don’t feel comfortable enough, but we come back to it a few years later and you know, the, something about the evidence base has changed or, uh, we’ve gotten new information and so at that point we might be more confident.</p>
+              <p>So, um, all that to caveat just it’s not, uh, necessarily one stagnant decision, but more of an evolving view on, um, how it makes sense to approach an area. Um, but with that said, I think, you know.</p>
+              <p>uh, some, some common reasons we might not move forward with something. Uh, one, one example is. The current evidence base just isn’t mature enough yet. Um, so in some cases we have some sense that a problem is important, but they’re just a handful of studies and maybe they’re more correlational studies as opposed to ones with like a clear causal identification mechanism. In that case, we might not feel confident enough yet to launch a full program, but we might instead fund additional research in the area. Or in other cases we might think an area is extremely important, but we just can’t identify really tractable ways of actually addressing that problem. Um, so we don’t, we can’t find anything that we think quite moves the needle. Um, so yeah, I, I would say those are, those are common, um, issues for programs to, uh, to encounter.</p>
+              <p>One example is, uh, we looked recently at, um, whether we should. Launch a program on data for low and middle income countries. And this would be a general approach to improving data collection and validation and analysis on basic benchmarks for ls. Um, but this is the kind of thing where I think you need a clear consumer for the data and a clear story for how it is updating them and how it is improving their decision making. And so, uh, I think that that is one example where, um. A full, a full program right now and a standalone program might not be the right approach to that, to that particular area. Um, so that’s one case where we might not get to Yes. Um, the first time we look at something.</p>
+              <p>Amie Vaccaro: Um, awesome. That, that makes a ton of sense. So it’s like if the evidence base just isn’t there yet, maybe you wanna kinda revisit it later. Or maybe like, it’s not clear like who’s gonna consume the work you’re doing and is it actually gonna really like, make a big impact in the, at the end of the day?</p>
+              <p>Um, there’s like many different factors that might kind of make you pause on something. Um, so it’s really cool to hear both, both of those examples of like when you move forward, when you didn’t move forward. One thing that you’ve said is that you wanna learn as fast as possible as a funder, which is such a cool statement and gets me like pretty jazzed.</p>
+              <p>But I’m curious as the lead researcher, like how are you structuring your research and your exploratory grants, um, to make that possible? I.</p>
+              <p>Deena Mousa: Absolutely. We keep a long list of areas, new cause area ideas that we’d like to look into. And these are things that, uh, members of the team might come across in their reading or research or that might be suggested to us by, uh, people at or outside of open fill. Uh, we get together regularly and take another look at that long list and think about, you know, what areas are particularly exciting, what might we wanna pull up? For more, for more work. Um, and usually we might start with either a two day investigation on some areas where there is some key uncertainty, um, where it’s clear that the answer to that will determine whether it makes sense to go further. So, for example, um, uh, is this actually, does this actually have a very high burden or is this actually something where you could plausibly, um, make a difference? Um, and if that two day investigation looks relatively good. We’ll then go on to do a shallow investigation, which is about two or three weeks of researcher time, um, and decide from there whether to do a, uh, more in depth follow up research projects on a particular crux. Or, um, often when an area looks promising, we might start making exploratory grants in the area.</p>
+              <p>Which can help us learn about the process of investigating a grant, which can, um, you know, sort of act as a forcing mechanism for us to start talking to lots of potential grantees in this space and to really understand what it would look like to be a program officer managing this budget. Um, and those first few grants are often chosen with learning in mind.</p>
+              <p>So, for example, we might start by funding a high value of information study on something that came up as a gap in our research. Or we might try to make smaller grants across several organizations with different theories of change so that we can follow and evaluate their work more closely and use that to come to a consensus on what the right approach is.</p>
+              <p>Um, and we, we often have it. Explicitly have value of information as a parameter in determining the social return for many of these grants. So we think about how much this grant is likely to change a future funding decision that we’d make in a way that improves its cost effectiveness. And that in turn is, is often part of a case for, for why we might make a grant.</p>
+              <p>Jonathan-1: That’s, that’s super cool and it reminds me of a process that we use at Dimagi, um, called the Design Sprint, where you kinda like get a brain trust together for, you know, three to five days and like really try to tackle product problem. By like looking at all the information you can, other product demos and things.</p>
+              <p>Then by the end of the week you’re trying to come to conclusion of like, we think we can build this feature, you know, in a, in a meaningful way that can impact the customers? And so that idea of like kind of a cause sprint or an impact sprint to just get everybody together intensively and then, and then kind of follow that up with a multi-week process.</p>
+              <p>Sounds really cool.</p>
+              <p>Amie Vaccaro: Um, so this is, this is all just super, super rich, interesting context and helpful for us to get a sense of like how open philanthropy is approaching these problems and just feels like a really sophisticated, thoughtful, um, rigorous approach to, um, I wanna switch us to talking about ai, which I know is top of mind for.</p>
+              <p>For all three of us, I believe. Um, and, you know, its role in global health, um, and the future of work. I know this is something you’ve been doing some work and some writing on. Um, and one example that you’ve, you’ve been working on and sort of writing about is my understanding was around radiology. Um, and, you know, radiology was once predicted to be.</p>
+              <p>A medical area that got, would get completely wiped out by AI because AI can read, um, x-rays. Um, but that hasn’t been the case, right? We still have radiologists. Um, why, why is that?</p>
+              <p>Deena Mousa: Absolutely. Um, recently, as I’m, I’m sure you all have seen, there have been a lot of conversations about AI and labor market disruptions, and many folks are trying to model and project forward different possible outcomes of AI development.</p>
+              <p>Traject. As I was reading through this work, I had a moment of deja vu. Um, I remember there was a really similar conversation about 10 years ago about radiologists in particular. Um, and it seemed really intuitive and compelling at the time. Um, my understanding was that radiologists spend most of their time in a bunker, sort of, uh, reviewing images that are fully digital and doing tasks that are highly loaded on pattern recognition, which is something that we know machines tend to be very good at. And so I recall, uh, there was a lot of, uh, conversation around the time of radiology being sort of the, the first harbinger of white collar automation. That is one of the clearest use cases for where, um, AI and even much earlier models, uh, could do the work of a professional. Um, but, well, I mean, I had a scan done recently and I know a radiologist certainly looked at it, or at least I knew that they signed off on the, on the report. Um, and so I wondered why, uh, those predictions seemingly hadn’t manifested and whether we could learn anything about that for the present moment. Um, and I found that there. Three main types of things that are keeping radiologists around today. Um, and they, they are around. Um, you know, demand for radiologists has recently reached an all time high.</p>
+              <p>Uh, wages are quite high. Um, the number of people, medical students who are opting into radiology as a path among other options is also consistently like quite high as well. Um, and so it doesn’t seem like there has been any drop in desire for students to go into this field or demand for them. Um, I think there are three. Main types of reasons for that. The first is a set of technical limitations of the models that are currently approved for clinical use. Um, so for example, models tend to perform worse in hospitals other than the one where they were trained. Um, and in some cases that’s because they overfit on information that is true for that hospital, but not actually. Relevant medical information for the patient. Um, one interesting example of this I came across historically is that, um, at a hospital might have, let’s say two scanners, one in a unit that contains more critically ill patients. Um, that model might start to differentiate between the scanners. Maybe one scanner has a slightly different tint. The images that it produces, and it will use that information to help make its predictions. It’ll notice that over time if a patient has been scanned by the scanner in one unit, they are more likely to have a more serious indication, for example, and that might improve its predictions in that hospital.</p>
+              <p>But of course, if you then take that model to a new hospital, um, that’s no longer relevant information at all. And so you’ll start to see the, the prediction accuracy dip significantly. And I think there are a lot of other sort of underrated technical reasons why a benchmark result of, you know, uh, uh, 98% accuracy or a comparable accuracy to, to a professional radiologist might not actually translate to, if you scale this up across many hospitals, you would get better clinical outcomes, if that makes sense. The second set of reasons relates more to regulation and liability. So I’d say it’s, it’s hard to know who should be at fault when an autonomous radiology model gets something wrong, and that’s not something that medical insurers are really eager to take a gamble on at the moment. Um, I think. This is a combination of sort of institutional reasons, um, but also things that are quite rational from the perspective of regulation agencies and insurers, um, to be concerned about the type of, you know, concentrated and correlated risk that, um, ensuring a model across many, many patients would imply. And then the third set of reasons is more economic. So, um, one, one example of an economic force that is sort of keeping radiologists in business is that?</p>
+              <p>um, this thing called Jevons Paradox, which is this idea that as something gets cheaper. People might actually want more of it. Um, and That’s, because they, uh, wanted more of it before, but they weren’t able to consume as much as they wanted because the price was so high. so one, one case where this happened with radiologists was at some point, uh, they moved from analyzing physical slides to fully digital systems. And as you can imagine, this generally sped up their work. They got faster at analyzing each image in sort of the same way that you might imagine a, like very good AI assistant would help them do. But instead of causing a reduction in radiologists, it actually caused an increase in scans, and this is scans per physician visit as the scans got, you know, quote unquote cheaper in radiologists time to produce, people were able to demand more scans in each visit, and they did, and that could happen to a degree if AI significantly increases radiologist productivity as well. Of course, there’s uh, a point at which, uh, demand will be like fully met and there’s nowhere else to go. Um, and that’s more of a situation where if you see re really radical increases in productivity or complete substitution, but to a point, um, you know, it’s not always the case that AI assistive tools might reduce, uh, demand for humans.</p>
+              <p>It actually could, in fact increase demand for those jobs.</p>
+              <p>Amie Vaccaro: that’s that’s super fascinating, Dina. And yeah, it’s actually making me think about even like my own behaviors, like the things that I didn’t used to do. Now I’m doing like way more of like, like deep research, right? With ai, because I’m able to do it and it’s free and it’s fast and things that questions I wouldn’t have, like, felt like I had capacity to even ask.</p>
+              <p>I’m, I’m asking more of them. So it is changing behavior. Um, I’m curious like. From that story, um, what does that story tell us about how AI integrates into existing systems and what, what should we be thinking about, um, when it comes to global health and development, um, from this story? And, and what do you, where do you see this going?</p>
+              <p>Deena Mousa: Absolutely. I mean, I think it’s a great case study and why. question of automation and of labor market disruption and of passing tests over to AI needs a lot of nuance and care. I think it’s great. It’s very tempting to see a very good benchmark result and think, well, you know, AI is already. 98% as good, or 200% as good as the average person who is doing this job today.</p>
+              <p>And so, you know, let the AI do the job. And this job is almost certainly not going?</p>
+              <p>to exist in a couple of years. But I think it’s hard to predict the impact of AI on fields unless you take the time to really deeply understand those fields. Um, what are all of the actual components of the job beyond the ones that are really visible?</p>
+              <p>What are the hardest parts? What are the tail outcomes that are really important to get right, even if they only come up 1% of the time? Now, what are the things that might make performance on a benchmark differ from the actual outcome you would get if an AI did this job full, full-time over an entire year? I think these are some of the questions that are much harder to ask and take a lot more, you know, time and, and care to answer. And of course also individualization across different fields, which is also, uh, takes a lot of, uh, time to dig into. But I think these are really important things to consider as we think about these problems.</p>
+              <p>Jonathan-1: Yeah, and I’d add, um, on top of that, uh, Dina, the example of the radiology is trying to take an existing expert. Position and Sam can reuse an AI to kinda replace the human labor or augment the human labor, I think in global health and development due to resource constraints, which also exists in many high income markets as well. There’s a lot of hypothetical jobs that either literally are posted and not filled, or we wish somebody could fill, but, but obviously don’t have the budget to do that. So I also think there’s this field of, if an AI could only do it, you know, 80% as well as a hypothetical human. Everybody agrees that hypothetical human will be like a hundredth on the list of roles you would, you know, invest in and pay for and therefore never exist. Is 80% good enough? Can 80% add a lot of value? Um, and I think that’s a really interesting ethical question. Amy, we talked about this on a previous AI episode, but you know, for example, if you had coaches for community healthcare workers and you’re like, well, there’s just not enough budget, you know, to, to afford all the coaches we wish we had.</p>
+              <p>And an AI chat bot might be 50% as good. coach, um, should you release that or should you not settle? You know, for, for a AI that’s only, you know, a little bit as good, even though you also acknowledge like we don’t have the budget to hire all the coaches. And so I think this is really fascinating ethical question optimization question of lots of these roles.</p>
+              <p>We’re like, yeah, I think an AI can at least be like mediocre. Doing that right now. And probably we will get better over time. and we can all agree that that position’s never gonna get filled or that position doesn’t even exist in the first place. the roles that are, you know, this definitely exists.</p>
+              <p>We’re definitely gonna pay for it. Could we pay an AI instead of a human? And I think those are like, you know, serve some really interesting, challenging questions on both sides.</p>
+              <p>Deena Mousa: Yeah, that is uh, that’s a great point, Jonathan, and I think this is a distinction that is really under discussed when we think about. What the societal impacts of AI will be. Um, often when we’re talking about medical ai, for example, we’re implicitly thinking about high income country settings where there are plenty of doctors maybe, and the AI is either going to help them do their job better or potentially replace them. But like you said, in a lot of lower resource settings, the alternative to a medical AI model might not be going in to see your primary care physician. not going to the doctor at all or making a really long trip to a, to a hospital in your local city or seeing a community health worker who is more stretched and across more patients. Um, and in these contexts. I think the question of what AI can do and what gap it is filling is very different. Um, and that, I think that makes these settings really exciting context to think about AI use cases. Um, they would be asking from a very different baseline of accessible care. And so the potential for health benefits seem very large and, um, important to consider in the context of, you know, what, what is the alternative standard of care and what are you, um, uh, moving from when you suggest that, uh, someone began to use an AI assistive model in a lower resource setting.</p>
+              <p>Jonathan-1: And, and so, uh, loved how you said, you, you stated that going back to your, um, INT framework for cause areas, you know, AI is, is so comically kind of important. Uh, you know, just like Um, lack of doctors is obviously huge, neglected problem. And then. Whether it’s attractive or not, it seems tough, but ai, you know, is just changing so fast and it’s such a big horizontal thing in the world right now.</p>
+              <p>Like how do you think about AI within your framework of, of researching causes? Do you look at it sector specific? Are you looking at it as a horizontal? Like can you share a bit how you’re just thinking about what open fill could be doing in this area?</p>
+              <p>Deena Mousa: Yeah, absolutely. I mean, I think one way we’re trying to approach it is by starting from what the capabil. Of AI is and are projected to be. Um, rather than starting from the problem and thinking about, you know, what, what would the impact of AI be and, um. Trying to avoid shoehorning AI into, uh, situations where it might not be the most intuitive fit, but rather thinking about what, what bottlenecks are actually unlocked by ai. So, uh, for example, you can get personalization at a much higher scale, uh, if you’re using a chat bot than if you are using SMS text messaging. Um, and I think these are cases where. Um, this, this can apply to a lot of different verticals. Uh, so I think we’ve been trying to think about this across, uh, all, all of the areas we work on really, uh, within health, within education, within. Agriculture, uh, what are, what are the real value adds of AI today? And also, you know, what, in what direction is it heading? Because I think this is an area where, um, you’re seeing such rapid technological progress, um, that you sort of need to be taking into account what is happening at Frontier Labs on a three month basis, on a six month basis, in order to stay ahead of the curve and in order to ensure you’re, you’re really looking at the most, uh, novel work.</p>
+              <p>Amie Vaccaro: Thank you for that. Um. I wanna turn us to another area where I believe you’ve been doing research, um, and writing, which is around low resource languages and ai, uh, and equity, which is something we’ve actually talked about a bit on the show in the past. Um, so large language models perform worse in low resource languages, but fine tuning them can be relatively cheap.</p>
+              <p>Um, what’s the opportunity that you see here in terms of healthcare access and equity? Um, with just improving how models perform in, in these lib source languages.</p>
+              <p>Deena Mousa: Absolutely. Um, there have been, as you said, several studies showing that. Model accuracy is appreciably lower in languages where there is just less data out there for the models to have been trained on. Um, and in cases like the, the ones we were just discussing, where you might deploy an AI triage or a diagnostic model and that could act as a stop gap for someone in a lower resource setting where doctors are hard to come by. Model accuracy really matters a lot. Um, and it matters that the model can differentiate between. Say a pregnant woman experiencing swelling or bloating or inflammation or some other similar, but very importantly, different term. Um, and with that said, uh, collecting rich data sets of people speaking and writing these languages.</p>
+              <p>and importantly about all kinds of topics ranging from, you know. Very specific health vocabulary, for example, can help improve the accuracy of these tools. A lot is my sense. Um, and I think one reason why this is interesting is I think it’s an example of technological path dependency, which is this general trend that new technology is built with its local context in mind, whether that’s implicit or explicit. And this makes sense because often the first customer or user base is going to be. In the country where the technology is developed, but this means that even when technology makes its way to lower income countries, it’s not quite right for their purposes. Um, and so thinking about small ways we can ensure that the technological path that AI is on, uh, is one that will benefit lower income countries as it develops.</p>
+              <p>Seems like it would be very high, high return to me, especially if you believe that, you know, AI is going to continue to progress at its current rate.</p>
+              <p>Jonathan-1: Yeah, that’s certainly something we, um, have talked about, um, in, in multiple previous episodes, and I think the potential. For these commercial frontier models to have just massive, massive impact, um, in low resource settings. Is is obviously there. And then the question is like, what is that gap gonna be?</p>
+              <p>Because it stands to reason the commercial markets alone won’t necessarily shift it into, the most usable or even, um, medium, moderately usable. Um, if it’s not tuned for those specific environments. Um, do you think about how to. Work with the big Frontier labs and, and helping them to move in that direction.</p>
+              <p>I mean, it’s such an arms race right now that it also, feels daunting to kind of be like, Hey, by the way, can you make sure you’re looking at, you know, 10 years out how this is gonna be used in the resource settings when they’re fighting, you know, month over month release the, the latest and greatest.</p>
+              <p>Deena Mousa: Yeah, absolutely. I mean, I think there are really understandable reasons why, um, the natural priority of a lot of, you know. Private sector companies or companies working on Frontier AI or, or generally any form of new technology, um, are going to naturally be guided by, um, what their current or prospective user base is going to be thinking about. And so like within a sort of profit incentive model, um, lower income settings are just usually not going to be top of mind. And I think we, we see that across a lot of different fields. Um. Uh, in terms of r and d, uh, but I think this means that there is a role for, for, you know, philanthropy or, or other, public and social sector organizations to find ways that are. Relatively low cost, but could significantly, you know, shift the trajectory of this technology. And I think, uh, that, that is one reason why, uh, improving training on low resource language dataset seems, uh, quite, quite compelling to me. Um, and I think it’s, it’s certainly worth, organizations spending more time thinking about, uh, problems like this and, and what are other ways that we could hopefully, um, you know, influence the trajectory of technological development in a way that makes it more useful for a broader swath of people.</p>
+              <p>Amie Vaccaro: Yeah. I’m curious, are there other examples of, of ways that you could see philanthropy, um, shifting this through?</p>
+              <p>Deena Mousa: I mean, one, one other example that comes to mind is, uh, benchmarks and evaluations. And these are often constructed, um, you know, in similarly in higher income countries with sort of high income country private sector use cases in mind. Um, in part just because that is what. Uh, the people making the benchmarks are most familiar with, um, which, which certainly makes a lot of sense.</p>
+              <p>And also in part because these are often the first users of a lot of these models. And so, you know, you wanna prioritize benchmarks for the people that are going to use it first. But I think, uh, one thing that, you know. Public and social sector entities are, are more generally people who care about, um, ensuring that this, this technology is fit for purpose in lower resource settings as well. Could do is, is think more about what kinds of benchmarks or evaluations would an LMIC government really care about? Um, what are the different types of use cases that might apply in these countries or settings that we aren’t thinking about today, but where having really good evidence on how uh, capabilities are progressing would be?</p>
+              <p>Quite important in the future, maybe for regulatory reasons or generally just for producing an evidence base that makes us confident in using AI in those settings.</p>
+              <p>Amie Vaccaro: I love that, Dina. That’s actually an area I hadn’t thought too much about, but yeah, whenever these AI metals come out, you see like, did it pass the LSAT or the MCAT or these, like, you know, uh, but yeah, what is the relevancy for, for other contexts? Um, yeah. Thank you for sharing that. Um, you mentioned government in there, uh, and obviously you’re coming from the aspect of, or the angle of philanthropy.</p>
+              <p>What are you, how do you think about the roles that like philanthropy should pay play versus governments or companies in addressing this gap and how AI models are developed?</p>
+              <p>Deena Mousa: Um, I think this is, uh. Hard question in part because the field is so nascent and so rapidly developing. so there aren’t quite, you know, solidified roles for different types of institutions to play. Of course, a lot of AI progress is going to happen in relatively well resourced companies.</p>
+              <p>And, um, so there’s a question of how, how do public and social sector entities, you know, work with. Frontier Labs or work with the rate of technological progress, um, and ensuring that their work is not, you know, parallel, in which case it’s going to be outdated very quickly at the current pace. Um, so I think that is quite important.</p>
+              <p>And in general, I think, um, more coordination between organizations thinking about these questions. Um. Is, is important. And I know, uh, there, there are certainly some, some organizations that have already started thinking about how to play that role. But I’m excited to see more conversations like this, um, where folks discuss how they’re thinking about approaching this issue from a social good perspective and um, try to try to align the efforts that we’re doing, um, in that direction.</p>
+              <p>Amie Vaccaro: Yeah. Thank you for that, Dina. And I think this is a great kind of like deep dive into a few of the areas that you’ve been looking at and I wanna zoom out a bit. Um, so if you look five to 10 years into the future. What are the emerging applications of AI in global health that give you the most hope?</p>
+              <p>Deena Mousa: Yeah, I think that the answer to this, of course, could change a lot in the next five to 10 years, um, given the rate of progress that we’ve seen recently. But with that said, I am excited about thinking about AI as a force multiplier on human capital, um, particularly in low and middle income country. And this might mean making it significantly easier for government bureaucrats to execute a budget more efficiently, or for doctors to see many more patients in a day, or for pharmacies to know exactly what to stock and when. Um, but I’m, but I’m especially excited for it to make, um, individuals trying to perform these, these roles more effective and more efficient in a lot of different ways. Um, and I’m, I’m, I’m really excited to see, you know, what new use cases arise in the next few years as well.</p>
+              <p>Jonathan-1: Yeah, I’ll second that. Um, Dina, the, the example you gave with the pharmacy kind of goes back to what we were talking about with like, there isn’t a role that exists today, which is like, let me look at real time market prices of all. The drugs I commonly buy. Let me look at, you know, 24 hour data to forecast what I’ll need. Let me try to optimize a buying pattern, you know, and when should I place my order this month? so, uh, the, that’s like obviously ai, um, you know, even with today’s LLMs, that would probably get it pretty good. And so I think there’s just a huge amount of amplification we can do. Not job replacement, but assisting existing jobs, existing bureaucratic workflows to be way more efficient.</p>
+              <p>Um, and, and. You know, more real time, more analytical in a way that is just totally implausible, um, to do today. But with an ai, it’s like to rerun that analysis every single day and be like, okay, press order,</p>
+              <p>Deena Mousa: Cool. Yeah, absolutely. I think, um, there’s a lot of work that can be really exciting. Even with today’s LLMs, um, exactly like you said, um, that could yeah. Significantly increase the amount of information folks have access to and are able to act on.</p>
+              <p>Amie Vaccaro: On the flip side, what are some of the risks, um, or like unintended consequences that are, are keeping you up at night?</p>
+              <p>Deena Mousa: Yeah. Um, I am concerned about the broader safety risks that could be posed by highly capable ai. Um, and I do worry a little bit about getting really excited about. Uh, specific global health and development use cases, which maybe makes us, uh, excited too quickly about work that has a lot of, you know, bigger potential ramifications or consequences that are hard to foresee. Um, so that’s, that’s one broader worry though, I guess almost on the flip side, I also worry about. Getting too excited too quickly about benchmarks and what they imply about the rate of progress and starting to deploy a lot of these, this technology, you know, too quickly or, or jamming it into use cases that aren’t quite appropriate or letting it distract from things where we have a much deeper evidence base on what we know. Um, before we actually know, you know, how well does this work on clinical outcomes, not just, uh, sort of more removed benchmark. Um, so I guess two, two somewhat countervailing, uh, worries. But I think both of them, uh, concern me a bit when, when I think about AI in the next several years.</p>
+              <p>Amie Vaccaro: No, that, that makes a lot of sense. And I think, um, it’s something I’m even mindful of in myself where like I feel myself feeling very excited and very optimistic, and then it’s like, okay, there’s so many ramifications that I’m not, like I need to be creating space to be mindful of thinking those through.</p>
+              <p>But they’re, it’s hard to, it’s hard to hold, hold it both at the same time. I think, um. So to, to close us out. Uh, I’m curious, is there, what’s one thing that you wish global health leaders understood about how AI is gonna be shaping the field?</p>
+              <p>Deena Mousa: Yeah, I think, um. One, one point I’ll make is that I think it’s important not to presume the answer here. Um, so rather than looking at an existing process or a problem and asking, you know, how can we use AI to solve it? Instead, starting from thinking about what is, what is special about ai? Where is it likely to be most and least helpful in unblocking existing issues? Um, and, and go in that direction. Um, so I think it’s important not to be. Sort of, uh, hammer in search of a nail when we, when we think about ai, I think it’s a really, really exciting, really top of mind and rapidly developing piece of technology. And, uh, so it’s, it’s natural to be trying to think about, you know, what ways we can use it.</p>
+              <p>But, um, but I think it’s also important not to, not just, not to start by presuming that the answer will be incorporating AI into existing processes.</p>
+              <p>Amie Vaccaro: Awesome. John, I’m actually curious if you have an answer to that question as well, which is like, what do you wish global health leaders understood about how AI will shape the field?</p>
+              <p>Jonathan-1: You know, we, we’ve talked about this a bit internally. I think there’s just gonna be an amazing explosion of AI demos and new software that we can create with ai. And I think it’s really important to, um. Try to ground all of this work and how you’re gonna measure it, how you’re going to improve it. Um, think one of the concerns I have is, uh, and we see this with lots of new, big, shiny technologies, um, that it’s gonna solve everything or kind of be applicable to many more things than it might be relevant to you today. And so I think there’s, um, huge reasons to be massively optimistic about the potential for. AI and global health and development. Um, but I also think it’s gotta be coupled with, as Dina said, like still doing what we know works, even if it has nothing to do with ai, still making the right smart investments and um, not getting caught up in kind of the next shiny thing. Um, because like any new technology, AI is gonna take a while to sort out and a while to. what use cases are really, you know, going to be impact maximizing versus the use cases that look cool or look like they work, but you know, maybe aren’t worth solving even if they do work or, um, don’t really work when you peek underneath the hood.</p>
+              <p>Um, you know, I’m just like picturing all the ambient audio demos that are gonna show CHW talking to a household. They’re like, kind of good. Um, and then like, does that really drive improved outcomes for that household or that CHW. really hard to answer. It’s really easy to create that demo. Um, you know, the shiny dashboard, that’s just gonna be like a q and a, that, that’s already possible today with, with the frontier models. Um, so there’s just gonna be like lots and lots of really exciting stuff and we have to ground that with like, okay, but like, how are we measuring impact? How do we know this is working? If it is working great, how would we know when to move to the next generation? Right? Because the other thing is for the use cases that do start working. Every six months, you’re gonna be able to kind of redo that use case entirely and get even more value. So it’s also gonna shift the way technology is usually deployed, which is like a big CapEx upfront, and then a multi-year kind of run and maintain with large language models and the way they’re progressing. You kind of have to think about rebuilding how you’re deploying that use case, even if it’s high impact, um, every six months or so. So, lots of really exciting areas. But I, I also totally agree with what Dina said. I’m like trying to make sure you’re grounded in. What, where the value is, how to, how to make sure that you’re measuring it and, and evaluating it as things continue to improve. but I mean, the, the change that we’re gonna see is just moving so fast and it’s gonna continue to, and I think that’s a safe bet. Um, you know that, that we’re gonna continue to see just lots and lots of feature releases by LLMs and by the frontier companies that are applicable to global health and development.</p>
+              <p>Amie Vaccaro: Awesome. Well, Dina, thank you so much for, for joining us today. I feel like we just, um, we got such a great primer and there’s so much more, so many more questions I would love to ask you, uh, and I’m sure listeners will feel the same. So where, where can folks follow your work or, or learn more?</p>
+              <p>Deena Mousa: Yeah. Thank you so much.</p>
+              <p>for having me. Um, I write a Substack newsletter called Underdeveloped. Where I put all my work. Uh, so you can follow me there, uh, or on Twitter at Dina Musa I cover global health, economic development, and scientific and technological progress writ large. Um, yeah. Thank you so much again for having me.</p>
+              <p>Amie Vaccaro: Thank you so much.</p>
+              <p>Jonathan-1: Thanks, Steven.</p>
+              <p>A huge thank you to Dina for joining us and for sharing such a thoughtful data-driven lens on how philanthropy and technology can maximize human potential. And thank you to our listeners as always for being here. Today’s conversation left me with several takeaways.</p>
+              <p>First, measure what matters most. Improving health and income remains a powerful clarifying frame for impact. Second, learning quickly beats being certain.</p>
+              <p>Coefficient givings approach shows that funding can be experimental, adaptive, and still accountable. Third, AI is not a magic fix, but rather a force multiplier.</p>
+              <p>Its value. Depends on how deeply we understand the systems it touches.</p>
+              <p>And lastly, when it comes to AI, equity must be built in from the start, from language data to benchmarks to who benefits when innovation accelerates. That’s our show. Please like, write, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatdamon.com with any ideas, comments, or feedback.</p>
+              <p>This show is executive produced by myself, Ana Chand is our editor, Natalia Gakis, our producer and cover art is by Sudan Chi K.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">DM</div>
+            <div class="person-info">
+              <p class="person-name">Deena Mousa</p>
+              <p class="person-role">Lead researcher at Coefficient Giving (formerly Open Philanthropy) and author of the Under Development newsletter.</p>
+              <span class="person-org">Coefficient Giving</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/62QmvxLIvNiV2lgzW46LB9" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 80: Beyond &ldquo;AI for Good&rdquo;: Building Responsible AI | High-Impact Growth | Dimagi</title>
+<meta name="description" content="UC Berkeley's Genevieve Smith on why 'AI for good' isn't enough, and the five lenses every team needs to deploy AI responsibly in global health and development.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/podcast-responsible-ai-global-health/">
+<meta property="og:title" content="Ep 80: Beyond &ldquo;AI for Good&rdquo;: Building Responsible AI">
+<meta property="og:description" content="UC Berkeley's Genevieve Smith on responsible AI: five lenses for fairness, privacy, security, transparency, and accountability, plus data cooperatives that shift power to communities.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>January 22, 2026</span>
+          <span class="dot"></span>
+          <span>50 min</span>
+        </div>
+        <h1 class="ep-title">Beyond &ldquo;AI for Good&rdquo;: Building Responsible AI</h1>
+        <p class="ep-deck">UC Berkeley's Genevieve Smith on why &lsquo;AI for good&rsquo; is not enough, and the five lenses every team needs to deploy AI responsibly.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/6erHRxeXTFxPWv5s7jEUB9?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 80 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/6erHRxeXTFxPWv5s7jEUB9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000746219357" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/85336072-7f05-4c83-9adf-68868b5f4b0b/high-impact-growth-beyond-%E2%80%9Cai-for-good%E2%80%9D-building-responsible-ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>AI is moving fast in global health and development, but good intentions alone do not guarantee good outcomes. Genevieve Smith, Founding Director of the Responsible AI Initiative at UC Berkeley's AI Research Lab, joins the show to unpack what it really means to build and deploy AI responsibly in the contexts that matter most.</p>
+        <p>Drawing on a decade in international development and cutting-edge research on AI bias, Genevieve lays out five critical lenses, fairness, privacy, security, transparency, and accountability, that program managers and product leaders must apply to avoid reinforcing existing inequalities or creating new risks.</p>
+        <p>With real examples, from AI-driven credit assessments that unintentionally disadvantage women to the challenge of generative AI in low-resource and multilingual settings, she points toward emerging alternatives like data cooperatives that give communities governance over how their data is used, shifting power toward trust, agency, and long-term impact.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>Why labeling a project &lsquo;AI for good&rsquo; is not enough</li>
+          <li>Five lenses: fairness, privacy, security, transparency, accountability</li>
+          <li>How AI bias shows up, from credit scoring to language gaps</li>
+          <li>The challenge of generative AI in low-resource, multilingual settings</li>
+          <li>Data cooperatives and shifting power back to communities</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://re-ai.berkeley.edu/" target="_blank" rel="noopener">Responsible AI Initiative, UC Berkeley AI Research Lab</a></li>
+          <li><a href="https://haas.berkeley.edu/wp-content/uploads/UCB_Playbook_R10_V2_spreads2.pdf" target="_blank" rel="noopener">Mitigating Bias in Artificial Intelligence (playbook)</a></li>
+          <li><a href="https://bair.berkeley.edu/" target="_blank" rel="noopener">Berkeley AI Research (BAIR)</a></li>
+          <li><a href="https://facctconference.org/" target="_blank" rel="noopener">FAccT Conference</a></li>
+          <li><a href="https://www.icrw.org/" target="_blank" rel="noopener">International Center for Research on Women (ICRW)</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from dgi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amy Vaccaro, senior Director of Marketing at dgi. And your co-host, along with Jonathan Jackson Mundy, CEO, and co-founder. Today, the hype around AI is inescapable, but as new foundation models race into the development sector, there’s a danger that goes beyond just inefficiency. How do we ensure that AI deployed with the best intentions to serve vulnerable communities doesn’t ultimately create new risks or reinforce.</p>
+              <p>Existing inequalities. We’re tackling this head on today with our guest, Genevieve Smith. She’s the founding director of the Responsible AI Initiative at uc, Berkeley’s AI Research Lab. Genevieve spent a decade in international development and reveals why simply calling a project AI for good is not enough.</p>
+              <p>She breaks down the five critical lenses from fairness to transparency that program managers must use to review their work. Plus, we explore innovative models like data cooperatives, which give communities governance rights over their own data to ensure models truly work for them. Tune in to understand the flawed model of letting businesses self-regulate and learn practical strategies you can use starting Monday morning to build trust and ensure your technology serves everyone equally.</p>
+              <p>All right, Genevieve.</p>
+              <p>Welcome to the podcast. Great to have you here.</p>
+              <p>Genevieve Smith: Great to be here. Thanks for having me.</p>
+              <p>Jonathan Jackson: Thanks for coming on. We’re really excited to have you.</p>
+              <p>Amie Vaccaro: So you are the founding director of the Responsible AI Initiative at uc, Berkeley Artificial Intelligence Research Lab, among many other things.</p>
+              <p>And you also have a deep background from what I’ve seen working with organizations like the UN Foundation, U-S-A-I-D. We’d love to start by just hearing a bit of your journey. How did you move from the world of international development into this specific niche of responsible ai?</p>
+              <p>Genevieve Smith: Yeah, absolutely. So the first decade of my career, really, as you said, Amy, was in international development.</p>
+              <p>I worked with the UN Foundation on their gender strategy for access to clean cooking technologies. Early on for several years, I did my Master’s in development practice at Berkeley, and afterwards I served as a researcher at UN Women on Women’s Economic Empowerment and Digital Inclusion, and then lived in DC for a couple years working at the International Center for Research on Women conducting research on inclusive technology and economic empowerment more broadly.</p>
+              <p>And it was around towards 2019 that I actually returned to uc, Berkeley, and I became the research director for the Center for Equity Gender and Leadership at the business school at haws. And that’s where I really started to dive into research on AI bias, the research agenda that I set out for the organization.</p>
+              <p>Was very much so focused on uncovering and examining bias within AI technologies, which at that time was still under explored. And a lot of research around bias and AI systems tended to be focused on the West or Europe and the us you know, not really wasn’t global in nature, despite the proliferation of AI technologies at the global level, including across many low and middle income countries, and.</p>
+              <p>What I was starting to see was that applications of AI in low and middle income countries were often categorized as AI for good, but really lacks that critical evaluation around some of these unintended consequences that we know that these tools can have. That was really seen by research that was occurring oftentimes in the west, and so I did my doctoral work at Oxford.</p>
+              <p>I went back to school to get my PhD to study. AI systems and there’s social implications, specifically looking at machine learning based credit assessment tools that are used to enhance financial inclusion of people in low and middle income countries. And so my doctoral work examined those types of tools, and I also founded the Responsible AI Initiative at the uc, Berkeley AI Research Lab.</p>
+              <p>As I saw, there tended to be a lack of multidisciplinary research around these topics, but also it really benefit this type of research in the responsible AI space. Including bias, but other forms of other responsibility, risks or issues as well really benefit from bringing together different disciplinary backgrounds to understand the issue.</p>
+              <p>And so that’s, the founding of that initiative was really to bring together researchers from across different disciplines to conduct research on these really critical topics related to responsibility and doing so from a global lens oftentimes. We did a lot of partnerships with different organizations, including different tech companies around different responsibility topics, and so that has really taken off as an initiative at the Berkeley Research Lab or Bayer on campus.</p>
+              <p>And I also serve now as professional faculty at haws, where I teach on responsible AI to undergrads and graduate students and executives. To think about how we can really leverage this technology in ways that get ahead of potential risks and can ultimately embed and foster trust that support human flourishing more broadly.</p>
+              <p>And I’m also doing a fellowship at Stanford focused on gender and ai.</p>
+              <p>Amie Vaccaro: Okay, so you’re, you’re not busy at all.</p>
+              <p>Genevieve Smith: Yeah, really not lots of free time. We did just get a puppy, so certainly. Trying to get more time with her, but yeah, staying busy. Oh my gosh. Wow.</p>
+              <p>Amie Vaccaro: Yeah, that’s a lot. And this feels like such a great segue on this show.</p>
+              <p>We’ve talked about AI a bunch, both with Jonathan as well as our VP of research and ai, and broadly tracking this. Like what does AI for good look like? But I don’t think we’ve really talked about responsible AI and like what that means. So I’d actually love to, maybe this is like a dumb starting question, but for my sake and for our listeners, like what is responsible AI and yeah.</p>
+              <p>How do you define that and how does that definition evolve when you’re thinking about folks in the global self versus Silicon Valley?</p>
+              <p>Genevieve Smith: Yeah, absolutely. So there isn’t one definition of responsible ai, but I would say that one that many have coalesced around would be. Designing, developing, deploying an I ad using AI systems in ways that are safe, fair, and trustworthy.</p>
+              <p>Now, of course, what does each of those words mean, like fairness and trustworthy. Those are words that can also bring debate around what fairness means or looks like, and what exactly is trustworthy. Within that, I’d say there’s five key areas that are important to think about. Those are fairness and bias.</p>
+              <p>So how might this tool perform differently for different populations? What are the potential stereotypes or discrimination or inequality that these tools might replicate? So there’s two pieces there. It’s like performance issues. So you know, maybe having higher inaccuracies for some groups or not working as well.</p>
+              <p>We sit in global south a lot with, in terms of. Large language model’s not working as well for certain language varieties. But then you also see issues in terms of these tools perpetuating say gender biases around who should be caretakers and who should be a CEO or something. We’re doing some research now around gender bias and text image models that is from a global perspective, so we’re looking to, hoping to have more information on some and some.</p>
+              <p>Compelling statistics that can help us better understand this from a global perspective. So anyways, that’s one. The second issue is around data privacy questions and considerations around. What are the privacy guardrails that are in place? The data security guardrails that are in place, consent mechanisms for data.</p>
+              <p>The third is around security and safety. So these are considerations like how might bad actors try to break into this tool, or how might they use it in ways that could. Result in harm. So in the context of generative ai, we see like concerns around from a safety perspective in terms of leveraging tools for say, DeepFakes or misinformation.</p>
+              <p>But from a organizational standpoint, there could be cybersecurity issues, bad actors breaking into the model and perhaps having some sort of like prompt injections to have models output different things. So that’s security and safety. Transparency is the other kind of category responsibility. So that’s around, you know, do people understand how these models are leveraging their data to arrive at certain outputs?</p>
+              <p>And also for model developers, are they being transparent around their training data? Different components that went into how the model was being developed. So there’s transparency to the user. There’s a transparency for the developers themselves and about the models. And there’s some underlying risks there, especially as more and more organizations including in the development community, are leveraging foundation models.</p>
+              <p>And happy to, I don’t know if the, if it would be beneficial to go into like the definitions of these different things, but as more and more organizations and development actors are leveraging foundation models like. GT five or leveraging models from deep seek deeps seeks a little different ’cause it’s more open.</p>
+              <p>But say GT five is a closed model, you are adopting this lack of transparency essentially in whatever you’re building, which means there’s not clarity around some of the risks of that could be in place given the underlying training data or other components around how the model is built. And even deep seek is.</p>
+              <p>More of an open model, not an open source model. So there’s differences there. Anyways, happy to delve more into any of these topics, and then accountability, so you know, what are the accountability structures that are in place if something goes wrong, or to make sure that a responsibility is occurring in the organization and the ways that tools are being developed and deployed.</p>
+              <p>So those are kind of the five key areas that underpin responsible ai, fairness slash bias, privacy, security slash safety, accountability and transparency. You can think of those as like the responsibility lenses and they become important for any AI application, right? And especially as we think about how AI is being deployed in the development sector, oftentimes for vulnerable communities.</p>
+              <p>The purpose of using a tool for good is not sufficient because it doesn’t actually mean that any of these other things are solved for. In fact, these are fundamental issues that exist in these technologies today, and it’s really important to be eyes wide open around the different ways that those can manifest for communities globally.</p>
+              <p>If we want to get that for good benefit in ways that are ultimately what we’re trying to achieve as development practitioners. I’ll also add that there’s more broad societal concerns in the responsibility umbrella. Those include things like future of work implications and environmental considerations.</p>
+              <p>Future of work, especially now we’re in this period of AI agents and as we have more AI tools that are reducing work or making more productivity and efficiency gains, or agents that are taking on different types of tasks. What are the future of work considerations, including in communities in low and middle income countries, that, and how might that impact economic safety and security of different communities?</p>
+              <p>And then the environmental considerations is currently we’re in this period with foundation models where there’s this idea, there’s this scaling method that is being pursued, which is essentially more data, more compute leads to more capabilities. And that has had some really early success. That having more data, having more compute has really led to immense growth and capabilities.</p>
+              <p>We are starting to see that curve a little bit. Instead of going straight up, it’s kinda like curving off a little bit, but that scaling approach is still one that is being very aggressively pursued. With that comes environmental considerations as we have more data centers with more energy requirements that are working to meet the growing demands of this scaling model for these foundation models.</p>
+              <p>And what are the communities that are going to be suffering most from some of these environmental considerations And data centers are projected to be the fourth largest consumer of energy by 2030. So this is not a small thing that’s occurring and it has a lot of geopolitical might behind it because we’re also in this period of time and you know, happy to delve into this in the podcast as well.</p>
+              <p>But we’re also in this period of time where there is these geopolitical tensions and struggles that are occurring in this race to win the AI war, so to speak, which is really something that’s happening between. China and the US but other countries are coming into this as well. This sort of race to artificial general intelligence.</p>
+              <p>And so there’s this kind of full throttle approach that is certainly happening when it comes to foundation models that have some implications from the environmental perspective. So sorry to like drone on a lot there, but I think that’s just a little preamble for some responsibility for understanding what responsibility is, why it’s important in some of the landscape.</p>
+              <p>Jonathan Jackson: Yeah. No, that, that’s great and a wonderful overview of those five attributes of responsible ai. One point that you closed on, though, you mentioned this massive race that has. Political implications, national security implications, commercial implications, and a lot of the trends we see obviously are like waste as fast as you can.</p>
+              <p>Like we just, we just gotta win. We gotta throw more compute at it, more energy, more everything. A lot as you said of global health and development work is a adopting frontier models or deep seek or some of these, but kind of riding on the foundational growth and technology curve of the AI industry as a whole.</p>
+              <p>So if you’re product manager or program manager, thinking about your specific use case of really trying to make a meaningful impact at a national level, at a community level, how do you think about how program managers or product managers can adopt those five principles with respect to responsible AI into their work?</p>
+              <p>And kind of a practical use case in a sense of there’s the AI is gonna save everything or kill everything. There’s kind of these macro questions that. Are significant in scope and implication, but maybe not as much practical day-to-day of what a product manager should do tomorrow. And so I’m curious how have people taken that broader framework that you have and applied it at a more tactical or practical level in their work so far?</p>
+              <p>Genevieve Smith: Yeah, I love that question. And as I mentioned at the beginning of the call, I, you know, I have this dual hat, right? I sit in this responsibility initiative at the Berkeley Research Lab and at the business school. So I think a lot about. How corporate governance approaches and product teams and product managers can operationalize responsibility because it’s not just a technical solution.</p>
+              <p>This isn’t a, solve these five issues in the more broad future of work and environmental considerations. Are really ones that trickle down from corporate governance and that trickle down from broader priorities that exist at the institution. Organizational levels and product managers have a really important role to play.</p>
+              <p>We’ve done research around how product team, our research has specific, specifically looked at how product managers use generative AI and what they think of in terms of responsibility and how they operationalize it or not, and what are the. Tensions or challenges to operationalizing it and what are the kind of wins that they’re back, that support operationalizing it?</p>
+              <p>So we did a survey, a large scale survey with product managers, and we also did interviews with product managers and product teams. And actually from that created a playbook. For product managers specifically around how do you responsibly use generative AI tools? And these are good strategy I think, for any folks who are working on these types of models to consider and product teams to consider.</p>
+              <p>And I’ll be happy to share that link in the chat. It can also be found through our responsible AI initiative website at uc, Berkeley. But essentially for product managers, choosing a model can be really important to assess like what are the needs and potential risks that can exist within that model. And doing some risk assessments and audits for generative AI products and including with cross-functional teams can be really important if you’re using, again, generative tools, doing like red teaming and adversarial testing, which basically put yourself in the position of a bad guy to try to poke holes.</p>
+              <p>And so those are a couple of strategies to say at the product level, but it’s also really important that organizational leaders prioritize responsibility because they’re ultimately the ones that set the priorities of the organization. And if leadership isn’t bought into those five issues that I mentioned, and responsibly more broadly being important for.</p>
+              <p>A product or a use case, then it won’t be necessarily incentivized and it won’t necessarily therefore be prioritized. So it’s really important for leadership to set the tone by having principles around this and working on incentive structures that support responsibility, like having these questions come up and say performance reviews or using them and objectives and key results like OKRs.</p>
+              <p>I also wanna say kind of at a higher level, we are in this period of time where we see global health and development practitioners more broadly, really developing or adopting different foundation models, fine tuning them, incorporating them in different contexts, and they can certainly provide value. But I think it’s important that as development practitioners, we don’t think about.</p>
+              <p>Like, you know, this hammer for every nail nail, for every hammer ever. That saying goes, but I think there’s this, and I would actually be curious for your thoughts as well around how you see this, but I think we’re in the, a bit of this time period where now we’re A-U-S-A-I-D no longer exists, and I forgot to mention my introduction.</p>
+              <p>I am Oh, so used to be the responsible AI fellow at U-S-A-I-D, so helping think about what are some considerations and how can we support development practitioners incorporate responsibility into their for good applications. Anyways. What I was saying is that as some of these different funders are gone now, as the development landscape itself is shifting this hype around developing and using AI that exists more broadly in society in Silicon Valley and the Bay Area where I’m based, it also.</p>
+              <p>Transporting globally, and I think we need to be really mindful that we’re not really just wanting to use AI because we can use ai, but we’re actually using AI because it’s the best way to solve the particular problem that we’re trying to address. And so asking ourselves, is this the best way to solve this particular problem?</p>
+              <p>It’s the first question and the, that should be like the first starting and stopping point, and I know it’s. It’s tricky because we’re also in this time period where funders are supporting AI initiatives, we’re looking for funding and development practitioners. You’re wanting to think about or where can I deploy ai?</p>
+              <p>So it can be a, a bit challenging, but yeah, I don’t know. I’m curious actually for your thoughts, like how are you seeing that play out and Yeah. Any considerations that you have?</p>
+              <p>Jonathan Jackson: Great question. And obviously the amount of hype and energy going into ai, which is both good and bad. It’s causing a ton of use cases to be, how do you apply AI to those back when mHealth or digital health or ICT was the buzzword?</p>
+              <p>A lot of times the answer was like, don’t, like adding, trying to digitize this or turn into software is not the problem, not what you should be focused on. And so one observation that we have a lot is just, just don’t do the project. Don’t ask for yourself how to responsibly do the project. Like don’t do it at all.</p>
+              <p>Because it’s not gonna add enough value, even if it works, or even if it does work perfectly. One of the things we see a lot is, let’s say it’s perfectly responsible, perfectly performance. There’s no feedback loop that will cause that to be sustainable, right? Like the industry is not able to afford to pay for that thing to go better.</p>
+              <p>So even if you do a great job of using AI in it. Are you really taking cost out of the system? Are you driving up quality in an area where people will actually use it? And so that was also a complaint back in the digital health days of we do all these pilots and then it was a pilot of a project that nobody was gonna scale no matter how good the result was.</p>
+              <p>And we see a lot of that happening with AI where you’re like, even if that is perfect accuracy, perfect everything, nobody’s gonna scale it up. But in terms of responsible use, I’m, I do see a lot of people concerned in terms of how these will work, how we make sure communities that could most benefit from these tools are able to benefit ’em, but also acknowledging and recognizing the big disparities that could be further exacerbated.</p>
+              <p>If you don’t do this correctly, I think one of the really exciting areas is a lot of that kind of middle layer of HR capacity of supervising employees, of training up and coaching. There could be a lot of really powerful use cases where AI, I think would do quite a good job for some of the people. And so the question is, if you have technology rolling out where you’re like, yeah, half the people can learn this way, half can’t.</p>
+              <p>For the half that can’t, I’m gonna do nothing. And for the half that can, they can get a huge bump. That’s problematic from an equity standpoint and from a workforce management standpoint. So I think there’s a lot of questions on that, but I do think we’ve seen extreme amounts of value for subsets of the user base.</p>
+              <p>And the problem is now what? So if it works for 25% of your user base really well to do upskilling or coaching, but 75% don’t like text, or 75%. Could do audio, but not in the audio that’s available with inequality. So I think that’s a big area that we’re seeing in particular, these less utilized languages that are critically important in almost every LMIC context, because English is almost never the right language to be speaking in.</p>
+              <p>There’s a big area of research for us is saying, okay, let’s assume that the frontier model or the foundational model’s perfect in coaching CHWs community health workers in English. Now what. We know that’s insufficient for almost every community health worker deployment that we support. And how do you do the extra work to make sure it is viable in local languages?</p>
+              <p>And it’s definitely gonna be the case that it’s not viable on all of ’em. So now what, what do you do for the community health workers who really wanna access that tool? Maybe do have the digital sophistication to be like, yeah, I could type into the chat bot or things, but you’re like, this is just. Bad at my language.</p>
+              <p>So now I don’t get to learn, even though this thing is totally viable for my colleagues who speak a more popular language or more commonly spoken language. So I think that’s, these are all key questions that I don’t think we have a lot of answers to, but I think there’s tons of excitement. We’re seeing huge amounts of value in these use cases in English.</p>
+              <p>And then the problem is, okay, well great, it works in English. How are you gonna make it work at scale in a target country?</p>
+              <p>Genevieve Smith: You bring up a lot of really good points there. And maybe just some thoughts back. Going back to what we were saying in the beginning around what we saw in the kind of digital health days and you know, how tools were being deployed and there was some areas of refusal that food was designed for.</p>
+              <p>I originally, as I mentioned before, is working with the UN Foundation, with the Clean Cooking Alliance on their gender strategy, and it reminded me a bit around. The clean cooking back in the 1970s when they were first starting to implement cleaner cooking technologies in low and middle income countries.</p>
+              <p>And a lot of times these were tools that were kind of helicoptered in from labs in the west without really being adapted to the needs of the cooks themselves, the communities themselves. And they didn’t really get used because they weren’t really adapted to those local communities or they. There was a lot of waste and there was a lot of, you know, kind of, you should use this, but not really meeting the needs of people.</p>
+              <p>And I think the clean cooking space is kind of a long way, you know, the development space come a long way in terms of helicoptering in with like, you need this better understanding how do we meet the, how do we, what are the needs of different communities and how are we making sure that we’re responding to those and helping them develop or adapt these tools in ways that really serve them.</p>
+              <p>I’m gonna come back to that, but that was just like one thing that you were mentioning I was starting to think about. And certainly the point around the disparities potentially being exacerbated I think is a really important one. And that’s something that the development space should be really aware of because as you said, there’s a lot of positive benefits that these tools can have, and certainly I don’t think we need to completely shun AI technology.</p>
+              <p>I think sometimes there’s this idea that like responsibility means. Refusal at all times and is kind of like anti-innovation and anti like, use these use of these. I don’t think that’s true at all. I think responsibility when it comes to these tools is how can we go and eyes wide open around what are the benefits and also limitations and risks of these tools, and then how can we move from there to make decisions that ultimately support the missions that we’re trying to achieve without unintended consequences that we know.</p>
+              <p>Has riddled the development sector in the past. You mentioned disparities when it comes to English language, we did some research around linguistic discrimination and chat, GBT and the underlying models actually looking at different varieties of English. So we looked at Kenyan, English, Indian, English, Nigerian, English, we 10 different varieties globally.</p>
+              <p>Because there’s a presumed excellence in English, but then there’s also disparities in the type of English. So basically what we found that research is that models tend to default to standard American English. So outputs tend to, whatever kind of English you put in, they tend to default towards specifically standard American English.</p>
+              <p>Even when you put in, say, British English, interestingly. And they also tend to not perform as well for varieties outside of the kind of quote unquote standard varieties of standard American and standard British English. And they have higher stereotyping and condescend, condescension for those other varieties as well.</p>
+              <p>Like some interesting, I think disparities even in, in some of those places that we think they’re a little bit better in the research that I’ve done on machine learning based credit assessment tools. I find that they do enhance access to finance overall, but not in ways that are gender equitable.</p>
+              <p>Ultimately, in ways that kind of reinforce gender differences in access to finance. So more men get loans at higher amounts, even though women are deemed as better repairs. And that’s linked to some of the proxies and features that are used to determine credit worthiness that are gendered. Things like income stability, formal employment, but it’s also tied to how these algorithms can be optimized towards profit and larger loans and more late payments can be more profitable.</p>
+              <p>So anyways, I think it’s important that we think about even inclusion can actually come at the cost of equity sometimes, and we shouldn’t also think that inclusion is sufficient. When it comes to some of the goals that we’re trying to achieve as a development community. So anyways, those are just some points.</p>
+              <p>But I love the community health worker application. You know, I think that is a really like amazing application of these types of technologies and tools and. How do we make sure it’s available in different languages is a really good question. And there’s some really cool innovations happening here where we’ve just been starting some work around like participatory data governance and data cooperatives.</p>
+              <p>And so how do we think about collecting data, whether in different language varieties or different image data or whatever. In ways that’s not extractive that we can then use to make these models work for more people. And so we’re doing some work now around kind of data cooperatives and part for data governance, which I think there’s a lot of potential in the development space as we work to make these tools work for more people.</p>
+              <p>Amie Vaccaro: Gene, there’s so much in here that I wanna like double click on, but to your kind of original question to us, which was like, how are we thinking about this? It’s so timely, right? And I’m sure that every team in any organization right now is just like grappling with with ai. And I think one of the things that I’ve been just mulling over really is from like a team perspective.</p>
+              <p>Like even just like how we use AI in our work. Like I think there’s a few different layers here, right? There’s like, how do we use AI in our products? Which maybe it’s like a higher bar, but even just how do we use AI and artwork, right? Like how do we encourage experimentation and people to like test it out to see if it is a good fit or not?</p>
+              <p>Rather than just feeling like. Pressure to use AI everywhere. Right. And like I’ve actually just, just last week I was with the team that I work on and we were kind of working through like what are some guidelines or guardrails we can give our team to better understand our expectations as leaders of like what do we wanna see with AI use?</p>
+              <p>Right. And it’s so tricky ’cause I’m like, I don’t wanna discourage it. Like I actually wanna be very encouraging of experimentation. There’s so many things that I’m worried about happening, right? When like people use AI too heavily and there’s like so many. Layers of that. Right? So it just feels like very, very timely that we’re having this conversation.</p>
+              <p>Genevieve Smith: Yeah, and maybe just to speak to that quickly, I think first off, that’s great that you are thinking about it from a leadership perspective and what are the kind of principles or approaches that you want employees to be thinking about when they’re leveraging and using ai? It’s really important. To for leadership to kind of set the tone on that, that we found that again and again through our research is that ultimately leadership sets the tone around responsibility and around these questions related to use, and what are the values that the organization wants employees to adopt when it comes to developing or deploying these tools can be really important.</p>
+              <p>Setting those principles up, it can be really important to help navigate those gray areas. Then what are the incentive structures that exist around it? Just as an example here, meta recently changed its performance reviews to have a question around how AI is being used in the workplace. So by doing that, signaling the importance of leveraging AI within organizations.</p>
+              <p>But imagine if there was another question, which is, how are you now using it in consideration to support for responsibility or trustworthiness, adding that extra piece. Then incentivizes helps people think about it, triggers this kind of different mental approach, mental model that can be really valuable in organization.</p>
+              <p>So I think that’s just one piece I would mention. And I would say too, in my classroom, I encourage students to use ai. I think it’s important that they experiment with it, that they’re using it already, like whether I say that they can use it or can’t use it, the reality is that they are using it and it’s good for different things.</p>
+              <p>So it can be really helpful for summarizing things. It can be very helpful for editing and for writing purposes, but it’s like a gentle balance between wanting students to use it and experiment with it, knowing also that employers want them to use it. So I certainly don’t want to prohibit it by any means.</p>
+              <p>In fact, I want them to experiment with it so they can think about where are those responsibilities, tensions, what am I uncertain about? So I require my students whenever they’re using AI tools to practice responsibility by being transparent about the particular use case and like why and how they’re using it there anyways, I think there’s ways from an organizational perspective, how do you have transparency around it, and don’t make it like a shame thing because these tools are really powerful and are great for a variety of different tasks.</p>
+              <p>But how do you make it more of a, maybe you have monthly lunch and learns where you chat about different applications that you use in the workplace, and what were some things you weren’t sure about? What were some things you’re maybe nervous to share, like you put into the model, some aspects around yourself.</p>
+              <p>You’re asking for like health considerations for and, and. How do you create a safe space for people to share some of the ways they’re using the tool without feeling like their wrist is being slapped? Where everyone can learn together, I think is really important.</p>
+              <p>Amie Vaccaro: Some of us may be like a little bit further along, but we’re all learning ai, right?</p>
+              <p>Because it’s new technology, right? So like normalizing the idea that we’re all in this journey together and making sure people feel safe to both share what they’re learning, what’s going well, what’s not going well, right? And not like you don’t wanna create shame around your use or non-use of it. I am curious, actually, this is was not in my list of questions, but I’m curious like in your own work, like how are you using AI and like where do you see it adding value for you?</p>
+              <p>Genevieve Smith: Yeah, for sure. So I would say coding definitely. So I’m a social scientist, but in a computational social scientist, so. It’s really helpful with coding and helping when I have puzzles there. I use it for editing sometimes too, and I also use it sometimes like a thinking partner. I think it can help me think through things that I’m stuck with, so I really like that.</p>
+              <p>I will say that I am starting to use more and more local models, meaning models that are local to my machine, so like open ones that I kind of download and use. Part of that is because of data privacy questions and considerations. You know, even if you’re using a model that’s going back to like a server, like a closed model, like a chat, GBT goes back to open AI servers.</p>
+              <p>Even if you’ve checked the box where your data isn’t being used for training data purposes, we don’t really know how it might be used for secondary purposes and how long that’s being stored for, if it could be used on the line for like advertising things or stuff like that. I just had a. Talk in my class with a data privacy expert, Jennifer King, who’s at Stanford, and she was noting how we’ve reached what’s called Peak data, which basically means that these big tech companies we have, they’ve gotten any and all data that is currently available.</p>
+              <p>And so now the question is how do we get more data? And she’s done some research into privacy policies of these organizations developing foundation models, and they’re very vague, essentially. So I think we need to be mindful as users around some of that. So I think about the data privacy stuff a lot and in terms of like how I’m using it and the types of models I’m using it, those are things that I think about.</p>
+              <p>Amie Vaccaro: I’m sure that listeners will be curious. Are there specific open models that you’re using locally that, that you recommend? It</p>
+              <p>Genevieve Smith: depends on your computer and the bandwidth that your computer has. But Llama is a pretty good one. There’s some deep seek ones that can be pretty good too. And you know, just being mindful of like with those as well, like deep seek, there’s certain things that you know, you know, that if you ask it about like Tran Square, certain things like that, you know, there’s limitations.</p>
+              <p>There’s like can be cultural things that are embedded in these tools. So I think it’s be, be aware of that, but I would say like, oh Lama Deep Sea are two great ones. And you can explore what is possible based on what your computer can do basically.</p>
+              <p>Amie Vaccaro: Yeah. Awesome. Well, I wanna pick up, you’ve started to touch a little bit about under this idea of like when tech gets kind of like helicoptered in or parachuted into a scenario, there can be challenges, right?</p>
+              <p>Like we’re just like bringing it in without kind of consideration to local context or culture. I would be curious just to hear a little bit more from you around. Have you seen instances where AI has failed or struggled because of that lack of understanding, and how should we be thinking about that piece?</p>
+              <p>Genevieve Smith: Yeah, certainly. And so I think, again, you know, it’s like with discrim, so there’s discriminative AI systems or algorithmic decision making systems that are more prediction tools. So that would be like predicting who should get a loan or what should be like your lending limit, or who should get hired for a job.</p>
+              <p>So those are predicting decisions. For informing decisions and then generative AI systems that are generating text image, creating something new. And so I think within both of those, there can be instances where the AI has failed or struggled. And again, just like looking my research around financial systems, so those that are assessing credit worthiness and predicting who essentially repays loans, you know, I think some of those, I wouldn’t say that the AI has necessarily failed or struggled, but I think they’re essentially like predicting credit worthiness based on different features and proxies.</p>
+              <p>Are developed in these systems and it’s really important to think about how those are either, are those correlated or are they causational to repaying loans? And so it’s really important to have that lens around like correlation versus causation and thinking about some of these different ways that like data and features can be gendered.</p>
+              <p>And so like being mindful of that. So in the research that I’ve done, I did a case study in Kenya, which basically found that women received less loans and lower loan amounts, and that rural women were over five times more likely to not get a loan even after controlling for other variables. And so this is kind of a, a question around like, why is that occurring?</p>
+              <p>It’s really hard to kinda like dig into the meat of some of this, but it’s likely tied to the proxies that are being used for assessing credit worthiness and then also how algorithms are being optimized for lifetime value and profit motivations and how fairness is understood. Can actually reinforce some of those gender differences.</p>
+              <p>So basically like there’s a lot of normative things that go into AI models and decision making that I think is really important for us to be aware of. And it’s not necessarily illegal, but I think this case kind of goes to show that businesses self-regulating can make certain decisions that are in the interest of for-profit firms.</p>
+              <p>And again, it’s not necessarily bad, but the question is, is Soci society on board for that? And so I think that’s really important. And then, yeah, I would say with other like. Applications like generative systems tend to have, especially with low and middle income countries, they have pretty big biases around different communities.</p>
+              <p>And so it’s less of like failing or struggling and more around like, how do we want, what do we want these models ultimately to achieve for us, and how do we get that there? And then who’s gets to decide? You know, a lot of the work that we’re starting to do now is more on participatory design, research, and co-creation.</p>
+              <p>So how do we develop AI systems with or by communities? Ways that are really meaningful for them and support their agency.</p>
+              <p>Jonathan Jackson: So one thing you mentioned was the that loan example for the women in rural areas being five times less likely. I’m curious if you’re seeing what might be perceived as like a false trade off right now with some responsibility, priorities might directly compete with profit, but I think one thing we saw with the energy sector that certainly I think if everybody could go back in time, would have made it less about perhaps climate or other issues and been like, this is a national security priority, that we get energy cheaper for all sorts of reasons.</p>
+              <p>And oh, by the way, it’s also good for climate. And so from a responsibility standpoint, I’m curious in that case of the loan, was it a bad economic decision in addition to being a bad outcome for the world, that those women are less likely, but in that case I’d be like, oh, that’s not, I bet they repay at a higher rate, and I bet you want to service that loan if you could get it.</p>
+              <p>And so I’m curious if you’re seeing this like. It feels like you’re trying to say trade profit for being more responsible when in fact there’s probably a lot of use cases where it’s like, no, no, no. This is a better economic outcome as well.</p>
+              <p>Genevieve Smith: Yeah, absolutely. I mean, I think in this case, with women not getting as many loans as men, but there repayment behavior being higher, it shows like maybe there’s this market inefficiency that’s happening and there’s a variety of reasons that women could be not getting as many loans, that there’s user side and supplier side, right?</p>
+              <p>Like user side. There’s gender digital divides, so women don’t have as many access to the apps. The digital literacy and financial literacy can be different, so they may be not able to take advantage as much of these tools and those kind of things could be addressed. Right? We can think about how these tools could exist on basic phones.</p>
+              <p>We could think about financial literacy and digital literacy tips that could help take them through the process to get more access to these. And then on the supplier side. What are the proxies and features that are maybe correlated with credit worthiness or some aspect of credit worthiness that are not actually causational, and how do we like better understand that because yeah, there is this, you know, market and efficiency and potential discriminatory effect that’s occurring.</p>
+              <p>It’s also holding back the potential of how many folks we can reach with these tools. So I think certainly think that’s one of it, or one aspect of it. The other piece is if we’re using like a profit lens from like an optimization or evaluating if something’s fair, then it could reinforce this idea that like certain groups are better to lend to and then the tool will like learn that over time.</p>
+              <p>And if we don’t really do the proper auditing internally. We don’t recognize that that could be happening. So I think doing those internal audits and a, a checking against different demographic groups is really important to hold ourselves accountable and yeah. There’s also this market in efficiency that could be happening too.</p>
+              <p>Amie Vaccaro: I’m curious to know, you’ve mentioned now twice this idea of kind of developing AI. Within four communities. You mentioned a participatory data governance, like creating cooperatives to do that. I’m so curious, like that just piqued my interest. Can you share a little bit about that work and what promise that holds and Yeah,</p>
+              <p>Genevieve Smith: absolutely.</p>
+              <p>Yeah. I’m really excited about it and I think at a, at a high level, like AI is, is a tool, right? It’s not inherently good or bad. It’s a tool. It’s a technology that can be deployed in different ways and it’s a really powerful technology, but it really matters Who develops. These systems, what are the incentives, priorities, perspectives, beliefs that are kind of getting built into these technologies?</p>
+              <p>And because of that, there is a lot of movement, I would say, especially in the ethical AI community and researchers in this space that are thinking about how do we build, develop, deploy, use tools that center the needs and agency and perspectives and priorities of community members, especially vulnerable communities.</p>
+              <p>There’s a line of research is a big ethical AI conference called the Fairness, accountability Transparency Conference, a CM Conference on Fairness, accountability, transparency or Fact. And this is a huge topic there, and there’s questions around participatory design, research and human centered ai, which is essentially how do we make sure that we’re understanding the needs and priorities of the people that we’re targeting with these systems and.</p>
+              <p>Design research is a bit of a spectrum, so like you can move towards more deeper participatory design, actually more co-creation type research, which is then these systems being developed with for and by these communities, not simply doing like a survey and then integrating that. That’d be like on the other side of the spectrum, which is great, but there’s levels of deepness that you can go.</p>
+              <p>I would say. This can be applied in the machine learning life cycle. So when it comes to data sets, we can think about participatory design and participatory governance of data sets, and that’s where this cooperative project is coming into play. And so for here, in this particular project, we’ve been doing research around gender bias and text image models globally, and recognizing that there’s pretty big biases that can exist for different communities.</p>
+              <p>And so. We’re creating a new data set of people doing different things globally that are maybe non stereotypical for their gender, like men taking care of kids in different places globally, and women doing like mechanic work. Things that people really do, but these models don’t represent. People doing necessarily, because they tend to actually exacerbate biases.</p>
+              <p>And we find that through our research, it’s not just training data, but the model itself can exacerbate the biases based on how they’re learning anyways. So we’re creating this new data set that will be a cooperative structure. So that essentially means that the people who contribute their data will have governance rights over how it’s used over time and be able to also.</p>
+              <p>Have payments go to them. If it is approved for use in different cases, then they can receive payment for that over time. So we’re really still exploring like how do we do this? How do we create like a global data cooperative structure? And then yeah, we’re also thinking about, and within like machine learning tools as well, how do you develop those in ways that you know and center community agency and needs.</p>
+              <p>So things like defining the purpose of the model with communities. Thinking about like proxies and features that are resonate with the community, defining fairness with community members as well. Anyway, so there’s some different exciting applications there and I’m really excited to be doing more work in that space again, because I don’t think responsibility isn’t just about finding the issues and being like, this is a terrible tool in technology.</p>
+              <p>It’s also about imagining technology futures that we want to live in, and how do we ensure that they. Represent people’s needs and perspectives and priorities and bring out community voice.</p>
+              <p>Amie Vaccaro: I love that example, Genevieve. ’cause it’s not just like saying like, stop, don’t do this. Right. It’s actually this very thoughtful approach to like, how do we bring this forward in a way that’s gonna make sense and help make sure that.</p>
+              <p>AI is representing things and people in a more realistic way, in a more fair way. That’s, yeah, would be a full example. Thank you for sharing that. One final question for you. We’ve talked about a lot. We’ve gone through just a really incredible framework you’ve outlined in terms of what is responsible ai.</p>
+              <p>If you could encourage our listeners to do one thing differently on Monday morning, what would it be? To make sure that like they’re embracing AI responsibly.</p>
+              <p>Genevieve Smith: I think just, you know, being aware of the risks that exist and kind of eyes wide open around that. I also say that perhaps it depends on, you know, as a listener, are you a funder or you’re a policymaker, or you’re a practitioner.</p>
+              <p>As a funder, I think the one thing you might wanna consider is come next week or in the future is. Do we have a responsibility lens when we’re reviewing tools to invest in applications? We did this at usaid, as I mentioned, was a responsibility AI fellow. There we looked at a responsibility lens and grant making decisions, and then provided TA support to grantees to help them build that out, right?</p>
+              <p>And also for funders, think about funding processes, not just products. So how do you support funding things like participatory design methods and that might result in like a different end product, but are really prioritizing the process of censoring community agency and voice and how that product lives in the world.</p>
+              <p>And so I would say like those two, two things would be one thing for funders, for policymakers, recognizing that these tools aren’t objective. And that leaving businesses to self-regulate is flawed because they’re businesses with responsibility to their shareholders. They are responsible to their shareholders, and those responsibilities can be in conflict with equitable benefits to vulnerable communities.</p>
+              <p>So be mindful of that. And then for practitioners, how do we think about building in redesign processes? How can we use those five responsibility? Components as a lens to make products that better serve our communities and have a responsible AI strategy, including through things like referencing that playbook that I mentioned can be really important or really helpful as well.</p>
+              <p>So hopefully it’s a tool that can empower the listeners out there to think about how to operationalize this in meaningful ways.</p>
+              <p>Amie Vaccaro: I love that, and we’ll include links to those in the show notes as well. Thank you so much, Ivie. This has given me so much to think about. I’m really excited to share this out with our audience and even with Degi internally, I think super, super valuable.</p>
+              <p>So thank you so much for your time.</p>
+              <p>Jonathan Jackson: Yeah, thanks so much for joining us, Genevieve.</p>
+              <p>Genevieve Smith: Of course. Yes. Thank you. Thanks for having me. I really appreciate the work that Degi is doing, and excited to stay in touch.</p>
+              <p>Amie Vaccaro: Thank you so much to Genevieve Smith. That was a fantastic conversation and gave us a really clear framework to navigate the intense hype around ai.</p>
+              <p>Really grateful for her time and her expertise. For our listeners, I wanna share with you a few of my key takeaways from this conversation. First, remember those five key lenses of responsible ai. Fairness slash bias data privacy, security slash safety, transparency and accountability. Use this framework to audit your AI projects, moving beyond a simple AI for good label.</p>
+              <p>Second process over product funders and practitioners should prioritize funding and building things like participatory design methods and data cooperatives. This center’s community agency and ensures the models aren’t helicoptered in without local adaptation. Third, inclusion is not. Efficient for equity.</p>
+              <p>Be mindful that AI systems can enhance inclusion such as granting more access to finance, but they might still reinforce existing gender or social differences. The purpose of using an AI tool for good is not sufficient as fundamental issues like bias and unfairness still exist in the technology.</p>
+              <p>Finally, leadership sets the tone. Leaders must set clear written principles and create incentive structures like integrating AI responsibility into performance reviews, to encourage safe experimentation and learning across an organization. Check out the playbook that Genevieve mentioned and we’ll include a link in the show notes.</p>
+              <p>That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatdema.com with any ideas, comments, or feedback. This show is executive produced by myself. Ana Bhand is our editor, Natalia Gakis, our producer, and cover art is by.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">GS</div>
+            <div class="person-info">
+              <p class="person-name">Genevieve Smith</p>
+              <p class="person-role">Founding Director of the Responsible AI Initiative at UC Berkeley's AI Research Lab, with a decade in international development and AI bias research.</p>
+              <span class="person-org">UC Berkeley AI Research</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/6erHRxeXTFxPWv5s7jEUB9" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

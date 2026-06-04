@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 82: Closing the Gap: Scaling Mental Health Care Through Local Heroes | High-Impact Growth | Dimagi</title>
+<meta name="description" content="How do you deliver mental health care in a country with 50 psychiatrists for 50 million people? Finemind's Pavel Reppo on training nurses and midwives in Uganda to close the gap.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/podcast-community-mental-health-workers/">
+<meta property="og:title" content="Ep 82: Closing the Gap: Scaling Mental Health Care Through Local Heroes">
+<meta property="og:description" content="Finemind's Pavel Reppo on task-shifting mental health care to nurses and midwives in Uganda, and measuring what real recovery looks like.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>April 15, 2026</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">Closing the Gap: Scaling Mental Health Care Through Local Heroes</h1>
+        <p class="ep-deck">A country of 50 million people with roughly 50 psychiatrists. Finemind's Pavel Reppo on training nurses and midwives in Uganda to close the mental health treatment gap.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2lQIEUpTaN6h8tXxZRXAuZ?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 82 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2lQIEUpTaN6h8tXxZRXAuZ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000761542271" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/5e23a448-06b0-4b71-b13d-f30407ce1bbb/high-impact-growth-closing-the-gap-scaling-mental-health-care-through-local-heroes-with-pavel-reppo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- At a glance (slim) -->
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats" style="grid-template-columns:repeat(2,1fr);max-width:640px">
+        <div class="ep-stat">
+          <div class="ep-stat-num">50M</div>
+          <div class="ep-stat-label">people in Uganda</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">~50</div>
+          <div class="ep-stat-label">psychiatrists for the entire country</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Imagine a country of 50 million people with only 50 psychiatrists. That is the reality in Uganda, and Pavel Reppo is proving that specialists are not the only ones who can deliver life-changing care. As Executive Director of Finemind and CEO of the Matchbox Fund, he brings a rare dual perspective, bridging grassroots mental health work and the funding that sustains it.</p>
+        <p>We dig into how Finemind upskills primary health workers, midwives and nurses, to deliver evidence-based mental health support right at the point of care. Pavel makes the case that real impact is measured by functional recovery, children returning to school or a household with more reliable food security, not just a lower score on a clinical depression scale.</p>
+        <p>It is a hopeful, practical look at task-shifting done well, and a clear-eyed account of what it takes to close a treatment gap this wide.</p>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>The staggering gap: 50 million people, roughly 50 psychiatrists</li>
+          <li>How Finemind upskills nurses and midwives to deliver care</li>
+          <li>Why functional recovery matters more than symptom scores alone</li>
+          <li>The Matchbox Fund and sustaining grassroots mental health work</li>
+          <li>What effective task-shifting can teach the rest of global health</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://afinemind.org/about/" target="_blank" rel="noopener">Finemind</a></li>
+          <li><a href="https://matchboxfund.org/" target="_blank" rel="noopener">Matchbox Fund</a></li>
+          <li><a href="../funders-power-to-change-the-system/index.html">Ep 76: Funders, with Dr. Kevin Starr</a></li>
+          <li><a href="https://sites.dimagi.com/high-impact-growth-podcast/reimagining-mental-health" target="_blank" rel="noopener">Reimagining Mental Health, with Dr. Vikram Patel</a></li>
+          <li><a href="https://www.who.int/publications/i/item/9789241506816" target="_blank" rel="noopener">WHO: Problem Management Plus (PM+)</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie:</span> Welcome to High-Impact Growth, a podcast from Demee for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity.</p>
+              <p>I’m Amy Vaccaro, a senior Director of Marketing at Degi, and your co-host, along with Jonathan Jackson Degi, CEO, and co-founder. Imagine a country of 50 million people with only 50 psychiatrists. How do you close a massive treatment gap when the experts simply aren’t there? In this episode, we’re joined by Paval repo, executive Director of Fine Mind, and CEO of Matchbox Fund.</p>
+              <p>Paval brings a unique dual perspective bridging the worlds of grassroots mental health implementation in Uganda and trust-based philanthropy. We dive into how fine mind is upskilling health workers in Uganda to deliver evidence-based mental health care. Why we need to measure life outcomes like school attendance rather than just depression scores, and how the Matchbox Fund is rewriting the rules on funding, often overlooked, but high impact local organizations.</p>
+              <p>If you’re a funder looking for more equitable models, or a program manager trying to scale with limited resources, this conversation offers rich food for thought, enjoy.</p>
+              <p>Welcome to High-Impact Growth. Hello. Good to see you both., So I’m really excited for today’s conversation., I’m here with Jonathan Jackson, my co-host. ~Hey, John. Good to see you.~</p>
+              <p><span class="spk">Jonathan:</span> ~Year, Amy. ~</p>
+              <p><span class="spk">Amie:</span> ~Happy New Year. First recording of 2026.~ Very excited for this one. ~It’s already an exciting year~ and we are so thrilled to be joined today by Pavel Repo, who is both the executive director of Fine Mind, as well as CEO of Matchbox Fund. So Pavel, you’ve just got a really cool dual perspective. I’m sure many other perspectives as well coming in, as someone who’s both implementing mental health programming in Uganda. Integrating it with, primary healthcare and also funding organizations., So we’re really excited to have you here and to learn from you today.</p>
+              <p><span class="spk">Pavel:</span> I’m thrilled to be here. I think, the other thing is I just became a dad, so let’s throw that in the mix as well. That’s the most important one.</p>
+              <p><span class="spk">Jonathan:</span> ~That was ~that was not something we talked about last time. You were</p>
+              <p><span class="spk">Pavel:</span> No, no. So, John, I, my, my baby boy Lucas about to be four months old. Yes. So dad, who dad jokes are in full gear.</p>
+              <p><span class="spk">Jonathan:</span> Wonderful man.</p>
+              <p><span class="spk">Amie:</span> Oh my gosh. Four months.</p>
+              <p><span class="spk">Jonathan:</span> By the way, as a quick aside to our listeners I realized why dad jokes exist. So what happens is you start telling jokes that you think your kid thinks is funny you when they like one and two years old, and then you just never change your sense of humor.</p>
+              <p>You continue to get older. So dad jokes instituted it’d actually be funny to a two, 3-year-old and then you just. Lock in that sense of Eli.</p>
+              <p><span class="spk">Amie:</span> I love that frame. Yeah, that’s about right. ’cause yeah, even just the silliest little things, make a 2-year-old laugh. If only we were all 2-year-old.</p>
+              <p>I mean, actually at some level we had, we all are two year olds, but</p>
+              <p><span class="spk">Jonathan:</span> you just gotta, you just gotta keep that in our 2-year-old, right.</p>
+              <p><span class="spk">Amie:</span> Oh man. Well congrats on that. And Baby Luca, and I know you said he started daycare recently. That’s huge.</p>
+              <p><span class="spk">Pavel:</span> It is huge. Yeah, he’s been doing good. He is been sleeping, he is been tired after coming home. So kind of an unintended win from that. We’re grateful.</p>
+              <p><span class="spk">Amie:</span> That’s amazing. That’s amazing. Oh man. And you must be exhausted. Having had him at home for four months as a newborn,</p>
+              <p><span class="spk">Pavel:</span> my wife has been. Just phenomenal when taking overnights and been amazing. So I give her all the flowers. So she’s, been incredible,</p>
+              <p><span class="spk">Jonathan:</span> awesome,</p>
+              <p><span class="spk">Amie:</span> amazing women. It’s incredible what we can do, truly. After having a baby, I was like. Oh my goodness. Wow, I’m seeing the world in a whole new light. This is incredible. Um, All right. So, Pavel, I’d love to start by hearing a bit of your, sort of your why journey like what drew you into mental health work and how did that pull kind of eventually lead to starting Fine mind? What were the pieces of the systems you were seeing that were missing? Give us a bit of your backstory.</p>
+              <p><span class="spk">Pavel:</span> Yeah. I think the greatest kind of catalyst or lesson is that I have obsessive compulsive disorder, OCD, and at least my first memory of that was when I was about 13. It was a bit of a difficult time. My parents were in the midst of a divorce. My brother and my parents had some discord and disagreement. It felt like every day, and I. Had this fear like, goodness, if I was to say something and. To spark an argument with my mom and my dad. I couldn’t live with myself. So I think the kind of the mirage with OCD is that you think you’re in control. So I decided to isolate myself for this thought of, if I’m not speaking with them, I can’t burden them with another argument. But it, I think that kind of went a little too far. And OCD began with kind of the road symptoms, hand washing contamination. OCD. I would stand in front of the light switch up and down for 20, 30 minutes, washing my hands until they would kind of crack and bleed looking for this just right feeling of their clean and. OCD is an interesting animal. It doesn’t necessarily leave you, it just kind of evolves and I think you get, hopefully, some better skills to navigate it. So it’s still a part of my life and a key part of my life, and I’ve been very grateful. Growing up in Colorado, in the United States, I was born in Belarus. Came here when I was a little boy. I’ve been afforded tons of incredible resources. I’ve been in therapy for a decade plus. I had an OCD coach at one point friends and family that have just been so supportive and kind of gorging myself on books. And when you look at other places across the world we work in Uganda, they don’t have access to anything like that the system is in really. And of infant place where you’re kind of creating from ground up., So to me, being afforded so much and yet still having such an arduous and difficult journey, I mean, I truly felt some sort of a calling of goodness these folks. Are struggling and are having a really terrible, difficult time and they’re not afforded access or treatment or services. And I think that was the greatest catalyst. And Uganda, I’ll say, one thing about that I think like many of us would maybe get into this field, I was. Eager to change the world, right? It’s a little bit of a, tri cliche. I didn’t end up changing the world, but I had some friends who were working in Uganda. They were running a small organization called the Uganda Project, and they were supporting about a dozen young adults who were orphaned by aids. So providing BA basic education expenses, housing support. And my friend at that point said, Hey, they’re doing this work. You should connect with their leaders of the organization. If it’s a fit, you can come travel. And I was just like, giddy. So I, I did eventually go for about a dozen days. I didn’t end up changing the world nor the face of. Kind of Uganda over at large. But what happened is like, I kind of made a vow and a promise to myself. I was like, I have to go back any expense. It doesn’t matter. I can’t go once, take a good picture, feel good about myself. So now at this point I’ve been to Uganda 11 times. It’s in many ways my second home. And kind of the nexus of mental health and Uganda, that’s what materialized and brought forth the work with Fine Mind.</p>
+              <p><span class="spk">Amie:</span> I really appreciate you sharing that paull. And actually I’ve like never spoken about it even with John, but I also identify as someone with OCD. So, I feel like you and I won’t never interacted over in person, but I feel this connection and maybe there’s a little bit there as well. It’s absolutely something. I, some of my earliest memories are having these repetitive thoughts and also just trying to figure out what this was and kind of diagnosing myself as having OCD. Then holding it very much in I don’t think anyone I grew up with would say like, oh yeah, Amy hit OCD. But it’s absolutely something, that I live with. And to your point, like it just, at some point you develop the skills hopefully to live with it. But many ways, like I can relate to that journey of knowing how important mental health care is and also just how much it takes to kind of work through something like that. So thank you for sharing that. That’s really powerful. and I’d love to hear just some more about kind of the, so you went to Uganda because of friends programs. Now you’ve been there 11 times, you’ve built out an entire organization there. What have you seen in terms of. What does mental health care look like in Uganda? I think you’ve mentioned a bit about just the inequity of like how it’s set up and how the systems create space for it or don’t. Talk to us more about what are you seeing on the ground in Uganda and how does what you’re building play into that?</p>
+              <p><span class="spk">Pavel:</span> you guys have had really incredible pioneers in the global mental health space, so I hope that some of the listeners these statistics aren’t, new. Uganda is a country of about 50 million people. They have 50 psychiatrists. For the entire country. So the quick math there, it’s a psychiatrist per million people. Now they’re not an anomaly. Many countries across Africa, Southeast Asia, south America, have kind of comparable numbers. We have even less psychologists across the country about a 90% treatment gap. And what that means is that folks who could benefit from services simply aren’t availed. To them. So 90% of folks just go kind of on their daily life without actually seeking or getting proper services that can support them. We work in. Northern Uganda primarily actually working in more of a decentralized manner. We really believe in the community health worker kind of model of how do we attempt to democratize and decentralize the care that’s provided. Uganda has a single national mental health hospital. Most of the resources are actually funneled to this kind of distinct single facility. A lot of these psychologists, a lot of these psychiatrists are also based in the capital city. It makes a lot of sense. That’s where the money is as a person who needs to make Mensa ends meet you. Work there. So the moment you go out to any of the rural outskirts across the country, there’s a complete vacancy void of services, and you have to get a little crafty and creative in terms of providing that care. So what we do is that we work directly within the existing health facility infrastructure. So as opposed to introducing a new cadre of worker, we really believe that the people that work there they’re best suited. They know their community, their villages, their neighbors. Best. So they’re already providing primary care services, but they may not be providing any semblance of mental health support. So we take your primary caregivers, the midwives, the nurses, the pharmacists, and if you name it, and we upskill them, we train them and. Real kind of bite-sized, but steeped and evidence treatments that they’re able to deploy at the point of care as they’re providing primary care. So now they’re also privy to some of those emotional woes and signs, and I think we fundamentally believe that when you’ve marry. Primary care and mental health care, you could provide better care. Maybe it’s not totally radical idea but goodness, you’d be surprised how many folks don’t do that. And we’ve gotten a lot of kind of mileage through this particular approach.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. And I think as you mentioned, we’ve had some amazing experts on the pod with respect to mental health. But one of the huge challenges is training. How do you do what you said, take that evidence-based bite-size curriculum and make that appropriate for cadres that already exist, but that are different levels of skill and maybe different levels of adoption. So I’m curious, how did your model evolve? You mentioned the initial project that brought you to, Uganda, was the supportive of or to HIV young adults. So how did you transition into that, that mental health care and then I think a lot of people go through a kinda skeptical phase of like, oh, it can’t possibly be the case, that this little training can have this big of an impact. It feels like everybody I talked to in mental health eventually comes to that conclusion of wow, there’s just so much that peer counseling and existing skilled workers can accomplish once supported to do . So I’m just curious if you could speak a little bit to how mental health became a focus and then how you’ve thought about the training and the evolution of your training approach.</p>
+              <p><span class="spk">Pavel:</span> Sure, Sure. I was in the midst of some jobs and Mr. Google became a forefront activity to do. And I think with my own journey with mental health, I was really particularly keen on looking at the global mental health landscape. When I started looking and seeing kind of these abysmal and absurd numbers of care I was like, well, what is being done now? Vikram Patel has been on your podcast and he’s someone I look up to and I stumbled upon his work, frankly, and saw his Ted Talk. And on a win, sent him an email, introduced myself and I said, Vikram, I really admire your work. I’d love to talk, to his benefit. He replied in three or four hours. And we eventually did have a call and Vikram leads, co-leads an annual course called Leadership and Mental Health by way of this organization called Sanga that happens in Goa. I was. A part of that course I was able to attend, and I think he was a bit surprised when I arrived in India. We are all introducing ourselves and you have practitioners and service providers, and then you have me, and I don’t have a formal background in mental health, but I was like I have to be in this room. Because the kind of the core ethos of this course is that you’re trying to look at interventions, effective interventions that are being deployed in low income. Countries. So it felt like it was his thunderbolt, struck me of my good this is exactly what I wanna learn about and here’s a place where I can actually tell so, and roll up my sleeves and med. So I was there for two weeks. Learning about all these incredible interventions from some of the foremost leaders. And Vira himself was having lunch with us and speaking and so forth, and we actually took a model that they had implemented. It was called the Manas Model. Now at this point, it might be 15 or so years old. But I loved the simplicity of it. It was a stepped care approach. It wasn’t a one size fits all, which I think often you see in care, you have a treatment and you put all your eggs in that basket. To me, this felt really logical., Depending on the symptom severity, you start with a particular treatment. If someone doesn’t fare well or needs more you, you bump them up, you triage them to a more severe intensive type of care. And they were really using a collaborative angle as well, working with the doctors and nurses and the specialists and health workers. So I, I was fascinated by this approach and started to pE them, nag them as gently as possible to see if they could send me manuals and if I could connect with their staff who were in fact providing that care. And they were so deeply welcoming and gave me everything. So we took all of those manuals, all of those conversations, and we started to adapt them for the context of Uganda. So in fact, our very first pilot happened in a single health facility in a suburb of Kampala, where we took the Manas model and we adapted it for the context of Uganda. And at that point we trained three individuals who had nothing to do with mental health. We had a journalist. A land surveyor and a social worker, and the whole idea is could we take someone who didn’t have the formal background and see if they could provide the care? And it was really promising and exciting. Now, since that we’ve adapted the model extensively. We still kind of have the stepped care approach. That’s the heart of our work. But those distinct steps have. Have modified, have changed. Our very first step is something we called interpersonal counseling. Now for folks who are familiar with strong minds they’re, you know, voyeur is kind of in the field in terms of really putting forth group interpersonal psychotherapy. There’s a more distilled kind of light version of it. That’s done in a one-to-one basis. So that’s our very first step. Now, if someone doesn’t improve by way of that, we triage them into something called problem management plus. Now, this is a relatively new type of treatment that was co-created with the World Health Organization. It’s much more manualized at this point. You’re not only looking at depression, you’re throwing into that mixed adversity. And then if that’s not sufficient., It’s our responsibility to have a referral arm, folks that can provide more refractory support services that can lend to that.</p>
+              <p>And then John, I’ll say one last point about the training. The training is tandem out, but I think even myself, when I got into the field, I was a little bit disillusioned of how can someone who is not a psychologist or an expert provide effective care. And what really became evident and true is that. The system in Uganda, and frankly even in the United States, you don’t always need an expert for some of the issues or challenges you’re experiencing. And in fact, I think when we all rush to an expert, we actually kind of bottleneck and overburden the system. And some of the basic needs that maybe we’re going through could be ameliorated. Third peer specialist or peer supporter. So we, keep in our lane, it’s strictly depression. We don’t claim to cure all or heal crisis services fall outside the purview. We’re not necessarily looking at schizophrenia or psychosis, but our training is a week long training. We have role plays ad nauseum. In fact, some of our counselors complain about the role plays, but once they get into the field, they’re in fact very grateful because they’ve had so much experience with maybe sometimes pushy examples. But again we keep within our lane depression, the auspices and supervision is arguably the most kind of important glues are really creating a system that, that works effectively.</p>
+              <p><span class="spk">Amie:</span> That’s really cool. I, appreciate you walking us through. Those tiers. So kind of starting with interpersonal counseling, moving into like problem management plus, which is a more kind of intensive methodology it sounds like, and then making sure referrals are possible and the importance of supervision there. I’m curious, like is a lot of evidence supporting this, these peer models, right? That like a peer health worker. Can provide mental health care. And you’re also you’ve spoken a bit about there’s resistance to that. What do you say, or why do you think that resistance exists? And also what are you learning about what makes it really work? ? I’m imagining myself as a, if I’m doing outreach, primary care, healthcare, what would it take for me to really learn mental health, . I keep thinking like, it really comes down to like taking care of my own mental health.</p>
+              <p>Right. And making sure that I’m in a good place, . To be able to support other people or, but yeah. I’m just so curious what you’ve learned about what makes that work.</p>
+              <p><span class="spk">Pavel:</span> Yeah. kind of give a, an example here from the States where we’ve had a bit of pushback and then maybe what we’ve seen work, work well in the context of Uganda. We tried to take our model and work with an agency. Here in the States, and they were equally having a long, extensive wait list. And they could have benefited from a little bit of innovation and creativity. And I had someone in the organization that was really in belief, but supportive of the work that we were doing, and yet another clinical person wasn’t. And there was this consistent pushback. And I was equally aghast of as to why. And I I think what it kind of boils down to is that this person. Has gone to school 10 plus years, 15 years they’re kind of imbued this expert title and all of a sudden here we come knocking and say that within a week our peer supporters or our peer specialists can. Help can provide some care. And there was this kind of unspoken, but he sometimes spoken kind of territorial nature of You can’t say that you can help. I’ve gone to school for X amount of years and I am, the expert and oddly enough, I think the United States is actually far behind many of the other countries who are. Taking head on this peer specialist community health worker model, and for whatever reason, we’ve been very reluctant and hesitant, to adjust, to acquiesce, to some of this remarkable research that’s coming out from all over. I think what works in Uganda these folks, they’re your midwife, they’re your nurse, they’re your data clerk. This is a person that you live with. It’s not a person that, in theory comes in with a white lab coat or a jacket. They’re not imported. They’re not parachuted. It’s someone that you know intimately well and they’re already kind of developing a relationship and rapport and that, that seems to have cut through some of that noise and. It’s also really key for us when we engage in new communities, we never tell someone that they have a problem or they have a disorder, that you have depression. We really intentionally try and couch under stress, and when you talk about stress, it becomes much more of a universal concept that. Goodness we all contend with and in Uganda, kids school fees or folks might be in job transitions when you use those as anchors, all of a sudden that kind of touches everybody and we try and invite them to just share a little bit about their story. And this really. This time of listening. I often say if you strip away all our bells and whistles, what we do well is we listen. And in Uganda, and maybe even here in the States, care is quick. It’s expedient. You wanna see as many people as possible for the surest amount of time. And what we’ve tried to do is. You sit with someone for half an hour, 45 minutes, and you genuinely listen. And it’s, astonishing how much progress and how much trust you’re able to build from that patient provider relationship. And we’ve seen really incredible Impact from that.</p>
+              <p><span class="spk">Amie:</span> Yeah, I think that’s really well put. The power of just opening space, being there to listen and like listening with love, I imagine too, right? And an open heart can just be so powerful.</p>
+              <p><span class="spk">Jonathan:</span> And Pavel to, build on that anecdote, I’m curious, plus you talked about in Uganda you have referrals for the more significant cases. Obviously that’s absolutely critical to peer programs in the clinician you’re referring to here in the us. Were they simultaneously acknowledging just like the ridiculous volume of demand they weren’t able to get to, and like the huge burden that existed within their patient population? Like, I completely understand the. Skepticism or the kind of expert reaction. But at the same time, most clinicians I’ve talked to are just like, yeah I mean, it’s just crazy out there. The unmet need is so high. You would figure, you have, there be some inclination to innovate in that context.</p>
+              <p><span class="spk">Pavel:</span> I wish she was a little bit more conscientious of what, was happening. we had calls with her and I think she was excited to hear a little bit about the work, but then kind of on the backend very much, a lot of pushback. So as much as there was this extensive wait list, I felt like she had a very difficult time of going outside of. The parameters, the boundaries of what she was accustomed to and it didn’t feel like a radical deviation of the norm when, again, so much research has truly underscored the incredible impact peer specialists, community health workers can actually avail to folks. I was sorely, dis disappointed, but maybe not as surprise as you would think.</p>
+              <p><span class="spk">Amie:</span> So, Pavel, one of the things that, that you mentioned as we were discussing kind of threads that are alive for you right now was around being based in the United States and creating an organization in Uganda and cultivating leadership in Uganda. I’m curious, like how do you think about ethical leadership in that context of, avoiding this transplant leader or like the white savior or any of these kind of complexes that can be, real and instead sort of invest in, in building dope deep local wisdom instead?</p>
+              <p><span class="spk">Pavel:</span> I think that’s a question that many of us should take on and really sit with the while for folks to get in this space. When I first got into this work I wanted to control everything. Micromanage. I wanted to make sure the excellence, the standards were as high as possible. And in fact, my OCDI think maybe pushed me. Further, on that spectrum of I had to know to its fullest degree that work was being done well. What became also quite apparent quickly is that I couldn’t actually control everything. As of today, we have about 60 people who work with us in Uganda. I am the only American as you would call it, everyone else is Ugandan. My primary job is just to kind of rally the resources, so I like to say that I’m highly caffeinated. Everyone wants coffee. So I, I avail myself to coffee decaf here and there, try and get the resources. But I think the real kind of investment is to surrender those resources, provide critical input here or there, but to really impart the ownership with the team, they need to be in control. I’ve been grateful to have a team that kind of punches above their weight and we’re a small. Organization, our resources may not be as ample as some others, so it’s, critical for us to source people that have the enthusiasm for the work, but maybe where the skills can also be taught. Not vice versa. And I’ve always really held true to that adage. If someone is excited and we can find and really churn that excitement is something profound. That’s where we get investment and commitment and support. So in many ways, I see myself as a mentor, kind of as a coach. And certainly there might be things where go off the path a bit. But I, I also try and remind myself that if a decision was made by the team, that I might not be in full agreement. And let’s say it costs us some money. That’s okay. I think in the greater kind of purview of things, that lesson, the ownership, the stake that they have in their work is going to pay off exponentially more than I have and going to Uganda nowadays, I just get to have fun. The team is excited to see me and I try and really do a lot to strip away the power that I have. Here I am coming in. Visiting the team. I think there’s a little bit of, you kind of, you sit taller in your chair. So I try and really lean into being as silly and goofy as possible to do away with some of those barriers that they see. And like PAs coming, no, I actually don’t know what’s best. As long as I live, I will never be Ugandan. And if I live to be a thousand years old, the culture will still evade me. So what I can do well is connect with folks, share our story, and then get out of the way.</p>
+              <p><span class="spk">Amie:</span> I’m sure that the newly forming dad humor is, it probably helps with this over the last four.</p>
+              <p><span class="spk">Pavel:</span> I’ve not yet deployed that yet. I’m hoping to be back here in a few months and they better watch out. It’s coming in hot.</p>
+              <p><span class="spk">Amie:</span> So I’m curious, you know, technology is a key element of what we talk about on this show. Data measurement, monitoring and valuation. I know you’ve invested heavily in really thoughtful monitoring and evaluation infrastructure, and that’s something that we’ve worked with you on as dgi. I’d love to hear a bit about like your journey when it comes to measurement technology to support the work that you’re doing. And what have you learned in that journey?</p>
+              <p><span class="spk">Pavel:</span> this has been maybe the single most important thing that as an organization we do maybe the single most important lesson and it continues to provide learnings. We started our. Measurement journey with cobot. A cobot toolbox is in free service that is developed by Harvard Academics to be used in kind of humanitarian settings. And it served us for a while, but then we outgrew it frankly. The influx of clients, the case management piece was just absent in a lot of kind of external. Software engineering to really, MacGyver it to make sure it served our needs. It just became too much. De Dema and Comcare specifically is, has been a godsend., Goodness we collect data every single session, every single interaction we have with the client and the patient and I’m really proud of what we’re collecting now when it comes to mental health. You’re certainly interested in the depression severity pre and post, but we’ve tried to take that a little bit of a step further and in many ways the global mental health field is this wild west. I think a lot of funders. Are a little bit reticent to engage because they’re not quite clear how to put a monetary value to the impact of someone who gets mental health treatment. So, not to say that we’ve figured it out, but I think we’ve really tried to, so in addition to the PHQ nine, which is maybe the kind of the standard, we’re also looking at how does depression affect. Impact your daily functioning. We’re also looking to streamline and really understand the severity of suicide risk, and those are in the auspices of mental health, but then looking at how does it impact your life satisfaction and potential spillover effects? And we’re really excited to see when someone receives mental health treatment by way of our work. Are there kids able to attend school at a higher rate than they did prior? Is mom and dad able to provide more square meals that they did prior to the work? Is mom able to have more of a voice in their household? And now we’re measuring all of that, and I think are things that frankly or missed. So we’re, I’m keen to see that. And we’re now translating this. These thousands of points of data into this interactive dashboard. Like at any given point, we’ll be able to really kind of ascertain the impact of that. And then I’ll say o more thing. We’ve really been influenced a lot by cost effectiveness, mental health. It’s not the sexiest field. There’s not a lot of money going into it. So I think that constraint. Has really been key to seeing how can we reduce the cost as much as possible while still maintaining the fidelity and the impact of the work. So everything that we’re doing translates back to the dollar spent and the potential impact that can afford. And I’m grateful that, that’s a lens that we keep on wearing.</p>
+              <p><span class="spk">Amie:</span> I am curious. think, the cost effectiveness lens that’s something we think about a lot too as we’re venturing into new areas where we’re actually on the hook for delivering services. I’m curious, like, how are you finding like this, the data that you’re able to collect, like you mentioned this interactive dashboard, how are you using that data, right? Like first thing that comes to mind is oh, that must help with fundraising, but I’m sure it’s also helping with improving programs. Talk us through a little bit of what is the value of having all this incredibly rich data?</p>
+              <p><span class="spk">Pavel:</span> Yeah. I think there are distinct value adds from all the data that we collect. I think the first one is it informs how we should keep. Our team on track, how are they in fact performing? Where do they need additional supports? Where are villages or sub-counties that maybe need more awareness campaigns or kind of an influx of services that didn’t exist prior, where we’re able to track geographically of where that particular units arising. We can look at individual questions and maybe appetite or lack of food is something that continues to come up in a certain. Sub-county. And I think that’s really key information. I think Amy, to your second point absolutely. And mean philanthropy is king, we still need to get the money in the door. So, so this data tantamount for fundraising and external support. The other thing that we’ve been really excited about and kind of in its nascent beginnings is that we typically, when we would attend global, national conferences in Uganda and the Ministry of Health would be there and the assistant commissioner and people would ask. What is the incidence of mental health across the country? She didn’t quite know how to answer that question. She would say, frankly don’t know. So what we’ve started to do is that this information that we’re collecting, we’re also trying to work within the existing health facility infrastructure to then send it back to the Ministry of Health. They have the DHIS two, which you guys are very familiar with. You’re able to see myriad of different diseases and symptoms, but mental health continually had. No tracking. The numbers were zeros, and that wasn’t the reality on the ground. But I think we’ve cracked the code of how do we engage the data clerks? How do we collect that from the registrar books? How do we work with the district biostatistician, who then reviews that data, who then we can review? And then the Ministry of Health can actually see and realtime data coming in. That’s something that we’re most excited about. And maybe the funders don’t see the tremendous value of that. But for the country writ large, our hope goodness in every health facility that we work in, I’d love to see those numbers be sent back to the ministry every single month</p>
+              <p><span class="spk">Amie:</span> that’s a really well put. And I love, like you’ve just articulated kinda those three, circles of influence, of the data, .It helps the teams make sure that they’re on track. It can help inform and get funders excited and see the impact that they’re having. And then of course, like feeding that back to the country itself, so they’ve got a better sense of what’s going on with mental health. And I assume that would, should help them figure out how to prioritize it too, right? Yeah, that’s really cool. I am curious to hear a bit about your scaling plan and strategy. And I know that you recently wrote up a scale strategy and you mentioned how it’s really rooted in data, not necessarily just ambition. Curious to hear a bit about, your strategy.</p>
+              <p>What does the future look like for fine mind?</p>
+              <p><span class="spk">Pavel:</span> I think the best definition I’ve heard of scale is the reduction of the problem. Now I, borrow that from Spring Impact. Spring impact. We were graced to work with them a little bit. And they really talk a lot about growth and scale, and I think often we conflate scale with growth. You need to be in more districts, you need to hire on more staff. And certainly I think that’s a part of it. But what became really emanate and clear is that after another conversation with the funder they weren’t necessarily being, in any way negative. They said Pavel fine mind operates in more of an opportunistic manner. When an opportunity presents itself, you capitalize on that opportunity and it was really insightful feedback to receive because it’s a small organization, that tension of you need money in the door to sustain programming, but the sacrifice sometimes is the mission drift that is. Inevitable. So when I heard that feedback it was this aha moment of I think they’re right and we’ve never had a deliberate roadmap where we are at the helm and guiding where we are going to go. So the scale strategy was based on this weighted factored model where I started to dig deep into the need and the feasibility of us actually advancing and succeeding. And making mental health the key routine part of primary care. Now across the country in Uganda, a lot of this data doesn’t really neatly exist, so it took a lot of digging to find studies and demographics and so forth to really pair together. This need and the feasibility calling particular health facilities, speaking with those directors, and then actually again, standardizing the values to see by way of data what is emerging. So we were able to look at the 14 sub regions across. The country and from that, three main ones emerged as opposed to, us kind of playing whack-a-mole. Yes, there’s need everywhere, but where is there the greatest need? And in fact, the infrastructure could support Fine mind anchoring our place there Now. This is new. This is something we’re gonna try and rally the team behind. We’re in active conversations with the Ministry of Health to get their support to actually help us catalyze this growth. But I’m so excited because I think now it gives us a clear criteria if someone approaches us and maybe it falls outside the purview of that, I have permission to say no and not obsess about the fact that I’ve let something down because it just doesn’t fall within the auspices, the bumper walls of what we’re committed to.</p>
+              <p><span class="spk">Jonathan:</span> Yeah, that’s a, that’s great way to think about a, I think with the ecosystem that we’re now in, with decrease in funding levels overall and much higher need to be cost effective and get even more work done than we were doing yesterday with probably even less dollars. Having that strategy and that vision laid out where you’re like, this is what we think we can be really good at. This is how we think we can be really good at it. Are you in? Yes or no? ‘Cause I think without that focus you do not just drift in, which is probably fine. Take on more scope, et cetera. You drift in efficiency, which is the killer, right? We have to be extremely efficient as organizations in today’s ecosystem in order to make sure we’re providing the maximum amount of value. To the maximum amount of clients that we can reach. And it so that drift isn’t a new geography or an exists or any of that. It’s in the operational efficiency, which can be a huge killer as well.</p>
+              <p><span class="spk">Amie:</span> So you talked a little bit and we’ve, we asked you about like kind of the data that you’re collecting and then how it’s used which I. Love that answer. And as someone who works on Comcare, I appreciate you just sharing your experiences with Comcare. I’m also curious to hear how you’re seeing tech as part of the day-to-day service delivery operations. Right? Not just as a means to gather the data and report on it, but. How are your teams using technology? Be that Comcare or other tools? And how do you think about that role of technology in community-based service delivery? Especially when we’re thinking about cost effectiveness, quality of services yeah. What are, and then, now in this age of ai, there’s always this question of what if, could we just replace the human with an ai? Which of course is something we, are speak a lot about against as, but I’m just curious to hear Yeah. Your thinking about what does the tech look like when it comes to the day-to-day interactions your teams are having.</p>
+              <p><span class="spk">Pavel:</span> Now I’ll, I was listening to the previous episode with Kevin Starr, obviously um, kind of a giant in the field, and I, I’ll paraphrase what he said. Something to the effect of, if you can’t do it with pen and paper, you have no business doing it with technology. And I, think that’s. Really spot on. And that’s something that we actively believe in as well. When we first started collecting data we used pen and paper and then that became mess because you would lose papers and so forth. I think technology makes the work accelerated and cleaner and arguably better. There’s a bit of a learning curve to get folks onboarded and. That’s an investment that sometimes I’ve actually overlooked folks who maybe don’t have the fluency, the tech fluency that I’m accustomed to. It, it takes a lot of growing pains to make sure that those errors are vanquished. What I’m really bullish and excited about and we’re actually doing this. With you guys as well with Open Chat Studio is to develop kind of this coach. Our first iteration is that we’re using that to develop a chat bot that’ll act as an extension of our m and e team. So as we continue to grow in terms of our counselors. Some of those questions don’t need to be triaged to Sam or Pamela who act as our m and e team. Some of those questions can be asked via the chat bot, and that chat bott can provide immediate answers that are as robust, as clear, as thoughtful as Sam could be. So we almost have a working prototype of that, which is, so exciting. But then I see there’s, gosh there’s so much, can we use technology to. Offload the in-person supervision and see if AI can kind of be this bridge and really giving you a case or a sample case of someone struggling with a mental health condition or a problem, and seeing if you could liaise or interact with that chat bot, and then that provides feedback to you after the fact. I think that could save a ton of time and then maybe down the road at some point. I think some of the. Lower level needs. I’m particularly curious, and I know this is a bit of a hotbed right now of if AI can provide some of that early help. Not to say that you’re offloading all mental health treatment, but I think with the proper scaffolding and supervision, I think there’s a world where AI can be doing more and I think it’s foolish of us who are in the community to be. Steeped into this idea that people are king and we’re only gonna do people. I think the advent of combining both you have to, at this point of age, do that. To John’s point, cost is key. And if we are ever to achieve scale you have to think about technology and everything that you do.</p>
+              <p><span class="spk">Amie:</span> I appreciate like your optimism about AI because I agree there’s just so much potential. This is just like a random anecdote, but recently I had some lab work done. I have relatively like elevated blood sugar, so I was just looking at my A1C ’cause I wanna hold myself a bit accountable to that one. And I did some other lab tests. I asked my doctor, I was like, oh, what did you see in this? And she’s very busy, right? And it was her assistant that wrote back and she said, there’s nothing alarming at this time. Something like that. . And that was it. End of conversation and I was like, whoa, wait a second. We just had eight different tests done and there’s data from across a couple years, and I can see things like all over the place, right? I can see like my HDL is really high actually. Is that a good thing? Is it bad? There’s stuff going on. And so I plugged it all into touch bt and got a lot more robust answers. Right? And I’m sure that, I was chatting with a doctor friend recently, and I could tell that’s like the type of behavior that is. Feels scary for a doctor, right? ‘Cause you don’t want someone getting all that information from a chat bot necessarily. But if the doctor’s only able to give you a one line response and chat to t can actually break down what these different tests mean and what I should be looking at and what does this mean?Especially coming, having just had a baby in different things. Changing that’s good, right? But how do you make sure to pair that with access to a human too, right? There’s gotta be a more integrated way that could be working. So that, maybe the doctor actually can see the interaction I’ve had with the chat bot, for example, right?And oversee that. That might be interesting versus me just like off, on my own, plug it into Chatt BT .</p>
+              <p><span class="spk">Pavel:</span> I love that. I love that. I do that all the time. May maybe at one point, I asked the question in cha And I think I showed it to my wife, and my wife was like, why does it know my name? And I was like, babe, she had a little bit of a moment, but it, we worked through it.</p>
+              <p><span class="spk">Jonathan:</span> Oh my God. Yeah. It’s, it’s wild. It’s wild times, but it’s really, uh, it’s really powerful technology for sure.</p>
+              <p><span class="spk">Amie:</span> So I wanna shift a little bit and, these last questions. We’ve been kind of taking your angle As somebody who’s building programs in Uganda, I wanna shift and hear a little bit about your role as a funder. And maybe start with just telling us a bit about Matchbox Fund. Why you started it, when you started it, what kind of journey you’ve been on there. And then would love to ask you a couple questions about that as well.</p>
+              <p><span class="spk">Pavel:</span> God I’m so excited about what Matchbox Find is doing. We effectively launched in May, so, gosh, seven months or so, into the working. So it’s very new and born out of a lot of kind of desire of how do you get early stage, bold, innovative work. To be seen. And I think in my position, I’ve been the one who has been clawing, knocking on doors to try and get funders to respond now. And there have been some incredible funders who have, we developed rapport, build trust, really believe in us, and take the time and patients to understand where we’re coming from. And then on the other side of that spectrum, there have been funders who haven’t, who at times it feels like they lean in. To this power imbalance, which feels very odd and belittles you a little bit. So Matchbox Fund is maybe kind of a repudiation of that, of how do we create a system where folks who are doing that work, who have clear intent. Who are rooted in their communities, but maybe lack the polish like a typical funder maybe wants to see. How did they get that recognition?, One of the key things that I’m really excited about that is that we provide some money we source, we use a nomination based kind of system, and that’s still up for debate. An open call. Certainly, I think at get go seems to be very equitable, but when you have hundreds of thousands of applications pouring in and you’re selecting a handful, I don’t think that’s equitable at that point. Neither is a nomination based system because I think there’s inherent bias built into that. So we’re still trying to evolve what that looks like, but what I’m really committed to. Is that I’m trying to build out a funder network. So in many ways, like the plus one Global Fund at Roddenberry Foundation, they had a really thriving funder network where once you were in their family, there were already committed funders where you didn’t have to jump through any new hoops. And those funders because they believed you. They knew your vetting, they knew how credible you were as a funder, they were that much more apt than give. So I’m doing similar. How can we get funders to buy in to kinda this trust-based experiment and understand what we’re doing, and then be able to dole out their harder earned dollars, have skin in the game, and actually give their money to support this work without having to, again, unnecessary applications, more burden on that, on the grantee. trying to cut that bridge out completely and see if they can be closer to the actual work. It’s been interesting, it’s been an early process. We have a couple of commitments from new funders, which is a little bit of an experiment, and I’m hopeful that in the next few months we have more that come in.</p>
+              <p><span class="spk">Jonathan:</span> That’s great. And what, what types of projects, organizations, profiles is a fit for Yeah.</p>
+              <p><span class="spk">Pavel:</span> Yeah. Yeah. So we just ran our first giving, kind of granting, giving cycle. And this first one, which it was sector agnostic. Geography agnostic. And I’ll say that I think in the future we’ll have to categorize and be a little bit more specific, but for this first one, the idea was that let’s start. Let’s see what cracks, what breaks, what falters, and that’ll inform us for the next one. So we selected five organizations a remarkable organization doing work in Syria. They developed this Montessori school after the the Assad regime, kind of in the rubble, really building up and providing care and education to the students. We have an organization that’s doing incredible work in the Pacific and the Caribbean, working with kind of the government to really create equitable. Legal change to do away with the patriarchy and systems that don’t really serve. We have an organization that’s trying to bridge and provide peace building efforts between Israel and Palestine.</p>
+              <p>So I think we see ourselves as more of this kind of exploratory or experimental fund that against some of these organizations would have a heck of a time. Garnering the support from bigger funders. But if we can invest, if we can be a little bit more high touch and then also create a pipeline of some of those bigger funders, goodness, I think we can see a trove of real incredible innovation coming into the field.</p>
+              <p><span class="spk">Amie:</span> That’s so cool. And sounds like you’ve already found a handful of really interesting organizations. I love this idea of doing the work to find the organizations that like maybe aren’t in that mainstream kind of funding pathway already and potentially getting overlooked for various reasons. You talked a little bit in your email to me about, responding to unsolicited outreach with dignity ’cause you see yourself in it, right? Having done it for many years with Fine Mind. What does it mean to be a true steward of philanthropy? And what would a more honest, trust rooted funding ecosystem actually look like?</p>
+              <p><span class="spk">Pavel:</span> Gosh, that’s I wish we thought of more about that. was, so we had 20 nominees. We selected five organizations. I made a vow to myself to provide detailed feedback to all 20 not just kind of the canned email of we regret to inform you, so forth and so on. I provided feedback about. The bright spots, places that they could potentially improve possible connections or recommendations elsewhere. And you would be surprised at how many emails I received back are folks just genuinely thanking me. We’ve never received such feedback. This feedback is actionable and it felt shocking that even that low bar of providing feedback that could be.</p>
+              <p>Actionable and operationalized was something that they were grateful for, that there was a dialogue that someone on the other end was in fact responding to them. So, that is, is key without feedback. I think that’s the field falters you need to demand feedback and if it’s not there there’s something wrong with the system. We’re a smaller funder and every morning I wake up, I get a few unsolicited cold emails, and I can’t only imagine that if you’re a bigger funder, how many more you get. And I have this kind of twinge of. How do you respond with grace and professionalism and respect? And I think first and foremost you have to respond. But second of all, I’m constantly mowing this idea over of do we have an open application? Do we have a nomination based system or is there something else that I’ve not yet come across? So what I’ve done is I’ve actually. I’ve tried to crowdsource the answer from them. So I ask them, I ask the people who have emailed us essentially saying, Hey, we’re not in a giving cycle right now, but what do you think is a dignified system?How do you think we can scheme up or dream up a system that can include you while still having this discernment that not everyone can get the funds? And it’s been fascinating to see the responses I’ve gotten and let alone that in of itself people are just like, I feel seen. You’ve not ignored me. You’ve actually brought me in. I’ll say one last thing. We’re also trying to create more informal free master classes. So if it’s m and e related, if it’s fundraising related finances, at that point, we don’t need to, pick a select few. Everyone can be a part of that. And I think they’re able to get value from what Matchbox affords it provides.</p>
+              <p><span class="spk">Amie:</span> I love, I love that dissemination of knowledge. Pavel, thank you so much for your time today. You’ve given us so much to think about and reflect on, and I just yeah, appreciate your candor and your leadership as well and your approach to all things. So I know that our listeners are gonna get a lot from this conversation.</p>
+              <p>Thank you. Thank you so much.</p>
+              <p><span class="spk">Pavel:</span> Thank you guys so much.</p>
+              <p><span class="spk">Jonathan:</span> Thanks for being here, Bob. It was awesome.</p>
+              <p><span class="spk">Pavel:</span> Appreciate you guys.</p>
+              <p><span class="spk">Jonathan:</span> Bye.</p>
+              <p><span class="spk">Amie:</span> Thank you so much to Paval for joining us today and being so candid about his journey into this important work. And thank you for listening. I’m sharing a few of the many lessons that I got from today’s conversation. First, we have an opportunity to rethink who is qualified to care. Inspired by find mind’s approach and informed by the work of Vikram Patel and others by integrating mental health into primary care and trusting people the community already knows. Like nurses and midwives, we can bypass bottlenecks, build trust, and expand capacity for important service delivery. Second. Think carefully about what you measure. Paval shares that it’s not enough to track clinical scores. We need to look at functional recovery. Our families eating score meals, our children back in school. By taking a broader approach to impact and the ways that our health influences more systemic outcomes, we can build more impactful programs and better rally resources to invest in them. Third, Paul shared a powerful definition of success. Scale is the reduction of the problem, not just the growth of your organization, whether you’re implementing programs or funding them. We need to focus on solving the issue, not just growing the services we’re delivering. Even if this means staying small and specialized and one final takeaway, Pavo demonstrates exactly how to turn a challenge into a spark for impact. My coach once told me, let’s turn your trauma into your superpower. PA’s story is an incredible model for that. It’s a powerful reminder that our personal struggles can often be the fuel for our best work. That’s our show. Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatgy.com with any ideas, comments, or feed. This show is executive produced by myself, Ana and Michelle Vallencia are our editors. Natalia Gki is our producer, and cover art is by Sudan Chi K. A final note, in the spirit of transparency, we use AI to assist with guest research to copywriting and post-production, so a small team can produce a high quality show. All AI assisted content is reviewed and edited by humans, and we retain full responsibility for what you hear.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">PR</div>
+            <div class="person-info">
+              <p class="person-name">Pavel Reppo</p>
+              <p class="person-role">Executive Director of Finemind and CEO of the Matchbox Fund, bridging grassroots mental health care and the funding that sustains it.</p>
+              <span class="person-org">Finemind &middot; Matchbox Fund</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2lQIEUpTaN6h8tXxZRXAuZ" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

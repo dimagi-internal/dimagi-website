@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 3: Business Model Changes, Key Hires, and Cultural Evolution with Jonathan Jackson and Dr. Neal Lesh (The Founding Story Part 2) | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Part two of Dimagi&#x27;s founding story with Jonathan Jackson and Dr. Neal Lesh: open source, the CommCare SaaS pivot, key hires, and 20 years of cultural change.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep3-business-model-changes-key-hires-and-cultural-evolution/">
+<meta property="og:title" content="Ep 3: Business Model Changes, Key Hires, and Cultural Evolution with Jonathan Jackson and Dr. Neal Lesh (The Founding Story Part 2)">
+<meta property="og:description" content="Dimagi&#x27;s founding story, part two: open source, the CommCare SaaS pivot, key hires, and how the culture grew up.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>May 23, 2022</span>
+          <span class="dot"></span>
+          <span>20 min</span>
+        </div>
+        <h1 class="ep-title">Business Model Changes, Key Hires, and Cultural Evolution with Jonathan Jackson and Dr. Neal Lesh (The Founding Story Part 2)</h1>
+        <p class="ep-deck">Part two of Dimagi&#x27;s founding story: the shift to open source, the launch of CommCare as a SaaS product, the early hires who shaped the company, and how a scrappy group of friends grew into a global organization over 20 years.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/7sQPGTSx3NGd1EYum4O97Y?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 3 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/7sQPGTSx3NGd1EYum4O97Y" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000565522440" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/u-_IiWLIwbw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/132bc29d-75df-4439-8a13-a9304b04b338/high-impact-growth-business-model-changes-key-hires-and-cultural-evolution-with-jonathan-jackson-and-dr-neal-lesh-the-founding-story-part-2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">20 years</div>
+          <div class="ep-stat-label">of Dimagi&#x27;s evolution in mobile and digital health covered in this founding story</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">Half</div>
+          <div class="ep-stat-label">of Dimagi&#x27;s revenue at the time tied to a project the company was willing to walk away from to stay on its impact path</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">2005</div>
+          <div class="ep-stat-label">the year Neal Lesh sees as the start of the current era of digital development, boosted by PEPFAR funding</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In part 2 of the founding story we’ll discuss some key moments in Dimagi’s story such as shifting to open source, launching a software as a service model, and the impact of early hires on the trajectory of the company.</p>
+        <p>We’ll also hear from Dr. Neal Lesh, Dimagi’s Chief Strategy Officer about why he joined Dimagi and the role Dimagi has played in the mobile health and digital health space over the last 2 decades.</p>
+        <p>And we’ll explore how Dimagi’s culture has evolved in the last 20 years as the company has grown.  end user</p>
+
+        <blockquote>
+          <p>&ldquo;We understood that we were those mice and we were trying to take over the world. And that was a pretty distinctive framing and attitude and ambition relative to the other groups.&rdquo;</p>
+          <cite>Dr. Neal Lesh, on Dimagi&#x27;s early culture</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The sustainability problem</strong>: why software impact comes from running a system for years, not from reaching deployment, and how that reframed the business model</li>
+          <li><strong>From open source to SaaS</strong>: contributing to platforms like OpenMRS and RapidSMS, then offering CommCare as a low recurring fee to give projects a path to sustainability</li>
+          <li><strong>Engineering for the last mile</strong>: how Clayton Sims and Corey Zoo set a culture willing to sacrifice the ideal engineering problem to reach the hardest-to-reach 20 percent of users</li>
+          <li><strong>Aligned from the start</strong>: how the early partnership with D-Tree and Neal Lesh, focused on the program rather than donor reports, shaped CommCare</li>
+          <li><strong>The PEPFAR wave</strong>: how a surge of US government AIDS funding after 2005 reshaped the digital health landscape Dimagi grew up in</li>
+          <li><strong>Growing up</strong>: moving from Jon's dorm room and sprint-mode hustle toward a diverse global team, strong people operations, and a marathon mentality</li>
+          <li><strong>Impact, team, profit</strong>: the core ordering Jon says has never changed as the company has scaled</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome back to High Impact Growth. Today we have part two of Dimagi founding story. If you didn’t hear part one, I recommend you check that out first in today’s episode, you’ll hear about some of the key turning point moments in Dimagi story, the shift open source technology. The launch of our SAAS platform and key hires. You’re also going to hear from one of those key early hires, Dimagi’s current Chief Strategy Officer Neal Lesh.</p>
+              <p>You’ll also get a look at how Dimagi is culture has evolved over the last 20 years. Let’s start with Jon on the business model evolution.</p>
+              <p><span class="spk">Jonathan Jackson:</span> One of the big transitions that we’ve had many around our business model was, we started to see the end of the project life cycle for our projects come up and it taught us that nothing related to impact was dictating whether the software is going to keep getting used.</p>
+              <p>It was just whether the project as a whole was going to get renewed. And there was very little chance of sustainability for the software of the entire project didn’t get renewed. And that really led us to thinking through, okay, not just how is Dimagi going to survive as a company, but how has each of our individual projects going to survive as a project and be sustainable because with software creating the impact isn’t in getting to deployment, it’s running a successfully designed system for years, right? So the, the initial build phase, the initial. That creates a zero impact. That’s actually just work it’s negative impact. The impact is generated after you’ve run for many, many years, and so that led us to really focusing on not just building open source software, but contributing to open-source platforms. So at that time, we were working on the engine that’s inside open data kit and Comcare, and many other popular tools. 10 years ago, as an open source consortium, we were working on contributing to open Mrs.</p>
+              <p>We were working on an SMS based system with UNICEF called rapid SMS. And so really trying to contribute to these open source platforms to make sure they were sustainable and leveraging open source platforms.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Okay, so pretty early on. You identified the value of contributing to open source software. And really committed to delivering open-source software. What came next</p>
+              <p><span class="spk">Jonathan Jackson:</span> Another big pivot came when that helped us successfully build community around the software.</p>
+              <p>But at the project level, we’re still having the same sustainability. So we then started offering CommCare, which was army and open source platform as a SAS product. And that allowed customers to be able to pay a low recurring fee onto our platform to keep using that and giving them gave them a path to sustainability outside of an entire multi-million or tens of millions of dollars project getting renewed.</p>
+              <p>And I think that was a critical change for the company’s business as well, in terms of how to offer sustainability.</p>
+              <p>Those are business models. I think the really, you know, just amazing thing about why we’ve been so successful though, was so many key hires along the way. I think we’ve been incredibly fortunate to attract just a phenomenal talent of people who are driven by impact bringing an amazing work ethic, bringing amazing intelligence and amazing skills across all of our geographies.</p>
+              <p>And there’s so many key hires that we’ve had over the years that have driven. Innovations and how we deliver services or innovations in our technology.</p>
+              <p>I pushed Jon to share a bit more about a few of those key hires. And there have been many and we’ll hear from many of them throughout the course of this podcast here he talks about two people in particular</p>
+              <p>Our current CTO, Clayton Sims has been with the company for over a decade. And he originally came in when he was still an undergrad at MIT and started working with us and working with Corey zoo, our CTO at the time.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And Corey and Clayton were both phenomenal technology leaders for the company. . And I think their ethos of, really sacrificing what an ideal engineering problem would look like to make more impact on the.</p>
+              <p>What’s something that I learned from both of them . There’s a lot of challenging engineering problems. We force ourselves to.</p>
+              <p>In order to make sure our software can work offline and at the last mile, and they’re not necessarily classic fun engineering problems, they’re, they’re somewhat challenging engineering problems that you’re like, why are we solving for this , minority of use cases. And for us, it’s critical to reach as many users as possible and really make sure that the approach we’re taking to, to a point in technology hopefully decreases in that. In, in healthcare services and, and in all services that we’re supporting, and those are not fun problems to solve as an engineer.</p>
+              <p>And I, I didn’t quite realize how substantial of a trade off you have to make to pull this off. Really different ways you can engineer things. If you’re willing to sacrifice that last 20% of your user base, who’s too hard to reach. And a lot of billion dollar trillion dollar companies do make that sacrifice.</p>
+              <p>And we don’t, and I’m really proud that we don’t, but it’s certainly not for everyone.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Clayton really set the stage for a team that’s willing to. Do the hard thing. To make sure our product is accessible and usable by everybody. Next Jon speaks to. Another early team member Neal Lesh</p>
+              <p><span class="spk">Jonathan Jackson:</span> when he and I started our professional relationship, which blossomed into a great friendship as well, he was not working for Dimagi.</p>
+              <p>He was at a nonprofit called um, who was one of our critical early partners with CommCare and what we’re now well known for it. And that collaboration of constantly getting to talk about what’s going to be impactful. What’s going to work for the CHW. What’s going to work to make this program. Was very unique because they were relatively smaller than our other customers at the time who were much bigger NGOs.</p>
+              <p>And they just cared about how to make the program the best. They didn’t care about getting reports back to donors. They didn’t care about, , data collection for data collection sake. And that I think allowed us to be very aligned on how we were doing our engineering work on CommCare from the early days.</p>
+              <p>And so that was critical, not just for Dimagi, but also for CommCare to be as successful as it is driving impact for frontline.</p>
+              <p><span class="spk">Amie Vaccaro:</span> How did you first connect with Neal?</p>
+              <p><span class="spk">Jonathan Jackson:</span> First time I got to spend a lot of time with Neo we flew together to South Africa, working together on a project that was building a decision support application for HIV care and treatment. And we had this amazing experience together where we had funding.</p>
+              <p>We had you know, Southern Africa had a huge HIV burden at the time. and It was us. And one of the. And we’re trying to ask this hospital, whether they wanted to use this technology and whether we could do a study with them. And they were like, no, we’re all set. You know, we are happy with what we’re doing on paper.</p>
+              <p>And you’ll know, we’re like, cool, let’s go. And let’s go, go try and find the next site that maybe does want us. And the third person was really trying to advocate for them to adopt the system. And we’re like, this is great that they don’t want to do the.</p>
+              <p>Like if we do this trip and we find 10 sites that all don’t want to do the project, that’s a great sign. Maybe we should not do the project. And it was a really interesting meeting in the minds where Neal and I were very aligned on. It’s a good thing that this project doesn’t want to work with us.</p>
+              <p>And so that was kind of the first experience we had. And then we just, you know, stayed up late, talking on all these different topics and thinking through all these different models. And that was the start of it. And then we, you know, Nonstop for years after that, just trying to push forward CommCare on other projects together.</p>
+              <p>And then eventually he did come over to Dimagi, which was a great experience has been with us for a really long time.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So clearly Neal Lesh was a key player in the formation of Dimagi. I wanted to hear from him as part of this episode as well. All right, Neal. Thank you so much for joining us.</p>
+              <p>How did you and Jon start working together?</p>
+              <p><span class="spk">Neal Lesh:</span> It was a very small space of people back in 2004, 2005,</p>
+              <p>there weren’t very many people doing this kind of thing. So we, we quickly got connected to each other through multiple ways. But I was getting my master’s degree working with one of the professors there. Mark Mitchell. Who eventually launched Dmitri with me, helping him. And then Dimagi was subcontracted for some of the early work by D tree.</p>
+              <p>And Jon came in as part of the discussions with mark. I want it to get to know a bit more about Neal as those first key hires are so critical to building a company’s culture.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So Neal, what would you say is the thing that drives you? I’d say my goal is to die, happy.</p>
+              <p><span class="spk">Neal Lesh:</span> Having led a purposeful life. I get a lot of satisfaction over applying creativity and maybe certain perspectives on how humans work to address, compelling challenges in the world.</p>
+              <p><span class="spk">Amie Vaccaro:</span> What was your, first impression of Dimagi and what Dimagi was up to</p>
+              <p><span class="spk">Neal Lesh:</span> thing that stood out was it was a for-profit rather than a non-profit almost all the other groups I worked with were non-profits. And I think my general inclination and kind of attitude was more, of a non-profit kind of attitude. So that was, distinctive. And then it was also like the dynamics of the group were. Different in that it was mostly like young software developers that were driving this versus more of like public health people with a little bit of technical experience that were in a lot of the other groups that I was connected with. And it, the culture of democracy was really distinct because of those factors.</p>
+              <p>So it was like very ambitious, very dynamic very. I have an attitude of, of conquering the world. One of the ironic things that developed from this, Dimagi seem to be much more like altruistic and generous than a lot of the other non-profits I was with like, Dimagi with like take on little projects, projects for free, just like exciting stuff.</p>
+              <p>And I think part of this was because like the team demanded it,</p>
+              <p>one of the analogies or reference points we would use. Back then was this British, I think cartoon called pinky and the brain, which is about that a big mouse and a little mouse. And every day they, the big mouse or that little mouse, like what are we gonna do today? And the little mouse says, well, same thing we do every day, make a plan to take over the world.</p>
+              <p>And then they like try to take over the world. And like, we understood that we were those, those mice and we were trying to take over the world. And that was a pretty distinctive framing and attitude and ambition relative to the other groups. I think there, you know, it was double-edged in a lot of ways, but it was certainly exciting and appealing to me to be part of it.</p>
+              <p>And ultimately why I went full in with Dimagi was because I thought they really had the potential distinguished from a lot of other groups to achieve and pursues large scale change</p>
+              <p>The other thing that I liked about the Magee is that it wasn’t very sentimental or self-congratulatory. I think it kind of came with being a for-profit group that we were just results oriented, you know, our goal was to , be judged by our results and to like, think about how do we really make a difference.</p>
+              <p>And other groups, I think it was just easy to , feel. Oh, we’re doing good because we’re a nonprofit and we have a good idea and we have good vision. But there wasn’t that same kind of like drive to actually deliver useful things.</p>
+              <p>***</p>
+              <p><span class="spk">Amie Vaccaro:</span> One of the exciting things about Dimagi is that it seems like it was really. An early player in mobile health or M health. And what we now call digital health. I asked Neal to unpack that with me</p>
+              <p>yeah, I’m sure people see it differently. From my perspective, so I kind of joined the free in 2005 and , coincidentally, at least for me, that seems like the beginning of the, current era of digital development.</p>
+              <p><span class="spk">Neal Lesh:</span> A lot of the groups that are prominent now started in the sort of 2005 to 2010 time period. But, but it’s also important to note. We were not the first pioneers. There was a previous. People who did really foundational work. I think a lot of them aren’t persistent, probably a few of them are, but like the there were groups that really did earlier work than us.</p>
+              <p>Some of them helped us along and deserve the kind of pioneer credit. But then 2005 came, one of the big factors was, was PEPFAR was kind of a technical thing, which is the us government. A huge amount of money into , AIDS treatment for Sub-Saharan Africa.</p>
+              <p>As a side note here you’ll remember that PEPFAR was actually the funder for our first project in Zambia. Back to Neal</p>
+              <p><span class="spk">Neal Lesh:</span> And that really changed the landscape of, how.</p>
+              <p>Health systems were functioning. And it really increased the need for reporting. There was like strong reporting requirements that came with all this money. And so data people were just really in big demand. And so that provided a lot of opportunity for all the software developers with idealism and wanting to build open-source systems.</p>
+              <p>And that, that gives a good boost to things. And then I’m sure other factors came in and. In the beginning, it was much more electronic medical record systems and reporting systems that were prominent. So it wasn’t until in my memory around 2008, 2009, that that mobile health or AEM health really started to rise.</p>
+              <p>And we were the, we were the little player on the block for awhile. The big players were, were e-health electronic health systems and. Then there was the rise of, of M health, M health became very big. Then everybody realized and felt didn’t really make sense. That, you know, we didn’t talk about laptop health and there are all sorts of very, very different things being done on, on mobile phones.</p>
+              <p>And so that shifted at least, you know, people sometimes still use the term mental health. I certainly use digital health now. And it covers much more of like, oh, how do we use digital? But the, the specific thing about the excitement around phones started, I think, a few years into our work.</p>
+              <p>And then we kind of rode that wave that you know, as it, as it developed.</p>
+              <p>.</p>
+              <p>So that’s a bit of history about Dimagi is founding before we close, I did want to ask one more question of this group, which is really around culture. You may have noticed each of these voices you heard from, they have a lot in common. These are men in their twenties with access to elite institutions based in the Boston area. A fairly homogenous group and today if you look at Dimagi and Dimagi is culture we’re an incredibly diverse organization with people all over the world and i wanted to know how did that culture evolve and what has that journey been like first let’s hear from vikrum</p>
+              <p>It was a very different company. I think those days it was sort of as though you were sitting in Jon’s dorm room for the first several years, and then we grew up, we had to grow up. We were lucky. We grew up when we got. And I think the culture changed in the way where we started to respect that there are just different ways to do things.</p>
+              <p><span class="spk">Vikram:</span> We were able to accomplish what we did because there was internal cohesiveness between within this group of close friends, and we were able to move beyond that to now. It’s not because everyone’s a friend of the founder, CEO, but</p>
+              <p>everyone’s believing in the same ideals and everyone is respected for how different and how much they may not want to be a friend of the founder, CEO but they believe in what he believes in.</p>
+              <p>***</p>
+              <p>Now let’s hear, Neal’s take on that cultural evolution.</p>
+              <p><span class="spk">Neal Lesh:</span> It’s certainly changed a lot.</p>
+              <p>We’ve shifted to, you know, much less hustle, much less scrappiness, much more focus on team. You know, we started, we didn’t have a HR department or a. Group people, operations group. And I don’t, I don’t know if we even like aspire to having when we first started, but certainly we’ve come to realize that’s like central to our mission is to have a strong people, operations, strong team focus, much more of the marathon rather than the Sprint’s kind of mentality.</p>
+              <p>We’ve. Key elements of, of our core early culture, including being candid and open to evolution and change, like in the, in the, all through that, I think that’s been a constant where we’ve always known we have a lot wrong, you know, maybe we think we’re, we’re less wrong than others.</p>
+              <p>But we’ve, we’ve been interested in. Learning and changing and correcting and, you know, eager and August open to hearing alternative perspectives, you know, and then, then making decisions and moving on. But I think that that sense of kind of candidness has really stayed, stayed true. I think the ambition and the drive, I think we have, we are less trying to conquer the world.</p>
+              <p>I think that’s not a good. It’s not as much at least a, a prevalent kind of attitude that works at this at this scale and maturity, like it’s kind of an immature seed and we’ve had to mature into having a more nuanced view of how to have a big vision and have big dreams and goals, and to be looking towards big scale, but in a slightly more moderated way.</p>
+              <p>We have different kinds of people joining Dimagi different, different life situations, different backgrounds, I think different attitudes.</p>
+              <p>And I’ve been really. Pleased to see how we can grow and accommodate different styles, , you know, Jon, Vikram, and I I’ll, I’ll operate in certain ways that had some kind of success. And then like we know that there’s like lots of other modes of success. And I think we’ve been able to kind of diversify that and are, trying to make space for a much wider set of approaches and styles</p>
+              <p><span class="spk">Amie Vaccaro:</span> And let’s hear a last word from Jon.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think one of the things I’m really glad. Is that our core statement that we care about impact team profit in that order really hasn’t changed as we’ve continued to grow.</p>
+              <p>. And trying to always ask ourselves, like, how’s this. In fact, our team, how’s this going to make more impact.</p>
+              <p>And then the last thing we talk about is like, how’s this going to be more profitable? In fact, you probably never have heard me ask you, how’s this going to be more profitable since I joined the company. And I</p>
+              <p>amie_vaccaro: Nope.</p>
+              <p><span class="spk">Jonathan Jackson:</span> that is, is great because we know by creating an impact team, profit flywheel, if we solve for impact and team will eventually find a way to the profit.</p>
+              <p>I learned a lot working on this episode and there’s a lot to unpack here. I’ll share my top six takeaways. So, first of all, luck plays a role here. As a dozen, many successful companies stories. We were lucky to have such a massive and impactful first project. It was lucky that the founders cross paths as they did.</p>
+              <p>Second. The crewman. Jon are both very entrepreneurial. They wanted to start companies. They had that bug and they also had the stamina to weather challenges .</p>
+              <p>Third. I love seeing how our focus as a company really has not wavered over the last 20 years, we were focused on impact on the frontline worker from the very first project.</p>
+              <p>This is the foundation for our core value of prioritizing impact team and profit in that order.</p>
+              <p>Fourth because of our focus on impact. We’ve been willing to make hard decisions to keep us on that path. Even when it meant walking away from a project worth half of our revenue at the time.</p>
+              <p>Fifth. We’ve always cared about inclusive design and technology. We decided to solve the hard problem so that our tech could be usable in incredibly difficult offline settings. Even though these may not have been sexy engineering problems to solve.</p>
+              <p>Six. I think we’re still growing up as a company. As we work to build an inclusive and truly global culture, and it’s an exciting ride . So we’ll talk about many of these themes and episodes to come. But that’s it for today thank you so much for joining and for listening</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NL</div>
+            <div class="person-info">
+              <p class="person-name">Dr. Neal Lesh</p>
+              <p class="person-role">Chief Strategy Officer and one of Dimagi&#x27;s critical early hires, an early collaborator with Jonathan Jackson through D-Tree and the formation of CommCare.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/7sQPGTSx3NGd1EYum4O97Y" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

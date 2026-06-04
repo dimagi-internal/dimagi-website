@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What Digital Development orgs should learn from recent IT security news | Dimagi</title>
+<meta name="description" content="Dimagi&amp;rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.">
+<meta name="author" content="Clayton Sims">
+<link rel="canonical" href="https://dimagi.com/digital-development-organizations-take-away-it-security-news/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:url" content="https://dimagi.com/digital-development-organizations-take-away-it-security-news/">
+<meta property="og:title" content="Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news">
+<meta property="og:description" content="Dimagi&amp;rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.">
+<meta property="og:image" content="https://dimagi.com/wp-content/uploads/2023/11/ecurity-breach.png">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Abstract illustration representing a security breach and IT vulnerability">
+<meta property="article:published_time" content="2022-01-28">
+<meta property="article:author" content="Clayton Sims">
+<meta property="article:section" content="Company">
+<meta property="article:tag" content="Security">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news">
+<meta name="twitter:description" content="Dimagi&amp;rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.">
+<meta name="twitter:image" content="https://dimagi.com/wp-content/uploads/2023/11/ecurity-breach.png">
+<meta name="twitter:image:alt" content="Abstract illustration representing a security breach and IT vulnerability">
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news",
+  "description": "Dimagi&rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.",
+  "image": "https://dimagi.com/wp-content/uploads/2023/11/ecurity-breach.png",
+  "datePublished": "2022-01-28",
+  "dateModified": "2022-01-28",
+  "author": {
+    "@type": "Person",
+    "name": "Clayton Sims"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dimagi",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dimagi.com/wp-content/uploads/2023/11/dimagi_logo_46.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dimagi.com/digital-development-organizations-take-away-it-security-news/"
+  },
+  "articleSection": "Company",
+  "keywords": "IT security, log4j, zero day, digital development, data security, SOC-2, open source maintenance, CommCare, vulnerability management"
+}
+</script>
+
+<!-- Breadcrumb structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dimagi.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://dimagi.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news"
+    }
+  ]
+}
+</script>
+
+<link rel="preload" as="image" href="../../assets/images/digital-development-organizations-take-away-it-security-news/cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=3">
+<link rel="stylesheet" href="../../assets/article.css?v=10">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"><span class="reading-progress-bar"></span></div>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main" class="article-wrap">
+
+  <!-- Hero -->
+  <header class="article-hero">
+    <div class="container">
+      <div class="article-prose-width">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <a href="../index.html">Blog</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>Company</span>
+        </nav>
+        <span class="article-category">Company</span>
+        <h1 class="article-title">Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news</h1>
+        <p class="article-deck">Dimagi&rsquo;s CTO reflects on recent high-profile vulnerabilities and what they mean for organizations building and deploying technology in global development.</p>
+        <div class="article-byline">
+          <div class="article-byline-avatar" aria-hidden="true">CS</div>
+          <div class="article-byline-meta">
+            <span class="article-byline-author">Clayton Sims</span>
+            <span class="article-byline-detail">
+              <span>Jan 2022</span>
+              <span class="dot"></span>
+              <span>5 min read</span>
+              <span class="dot"></span>
+              <span>Company</span>
+            </span>
+          </div>
+        </div>
+        <div class="article-share">
+          <span class="article-share-label">Share</span>
+          <button class="article-share-btn article-copy" type="button" aria-label="Copy link" data-copy-url="https://dimagi.com/digital-development-organizations-take-away-it-security-news/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <span class="article-copy-label">Copy link</span>
+          </button>
+          <a class="article-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdimagi.com%2Fdigital-development-organizations-take-away-it-security-news%2F" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v13H.25V8zM8 8h4.3v1.78h.06c.6-1.13 2.07-2.32 4.26-2.32 4.56 0 5.4 3 5.4 6.9V21h-4.5v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.18 1.48-2.18 3v5.8H8V8z"/></svg>
+            LinkedIn
+          </a>
+          <a class="article-share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdimagi.com%2Fdigital-development-organizations-take-away-it-security-news%2F&amp;text=Another%20day%2C%20another%20Zero%20Day%3A%20What%20all%20Digital%20Development%20organizations%20should%20take%20away%20from%20recent%20IT%20security%20news" target="_blank" rel="noopener" aria-label="Share on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.5h3.3l-7.2 8.2L23.7 22.5h-6.6l-5.2-6.8-6 6.8H2.6l7.7-8.8L2 1.5h6.8l4.7 6.2 5.4-6.2zm-1.2 19h1.8L7.1 3.4H5.2L17.7 20.5z"/></svg>
+            X
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cover -->
+  <div class="article-cover-wrap">
+    <div class="container">
+      <figure class="article-cover">
+        <img src="../../assets/images/digital-development-organizations-take-away-it-security-news/cover.png"
+             width="1200" height="800" fetchpriority="high" decoding="async"
+             alt="Abstract illustration representing a security breach and IT vulnerability">
+      </figure>
+      <p class="article-cover-caption">Recent vulnerabilities have prompted both technical and non-technical teams to revisit their approach to security.</p>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <article class="article-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <p class="lead">It has been a scary and exhausting couple of months to be a systems maintainer.</p>
+        <p>Even if you don&rsquo;t work as a software developer, you probably heard about a <a href="https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance" target="_blank" rel="noopener">very high profile security issue</a> that had IT Admins and developers frantically patching servers over the holidays. This week another critical vulnerability was announced <a href="https://blog.qualys.com/vulnerabilities-threat-research/2022/01/25/pwnkit-local-privilege-escalation-vulnerability-discovered-in-polkits-pkexec-cve-2021-4034" target="_blank" rel="noopener">affecting nearly every Linux server on the planet</a>, sending IT teams back into overdrive.</p>
+        <p>With the severity of these issues, both technical and non-technical teams in social impact technology are taking a renewed look at their underlying risks and approach to security. I wanted to reflect a bit on takeaways from one of these issues in particular, as the details speak to some of the key challenges in our industry. A deeper look into them illustrates a number of lessons that can help us be prepared to protect data whether we are building software directly, or implementing it as practitioners.</p>
+        <h2 id="security-is-a-process">Security is a process, not a property</h2>
+        <p>A software system&rsquo;s ongoing practical security starts with one core piece of knowledge, and it has nothing to do with cryptography or 2FA. It is that new and dangerous vulnerabilities in all technologies will be discovered in the future, and that someone needs to show up on time able to fix them.</p>
+        <p>Knowing that truth and acting on it effectively, however, are two very different things. A staggering <a href="https://securityboulevard.com/2019/10/60-of-breaches-in-2019-involved-unpatched-vulnerabilities/" target="_blank" rel="noopener">60% of data breaches globally</a> are the result of attacks using a known defect where a solution exists but simply wasn&rsquo;t applied to the system that was breached.</p>
+        <div class="article-callout"><div class="article-callout-label">Known defects</div><div class="article-callout-num">60%</div><p class="article-callout-text">of data breaches globally come from attacks using a known defect where a fix existed but was never applied.</p></div>
+        <p>This is critical information for teams to factor into how they prioritize their requirements and investments around security. It tells us that most security failures are structural failures which could have been prevented by an improved approach, and not technical failures which could have been prevented by a better programmer.</p>
+        <p>This data shows us that organizations still tend to underestimate the risk of failures in fundamental practices like system maintenance, and the difficulty of getting them right. We have a lot to gain from a deeper understanding of the challenges which are causing these failures if we want to prevent falling victim to the same patterns.</p>
+        <h2 id="maintenance-is-a-job">Code may be free, but maintenance is a full time job</h2>
+        <p>We can gain some of that understanding from the nature of the vulnerability discovered on December 18, 2021 with Apache&rsquo;s &ldquo;log4j&rdquo;. One of the most pernicious aspects to highlight about this vulnerability is that the defect was discovered in one of the building blocks that developers commonly use when they write code for their own software. As a consequence the fix for the issue can&rsquo;t be deployed directly to a server. It requires any piece of software written in Java to potentially need to be updated with the fix, rebuilt, and then redeployed.</p>
+        <p>That sounds daunting enough on its own, but these risks are further compounded by many of the common challenges faced by software systems in digital development programs. Out of date versions may not be capable of being updated directly to a new patched release. Custom code added to a project fork may no longer have an active maintainer capable of creating a new release.</p>
+        <p>These types of challenges provide more context for the ongoing presence of the vulnerabilities being exploited in the 60% of attacks previously described. This is especially true when you consider that barriers to applying maintenance often only get harder over time as systems fall further and further out of date, reducing the odds they will ever be applied at all. Indeed <a href="https://www.checkpoint.com/downloads/resources/cyber-security-report-2021.pdf" target="_blank" rel="noopener">75% of attacks in 2020 relied on vulnerabilities that were more than 2 years old</a>.</p>
+        <p>For organizations adopting Open Source global goods at scale, the log4j issue illustrates how critical it is to have a credible plan for permanent maintenance of every piece of technology and just how valuable a history of demonstrated long term maintenance is. At Dimagi, for example, since we intend to maintain our software systems indefinitely, when choosing between Open Source components our team weighs a long history of reliable maintenance heavily over other factors.</p>
+        <h2 id="data-security-confidence">Data security is a matter of confidence</h2>
+        <p>For our team the log4j issue was an instance in which our concerns were both internal as a software provider and external as a consumer. After our devops engineers identified the complexity of determining the scope of the issue against our own servers, we also needed to establish the safety of our other software services that we rely on as sub-processors, from our AWS Cloud Service Provider down to the Datadog tool we use to manage monitoring data.</p>
+        <p>Like most impact organizations we are limited in time and resources, so this is an area where we were deeply happy to benefit from the division of responsibility and expertise that comes from our distributed cloud services. When vulnerabilities are announced, Dimagi&rsquo;s devops team is already responsible for the more than 200 virtual servers running our architecture within our cloud infrastructure. It&rsquo;s daunting to imagine the additional demands on time and expertise that would be required if we needed to also apply that same thoroughness to the infrastructure for the other complex, large scale tools our sub-processors provide as well. Based on our experience providing CommCare as a service, I&rsquo;m confident that our best in class partners are able to leverage their expertise towards auditing and reporting their systems much more effectively than we could.</p>
+        <blockquote class="feature"><p>&ldquo;CommCare has been able to lead the way on security in our industry as the first (and currently only) SOC-2 certified Digital Global Good.&rdquo;</p><cite>Clayton Sims, CTO, Dimagi</cite></blockquote>
+        <p>Our team&rsquo;s confidence in the practices and thoroughness of our partners isn&rsquo;t just good faith, but the result of our review of their thorough auditing and published practices through Security Compliance standards like SOC-2. We want our customers to be able to rely on the same degree of confidence in our expertise and thoroughness.</p>
+        <h2 id="renewed-focus">Renewed focus, same cause</h2>
+        <p>For organizations who work in digital development, security issues like these provide a sobering reminder that a successfully scaled technology system can be a double edged sword. Proven and effective technology based interventions can deliver <a href="https://www.crs.org/sites/default/files/crs-files/remind_cost_effectiveness_brief_-_2pager-_draft8blue-nosubrat_1.pdf" target="_blank" rel="noopener">uniquely cost-effective benefits</a>, but the scale of harm from <a href="https://www.dimagi.com/blog/two-big-lessons-that-iowa-and-geneva-can-teach-us-about-technology-in-digital-development/" target="_blank" rel="noopener">potential security or privacy failures</a> increases along with the size of the populations and communities that a given technology reaches.</p>
+        <p>As we continue to expand the reach of technology interventions, we will also need to keep expanding our expectations of data security responsibilities alongside, including potentially reconsidering what foundations we are willing to consider entirely. The nature of security work is such that we will never finish, and we can always do more, but that only increases the importance of being intentional about our goals. We look forward to continuing to work with our partners in the global community to push to always set the bar higher and encourage adopters to keep increasing their standards in the specificity and comprehensiveness of the security commitments that they should expect from tools like ours to protect the people we all seek to serve.</p>
+        <p>Learn more about <a href="https://www.dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a> and <a href="https://www.dimagi.com/contact/" target="_blank" rel="noopener">contact us</a> today. Or check out our <a href="https://www.dimagi.com/careers/" target="_blank" rel="noopener">careers page</a> and come work with us.</p>
+
+        <!-- End CTA -->
+        <div class="article-end-cta">
+          <h3>Talk to our team about secure deployments</h3>
+          <p>Learn how Dimagi builds and maintains secure technology for global development programs.</p>
+          <a class="btn btn-indigo btn-arrow" href="../../contact/index.html">Get in touch</a>
+        </div>
+
+        <!-- Foot nav -->
+        <div class="article-foot">
+          <div class="article-foot-label">Filed under</div>
+          <div class="article-tags">
+            <span class="article-tag">Security</span>
+            <span class="article-tag">CommCare</span>
+            <span class="article-tag">Tech Blog</span>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="article-toc" aria-label="Table of contents">
+        <p class="article-toc-label">On this page</p>
+        <nav>
+          <a href="#security-is-a-process">Security is a process</a>
+          <a href="#maintenance-is-a-job">Maintenance is a full time job</a>
+          <a href="#data-security-confidence">Data security and confidence</a>
+          <a href="#renewed-focus">Renewed focus, same cause</a>
+        </nav>
+      </aside>
+    </div>
+  </article>
+
+  <!-- Related -->
+  <section class="related-wrap">
+    <div class="container">
+      <div class="related-head">
+        <span class="eyebrow">Keep reading</span>
+        <h2>More from the Dimagi blog</h2>
+      </div>
+      <div class="related-grid">
+
+        <a class="related-card" href="../design-thinking/index.html">
+          <div class="related-card-thumb">
+            <img src="../../assets/images/design-thinking/cover.png" width="1200" height="1200" alt="Design Thinking: Unleashing the Power of Empathy" loading="lazy" decoding="async">
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Company</div>
+            <h3 class="related-card-title">Design Thinking: Unleashing the Power of Empathy</h3>
+            <div class="related-card-footer">
+              <span class="related-card-date">Jan 2024</span>
+              <span class="related-card-link">Read</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="related-card" href="../20-years-of-designing-under-the-mango-tree/index.html">
+          <div class="related-card-thumb">
+            <img src="../../assets/images/20-years-of-designing-under-the-mango-tree/cover.png" width="768" height="551" alt="20 Years of Designing Under the Mango Tree" loading="lazy" decoding="async">
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Company</div>
+            <h3 class="related-card-title">20 Years of Designing Under the Mango Tree</h3>
+            <div class="related-card-footer">
+              <span class="related-card-date">Dec 2022</span>
+              <span class="related-card-link">Read</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="related-card" href="../tech-team-summit-2022/index.html">
+          <div class="related-card-thumb">
+            <img src="../../assets/images/tech-team-summit-2022/cover.jpeg" width="1200" height="900" alt="Getting to know each other: Tech Team Summit 2022" loading="lazy" decoding="async">
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Company</div>
+            <h3 class="related-card-title">Getting to know each other: Tech Team Summit 2022</h3>
+            <div class="related-card-footer">
+              <span class="related-card-date">Nov 2022</span>
+              <span class="related-card-link">Read</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="related-foot">
+        <a class="btn btn-primary btn-arrow" href="../index.html">See All Blogs</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../../assets/js/nav.js"></script>
+<script src="../../assets/js/article.js?v=8"></script>
+</body>
+</html>

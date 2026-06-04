@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 71: &ldquo;The System&rsquo;s Burned Down. This Is Our Moment.&rdquo; | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Nexleaf's Nithya Ramanathan on redefining global health impact: owning outcomes, reshaping models, and treating disruption as the moment to rebuild for real impact.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/systems-burned-with-nithya-ramanathan/">
+<meta property="og:title" content="Ep 71: &ldquo;The System&rsquo;s Burned Down. This Is Our Moment.&rdquo;">
+<meta property="og:description" content="Nexleaf's Nithya Ramanathan on why the disruption of old global health models is the opening to rebuild: owning outcomes and reshaping for sustainable impact.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Episode hero (with player) -->
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>June 13, 2025</span>
+          <span class="dot"></span>
+          <span>51 min</span>
+        </div>
+        <h1 class="ep-title">&ldquo;The System&rsquo;s Burned Down. This Is Our Moment.&rdquo;</h1>
+        <p class="ep-deck">Nexleaf's Nithya Ramanathan on why the disruption of old global health models is the opening to rebuild for real impact.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/2SiDwwkbEJxUauQ8phiPth?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 71 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/2SiDwwkbEJxUauQ8phiPth" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify
+          </a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000712728811" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts
+          </a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/d41fceb5-d865-46ef-9e12-443c5b7a2aac/high-impact-growth-the-system's-burned-down-this-is-our-moment-with-nithya-ramanathan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>The old paradigms of global health are shifting fast, and Nithya Ramanathan, Co-founder and CEO of Nexleaf Analytics, sees the moment clearly. As she puts it, the system has been burned down, and this is our moment, a rare chance to redefine how we create impact rather than a crisis to simply weather.</p>
+        <p>Nithya joins hosts Jonathan Jackson and Amie Vaccaro to talk through Nexleaf's own strategic pivots, including a shift in business model, and what it takes to own outcomes rather than activities. The conversation is candid about the hard choices organizations face when the ground moves beneath them.</p>
+        <p>It is a clear-eyed, energizing case for treating disruption as an invitation to build something better, with the discipline to measure what actually changes for people.</p>
+
+        <blockquote>
+          <p>&ldquo;The system&rsquo;s burned down. This is our moment.&rdquo;</p>
+          <cite>Nithya Ramanathan, Nexleaf Analytics</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li>Why &lsquo;the system's burned down&rsquo; is an opportunity, not just a loss</li>
+          <li>Owning outcomes instead of activities in a shifting landscape</li>
+          <li>Nexleaf's strategic pivots and what drove them</li>
+          <li>Rebuilding models for sustainability and long-term impact</li>
+          <li>Hard-won advice for leaders navigating uncertainty</li>
+        </ul>
+
+        <h3 id="resources">Resources from this episode</h3>
+        <ul>
+          <li><a href="https://nexleaf.org/" target="_blank" rel="noopener">Nexleaf Analytics</a></li>
+        </ul>
+
+        <!-- Expandable transcript -->
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p>Welcome to High-Impact Growth, a podcast from Dimagi for people committed to creating a world where everyone has access to the services they need to thrive. We bring you candid conversations with leaders across global health and development about raising the bar on what’s possible with technology and human creativity. I’m Amie Vaccaro, senior Director of Marketing at Dimagi, and your co-host. Along with Jonathan Jackson, CEO, and co-founder. Today, We’re diving into a pretty big question that’s on a lot of our minds. In a world where global health budgets are tight and things are changing fast, how do organizations not just keep their heads above water, but actually redefine what success looks like? And to help us unpack all of that.</p>
+              <p>We’re thrilled to have Nathya Ramanathan with us. She’s the co-founder and CEO of Nexleaf Analytics and a real trailblazer in global health technology. For 15 years, Nithya has been pioneering these incredible data-driven, scalable health solutions. You might have heard of her work from the sensor technology that’s now keeping an eye on the vaccine supply for one out of every seven babies born worldwide.</p>
+              <p>It’s pretty amazing stuff. So in this episode, which is definitely a rich one, we get into Nexleaf’s fascinating journey, like their switch from a for-profit to a non-profit, and a really gutsy move they made to purposefully shake up their own device business, all for the sake of bigger impact. We’ll also be talking through the tricky world of business models and global health, what it really means to own the outcome.</p>
+              <p>And Nithya’s take on the idea that the system has been burned down. Honestly, this is a fantastic listen, if you’re a social entrepreneur working in global health, or just anyone trying to figure out sustainable business models, when you’re driven by impact, it’s a dense conversation. Perfect.</p>
+              <p>For those of you deep in this space, if you’re wrestling with how to scale, when to pivot. And how to really show your value. When resources are scarce, you’re gonna walk away with some serious food for thought on the tough calls and creative thinking needed to not just make it through, but to actually help build what comes next.</p>
+              <p>Enjoy.</p>
+              <p>Amie Vaccaro: Awesome. Well, welcome to the podcast. We are here today and we are honored to be joined by NAA Ramathan, who is CEO and co-founder of Nexleaf Analytics. Welcome to the podcast.</p>
+              <p><span class="spk">Nithya:</span> Thank you so much. I’m super psyched to be here,</p>
+              <p><span class="spk">Jonathan:</span> awesome to have you here. We, uh, we met probably over a decade ago, right? Like the first time we, uh, crossed paths at the Gates Foundation, competing for some I’m sure, um, way back in the day.</p>
+              <p><span class="spk">Nithya:</span> Yeah, I think that’s probably true though actually. I don’t know that I’ve mentioned this to you, John. I feel like we were in the room together 20 years ago when I was in grad school and I had gone to one of these Tech for Good conferences I am barely sure. I was actually in a room with you and Rainey.</p>
+              <p>I could be making that up, but</p>
+              <p><span class="spk">Jonathan:</span> very</p>
+              <p><span class="spk">Nithya:</span> yeah, I actually.</p>
+              <p><span class="spk">Jonathan:</span> there was only, what, 50 of us, so I think we’re all in a room together at some point.</p>
+              <p><span class="spk">Nithya:</span> Yeah, and it was 50 of you guys. I was a lowly PhD student trying to get into the [00:03:00] room, but you guys all knew each other for sure. It was very cool.</p>
+              <p>Amie Vaccaro: Awesome. Well, it’s a, it’s a privilege to have you on naia and, um, gosh, it feels like ages have passed since we first connected to talk about this episode. So much has changed so quickly. Um, but maybe we’ll start just with a little bit of your, your backstory. Clearly you and John go back many years, um, friends fellow, social entrepreneur, but would love to just hear a bit about your, your story.</p>
+              <p><span class="spk">Nithya:</span> Yeah. Um, so. On, on this mission for about 15 years to actually support systems that are country driven, that are data-driven, that are resource sufficient and scalable. And so that’s actually what we’ve, you know, that’s been the vision from the very beginning. And we’ve been sort of just building the building blocks, uh, towards that with countries. And so actually the very first step we took, uh, was. Really understanding how refrigerators for vaccines were managed as part of this much larger health system challenge. uh, we were in my garage ’cause that is, uh, where all great companies start, of course. And, um, we were in my garage for about five years.</p>
+              <p>I’m not going to lie to you. Um, but we started manufacturing temperature sensors that could go into refrigerators and produce objective, real time, immediate data. um, you know, at the time people really thought we were crazy. There was a lot of pushback on why on earth would you put a internet connected temperature sensor into a last mile facility.</p>
+              <p>Like what could that possibly achieve? And because we were new and naive and we didn’t have a lot of the baggage, uh, that existed, We just kind of kept following users, following the ministry’s perspective and really kind of addressing that. And so we manufactured temperature sensors for vaccine fridges, ended up scaling those because there was so much demand for this type of data. Um, and those sensors now monitor the vaccine supply globally for one in seven babies born each year and from there have had just tremendous. Success and kind of continuing to build out more building blocks, um, based on what countries need for health systems delivery.</p>
+              <p>Amie Vaccaro: That’s amazing. That stat of the sensors that you’ve worked on are helping protect the vaccines, apply for. One in seven babies born. Wow, that’s really amazing., And you are structured as a nonprofit, is that right? I’m, I’m curious to understand a little bit of like, the workings with ministries of health and like, you know, John and I often talk on the show about business models and how do you keep things, sustainable, but I’m, I’m curious to learn a little bit about, the model.</p>
+              <p><span class="spk">Nithya:</span> Yeah, this is something that John and I have talked about a number of times. actually when we first started, we were a for-profit. We were called, uh, Lorax Analytics, LLC, and uh, we simultaneously got a cease and desist from dr. Seuss’s, uh, estate. Um, and, but separately actually, um, saw pretty quickly that the conversations we were trying to have were really hard, uh, to have because, um, people intrinsically sort of distrusted for-profits.</p>
+              <p>And John, I’m super curious, uh, ’cause I know Dags, you know, registered as a for-profit. You probably, ’cause you’ve been at this. Probably longer than almost anybody else. Like you probably encountered a lot of that. Um, but I’ll give you kind of my side of this, which is, I was just too frustrated at the kind of what I thought was stupidity, um, because to me it’s sort of a tax structure. Um, as a nonprofit, we’re allowed to sell things just like universities, at least. now, universities are allowed to sell things, but we’ll see what happens. Um, but anyways, you know, as a nonprofit, we’re allowed to sell things at a profit. We do profit generating activities, all of that. Um, we just got really impatient and so we actually just quickly shifted gears and filed as a 5 0 1 C3, uh, in order to kind of go back to those very same people, you know, it was still me and Martin, you know, in our sweatshirts from grad school. And suddenly all the conversations really opened up, whether it was with, um, you know, academics or donors or, um, even at the country level. I think now things are really different and if, if we had started, if we started Nexleaf today, I. We might follow a different structure, but yeah. John, I’m curious, you know, what have you faced or what did you face back then?</p>
+              <p>And I’m curious .</p>
+              <p><span class="spk">Jonathan:</span> know, we um, definitely sense that kind of inherent distrust of for-profits trying to enter the do-gooder space. I think it’s, you know, very different two decades later. that was one of the things where I was like, okay, proprietary software plus for-profit is just a non-starter. Um, there was a company that had. existed back then that was proprietary. Um, kinda shifted their business model and, and a lot of governments felt burned when they were like, okay, well give us the system, give us our data. And the company was like, no, no, no, we’re done our software and our data, we’re outta here. Um, so we always thought it was really important as a for-profit to have. not just the credibility. I think people understood we were in this to do good and, and um, empower the health systems we were trying to support. But you know, they were like, show us. Show us for real. And so that was where a lot of our open source ethos, um, came from. I mean, we’re deep believers in open source in general, but it was also kind of out necessity., The reason we stayed a for-profit, I think, from a software standpoint and a business model standpoint, I was kinda like, look, I think the way software is gonna be helpful. Um, is only if we get a viable business model. I was never kind of like in the camp of, give us a bunch of central funding, we will give away the software and somehow that’ll work.</p>
+              <p>I was like, we need a flywheel. 20 years later, we’re still iterating on that flywheel, searching for that flywheel. We’ve had moments where we feel like it’s working. Um, this is not one of ’em unfortunately, uh, in this moment in time. Um, but that was always part of. You know, our ethos and we also weren’t going after, um, some of the funders.</p>
+              <p>We were locked out of some of the funders, you know, as a for-profit because, um, they were only willing to, to put money into nonprofits. Again, that shifted some, but even today there’s some donors, some foundations that we just can’t even</p>
+              <p><span class="spk">Nithya:</span> Yeah. Yeah.</p>
+              <p><span class="spk">Jonathan:</span> Um,</p>
+              <p><span class="spk">Nithya:</span> We both know. Yeah, yeah. Who I know respect you tremendously and are like, yeah, but DAG is a for-profit. I challenge that all the time. I think it’s really stupid. I, I am not gonna lie. I think it’s, um, not helpful. Again, it’s a tax structure, you know, where that money goes and, you know, I’m pretty sure, John, you’re not a billionaire, you know, as a result of this for-profit.</p>
+              <p>So.</p>
+              <p><span class="spk">Jonathan:</span> I, I, I, I, uh, I, I only wish, um, but no, I think you’re absolutely right and I think I’ve, I’ve ever since we, you know, met and I, I learned about the business model. I think having, you know, a hardware business where you’re literally selling SKUs and, and product and you can charge profit, um, like that’s what. Many for-profit companies do normally, you know, services business. and as I said, a lot over the last decade or so, like I’ve met nonprofits who are way more cutthroat than some of the for-profits I know. So it also like doesn’t</p>
+              <p><span class="spk">Nithya:</span> So,</p>
+              <p><span class="spk">Jonathan:</span> to your, like, culture as a company, you know, like I’ve met some nonprofits who are just like ruthless. and, and so it doesn’t even, you know, it’s, it’s about the business model. It’s about the, the. deployment model. Um, and you’re right, it’s just the tax structure and, and accounting rules.</p>
+              <p><span class="spk">Nithya:</span> Yeah, I mean, to me something that’s interesting that you sort of brought up is, you know, I think a lot of people’s business models has been, have been totally blown up in this moment. one of the things that I’ve been thinking about that, you know, I’ll just think about out loud with you, which you and I love to do, and you know, listeners is. Business model because as you mentioned, you knowle. Yes, we have been. In the business of selling devices, but we haven’t been in the business to sell devices, you know what I mean? Like, so, so selling devices has very much actually been a tactic for us, um, because of so many other things that it unlocks like we are.</p>
+              <p>Probably operate one of the biggest, you know, IOT networks in, in, certainly in vaccines and, and probably in, you know, across global health. It’s allowed us to kind of have credibility and trust and like entry point and like, you know, we’re get a seat at the table with ministries, um, we kind of bring this value add, but actually it’s always been a tactic.</p>
+              <p>And so, um, one of the things that we decided to do that I will say, I think we. I’ll say two things. One, I think we had the permission and mandate to do as a nonprofit, but actually, you know, truth be told, my board really disagreed and like it caused a lot of tension. But one of the things that we did do was, uh, sort of cannibalize our device business by working with, um, when we saw that, like actually having standalone devices.</p>
+              <p>Was providing a ton of value, but actually operationally was not the right move for countries. We actually did work with GAVI and WHO and UNICEF to actually, advocate for and help build a set of standards and procurement methods to actually integrate the device into the fridge. And we did that for a number of reasons, but one, we used that as a moment to also advocate for interoperability standards, which we’re sorely missing as you know.</p>
+              <p>But, um, you know, we used that as a moment, but second, we used it to like kind of help simplify the financing and operations and management of, of this crucial device. But what that did was actually end up cannibalizing potentially. still, you know, not seeing the impacts but potentially cannibalizing our business in the two to three year timeframe. Um, and I think as a nonprofit, that was absolutely the right move because we weren’t in the business to sell devices. Um, and so it’s. We’ll see what happens and if I still have a job in three years, but I think it’s allowed us to kind of then open up a much bigger problem set, um, that we can bring AI and data and all these other kind of cutting edge tools to help solve, um, because we weren’t overly focused on that.</p>
+              <p>But it’s, it’s an interesting question to me. Would we have done it as a for-profit? I don’t know.</p>
+              <p><span class="spk">Jonathan:</span> Yeah. And, and not only that, and, and, um, if you had raised capital, like it’s not necessarily your decision, it’s your investor’s decision as to, you know, making that right call. Um. And you know, we have talked ad nauseum and, and late nights and, and group calls and things around this challenge of where do you try to draw the line around your business model. So you mentioned sensors, you run an amazing iot network, you have that data feeding in. You can obviously surface like this clinic, you know, yesterday at 4:00 PM had a fridge error. Um, but then somebody’s gotta go do something about it. And, and the government’s gotta be set up to be able to be responsive to all the data you’re collecting and all the analytics you can provide. Um, you and I have talked a lot about this like kind of phrase or mental model. Like, can you, can you get to owning the outcome? You know, can you come up with a business model where you are able to contribute all the way to owning the outcome? if you can, that lets you, um, in some ways, like as you said, you can bring in ai, then you can do all these things.</p>
+              <p>But if you’re just a cog one part, it’s really hard. And in some ways it can be incredibly demoralizing when you’re like, look, I solved my problem. You told me you were gonna solve your problem. Now that you’re</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> makes the problem I solve not that important, um, or not, not</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> Um,</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> and I’m curious, you know, you, uh, more than almost anybody I know contributed towards like almost creating an ecosystem to do cold chain monitoring.</p>
+              <p>I. Then can was your business and, and you know, did what everybody says they want us to do, which is like scale institutionalized. And then I think you got some grief for them trying to like pivot into your, your next business model or maybe still are. But that was kind of fascinating. So, you know, you worked with some of the biggest players, WHO Gavi to, get iot standardized to then didn’t somebody also copy your, even your standalone device?</p>
+              <p>Um, or, yeah.</p>
+              <p><span class="spk">Nithya:</span> Yeah. Yeah. Which is part of the That’s great. Yeah. That’s success.</p>
+              <p><span class="spk">Jonathan:</span> Um, right.</p>
+              <p><span class="spk">Nithya:</span> Yeah, that’s right. That’s right.</p>
+              <p><span class="spk">Jonathan:</span> but how are you thinking about it now? So, okay, if the, if the cannibalization of the hardware business and it goes directly into the fridge, how does that open up opportunities for you? How does that challenge what you’re focused on?</p>
+              <p>Like,</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> us through how you’re thinking about that. And obviously we’re in a in time right now where, you know, kind of, kind of tough to predict any market or, or funding sources. But just curious how you’re thinking about that, um, as you’ve. pre kind of global turmoil had been transitioning outta the hardware game.</p>
+              <p><span class="spk">Nithya:</span> Yeah. Yeah. Yeah. I love that question and I think you’re bringing up two, very related questions. So I wanna circle back to your first question of like, owning the outcome and like, what does that really mean, as well, because it’s sort of like there’s, I. Owning the outcome. And then there’s like financing for the outcome, which is like, you know, an additional thing that, that you and I talk about quite a bit.</p>
+              <p>But just coming back to next LEAP’s pivot, um, it has been, uh, a kind of like a three year slow pivot. Uh, and so it was, it definitely predated the global turmoil. I think what’s really interesting is the ways in which global health does move so slowly. So actually the pivot, truth be told, is actually five years old. Um, which is when we first started working to get these standards in place, um, with GAVI and, and, and unicef. Um, and. We did not anticipate that even once the standard was developed and approved, it would still take another four to five years for it to actually materialize in the market, which is why the official launch of like procurements doesn’t change until January 1st, 2026. So it’s been this like fascinating, very slow moving kind of pivot actually. But sadly, I still underestimated how long it would take us as a business. For us to match that. So what I mean is that like, well five, years ago or more, we had the vision for like, okay, the next thing to solve in order to own the outcome of vaccines to children. The next thing to solve is exactly as you’re saying, John, that it’s not enough to generate the data. We’ve really gotta help countries build out the processes and like the accountability mechanisms and the structures to act on that data. Um, but while we had the vision for that five, six years ago, It took even Nexleaf as a business that long to actually bring in the right talent and like change the story in the sector of Nexleaf and who we are. and also even shift our strategy. So while on the one hand we think of ourselves as super fast moving, there’s always this kind of like mismatch, uh, almost impedance mismatch that. Can actually bounce back and reflect back to us. So because the sector moved so slowly, it actually bounced back and like we started to move really slowly. So the impedance mismatch is kind of fascinating there. But, um, yeah, so it’s, it’s taken a while even just this morning I was talking to my head of strategic partnerships and comms and, and we were talking about how we actually have to redo our, all of our materials yet again. So, you know, I think it’s. Ironically for us right now, what I’m seeing is that it’s less about product market fit in that like there’s a lot of interest in this kind of moving from devices to really helping countries build out the processes and build out the training mechanisms and the funding mechanisms to solve maintenance and, you know, solve the whole outcome. Increasingly, I’m seeing Nexleaf doesn’t have to own that whole outcome. And I think that’s especially important in this moment as everybody’s budget sh shrink. I think it’s, we’re seeing that it’s, there’s a lot of partners who do want to come around the same table to say, okay, if the outcome is potent vaccines and we know we’ve gotta solve training and processes and all of this, like, there’s actually I think a lot of interest in bringing, uh, in coming together to solve it. I’m hopeful we don’t have to own it alone. Um, but in terms of our pivot, we are, I think now finally, um, at the point where the external messaging matches, the internal messaging matches what countries are expecting from us. So we’ve, we’ve got some nice alignment, but it feels like it’s three months old.</p>
+              <p>So</p>
+              <p><span class="spk">Jonathan:</span> Right.</p>
+              <p><span class="spk">Nithya:</span> it feels very recent.</p>
+              <p><span class="spk">Jonathan:</span> of the analogies that, um, the Steel Foundation for Hope, our, our, our major PRI, uh, investor, I was getting advice as we were going into management week and he’s like, you know, don’t, don’t be a car company trying to build a gas platform and an EV platform. You know, it is like if you, you know what the gas business is and you’re serious about the EV business, you’ve gotta. You can’t run both, And,</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> so I’m</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> you know, as you kind of transition massively in this, like are you, what, how, how have you guys had those strategic discussions on the hardware business? Um, and I’m curious actually five years ago when you were first debating, know, the</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> approach, were you like, oh, we can have it both ways, we’ll like promote the standard and then we can still make money off our hardware?</p>
+              <p>Or were you guys like this is a real, like if we succeed this new path, we are like. our current business out of business like they, like. Was it start discussions like that or was there more like optimism that you could do both.</p>
+              <p><span class="spk">Nithya:</span> That’s a great question. Um, first of all, that that advice from Joe is like such like classic Joe advice. It’s why, you know, I still think of him as just like one of the strongest kind of thought leaders in this space. So, you know, I think he doesn’t. Uh, anyways. Yeah, just to say that. Um, so I’m right about almost nothing in life ever, you know, and my kids will like a hundred percent attest to that.</p>
+              <p>So it feels weird to say this, but actually we had this vision five, six years ago, we actually went in knowing that it would cannibalize and kill our device business. It’s partly why my board did. Give a fair amount of pushback slash threaten to try to find another CEO who, who would, um, you know, kind of, kind of not take these insane bets. Um, but no, Martin and I knew that if we were successful and it was a big if, you know, I think we’re all familiar with that XKCD cartoon about the, like, lots of standards that keep accruing and it’s like, oh yeah, we’re just gonna build another one. Like, standards never work. Standards are never the answer.</p>
+              <p>And yet, you know. It was the right time, right set of partners. We, we did actually like, succeed in this standard. And, um, and, yeah, it, it, it is going to canalize the business. We did not predict how long it would take, but no, we knew that we couldn’t do both less for the reasons that I think Joe would bring up.</p>
+              <p>But Joe’s also brought up with me, which I think he’s bringing it up more from like a operational perspective. Like a business has to focus. You just gotta like, make the bet and like put all your resources behind it. It was less for that because I am known to spread out my resources way too thin. It was much more just like we saw it as an inevitability.</p>
+              <p>If we were successful, then the inevitable outcome would be that our device business would go away even if we wanted to operate both. So we just didn’t have as much choice in the matter. And honestly, right now, John, we are kind of operating both. there’s that.</p>
+              <p><span class="spk">Jonathan:</span> right. Well, so on the, on the next gen business, the software side, like how you mentioned like not owning the whole problem, but like what are you thinking about as the, the problem space you’re trying to tackle now and, um. Obviously we’re in this period of declining funding, you know, potentially massive declining funding.</p>
+              <p>The US</p>
+              <p><span class="spk">Nithya:</span> Yep.</p>
+              <p><span class="spk">Jonathan:</span> that came out as a 50% decrease on USAID spending. Um, we’ve heard of horrendously, um, bad, uh, amounts for vaccines, so obviously we have to do more with less. As you think about what you’re focused on, what you’re trying to do, like is this a hidden opportunity for you in terms of like conversations that used to be stalled now, or like, oh, wait, now that there’s less money going around, we absolutely want the, the thing that you were talking to us about.</p>
+              <p><span class="spk">Nithya:</span> Yeah. Um, so, I, I’m gonna ask you back the, the same question, so, um, be ready for that Okay, so I’ll give you the, the kind of easy answer, um, and then tell you the things that I’m still sort of really pondering about. But, um, yes, it has actually been this hidden opportunity for us. So very concretely, the sector has spent, um, [00:24:00] billions of dollars on equipment, um, in the last, you know. Three years or more? Uh, three years or roughly. Yeah. So that billions of dollars that have been spent, there was lot of good intention, but not necessarily a lot of actual resourcing of maintenance for that equipment. And know, I won’t tell you who it is, but I have heard a number of prominent leaders in this space actually advocate for, you know, we’ll just have to buy. More equipment all over again, in a few years, um, because that’s really gonna be the only way to sustain these things. And so we have been beating a drum around maintenance and no, let’s invest in country’s ability to maintain that equipment that is being bought, whether it’s a Nexleaf device, uh, to monitor refrigerators or a fridge or an incubator or a solar panel or a computer, you know, whatever that piece of equipment is. we’ve always advocated for maintenance, and I will say in the last four months, countries have always been. Because, you know, countries have always operated with that very resource limited approach. And so maintenance has always made sense at the country level. It is now suddenly making sense at the global donor level in a way that it did not, and I should add, I think global donors were always supportive.</p>
+              <p>It’s just that it wasn’t the number one or two or three priority. And so I think now suddenly maintaining that equipment has become. The number one or two priority in a way that it just wasn’t so, so that’s more what’s like lining up. Um, so I think that’s the first opportunity. The second opportunity is something that you and I have talked about a bit.</p>
+              <p>Not a lot, but like, you know, because of the way funding has flowed, there’s been a lot of inefficiency in how actual supply chains work on the ground. And so you can have side by side a fridge for a vaccine sitting next to a fridge for. Or you know, insulin or other, other drugs, and so suddenly I. It’s just not gonna be possible anymore.</p>
+              <p>It’s just the reality. So I think that’s gonna shift and that’s really matches up with our vision, which is country’s vision of having a single integrated solution for all equipment rather than a vaccine solution for equipment and a separate, you know, so, so that’s another opportunity that we’re getting a lot more traction on. And then finally, um, what we’re seeing is that, um. The types of things that are funded, I think is gonna change dramatically. So what I mean is things like capacity building and trainings, which right now, um, you know, if you look at like global funds budget, it’s something like 25, 20 to 25% of global funds program budget goes towards training and capacity building.</p>
+              <p>And actually 60% of that goes towards travel. And so, um. What we are looking at is, um, building out solutions that are much more, um, you know, AI enabled digital online, which has been done, but we’re focused on an operational use case. So rather than the clinical side of things, we’ve said, Hey, the operational use cases here are like quick wins.</p>
+              <p>We can solve those with these digital training And um, just yesterday morning, one country, I won’t name the country, but called us and said, um, we just implemented a travel freeze across the country, so it turns out we can no longer do, um, in-person trainings and capacity buildings. And we said, okay, great news. We’ve actually anyways been shifting towards this AI enabled on-demand onsite, you know, kind of training approach. So this is this great opportunity to, we thought we test it out later this year, but you know what, let’s test it out tomorrow. So, so I think there’s a number of opportunities globally and at the country level. So I’m curious for you, what are you kind of in terms of, of course, like the resource limitations is hurting all of us. So, you know, I, I didn’t say the obvious, but that’s just brutal.</p>
+              <p><span class="spk">Jonathan:</span> said. I think, you know, the, the resource limitations that I, unfortunately guess, health system strengthening budgets are gonna face. You know, they, they were a huge part of what USAID was funding. They’re part of what Gavi funds, what global fund funds, so that, you know, putting that aside, but I think that the total envelope shrinking at some level is such a decimating, um, event that the</p>
+              <p><span class="spk">Nithya:</span> Yep.</p>
+              <p><span class="spk">Jonathan:</span> you know, sometimes feel like they. Um, are, are not really opportunities in that context. But yeah, there’s definitely discussions we’re now having. Um, you know, one, this first started to happen in January, I talked to Amy about this and others, I was like, we’re about to find out if people actually like Comcare because, you know, this is always third party funded.</p>
+              <p>We have some government contracts,</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> I’m like, either they’re gonna pick up the phone and start calling this right away, or they’re gonna let it die. Um.</p>
+              <p><span class="spk">Nithya:</span> Yeah. Yeah.</p>
+              <p><span class="spk">Jonathan:</span> All of our customers, all of our government partners picked up the phone fortunately. So we were like really heartened to see the interest in maintaining and in some cases even growing, um, the footprint</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> with, with Comcare and and I spent a ton of time, um, coming up with our Impact Delivery framework, which is really trying to say exactly what you said, Nithya of we can’t have two fridges next to each other. Do basically the same function for two different supply chains. Similarly, we can’t have digital tools that have the capability to do five use cases and then pick five different tools for five use cases. Um, that was</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> even before because there wasn’t enough talent, there wasn’t enough, um capability, Now there’s also just nowhere near enough budget. Um, so we think there’s substantial opportunity and frankly, you know, I think in the old. Um, industry and expectations, like kind of the only discussion you could really have with the government was, give you a hundred percent of what you want for a hundred percent of the cost. And I hope that what happens now is we can say, I can give you 80% of what you want for 20% of the cost. Um, I think before that argument would never work because somebody, you know, if they weren’t paying the bill, so what do they care about the difference between 20% and a hundred percent? rather take the</p>
+              <p><span class="spk">Nithya:</span> Yeah,</p>
+              <p><span class="spk">Jonathan:</span> ’em a hundred percent.</p>
+              <p>Um,</p>
+              <p><span class="spk">Nithya:</span> yeah. Yeah.</p>
+              <p><span class="spk">Jonathan:</span> really where we’re pushing right now, which requires us to simplify offerings. It requires us to make things way easier to deploy. It requires, you know, what you said, standardized training, standardized SOPs, um, and I think there’s a huge potential to maintain. know, the tens of millions of dollars that have been invested in these digital community health systems that we support, to maintain them.</p>
+              <p>And I think they’re gonna be critical because that’s how vaccines are getting out. That’s how behavior change communication is gonna get out. That’s how family planning is gonna get out. Like the, the community health workforce is even more important. today’s,</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> than it was, before all these changes.</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> The other thing, you know, that we’ve been working on and and have talked about on this podcast and I’ve talked about with you before, is our new platform to enable, um, you know, payment for verified service delivery. And I think that’s also gonna offer, um, maybe more organizations who previously. Maybe yesterday we’re like, I don’t really care about the difference between, you know, 50% cost effectiveness. I’d rather just do what’s easy now. I think nobody can accept saying that. I don’t think anybody will say that every dollar matters Now, you know, every dollar’s gotta go further. my hope is that as we stand up this platform, as we prove more use cases on it, it offers a way for governments to engage for, um, the funding landscape to engage and for a really robust, resilient, dynamic workforce. To do great work in the field and, and to get paid for doing so. So seeing that as a.</p>
+              <p><span class="spk">Nithya:</span> So let me let. I wanna ask you something about that. ’cause you know, I think the verified service delivery model that Dimagi is doing is just, I think it’s the future. I think it’s brilliant. I’m kind of wondering, what are you seeing as like what needs to be true, like actually true? Do you know what I mean? In order for that to work in a way that like hasn’t been true because I think verified service delivery. You know, we, we’ve built it in other sectors like clean cooking, like we’ve seen it work and so, but it hasn’t really taken off. Like I looked at ga, the global funds budget last night, and like their pay per for pay for performance line item was like, I forget, but I think it was like, you know, 0.5% or something.</p>
+              <p>Right. So, so, so people are talking about paper. Pay for performance, but it’s like not actually scaling the way that it should. So what do you think needs to be true or is true now? That wasn’t a year ago</p>
+              <p><span class="spk">Jonathan:</span> it’s a</p>
+              <p><span class="spk">Nithya:</span> that to,</p>
+              <p><span class="spk">Jonathan:</span> Amy. Curious to get your, your take, just having heard me talk about this for so long too. Um, think one of the challenges is like there are very few that could reasonably take on a pay for performance contract, right? So let’s take next lease business model. If you</p>
+              <p><span class="spk">Nithya:</span> mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> a pay for performance, not of fridges correctly monitored, but of, know, vaccines.</p>
+              <p>Putting</p>
+              <p><span class="spk">Nithya:</span> vaccines. Yep.</p>
+              <p><span class="spk">Jonathan:</span> know, have a dependency on the</p>
+              <p><span class="spk">Nithya:</span> Yep,</p>
+              <p><span class="spk">Jonathan:</span> you know, have a dependency on the, you know,</p>
+              <p><span class="spk">Nithya:</span> that’s right.</p>
+              <p><span class="spk">Jonathan:</span> like, you can’t</p>
+              <p><span class="spk">Nithya:</span> Yep.</p>
+              <p><span class="spk">Jonathan:</span> that contract and so, um, or I mean, you could, but like, it’s,</p>
+              <p><span class="spk">Nithya:</span> But like it’s a lot of risk,</p>
+              <p>a lot of risk.</p>
+              <p><span class="spk">Jonathan:</span> um, one of the things that kind of cracked with connect that we hope is, is, um, durable, is it turns out. obviously, um, local organizations who’ve been operating in these communities for decades phenomenally resourceful, figure out</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> are, know the hard to reach areas, can connect all the dots, have the relationships with the governments, and if you can get them</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> they always should have been getting in the first place, they can solve so many of these problems that make, you know, being a US-based huge.</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> unwilling or unable to take on a performance based contract?</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> of what I think</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> and part of what I think is necessary is, you know, I think the mental model a lot of people had is you have these social enterprises do amazing work, but they don’t scale. You have</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> I NGOs that can scale but are crazy expensive and high overhead. And then everybody was talking about localization, but nobody was really figuring out how to get more money flying.</p>
+              <p><span class="spk">Nithya:</span> That’s right.</p>
+              <p><span class="spk">Jonathan:</span> I’m</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> combining the performance base, the targeted, the verified service delivery that everybody. Kind of wanted, but never knew how to contract with these local partners and when you add in digital, so it’s now easy for everybody.</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> I’m</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> know, because</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> you need audited financials just to contract with. Um, you know, the former US government. You needed, um, you know, really sophisticated ways to, to interact. And digital tools, particularly, you know, AI enabled digital tools can have a huge amplification effect that was just too hard before. You know,</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> in our core platforms, if you had offered me a contract to say like, I’ll pay you a dollar per high performing CHW in this country, do you want that contract? Or do you want a million dollars, um, for three years to stand up your system? From a Dimagi business model standpoint, there’s so many things in the way of me. That I don’t control, that I don’t have influence over on the the CHW side. Um, but it’s really hard to take on that performance based contract. So a really long-winded answer, but the hope is that, um, with digitization, with localization, uh, we can open up this pathway to scale, which is not a huge NGO, not an unscalable small organization, but lots of independent organizations who can gain a new capability and go deliver it. Successfully</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> had the digital footprint to prove they did deliver it.</p>
+              <p><span class="spk">Nithya:</span> I, I think it’s super compelling. It’s, it’s really the direction that we’re actually, you know, ultimately going as well. And I think the question is just gonna be, your point, like how big do you scope out? Performance. You know, I think scoping out performance as a well monitored fridge, that’s way too small. That’s, bullshit. Um, but scoping it as a vaccine, like a child that is protected for life against measles, well, that’s too big. Um, so what is that kind of, right. And you’ve, you’ve called it this, John, the, the right unit of impact, which I think is, is the question here. And it’s something that. We’re thinking about quite a bit as we sort of look at this model that our current board, by the way, who, who agrees with me a lot more, um, has been really pushing us, pushing us to think about, um, which is like, how do we think about ourselves as more of that enabling platform for the local organizations that are gonna be closer to the problem or the local, you know, kind of outsourced service providers.</p>
+              <p>Um, who are often the ones contracted by the government anyways, like how do we become the digital enabler of them, but where they’re using data, not just to get a, a report card, you know, or, or not, just to find out that a fridge isn’t working, that they always knew, but they’re really getting to use this platform as a way to mobilize more resources to solutions that are working to challenges and problems that really need solving.</p>
+              <p>So. You I really think this is the future. and I’m really excited about it. And I think, you know, especially with iot data and sensor data, as you and I’ve talked about, it’s like uniquely then able to verify that certain outcomes are like truly happening. but yeah, again, scoping that unit of impact I think becomes really important. I think one of the things that I’m thinking about that I’m curious how you’re approaching is like. What we’ve learned over the years is that like getting what countries want to line up with, like where donors are at and like ready to pay for. Getting that, those two things to line up with where the procurement and contracting mechanisms are. Those are actually, it turns out three completely different beasts. And the contracting and procurement mechanisms, as you well know, is its own bureaucracy that like, it’s unclear anybody has control over, which is why it’s sort of stayed in this like murky area. And so, you know, one way to, to deal with that is like to completely un resource that, you know, bureaucracy, which is maybe what’s happening, I don’t know.</p>
+              <p>But, um, you know. Getting these three things to really line up away from, um, you know, pay for activity, to pay for outcome, um, is really, really hard. And, you know, having, we worked with the World Bank. To develop out a pay for outcome in a totally different sector, in clean cooking like, you know, worked with like really brilliant, passionate people at the World Bank, built out this great framework, demonstrated stuff, but then it turned out it wasn’t even the bureaucracy or countries that slowed things down.</p>
+              <p>It was, you know, this whole other thing that blew it all up. So, so just to say, I guess, yes, I think we can both strongly agree this is a future and you have a solution out of the box that you know is gonna solve it. Yet. I guess I’m kind of like, I’m wondering as we head in that direction, I’m also wondering like, you know, what are some of the other things that could potentially blow this up?</p>
+              <p><span class="spk">Jonathan:</span> Totally, and I, I, I think the. The ways in which will flow now and, and how that might change in the future is a huge area is</p>
+              <p><span class="spk">Nithya:</span> Agreed.</p>
+              <p><span class="spk">Jonathan:</span> innovated in. And you can see this in all governments, all markets,</p>
+              <p><span class="spk">Nithya:</span> I.</p>
+              <p><span class="spk">Jonathan:</span> environments. if more talent time was going to fix that problem, think a lot of other things would get fixed.</p>
+              <p>You know, like you mentioned, those three big problems. I think procurement is like vastly under invested in compared to the other two, right? And</p>
+              <p><span class="spk">Nithya:</span> agreed.</p>
+              <p><span class="spk">Jonathan:</span> um,</p>
+              <p><span class="spk">Nithya:</span> Innovating.</p>
+              <p><span class="spk">Jonathan:</span> yeah.</p>
+              <p><span class="spk">Nithya:</span> Innovating in procurement has been under invested in Yeah, completely.</p>
+              <p><span class="spk">Jonathan:</span> paper outcomes platform or solution I barely can get like a SAS deal done on the software side with a lot of these partners.</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> Um, I don’t</p>
+              <p><span class="spk">Nithya:</span> Yep.</p>
+              <p><span class="spk">Jonathan:</span> you know, short term expectations that I’m gonna get them onto a pay for outcomes contract. And so a lot of learning I’m trying to do now. talk to governments, talk to the World Bank, talk to folks who have like, seen procurement innovation happen. You know, know this is gonna take a while and then find out like what role can we slash should we be playing or need to play order</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> to have this pathway to pay for outcomes.</p>
+              <p>But I think, um, it’s really hard, like even, even in the, the domestic market, which Algi also serves here in the United States, talk about paid for outcomes, not activities and like. We spend trillions of like, this is a really important problem lots of people care about and we can’t crack it. So it’s also just like hard find that unit of impact, that unit of outcome that you can reliably contract for.</p>
+              <p>And so I think we’re gonna need a lot of a lot of iteration, and unfortunately, you know, these are [00:41:00] the government to private sector contract is like not one, people have a lot of appetite to fail and iterate on, you know, so there’s also a huge risk of a couple bad deals or a couple. Approaches not working that could really turn people off to even trying. Um, so there’s that danger</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> you know,</p>
+              <p><span class="spk">Nithya:</span> Yeah, that’s interesting.</p>
+              <p><span class="spk">Jonathan:</span> back in the day of like, you know, doing a CHW project that doesn’t have a path to scale really turn, you know, lots of pilots a decade ago had no path to scale, but like, I think governments got turned off during that process and then didn’t push as hard as they could have. which maybe led to worse outcomes, uh, you know, for some of their citizens.</p>
+              <p><span class="spk">Nithya:</span> Yeah, I mean, you know, the thing that I, I, I think is, um. I, I think I disagree a little bit, and maybe I’m, you know, misunderstanding what you’re saying, but I, I don’t think it’s like a lack of appetite to innovate per se. Like in some ways, like, if we throw more innovation, put it another way, if we just threw our best minds at it, like, let’s say John, you, you know, like quit your day job and you’re like, I’m just like, you’re the smartest person in the room in every room you go to.</p>
+              <p>So like, you know, let’s say you decide to crack procurement, I still don’t think that’s. Like, I don’t think it’s better innovation. Do you know what I mean? Like, I think the problem has to be so painful and like has to shift. And the, the example that I think about a lot is medical records. if you ask any, you’re married to a doctor.</p>
+              <p>I’m married to a doctor, right? Like, you know, if you ask any doctor. of their, like least favorite parts of their job is dealing with medical records. Like they just hate it, you know? And, and yet why does every doctor deal with medical records? ’cause that’s how they get paid. They can’t get paid if they don’t deal with the medical record.</p>
+              <p>So, like, you know, EMR technology, you know, I, I don’t know anything about the tech, but like, I, I understand that it’s like not great, you know, whatever. Um, but it, it’s kind of just the only way to get paid. And so in some ways I feel like, I don’t know what the direct. You know, corollaries here, but like, there has, something’s gotta shift so that [00:43:00] the only way for, I don’t know, a country or organization, you and me a technician, whoever it is, like the only way for money to flow is once it goes into the record and you can verify the service delivery or whatever.</p>
+              <p>Like, I think that’s gonna be the shift. It’s not that we need the best pay for performance, performance, like contractor, the best technology even. I don’t know how we get there, like, you know, but that’s, the EMR example really stays with me.</p>
+              <p><span class="spk">Jonathan:</span> Yeah. And that’s a great, um, example and I think. Like we, we do operate in that space a bit, and I think a lot of people are like, wait, what? Did we just spend $50 billion building and deploying? Like where is this improving health outcomes? And so I think we do need that digital record, but at the same time, not as an end to itself in service of verifying the outcome. Because I think a lot of EMRs and a lot of digital technology turns into like a documentation task, whether that’s like an internal</p>
+              <p><span class="spk">Nithya:</span> Totally.</p>
+              <p><span class="spk">Jonathan:</span> know, and Amy has a lot of experience like thinking through our marketing tools and our sales tools, and it’s like lots of companies deploy Salesforce in a way that’s like super annoying to deal with and you’re like back entering data and it’s all about just proving that you’re doing your job, not helping you do your job. In a lot of ways, that’s what EMRs have turned into for a lot of physicians and providers in the United States and elsewhere. how do we avoid that trap while still having that digital record? Because absolutely what you’re saying, if we can get that record that’s how the transaction gets kind of completed, all sorts of innovation can happen on top of that, right?</p>
+              <p>But you gotta get into some transactional model that you can then measure improvement upon. if we can’t get that foundation there, it makes it really, really difficult to, to plug in and solve your part of the problem.</p>
+              <p><span class="spk">Nithya:</span> I know. Oh, I, you know, part of me wonders like, maybe we’re going about this all wrong, like maybe by focusing on impact and trying to actually get better health outcomes, we’re somehow missing the mark. And actually, if we just focused [00:45:00] on the transactional, maybe, don’t know. You know, I, I hope that’s not true.</p>
+              <p>’cause like I’ve dedicated my whole life to, to that not being true. Um, but, but I sometimes wonder about that. I mean, this kind of gets to something that. Um, you know, I think about like the data value chain, which is like every time data exchanges hands, like it’s gotta give value to each person who’s touching that data. Otherwise, yeah. Like somebody at some point, like some nurse is gonna stop filling out a logbook or, you know, some district supervisor is gonna stop looking at that logbook if it’s not generating enough value. Um, so it’s something that I, I was thinking about as, as you were describing that. I mean, I think that’s, that’s the dream for all of us.</p>
+              <p><span class="spk">Jonathan:</span> and, and you know, the, the way in which those outcomes can manifest or like that kind of going for that ultimate impact goal, I think. As we, as you’re looking at how your business is pivoting, as we’re trying to, you know, extend what we do into connect and, and offering impact directly in the market and these other things, it’s also a question of like, if you’re not running a gas and an EV company at the same time, whatever that big, bold bet is that we’re all switching to, um, what does the ideal customer profile look like?</p>
+              <p>What does the ideal transaction look like?</p>
+              <p><span class="spk">Nithya:</span> Hmm.</p>
+              <p><span class="spk">Jonathan:</span> Does it</p>
+              <p><span class="spk">Nithya:</span> Yeah,</p>
+              <p><span class="spk">Jonathan:</span> all in a small way that you can then grow and kind of fan the flame of, or does it not exist at</p>
+              <p><span class="spk">Nithya:</span> that’s a great question.</p>
+              <p><span class="spk">Jonathan:</span> because</p>
+              <p><span class="spk">Nithya:</span> Yep.</p>
+              <p><span class="spk">Jonathan:</span> I mean, all of us in the, the previous, uh, state of usaid, we were going after everything. We were, you know, sometimes doing a services contract, sometimes doing a product contract, just trying to, you know, for the right reasons, make as much impact as one could. And now I think a lot of us are gonna have to make really tough calls on what businesses are we really in. What do we really want our business model to be? And um, is that market really big enough? You know, like, are there</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> who wanna do business in the way that we think we’re best able to do business to achieve the outcome we think we’re best suited to do? I think to a large extent, everybody was ignoring that. Do you want to do business the way I want to do business because my solution can work. And you can agree you want that outcome and you can just not wanna do business the way I wanna do business. Like that’s, that’s a normal thing that</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> all the time.</p>
+              <p>Um,</p>
+              <p><span class="spk">Nithya:</span> Mm-hmm. Mm-hmm.</p>
+              <p><span class="spk">Jonathan:</span> the way you wanna do business? To create that impact with them is gonna become a very prominent question. And I think a lot of us were just like, well, nobody wants to do business the way u USAID does. So we can, like, we can also accept, we have to go, you know, we, we accept we have to deal with the beast and, but that, that’s not</p>
+              <p><span class="spk">Nithya:</span> Yeah.</p>
+              <p><span class="spk">Jonathan:</span> we’re all in now.</p>
+              <p>Now we have to define like, what is</p>
+              <p><span class="spk">Nithya:</span> Yeah,</p>
+              <p><span class="spk">Jonathan:</span> want to do business and we have enough business partners that that wanna do it that way?</p>
+              <p><span class="spk">Nithya:</span> I agree with that. And I mean, I think as we like close this conversation, I guess one of the things. I might frame it a little differently, which is like, we all have this opportunity to think about collectively how we do wanna do business in absence of usaid, which was this kind of great tractor beam for positive or otherwise. You know, I think now without that, we, the system has been burned down and you know, I think for, for even the first four months of this year, or three months of this year, we’ve all talked about like, well, when or if the system gets burned down. And I think it’s fair to say the system has been burned down and so. This is kind of our moment to, to really figure out together how we do want to do business together. And sort of what, what, what do some of those, like as you said, ideal transactions and ideal customers and ideal use cases and ideal frames for, for outcomes really look like, but of feel like we have this moment, we’re living history in development.</p>
+              <p><span class="spk">Jonathan:</span> I love that. That’s a great place to end.</p>
+              <p>Amie Vaccaro: Wow. This has been, I, I usually jump in all the time, but this has just been like such a beautiful unfolding and so much, um, rich insight and really, yeah. A lot of food for thought here. So many more questions coming up for me, but I feel like I’m so impressed that you didn’t, you didn’t go dark. I thought, I thought we were gonna go really dark, but you’re leaving me with, with hope.</p>
+              <p>Um.</p>
+              <p><span class="spk">Nithya:</span> Oh, good.</p>
+              <p>Amie Vaccaro: And I think, yeah, I’d love to continue this conversation at Thea on a future episode potentially. ’cause um, this is really unfolding and to your point, we’re, we’re living history right now.</p>
+              <p>Wow. So much to think about there. A massive thank you to Nathe Ramathan from Nexleaf Analytics for really opening up and sharing her journey and some incredibly valuable insights with us today. So as we wrap this one up, I wanted to share a few of my key takeaways. First, don’t be afraid to shake up your business model. TIAA’s story about Nestle switching from for-profit to non-profit really drives home that sometimes you’ve gotta change your setup to actually make the impact you’re aiming for and get the right people listening.</p>
+              <p>Second, sometimes you have to cannibalize your own business for the greater good.</p>
+              <p>Nestle made a decision to help standardize internet of things in vaccine fridges, even though it cut into their [00:50:00] own sales. That’s a huge lesson in playing the long game and thinking about the whole sector, not just your slice of it.</p>
+              <p>Third, pivoting takes time and getting everyone on the same page as Nathe laid out. Big shifts, especially in global health, don’t happen overnight. It’s a marathon, not a sprint. Needing the right team and making sure what you’re saying outside matches what you’re building inside.</p>
+              <p>Fourth, it’s about the outcome, not just the tool. We talked a lot about this moving past just handing over data or a device and really stepping up to help make sure the desired result happens. That might mean teaming up in new ways as the funding world changes. Fifth, the systems burn down. Now what, this was a big one.</p>
+              <p>It sounds a bit stark, but it’s also a massive opportunity with all the current shakeups. It’s our chance to rethink how we all work together and really focus on what delivers real verifiable impact. Definitely a lot to chew on there, and we really hope it sparked some ideas for your own work. That’s our show.</p>
+              <p>Please like rate, review, subscribe, and share this episode. If you found it useful, it really helps us grow our impact. And write to us@podcastatdgi.com with any ideas, comments, or feedback. This show is executive produced by myself, Ana Bala Chand, and Michael Kelleher, our producers, and cover our is by Sudan.</p>
+              <p>K. Thanks so much for tuning in and we’ll catch you on the next episode.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Guests & hosts -->
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/guests/nithya-ramanathan.jpg" alt="Nithya Ramanathan" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Nithya Ramanathan</p>
+              <p class="person-role">Co-founder and CEO of Nexleaf Analytics, building data tools that strengthen public health systems.</p>
+              <span class="person-org">Nexleaf Analytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width CTA -->
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/2SiDwwkbEJxUauQ8phiPth" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

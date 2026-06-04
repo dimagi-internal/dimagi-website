@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Us | Dimagi</title>
+<meta name="description" content="Dimagi is a global tech-for-good social enterprise enabling impactful frontline work through scalable digital solutions and expert services in 130+ countries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<style>
+/* ── About page ── */
+
+/* Stats band */
+.stats-band {
+  background: #f5f7ff;
+  border-bottom: 1px solid var(--line);
+}
+.stats-band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.stats-band-cell {
+  padding: 48px 40px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.stats-band-num {
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-feature-settings: "tnum";
+}
+.stats-band-num span { color: var(--indigo); font-weight: 300; }
+.stats-band-lbl {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Mission & Vision */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 16px;
+}
+.mv-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px 40px 44px;
+}
+.mv-card-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 20px;
+}
+.mv-card-text {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+/* Pillars 2x2 */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 16px;
+}
+.pillar-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.pillar-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -12px rgba(10,6,32,0.12);
+  border-color: var(--indigo-soft);
+}
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad);
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--muted-soft);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.pillar-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.pillar-desc {
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Values */
+.values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.value-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.value-index {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.08em;
+  width: 32px;
+  flex-shrink: 0;
+}
+.value-text {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.90);
+  letter-spacing: -0.015em;
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 64px;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: var(--line);
+}
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 0;
+  min-height: 80px;
+}
+.timeline-item:nth-child(even) .timeline-year { order: 3; text-align: left; padding-left: 40px; padding-right: 0; }
+.timeline-item:nth-child(even) .timeline-content { order: 1; text-align: right; padding-right: 40px; padding-left: 0; }
+.timeline-year {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--indigo);
+  letter-spacing: 0.06em;
+  text-align: right;
+  padding-right: 40px;
+  padding: 16px 40px 16px 0;
+}
+.timeline-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.timeline-dot-inner {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--indigo);
+  border: 3px solid #f5f7ff;
+  box-shadow: 0 0 0 1px var(--indigo);
+}
+.timeline-content {
+  padding: 16px 0 16px 40px;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.timeline-content strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Team section */
+.team-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.team-text {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.office-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.office-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.office-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--indigo);
+  flex-shrink: 0;
+}
+.team-photo-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--indigo-soft);
+}
+.team-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Management team grid */
+.mgmt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.mgmt-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 32px;
+}
+.mgmt-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.mgmt-title {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .mgmt-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .stats-band-grid { grid-template-columns: 1fr; }
+  .stats-band-cell { border-right: none; border-bottom: 1px solid var(--line); }
+  .mission-vision-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 20px; }
+  .timeline-item { grid-template-columns: 20px auto; }
+  .timeline-item .timeline-year { display: none; }
+  .timeline-item .timeline-dot { justify-content: flex-start; }
+  .timeline-item .timeline-content { grid-column: 2; padding-left: 24px; }
+  .timeline-item:nth-child(even) .timeline-year { display: none; }
+  .timeline-item:nth-child(even) .timeline-content { order: 2; text-align: left; padding-right: 0; padding-left: 24px; }
+  .timeline-item:nth-child(even) .timeline-dot { order: 1; justify-content: flex-start; }
+  .team-cols { grid-template-columns: 1fr; gap: 40px; }
+  .mgmt-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero hero-dark">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow on-dark">About Dimagi</span>
+          <h1 class="hero-title">A Leading <em>Social Impact</em> Tech Company</h1>
+          <p class="hero-sub">Dimagi is a global tech-for-good social enterprise enabling impactful frontline work in locations all over the world, through scalable digital solutions and expert services.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Work with us</a>
+            <a class="btn btn-ghost-on-dark" href="../../company/careers/index.html">Join our team</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="../../assets/images/about-photo.jpg" alt="Dimagi team members working in the field" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-band-grid">
+        <div class="stats-band-cell">
+          <div class="stats-band-num">130<span>+</span></div>
+          <div class="stats-band-lbl">Countries with CommCare users</div>
+        </div>
+        <div class="stats-band-cell">
+          <div class="stats-band-num">3,000<span>+</span></div>
+          <div class="stats-band-lbl">Total projects affiliated with CommCare</div>
+        </div>
+        <div class="stats-band-cell">
+          <div class="stats-band-num">1M<span>+</span></div>
+          <div class="stats-band-lbl">Users supported with CommCare</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission & Vision -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Mission &amp; Vision</span>
+        <h2 class="section-title">Driving lasting change through technology</h2>
+        <p class="section-lede">Everything we build, every partnership we form, and every program we support is guided by a clear sense of purpose.</p>
+      </div>
+      <div class="mission-vision-grid">
+        <div class="mv-card">
+          <div class="mv-card-label">Our Vision</div>
+          <div class="mv-card-text">A world where all people have access to the services they need to thrive.</div>
+        </div>
+        <div class="mv-card">
+          <div class="mv-card-label">Our Mission</div>
+          <div class="mv-card-text">To build and scale sustainable, high-impact digital solutions that amplify frontline work.</div>
+        </div>
+      </div>
+      <p style="margin-top: 32px; font-size: 15px; color: var(--muted); line-height: 1.6;">Dimagi is a B Corp and a certified Benefit Corporation. At least 50% of people lack access to essential health services. We help bridge this gap by empowering Frontline Workers to deliver critical services to communities in need.</p>
+    </div>
+  </section>
+
+  <!-- 4 Pillars -->
+  <section class="section" style="background: #f5f7ff; padding-top: 0; padding-bottom: 120px;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What We Stand For</span>
+        <h2 class="section-title">Our four pillars</h2>
+        <p class="section-lede">We hold ourselves to a high standard. Every product and program we work on must meet these four criteria.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Improves Wellbeing</div>
+          <p class="pillar-desc">We seek ideas that have the potential to ambitiously and provably improve wellbeing.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Inclusive</div>
+          <p class="pillar-desc">We design to reach the most underserved populations, especially in technically challenging contexts.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Robust</div>
+          <p class="pillar-desc">We focus on building robust technology that meets the highest standards with a long-lasting foundation.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <div class="pillar-title">Market Driven</div>
+          <p class="pillar-desc">We balance merit and market. We ensure that all work has a path to scale via the market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values (dark) -->
+  <section class="section dark">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow on-dark">Our Culture</span>
+        <h2 class="section-title">The values that guide us</h2>
+        <p class="section-lede">These aren't posters on a wall. They're how we make decisions, hire people, and hold ourselves accountable.</p>
+      </div>
+      <div class="values-list">
+        <div class="value-row" style="align-items: flex-start; flex-direction: column; gap: 8px; padding: 32px 0;">
+          <div style="display: flex; align-items: center; gap: 32px;">
+            <span class="value-index">01</span>
+            <span class="value-text">Impact, team, profit. In that order.</span>
+          </div>
+          <p style="margin-left: 64px; font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6;">This guides everything that we do as a company. We see that impact, team and profit create a virtuous flywheel.</p>
+        </div>
+        <div class="value-row">
+          <span class="value-index">02</span>
+          <span class="value-text">Be bold but humble</span>
+        </div>
+        <div class="value-row">
+          <span class="value-index">03</span>
+          <span class="value-text">Lead with empathy and respect</span>
+        </div>
+        <div class="value-row">
+          <span class="value-index">04</span>
+          <span class="value-text">Evolve by openly learning and sharing</span>
+        </div>
+        <div class="value-row">
+          <span class="value-index">05</span>
+          <span class="value-text">Embrace complexity for impact</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" style="background: #f5f7ff;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="section-title">Two decades of building what works</h2>
+        <p class="section-lede">Dimagi's story on becoming a leading social impact tech company is one of resilience and well-timed pivots, combined with an unshakable commitment to positive impact on our end users and their communities. <a href="../../podcast/index.html" style="color: var(--indigo);">Hear our story on our podcast.</a></p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-items">
+
+          <div class="timeline-item">
+            <div class="timeline-year">2002</div>
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>Dimagi founded</strong> based on desire to use technology for underserved populations.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>CommCare</strong> flagship software platform created.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2010</div>
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>Professional services team</strong> created for digital health applications.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2013</div>
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>CommCare offered as Software-as-a-Service</strong>, making the platform accessible to organizations of every size around the world.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+            <div class="timeline-content"><strong>CDC publishes non-inferiority eDOT study</strong> in NYC; SureAdhere acquired.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <div class="team-cols">
+        <div>
+          <span class="eyebrow">Our Team</span>
+          <h2 class="section-title">Problem solvers from every corner of the world</h2>
+          <p class="team-text">We are a diverse group of problem solvers, technologists, public health professionals, and social impact enthusiasts coming together to create a more equitable world through social impact tech.</p>
+          <div class="office-list">
+            <div class="office-item">
+              <div class="office-dot"></div>
+              Cambridge, Massachusetts
+            </div>
+            <div class="office-item">
+              <div class="office-dot"></div>
+              Cape Town, South Africa
+            </div>
+            <div class="office-item">
+              <div class="office-dot"></div>
+              Delhi, India
+            </div>
+            <div class="office-item">
+              <div class="office-dot"></div>
+              Remote-friendly global workforce
+            </div>
+          </div>
+        </div>
+        <div class="team-photo-wrap">
+          <img src="../../assets/images/about-photo.jpg" alt="Dimagi team" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Management Team -->
+  <section class="section" style="background: #f5f7ff;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Leadership</span>
+        <h2 class="section-title">Management Team</h2>
+        <p class="section-lede">The experienced leaders driving Dimagi's mission forward across technology, strategy, and global programs.</p>
+      </div>
+      <div class="mgmt-grid">
+        <div class="mgmt-card">
+          <div class="mgmt-name">Jonathan Jackson</div>
+          <div class="mgmt-title">Co-Founder and CEO</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Dr. Vikram Sheel Kumar</div>
+          <div class="mgmt-title">Founder and Chief Medical Officer</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Lucina Tse</div>
+          <div class="mgmt-title">Chief Operating Officer / Co-President</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Dr. Neal Lesh</div>
+          <div class="mgmt-title">Chief Strategy Officer / Co-President</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Clayton Sims</div>
+          <div class="mgmt-title">Chief Technology Officer</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Ismaila Diene</div>
+          <div class="mgmt-title">Managing Director, Global Solutions</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Gillian Javetski</div>
+          <div class="mgmt-title">Managing Director, CommCare</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Matt Theis</div>
+          <div class="mgmt-title">Managing Director, Connect</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Lily Rush Olson</div>
+          <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Sarah Sagan</div>
+          <div class="mgmt-title">Co-Managing Director, US Solutions</div>
+        </div>
+        <div class="mgmt-card">
+          <div class="mgmt-name">Kelly Collins</div>
+          <div class="mgmt-title">Managing Director, SureAdhere</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Join the mission</h2>
+      <p>Whether you want to build with us, partner with us, or simply learn more about what we do, we'd love to hear from you.</p>
+      <div class="cta-actions">
+        <a class="btn btn-on-dark btn-arrow" href="../../company/careers/index.html">View open roles</a>
+        <a class="btn btn-ghost-on-dark" href="../../contact/index.html">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

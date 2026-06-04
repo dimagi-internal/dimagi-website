@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 26: Partnering with the Government to Improve Maternal Health with Nick Pearson and Sathy Rajasekharan of Jacaranda Health | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jacaranda Health&#x27;s Nick Pearson and Sathy Rajasekharan on partnering with Kenyan governments to improve maternal and newborn health at scale.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep26-partnering-with-the-government-to-improve-maternal-health-with-jacaranda-health/">
+<meta property="og:title" content="Ep 26: Partnering with the Government to Improve Maternal Health with Nick Pearson and Sathy Rajasekharan of Jacaranda Health">
+<meta property="og:description" content="Jacaranda Health on partnering with Kenya&#x27;s public health system to improve maternal and newborn care.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>February 13, 2023</span>
+        </div>
+        <h1 class="ep-title">Partnering with the Government to Improve Maternal Health with Nick Pearson and Sathy Rajasekharan of Jacaranda Health</h1>
+        <p class="ep-deck">Recorded at the Global Digital Health Forum, Jonathan Jackson sits down with Jacaranda Health&#x27;s co-executive directors Nick Pearson and Sathy Rajasekharan on partnering with Kenya&#x27;s public health system to improve maternal and newborn care.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/4Ko9t2TJ7Ym7g5ehFUYCLI?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 26 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/4Ko9t2TJ7Ym7g5ehFUYCLI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000638943940" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/50xWWHAKWKo?si=Cji0zUOoxrYDWrZr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/5818a9ab-1435-4097-bf29-f173ab88f16b/high-impact-growth-partnering-with-the-government-to-improve-maternal-health-with-nick-pearson-and-sathy-rajasekharan-of-jacaranda-health-dispatches-from-the-2022-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">2 million</div>
+          <div class="ep-stat-label">mothers enrolled on Prompts to date, with roughly 100,000 added every month</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">20 of 47</div>
+          <div class="ep-stat-label">Kenyan counties Jacaranda works in, reaching about 44% of facility deliveries</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">1,200</div>
+          <div class="ep-stat-label">hospitals where Jacaranda&#x27;s solutions are deployed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Jonathan Jackson sits down with Jacaranda Health’s co-executive directors Nick Pearson &amp; Sathy Rajasekharan at the Global Digital Health Forum, to discuss challenges and learnings along their journey to impact in maternal and child health in Kenya.</p>
+        <p>Some topics covered in this conversation include:</p>
+        <p>Jacaranda Health partners with governments to deploy affordable and scalable solutions through government hospitals, where the majority of underserved mothers and babies receive care. In Kenya, they work with the National Ministry of Health and with 20 Kenyan County Governments, with solutions deployed across 1,100+ hospitals and health centers.</p>
+        <p>Show Notes</p>
+
+        <blockquote>
+          <p>&ldquo;80% of mothers in countries like Kenya are delivering in government hospitals. By setting up our own chain of private hospitals, we were having impact, but the opportunity was really with the public health system.&rdquo;</p>
+          <cite>Nick Pearson, on the pivot to government partnership</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>From hospitals to the public system</strong>: why Jacaranda spun out its maternity business to partner with county governments where most underserved mothers receive care</li>
+          <li><strong>Prompts</strong>, the gestationally specific text platform that lets moms ask questions and routes danger signs to the nearest facility</li>
+          <li><strong>In-facility mentorship</strong>: rebuilding a broken training model so nurse midwives practice and refresh life-saving skills like neonatal resuscitation</li>
+          <li><strong>Amplifying mothers' voices</strong>: turning hundreds of thousands of feedback responses into quality-improvement data for government health managers</li>
+          <li><strong>Machine learning with a human in the loop</strong>: intent classification, confidence scoring, and automated responses for middle-of-the-night danger-sign questions</li>
+          <li><strong>Communicating a pivot</strong>: bringing the board, funders, and the market along when an organization changes direction</li>
+          <li><strong>Beyond Kenya</strong>: early work deploying Prompts in Tanzania and Ghana to support immunization and triage</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Hi, uh, happy to be here at High Impact Growth. I’m here with Sathy and Nick from Jacaranda Health. Uh, we’ve known each other for a really long time, and I’m excited to have you here at the Global Digital Health Forum. Just to start, I’d love to hear your background and a quick overview of Jacaranda and what you’re doing there.</p>
+              <p>Nick and Sathy (one mic): great to be here. Um, so yeah, I’m Sathy Rajasekharan co-Executive Director at Jacarandad Health. Uh, my background is quite varied. Um, used to be in clinical research, uh, in neurology, uh, and then switched gears. Uh, did global health work at the Clinton Health Access Initiative before joining Jacaranda, um, where we’ve sort of worked on expanding our solutions for, for government health.</p>
+              <p>I’m Nick Pearson, the other co-executive director of Jacaranda Health. Wonderful to be here with you this morning, Jonathan. And, uh, exciting to see all the growth that’s, uh, that’s been going on. I founded Jacaranda about 12 years ago and, you know, we still got our roots as a maternal health organization actually delivering services, uh, directly with, um, with mothers.</p>
+              <p>We were setting up kind of mobile clinics and then maternity hospitals. But about, um, six years ago as we were in the, the sort of, the intention was how do we deliver high quality, high impact and respectable care to moms without, costs. So, you know, low cost, affordable care for, for moms in Nairobi and Prairie Urban Nairobi, and, you know, has, have built a good kind of base of operations around that.</p>
+              <p>But we realized about six years ago that there’s a real opportunity, 80% of mothers in, in countries like Kenya are delivering in government hospitals. You know, by setting up our own chain of private hospitals, we were having impact, but the opportunity was really, with the public health system.</p>
+              <p>And so about six years ago, we kind of pivoted to partnering with, county governments, and providing support to them around some of the areas of expertise that we had in digital health in, in nurse training as well, and started working with them. And that’s really taken off. We ended up spinning out the maternity hospital business as a separate social enterprise.</p>
+              <p>And now our kind of non-profit focus is nda Health is really. Sort of addressing gaps in maternal and newborn care and the public. And partnering with these governments, as Seth said,</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. And we, just got to, to meet and talk shop, an hour ago. And one of the things I was reflecting. I used to get the emails when you guys were making that pivot from, maternity care where you used to use Comcare into this amazing work you’re now doing in digital health. And, some of the outcomes were in fact, so good.</p>
+              <p>I kept emailing Neil or chief strategy Officer being like, is this real? And if it is, why aren’t we working together? And so it’s, it’s really amazing to see, you know, that pivot and, and the amazing work you’re doing in digital. So, could you just give an overview of the, the products and approach you’ve taken and, and what you’re now doing and, and really impressive.</p>
+              <p>Nick and Sathy (one mic): Yeah, so, we sort of operate on a, on a fairly simplistic principle in terms of challenges with maternal and newborn health. You know, the first thing you need to do is get the mom to care at the right time, at the right place. And the second is make sure that when she gets to that place, so hospital, Uh, preferably she’s meeting a provider who has the skills and the knowledge to improve her outcomes.</p>
+              <p>And so on the first side of things, we, we use a digital health platform called Prompts, you know, at, at, at the sort of front end of it, that’s a text messaging platform for moms. Uh, they sign up at a facility or now in the community, they get messages that are gestationally specific. And they have the ability to text in, a question.</p>
+              <p>So moms will ask, what should I be eating during my pregnancy? And then they get a response from a. Agent, sometimes that mom will say, I have a severe headache and blurry vision, and that agent will say, no, you need to go to the facility. Here’s the nearest one to you that can handle your case. And then on, on the facility side of things, we work with frontline providers, at the facility, usually the nurse midwives, PR primarily, and we’re working, on sort of.</p>
+              <p>Addressing a, a sort of broken model of training where, where, you know, providers are frequently trained maybe once a year and then go back to the facility and you cannot manage an emergency without constant practice and refresher. And so we look at professional, continuous professional development and we say, actually this should be done in facility and should be led by champions within the facility.</p>
+              <p>And so our mentorship program is really about building capacity of providers, to train their peers, to improve their skills and. And then there’s a layer of digital that goes along with that. What are the skills? What are the knowledge? What are we seeing in terms of lectures? What are the knowledge outcomes from the lectures?</p>
+              <p>Where are there gaps in terms of skills and knowledge? Then finally we take that data, integrate it and, and work with government health managers to say, here are the gaps in your system. This is what moms are telling us. These are where we’re seeing hotspots of weak care. And oh, by the way, here are also some system challenges that we’re seeing.</p>
+              <p>And if you look at those, Look at those elements together, you’re, you’re helping the government health manager to say, I have a finite number of pretty limited resources, but if I place my resources here in this subgroup or this group of facilities, my outcomes are gonna improve.</p>
+              <p>think one of the things that’s ex exciting about it is, is,</p>
+              <p>you know, the prompts is both, you know, behavior change, implementation. In other words, we actually see things like moms getting more prenatal care, moms coming back for postpartum care, postpartum family planning, and kind of deltas in those things as well, which is as it should be, and also connecting to care during emergencies.</p>
+              <p>But one of the sort of more exciting things about the kind of data layer that Seth was talking about, The fact that this is, you know, it, it serves as a, you know, as a tool to amplify the voices of moms in the health system. I mean, moms previously really like, haven’t had an opportunity to be able to provide feedback on the quality of care, the respectfulness of care.</p>
+              <p>And we’re asking all the moms who go through prompts to be able to provide that feedback. And so now we’re getting sort of hundreds of thousands of responses from moms around the country about like, Hey, you know, I experienced, you know, disrespect in this facility. Or, you know, alternatively like, thumbs up, you know, I had an awesome.</p>
+              <p>and sharing that back with the sort of government health system managers has been really, um, eye-opening and, and exciting too because I mean, I think as we have these strong partnerships with the government, they’ve been really enthusiastic about being able to disaggregate that data and be like, Hey, you know, this sub-county is doing particularly well.</p>
+              <p>Kudos. Or, you know, here’s some area where we may need to do some quality improvement or improve, kind of do some drills on respectable care, , that kind of thing. Which is, which is fascinating.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That is great and sounds, hugely impactful. We’ve done a lot of work in the direct to consumer space. We know how hard it is to really build, you know, that partnership with the public sector and figure out where the ways that digital can really augment. Southeast, you said these limited resources, zooming in on, on where you can adjust resource allocation.</p>
+              <p>Obviously Jackon started in Kenya. That was where your first maternity hospitals were. How big is it in Kenya now? And then I’m also, understanding that other countries have now come to you that are looking to scale up prompts and, and the other work that you’re doing. So</p>
+              <p>just curious to hear</p>
+              <p>how it’s going in Kenya and also where else are you?</p>
+              <p>Nick and Sathy (one mic): Yeah, so right now we’re in 20 counties in Kenya, so it’s 20 out of 47, but that re represents. About 44% of the deliveries that are occurring in facilities. So our solutions are reaching those moms, which is exciting. It’s like 1200 hospitals that we’re working in and in terms of providers, on the sort of tens of thousands level because they’re all accessing this care.</p>
+              <p>And the digital side of it helps us reach more providers as well. 2 million moms that have been enrolled on prompts to date. And it was just about like over a four year period and I think we are. Probably about a hundred thousand moms every month. The, in terms of other countries, it’s been pretty exciting.</p>
+              <p>This has been a, a year of exploration for us. We’ve started working in Tini, working with the Ministry of Health Deploying prompts, specifically for, new mothers. And the goal there is to really help mothers. Understand when they should bring their babies back for immunization VI visits, which has dropped during covid.</p>
+              <p>Um, and then help them with issues that they’re having. So fever questions that they may have, side effects, et cetera. Lack of availability of, of vaccines. Um, the other exciting sort of country that we’ve begun work with is in Ghana, working with the Ghana Health Services and really thinking about how prompts can be deployed in certain regions in certain.</p>
+              <p>To augment care, and this is the whole point of promise is to support the health system. And they’re really looking at this as a way of, you know, can we, can we triage effectively? Can we understand, you know, quality of care at the facilities and can we in a sense, decongest for certain care conditions And then, increase the level of other care conditions, which is, which is really.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great. I want to nerd out for a bit. And so you had 2 million moms go through the. Obviously that’s generating a lot of data and message back and forth into the system and back out from the help center and things. You know, the, the conference of the Global Digital Health Forum has been talking a lot about AI and different ways to use, machine learning to augment human resources and capitals.</p>
+              <p>That’s something you’re looking at. Is that an area that you’ve explored?</p>
+              <p>Nick and Sathy (one mic): Yeah,</p>
+              <p>absolutely. I think. Recognize the need to have a machine learning solution fairly early on, just by virtue of function. You know, when you get, even when you start getting a hundred questions a day, you recognize that two or three of those questions are, you know, urgent and emergency questions, and without the ability to rapidly screen the questions coming in and categorize them.</p>
+              <p>Your help desk agent can’t respond effectively, right? They may go through line by line, you know, first and first. For the questions, and that’s not the most efficient way to manage a help desk. So we started working on, on sort of very, you know, off the shelf tools to see if we could categorize the, the messages.</p>
+              <p>And then, you know, over the course of the last two years have really gone from using commercially available machine learning models, for intent classification, which is what we really do, to now, now deploying our own machine learning model that we’ve worked with partners on, on building and, and.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That. That’s great. And does it? risk stratify the messages as they come in, or does it fully respond and kind of enable you to do even more with fewer help center staff?</p>
+              <p>Nick and Sathy (one mic): Yeah,</p>
+              <p>so the initial, the initial paradigm was classification, and then we’ll give the risk based on, you know, if it’s bleeding, higher risk, if it’s avocados, lower risk. Um, With the volumes of messages coming in, we’re actually doing two forms of automation right now, and it’s all based on the confidence score that we have with the intent that’s coming in.</p>
+              <p>So if we’re really confident, the machine knows this is what the mom’s talking about, 90 plus percent, it’ll send an automated response and we actually skew that towards danger sign questions coming in. So it’s the middle of the night mom’s asking a question. She needs that response. We can’t wait for an agent to, to respond to her.</p>
+              <p>But then you build in a human component, right? You follow up with the mom, you say, does this actually answer your question? And if she says, no, the agent, it goes to the top of the agent’s list so that we can review and, and see what’s going on there. And so that’s about 20% now of the messages that are coming in are automated, uh, in terms of response, um, on.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s very cool, and I imagine now that you have that feedback loop, as you get more and more data and more and more experience. Get that much better at tuning the the model.</p>
+              <p>Nick and Sathy (one mic): Yeah, I think, I mean, well, one, one thing for, for anyone listening who’s trying to do this, you can actually get reasonably far with, you know, a corpus of 10,000, you know, conversational histories. I think you start hitting roadblocks. At a certain point, and then you want to go, you know, 10 x with that, and then now we’re at a hundred, you know, like a million messages and, and looking through that.</p>
+              <p>But that’s all for tuning, right? And that, those are all scale challenges, right? Like can you disaggregate a nutrition message into the types of questions on nutrition? So, you know, like what kind of food are we talking about? Another really interesting one is headache and going from moderate, severe, to mild.</p>
+              <p>Which is fascinating that we can do that with a machine learning model now, but it all just has a functional outcome. You know, we respond to our help desk agents who are saying, look, I’m getting many headache questions. Like, I need to be able to know who’s severe and who’s not. And that’s why we’ve, we’ve sort of optimized the model for that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s</p>
+              <p>really cool. Um, taking departure from that, that line of questioning. Nick, I’m curious, so this is a huge change from where the organization started 12 years ago, and I’m curious, like how did you determine that this is where the organization wanted to or needed to head? How did the board support that decision?</p>
+              <p>Fight against that decision, just how did the market respond? Like what, what drew you into this path and, and why did, why and how did you know this was where the organization needed to go?</p>
+              <p>Nick and Sathy (one mic): Yeah, I mean, I can’t pretend to too much in the way of sort of vision around this. I mean, in some ways we were kind of responding to the changing realities of our sort of financing landscape and, and, and the needs that we saw. I mean, I think the, the pivot toward. The government partnerships as that sort of picked up, was needs based.</p>
+              <p>In other words, we were seeing kind of interest from government partners in this and we, you know, we had a solution that worked for them. But then, you know, the sort of intentionality, I think as, you know, anyone who’s running organizations out there, it’s like there’s this kind of balance of like, you need to put the time to sort of invest in a team that’s capable of going in a new direction.</p>
+              <p>And it takes a whole different skillset to, and this is part of where, you know, where Sathi came on and really sort of accelerated our growth on the government side of things was, it was, you know, we needed someone who both understood some of the sort of technical challenges of building out, tools that could be scalable, but also the sort of realities of working more closely in partnership with the government, which is a whole sphere of expertise that we didn’t have in-house beforehand and, is relatively nuanced.</p>
+              <p>And so, as like Sethy and the team that he’s built has really accelerated the growth of the government side of things in terms of. Board buy-in and funder buy-in, which is a whole nother sort of dynamic as you know, you know, to when you want to change paths. And I imagine you guys have been through this at the maga as you’re kind of shifting the kind of focus of some of the areas that you’re working on.</p>
+              <p>You kind of bring people along with you and I, I mean, I reflect back on like five or six years ago, like if I were to do it again, I, there was definitely like some communication gaps. I mean there was, we lost some funders along the. When we pivoted, because I didn’t sort of communicate that change, that thought process carefully enough.</p>
+              <p>Our board was a hundred percent along all, you know, came along with it really well. But like some of the funders were like, Hey, wait, I thought you guys were a maternity hospital business. Why should I be funding you to work with the government? I mean, since then it’s born fruit and, and now some of those folks are coming back to us and being like, okay, we get why you did this</p>
+              <p>But it’s, it’s an interesting journey and I think it speaks to the need to, you know, communicate carefully the shifts in the organization, not just to go through the sort of internal changes that you need to, to.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think that’s great. Advice for our listeners too is that that overcommunication of, obviously all of our organizations, these business models are difficult. Engaging with governments is difficult. Trying to go in the private sector, all of this is hard. And communicating the why behind different strategic directions, not just internally, but to the market.</p>
+              <p>And how that has lineage to why you are, why and how you’re trying to create impact in the first place. Right? And so I think, that’s a really important aspect of, of the journey within the, peer mentoring and the training you do. I’m really curious. So that’s a huge area for us at the community health level, trying to think through how to create better jobs for better outcomes.</p>
+              <p>One of the things I think our industry does is like, think people want. and, and then like start from that premise. And I’m curious, when you’ve been working with the midwives, like are they excited to get trained? Are they engaged both in the, you know, at the start and over the course of it? Like talk us through the experience you’ve had with how midwives view their own skills, how they view skill building and like what that relationship has been like.</p>
+              <p>Nick and Sathy (one mic): Yeah, it’s been such a great learning process. I think there’s a couple of levels of it. The first is no midwife wants to lose a mom or lose a baby. And this has played out over and over. So when they build a skill, like, especially like neo neonatal resuscitation is one where there’s so much confidence that comes with that, that there’s, there’s a great demand for it and, and providers are excited to have that skill.</p>
+              <p>But this is exhausting, right? Like to, to constantly learn , and build that capacity. And the two things that we hear about, one, which we’ve addressed is like, can I get continuing medical education credits for, for training? And we’ve built that into both the digital component as well as the in-person component.</p>
+              <p>Yes, you can build your career, you can get your license by getting points for this. And that was a pretty quick fix. And is a big draw for learning. What we haven’t quite cracked is how does this help my professional. Right. You get certificates, they’re really useful. But I think we need to embed that within the system to be like, this person has been validated.</p>
+              <p>They have skills. We are looking at their knowledge levels, they’re real champions and they should be like growing within the government system. And we know that doesn’t always work that way. You know, people who get promoted aren’t necessarily the ones with the right skills or experience. And like aligning those kind of intrinsic and extrinsic motivations for the staff is really important.</p>
+              <p>But yeah, I think that’s kind of a challenge I imagine too in the community health space as well. It’s. What is the value proposition for people from a career perspective, for, you know, topping up these kinds of trainings or investing in the learning that that goes along with it? Yes.</p>
+              <p><span class="spk">Jonathan Jackson:</span> As we look across our, you know, four pillars of learn, deliver, verify, and pay, there’s a lot of evidence at the community level of the desire to gain more skills, like kinda uniformly. But there’s a question of like, are you saying that because you think it leads to career growth or because you think it leads to more money?</p>
+              <p>Or do you intrinsic, you want more skills? And I’m sure there’s a huge diversity of where that opinion is coming from, but I think it’s really important that we as a community aren’t just like, oh yeah, people obviously just wanna learn more. For the sake of more skills, like what’s driving that? What are all the motivating factors?</p>
+              <p>And it’s great to hear that there’s like that innate, you know, intrinsic of motivation just to make sure you never lose a mother or child as a midwife. And then, but also realizing, you know, everybody’s human, they want to have career growth, they wanna be paid better, they wanna be respected more. And how all that plays into, um, you know, the training methodologies and the upskilling methodologies we have.</p>
+              <p>One of the things that I think is really cool about the model is the peer. can you talk us through how that works and like what, what have you learned in terms of the interactions between how people are supporting each other?</p>
+              <p>Nick and Sathy (one mic): Yeah. Um, we’ve learned a lot. The first is that you need to pick the right peer, the, the right, uh, mentor champion. And this is like harder than it sounds, right? Like, so we have like, okay, the individual needs these characteristics. They need to be motivated and want to save lives, et cetera. But they also need to have position and responsibility within the ward, that they’re able to train a peer.</p>
+              <p>So you need to pick the right person from that per. And one learning is that they actually need to be in the ward, uh, actively working. So one, one of the things is you have to communicate that and be very, very explicit with the government when you’re saying, these are the people we’re selecting for this process.</p>
+              <p>This is why we’re selecting them for this process. And that takes time. But then there’s recognition of that. I think the other other aspect that we’ve learned is there’s, there’s not, everyone is a great teacher and you need to build in like data points to understand who is a better teacher and who.</p>
+              <p>And, and how to make them better teachers or find different ones, right? Like, so they may want to be a good mentor, but they may not have the skills for it. And then the final, element that we really struggle with, and I think like everyone in this space struggles with this, is the rate of turnover.</p>
+              <p>Like there’s transfers, people go to other facilities. They, hopefully continue training their peers, but then we have someone new come in. How do you maintain this cadence of training, refresher training new folks coming in so that you, you have a strong network of mentors or champions, as we call them.</p>
+              <p>I think that’s</p>
+              <p>also an opportunity for digital generally is like addressing that sort of chronic challenge and health systems of healthcare, you know, sort of, of reassignments and turnover of um, you know, creating a community of practice that’s not just tethered to a single facility, but where you get folks who have kind of been through some of these trainings who are able to stay in touch over WhatsApp or whatever.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s great.</p>
+              <p>Well, we’re gonna wrap</p>
+              <p>here, but thank you so much for, uh, stopping by.</p>
+              <p>Thank you so much to Nick and Southie for a lively conversation. I’ll start my takeaways. First. I heard that Dimagi value of evolve by learning and sharing openly come through in this conversation, we heard about the pivots that Jacaranda had to make since its founding in 2010. To me, this reiterates, the importance of nimble learning and adapting an organization over time to maximize impact.</p>
+              <p>And they talked about how over-communicating is so important, especially as you’re making changes to your strategic direction. Second. I also took away the importance of training and looking at ways that training can not only help people learn, but also contribute to career growth and professional development.</p>
+              <p>This is an area I’m hearing a lot about lately. Both as a potential pain point, an area of opportunity. Lastly, I loved hearing jacarandas real-world experience of applying machine learning to their work. They talked about a really thoughtful approach where AI is used with layers of human intelligence, touchpoints and ongoing iteration.</p>
+              <p>We’ll definitely be digging in more on AI in global health and development in future episodes.</p>
+              <p>That’s our show, please like rate, review, subscribe, and share this episode. If he found it useful, it really helps us grow our impact. And write to us@podcastatdimagi.com with any ideas, comments, or feedback. The show is executive produced by myself. Danielle Fenwick is our producer Briana DeRoose.</p>
+              <p>Our editor and cover art is by Sudan. Shrikanth thanks.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guests</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">NP</div>
+            <div class="person-info">
+              <p class="person-name">Nick Pearson</p>
+              <p class="person-role">Founder and co-executive director, who started Jacaranda about 12 years ago as a maternal health service organization.</p>
+              <span class="person-org">Jacaranda Health</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">SR</div>
+            <div class="person-info">
+              <p class="person-name">Sathy Rajasekharan</p>
+              <p class="person-role">Co-executive director who came from clinical research and the Clinton Health Access Initiative to lead the expansion of solutions for government health.</p>
+              <span class="person-org">Jacaranda Health</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/4Ko9t2TJ7Ym7g5ehFUYCLI" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

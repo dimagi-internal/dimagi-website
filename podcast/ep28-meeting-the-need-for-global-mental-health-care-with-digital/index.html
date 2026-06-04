@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 28: Meeting the Need for Global Mental Health Care with Digital featuring Lauren Magoun | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Lauren Magoun and Jonathan Jackson on closing the global mental health gap by training non-specialist frontline workers and supporting them with digital tools.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep28-meeting-the-need-for-global-mental-health-care-with-digital/">
+<meta property="og:title" content="Ep 28: Meeting the Need for Global Mental Health Care with Digital featuring Lauren Magoun">
+<meta property="og:description" content="How non-specialist frontline workers and digital tools can help close the global mental health care gap.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>February 27, 2023</span>
+        </div>
+        <h1 class="ep-title">Meeting the Need for Global Mental Health Care with Digital featuring Lauren Magoun</h1>
+        <p class="ep-deck">Dimagi&#x27;s Lauren Magoun joins Jonathan Jackson at the Global Digital Health Forum to unpack the global mental health gap and how non-specialist frontline workers, supported by digital tools, can help close it.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/3mmxZCeUcN7q1S6gJt0W0f?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 28 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/3mmxZCeUcN7q1S6gJt0W0f" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000648907140" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/f_9hl0ticYU?si=_9P80W5aZWLOiNcs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/ecd61882-1ef9-471a-adda-af34b52fa63b/high-impact-growth-meeting-the-need-for-global-mental-health-care-with-digital-featuring-lauren-magoun-dispatches-from-the-global-digital-health-forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">280 million</div>
+          <div class="ep-stat-label">adults worldwide impacted by depression alone, per the World Health Organization</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">75%+</div>
+          <div class="ep-stat-label">of those needing depression treatment in low and middle-income countries receive no care</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">1 million</div>
+          <div class="ep-stat-label">new HIV infections that could be averted by 2030 by integrating mental health into HIV care</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>Recorded on the sidelines of the Global Digital Health Forum, this episode features Dimagi CEO Jonathan Jackson in conversation with Lauren Magoun, Dimagi&#x27;s Senior Health Strategy Specialist on the research and data team. Lauren spends most of her time researching how Dimagi can improve access to and quality of mental health care around the world.</p>
+        <p>Together they explore the staggering unmet need for mental health care, especially in lower income countries where specialists like psychiatrists and psychologists are scarce. Lauren explains how brief, structured psychological interventions delivered by non-specialists, including community health workers, nurses, and lay counselors, have shown real outcomes in treating depression and anxiety, and why a protocolized approach can make these models work.</p>
+        <p>The conversation turns to the role of technology in scaling training and supervision, supporting providers with digital job aids, collecting data for learning, and reaching clients between sessions. Lauren and Jonathan also discuss the high comorbidity of mental illness with conditions like HIV and TB, and why Dimagi&#x27;s focus is on augmenting human providers rather than replacing them.</p>
+
+        <blockquote>
+          <p>&ldquo;There actually are many approaches you can take to help many people that don&#x27;t require that level of training of the healthcare workers.&rdquo;</p>
+          <cite>Lauren Magoun, on closing the specialist gap</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>The staggering unmet need</strong> for mental health care, and why so few people in lower income countries have any access to it</li>
+          <li><strong>Non-specialist delivery</strong>: how community health workers, nurses, and lay counselors can deliver structured brief interventions with good outcomes</li>
+          <li><strong>Why brief models work</strong>: clear training protocols, reframing thoughts, and the power of someone who simply listens over six to eight sessions</li>
+          <li><strong>Where digital fits</strong>: scaling training and supervision, digital job aids, data collection, and client-facing support between sessions</li>
+          <li><strong>Augmentation, not replacement</strong>: why Dimagi supports human providers rather than going fully app-only</li>
+          <li><strong>Mental health as comorbidity</strong>: integrating it into HIV and TB care, and its links to education and income</li>
+          <li><strong>Adolescent mental health and resiliency</strong>: spotting severe illness early, plus supporting burned-out frontline workforces</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to High Impact Growth. A podcast from Dimagi where we explore the critical role of technology and creating a world where everyone has access to the services they need to thrive. I’m Amy Vaccaro, senior director of marketing at Dimagi and your cohost today. We’ve got the next installment of our dispatches from the global digital health forum series, featuring candid conversations from the sidelines of the global digital health forum conference in December, 2022 in Arlington, Virginia.</p>
+              <p>Today, my co-host and Dimagi CEO and co-founder Jonathan Jackson interviews, Lauren Magoon. Dimagi senior health strategy specialist. Lauren focuses on researching and developing innovative strategies to improve access.</p>
+              <p>To quality mental health care globally and spoke at global digital health forum on the topic. Mental health care is an issue near and dear to my heart. I lost my brother to a mental illness, despite access to great care. And I’m passionate about reducing stigma and increasing dialogue about the realities of mental illness, as well as finding innovative approaches. And increasing access to support for mental illness.</p>
+              <p>There’s a staggering unmet need for global mental health care. And not enough specialists to support the need. The world health organization reports that depression alone impacts 280 million adults worldwide. And that greater than 75% of those that need depression treatment in low and middle-income countries received no care. The inequities are clear.</p>
+              <p>An article from science reports on how people in poverty have 1.5 to three times higher rates of mental health conditions. In any given location. People with depression are in lower wages and economically disadvantaged populations are more likely to experience mental health conditions.</p>
+              <p>And mental health intersects with other clinical and health outcomes as well frequently in both directions, exacerbating negative outcomes. For example, pregnant people who are depressed are less likely to adopt healthy behaviors, which in turn lends to worse newborn health and nutrition.</p>
+              <p>Now let’s hear from Lauren and Jonathan on how we’re approaching this huge problem. And while I have your attention, take a moment to follow this podcast. Wherever you’re listening. Thanks.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Welcome to High Impact Growth. I’m here with Lauren Magoon, who’s on her team, um, at the Mogi, and she has been leading up our mental health work and here at the Global Digital Health Forum, , did an amazing panel talk on, mental health, and I’m, I’m here to discuss that more.</p>
+              <p>Just to start, Lauren, do you want to introduce yourself and your background?</p>
+              <p><span class="spk">Lauren Magoun:</span> Sure. Thanks Jonathan. I’m Lauren Magoon. I work on Dimagi’s research and data team, where we conduct mixed methods research on how to improve health and other outcomes. For the people we serve. I specifically spend most of my time, though not all of it, thinking through how Dimagi can support improving mental health access and quality of care around the world.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Awesome. And so, we have been doing a lot of work in research into different mental health models, talking with a lot of the community around what they’re doing, how their interventions. Whether they’re individualized or group and different aspects, can you share a bit about, you know, what you research, what you talked about, and what you’ve learned so far in, in a lot of this journey?</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, so the first thing I think I learned coming into this, which, I didn’t actually have a super strong mental health background before I started, started on this work. I worked in public health before in healthcare, sort of process improvement is just first of all, the staggering unmet need for mental healthcare.</p>
+              <p>There’s a lot of global health topics that. Clearly are very underserved and we don’t have enough specialists or enough care providers. And mental health certainly fits that. And then some very, very few people, particularly in lower income countries, have any access to care. So one of the first things I think I realized and our team realized was just how important was we were working on this topic.</p>
+              <p>And then the second big thing I think we’ve learned. that while there are very few to know specialists like psychiatrists and psychologists, in many places, there actually are many approaches you can take to help many people that don’t require that level of training of the healthcare workers. So there are a number of approaches out there, both individual and group approaches where you can use non-specialist providers.</p>
+              <p>S frontline workers, community health workers, nurses, lay counselors to deliver structured brief interventions that actually have shown good outcomes in either treating clinical depression or anxiety, and also just psychosocial support to improve people’s, wellbeing and life.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So I’m constantly surprised by the research that you show me or that we talk about around the fact that you can train a lay skilled worker relatively quickly. do relatively brief interventions and see a pretty significant impact. Can you take us through like just what do one of these models look like, and then do you have a sense of like, it doesn’t sound like this should work.</p>
+              <p>Like why? Why does this work?</p>
+              <p><span class="spk">Lauren Magoun:</span> Excellent point, Jonathan. So, there’s a number of what I’m gonna call brief psychological interventions out there, and there’s different flavors of them, that treat slightly different common mental disorders. But what they have in common is a, they have done the research and so they have a very clear training program and path that’s usually.</p>
+              <p>Two weeks long, give or take. And then some continued supportive supervision when people are first running their group treatment or their one-on-one sessions with an experienced person. So I think the fact that we have good training protocols is certainly helpful. And then the other bit that I think really helps is that for a lot of people, , I think there’s a flip that’s switched that really can help them, if they have low mood or depression.</p>
+              <p>Sort of the idea of helping people reframe their thoughts can be transformative for some folks and for a lot of people, I think, and this is sort of my opinion more than what’s been researched, I think is having someone they talk to once a week, even if it’s only six to eight sessions, that really listens to them and reflects back what they say actually is super helpful.</p>
+              <p>And so there’s something about just bonding with another human. Not to disparage the training or the sport these people are giving, or the content that happens in the sessions, but I think there is something special about that, that a lot of people just need, outside whatever they have in their home or community life.</p>
+              <p>And then just, in addition to the formalized training, I should add in the sessions are fairly formal and structured. So when you train the. Based on evidence to deliver these interventions. They know what they’re doing each session and we know that that works. So having sort of that protocolized approach really can help, someone who doesn’t have a lot of background in and actually run the program.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s really cool and a, a great summary. We see this effect also across all markets we’re serving, right? So we’re running some NH funded. Here in the US that I’m, I’m really excited by, and then also in India and then in Africa as well. And so it’s not context specific either. What, when we think about what role technology can play in this, how, and what have you seen from a digital standpoint?</p>
+              <p>The practitioners have come up with these models that we’re talking to, like what barriers are they hoping technology helps them solve? , just, you know, what has been the experience so far of like trying to find that intersection of these amazing programs that have high proven ethic? With where they’re hoping to get from.</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, I think the. They’re trying to get from digital. A couple things. The first one is helping them scale. A lot of them are small. We’ve known these interventions around for. A while now, and yet they’ve clearly are not reaching all the people they could. And there are some barriers to training mass numbers of people if you have to do it in person, of course, or face-to-face travel time, travel money.</p>
+              <p>So many of them are looking to use digital to support, e-learning in some capacity. Whether that’s fully offline, asynchronous, synchronous, or just over zoom. But either way, using technology to support that training. Also, looking at how to support supervision because as I said, there’s very few specialists out there and in a lot of.</p>
+              <p>There is some specialist or slightly higher level of care needed to supervise. So is there a way for digital to help? Reduce that need of that specialist even a little more so they can be more scalable so they can support more workers. People are also looking to digital to help, in sort of a more classical way of using it as a digital job aid for the people giving the sessions so that before session they can check it and go, okay, what do I have to do in session three of my group so they don’t forget?</p>
+              <p>And also at the end, you know, do some data collection both for monitoring evaluation if there’s funders or whatnot. Or for learning purposes. We know all of this happened and we kept model fidelity, and so the program should work. And then lastly, many are exploring is their client facing interactions they can have through digital as well to support the people when they’re not in session bi.</p>
+              <p>Even in specialist led care, you only see your therapist or your non-specialist maybe, maybe an hour a week, maybe an hour every two weeks. And a lot of the work of supporting, psychological health has to be done by the person between those sessions. So is there a client facing support tool that can help that as well?</p>
+              <p><span class="spk">Jonathan Jackson:</span> We often think about digital and ironically, or are somewhat skeptical of most new introductions of technology. Everything’s harder to scale than you would like. Everything doesn’t work quite as well as you had hoped. What has been the, you know, response across all these mental health, organizations that you’re talking to?</p>
+              <p>Is there general kind of like excitement? Is there skepticism? I know, some of our partners were extremely skeptical of chatbots as an example, but then you look at and you’re like, well, given just the insane shortage of both specialized or non-specialized providers, like what are the other options here?</p>
+              <p>So just in general, how’s the feedback been from the partners that you’re talking to and. Just talk us through that.</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, I think partners and people working this space, many. Initial reticence that we’re trying to replace the human interaction altogether and go a hundred percent digital, have no humans at all, and just use an app. And there are people out there working on that. That has not been our focus at Dimagi.</p>
+              <p>Our mainly has been supporting the non-specialist providers and or the client directly and program staff as well. And there is, that’s definitely a lot of people’s first gut reaction. It’s like, no, we need people, and I don’t disagree in many cases. I think we do need people, I personally. some people, and there is evidence of this can be helped on a pure digital only app, um, solution.</p>
+              <p>There are a number of, organizations out there working on that. I think the key in the end is gonna be figuring out for whom that works, and for whom that potentially harms and making sure that people get the right care, for, their needs. So that was, I’d say the number one is concern is, oh my, We can’t take the human element out.</p>
+              <p>I think there’s often, also a pushback on digital training sometimes that they think it needs to be one-to-one, as well. Although I think that’s, lessening over time. I think the pandemic probably helped support a push to more e-learning as well.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So with these models, if, if we are successful and you can scale digital training, you can scale supervision across these programs. How much variation are you seeing in the models? So we talked a bit about one-on-one, non-specialized providers, you know, with or without supervision group models. So, there’s just a huge amount of research going on in this area because as you mentioned, the need is so large.</p>
+              <p>But how much variation is there in the models? Like is it obvious which programs are likely to scale? And to your point, it’s not a one size fits all. It’s like scale for what? With what population? Like I. are talking with groups doing amazing work with veterans in the United States, or you know, rural communities in Zimbabwe, and there’s a huge variation.</p>
+              <p>So also how well understood is the population segmentation of who these interventions work for and on.</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah,</p>
+              <p>no, that’s a great question. And I think the evidence on a lot of that is still emerging. I think the models that come out of the World Health, world Health Organization, MH gap program are fairly widely used across a number of populations in another, a number of countries. So that’s great. , I think some of the other, but there’s a lot of experimentation in this.</p>
+              <p>Like you said, there’s some people who are trying to cut down the number of sessions, so there’s like three session versions versus eight, or sometimes even single session, approaches. And I think they’re we’re, it’s really t b, d, the special sauce, for whom it works and why. And sometimes people are using peers.</p>
+              <p>In very short session is there’s something about that peer approach that makes the shorter. Okay. And I think we just don’t know yet. And luckily there’s lots of people out there trying to do research on this and experiment on it, both from the NGO side and the sort of more academic side as well.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I just want to put. We, are very fortunate to work with amazing partners at Harvard and Dr. Ern Patel and others, and amazing social enterprises, but we’re always looking to talk to new people. Lauren’s probably already emailed you at some point, but if you’re, if you’re listening and you have a model or you’re interested in talking more about this, we’re in an extremely aggressive phase of collaborating with everybody in this field because the need, as Lauren mentioned, is just so.</p>
+              <p>One of the other things that we look at a lot, you know, we, we have a lot of funding in the global health industry that’s vertical. You know, tb, h i v, malaria, mental health is a huge comorbidity and it often, can, drive a huge percentage of the outcome of the primary disease that has much more funding.</p>
+              <p>Part of the reason why mental health is such a big issue, issues, it’s chronically underfunded. What have you learned or talked to people about, about this and like, are people thinking about it creatively in terms. Treating mental health is actually the way to improve outcomes for tuberculosis.</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, I think that’s also emerging in the field. Is a advocacy group that’s, four or five years old, I believe, called United for Global Mental Health, and they’ve been really trying to push this sort of integration of mental health into both H I V and tb. I actually just saw an infographic they put out that they calculated that if we integrated mental health programming into.</p>
+              <p>HIV care, it would reduce the number of new infections by a million by 2030, which I think is a pretty remarkable stat. And, and I don’t have the exact, verbiage for tb, but there’s similar level of, improvement there too. And they did a lovely white paper at one point that had a bunch of, calculations of how you could.</p>
+              <p>multiple SDGs by integrating mental health. And I actually think that super high leverage way to improve a lot of these outcomes, because as you said, Jonathan, a lot of these are co-occurring mental health conditions do not occur in a vacuum. And they’re often bidirectional, not always, but sometimes, having, it’s more likely if you have some chronic conditions that you do have a mental health condition, which when you think about it, sort of makes sense.</p>
+              <p>As well as is the other way. And it also relates to other development outcomes we care about. Educational attainment. If you are 19 and develop a mental health condition, you’re less likely to finish whatever educational path you’re on or get that first job in a career ladder. As well as income generation.</p>
+              <p>If you have any of these problems, you have more missed work days and you know, maybe aren’t gonna interview as well or seek out proactively as many opportunities. So all of these things really are tied together, and I think pushing mental health into either disease specific verticals or into primary care is hugely, hugely.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That’s such a great articulation of it. And when we at our own lives, like just think about, you know, you get into this spiral, you have, you know, a down period and then that affects your work and your friendships and then that just, becomes very negative. So from that perspective, having that human to kind of break you out of that cycle does seem like it, it should work and that it does work for a ton of people in.</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, and actually the reminds me of the partner we work with, Vic Martel at Harvard, who also co-founded Sangath in India. One of their, most prominent programs is called the Healthy Activity Program, which is a behavioral activation approach to reducing depression, and sort of the key to that is helping people.</p>
+              <p>Relate activities to mood and things like, if people are depressed, reminding them of things. Brought them sort of joy in the past or could. So, it sounds very simple, but some of the things are, like this week, go have coffee with your sister and go to the next village , and coach them through doing that and making sure they do it.</p>
+              <p>Or, visit your kids’ school and watch them read a book. I don’t know. There’s whatever brings joy to those, the individual person is what they’re supposed to be trying to do. And if you’re depressed, it’s hard to plan that. So having that coaching, to plan out. Somewhat simple activities can actually be truly helpful.</p>
+              <p>And it’s one of the ways I think client facing solutions can help, because when you’re not in session, it can give you a quick reminder of, like you said you were gonna go see your sister this week, did you?</p>
+              <p><span class="spk">Jonathan Jackson:</span> So Lauren is on the team run by, Neil Lush on our research and data side. He sent me a message just before we got here to the Global Digital Health Forum. That was a reminder of when you came back from the U N G A. You said your favorite part was talking to other social entrepreneurs. And so he is like, make sure to set a time, for talking to all the, the other amazing people in the community.</p>
+              <p>Fortunately, the entire conference here is filled with amazing people, in government and in other organizations. Have you had any really exciting conversations here around mental health? Just what people are doing, how they’re thinking about it?</p>
+              <p><span class="spk">Lauren Magoun:</span> Yeah, so I’ve been excited that lots of people want to talk about mental health. I think I did a session on the first day. , there was definitely a number of people who I could tell were listening and wanted to ask questions afterwards, so that’s exciting. I think one commonality is a lot of people are trying to figure out what they should be doing in mental health and how, and how they can either integrate it into programming they have or expand it.</p>
+              <p>And that’s, I think, a challenge. . I think it’s a challenge for everyone, honestly, especially because there isn’t usually a huge amount of funding for it, though most people are recognizing now. It’s really important. I’ve seen a theme around adolescent mental health. A few people I talk to are working on or interested in that as well, and I personally think that’s a, a key area.</p>
+              <p>The research is pretty clear that, particularly for severe mental illness, which are you know, things like bipolar, schizophrenia, those are often come on in late adolescents, early young adulthood. I will say most of the, the approaches we were talking about with the non-specialists are not targeted the severe illnesses.</p>
+              <p>That said, recognizing it early. , at that age is really critical to impact those folks life course. So if we can find one of those rare specialists, early on, that actually is super beneficial. So I’m glad people are recognizing the importance of that for both severe illness as well as, you know, common mental disorders because as I say, it’s such a key port point in someone’s life that making sure you have solid mental and psychosocial health at that age really can just be important for lifelong benefits.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And another, really important area that we’re looking at is resiliency and mental health in healthcare workers. This is a workforce that’s been decimated with burnout and, is constantly asked to do more. Covid was a huge, huge, burden on frontline workforces.</p>
+              <p>Some of the work that dam’s doing is also looking at resiliency in those frontline workforces. We’ll drop some links in the show notes, but if you’re interested in collaborating on that, I strongly encourage you to reach out to us as well. Lauren, thank you so much for, for stopping by</p>
+              <p><span class="spk">Lauren Magoun:</span> thank you</p>
+              <p>so much. It was really fun being here.</p>
+              <p>Thank you so much to Jonathan and Lauren. Sharing a few of my key takeaways. First a critical pathway forward in this challenge of mental health care seems to be really enabling nonspecialists frontline providers to provide mental health care. Lauren shared that she’s found that there are approaches that can help many people,</p>
+              <p>both in an individual and group settings. That allow you to train nonspecialists workers to deliver structured brief interventions for mental health there’s power in taking a protocolized approach here and supporting more people to deliver mental health care.</p>
+              <p>Second. At the end of the day, having someone listen to you for six to eight sessions or however long over a period of time. Is really, really powerful. Third. Digital can help scale these mental health programs in a number of ways. Some of the things that I heard here is you can scale through e-learning. You can enable specialists to scale their supervision skills through digital.</p>
+              <p>You can provide a digital job aid to support a protocolized approach to relatively low skilled frontline providers. You can collect data to allow learning and improvement of your programs. And you can support clients when not in session between sessions with digital.</p>
+              <p>Fourth. Some people are definitely working on digital to replace humans when it comes to mental health care. But that’s really not our approach here at Dimagi. We’re looking at how digital can augment humans and allow them to serve more people. Given the incredible unmet need. And the limited number of providers available.</p>
+              <p>Fifth. There’s a high rate of co-morbidity with mental illness, where someone may be suffering from another illness alongside mental illness. What Lauren shared is that if we integrated mental health programs into HIV and TB care, for example, it would reduce the number of new infections. So tackling mental health may be a great way. To influence the sustainable development goals.</p>
+              <p>That’s our show, please like rate, review, subscribe.</p>
+              <p>And write to us@podcastatdimagi.com. With any ideas, comments, or feedback? This show is executive produced by myself. Danielle van wick is our producer. Bruce is our editor and cover art is by Sudan Shu, con. Thanks so much.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">LM</div>
+            <div class="person-info">
+              <p class="person-name">Lauren Magoun</p>
+              <p class="person-role">Senior Health Strategy Specialist on the research and data team, leading Dimagi&#x27;s work on improving global access to and quality of mental health care.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/3mmxZCeUcN7q1S6gJt0W0f" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>

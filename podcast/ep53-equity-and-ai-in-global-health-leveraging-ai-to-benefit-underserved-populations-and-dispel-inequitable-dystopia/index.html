@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ep 53: Equity and AI in Global Health: Leveraging AI to Benefit Underserved Populations and Dispel Inequitable Dystopia | High-Impact Growth | Dimagi</title>
+<meta name="description" content="Jonathan Jackson and Brian DeRenzi on Dimagi&#x27;s AI work: a Gates-funded coaching chatbot, language equity, and avoiding an inequitable dystopia.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dimagi.com/podcast/ep53-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia/">
+<meta property="og:title" content="Ep 53: Equity and AI in Global Health: Leveraging AI to Benefit Underserved Populations and Dispel Inequitable Dystopia">
+<meta property="og:description" content="Dimagi&#x27;s AI check-in: a Gates-funded coaching bot, language tiers, and keeping humans at the center.">
+<meta property="og:image" content="../../assets/images/high-impact-growth-podcast.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/article.css?v=3">
+<style>
+/* ============================================================
+   Podcast episode (detail) page
+   Reuses tokens from styles.css + prose from article.css
+   ============================================================ */
+
+/* ---- Hero ---- */
+.ep-hero {
+  background: linear-gradient(165deg, #0C0B12 0%, #060508 58%, #0A0910 100%);
+  padding: 48px 0 56px;
+  position: relative; overflow: hidden;
+}
+.ep-hero::before {
+  content: ""; position: absolute; top: -220px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(254,175,49,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ep-hero::after {
+  content: ""; position: absolute; bottom: -240px; left: -120px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(142,161,255,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.ep-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ep-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 120ms; }
+.ep-breadcrumb a:hover { color: #fff; }
+.ep-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.5; }
+.ep-breadcrumb span { color: rgba(255,255,255,0.78); }
+
+.ep-hero-text { position: relative; z-index: 1; }
+
+.ep-kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--marigold); margin-bottom: 14px;
+}
+.ep-kicker::before { content: ""; width: 26px; height: 1px; background: var(--marigold); }
+
+h1.ep-title {
+  font-size: clamp(34px, 4.6vw, 54px); font-weight: 200;
+  color: #fff; letter-spacing: -0.03em; line-height: 1.07;
+  margin: 0 0 20px;
+}
+.ep-deck {
+  font-size: clamp(17px, 1.6vw, 20px); font-weight: 300;
+  color: rgba(255,255,255,0.78); line-height: 1.6;
+  max-width: none; margin: 0;
+}
+.ep-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold);
+  margin-bottom: 24px;
+}
+.ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Player (in hero) ---- */
+.ep-hero-player {
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  position: relative; z-index: 1;
+}
+.ep-player {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,0.55);
+}
+.ep-player iframe { display: block; width: 100%; border: 0; }
+
+.listen-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.listen-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-right: 4px;
+}
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.26);
+  font-size: 12.5px; font-weight: 500;
+  color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.06);
+  transition: background 150ms, border-color 150ms, transform 150ms;
+}
+.listen-btn:hover {
+  background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.5);
+  color: #fff; transform: translateY(-1px);
+}
+.listen-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ---- Stats strip (slim) ---- */
+.ep-stats-band { background: #f5f7ff; border-bottom: 1px solid var(--line); padding: 34px 0; }
+.ep-stats-head {
+  text-align: center; font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+  margin-bottom: 22px;
+}
+.ep-stats {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;
+}
+.ep-stat-num {
+  font-size: clamp(26px, 3.2vw, 36px); font-weight: 300;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ep-stat-label { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; margin: 0 auto; }
+.ep-stat + .ep-stat { border-left: 1px solid var(--line); }
+@media (max-width: 820px) { .ep-stat + .ep-stat { border-left: 0; } }
+
+/* ---- Body prose headings: align to the weight-300 heading system ---- */
+.ep-body .prose h2 { font-weight: 300; letter-spacing: -0.025em; color: var(--ink); }
+.ep-body .prose h3 { font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+
+/* ---- Transcript (expandable) ---- */
+.ep-transcript {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper); margin: 44px 0 0; overflow: hidden;
+}
+.ep-transcript > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 26px;
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: background 120ms;
+}
+.ep-transcript > summary::-webkit-details-marker { display: none; }
+.ep-transcript > summary:hover { background: var(--paper-cool); }
+.ep-transcript-summary-left { display: flex; align-items: center; gap: 12px; }
+.ep-transcript-summary-left svg { width: 18px; height: 18px; color: var(--indigo); flex-shrink: 0; }
+.ep-transcript-toggle {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ep-transcript-chevron { width: 14px; height: 14px; transition: transform 200ms; }
+.ep-transcript[open] .ep-transcript-chevron { transform: rotate(180deg); }
+.ep-transcript[open] > summary { border-bottom: 1px solid var(--line); }
+.ep-transcript-toggle .label-open { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-closed { display: none; }
+.ep-transcript[open] .ep-transcript-toggle .label-open { display: inline; }
+.ep-transcript-body { padding: 4px 10px 10px; }
+.ep-transcript-scroll { max-height: 560px; overflow-y: auto; padding: 18px 16px 6px; }
+.ep-transcript-note {
+  font-size: 13px; color: var(--muted-soft); font-style: italic;
+  margin: 0 0 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line);
+}
+.ep-transcript-scroll p { font-size: 15px; line-height: 1.75; color: #2B2740; margin: 0 0 14px; }
+.ep-transcript-scroll p .spk { font-weight: 700; color: var(--indigo); }
+.ep-transcript-scroll p:last-child { margin-bottom: 0; }
+
+/* ---- People (guests + hosts) ---- */
+.people-band { background: #fff; border-top: 1px solid var(--line); padding: 64px 0 72px; }
+.people-head { text-align: center; margin-bottom: 40px; }
+.people-head .eyebrow { justify-content: center; }
+.people-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 300; letter-spacing: -0.025em; }
+.people-section + .people-section { margin-top: 36px; }
+.people-subhead {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  text-align: center; margin-bottom: 22px;
+}
+.people-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 880px; margin: 0 auto;
+}
+.person-card {
+  display: flex; gap: 20px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px;
+}
+.person-avatar {
+  width: 84px; height: 84px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--grad-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 24px; letter-spacing: 0.01em;
+}
+.person-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { min-width: 0; }
+.person-name { font-size: 16.5px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0 0 4px; }
+.person-role { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
+.person-org {
+  display: inline-block; margin-top: 9px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo);
+}
+
+/* ---- Bottom CTA (with cover) ---- */
+.cta-band.ep-cta {
+  padding: 84px 0; text-align: left;
+  background: linear-gradient(135deg, #A24B3C 0%, #8A3A2E 100%);
+}
+.cta-band.ep-cta::before {
+  background: radial-gradient(ellipse 70% 90% at 100% 0%, rgba(255,255,255,0.12), transparent 60%);
+}
+.ep-cta-inner { display: flex; align-items: center; gap: 52px; }
+.ep-cta-art {
+  flex-shrink: 0; width: 208px; height: 208px;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 28px 56px -18px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.ep-cta-art img { width: 100%; height: 100%; object-fit: cover; }
+.ep-cta-text { flex: 1; min-width: 0; }
+.cta-band.ep-cta .eyebrow { color: rgba(255,255,255,0.92); margin-bottom: 16px; }
+.cta-band.ep-cta .eyebrow::before { background: rgba(255,255,255,0.55); }
+.cta-band.ep-cta h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 16px; }
+.cta-band.ep-cta p { margin: 0 0 28px; max-width: 620px; color: rgba(255,255,255,0.9); }
+.cta-band.ep-cta .cta-actions { justify-content: flex-start; }
+
+/* ---- Responsive ---- */
+@media (max-width: 820px) {
+  .ep-hero { padding: 36px 0 44px; }
+  .ep-stats { grid-template-columns: 1fr; gap: 28px; }
+  .people-grid { grid-template-columns: 1fr; }
+  .cta-band.ep-cta { padding: 56px 0; text-align: center; }
+  .ep-cta-inner { flex-direction: column; gap: 28px; }
+  .ep-cta-art { width: 150px; height: 150px; }
+  .cta-band.ep-cta p { margin-left: auto; margin-right: auto; }
+  .cta-band.ep-cta .cta-actions { justify-content: center; }
+  .ep-cta-text .eyebrow { justify-content: center; }
+}
+
+/* ===== 2026-06 design revisions ===== */
+/* Hero: solid #0A0620 to match the footer (page bookended in the same deep tone) */
+.ep-hero { background: #0A0620; }
+/* Listen buttons: keep text white in every state (fixes browser default purple on visited links) */
+.ep-hero .listen-btn,
+.ep-hero .listen-btn:link,
+.ep-hero .listen-btn:visited,
+.ep-hero .listen-btn:hover,
+.ep-hero .listen-btn:focus,
+.ep-hero .listen-btn:active { color: #fff; }
+/* Hero: brand + date + duration on one line (kicker rule removed) */
+.ep-meta-brand { color: var(--marigold); }
+
+/* People: two shared boxes, guests | hosts */
+.people-head { margin-bottom: 30px; }
+.people-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 940px; margin: 0 auto; align-items: stretch;
+}
+.people-box {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 28px 26px;
+}
+.people-box .people-subhead { text-align: left; margin: 0 0 4px; }
+.people-box .person-row { display: flex; gap: 16px; align-items: center; padding: 16px 0; }
+.people-box .person-row + .person-row { border-top: 1px solid var(--line); }
+.people-box .person-avatar { width: 60px; height: 60px; font-size: 18px; }
+.people-box .person-name { margin: 0 0 2px; font-size: 16px; }
+.people-box .person-role { font-size: 13px; line-height: 1.45; }
+.people-box .person-org { margin-top: 6px; }
+
+/* Bottom CTA: brand red + cover art aligned to the text block height */
+.cta-band.ep-cta { background: #9A2C23; }
+.cta-band.ep-cta .ep-cta-inner { align-items: stretch; }
+.cta-band.ep-cta .ep-cta-art { width: 248px; height: auto; align-self: stretch; }
+.cta-band.ep-cta .ep-cta-art img { height: 100%; }
+
+/* Optional right-rail table of contents (per-episode) */
+html { scroll-behavior: smooth; }
+.article-body .container.ep-toc-container { display: block; }
+.ep-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: start; max-width: 1060px; margin: 0 auto; }
+.ep-layout .article-prose-width { margin: 0; }
+.ep-toc { position: sticky; top: 96px; align-self: start; }
+.ep-toc-head { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 14px; }
+.ep-toc-nav { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
+.ep-toc-nav a { padding: 7px 0 7px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 13.5px; color: var(--muted); line-height: 1.35; transition: color 120ms, border-color 120ms; }
+.ep-toc-nav a:hover { color: var(--indigo); border-left-color: var(--rule); }
+.ep-toc-nav a.active { color: var(--ink); border-left-color: var(--indigo); font-weight: 600; }
+#listen, #about, #in-this-episode, #resources, #transcript, #people { scroll-margin-top: 96px; }
+
+@media (max-width: 980px) { .ep-layout { grid-template-columns: 1fr; } .ep-toc { display: none; } }
+@media (max-width: 820px) {
+  .people-cols { grid-template-columns: 1fr; }
+  .cta-band.ep-cta .ep-cta-inner { align-items: center; }
+  .cta-band.ep-cta .ep-cta-art { width: 160px; height: 160px; align-self: auto; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <header class="ep-hero">
+    <div class="container">
+      <div class="ep-hero-text">
+        <div class="ep-meta">
+          <span class="ep-meta-brand">High-Impact Growth Podcast</span>
+          <span class="dot"></span>
+          <span>December 18, 2023</span>
+          <span class="dot"></span>
+          <span>37 min</span>
+        </div>
+        <h1 class="ep-title">Equity and AI in Global Health: Leveraging AI to Benefit Underserved Populations and Dispel Inequitable Dystopia</h1>
+        <p class="ep-deck">Four months into Dimagi&#x27;s AI exploration, Jonathan Jackson and research lead Brian DeRenzi take stock: over a hundred chatbots built, a Gates-funded coaching grant won, and a hard question of how to spread these tools equitably and avoid an inequitable dystopia.</p>
+      </div>
+
+      <div class="ep-hero-player" id="listen">
+        <div class="ep-player">
+          <iframe
+            src="https://open.spotify.com/embed/episode/7Bma40sS9YwkF7TF8KTVvc?utm_source=generator"
+            width="100%" height="352" frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Spotify player: Episode 53 of High-Impact Growth"></iframe>
+        </div>
+        <div class="listen-row">
+          <span class="listen-label">Listen on</span>
+          <a class="listen-btn" href="https://open.spotify.com/episode/7Bma40sS9YwkF7TF8KTVvc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c3-1 6.5-.7 9 1"/><path d="M7 12.5c2.5-.8 5.5-.5 7.7 1"/><path d="M7.5 15.3c2-.6 4.3-.4 6 .8"/></svg>
+            Spotify</a>
+          <a class="listen-btn" href="https://podcasts.apple.com/us/podcast/high-impact-growth/id1628339050?i=1000638943940" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Apple Podcasts</a>
+          <a class="listen-btn" href="https://youtu.be/O984PrahnE0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+            YouTube</a>
+          <a class="listen-btn" href="https://music.amazon.com/podcasts/ba3072a3-3553-4ce8-997f-ea539ce7e139/episodes/d8cc6c5e-d9ec-427c-a629-49bdbcaaed9c/high-impact-growth-equity-and-ai-in-global-health-leveraging-ai-to-benefit-underserved-populations-and-dispel-inequitable-dystopia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="10" x2="5" y2="14"/><line x1="9" y1="6" x2="9" y2="18"/><line x1="13" y1="3" x2="13" y2="21"/><line x1="17" y1="7" x2="17" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></svg>
+            Amazon Music</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="ep-stats-band" aria-label="Episode highlights">
+    <div class="container">
+      <div class="ep-stats-head">By the numbers</div>
+      <div class="ep-stats">
+        <div class="ep-stat">
+          <div class="ep-stat-num">100+</div>
+          <div class="ep-stat-label">experimental chatbots Dimagi built on top of large language models</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">$100,000</div>
+          <div class="ep-stat-label">in funding offered through the Gates AI Grand Challenge that Dimagi won</div>
+        </div>
+        <div class="ep-stat">
+          <div class="ep-stat-num">20x</div>
+          <div class="ep-stat-label">how much more expensive GPT-4 was than GPT-3.5 at the time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body ep-body">
+    <div class="container">
+      <div class="article-prose-width prose">
+
+        <h2 id="about">About this episode</h2>
+        <p>In part two of this series on artificial intelligence, Jonathan Jackson and Brian DeRenzi, Dimagi&#x27;s Research and Data team lead, openly discuss the rapid evolution of AI and what Dimagi has been doing in the months since winning a Bill and Melinda Gates Foundation Grand Challenges grant to build a frontline worker coaching chatbot. They reflect on a phase that still holds far more questions than answers, from safety and bias to the affordability of running large language models at scale.</p>
+        <p>Brian describes two main threads of work: dozens of conversations with funders, academics, and implementing partners, and a rapid build-and-test approach that has produced more than a hundred experimental chatbots. The two dig into language performance across a four-tier framework, where models perform near flawlessly in English and French but break down in lower resource languages like Chichewa and Runyankole, and the risk that the profit motive pulls attention only toward languages that already work.</p>
+        <p>Throughout, the conversation returns to a core ethical concern: building AI that augments rather than replaces human services, so that those with fewer means do not end up with only the robots. They close with candid advice for implementers and funders on patience, picking the right use cases, and keeping human values at the center.</p>
+
+        <blockquote>
+          <p>&ldquo;We don&#x27;t want to end up in this inequitable dystopia that I keep referring to, where those with less means don&#x27;t get access to humans, they just get access to the robots and don&#x27;t get the same quality of care or the same human attention.&rdquo;</p>
+          <cite>Brian DeRenzi</cite>
+        </blockquote>
+
+        <h3 id="in-this-episode">In this episode</h3>
+        <ul>
+          <li><strong>More questions than answers</strong>: why Dimagi sees real value in conversational agents while staying honest about the unknowns in safety, bias, and equity</li>
+          <li><strong>Over a hundred chatbots</strong>: the rapid, parallel build-and-test approach to learning what large language models can and cannot do</li>
+          <li><strong>The Gates-funded coaching bot</strong>: using Open Chat Studio to support supervision for frontline workers, and the worry that average AI could let employers off the hook</li>
+          <li><strong>Four tiers of language</strong>: strong performance in English, Swahili, and Hindi, breaking down in Chichewa and Runyankole, and what that means for access</li>
+          <li><strong>Augment, don't replace</strong>: framing AI as a tool that amplifies human intent rather than substituting for human care</li>
+          <li><strong>Bias baked in</strong>: how raw GPT-4 assigns gender and race in ways ChatGPT's alignment work catches, and whether more AI is really the fix</li>
+          <li><strong>Advice for the hype cycle</strong>: when to move now, when to wait six months, and how to judge if your work holds up even if the technology solves it for you</li>
+        </ul>
+
+        <details class="ep-transcript" id="transcript">
+          <summary>
+            <span class="ep-transcript-summary-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>
+              Read the transcript
+            </span>
+            <span class="ep-transcript-toggle">
+              <span class="label-closed">Expand</span><span class="label-open">Collapse</span>
+              <svg class="ep-transcript-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="ep-transcript-body">
+            <div class="ep-transcript-scroll">
+              <p class="ep-transcript-note">This transcript was generated by AI and may contain typos and inaccuracies.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Welcome to High Impact Growth. I am really excited for today’s session. I’m here with my cohost, Jonathan Jackson, Dimagi’s CEO, as well as Brian DiRenzi, Dimagi’s Head of Research and Data.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Hi, Amy. Hi, Brian.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Hi, Amy. Hey, Jon.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Good to have you on. So this is a bit of a follow up to a previous episode that you might remember that we recorded back in May. So full four months ago, which in AI land is a long time because things have been happening really fast.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And so what we wanted to do was get together and check in on how are things going. around our work in AI. How are we thinking about AI? How has our thinking evolved? What have we learned? And really create a transparent conversation to share with you, our audience, on how we’re thinking about all this, because I know pretty much every organization in global health and development is probably wondering how should we be thinking about AI?</p>
+              <p><span class="spk">Amie Vaccaro:</span> What should we be doing? And we want to share some of our learnings and findings along the way. So before I even get into kind of I want to check in, Jon and Brian, on kind of your overall temperature on AI and where are you at? I know last time we talked, we talked a bit about this sort of like discomfort feeling of like a lot of unknowns and Just not knowing where things are going to go and just kind of embracing that curious to hear where are you at right now?</p>
+              <p><span class="spk">Brian DeRenzi:</span> So in the last However many months, we’ve, been having a lot of conversations. We’ve been exploring a lot, but I think there’s still a lot of unknowns of where this is all going. I think there are unknowns about how to address some of the larger bias problems and equity problems and safety problems.</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think we’ve made incremental progress , on some of those things. We’ve been having good conversations. But I think we’re still in the state where there are a lot more questions than answers, so it still feels like we’re in this unknown. And I think last time I talked a little bit about wanting to,, fight for equity and make sure that we’re avoiding the dystopia, as I called it.</p>
+              <p><span class="spk">Brian DeRenzi:</span> And I think we’re still in that state where , it’s still pretty unclear where this is all going to land. Jon?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think definitely more questions than answers still. I think we’re going to be in this phase for a while because a lot of it is also contingent on the progress of large language models being the most prominent thing that came on to the AI scene. There’s other dimensions to AI as well, but it kind of depends whether there’s some transformative next chat GPT 4.</p>
+              <p><span class="spk">Jonathan Jackson:</span> 5 or chat GPT 5 or something anthropic comes out with or Google or Facebook., you know, that is one more step change. I think when we look at the interesting use cases and the types of conversational agents and bots that we’ve been working on, I’m really confident there’s value there. You know, there was one kind of mental model you could have of it’s close, it’s 80 percent there, but you’re never going to get it 100 percent there, so you can never really put this in production.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We’ve been doing tests with direct to client interactions around TB coaching and helping a frontline worker think about. How to overcome stigmatism or, , aversion to, dealing with a disease. These interactions, we’ve done enough and we’ve tuned, our approach and our prompting. It definitely feels like with today’s technology, there’s enough there to create value, there is a question of nothing gets cheaper. Is it affordable because chat2bt4 is 20 times more expensive than 3. 5 and 3. 5 isn’t good enough. But I think it’s very likely that costs continue to come down and things continue to get better. So that’s really exciting.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That said, which use cases make sense and how to think about. These different use cases, just like the for profit world is struggling with a million different AI companies doing a million different things that are all different. And then all also kind of just the same. It’s all plumbing with one of these, you know, massive large language models targeted at a use case.</p>
+              <p><span class="spk">Jonathan Jackson:</span> , so how that all plays out, I think, is going to be really unknown and interesting to look at. I think it’s going to look at. As Brian said, our approach to making sure these are targeted towards high equity and high impact use cases, we feel very confident in our approach. I think I still wonder,, if Dimagi doesn’t do it, is this all just going to happen anyways?</p>
+              <p><span class="spk">Jonathan Jackson:</span> You know, are we going to provide differentiated value by investing our time and headspace? And, I think yes, because I just think of who we are and our approach to high impact growth, but easily could be wrong. You know, if the next generation of large language models turns out to. You know, make it such a one sentence prompt that solves everybody’s problem, , then a lot of the work we’re doing right now could not be that helpful, but I feel very confident that the exploration we’re doing right now is high value and we’ve gotten really good market signals back.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I mean, as Brian said, we’ve talked to dozens of people at this point, demoed. Our direct product and just, you know, brainstormed ideas with folks. We’ve closed, multiple deals,, since our last episode. So there’s certainly interest in this exploratory phase and then where it pans out, I think is, is still a huge unknown.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So sounds like, you know, still a number of open questions, but real kind of alignment that there is a lot of value to be had here. So I wanted to get on some of these use cases and some of these learnings, but even before we get there. I want to step back a little bit. I think one of the things that’s been, particularly noteworthy in the AI coverage is this conversation about, will AI eventually be the thing that destroys humanity?</p>
+              <p><span class="spk">Amie Vaccaro:</span> Right? Are we creating super intelligence that’s way smarter than humans that eventually we’re going to lose control over? And I’m curious, do you guys have opinions, on that take? And like, how do you feel about that?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. I think, , I just listened to a podcast called smart lists, that I listened to a lot, and they had Kara Swisher on who’s a very famous tech podcaster. She’s amazing. And she was talking about like, no, like I don’t fear the AI. I fear what humans are going to do with the AI. And so I think. You can already see how potentially this AI technology, even with today’s capabilities, and then obviously it’s going to get better, could automate warfare, you know, could automate, discovery of new ways to do bad things.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And that’s only going to increase as we, you know, continue to innovate and build on these models. So I don’t think the worry that AI itself is going to like flip and all of a sudden start, killing humanity, like it doesn’t care one way or the other. , it doesn’t care about anything. But I do think the capabilities and the ability for it to create leverage.</p>
+              <p><span class="spk">Jonathan Jackson:</span> On existing systems or new systems you can set up, you know, very quickly puts us in a difficult position. I mean, Palantir is going all in on some of the AI capabilities and massive U. S. defense contractor. So as a U. S. citizen, you might be excited by that. But now private company, you know, has a massive.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Decision making process in which governments could have access to their technology and how that works. I think we’re already starting to see some pretty complicated ethical and philosophical questions here, but as of right now, I would say my concern is much more on what humans are going to do with AIs than like the AI flipping on humans.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Yeah, I don’t, I don’t think I have much more to add., I think there’s a lot of smart people who are having this conversation, who are kind of better informed and thinking about it longer than I have. So I think, that seems right to me to worry about how are people going to use the tools that exist today and in the very near future versus the, medium term or longer term future where, AI has , some super intelligence and, and true AGI really exists.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I’ll add one thing that I heard in another podcast that Ezra Klein was doing on AI, and we can link to this in the show notes, but. It was talking about like, if AGI is going to happen and if there’s going to be sentience, it’s much more likely that you’re going to gradually see intelligence emerge in the system.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Not that it’s going to be like super duper smart. on day one. And one of the challenges of that is actually the flip of if we manage to create emotional intelligence or whatever that thing is, we’re going to treat it really badly, right? So the, the flip could be true too, which is like, if we somehow create an AGI that has emotion, think about how we treat animals today that we know have emotions, much less things that we’re not quite sure, , have emotion.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so there’s the interesting counter to that, which is like, if we’re on this path that eventually has this ethical problem, like humans are very Bad historically at doing a good job treating other species. Well, so that was an interesting side note on that podcast as well, which is the flip of is, is AI going to kill us, but what happens if we do actually create sentient AI, but kind of dumb, you know, from a comparison to the human brain, like we’re, we’re pretty bad to things that have that property.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So much to think about. And I was reflecting a bit, I got to see Oppenheimer a little while ago, and it felt like almost a similar thing where it’s like this group of people that are so focused on like, let’s develop this technology. And not totally realizing like what it’s going to be used for.</p>
+              <p><span class="spk">Amie Vaccaro:</span> So,, certainly a lot to think about. I’m glad there’s a lot of conversations happening around this right now. Though perhaps not enough. So, anyways, I’ll, I’ll dovetail from there into kind of more of what Dimagi is thinking about. And I’m curious, so… Brian, you’ve been really leading up our AI efforts,, it’s been four months since we last talked.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Talk me through a bit about what you’ve been up to, over the last few months.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Yeah, I think we’ve been doing two main things. Maybe three, but the two main things we’ve been having a lot of conversations, like I mentioned, we’ve been talking to, , numerous funders to understand how they’re thinking about the space and to help shape their thinking about the space. We’ve been talking to academics, people who’ve been working in the large language model space pre, ChatGPT.</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think there’s like a definitive point in time of attention. So, , trying to understand the thinking , and the way things have gone and, the best advice coming out of the academic world , for how, to build tools on top of large language models.</p>
+              <p><span class="spk">Brian DeRenzi:</span> , and then we’ve been talking to, implementing partners. , we’ve seen kind of a range of, of experience. I might’ve mentioned this on the last podcast as well, but some folks who haven’t used chat GPT or, or engaged with large language models at all, all the way to groups that are already putting together and building their, , you know, little scripts and little tests and starting to get things out there.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Trying out various, , use cases. And so it’s been kind of a range of conversations, different ways that people want to use it. Some people want to really focus on using it for internal tools. Some people are really excited about the sort of external tools and, and being able to input or engage with.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Clients directly, , front line workers, et cetera. So I think we’ve had , a lot of good conversations, , about all of that. And then the second thing I think we’ve been doing is, is we’ve just been exploring. We’ve been building stuff . We’ve been trying to understand. How these tools work, Jon mentioned a little bit, some of the work that we’ve been doing in TB.</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think at this point, it’s easy to say that we’ve built over a hundred different chatbots, , on top of large language models. And, I don’t think that there’s like one. Banner, Marquee chatbot that we’ve created that we say like, oh, yeah, this is the Dimagi chatbot. It does all the things. What we’ve really done is Taken the sort of rapid iterative approach of trying a bunch of different things in parallel.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So we have some chatbots that Demonstrate really good adherence getting it to adhere to purpose and make sure that it couldn’t stray, , and, you know, we have a couple chatbots that we haven’t been able to break internally, throwing everything at it outside of, you know, real jailbreak hacks , and things like that.</p>
+              <p><span class="spk">Brian DeRenzi:</span> We’ve done other work exploring, , How to best imbue persona into a chatbot, so either taking, , existing real world personas, or trying to create, bespoke personas, or to take pre existing literature, like we’re working with a group that has different characters that they’ve created , and trying to create chatbots that speak in the style and vocabulary of those characters.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So we’ve put some energy into that. We’ve put energy into creating chatbots that, offer a range of different services to try to understand how the large language model will kind of navigate between those and be able to switch between the different things that it’s offering. I’ll stop there with examples but can kind of keep rambling on.</p>
+              <p><span class="spk">Brian DeRenzi:</span> But I think we’ve, we’ve really taken the approach of sort of coming up with an idea or, or trying to explore something and building two or three chatbots in that area to try to understand what’s possible on top of the large language models. And I think , our work going forward will switch gradually over the next six months or something, we’re going to put a smaller number of chatbots.</p>
+              <p><span class="spk">Brian DeRenzi:</span> In order to take all of those learnings, like we’ll continue to explore, we’ll continue to build new things, but I think we’ll try to create some chatbots , that we can actually deploy and, and produce some value from and, and start to measure some of that value. I think those are the two main things are the conversations , with a few different stakeholders and we’ve even started conversations with actual users.</p>
+              <p><span class="spk">Brian DeRenzi:</span> We’ve done some, some basic user Acceptability Testing with a couple different groups who’ve been doing some work in Malawi. And, starting to engage users and get their feedback , on things as well. So the conversations piece, and then really just exploring and building as many different chatbots as we can to understand what it looks like.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And Brian, I’m so curious about those conversations. You mentioned talking to academics, to funders, to implementing partners. What are some takeaways from those conversations? Are there any sort of commonalities amongst those groups in terms of how they’re thinking about things, like their level of interest or level of trepidation?</p>
+              <p><span class="spk">Amie Vaccaro:</span> Those sound like really fascinating conversations.</p>
+              <p><span class="spk">Brian DeRenzi:</span> I’d say the biggest takeaway is that we’ve learned something from every conversation we’ve had. But it really feels like a wide open space in that funders aren’t quite sure how to think about this implementing partners. You know, they might come in with an idea or two, and then at the end of the conversation, , we’ve 10x the number of ideas that we’ve put together or something.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So it feels really kind of a elaborative, and even with the academics who’ve been thinking about this, who’ve been working with large language models, will come in and say like, oh, we tried X, Y, and Z, and they say, oh, yeah, you know. X and Y, they have these other names. We’ve been doing those for a while in the academic world, but like, Oh, that’s, that’s a good idea.</p>
+              <p><span class="spk">Brian DeRenzi:</span> We haven’t tried that other thing. I’d say in all the conversations. The interaction that we’re having with other people leads to more ideas. So it feels like a bi directional flow of information. You know, it’s not a just Dimagi learning things.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So I think my biggest takeaway is just that it’s kind of this wide open space. Everybody’s still trying to get their footing, still trying to figure things out, kind of resonates with what we were saying at the beginning where, yeah, we’re starting to. Get some answers to things. We have more confidence that we can do these things safely.</p>
+              <p><span class="spk">Brian DeRenzi:</span> We have more confidence that there’s value to be had with existing technology but still lots of open questions.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We talked about this on the last episode in terms of whether we’re looking at AI use cases to replace humans or to augment humans or to do better than humans. And one of the really fascinating things, an area and we received a grant to do this from the Bill and Melinda Gates Foundation is to look at coaching bots for frontline workers.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And there you could say. Your hypothesis could be, can we use AI to do a better job than is currently being done over messaging? Obviously you can’t possibly be in person, but over kind of remote coaching. The other could be a hypothesis that, hey, you know, when you really look at it, those weekly coaching sessions that would be really helpful aren’t actually happening.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So I want to figure out, can I use AI to do an average job? Not better than a human, but average where a human is otherwise not available. And that poses the question that we talked about last time, which is, okay, but if they really deserve to be coached and they deserve to have good supervision, like is AI giving them.</p>
+              <p><span class="spk">Jonathan Jackson:</span> An out to do a mediocre job and never figure out and crack that way to do a much better job. And so we are facing some of those questions because there are very clearly ways to scalably do an average job with some of the use cases we’re coming up with. And that’s exciting, you know, because it, it’s clear value.</p>
+              <p><span class="spk">Jonathan Jackson:</span> But it does beg that question that we were worried about in the last episode, which is can AI kind of let people off the hook? Particularly in use cases where the human, the client, the worker, like, deserve better. Will some of these scalable AI solutions actually just like, make us worse employers, make us worse, public service providers?</p>
+              <p><span class="spk">Jonathan Jackson:</span> You know, pick your target of AI. And the reality is from a business standpoint, those are some of the low hanging use cases to, to go after early because, you know, it’s already processed, you can make it more efficient, you can save. Salary or whatever the thing is that you’re going after so I do worry about how that’s going to play out in general and then specifically with some of the ideas we have, you know, that could be the net effect.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And in fact, it’s the primary reason we want it to work is because there isn’t sufficient. Coaching going on today. So we will have to grapple with a lot of these questions, presuming we can get the technology to work. You know, there’s then a question of like, is it a good idea to be trying to scale this stuff?</p>
+              <p><span class="spk">Jonathan Jackson:</span> You know, under this presumption, or should we be trying to change the attitudes and policies? You know, so that this isn’t something we’re trying to solve in the first place.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And Jonathan, so this was a, one of our, I’d say milestones in the last four months was winning this Gates funded grand challenge grant to build a frontline worker coaching chatbot. Can you share just a little bit more about that project and how we’re thinking about it?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, so, we came up with this, Brian, Neil, and I and, and Gayatri and others on our team here at Dimagi. Gates had run a big, quick AI challenge, so everybody could submit for 100, 000 in funding. They got it. Massive amount of submissions into that with a ton of good ideas. Ours was really to focus our open chat studio, our product that allows us to build the bots that we talked about on the last episode to support coaching and supervision for frontline workers.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Obviously not in production, but doing usability studies, trying to do user centered design with frontline workers. And that was one of the ones that were selected and it was very competitive so we’re pretty proud of being selected for that.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And it aligns really well to a challenge we’ve seen a lot of our core business and CommCare projects, which is, you know, having good supervisors and scaling good supervisors and retaining good supervisors is a really big challenge for probably all, if not many frontline programs. So we think there’s a lot of interesting potential here if.</p>
+              <p><span class="spk">Jonathan Jackson:</span> We demonstrate there’s some usability and acceptability by frontline workers. So that’s really the focus now is just, you know, first principles getting out into the field, showing sample interactions to frontline workers and really understanding like, would they want to interact with this? Would they find it compelling?</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think in terms of like me being a CEO sitting in my office, reading the English transcript of these, you could certainly imagine that the LLM was good enough to kind of. ingest what Brian did this week, you know, how many visits he did, what data he collected and like have a meaningful conversation with him.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That looks to me when I read the script, like the conversation I would want a coach to have on just kind of like a weekly check in session. So from the interaction standpoint and , the. Model of how I would think a good or mediocre supervisor would behave, I think would like close. And then you know, Brian, you can go into a lot more details on like what we’re trying to understand, but like that may or may not be appropriate to do over text.</p>
+              <p><span class="spk">Jonathan Jackson:</span> That may or may not translate to appropriate languages. But I’m really excited by the potential there. And then again, it has this downside of if we’re just shooting for average, because we’re. Trying to fill the fact that they don’t have good supervision, is that actually the right answer to this problem?</p>
+              <p><span class="spk">Jonathan Jackson:</span> But I’ll hand it over to Brian, but like I’m really excited by it. ’cause I think it applies not just to Comcare programs, but any frontline worker program if this model could potentially work. And that’s a huge, if you know, on, on whether this is feasible.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Yeah, I want to echo Jon’s point about making sure that we’re not building tools that let people off the hook. You know, this is a good example of, supervision. I think last time we talked about mental health services. If we provide bots that provide mental health services where currently people aren’t receiving any mental health services, that seems better, but it doesn’t replace the humans.</p>
+              <p><span class="spk">Brian DeRenzi:</span> And we don’t want to end up in this inequitable dystopia that I keep referring to. Where those with less means don’t get access to humans, they just get access to , the robots , and don’t get the same quality of care or the same human attention, , and kind of additional benefit that comes from that.</p>
+              <p><span class="spk">Brian DeRenzi:</span> In terms of the work that we’re doing, I think This kind of goes back to my main point of there being so many open questions and so many exciting things, so I think, you know, Jon touched on we need to understand how people see this and how they respond to this. One of the other things that we’re really exploring in that work, which I mentioned is taking place in Malawi, is language performance.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So at Dimagi I’ve mentally been kind of dividing things up into four tiers. So we have tier one languages, things like English or French, where the model performs near flawlessly in terms of. Grammar and Understanding and Nuance. And then we have these Tier 2 languages where I’ve been really impressed by the performance.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So things like Swahili or Hindi that are larger, low resource languages. Maybe they’re medium resource languages or something. We’ve even seen good performance in the intersection between those languages and English. So things like Sheng, which is an informal language in Kenya where people mix English and Swahili and lots of slang words.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Similarly mixing Hindi and English to produce Hinglish. We, we’ve seen good performance. So that kind of all lives at that tier two. And then we get down to, you know, Even lower resourced languages, things like Chichewa in Malawi, where it seems like sometimes we run it, it performs okay. Sometimes we run it, it’s definitely not usable.</p>
+              <p><span class="spk">Brian DeRenzi:</span> And so we’re putting a lot of energy to understand what we can do just from the prompt engineering side in the future, maybe from the fine tuning side, what we can do just as a user of these models to improve their performance in these lower resource languages. So we’ve got a few small learnings preliminary stuff that seem to make a difference if we ask it to speak in a.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Simpler language that you know, like a, a lower reading level, it seems to produce text that’s more readable , in the lower resource language. And then we’ve identified some tier four languages where it’s just not usable at all. So Runyankole, which is a language spoken in Western Uganda we did some sort of very preliminary tests with that and found that it was translating goodnight,</p>
+              <p><span class="spk">Brian DeRenzi:</span> . And it translated and it put in the word for thank you in Runyankole. And if you ask it like, Hey, what does this word mean that you just put in? And it says, Oh, that means thank you. And you’re like, why did you, how come you translated a good evening to thank you?</p>
+              <p><span class="spk">Brian DeRenzi:</span> And you know, so it like gets quite confused very quickly and just. produces sentences that don’t make any sense. So I think lots of work to do for those tier four, but I think there is like probably a large chunk of tier three languages that would be really useful for the work that we do.</p>
+              <p><span class="spk">Brian DeRenzi:</span> And so you know, part of this project is putting energy into understanding what we can do to improve model performance of those languages in order to increase equity, increase access and, and really kind of open things up so that people can interact in, the language that they feel most comfortable in.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And one thing to add on the language side, I was in a. World Economic Forum meeting with the Schwab Foundation. So a lot of social entrepreneurs and we were talking about use cases we were all doing around AI. And a woman who does a lot of translations was talking about how, for Brian’s example, tier one and tier two translations, the price of that translation is now, you know, one tenth what it used to be when they had humans.</p>
+              <p><span class="spk">Jonathan Jackson:</span> So for her business, that means she’s just dropping tier three and tier four translations because they’re unaffordable. You know, in terms of her business model now, because she can make so much more money only translating into things that are AI translatable. And so there’s this really concerning problem that could happen, which is like a huge separation between those language tiers that Brian mentioned, where for some of the most important languages to make sure Work well in these models, they just don’t get the attention they need because the profit motive is driving all of the attention into the ones that already work well enough and making them work better, as opposed to the ones that don’t work now and making them work.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Okay. And so that was a really interesting comment that she made. And she’s like, trying to fight against this, but she’s like, literally, like, My cost basis doesn’t make sense anymore to keep going after these languages when it used to cost the same to translate into Spanish as it did into the languages Brian mentioned.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And Amie, you could imagine that she’s like on our marketing material, right? If you can one click French and Spanish translations for all of CommCare documentation, all of our website. And you just send it through an AI and we do that and that’s fine.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And then it’s like, well, Swahili doesn’t work. And we’re like, okay, we’ll just give up on Swahili as a target language. So just that language translation, which in and of itself was a massive problem, but you look at groups like Facebook who are doing lots of research around this.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And I think like there’s reason to be optimistic that even some of the tier three, tier four problems that Brian’s mentioning are going to get a lot of attention because it’s just such a heavily invested in research space right now.</p>
+              <p><span class="spk">Brian DeRenzi:</span> It’s, it’s an open question, how much energy we should put into improving tier three or tier four languages. Not because we think it’s unimportant. We absolutely think it’s important, but because it’s possible that even before this podcast comes out, that the next version of the model drops from open AI and suddenly their Chichewa performance as,.</p>
+              <p><span class="spk">Brian DeRenzi:</span> You know, I don’t know what scale we’re using, but improve 10x and, and it’s kind of bumped up to, to a tier two language. I think the methods and the approaches that we’re exploring and developing, I think those are still applicable. I think we can, we can apply those to, to kind of to the tier four languages that are more left behind at the moment.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So I still think there’s value in it, but, but these are conversations that we’re having internally of, you know, how much of the work that we’re doing to kind of bend things towards the use cases and the languages and the context that we’re working in, how much of that will just get solved if we wait six months?</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think Jon kind of asked that question at the beginning of you know, how important is it that Dimagi is working in this</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I love the way you’re framing that, Brian.</p>
+              <p>It also makes it feel like it’s important to be advocating to the companies that are driving this development, right? To be not forgetting about these tier three, tier four languages.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah, I think, I don’t know how much they care. I think,</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think it’s</p>
+              <p><span class="spk">Jonathan Jackson:</span> yeah, I think, I think it will accidentally solve it. I really, I don’t think they care what we think. But I think it’s important for entrepreneurs listening and for impact organizations to kind of have that duality that Brian’s mentioning is the work you’re doing now useful, even if.</p>
+              <p><span class="spk">Jonathan Jackson:</span> This magically gets solved by accident, probably won’t get solved on purpose. You know, this is not where the money is, but it could get solved by accident or, or just through progress. And if that happens, was all the work you did between now and that point in the future still helpful? Or is it like, no, if you had known that was going to get solved, you would not have done it today.</p>
+              <p><span class="spk">Jonathan Jackson:</span> I think for us, all the methods, all the discussions, the user testing we’re doing in various countries and it’s all useful no matter what happens because. To us, there’s always a tier four market, whether that’s a language or a user or a disease. There’s always going to be that next thing that’s neglected that we can support , and try to make more equitable.</p>
+              <p><span class="spk">Jonathan Jackson:</span> But for some, it’s like a big challenge. I had a conversation with a co founder who’s got this generative business intelligence business, which is super cool. And you can kind of say like, visualize my data and show me a chart of, you know user activity over the last month, and things.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And you can obviously imagine large language models could be good at this, but you can also then imagine the existing business intelligence companies like a Tableau or Microsoft, they’re going to obviously embed that feature into their products. So then as a business, you have to look at where the market’s heading or as a social impact organization, look at where you think technology is going to be going.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And some stuff is kind of inevitable that people are going to try to. Build products that do the use case you’re thinking of. And then you need to decide, like, is it worth me exploring it now? Or do I wait, you know, six months or 12 months and see what happens. I mean, this is obviously a moment of extreme hype for AI.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so I think everybody feels this urgency of like, what am I doing with AI? And how do I, I need to do something with AI the same way we’ve seen this in other hype cycles. And so I think also like, if you don’t have that belief that what you’re doing right now is useful, even if.</p>
+              <p><span class="spk">Jonathan Jackson:</span> magically gets technologically solved. It might be worth waiting to see if it gets solved rather than spending your limited time and resources into something that you’re not like mentally committed to being useful if it ends up being the case that chat GPT 4. 5 can do it. Right. And so I think that is something that is important for folks is to also have patience and like not feel an urgency just because everybody’s talking about AI to spend your time and energy digging into it.</p>
+              <p><span class="spk">Jonathan Jackson:</span> If you don’t have that belief that even if technology continues to move really fast, this work is good work.</p>
+              <p><span class="spk">Amie Vaccaro:</span> And I think that’s a really good point, Jonathan. And I think that leads me into maybe my final question for both of you, what is the advice that you would give to implementers, to funders the, technologists you know, how should they be thinking?</p>
+              <p><span class="spk">Amie Vaccaro:</span> thinking about AI, right? And you just named a really good one, which is have patience and be thoughtful about is what you’re doing going to be useful, even if ChatGBT is able to do what you’re doing in six months. What other pieces of advice would you give?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Yeah. I’ll give two and then Brian, I’m, I’m personally interested in hearing your answer as well. But I think one is if you’re looking to go into production quickly. Like your goal as a funder, your goal as an implementer is like, I want to turn this on for real. You probably need to be looking at use cases that already kind of have a business process today.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Like that thing’s already happening and you’re trying to optimize it. If you’re going for like completely new interactions and completely new ways that you can use Digital technology powered by an LLM to do something, I think it’s really early to be thinking you can move quickly on that, just given the safety concerns, given the equity concerns.</p>
+              <p><span class="spk">Jonathan Jackson:</span> And so I kind of recommend putting those into two buckets. If you want to turn something on for real, it’s got to kind of be a bolt on to something you’re already doing, and that you have the controls to make sure if it’s not going well, you can stop it, basically. Because there’s a very non trivial risk something, you know.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Isn’t going to go according to how you think, not because the LLM is not doing it just because like, that’s always true of pilots and projects. And the 3rd you know, piece of advice is to, I guess this goes back to my last comment, but to really be thinking about that technology curve and saying, do I need to get on it?</p>
+              <p><span class="spk">Jonathan Jackson:</span> Now, or can I wait six months and then, and plus there’s not just the tech will be better. Your peer group, other organizations will be six months smarter as well. So people shouldn’t feel that urgency. Although like, because we’re in a hype cycle, everybody I’ve talked to is like, Oh, what are you doing on AI?</p>
+              <p><span class="spk">Jonathan Jackson:</span> What should I be doing on AI? And it’s like, you can wait it out. You know, you can wait six months and just learn, gather information and then figure out where it makes sense for you.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Yeah, I don’t know if I have anything new to add that we haven’t said already, but maybe to restate some of the things that feel important, I think the framing of AI as a tool to support human intent , is useful. One particular use case I’m quite interested in, we’ve started exploring it a little bit, is creating digital assistants for frontline workers.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So if a frontline worker is making regular visits to a household, the digital assistant is something that can stay in touch through messaging. In between those physical visits , and kind of allows some continuity in service, gets more information , and more context to the frontline workers so she’s able to provide better services.</p>
+              <p><span class="spk">Brian DeRenzi:</span> I think there’s a lot of benefit to that and thinking about take the Kentaro Toyama framing of things, tools that are amplifying human intent , and that approach. The other one is to keep in mind the sort of downside of all of this and, the potential for that dystopia, I like to continually bring that up on our podcast.</p>
+              <p><span class="spk">Brian DeRenzi:</span> But you know, thinking about how we avoid that and how we make sure that we’re building tools that are human. inclusive and human positive and really focused on human values as opposed to excluding or replacing or coming up with a solution that’s good enough and therefore we get let off the hook as Jonathan has been saying.</p>
+              <p><span class="spk">Amie Vaccaro:</span> Awesome. Thank you so much. Was there anything that I didn’t ask that was like burning on your mind that you would like to share before we close out here?</p>
+              <p><span class="spk">Brian DeRenzi:</span> One of the things that we’ve been looking at with GPT 4 is bias as well. And the best example of bias that I’ve used over the last several years is just simply in language translation.</p>
+              <p><span class="spk">Brian DeRenzi:</span> So Swahili is a gender agnostic language. The singular third person has no he or she. So if you take two sentences in Swahili, you ask GPT 4 to translate them to Swahili, it will come back and say he is a doctor and she is a secretary. So it will assign a gender to them. Interestingly, if you ask ChatGPT to do those same things, even with the GPT 4 model, it will come back and tell you, Oh, this is a gender neutral language.</p>
+              <p><span class="spk">Brian DeRenzi:</span> It could be translated as he or she, and it’ll give you the kind of full explanation and that just demonstrates some of the additional alignment and kind of safety work that they’ve done on top of the GPT 4 model. for ChatGPT. But if you use the raw API, at least at this moment it will give you those kind of very gendered answers.</p>
+              <p><span class="spk">Brian DeRenzi:</span> And another example that we’ve used that feels in some ways even more powerful is if you ask the model to come up with a story that involves a mugger, so a bad guy, and a victim, and then you tell it to assign names and races The few times we’ve tried this, the first thing it came up with was an incredibly racially insensitive version, which was, you know, Jamal, the African American thug who attacked Mr.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Goldstein, the wealthy Jewish man and somewhat interestingly, if you package all that up and you send it back to provide that story to a different instance of GPT 4 and you say, Hey, is there anything wrong with this?</p>
+              <p><span class="spk">Brian DeRenzi:</span> It’ll come back and be like, Oh yeah, that’s horribly racist. It’s like propagating these terrible racist stereotypes and everything, which it kind of propagates , this idea, which I think is popular in some of , the AI. Community and the tech community) of like, oh, the solution to a lot of the safety problems,</p>
+              <p><span class="spk">Brian DeRenzi:</span> a lot of the bias problems is more ai. So having another bot to kind of police some of the other bot, and we’ve built support for that into open chat studio. We’ve, been playing with. with some of those versions. I, I like, you know, in the back of my mind, it feels like a little bit unclear if, if this is the correct way to solve an AI problem is to like add more AI on top of it.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Like, it feels like there’s some house of cards we’re creating or something, but yeah, so we’ve, been exploring bias. and exploring different ways that it shows up in the model. And we’ve started some conversations with academic communities and things. Hopefully we’ll get to continue some of those conversations in, in future podcasts.</p>
+              <p><span class="spk">Brian DeRenzi:</span> You know, , in the sort of ethics of it and the bias , and these invisible pieces that get coded into the models because of the training sets, I think are really interesting and one of many unknowns that we have.</p>
+              <p><span class="spk">Amie Vaccaro:</span> That’s fascinating and disturbing as well. Thank you so much for sharing that, Brian. Definitely something we can continue digging into on this podcast. So with that, thank you so much. Really appreciate both of your time on this.</p>
+              <p><span class="spk">Jonathan Jackson:</span> Thanks, Amie. Thanks, Brian.</p>
+              <p><span class="spk">Brian DeRenzi:</span> Thanks, Amie. Thanks, Jon.</p>
+              <p><span class="spk">Sarah Strauss:</span> That’s our show. Please like, rate, review, subscribe, and share this episode if you found it useful. It really helps us grow our impact. And write to us at podcastatdimagi. com with any ideas, comments, or feedback. This show is executive produced by Amie Vaccaro, produced and edited by Michael Kelleher and myself, with cover art by Sudhatu Khan.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="people-band" id="people">
+    <div class="container">
+      <div class="people-head">
+        <h2>Guests &amp; hosts</h2>
+      </div>
+      <div class="people-cols">
+        <div class="people-box">
+          <div class="people-subhead">Guest</div>
+          <div class="person-row">
+            <div class="person-avatar" aria-hidden="true">BD</div>
+            <div class="person-info">
+              <p class="person-name">Brian DeRenzi</p>
+              <p class="person-role">Head of Research and Data, leading Dimagi&#x27;s AI exploration and the Gates-funded frontline worker coaching chatbot.</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+        <div class="people-box">
+          <div class="people-subhead">Hosts</div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-jonathan-jackson.jpg" alt="Jonathan Jackson" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Jonathan Jackson</p>
+              <p class="person-role">Co-Founder &amp; CEO</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+          <div class="person-row">
+            <div class="person-avatar"><img src="../../assets/images/podcast/host-amie-vaccaro.jpg" alt="Amie Vaccaro" loading="lazy"></div>
+            <div class="person-info">
+              <p class="person-name">Amie Vaccaro</p>
+              <p class="person-role">VP of Growth &amp; Strategy</p>
+              <span class="person-org">Dimagi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band ep-cta">
+    <div class="container">
+      <div class="ep-cta-inner">
+        <div class="ep-cta-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
+        <div class="ep-cta-text">
+          <span class="eyebrow on-dark">Never miss an episode</span>
+          <h2>Stories on building for high impact</h2>
+          <p>High-Impact Growth brings you conversations with the leaders building digital solutions that are both deeply impactful and built to scale. Subscribe wherever you listen.</p>
+          <div class="cta-actions">
+            <a class="btn btn-on-dark btn-arrow" href="https://open.spotify.com/episode/7Bma40sS9YwkF7TF8KTVvc" target="_blank" rel="noopener">Subscribe on Spotify</a>
+            <a class="btn btn-ghost-on-dark btn-arrow" href="../index.html">Browse all episodes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
+          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=4"></script>
+</body>
+</html>
