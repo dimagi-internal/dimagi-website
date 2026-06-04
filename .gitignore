@@ -9,6 +9,11 @@ __pycache__/
 
 # Node
 node_modules/
+package-lock.json
+
+# Wrangler / Cloudflare local state
+.wrangler/
+.dev.vars
 
 # Build context: track the build scripts + JSON data, but exclude the heavy raw
 # import dumps (the WordPress export and the scraped-article archive) and the
@@ -16,3 +21,6 @@ node_modules/
 Context/*.xml
 Context/blog-import/records_archive/
 Context/Podcast-Cover.jpg
+
+# Cloudflare deploy output
+dist/
