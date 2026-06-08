@@ -184,9 +184,12 @@
 .more-section .episode-card-thumb {
   width: 74px; height: 74px; aspect-ratio: 1 / 1;
   border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, #5A130D 0%, #7E2018 55%, #9A2C23 100%);
 }
-/* Uniform "purple video box" thumbnail (deep-purple gradient + play icon) */
+/* Uniform red "video box" thumbnail (HIG red gradient + play icon) */
 .more-section .episode-card-thumb img { display: none; }
+/* Hide the purple tint overlay so the red gradient shows uniformly (play icon is drawn via ::before/::after below) */
+.more-section .episode-card-thumb-overlay { display: none; }
 .more-section .episode-card-thumb::before {
   content: ""; position: absolute; top: 50%; left: 50%;
   width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%;
