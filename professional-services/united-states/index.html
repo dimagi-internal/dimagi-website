@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>United States | Dimagi</title>
-<meta name="description" content="Dimagi is a global social enterprise enabling impactful frontline work through US health digital solutions and expert services across behavioral health, infectious disease, and public health programs.">
+<meta name="description" content="Modern digital solutions for public health and human services. Dimagi helps US state and local agencies improve care coordination, treatment access, and program outcomes.">
 <link rel="canonical" href="https://dimagi.com/professional-services/united-states/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:site_name" content="Dimagi">
@@ -13,12 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/professional-services/united-states/">
 <meta property="og:title" content="United States">
-<meta property="og:description" content="Dimagi is a global social enterprise enabling impactful frontline work through US health digital solutions and expert services across behavioral health, infectious disease, and public health programs.">
+<meta property="og:description" content="Modern digital solutions for public health and human services. Dimagi helps US state and local agencies improve care coordination, treatment access, and program outcomes.">
 <meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
 <meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="United States">
-<meta name="twitter:description" content="Dimagi is a global social enterprise enabling impactful frontline work through US health digital solutions and expert services across behavioral health, infectious disease, and public health programs.">
+<meta name="twitter:description" content="Modern digital solutions for public health and human services. Dimagi helps US state and local agencies improve care coordination, treatment access, and program outcomes.">
 <meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,180 +27,171 @@
 <style>
 /* ── United States ── */
 
-.use-cases-grid {
+/* Hero stats: three columns */
+.hero .hero-stats-grid { grid-template-columns: repeat(3, 1fr); }
+
+/* ── Partner / agency logo wall ── */
+.agency-band {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 44px 0;
+  background: #f5f7ff;
+}
+.agency-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  text-align: center;
+  margin: 0 0 28px;
+}
+.agency-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.agency-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--deep-purple);
+  white-space: nowrap;
+  transition: border-color 160ms, transform 160ms, box-shadow 160ms;
+}
+.agency-chip:hover {
+  border-color: var(--indigo);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -12px rgba(10,6,32,0.18);
+}
+
+/* ── Use cases ── */
+.uc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 56px;
 }
-
-.use-case-card {
+.uc-tile {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 40px 36px;
+  padding: 40px 38px;
   background: #fff;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
-
-.use-case-card:hover {
+.uc-tile:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px -10px rgba(10,6,32,0.13);
+  box-shadow: 0 16px 40px -14px rgba(10,6,32,0.14);
   border-color: var(--indigo);
 }
-
-.use-case-eyebrow {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mango);
+.uc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--indigo-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--indigo-deep);
+  flex-shrink: 0;
 }
-
-.use-case-name {
-  font-size: 20px;
-  font-weight: 600;
+.uc-icon svg { width: 26px; height: 26px; stroke-width: 1.6; }
+.uc-name {
+  font-size: 22px;
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--deep-purple);
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.2;
 }
-
-.use-case-desc {
-  font-size: 15px;
+.uc-desc {
+  font-size: 15.5px;
   color: var(--muted);
   line-height: 1.65;
   margin: 0;
-  flex: 1;
 }
 
-.testimonials-grid {
+/* ── Case studies ── */
+.cs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 56px;
 }
-
-.testimonial-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.testimonial-card-quote {
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.88);
-  line-height: 1.7;
-  font-style: italic;
-  flex: 1;
-  margin: 0;
-}
-
-.testimonial-card-attr {
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: 16px;
-}
-
-.testimonial-card-org {
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 4px;
-}
-
-.testimonial-card-role {
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  margin: 0;
-}
-
-.partner-logos-band {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 40px 0;
-  background: #f5f7ff;
-}
-
-.partner-logos-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-  margin-bottom: 28px;
-  font-family: var(--mono);
-}
-
-.partner-logos-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
-}
-
-.partner-logo-tag {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
-
-.vdot-callout {
-  background: linear-gradient(135deg, #eef0ff 0%, #f5f7ff 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 48px 48px;
-  margin-top: 24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.testimonial-card-quote-mark {
-  font-size: 44px;
-  line-height: 0.6;
-  color: var(--marigold);
-  font-weight: 700;
-  font-family: var(--mono);
-}
-
-/* Featured resources */
-.resources-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-.resource-card {
+.cs-card {
   display: flex;
   flex-direction: column;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  text-decoration: none;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
-.resource-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -12px rgba(10,6,32,0.13);
+.cs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px -16px rgba(10,6,32,0.18);
   border-color: var(--indigo);
 }
-.resource-card-img { aspect-ratio: 16/9; overflow: hidden; background: var(--indigo-soft); }
-.resource-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.resource-card-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.resource-card-date {
+.cs-figure {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--indigo-soft);
+  position: relative;
+}
+.cs-figure img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 320ms ease;
+}
+.cs-card:hover .cs-figure img { transform: scale(1.04); }
+.cs-figure--stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 30px;
+  background: linear-gradient(150deg, var(--deep-purple) 0%, var(--indigo) 100%);
+  color: #fff;
+}
+.cs-figure--stat .cs-stat-num {
+  font-size: 52px;
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 8px;
+  font-feature-settings: "tnum";
+}
+.cs-figure--stat .cs-stat-num span { color: var(--marigold); font-weight: 300; }
+.cs-figure--stat .cs-stat-lbl {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 230px;
+}
+.cs-body {
+  padding: 26px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.cs-meta {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 600;
@@ -208,24 +199,83 @@
   text-transform: uppercase;
   color: var(--mango);
 }
-.resource-card-title { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--deep-purple); line-height: 1.3; }
-.resource-card-desc { font-size: 14.5px; color: var(--muted); line-height: 1.6; flex: 1; }
-.resource-card-link {
+.cs-name {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--deep-purple);
+  line-height: 1.28;
+  margin: 0;
+}
+.cs-desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.62;
+  margin: 0;
+  flex: 1;
+}
+.cs-link {
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--indigo);
-  text-decoration: none;
+  margin-top: 4px;
 }
-.resource-card-link:hover { text-decoration: underline; }
+.cs-card:hover .cs-link { text-decoration: underline; }
 
+/* ── Government band: security + procurement ── */
+.gov-band {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+.gov-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.gov-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 30px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.gov-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--indigo-soft);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--indigo-deep);
+}
+.gov-card-icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
+.gov-card h3 {
+  font-size: 17px; font-weight: 600; color: var(--deep-purple);
+  letter-spacing: -0.01em; margin: 0;
+}
+.gov-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
+.gov-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.gov-chip {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--indigo-deep);
+  background: var(--indigo-soft);
+  border-radius: 6px;
+  padding: 5px 9px;
+}
+
+@media (max-width: 980px) {
+  .gov-band { grid-template-columns: 1fr; gap: 36px; }
+}
 @media (max-width: 900px) {
-  .use-cases-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .vdot-callout { grid-template-columns: 1fr; }
-  .resources-grid { grid-template-columns: 1fr; }
+  .uc-grid { grid-template-columns: 1fr; }
+  .cs-grid { grid-template-columns: 1fr; }
+  .hero .hero-stats-grid { grid-template-columns: 1fr; }
+  .gov-cards { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -252,253 +302,204 @@
   </div>
 </div>
 
-<!-- ───── HERO ───── -->
+<!-- ───── SECTION 1 · WHO WE ARE ───── -->
 <section id="main" class="hero hero-dark on-dark">
   <div class="container">
-    <div style="max-width:860px;">
+    <div style="max-width:880px;">
       <span class="eyebrow on-dark">United States</span>
-      <h1 class="hero-title">Digital Solutions for Improving Health Outcomes</h1>
-      <p class="hero-sub">Dimagi's US Health Digital Solutions improve health outcomes with CommCare, the leading global digital platform for health workforces.</p>
+      <h1 class="hero-title">Modern digital solutions for public health and human services</h1>
+      <p class="hero-sub">We help state and local agencies improve care coordination, treatment access, and program outcomes.</p>
       <div class="hero-ctas">
-        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to Our Team</a>
-        <a class="btn btn-ghost-on-dark btn-arrow" href="../../professional-services/case-studies/index.html">See US Case Studies</a>
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk with our team</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="#use-cases">Explore use cases</a>
+      </div>
+    </div>
+
+    <div class="hero-stats hero-stats--on-dark">
+      <div class="hero-stats-grid">
+        <div class="hero-stats-cell">
+          <div class="hero-stats-num">10<span>+</span></div>
+          <div class="hero-stats-lbl">States supported</div>
+        </div>
+        <div class="hero-stats-cell">
+          <div class="hero-stats-num">32,000<span>+</span></div>
+          <div class="hero-stats-lbl">Treatment admissions managed</div>
+        </div>
+        <div class="hero-stats-cell">
+          <div class="hero-stats-num">26,000<span>+</span></div>
+          <div class="hero-stats-lbl">Users on statewide systems</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ───── CORE MESSAGE BAND ───── -->
-<div class="partner-logos-band">
+<!-- ───── AGENCY LOGO WALL ───── -->
+<div class="agency-band">
   <div class="container">
-    <p class="partner-logos-label">Platform capabilities</p>
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:720px; margin:0 auto;">
-      <div style="background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px;">
-        <p style="font-size:14px; font-weight:600; color:var(--deep-purple); margin:0 0 6px;">Flexible, modular platform</p>
-        <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.5;">No-code app builder with apps deployable in days or weeks, rather than months.</p>
-      </div>
-      <div style="background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px;">
-        <p style="font-size:14px; font-weight:600; color:var(--deep-purple); margin:0 0 6px;">Seamless integration</p>
-        <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.5;">Add new data elements without system overhauls. Customizable for case management and service delivery.</p>
-      </div>
-      <div style="background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px;">
-        <p style="font-size:14px; font-weight:600; color:var(--deep-purple); margin:0 0 6px;">HIPAA and GDPR compliant</p>
-        <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.5;">ISO 27001 environment backing. SOC-2 Type II compliant, NIST 800-53 aligned.</p>
-      </div>
-      <div style="background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px;">
-        <p style="font-size:14px; font-weight:600; color:var(--deep-purple); margin:0 0 6px;">Active in 21 US states and territories</p>
-        <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.5;">20+ year history supporting 3,000+ projects globally.</p>
-      </div>
+    <p class="agency-label">Partnering with public agencies nationwide</p>
+    <div class="agency-row">
+      <span class="agency-chip">Colorado Dept. of Public Health</span>
+      <span class="agency-chip">Colorado Behavioral Health Administration</span>
+      <span class="agency-chip">New York State Dept. of Health</span>
+      <span class="agency-chip">New Jersey Dept. of Health</span>
+      <span class="agency-chip">Alaska Public Health Nursing</span>
+      <span class="agency-chip">Vermont Agency of Human Services</span>
+      <span class="agency-chip">Indiana Dept. of Health</span>
+      <span class="agency-chip">Philadelphia Dept. of Public Health</span>
+      <span class="agency-chip">Navajo Nation</span>
+      <span class="agency-chip">City of Somerville</span>
     </div>
   </div>
 </div>
 
-<!-- ───── USE CASES ───── -->
-<section class="section">
+<!-- ───── SECTION 2 · USE CASES ───── -->
+<section id="use-cases" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow muted">USE CASES</span>
-      <h2 class="section-title">Purpose-built solutions for US health programs</h2>
-      <p class="section-lede">Our US health team has worked with state and local agencies, federal grantees, and community organizations across a growing range of program areas.</p>
+    <div class="section-head centered">
+      <span class="eyebrow muted">Use cases</span>
+      <h2 class="section-title">Built for the programs that matter most</h2>
     </div>
 
-    <div class="use-cases-grid">
+    <div class="uc-grid">
 
-      <div class="use-case-card">
-        <span class="use-case-eyebrow">Mental Health</span>
-        <h3 class="use-case-name">Behavioral Health</h3>
-        <p class="use-case-desc">Electronic referral processes, bed registries, and medication-assisted treatment tracking for behavioral health programs.</p>
+      <div class="uc-tile">
+        <span class="uc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 6.6a5.2 5.2 0 0 0-8.8-2.9 5.2 5.2 0 0 0-8.8 2.9c-.5 3 1.8 5.6 4 7.6 1.3 1.2 3 2.6 4.8 4 1.8-1.4 3.5-2.8 4.8-4 2.2-2 4.5-4.6 4-7.6Z"/><path d="M3.5 12h4l1.5-3 2.5 6 1.5-3h4"/></svg>
+        </span>
+        <h3 class="uc-name">Behavioral Health</h3>
+        <p class="uc-desc">Treatment registries, provider directories, capacity tracking, referrals, and care coordination.</p>
       </div>
 
-      <div class="use-case-card">
-        <span class="use-case-eyebrow">Surveillance &amp; Treatment</span>
-        <h3 class="use-case-name">Infectious Disease</h3>
-        <p class="use-case-desc">Case investigation, contact tracing, and lifecycle tracking from diagnosis through treatment for TB, HIV, and other infectious diseases.</p>
+      <div class="uc-tile">
+        <span class="uc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6.5" r="2.6"/><path d="M3.5 19v-2a4.5 4.5 0 0 1 9 0v2"/><circle cx="16.5" cy="9" r="2"/><path d="M14 19v-1.5a3.5 3.5 0 0 1 6.5-1.8"/></svg>
+        </span>
+        <h3 class="uc-name">Maternal &amp; Child Health</h3>
+        <p class="uc-desc">Case management, home visiting, eligibility, screening, and reporting.</p>
       </div>
 
-      <div class="use-case-card">
-        <span class="use-case-eyebrow">Clinical Studies</span>
-        <h3 class="use-case-name">Research and Innovation</h3>
-        <p class="use-case-desc">The RAD team conducts rigorous investigation of digital technologies for use in health programs across the United States.</p>
+      <div class="uc-tile">
+        <span class="uc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 5.5v5.3c0 4.8 3.3 8.7 8 10.7 4.7-2 8-5.9 8-10.7V5.5l-8-3Z"/><path d="M12 8v6M9 11h6"/></svg>
+        </span>
+        <h3 class="uc-name">Public Health Response</h3>
+        <p class="uc-desc">Disease investigation, outbreak response, immunization campaigns, and emergency response programs.</p>
       </div>
 
-      <div class="use-case-card">
-        <span class="use-case-eyebrow">TB Treatment</span>
-        <h3 class="use-case-name">Video Directly Observed Therapy (VDOT/VOT)</h3>
-        <p class="use-case-desc">The SureAdhere platform enables remote medication adherence through video directly observed therapy, reducing patient burden and program costs.</p>
-      </div>
-
-    </div>
-
-    <!-- VDOT CALLOUT -->
-    <div class="vdot-callout">
-      <div>
-        <span class="eyebrow muted">FEATURED: SUREADHERE</span>
-        <h3 style="font-size:24px; font-weight:600; color:var(--deep-purple); letter-spacing:-0.02em; margin:12px 0 16px; line-height:1.3;">96% TB treatment completion rate in landmark NYC study</h3>
-        <p style="font-size:15px; color:var(--muted); line-height:1.65; margin:0 0 24px;">SureAdhere's video-based DOT platform allows patients to record medication doses on their own schedule, while clinicians review videos remotely. The result: dramatically better completion rates, lower costs, and improved patient experience.</p>
-        <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">Learn About SureAdhere</a>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="background:#fff; border-radius:var(--radius); padding:24px 28px; border:1px solid var(--line);">
-          <p style="font-size:36px; font-weight:200; letter-spacing:-0.04em; color:var(--deep-purple); margin:0 0 6px; font-feature-settings:'tnum';">96<span style="color:var(--indigo); font-weight:300;">%</span></p>
-          <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.4;">TB treatment completion rate, NYC landmark study</p>
-        </div>
-        <div style="background:#fff; border-radius:var(--radius); padding:24px 28px; border:1px solid var(--line);">
-          <p style="font-size:36px; font-weight:200; letter-spacing:-0.04em; color:var(--deep-purple); margin:0 0 6px; font-feature-settings:'tnum';">28<span style="color:var(--indigo); font-weight:300;">+</span></p>
-          <p style="font-size:13px; color:var(--muted); margin:0; line-height:1.4;">SureAdhere publications, including CDC and WHO citations</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ───── PARTNERS BAND ───── -->
-<div style="background:#f5f7ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:40px 0;">
-  <div class="container">
-    <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:28px; font-family:var(--mono);">Active partners include</p>
-    <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">NY State Department of Health</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">New Jersey</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">Alaska Section of Public Health Nursing</span>
-    </div>
-  </div>
-</div>
-
-<!-- ───── TESTIMONIALS ───── -->
-<section class="section dark">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow on-dark">Hear From Our Partners</span>
-      <h2 class="section-title">Trusted by public health programs across the country</h2>
-      <p class="section-lede">Over 20 years ago, we started our journey digitizing burdensome, paper-based workflows for frontline workers in India and across Africa. Today, we have mobilized CommCare and SureAdhere across over 3,000 projects globally and 21 states and territories in the US.</p>
-    </div>
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card">
-        <p class="testimonial-card-quote">"The powerful combination of Dimagi's public health expertise, coupled with cloud-based technology, has allowed us to regularly improve our application based on feedback from public health officials with speed and agility as our need evolves."</p>
-        <div class="testimonial-card-attr">
-          <p class="testimonial-card-org">New York State Department of Health</p>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-card-quote">"We selected CommCare for its configurability [and] its ease of scale and maintenance. What clinched it for us, however, was Dimagi's candor during the selection process...[which] engendered our trust that Dimagi would be with us every step of the way. In sum, we needed a reliable partner willing to work with us, and we got precisely that."</p>
-        <div class="testimonial-card-attr">
-          <p class="testimonial-card-org">State of New Jersey</p>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-card-quote">"Dimagi has always provided us with personalized service and is ready to work with us as we rapidly update the CommCare application to accommodate our needs. No other IT solutions vendor we have worked with has been so involved and timely. We greatly value that level of customer service."</p>
-        <div class="testimonial-card-attr">
-          <p class="testimonial-card-org">Alaska Section of Public Health Nursing</p>
-        </div>
+      <div class="uc-tile">
+        <span class="uc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6.5 20v-7M12 20V7M17.5 20v-10"/></svg>
+        </span>
+        <h3 class="uc-name">Data &amp; Reporting</h3>
+        <p class="uc-desc">Program monitoring, performance management, and statewide reporting.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ───── WHY DIMAGI ───── -->
+<!-- ───── SECTION 3 · CASE STUDIES ───── -->
 <section class="section cool">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
-      <div>
-        <span class="eyebrow muted">OUR APPROACH</span>
-        <h2 class="section-title">More than software implementation</h2>
-        <p style="font-size:17px; color:var(--muted); line-height:1.7; margin:20px 0 32px;">Our US health team brings public health expertise, not just technical skills. We embed with your program team, understand your workflows, and build tools that field workers actually want to use.</p>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px;">
-          <li style="display:flex; gap:14px; align-items:flex-start;">
-            <span style="color:var(--indigo); font-weight:700; font-size:18px; flex-shrink:0; margin-top:1px;">&#10003;</span>
-            <span style="font-size:15px; color:var(--muted); line-height:1.6;"><strong style="color:var(--ink);">Public health expertise.</strong> Our implementation managers understand CDC, state, and local health department contexts.</span>
-          </li>
-          <li style="display:flex; gap:14px; align-items:flex-start;">
-            <span style="color:var(--indigo); font-weight:700; font-size:18px; flex-shrink:0; margin-top:1px;">&#10003;</span>
-            <span style="font-size:15px; color:var(--muted); line-height:1.6;"><strong style="color:var(--ink);">Rapid iteration.</strong> CommCare's no-code configurability means you can update workflows without waiting on a development sprint.</span>
-          </li>
-          <li style="display:flex; gap:14px; align-items:flex-start;">
-            <span style="color:var(--indigo); font-weight:700; font-size:18px; flex-shrink:0; margin-top:1px;">&#10003;</span>
-            <span style="font-size:15px; color:var(--muted); line-height:1.6;"><strong style="color:var(--ink);">Data you can act on.</strong> Real-time dashboards and export integrations put program data in the hands of managers and supervisors.</span>
-          </li>
-          <li style="display:flex; gap:14px; align-items:flex-start;">
-            <span style="color:var(--indigo); font-weight:700; font-size:18px; flex-shrink:0; margin-top:1px;">&#10003;</span>
-            <span style="font-size:15px; color:var(--muted); line-height:1.6;"><strong style="color:var(--ink);">HIPAA-compliant infrastructure.</strong> Secure, auditable data storage that meets US federal and state privacy requirements.</span>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <div style="background:var(--deep-purple); border-radius:var(--radius-lg); padding:40px 36px; color:#fff; margin-bottom:20px;">
-          <p style="font-size:42px; font-weight:200; letter-spacing:-0.04em; color:#fff; margin:0 0 8px; font-feature-settings:'tnum';">50<span style="color:var(--marigold); font-weight:300;">+</span></p>
-          <p style="font-size:14px; color:rgba(255,255,255,0.7); margin:0; line-height:1.4;">US health programs supported across state and local agencies</p>
+    <div class="section-head">
+      <span class="eyebrow muted">Case studies</span>
+      <h2 class="section-title">Trusted by public agencies across the United States</h2>
+      <p class="section-lede">See how state and local governments are using Dimagi to expand access to care, improve program operations, and strengthen public health outcomes.</p>
+    </div>
+
+    <div class="cs-grid">
+
+      <a class="cs-card" href="../../professional-services/case-studies/index.html">
+        <div class="cs-figure cs-figure--stat">
+          <p class="cs-stat-num">32,000<span>+</span></p>
+          <p class="cs-stat-lbl">Admissions managed across the statewide MAT registry</p>
         </div>
-        <div style="background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px 32px;">
-          <p style="font-size:14px; font-weight:700; color:var(--deep-purple); margin:0 0 10px;">Ready to modernize your program?</p>
-          <p style="font-size:14px; color:var(--muted); line-height:1.55; margin:0 0 20px;">Our US health team can schedule a consultation within 48 hours.</p>
-          <a class="btn btn-indigo btn-arrow" href="../../contact/index.html">Request a Consultation</a>
+        <div class="cs-body">
+          <span class="cs-meta">Colorado &middot; Behavioral Health</span>
+          <h3 class="cs-name">Colorado Behavioral Health Administration</h3>
+          <p class="cs-desc">Statewide MAT registry, provider directory, capacity tracking, and referrals.</p>
+          <span class="cs-link">View case study &rarr;</span>
         </div>
-      </div>
+      </a>
+
+      <a class="cs-card" href="../../blog/addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/index.html">
+        <div class="cs-figure">
+          <img src="../../assets/images/addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/cover.jpg" alt="Care coordinator using CommCare for Vermont's transitional housing program" loading="lazy">
+        </div>
+        <div class="cs-body">
+          <span class="cs-meta">June 2023 &middot; Vermont</span>
+          <h3 class="cs-name">Vermont Emergency Housing</h3>
+          <p class="cs-desc">Coordinating housing, healthcare, and social services for households experiencing homelessness across Vermont.</p>
+          <span class="cs-link">Read the story &rarr;</span>
+        </div>
+      </a>
+
+      <a class="cs-card" href="../../blog/digital-tools-public-health-workers/index.html">
+        <div class="cs-figure">
+          <img src="../../assets/images/digital-tools-public-health-workers/cover.jpg" alt="City of Somerville municipal building" loading="lazy">
+        </div>
+        <div class="cs-body">
+          <span class="cs-meta">July 2025 &middot; Somerville, MA</span>
+          <h3 class="cs-name">Somerville Community Health Workers</h3>
+          <p class="cs-desc">Equipping community health workers to coordinate care, connect residents to services, and address social needs across the city.</p>
+          <span class="cs-link">Read the story &rarr;</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- ───── FEATURED RESOURCES ───── -->
+<!-- ───── GOVERNMENT BAND · SECURITY + PROCUREMENT ───── -->
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow muted">FROM THE FIELD</span>
-      <h2 class="section-title">Read the latest about US Health Digital Solutions</h2>
-    </div>
-    <div class="resources-grid">
-
-      <article class="resource-card">
-        <div class="resource-card-img">
-          <img src="../../assets/images/us-health/marthas-vineyard.jpg" alt="Martha's Vineyard community health" loading="lazy">
+    <div class="gov-band">
+      <div>
+        <span class="eyebrow muted">Built for government</span>
+        <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);">Security and procurement, handled</h2>
+        <p class="section-lede" style="font-size:17px; margin-top:18px;">We meet the privacy, security, and contracting requirements that state and local agencies are held to, so your team can move from decision to deployment without friction.</p>
+      </div>
+      <div class="gov-cards">
+        <div class="gov-card">
+          <span class="gov-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 5.5v6c0 4.6 3.4 8.4 8 10 4.6-1.6 8-5.4 8-10v-6L12 2.5Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+          </span>
+          <h3>Security &amp; compliance</h3>
+          <p>HIPAA-aligned workflows on infrastructure backed by an ISO 27001 environment, SOC 2 Type II, and NIST 800-53 alignment.</p>
+          <div class="gov-chips">
+            <span class="gov-chip">HIPAA</span>
+            <span class="gov-chip">SOC 2 Type II</span>
+            <span class="gov-chip">ISO 27001</span>
+            <span class="gov-chip">NIST 800-53</span>
+          </div>
         </div>
-        <div class="resource-card-body">
-          <span class="resource-card-date">December 2023 &middot; Case Study</span>
-          <h3 class="resource-card-title">How Dimagi Enables CHWs to Care for Martha's Vineyard's Highest-Need Residents</h3>
-          <p class="resource-card-desc">Dimagi empowers community health workers to provide top-quality care to the most vulnerable residents of Martha's Vineyard.</p>
-          <a class="resource-card-link" href="https://dimagi.com/island-health-care/" target="_blank" rel="noopener">Read more &rarr;</a>
+        <div class="gov-card">
+          <span class="gov-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V6a2 2 0 0 1 2-2Z"/><path d="M9 8.5h6M9 12h6M9 15.5h3"/></svg>
+          </span>
+          <h3>How to work with us</h3>
+          <p>Flexible contracting for state and local agencies. We can scope a pilot, respond to RFPs, and stand up a working program quickly.</p>
+          <div class="gov-chips">
+            <span class="gov-chip">Pilots</span>
+            <span class="gov-chip">RFP responses</span>
+            <span class="gov-chip">Statewide rollouts</span>
+          </div>
         </div>
-      </article>
-
-      <article class="resource-card">
-        <div class="resource-card-img">
-          <img src="../../assets/images/us-health/julia-fuller.jpg" alt="Julia Fuller" loading="lazy">
-        </div>
-        <div class="resource-card-body">
-          <span class="resource-card-date">November 2023 &middot; Careers</span>
-          <h3 class="resource-card-title">Career Journey of Julia Fuller</h3>
-          <p class="resource-card-desc">Julia Fuller shares her career journey as a community health professional with a background in clinical psychology, including challenges faced and advice for balancing work and studies while pursuing an MPH at Dimagi.</p>
-          <a class="resource-card-link" href="https://dimagi.com/career-journey-of-julia-fuller/" target="_blank" rel="noopener">Read more &rarr;</a>
-        </div>
-      </article>
-
-      <article class="resource-card">
-        <div class="resource-card-img">
-          <img src="../../assets/images/us-health/global-best-practices.jpg" alt="Bringing global best practices to US public health response" loading="lazy">
-        </div>
-        <div class="resource-card-body">
-          <span class="resource-card-date">Video</span>
-          <h3 class="resource-card-title">Bringing Global Best Practices to US Public Health Response</h3>
-          <p class="resource-card-desc">Dimagi has developed open source digital solutions for remote areas for 20 years, and in 2020 its COVID-19 solution was scaled up by various US government bodies, revealing common themes in deploying solutions and valuable lessons learned.</p>
-          <a class="resource-card-link" href="https://www.youtube.com/watch?v=H4A1Fbch4TE" target="_blank" rel="noopener">Watch now &rarr;</a>
-        </div>
-      </article>
-
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ───── CTA BAND ───── -->
+<!-- ───── SECTION 4 · CTA ───── -->
 <section class="cta-band">
   <div class="container">
     <div class="section-head centered on-dark">
-      <h2 class="section-title">Let's talk about your program</h2>
-      <p class="section-lede">Our US health team is ready to help you design, deploy, or improve your digital health solution.</p>
+      <h2 class="section-title">Let's build what's next</h2>
+      <p class="section-lede">Whether you're replacing a legacy system, launching a new program, or expanding statewide services, we'd love to learn more.</p>
       <div style="margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Contact Us</a>
-        <a class="btn btn-ghost-on-dark btn-arrow" href="../../professional-services/research-data/index.html">See Our Research</a>
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk with our team</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="../../professional-services/case-studies/index.html">See US case studies</a>
       </div>
     </div>
   </div>

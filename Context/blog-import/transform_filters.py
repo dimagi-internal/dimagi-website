@@ -56,13 +56,14 @@ TOPICS = ['Company', 'Ecosystem']
 GEO = ['United States', 'Asia', 'India', 'West Africa', 'East Africa', 'Southern Africa', 'Latin America']
 
 def focus_row():
-    # Merged "Focus" row at the top: products (data-dim=product) lead, then thematic
-    # topics (data-dim=topic). No "None" chip — its two-dimension meaning would be ambiguous here.
-    chips = ['          <button type="button" class="blog-filter is-active" data-dim="topic" data-filter="all" aria-pressed="true">All</button>']
-    for v in PRODUCTS:
-        chips.append(f'          <button type="button" class="blog-filter" data-dim="product" data-filter="{v}" aria-pressed="false">{v}</button>')
-    for v in TOPICS:
-        chips.append(f'          <button type="button" class="blog-filter" data-dim="topic" data-filter="{v}" aria-pressed="false">{v}</button>')
+    # Merged "Focus" row at the top, exposed as ONE virtual 'focus' dimension that
+    # blog/index.html's inline JS computes per card (its product if any, else a
+    # Company/Ecosystem topic, else "None"). Products lead, then thematic topics, then
+    # a "None" chip for posts with no product and no Focus topic.
+    chips = ['          <button type="button" class="blog-filter is-active" data-dim="focus" data-filter="all" aria-pressed="true">All</button>']
+    for v in PRODUCTS + TOPICS:
+        chips.append(f'          <button type="button" class="blog-filter" data-dim="focus" data-filter="{v}" aria-pressed="false">{v}</button>')
+    chips.append('          <button type="button" class="blog-filter" data-dim="focus" data-filter="None" aria-pressed="false">None</button>')
     return ('        <div class="filter-row">\n'
             '          <span class="filter-label">Focus</span>\n'
             '          <div class="filter-chips">\n' + "\n".join(chips) + "\n"

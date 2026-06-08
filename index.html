@@ -266,6 +266,24 @@
   .product-logo-row { grid-template-columns: 1fr; gap: 28px; }
   .impact-cols { grid-template-columns: 1fr; }
 }
+
+/* ── Scroll-reveal — progressive enhancement (no-JS + reduced-motion safe) ──
+   Elements are only hidden once JS confirms it can reveal them (html.js-reveal),
+   so with JS disabled or on error nothing ever stays invisible. */
+html.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms cubic-bezier(.2,.65,.25,1),
+              transform 700ms cubic-bezier(.2,.65,.25,1);
+}
+html.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+html.js-reveal .product-cols .product-col:nth-child(2),
+html.js-reveal .impact-cols  .impact-col:nth-child(2)  { transition-delay: 90ms; }
+html.js-reveal .product-cols .product-col:nth-child(3),
+html.js-reveal .impact-cols  .impact-col:nth-child(3)  { transition-delay: 180ms; }
+@media (prefers-reduced-motion: reduce) {
+  html.js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -291,6 +309,7 @@
   ]
 }
 </script>
+<script>document.documentElement.classList.add('js-reveal');</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -303,7 +322,7 @@
         <img class="logo-img invert" src="assets/dimagi-logo.png" alt="Dimagi">
       </a>
       <div class="nav-links">
-        <a href="#">Products</a>
+        <a href="#products">Products</a>
         <a href="professional-services/index.html">Professional Services</a>
         <a href="company/about/index.html">Company</a>
         <a href="contact/index.html">Contact Us</a>
@@ -319,6 +338,7 @@
 <section id="main" class="hero hero-dark on-dark has-bg-video">
   <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg" aria-hidden="true" tabindex="-1">
     <source src="assets/video/hero.webm" type="video/webm">
+    <source src="assets/video/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-bg-overlay" aria-hidden="true"></div>
   <div class="container">
@@ -368,7 +388,6 @@
     <div class="logo-track">
       <div class="logo-set" aria-label="Organizations that work with Dimagi">
         <img class="logo-org-img" src="assets/logos/usaid.png" alt="USAID">
-        <img class="logo-org-img" src="assets/logos/unicef.png" alt="UNICEF">
         <img class="logo-org-img" src="assets/logos/bmgf.png" alt="Bill &amp; Melinda Gates Foundation">
         <img class="logo-org-img" src="assets/logos/undp.png" alt="UNDP">
         <img class="logo-org-img" src="assets/logos/crs.png" alt="Catholic Relief Services">
@@ -382,7 +401,6 @@
       </div>
       <div class="logo-set" aria-hidden="true">
         <img class="logo-org-img" src="assets/logos/usaid.png" alt="">
-        <img class="logo-org-img" src="assets/logos/unicef.png" alt="">
         <img class="logo-org-img" src="assets/logos/bmgf.png" alt="">
         <img class="logo-org-img" src="assets/logos/undp.png" alt="">
         <img class="logo-org-img" src="assets/logos/crs.png" alt="">
@@ -401,7 +419,7 @@
 <!-- ───── PRODUCTS ───── -->
 <section class="section-products" id="products">
   <div class="container">
-    <div class="section-head centered">
+    <div class="section-head centered reveal">
       <span class="eyebrow muted">OUR PRODUCTS</span>
       <h2 class="section-title">Three products. <em>One mission.</em></h2>
     </div>
@@ -414,7 +432,7 @@
 
     <div class="product-cols">
 
-      <div class="product-col">
+      <div class="product-col reveal">
         <div class="product-video">
           <iframe src="https://www.youtube-nocookie.com/embed/eyDDRv-v1Bk" title="Connect demo: pay for verified outcomes, not effort" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -426,7 +444,7 @@
         </div>
       </div>
 
-      <div class="product-col">
+      <div class="product-col reveal">
         <div class="product-video">
           <iframe src="https://fast.wistia.net/embed/iframe/o4y7gg9ssm?seo=true&amp;videoFoam=false" title="CommCare intro video" allow="autoplay; fullscreen" allowtransparency="true" scrolling="no" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -438,7 +456,7 @@
         </div>
       </div>
 
-      <div class="product-col">
+      <div class="product-col reveal">
         <div class="product-video">
           <iframe src="https://fast.wistia.net/embed/iframe/htl85vr750?seo=true&amp;videoFoam=false" title="SureAdhere video-observed therapy" allow="autoplay; fullscreen" allowtransparency="true" scrolling="no" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -457,29 +475,29 @@
 <!-- ───── SERVICES ───── -->
 <section class="section-services" id="services">
   <div class="container">
-    <div class="section-head centered">
+    <div class="section-head centered reveal">
       <span class="eyebrow muted">OUR SERVICES</span>
       <h2 class="section-title">Build with a team that has <em>unmatched frontline expertise.</em></h2>
       <p class="section-lede">We partner with governments and organizations to deploy, scale, and sustain digital solutions, now amplified by AI, backed by 20 years of frontline implementation expertise.</p>
     </div>
-    <div class="services-2col">
+    <div class="services-2col reveal">
 
       <div class="svc-card">
-        <div class="svc-card-label">Global Solutions</div>
+        <div class="svc-card-label">Africa &amp; Asia</div>
         <h3 class="svc-card-name">Global Services</h3>
         <p class="svc-card-desc">10+ years supporting national-scale programs across Africa and Asia. Now pioneering next-generation national community health systems, for just $5,000/month, radically lowering the cost of digitizing frontline health workforces.</p>
         <a class="svc-card-link" href="professional-services/global-services/index.html">Learn more</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-label">United States Solutions</div>
+        <div class="svc-card-label">State &amp; Local Government</div>
         <h3 class="svc-card-name">United States</h3>
         <p class="svc-card-desc">Trusted digital modernization partner for state and local government, with deep expertise in behavioral health, case management, and public health data systems. Scaling sustainable digital solutions with partners like the Colorado Behavioral Health Administration.</p>
         <a class="svc-card-link" href="professional-services/united-states/index.html">Learn more</a>
       </div>
 
     </div>
-    <div style="margin-top:40px; text-align:center;">
+    <div class="reveal" style="margin-top:40px; text-align:center;">
       <a class="btn btn-indigo btn-arrow" href="professional-services/index.html">All professional services</a>
     </div>
   </div>
@@ -488,7 +506,7 @@
 <!-- ───── PROVEN IMPACT ───── -->
 <section class="section-impact" id="impact">
   <div class="container">
-    <div class="section-head centered">
+    <div class="section-head centered reveal">
       <span class="eyebrow muted">PROVEN IMPACT</span>
       <h2 class="section-title">Evidence-backed.<br>Government-trusted.<br><em>Customer-loved.</em></h2>
       <p class="section-lede">Dimagi&rsquo;s software platforms are backed by rigorous published research, trusted by governments at scale, and used every day by hundreds of organizations around the world.</p>
@@ -496,7 +514,7 @@
 
     <div class="impact-cols">
 
-      <div class="impact-col">
+      <div class="impact-col reveal">
         <div class="impact-col-screenshot">
           <img src="assets/images/home/research.jpg" alt="Field research and data collection" loading="lazy" decoding="async">
         </div>
@@ -505,7 +523,7 @@
         <a class="impact-col-link" href="professional-services/research-data/index.html">View Research</a>
       </div>
 
-      <div class="impact-col">
+      <div class="impact-col reveal">
         <div class="impact-col-screenshot">
           <img src="assets/images/home/community-health.jpg" alt="Community health worker in the field" loading="lazy" decoding="async">
         </div>
@@ -514,7 +532,7 @@
         <a class="impact-col-link" href="professional-services/global-services/index.html">View the Next-Gen eCHIS Offering</a>
       </div>
 
-      <div class="impact-col">
+      <div class="impact-col reveal">
         <div class="impact-col-screenshot">
           <img src="assets/images/home/field-outreach.jpg" alt="Frontline outreach worker with community members" loading="lazy" decoding="async">
         </div>
@@ -530,7 +548,7 @@
 <!-- ───── ABOUT DIMAGI ───── -->
 <section class="section dark" id="about">
   <div class="container">
-    <div class="about-2col">
+    <div class="about-2col reveal">
       <div class="about-copy">
         <span class="eyebrow on-dark">ABOUT DIMAGI</span>
         <h2 class="section-title">A global <em>social enterprise.</em></h2>
@@ -549,7 +567,7 @@
 
 <!-- ───── CTA BAND ───── -->
 <section class="cta-band" style="background:#f5f7ff; color: var(--ink);">
-  <div class="container">
+  <div class="container reveal">
     <span class="eyebrow">READY WHEN YOU ARE</span>
     <h2 style="color:var(--ink); margin-bottom:20px;">Let&rsquo;s build something that <em>lasts.</em></h2>
     <p style="color:var(--muted); max-width:520px; margin:0 auto 40px; font-size:18px;">Tell us about your program and we&rsquo;ll help you find the right path, whether that&rsquo;s a product, a partnership, or a conversation.</p>
@@ -628,5 +646,54 @@
 </footer>
 
 <script src="assets/js/nav.js?v=4"></script>
+<script>
+/* Scroll-reveal: fade sections in as they enter the viewport.
+   Dual mechanism so content is NEVER left hidden:
+     1) IntersectionObserver — smooth staggered reveal (primary path).
+     2) load/scroll/resize + getBoundingClientRect fallback — guarantees any
+        in-view element reveals even if IO never fires. Real browsers always
+        emit these events on user scroll. */
+(function () {
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  if (!els.length) return;
+
+  function reveal(el) { el.classList.add('is-visible'); }
+  function inView(el) {
+    var r = el.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    return r.top < vh * 0.92 && r.bottom > 0;
+  }
+
+  var io = null;
+  try {
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  } catch (e) { io = null; }
+
+  function check() {
+    els = els.filter(function (el) {
+      if (el.classList.contains('is-visible')) return false;
+      if (inView(el)) { reveal(el); return false; }
+      return true;
+    });
+    if (!els.length) {
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+      if (io) io.disconnect();
+    }
+  }
+
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  window.addEventListener('load', check);
+  check(); /* reveal anything already in view on first paint */
+})();
+</script>
 </body>
 </html>
