@@ -15,15 +15,19 @@ COUNTRY2REGION = {
     'United States': 'United States',
     'India': 'India', 'Nepal': 'Asia', 'Tajikistan': 'Asia',
     'Cambodia': 'Asia', 'Indonesia': 'Asia', 'Vietnam': 'Asia',
-    'Nigeria': 'West Africa', 'Sierra Leone': 'West Africa', 'Senegal': 'West Africa',
-    'Guinea': 'West Africa', 'Ghana': 'West Africa', 'Burkina Faso': 'West Africa',
-    'Niger': 'West Africa', 'Benin': 'West Africa', "Cote d'Ivoire": 'West Africa',
-    'Kenya': 'East Africa', 'Ethiopia': 'East Africa', 'Somalia': 'East Africa',
-    'Tanzania': 'East Africa', 'Rwanda': 'East Africa', 'Uganda': 'East Africa',
-    'South Africa': 'Southern Africa', 'Malawi': 'Southern Africa', 'Mozambique': 'Southern Africa',
-    'Zambia': 'Southern Africa', 'Madagascar': 'Southern Africa', 'Lesotho': 'Southern Africa',
+    'Nigeria': 'Africa', 'Sierra Leone': 'Africa', 'Senegal': 'Africa',
+    'Guinea': 'Africa', 'Ghana': 'Africa', 'Burkina Faso': 'Africa',
+    'Niger': 'Africa', 'Benin': 'Africa', "Cote d'Ivoire": 'Africa',
+    'Kenya': 'Africa', 'Ethiopia': 'Africa', 'Somalia': 'Africa',
+    'Tanzania': 'Africa', 'Rwanda': 'Africa', 'Uganda': 'Africa',
+    'South Africa': 'Africa', 'Malawi': 'Africa', 'Mozambique': 'Africa',
+    'Zambia': 'Africa', 'Madagascar': 'Africa', 'Lesotho': 'Africa',
     'Mexico': 'Latin America', 'Jamaica': 'Latin America', 'Honduras': 'Latin America',
     'Global': 'None',
+    # Region identity/merge keys: keep this script idempotent when re-run on the
+    # already-regionalized state. West/East/Southern Africa all roll up to Africa.
+    'West Africa': 'Africa', 'East Africa': 'Africa', 'Southern Africa': 'Africa',
+    'Africa': 'Africa', 'Asia': 'Asia', 'Latin America': 'Latin America',
 }
 
 s = open(IDX, encoding='utf-8').read()
@@ -53,7 +57,7 @@ def row(label, dim, values):
 PRODUCTS = ['CommCare', 'Connect', 'SureAdhere', 'Open Chat Studio']
 TYPES = ['Case Study', 'Announcement', 'Product Update', 'Event', 'Research', 'Perspective']
 TOPICS = ['Company', 'Ecosystem']
-GEO = ['United States', 'Asia', 'India', 'West Africa', 'East Africa', 'Southern Africa', 'Latin America']
+GEO = ['United States', 'Asia', 'India', 'Africa', 'Latin America']
 
 def focus_row():
     # Merged "Focus" row at the top, exposed as ONE virtual 'focus' dimension that
