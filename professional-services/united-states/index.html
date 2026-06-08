@@ -27,56 +27,63 @@
 <style>
 /* ── United States ── */
 
-/* Hero stats: three columns */
-.hero .hero-stats-grid { grid-template-columns: repeat(3, 1fr); }
-
-/* ── Partner / agency logo wall ── */
-.agency-band {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 44px 0;
-  background: #f5f7ff;
+/* ── Hero video ── */
+.hero .hero-grid { align-items: center; }
+.hero-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 34px 70px -28px rgba(0,0,0,0.6);
+  background: #05030f;
 }
-.agency-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted-soft);
+.hero-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Stats band — light indigo, matches home page ── */
+.us-stats { background: var(--indigo-soft); }
+.us-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(45,54,166,0.16);
+}
+.us-stats-cell {
+  padding: 48px 32px;
+  border-right: 1px solid rgba(45,54,166,0.14);
   text-align: center;
-  margin: 0 0 28px;
 }
-.agency-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 12px;
-  flex-wrap: wrap;
-  max-width: 960px;
-  margin: 0 auto;
+.us-stats-cell:last-child { border-right: 0; }
+.us-stats-num {
+  font-size: clamp(42px, 4.4vw, 60px);
+  font-weight: 200; line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-2);
+  margin-bottom: 12px;
+  font-feature-settings: "tnum";
 }
-.agency-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 18px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--deep-purple);
-  white-space: nowrap;
-  transition: border-color 160ms, transform 160ms, box-shadow 160ms;
-}
-.agency-chip:hover {
-  border-color: var(--indigo);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px -12px rgba(10,6,32,0.18);
+.us-stats-num span { color: var(--indigo); font-weight: 300; }
+.us-stats-lbl {
+  font-size: 14.5px; font-weight: 400;
+  color: rgba(20,16,58,0.64); line-height: 1.45;
 }
 
-/* ── Use cases ── */
+/* ── Partner / agency marquee (reuses global .logo-strip/.logo-marquee/.logo-track) ── */
+.logo-strip.agencies { padding: 56px 0 60px; background: var(--paper-2); }
+.logo-strip.agencies .logo-org {
+  font-size: 26px; font-weight: 500; color: var(--ink-2);
+  letter-spacing: -0.015em; opacity: 0.9;
+}
+.logo-strip.agencies .logo-org:hover { opacity: 1; color: var(--indigo); }
+.logo-strip.agencies .logo-set { gap: 56px; padding-right: 56px; }
+
+/* ── Use cases — large colored cards ── */
 .uc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -84,46 +91,72 @@
   margin-top: 56px;
 }
 .uc-tile {
-  border: 1px solid var(--line);
+  --uc-fg: var(--indigo);
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--uc-fg) 16%, var(--line));
   border-radius: var(--radius-lg);
-  padding: 40px 38px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+  background:
+    radial-gradient(130% 95% at 100% 0%, color-mix(in srgb, var(--uc-fg) 11%, #fff) 0%, transparent 50%),
+    color-mix(in srgb, var(--uc-fg) 5%, #fff);
+  padding: 34px 40px 36px;
+  overflow: hidden;
+  transition: transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms, border-color 280ms;
+}
+.uc-tile::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--uc-fg);
 }
 .uc-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px -14px rgba(10,6,32,0.14);
-  border-color: var(--indigo);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -26px color-mix(in srgb, var(--uc-fg) 62%, transparent);
+  border-color: color-mix(in srgb, var(--uc-fg) 40%, var(--line));
 }
 .uc-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--indigo-soft);
+  position: relative; z-index: 1;
+  width: 54px; height: 54px;
+  border-radius: 15px;
+  background: var(--uc-fg);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--indigo-deep);
-  flex-shrink: 0;
+  box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--uc-fg) 75%, transparent);
+  margin-bottom: 22px;
+  transition: transform 280ms cubic-bezier(.2,.7,.2,1);
 }
-.uc-icon svg { width: 26px; height: 26px; stroke-width: 1.6; }
+.uc-tile:hover .uc-icon { transform: scale(1.06) rotate(-3deg); }
+.uc-icon svg { width: 28px; height: 28px; stroke-width: 1.7; }
 .uc-name {
+  position: relative; z-index: 1;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--deep-purple);
-  margin: 0;
+  margin: 0 0 10px;
   line-height: 1.2;
 }
 .uc-desc {
+  position: relative; z-index: 1;
   font-size: 15.5px;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.62;
   margin: 0;
+  max-width: 42ch;
 }
+.uc-deco {
+  position: absolute;
+  right: -16px; bottom: -22px;
+  z-index: 0;
+  color: var(--uc-fg);
+  opacity: 0.09;
+  pointer-events: none;
+  transition: opacity 280ms ease, transform 280ms cubic-bezier(.2,.7,.2,1);
+}
+.uc-deco svg { width: 158px; height: 158px; stroke-width: 1; display: block; }
+.uc-tile:hover .uc-deco { opacity: 0.13; transform: scale(1.06) rotate(-4deg); }
 
 /* ── Case studies ── */
 .cs-grid {
@@ -160,30 +193,6 @@
   transition: transform 320ms ease;
 }
 .cs-card:hover .cs-figure img { transform: scale(1.04); }
-.cs-figure--stat {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 32px 30px;
-  background: linear-gradient(150deg, var(--deep-purple) 0%, var(--indigo) 100%);
-  color: #fff;
-}
-.cs-figure--stat .cs-stat-num {
-  font-size: 52px;
-  font-weight: 200;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 0 0 8px;
-  font-feature-settings: "tnum";
-}
-.cs-figure--stat .cs-stat-num span { color: var(--marigold); font-weight: 300; }
-.cs-figure--stat .cs-stat-lbl {
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.45;
-  margin: 0;
-  max-width: 230px;
-}
 .cs-body {
   padding: 26px 28px 28px;
   display: flex;
@@ -268,14 +277,22 @@
   padding: 5px 9px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .logo-strip.agencies .logo-track { animation: none; }
+}
 @media (max-width: 980px) {
   .gov-band { grid-template-columns: 1fr; gap: 36px; }
 }
 @media (max-width: 900px) {
-  .uc-grid { grid-template-columns: 1fr; }
   .cs-grid { grid-template-columns: 1fr; }
-  .hero .hero-stats-grid { grid-template-columns: 1fr; }
+  .us-stats-grid { grid-template-columns: 1fr; }
+  .us-stats-cell { border-right: 0; border-bottom: 1px solid rgba(45,54,166,0.14); }
+  .us-stats-cell:last-child { border-bottom: 0; }
   .gov-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .uc-grid { grid-template-columns: 1fr; }
+  .uc-tile { padding: 36px 30px 38px; }
 }
 </style>
 </head>
@@ -305,53 +322,80 @@
 <!-- ───── SECTION 1 · WHO WE ARE ───── -->
 <section id="main" class="hero hero-dark on-dark">
   <div class="container">
-    <div style="max-width:880px;">
-      <span class="eyebrow on-dark">United States</span>
-      <h1 class="hero-title">Modern digital solutions for public health and human services</h1>
-      <p class="hero-sub">We help state and local agencies improve care coordination, treatment access, and program outcomes.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk with our team</a>
-        <a class="btn btn-ghost-on-dark btn-arrow" href="#use-cases">Explore use cases</a>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow on-dark">United States</span>
+        <h1 class="hero-title">Modern digital solutions for public health and human services</h1>
+        <p class="hero-sub">We help state and local agencies improve care coordination, treatment access, and program outcomes.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk with our team</a>
+          <a class="btn btn-ghost-on-dark btn-arrow" href="#use-cases">Explore use cases</a>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-stats hero-stats--on-dark">
-      <div class="hero-stats-grid">
-        <div class="hero-stats-cell">
-          <div class="hero-stats-num">10<span>+</span></div>
-          <div class="hero-stats-lbl">States supported</div>
-        </div>
-        <div class="hero-stats-cell">
-          <div class="hero-stats-num">32,000<span>+</span></div>
-          <div class="hero-stats-lbl">Treatment admissions managed</div>
-        </div>
-        <div class="hero-stats-cell">
-          <div class="hero-stats-num">26,000<span>+</span></div>
-          <div class="hero-stats-lbl">Users on statewide systems</div>
-        </div>
+      <div class="hero-video">
+        <iframe src="https://fast.wistia.net/embed/iframe/8kp161x5zr?seo=true&videoFoam=false&playerColor=3843D0"
+                title="See how CommCare works in action"
+                allow="autoplay; fullscreen" allowfullscreen
+                scrolling="no" loading="lazy"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ───── AGENCY LOGO WALL ───── -->
-<div class="agency-band">
+<!-- ───── STATS BAND ───── -->
+<section class="us-stats" aria-label="Dimagi in the United States by the numbers">
   <div class="container">
-    <p class="agency-label">Partnering with public agencies nationwide</p>
-    <div class="agency-row">
-      <span class="agency-chip">Colorado Dept. of Public Health</span>
-      <span class="agency-chip">Colorado Behavioral Health Administration</span>
-      <span class="agency-chip">New York State Dept. of Health</span>
-      <span class="agency-chip">New Jersey Dept. of Health</span>
-      <span class="agency-chip">Alaska Public Health Nursing</span>
-      <span class="agency-chip">Vermont Agency of Human Services</span>
-      <span class="agency-chip">Indiana Dept. of Health</span>
-      <span class="agency-chip">Philadelphia Dept. of Public Health</span>
-      <span class="agency-chip">Navajo Nation</span>
-      <span class="agency-chip">City of Somerville</span>
+    <div class="us-stats-grid">
+      <div class="us-stats-cell">
+        <div class="us-stats-num">10<span>+</span></div>
+        <div class="us-stats-lbl">States supported</div>
+      </div>
+      <div class="us-stats-cell">
+        <div class="us-stats-num">32,000<span>+</span></div>
+        <div class="us-stats-lbl">Treatment admissions managed</div>
+      </div>
+      <div class="us-stats-cell">
+        <div class="us-stats-num">26,000<span>+</span></div>
+        <div class="us-stats-lbl">Users on statewide systems</div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ───── AGENCY MARQUEE ───── -->
+<section class="logo-strip agencies" aria-label="Public agencies that partner with Dimagi">
+  <div class="container">
+    <p class="logo-strip-label">Partnering with public agencies nationwide</p>
+  </div>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <div class="logo-set">
+        <span class="logo-org">Colorado Department of Public Health</span>
+        <span class="logo-org">Colorado Behavioral Health Administration</span>
+        <span class="logo-org">New York State Department of Health</span>
+        <span class="logo-org">New Jersey Department of Health</span>
+        <span class="logo-org">Alaska Department of Health</span>
+        <span class="logo-org">Vermont Agency of Human Services</span>
+        <span class="logo-org">Indiana Department of Health</span>
+        <span class="logo-org">Philadelphia Department of Public Health</span>
+        <span class="logo-org">Navajo Nation</span>
+        <span class="logo-org">City of Somerville, Massachusetts</span>
+      </div>
+      <div class="logo-set" aria-hidden="true">
+        <span class="logo-org">Colorado Department of Public Health</span>
+        <span class="logo-org">Colorado Behavioral Health Administration</span>
+        <span class="logo-org">New York State Department of Health</span>
+        <span class="logo-org">New Jersey Department of Health</span>
+        <span class="logo-org">Alaska Department of Health</span>
+        <span class="logo-org">Vermont Agency of Human Services</span>
+        <span class="logo-org">Indiana Department of Health</span>
+        <span class="logo-org">Philadelphia Department of Public Health</span>
+        <span class="logo-org">Navajo Nation</span>
+        <span class="logo-org">City of Somerville, Massachusetts</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ───── SECTION 2 · USE CASES ───── -->
 <section id="use-cases" class="section">
@@ -363,36 +407,48 @@
 
     <div class="uc-grid">
 
-      <div class="uc-tile">
+      <div class="uc-tile" style="--uc-fg:var(--indigo);">
         <span class="uc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 6.6a5.2 5.2 0 0 0-8.8-2.9 5.2 5.2 0 0 0-8.8 2.9c-.5 3 1.8 5.6 4 7.6 1.3 1.2 3 2.6 4.8 4 1.8-1.4 3.5-2.8 4.8-4 2.2-2 4.5-4.6 4-7.6Z"/><path d="M3.5 12h4l1.5-3 2.5 6 1.5-3h4"/></svg>
         </span>
         <h3 class="uc-name">Behavioral Health</h3>
         <p class="uc-desc">Treatment registries, provider directories, capacity tracking, referrals, and care coordination.</p>
+        <span class="uc-deco" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 6.6a5.2 5.2 0 0 0-8.8-2.9 5.2 5.2 0 0 0-8.8 2.9c-.5 3 1.8 5.6 4 7.6 1.3 1.2 3 2.6 4.8 4 1.8-1.4 3.5-2.8 4.8-4 2.2-2 4.5-4.6 4-7.6Z"/><path d="M3.5 12h4l1.5-3 2.5 6 1.5-3h4"/></svg>
+        </span>
       </div>
 
-      <div class="uc-tile">
+      <div class="uc-tile" style="--uc-fg:var(--purple);">
         <span class="uc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6.5" r="2.6"/><path d="M3.5 19v-2a4.5 4.5 0 0 1 9 0v2"/><circle cx="16.5" cy="9" r="2"/><path d="M14 19v-1.5a3.5 3.5 0 0 1 6.5-1.8"/></svg>
         </span>
         <h3 class="uc-name">Maternal &amp; Child Health</h3>
         <p class="uc-desc">Case management, home visiting, eligibility, screening, and reporting.</p>
+        <span class="uc-deco" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6.5" r="2.6"/><path d="M3.5 19v-2a4.5 4.5 0 0 1 9 0v2"/><circle cx="16.5" cy="9" r="2"/><path d="M14 19v-1.5a3.5 3.5 0 0 1 6.5-1.8"/></svg>
+        </span>
       </div>
 
-      <div class="uc-tile">
+      <div class="uc-tile" style="--uc-fg:var(--pink);">
         <span class="uc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 5.5v5.3c0 4.8 3.3 8.7 8 10.7 4.7-2 8-5.9 8-10.7V5.5l-8-3Z"/><path d="M12 8v6M9 11h6"/></svg>
         </span>
         <h3 class="uc-name">Public Health Response</h3>
         <p class="uc-desc">Disease investigation, outbreak response, immunization campaigns, and emergency response programs.</p>
+        <span class="uc-deco" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 5.5v5.3c0 4.8 3.3 8.7 8 10.7 4.7-2 8-5.9 8-10.7V5.5l-8-3Z"/><path d="M12 8v6M9 11h6"/></svg>
+        </span>
       </div>
 
-      <div class="uc-tile">
+      <div class="uc-tile" style="--uc-fg:var(--salmon);">
         <span class="uc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6.5 20v-7M12 20V7M17.5 20v-10"/></svg>
         </span>
         <h3 class="uc-name">Data &amp; Reporting</h3>
         <p class="uc-desc">Program monitoring, performance management, and statewide reporting.</p>
+        <span class="uc-deco" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6.5 20v-7M12 20V7M17.5 20v-10"/></svg>
+        </span>
       </div>
 
     </div>
@@ -410,16 +466,15 @@
 
     <div class="cs-grid">
 
-      <a class="cs-card" href="../../professional-services/case-studies/index.html">
-        <div class="cs-figure cs-figure--stat">
-          <p class="cs-stat-num">32,000<span>+</span></p>
-          <p class="cs-stat-lbl">Admissions managed across the statewide MAT registry</p>
+      <a class="cs-card" href="https://sites.dimagi.com/hubfs/Case%20Studies/Case%20Study%20-%20Colorado%20Behavioral%20Health%20with%20CommCare.pdf?trk=public_post_comment-text" target="_blank" rel="noopener">
+        <div class="cs-figure">
+          <img src="../../assets/images/us-health/colorado-behavioral-health.png" alt="Behavioral Health in Colorado: Putting People First — the five pillars of a strong behavioral health system" loading="lazy">
         </div>
         <div class="cs-body">
           <span class="cs-meta">Colorado &middot; Behavioral Health</span>
           <h3 class="cs-name">Colorado Behavioral Health Administration</h3>
           <p class="cs-desc">Statewide MAT registry, provider directory, capacity tracking, and referrals.</p>
-          <span class="cs-link">View case study &rarr;</span>
+          <span class="cs-link">Learn More &rarr;</span>
         </div>
       </a>
 
@@ -431,7 +486,7 @@
           <span class="cs-meta">June 2023 &middot; Vermont</span>
           <h3 class="cs-name">Vermont Emergency Housing</h3>
           <p class="cs-desc">Coordinating housing, healthcare, and social services for households experiencing homelessness across Vermont.</p>
-          <span class="cs-link">Read the story &rarr;</span>
+          <span class="cs-link">Learn More &rarr;</span>
         </div>
       </a>
 
@@ -443,7 +498,7 @@
           <span class="cs-meta">July 2025 &middot; Somerville, MA</span>
           <h3 class="cs-name">Somerville Community Health Workers</h3>
           <p class="cs-desc">Equipping community health workers to coordinate care, connect residents to services, and address social needs across the city.</p>
-          <span class="cs-link">Read the story &rarr;</span>
+          <span class="cs-link">Learn More &rarr;</span>
         </div>
       </a>
 
