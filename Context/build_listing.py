@@ -2,10 +2,13 @@
 """Rebuild podcast/index.html episode grid as the full 77-episode archive (newest first).
 Preserves the existing built cards' hand-written blurbs; adds the 64 back-catalog cards
 using each episode's editorial deck as the blurb."""
-import json, os, re, html
+import json, os, re, html, sys
 from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from podcast_tags import card_attrs, filter_bar_html, FILTER_CSS, COMBINED_JS
+
 ROOT = os.path.dirname(HERE)
 LISTING = os.path.join(ROOT, "podcast", "index.html")
 E = lambda s: html.escape(s or "", quote=False)
@@ -23,7 +26,7 @@ def trim(text, limit=210):
         return cut[:p + 1]
     return cut[:cut.rfind(" ")].rstrip(",;: ") + "."
 
-def card(num, date_label, title, blurb, href):
+def card(num, date_label, title, blurb, href, guest=None):
     # Use the episode's stylized Spotify cover when we have one; otherwise the
     # generic show cover with the play-icon overlay.
     cover_path = os.path.join(ROOT, "assets", "images", "podcast", "covers", href + ".jpg")
@@ -41,11 +44,12 @@ def card(num, date_label, title, blurb, href):
                  '              </div>\n'
                  '            </div>\n'
                  '          </div>')
-    return f'''        <article class="episode-card">
+    guest_html = f'\n            <div class="episode-guest">{guest}</div>' if guest else ""
+    return f'''        <article class="episode-card"{card_attrs(num)}>
           {thumb}
           <div class="episode-card-body">
             <div class="episode-num">Episode {num} &middot; {date_label}</div>
-            <div class="episode-title">{title}</div>
+            <div class="episode-title">{title}</div>{guest_html}
             <p style="font-size:13px;color:var(--muted);line-height:1.5;margin:0;">{blurb}</p>
             <a class="episode-link" href="{href}/index.html">Listen now</a>
           </div>
@@ -53,18 +57,25 @@ def card(num, date_label, title, blurb, href):
 
 html_doc = open(LISTING, encoding="utf-8").read()
 
-# 1) capture existing cards keyed by episode number (preserve their content verbatim)
+# 1) capture existing cards keyed by episode number (preserve their content verbatim).
+# Guest lines ("Featuring …") are hand-curated and live only on the page, so we capture
+# and reuse them for every card (both preserved and manifest-rebuilt).
 existing = {}
-for m in re.finditer(r'(?s)<article class="episode-card">.*?</article>', html_doc):
+existing_guest = {}
+for m in re.finditer(r'(?s)<article class="episode-card"[^>]*>.*?</article>', html_doc):
     block = m.group(0)
     nm = re.search(r"Episode\s+(\d+)\s*&middot;\s*([^<]+)</div>", block)
     tm = re.search(r'<div class="episode-title">(.*?)</div>', block, re.S)
     bm = re.search(r'<p style="font-size:13px[^"]*">(.*?)</p>', block, re.S)
+    gm = re.search(r'<div class="episode-guest">(.*?)</div>', block, re.S)
     hm = re.search(r'href="([^"]+)/index\.html"', block)
     if nm and tm and hm:
         n = int(nm.group(1))
+        if gm:
+            existing_guest[n] = gm.group(1).strip()
         existing[n] = card(n, nm.group(2).strip(), tm.group(1).strip(),
-                           (bm.group(1).strip() if bm else ""), hm.group(1))
+                           (bm.group(1).strip() if bm else ""), hm.group(1),
+                           guest=existing_guest.get(n))
 
 # 2) build new cards from manifest + editorial + extraction
 manifest = json.load(open(os.path.join(HERE, "podcast-build-manifest.json")))
@@ -78,7 +89,8 @@ for row in manifest:
     ed = json.load(open(edp, encoding="utf-8")) if os.path.exists(edp) else {}
     blurb = ed.get("deck") or (ep["show_notes"][0] if ep["show_notes"] else "")
     cards_by_num[row["num"]] = card(row["num"], month_year(row["date"]),
-                                    E(ep["title"]), E(trim(blurb)), slug)
+                                    E(ep["title"]), E(trim(blurb)), slug,
+                                    guest=existing_guest.get(row["num"]))
 
 # 3) first 9 (always shown) -> Meet the Hosts -> the rest behind a "More Episodes" button
 nums = sorted(cards_by_num, reverse=True)
@@ -118,15 +130,14 @@ hosts_section = '''  <!-- Meet the Hosts -->
 
 full_block = (
     '<div class="episodes-grid">\n\n' + grid1 +
-    '\n\n      </div>\n    </div>\n  </section>\n\n' +
-    hosts_section + '\n\n'
+    '\n\n      </div>\n    </div>\n  </section>\n\n'
     '  <!-- More Episodes -->\n'
     '  <section class="section more-section">\n'
     '    <div class="container">\n'
     '      <div class="episodes-grid" id="more-grid">\n\n' + grid2 +
     '\n\n      </div>\n'
     '      <div class="more-wrap">\n'
-    '        <button type="button" id="more-episodes-btn" class="btn btn-indigo btn-arrow">More Episodes</button>\n'
+    '        <button type="button" id="more-episodes-btn" class="btn btn-arrow">Load More Episodes</button>\n'
     '      </div>\n'
     '    </div>\n  </section>')
 
@@ -143,6 +154,26 @@ html_doc = html_doc.replace("<h2 class=\"section-title\">Latest conversations</h
 html_doc = html_doc.replace(
     "Browse the most recent episodes of High Impact Growth, with the full archive on dimagi.com.",
     "The complete High Impact Growth archive, from the first episode to the latest.")
+
+# 5) Ensure a single standalone "Meet the hosts" section sits before the archive.
+#    (The splice rebuilds only the grids/more-section, so a pre-existing standalone hosts
+#    section is preserved and must NOT be re-emitted between the grids.)
+if '<section class="section hosts-section">' not in html_doc:
+    html_doc = html_doc.replace('<section class="section archive-section">',
+                                hosts_section + '\n\n  <section class="section archive-section">', 1)
+
+# 6) Ensure the filter feature is present (idempotent; cards above already carry data-attrs).
+if "/* ── Episode filters ── */" not in html_doc:                      # filter CSS in <head>
+    html_doc = html_doc.replace("<style>\n/* ── Podcast page ── */",
+                                "<style>\n/* ── Podcast page ── */\n" + FILTER_CSS, 1)
+if 'class="pod-filters"' not in html_doc:                              # filter bar before first grid
+    html_doc = html_doc.replace('      <div class="episodes-grid">',
+                                filter_bar_html() + '\n\n      <div class="episodes-grid">', 1)
+if "Episode archive: lazy-reveal" not in html_doc:                     # combined reveal+filter JS
+    html_doc, n_js = re.subn(r'(?s)<script>\s*\n/\* "Load More Episodes".*?</script>',
+                             COMBINED_JS, html_doc, count=1)
+    if n_js == 0:
+        html_doc = html_doc.replace("</body>", COMBINED_JS + "\n</body>", 1)
 
 open(LISTING, "w", encoding="utf-8").write(html_doc)
 print(f"listing rebuilt: {len(cards_by_num)} cards ({len(existing)} existing preserved, "

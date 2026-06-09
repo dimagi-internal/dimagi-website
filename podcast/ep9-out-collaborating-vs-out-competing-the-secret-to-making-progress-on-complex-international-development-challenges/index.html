@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
 <link rel="stylesheet" href="../../assets/article.css?v=3">
 <style>
 /* ============================================================
@@ -89,6 +89,33 @@ h1.ep-title {
   margin-bottom: 24px;
 }
 .ep-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(254,175,49,0.6); }
+
+/* ---- Topic tags ---- */
+.ep-tags {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 22px 0 0; padding: 0; position: relative; z-index: 1;
+}
+.ep-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 14px; border-radius: 999px;
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.02em; line-height: 1;
+  color: rgba(255,255,255,0.82);
+  border: 1px solid rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.05);
+  transition: background 150ms, border-color 150ms, color 150ms;
+}
+.ep-tag:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.42); color: #fff; }
+.ep-tag::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor; opacity: 0.65; flex-shrink: 0;
+}
+.ep-tag--product {
+  color: #6fe3d6; border-color: rgba(13,168,157,0.55); background: rgba(13,168,157,0.12);
+}
+.ep-tag--product:hover { background: rgba(13,168,157,0.22); border-color: rgba(13,168,157,0.8); color: #aef3ea; }
+.ep-tag--theme { color: rgba(255,255,255,0.66); background: transparent; }
+
 
 /* ---- Player (in hero) ---- */
 .ep-hero-player {
@@ -352,6 +379,10 @@ html { scroll-behavior: smooth; }
         </div>
         <h1 class="ep-title">Out-collaborating vs Out-competing: The Secret to Making Progress on Complex International Development Challenges with Gillian Javetski</h1>
         <p class="ep-deck">Dimagi Chief of Staff Gillian Javetski joins Jonathan Jackson to unpack why global health and development reward out-collaborating over out-competing, and what separates good collaboration from bad.</p>
+
+        <ul class="ep-tags" aria-label="Topics">
+          <li><a class="ep-tag ep-tag--theme" href="../index.html?theme=global-development">Global Development</a></li>
+        </ul>
       </div>
 
       <div class="ep-hero-player" id="listen">
@@ -603,6 +634,22 @@ html { scroll-behavior: smooth; }
       <div class="footer-brand">
         <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
         <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
@@ -629,21 +676,24 @@ html { scroll-behavior: smooth; }
           <li><a href="../../company/about/index.html">About Us</a></li>
           <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
           <li><a href="../../blog/index.html">Blog</a></li>
-          <li><a href="../index.html">Podcast</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
           <li><a href="../../company/careers/index.html">Careers</a></li>
           <li><a href="../../awards/index.html">Awards</a></li>
-          <li><a href="../../contact/index.html">Contact Us</a></li>
           <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
-          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
-          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
-          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
         </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -651,9 +701,10 @@ html { scroll-behavior: smooth; }
       <div class="footer-legal">
         <a href="../../legal/privacy-policy/index.html">Privacy</a>
         <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/business-agreement/index.html">Business Agreement</a>
         <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
-        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
-        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>

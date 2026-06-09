@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://boards-api.greenhouse.io" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
 <style>
 /* ── Careers page ── */
 
@@ -198,41 +198,27 @@
   margin: 0;
 }
 
-/* Life at Dimagi — scrolling quotes carousel */
-.quotes-carousel { position: relative; margin-top: 16px; }
-.quotes-track {
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  padding: 4px 4px 18px;
-  margin: 0 -4px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Life at Dimagi — quotes + team photos collage */
+.life-collage {
+  columns: 3;
+  column-gap: 22px;
+  margin-top: 28px;
 }
-.quotes-track::-webkit-scrollbar { display: none; }
-.quotes-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--line);
-  color: var(--indigo);
-  font-size: 22px;
-  line-height: 1;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 14px 30px -14px rgba(10,6,32,0.22);
-  transition: transform 160ms, box-shadow 160ms, border-color 160ms, opacity 160ms;
-  z-index: 3;
+.life-collage > * {
+  break-inside: avoid;
+  margin: 0 0 22px;
+  width: 100%;
 }
-.quotes-nav:hover { border-color: var(--indigo-soft); box-shadow: 0 18px 38px -16px rgba(10,6,32,0.28); }
-.quotes-nav.prev { left: -8px; }
-.quotes-nav.next { right: -8px; }
-.quotes-nav:disabled { opacity: 0; pointer-events: none; }
+.life-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--indigo-soft);
+  aspect-ratio: 4 / 3;
+  display: block;
+}
+.life-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(.2,.7,.2,1); }
+.life-photo:hover img { transform: scale(1.04); }
 .life-card {
-  flex: 0 0 clamp(300px, 42%, 460px);
   background: var(--paper-warm);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -267,32 +253,79 @@
 .life-card-name { font-size: 15px; font-weight: 600; color: var(--ink); margin: 0; letter-spacing: -0.01em; }
 .life-card-role { font-size: 13px; color: var(--muted); margin: 2px 0 0; }
 
-/* Day-in-the-life stories sub-block */
-.stories-block { margin-top: 64px; }
-.stories-head {
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-align: center;
-  margin: 0 0 8px;
+/* Day in the life — standalone dark band */
+.day-section {
+  padding: 86px 0 96px;
+  background: var(--ink);
+  background-image: var(--grad-deep);
+  position: relative;
+  overflow: hidden;
 }
-.stories-sub {
-  text-align: center;
-  font-size: 15.5px;
-  color: var(--muted);
-  margin: 0 auto 28px;
-  max-width: 560px;
-  line-height: 1.6;
+.day-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(46% 72% at 100% 0%, rgba(56,67,208,0.40), transparent 64%),
+    radial-gradient(42% 70% at 0% 100%, rgba(142,161,255,0.13), transparent 70%);
+  pointer-events: none;
 }
-.stories-cta { display: flex; justify-content: center; margin-top: 36px; }
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.day-section > * { position: relative; z-index: 1; }
+.day-head {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.day-head .eyebrow { justify-content: center; color: rgba(142,161,255,0.9); }
+.day-head .eyebrow::before { background: rgba(142,161,255,0.65); }
+.day-head .section-title {
+  color: var(--paper);
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+}
+.day-head .section-lede {
+  color: rgba(255,255,255,0.72);
+  font-size: 17px;
+  max-width: none;
+  margin: 0;
+}
+/* Full-bleed scroller — cards run across the whole screen */
+.day-carousel { position: relative; margin-top: 36px; }
+.day-track {
+  display: flex;
   gap: 22px;
-  margin-top: 0;
+  overflow-x: auto;
+  padding: 6px max(24px, calc((100% - 1200px) / 2 + 32px)) 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+.day-track::-webkit-scrollbar { display: none; }
+.day-carousel .stories-nav {
+  position: absolute;
+  top: calc(50% - 5px);
+  transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.32);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 16px 34px -16px rgba(0,0,0,0.55);
+  transition: transform 160ms, background 160ms, border-color 160ms, opacity 200ms;
+  z-index: 3;
+}
+.day-carousel .stories-nav:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.55); }
+.day-carousel .stories-nav.prev { left: max(14px, calc((100% - 1200px) / 2 - 6px)); }
+.day-carousel .stories-nav.next { right: max(14px, calc((100% - 1200px) / 2 - 6px)); }
+.day-carousel .stories-nav:disabled { opacity: 0; pointer-events: none; }
 .story-card {
+  flex: 0 0 clamp(260px, 80vw, 320px);
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -339,37 +372,14 @@
 }
 .story-card:hover .story-card-link { gap: 11px; }
 
-/* One Dimagi photo mosaic (merged into Life at Dimagi) */
-.one-dimagi-block { margin-top: 72px; }
-.one-dimagi-lede {
-  max-width: 680px;
-  margin: 0 auto 28px;
-  text-align: center;
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.mosaic {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.mosaic figure {
-  margin: 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--indigo-soft);
-  aspect-ratio: 4 / 3;
-}
-.mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(.2,.7,.2,1); }
-.mosaic figure:hover img { transform: scale(1.04); }
-
 /* Awards */
+.awards-section { padding: 88px 0; }
+.awards-section .section-head { margin-bottom: 38px; }
 .awards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 16px;
+  gap: 18px;
+  margin-top: 8px;
 }
 .award-card {
   display: flex;
@@ -377,34 +387,34 @@
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 34px 32px 30px;
+  padding: 26px 26px 24px;
   text-decoration: none;
   color: inherit;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
 .award-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px -20px rgba(10,6,32,0.18); border-color: var(--indigo-soft); }
 .award-logo {
-  height: 88px;
+  height: 54px;
   display: flex; align-items: center; justify-content: flex-start;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
-.award-logo img { max-height: 88px; max-width: 150px; width: auto; object-fit: contain; }
+.award-logo img { max-height: 54px; max-width: 138px; width: auto; object-fit: contain; }
 .award-logo.dark {
   background: var(--deep-purple);
   border-radius: var(--radius);
-  padding: 14px 20px;
+  padding: 10px 16px;
   align-self: flex-start;
 }
 .award-logo.icon {
-  width: 64px; height: 64px;
-  border-radius: 16px;
+  width: 52px; height: 52px;
+  border-radius: 14px;
   background: linear-gradient(155deg, var(--marigold) 0%, var(--mango) 100%);
   align-items: center; justify-content: center;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
-.award-logo.icon svg { width: 30px; height: 30px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.award-title { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 8px; }
-.award-desc { font-size: 14.5px; color: var(--muted); line-height: 1.6; margin: 0 0 18px; }
+.award-logo.icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.award-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 6px; }
+.award-desc { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
 .award-link {
   margin-top: auto;
   font-family: var(--mono);
@@ -554,7 +564,6 @@
 
 @media (max-width: 1000px) {
   .values-teaser-grid { grid-template-columns: repeat(3, 1fr); }
-  .story-grid { grid-template-columns: 1fr 1fr; }
   .jobs-toolbar { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
@@ -565,13 +574,14 @@
   .awards-grid { grid-template-columns: 1fr; }
   .intro-videos { grid-template-columns: 1fr; }
   .careers-subnav-links { display: none; }
-  .mosaic { grid-template-columns: repeat(2, 1fr); }
-  .quotes-nav { display: none; }
+  .life-collage { columns: 2; }
+  .day-carousel .stories-nav { display: none; }
+  .day-track { padding-left: 24px; padding-right: 24px; }
 }
 @media (max-width: 600px) {
   .values-teaser-grid { grid-template-columns: 1fr; }
   .benefits-grid { grid-template-columns: 1fr; }
-  .story-grid { grid-template-columns: 1fr; }
+  .life-collage { columns: 1; }
   .jobs-toolbar { grid-template-columns: 1fr; }
 }
 </style>
@@ -805,112 +815,149 @@
         <h2 class="section-title">Come for the mission. Stay for the team.</h2>
         <p class="section-lede">Our team spans the globe, but a shared commitment to impact and to each other shows up everywhere we work.</p>
       </div>
-      <!-- Scrolling quotes -->
-      <div class="quotes-carousel">
-        <button type="button" class="quotes-nav prev" id="quotesPrev" aria-label="Previous quotes">&lsaquo;</button>
-        <div class="quotes-track" id="quotesTrack" tabindex="0" role="group" aria-label="Quotes from the Dimagi team (scrollable)">
+      <!-- Quotes + team photos collage — quotes interspersed among the photos -->
+      <div class="life-collage">
 
-          <div class="life-card">
-            <p class="life-card-quote">"Dimagi strikes a perfect balance between hard work and fun, displaying unwavering adherence to their core values: Impact &gt; Team &gt; Profit. Working at Dimagi is an absolute delight and has immensely helped me grow both professionally and personally."</p>
-            <div class="life-card-person">
-              <img class="life-card-photo" src="../../assets/images/team/anamika-verma.jpg" alt="Anamika Verma" loading="lazy">
-              <div>
-                <p class="life-card-name">Anamika Verma</p>
-                <p class="life-card-role">Operations and Partnerships</p>
-              </div>
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-2.jpg" alt="Dimagi team members together" loading="lazy"></figure>
+
+        <div class="life-card">
+          <p class="life-card-quote">"Dimagi strikes a perfect balance between hard work and fun, displaying unwavering adherence to their core values: Impact &gt; Team &gt; Profit. Working at Dimagi is an absolute delight and has immensely helped me grow both professionally and personally."</p>
+          <div class="life-card-person">
+            <img class="life-card-photo" src="../../assets/images/team/anamika-verma.jpg" alt="Anamika Verma" loading="lazy">
+            <div>
+              <p class="life-card-name">Anamika Verma</p>
+              <p class="life-card-role">Operations and Partnerships</p>
             </div>
           </div>
+        </div>
 
-          <div class="life-card">
-            <p class="life-card-quote">"To work at Dimagi gives me the opportunity to collaborate with people who share a vision to empower. I am so lucky to wake up motivated, inspired, and proud about our work and our culture, everyday."</p>
-            <div class="life-card-person">
-              <img class="life-card-photo" src="../../assets/images/team/anita-kruger.jpg" alt="Anita Kruger" loading="lazy">
-              <div>
-                <p class="life-card-name">Anita Kruger</p>
-                <p class="life-card-role">Partnerships Manager</p>
-              </div>
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-3.jpg" alt="Dimagi team gathering" loading="lazy"></figure>
+
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-4.jpg" alt="Dimagi staff celebrating together" loading="lazy"></figure>
+
+        <div class="life-card">
+          <p class="life-card-quote">"To work at Dimagi gives me the opportunity to collaborate with people who share a vision to empower. I am so lucky to wake up motivated, inspired, and proud about our work and our culture, everyday."</p>
+          <div class="life-card-person">
+            <img class="life-card-photo" src="../../assets/images/team/anita-kruger.jpg" alt="Anita Kruger" loading="lazy">
+            <div>
+              <p class="life-card-name">Anita Kruger</p>
+              <p class="life-card-role">Partnerships Manager</p>
             </div>
           </div>
+        </div>
 
-          <div class="life-card">
-            <p class="life-card-quote">"I love the people at Dimagi! You can be the most talented individual and even manage to accomplish great things on your own, but without a good team supporting and pushing things forward with you, the impact won't be the same. Team work makes the dream work."</p>
-            <div class="life-card-person">
-              <img class="life-card-photo" src="../../assets/images/team/yomila-simoes.jpg" alt="Yomila Simoes" loading="lazy">
-              <div>
-                <p class="life-card-name">Yomila Simoes</p>
-                <p class="life-card-role">Senior Project Analyst</p>
-              </div>
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-5.jpg" alt="Dimagi team event" loading="lazy"></figure>
+
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-6.jpg" alt="Dimagi team members at an offsite" loading="lazy"></figure>
+
+        <div class="life-card">
+          <p class="life-card-quote">"I love the people at Dimagi! You can be the most talented individual and even manage to accomplish great things on your own, but without a good team supporting and pushing things forward with you, the impact won't be the same. Team work makes the dream work."</p>
+          <div class="life-card-person">
+            <img class="life-card-photo" src="../../assets/images/team/yomila-simoes.jpg" alt="Yomila Simoes" loading="lazy">
+            <div>
+              <p class="life-card-name">Yomila Simoes</p>
+              <p class="life-card-role">Senior Project Analyst</p>
             </div>
           </div>
+        </div>
 
-        </div>
-        <button type="button" class="quotes-nav next" id="quotesNext" aria-label="More quotes">&rsaquo;</button>
-      </div>
+        <figure class="life-photo"><img src="../../assets/images/careers/one-dimagi-1.jpg" alt="Dimagi colleagues collaborating" loading="lazy"></figure>
 
-      <!-- One Dimagi photo mosaic (merged in) -->
-      <div class="one-dimagi-block">
-        <p class="one-dimagi-lede">"Lead with empathy and respect" is a core value at Dimagi. It shapes how we collaborate across every time zone, and how we show up for one another as one team.</p>
-        <div class="mosaic">
-          <figure><img src="../../assets/images/careers/one-dimagi-2.jpg" alt="Dimagi team members together" loading="lazy"></figure>
-          <figure><img src="../../assets/images/careers/one-dimagi-3.jpg" alt="Dimagi team gathering" loading="lazy"></figure>
-          <figure><img src="../../assets/images/careers/one-dimagi-4.jpg" alt="Dimagi staff celebrating together" loading="lazy"></figure>
-          <figure><img src="../../assets/images/careers/one-dimagi-5.jpg" alt="Dimagi team event" loading="lazy"></figure>
-          <figure><img src="../../assets/images/careers/one-dimagi-6.jpg" alt="Dimagi team members at an offsite" loading="lazy"></figure>
-          <figure><img src="../../assets/images/careers/one-dimagi-1.jpg" alt="Dimagi colleagues collaborating" loading="lazy"></figure>
-        </div>
-      </div>
-
-      <!-- Day in the life / career journeys -->
-      <div class="stories-block">
-        <h3 class="stories-head">A day in the life at Dimagi</h3>
-        <p class="stories-sub">Real stories from across our teams on what it is like to build a career here.</p>
-        <div class="story-grid">
-          <a class="story-card" href="../../blog/career-journey-of-simon-kelly/index.html">
-            <div class="story-card-img"><img src="../../assets/images/career-journey-of-simon-kelly/cover.jpg" alt="Career Journey of Simon Kelly" loading="lazy"></div>
-            <div class="story-card-body">
-              <div class="story-card-date">December 2023</div>
-              <h3 class="story-card-title">Career Journey of Simon Kelly</h3>
-              <p class="story-card-desc">From first role to global impact, Simon Kelly on the path his career has taken at Dimagi.</p>
-              <span class="story-card-link">Read more &rarr;</span>
-            </div>
-          </a>
-          <a class="story-card" href="../../blog/career-journey-of-julia-fuller/index.html">
-            <div class="story-card-img"><img src="../../assets/images/career-journey-of-julia-fuller/cover.jpg" alt="Career Journey of Julia Fuller" loading="lazy"></div>
-            <div class="story-card-body">
-              <div class="story-card-date">November 2023</div>
-              <h3 class="story-card-title">Career Journey of Julia Fuller</h3>
-              <p class="story-card-desc">A community health professional on her journey, the challenges she faced, and advice for growing.</p>
-              <span class="story-card-link">Read more &rarr;</span>
-            </div>
-          </a>
-          <a class="story-card" href="../../blog/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/index.html">
-            <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/cover.jpg" alt="A Day in the Life of Themba Nyirenda" loading="lazy"></div>
-            <div class="story-card-body">
-              <div class="story-card-date">July 2023</div>
-              <h3 class="story-card-title">A Day in the Life of Themba Nyirenda</h3>
-              <p class="story-card-desc">Inside Dimagi's Solutions Division through the eyes of a Senior Technical Project Analyst.</p>
-              <span class="story-card-link">Read more &rarr;</span>
-            </div>
-          </a>
-          <a class="story-card" href="../../blog/a-day-in-the-life-of-dhivya-sivaramakrishnan/index.html">
-            <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-dhivya-sivaramakrishnan/cover.jpg" alt="A Day in the Life of Dhivya Sivaramakrishnan" loading="lazy"></div>
-            <div class="story-card-body">
-              <div class="story-card-date">June 2023</div>
-              <h3 class="story-card-title">A Day in the Life of Dhivya Sivaramakrishnan</h3>
-              <p class="story-card-desc">A Project Manager in our India Division on what a typical day really looks like.</p>
-              <span class="story-card-link">Read more &rarr;</span>
-            </div>
-          </a>
-        </div>
-        <div class="stories-cta">
-          <a class="btn btn-indigo btn-arrow" href="../../blog/?series=careers">Explore more day-in-the-life stories</a>
-        </div>
       </div>
     </div>
   </section>
 
+  <!-- A day in the life — standalone dark, full-bleed story band -->
+  <section class="section day-section">
+    <div class="container">
+      <div class="section-head centered day-head">
+        <span class="eyebrow">A day in the life</span>
+        <h2 class="section-title">What a career here really looks like</h2>
+        <p class="section-lede">Real stories from across our teams on what it is like to build a career at Dimagi.</p>
+      </div>
+    </div>
+    <div class="day-carousel">
+      <button type="button" class="stories-nav prev" id="storiesPrev" aria-label="Previous stories">&lsaquo;</button>
+      <div class="day-track" id="storiesTrack" tabindex="0" role="group" aria-label="Day-in-the-life stories (scrollable)">
+            <a class="story-card" href="../../blog/career-journey-of-simon-kelly/index.html">
+              <div class="story-card-img"><img src="../../assets/images/career-journey-of-simon-kelly/cover.jpg" alt="Career Journey of Simon Kelly" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">December 2023</div>
+                <h3 class="story-card-title">Career Journey of Simon Kelly</h3>
+                <p class="story-card-desc">From first role to global impact, Simon Kelly on the path his career has taken at Dimagi.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/career-journey-of-julia-fuller/index.html">
+              <div class="story-card-img"><img src="../../assets/images/career-journey-of-julia-fuller/cover.jpg" alt="Career Journey of Julia Fuller" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">November 2023</div>
+                <h3 class="story-card-title">Career Journey of Julia Fuller</h3>
+                <p class="story-card-desc">A community health professional on her journey, the challenges she faced, and advice for growing.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/a-day-in-the-life-of-charles-aphrem/index.html">
+              <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-charles-aphrem/cover.jpg" alt="A Day in the Life of Charles Aphrem" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">September 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Charles Aphrem</h3>
+                <p class="story-card-desc">A Project Analyst on our India Division Delivery team on blending skills and passion for impact.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/a-day-in-the-life-of-aubrey-chirwa-senior-technical-project-analyst-solutions-division/index.html">
+              <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-aubrey-chirwa-senior-technical-project-analyst-solutions-division/cover.png" alt="A Day in the Life of Aubrey Chirwa" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">August 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Aubrey Chirwa</h3>
+                <p class="story-card-desc">A Senior Technical Project Analyst on life with the Solutions Division Delivery team.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/index.html">
+              <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/cover.jpg" alt="A Day in the Life of Themba Nyirenda" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">July 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Themba Nyirenda</h3>
+                <p class="story-card-desc">Inside Dimagi's Solutions Division through the eyes of a Senior Technical Project Analyst.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/a-day-in-the-life-of-dhivya-sivaramakrishnan/index.html">
+              <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-dhivya-sivaramakrishnan/cover.jpg" alt="A Day in the Life of Dhivya Sivaramakrishnan" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">June 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Dhivya Sivaramakrishnan</h3>
+                <p class="story-card-desc">A Project Manager in our India Division on what a typical day really looks like.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/a-day-in-the-life-of-wouter-vink/index.html">
+              <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-wouter-vink/cover.jpeg" alt="A Day in the Life of Wouter Vink" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">May 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Wouter Vink</h3>
+                <p class="story-card-desc">The Director of Solutions Delivery on the consulting work behind our Solutions team.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+            <a class="story-card" href="../../blog/day-in-the-life-of-namrata-tomar-project-manager-solutions-division/index.html">
+              <div class="story-card-img"><img src="../../assets/images/day-in-the-life-of-namrata-tomar-project-manager-solutions-division/cover.jpg" alt="A Day in the Life of Namrata Tomar" loading="lazy"></div>
+              <div class="story-card-body">
+                <div class="story-card-date">May 2023</div>
+                <h3 class="story-card-title">A Day in the Life of Namrata Tomar</h3>
+                <p class="story-card-desc">A Project Manager in our Solutions Division on her experience and a typical day.</p>
+                <span class="story-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+      </div>
+      <button type="button" class="stories-nav next" id="storiesNext" aria-label="More stories">&rsaquo;</button>
+    </div>
+  </section>
+
   <!-- Awards -->
-  <section class="section cool">
+  <section class="section cool awards-section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Awards &amp; Recognition</span>
@@ -1026,6 +1073,22 @@
       <div class="footer-brand">
         <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
         <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
@@ -1054,18 +1117,22 @@
           <li><a href="../../blog/index.html">Blog</a></li>
           <li><a href="../../podcast/index.html">Podcast</a></li>
           <li><a href="../../company/careers/index.html">Careers</a></li>
-          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../awards/index.html">Awards</a></li>
           <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
-          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
-          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
-          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
         </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1073,9 +1140,10 @@
       <div class="footer-legal">
         <a href="../../legal/privacy-policy/index.html">Privacy</a>
         <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/business-agreement/index.html">Business Agreement</a>
         <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
-        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
-        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>
@@ -1083,15 +1151,18 @@
 </footer>
 <script src="../../assets/js/nav.js?v=6"></script>
 <script>
-/* ── Life at Dimagi: scrolling quotes ── */
+/* ── Day-in-the-life: horizontal scroller (smooth, eased click-through) ── */
 (function () {
-  var track = document.getElementById('quotesTrack');
-  var prev = document.getElementById('quotesPrev');
-  var next = document.getElementById('quotesNext');
+  var track = document.getElementById('storiesTrack');
+  var prev = document.getElementById('storiesPrev');
+  var next = document.getElementById('storiesNext');
   if (!track || !prev || !next) return;
 
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var raf = null;
+
   function step() {
-    var card = track.querySelector('.life-card');
+    var card = track.querySelector('.story-card');
     return card ? card.getBoundingClientRect().width + 22 : track.clientWidth * 0.8;
   }
   function maxScroll() { return track.scrollWidth - track.clientWidth; }
@@ -1099,9 +1170,23 @@
     prev.disabled = track.scrollLeft <= 1;
     next.disabled = track.scrollLeft >= maxScroll() - 1;
   }
+  function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function animateTo(target, duration) {
+    if (raf) cancelAnimationFrame(raf);
+    var start = track.scrollLeft, change = target - start, t0 = null;
+    function frame(now) {
+      if (t0 === null) t0 = now;
+      var p = Math.min(1, (now - t0) / duration);
+      track.scrollLeft = start + change * easeInOutCubic(p);
+      update();
+      raf = p < 1 ? requestAnimationFrame(frame) : null;
+    }
+    raf = requestAnimationFrame(frame);
+  }
   function go(delta) {
-    track.scrollLeft = Math.max(0, Math.min(track.scrollLeft + delta, maxScroll()));
-    update();
+    var target = Math.max(0, Math.min(track.scrollLeft + delta, maxScroll()));
+    if (reduce) { track.scrollLeft = target; update(); }
+    else animateTo(target, 640);
   }
   prev.addEventListener('click', function () { go(-step()); });
   next.addEventListener('click', function () { go(step()); });

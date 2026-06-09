@@ -10,13 +10,17 @@ import json, os, re, html, sys
 from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from podcast_tags import chip_row, with_chip_css
+
 ROOT = os.path.dirname(HERE)  # Dimagi Pre-Login/
 TEMPLATE = os.path.join(ROOT, "podcast", "ep-78-what-makes-a-dollar-matter-lessons-from-coefficient-giving", "index.html")
 TRANSCRIPT_MIN = 15
 BRAND = "High-Impact Growth"
 
 _tpl = open(TEMPLATE, encoding="utf-8").read()
-STYLE = "<style>" + re.search(r"(?is)<style>(.*?)</style>", _tpl).group(1) + "</style>"
+# Fold the canonical episode-tag CSS into the shared <style> (idempotent, deduped).
+STYLE = with_chip_css("<style>" + re.search(r"(?is)<style>(.*?)</style>", _tpl).group(1) + "</style>")
 FOOTER = re.search(r"(?is)(<footer>.*?</footer>)", _tpl).group(1)
 
 NAV = '''<div class="nav-wrap">
@@ -277,7 +281,7 @@ def build(ep, ed):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
 <link rel="stylesheet" href="../../assets/article.css?v=3">
 {STYLE}
 </head>
@@ -296,7 +300,7 @@ def build(ep, ed):
           {meta_html}
         </div>
         <h1 class="ep-title">{E(title)}</h1>
-        <p class="ep-deck">{E(deck)}</p>
+        <p class="ep-deck">{E(deck)}</p>{chip_row(num)}
       </div>
 {hero_player}
     </div>
@@ -347,7 +351,7 @@ def build(ep, ed):
 </main>
 
 {FOOTER}
-<script src="../../assets/js/nav.js?v=4"></script>
+<script src="../../assets/js/nav.js?v=6"></script>
 </body>
 </html>
 '''

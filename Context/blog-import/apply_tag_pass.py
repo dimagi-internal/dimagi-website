@@ -8,10 +8,13 @@
 #   - removes the now-empty "None" chips from the Focus and Type filter rows (Geography keeps None)
 # Rules: every blog must have a Focus (CommCare/Connect/SureAdhere/Open Chat Studio/Company/
 # Ecosystem) and a Type; Geography is optional. Run:  python3 Context/blog-import/apply_tag_pass.py
-import re, os
+import re, os, sys, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from consolidation_maps import resolve_country, resolve_topic
 
 ROOT = "/Users/gillianjavetski/Documents/Gillian Coding/Pre-Login Websites/Dimagi Pre-Login"
 IDX  = os.path.join(ROOT, "blog", "index.html")
+SEO  = json.load(open(os.path.join(ROOT, "Context/blog-import/seo_tags.json")))
 PRODUCTS = {'CommCare','Connect','SureAdhere','Open Chat Studio'}
 TOPICS   = {'Company','Dimagi','Ecosystem'}   # 'Company' kept to read old cards; canonical label is now 'Dimagi'
 
@@ -178,25 +181,31 @@ def rewrite_card(m):
     ctype = TYPE_OVERRIDE.get(slug, ctype)
     if ctype == 'Product Update': ctype = 'Announcement'   # Product Update type retired -> Announcement
     if ctype == 'Perspective': ctype = 'Reflections'       # round 5: 'Perspective' type relabeled 'Reflections'
-    geo = GEO_OVERRIDE.get(slug, a.get('country','None'))
-    if geo == 'India': geo = 'None'   # India merged into Asia; keep-list already set to Asia above
-    final[slug] = (focus, ctype, geo)
+    # Country is now the SPECIFIC country (same resolver as the article "Filed under" below),
+    # NOT a region — drives the listing's Country dropdown. Continent-only / multi-country -> 'None'.
+    se = SEO.get(slug, {})
+    country = resolve_country(slug, a.get('country', 'None'), se.get('seo1', ''), se.get('seo2', ''), title) or 'None'
+    final[slug] = (focus, ctype, country, title)
     product = focus if focus in PRODUCTS else 'None'
-    topic   = focus if focus in TOPICS else 'None'
-    country = geo if geo_ok(geo) else 'None'
+    dtopic  = focus if focus in TOPICS else 'None'
+    # Solutions/sector tag for the listing's Focus dropdown — same resolver the article
+    # "Filed under" uses below, so card filter data and the per-article tag stay in sync.
+    sector = (resolve_topic(slug, se.get('seo1', ''), se.get('seo2', '')) or 'None').replace('&', '&amp;')
     block = re.sub(r'<article class="blog-card"[^>]*>',
-        f'<article class="blog-card" data-product="{product}" data-type="{ctype}" data-topic="{topic}" data-country="{country}">', block, count=1)
-    # Focus + Type badges over the card image (idempotent: handles old single-category or new wrapper form)
-    badges = (f'<div class="blog-card-tags"><span class="blog-card-category">{focus}</span>'
-              f'<span class="blog-card-type">{ctype}</span></div>')
-    block = re.sub(r'<div class="blog-card-tags">.*?</div>', '<<B>>', block, count=1, flags=re.S)
-    if '<<B>>' not in block:
-        block = re.sub(r'<div class="blog-card-category">[^<]*</div>', '<<B>>', block, count=1)
-    block = block.replace('<<B>>', badges)
+        f'<article class="blog-card" data-product="{product}" data-type="{ctype}" data-topic="{dtopic}" data-country="{country}" data-sector="{sector}">', block, count=1)
+    # card badges removed: Focus/Type now live only in the filter bar, not on each card
+    block = re.sub(r'[ \t]*<div class="blog-card-tags">.*?</div>\n', '', block, count=1, flags=re.S)
     return block
 
 idx, ncards = re.subn(r'<article class="blog-card".*?</article>', rewrite_card, idx, flags=re.S)
-# drop now-empty None chips from Focus + Type rows (Geography keeps None)
+# Geography is no longer a filter: remove the whole Geography row and drop the country
+# dimension from the filter JS (idempotent — no-ops once already removed).
+idx = re.sub(r'[ \t]*<div class="filter-row">\s*<span class="filter-label">Geography</span>.*?</div>\s*</div>\n',
+             '', idx, flags=re.S)
+idx = idx.replace("var DIMS = ['focus', 'type', 'country'];", "var DIMS = ['focus', 'type'];")
+idx = idx.replace("var active = { focus: 'all', type: 'all', country: 'all' };",
+                  "var active = { focus: 'all', type: 'all' };")
+# drop now-empty None chips from Focus + Type rows
 for dim in ('focus','type'):
     idx = re.sub(r'\n\s*<button type="button" class="blog-filter" data-dim="'+dim+r'" data-filter="None"[^>]*>None</button>','', idx)
 # retired chips: Ecosystem (Focus row), India (Geography row, merged into Asia), Product Update (Type row)
@@ -219,7 +228,7 @@ idx = idx.replace("var FOCUS_TOPICS = { 'Company': 1, 'Ecosystem': 1 };", "var F
 open(IDX,'w',encoding='utf-8').write(idx)
 
 arts = 0
-for slug,(focus,ctype,geo) in final.items():
+for slug,(focus,ctype,country,title) in final.items():
     fp = os.path.join(ROOT,"blog",slug,"index.html")
     if not os.path.exists(fp): continue
     h = open(fp,encoding='utf-8').read()
@@ -234,14 +243,15 @@ for slug,(focus,ctype,geo) in final.items():
         tm = re.search(r'<h1 class="article-title">(.*?)</h1>', h, re.S)
         crumb = re.sub(r'<[^>]+>', '', tm.group(1)).strip() if tm else focus
         h = h.replace(bm.group(0), re.sub(r'<span>[^<]*</span>', lambda _m: f'<span>{crumb}</span>', bm.group(0), count=1), 1)
+    # "Filed under" is now exactly Focus, Type, Country (specific), Solutions tag — the old
+    # continent + both SEO tags + any leftover topical tags are dropped.
+    s = SEO.get(slug, {})
+    # country already resolved (specific) into final[] by rewrite_card above
+    topic   = resolve_topic(slug, s.get('seo1',''), s.get('seo2',''))
     fm = re.search(r'(<div class="article-tags">)(.*?)(</div>)', h, re.S)
     if fm:
-        existing = [e.strip() for e in re.findall(r'<span class="article-tag">(.*?)</span>', fm.group(2), re.S)
-                    if e.strip().lower() not in MANAGED]
-        lead = [focus, ctype] + ([geo] if geo_ok(geo) else [])
-        seen = set(x.lower() for x in lead); out = list(lead)
-        for e in existing:
-            if e and e.lower() not in seen: seen.add(e.lower()); out.append(e)
+        c = country if country and country != 'None' else ''
+        out = [focus, ctype] + ([c] if c else []) + ([topic] if topic else [])
         inner = '\n' + '\n'.join(f'            <span class="article-tag">{t}</span>' for t in out) + '\n          '
         h = h[:fm.start(2)] + inner + h[fm.end(2):]
     # round 5: remove the trailing legacy WordPress category from the byline
@@ -259,5 +269,5 @@ for slug,(focus,ctype,geo) in final.items():
 
 from collections import Counter
 print(f"cards={ncards} articles={arts}")
-print("Focus:", dict(Counter(f for f,_,_ in final.values())))
-print("Type :", dict(Counter(t for _,t,_ in final.values())))
+print("Focus:", dict(Counter(f for f,_,_,_ in final.values())))
+print("Type :", dict(Counter(t for _,t,_,_ in final.values())))

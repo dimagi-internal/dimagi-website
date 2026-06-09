@@ -95,7 +95,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
 <link rel="stylesheet" href="../../assets/article.css?v=10">
 </head>
 <body>
@@ -235,9 +235,6 @@
           <div class="article-tags">
             <span class="article-tag">Dimagi</span>
             <span class="article-tag">Event</span>
-            <span class="article-tag">Africa</span>
-            <span class="article-tag">Digital Health</span>
-            <span class="article-tag">COVID-19</span>
           </div>
         </div>
 
@@ -312,6 +309,22 @@
       <div class="footer-brand">
         <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
         <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
@@ -337,22 +350,25 @@
         <ul>
           <li><a href="../../company/about/index.html">About Us</a></li>
           <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
-          <li><a href="../index.html">Blog</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
           <li><a href="../../podcast/index.html">Podcast</a></li>
           <li><a href="../../company/careers/index.html">Careers</a></li>
           <li><a href="../../awards/index.html">Awards</a></li>
-          <li><a href="../../contact/index.html">Contact Us</a></li>
           <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
-          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
-          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
-          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
         </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -360,9 +376,10 @@
       <div class="footer-legal">
         <a href="../../legal/privacy-policy/index.html">Privacy</a>
         <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/business-agreement/index.html">Business Agreement</a>
         <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
-        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
-        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>

@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=14">
+<link rel="stylesheet" href="assets/styles.css?v=15">
 <style>
 /* ── Homepage-specific ── */
 
@@ -284,51 +284,6 @@ html.js-reveal .impact-cols  .impact-col:nth-child(3)  { transition-delay: 180ms
 @media (prefers-reduced-motion: reduce) {
   html.js-reveal .reveal { opacity: 1; transform: none; transition: none; }
 }
-
-/* ── Home footer preview overrides (promote to styles.css if approved) ── */
-/* Columns hug their content (last 1fr track soaks up the slack on the right)
-   so short columns don't leave big empty gaps between them. */
-.footer-grid { grid-template-columns: auto auto auto auto auto 1fr; column-gap: 56px; }
-.footer-col ul { gap: 2px; }
-
-/* Social icons — brand colors */
-.footer-social { margin-top: 22px; display: flex; gap: 10px; }
-.footer-social-link {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 50%; color: #fff;
-  transition: transform 140ms, filter 140ms;
-}
-.footer-social-link.linkedin { background: #0A66C2; }
-.footer-social-link.youtube  { background: #FF0000; }
-.footer-social-link:hover { transform: translateY(-2px); filter: brightness(1.08); }
-.footer-social-link svg { width: 18px; height: 18px; fill: currentColor; stroke: none; }
-
-/* Certification badges — white chips */
-.footer-certs { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
-.footer-cert {
-  display: inline-flex; align-items: center; justify-content: center;
-  background: #fff; border-radius: 8px; padding: 9px 12px;
-  transition: transform 140ms, box-shadow 140ms;
-}
-.footer-cert:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -8px rgba(0,0,0,0.4); }
-.footer-cert img { display: block; width: auto; }
-.footer-cert.bcorp img { height: 60px; }
-.footer-cert.climate img { height: 42px; border-radius: 2px; }
-
-/* Newsletter — compact, under Contact */
-.footer-news { margin-top: 18px; }
-.footer-news-label { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.5; margin: 0 0 10px; }
-.footer-news-form { display: flex; flex-direction: column; gap: 8px; width: 184px; }
-.footer-news-input {
-  width: 100%; background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18); border-radius: 7px;
-  padding: 9px 11px; font-family: inherit; font-size: 13px; color: #fff;
-}
-.footer-news-input::placeholder { color: rgba(255,255,255,0.40); }
-.footer-news-input:focus { outline: none; border-color: rgba(255,255,255,0.50); background: rgba(255,255,255,0.09); }
-.footer-news-btn { width: 100%; text-align: center; justify-content: center; }
-
-@media (max-width: 680px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -674,7 +629,7 @@ html.js-reveal .impact-cols  .impact-col:nth-child(3)  { transition-delay: 180ms
           <li><a href="podcast/index.html">Podcast</a></li>
           <li><a href="company/careers/index.html">Careers</a></li>
           <li><a href="awards/index.html">Awards</a></li>
-          <li><a href="./press/index.html">Press &amp; Coverage</a></li>
+          <li><a href="press/index.html">Press &amp; Coverage</a></li>
         </ul>
       </div>
       <div class="footer-col">

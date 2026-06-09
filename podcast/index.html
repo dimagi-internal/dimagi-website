@@ -23,9 +23,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=14">
+<link rel="stylesheet" href="../assets/styles.css?v=15">
 <style>
 /* ── Podcast page ── */
+
+/* ── Episode filters ── */
+.pod-filters { display:flex; flex-direction:column; gap:12px; margin:8px 0 30px; }
+.pod-filter-row { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.pod-filter-label {
+  font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted-soft); width:74px; flex-shrink:0;
+}
+.pod-filter-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.pod-filter {
+  font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:0.01em;
+  padding:7px 15px; border-radius:999px; border:1px solid var(--line);
+  background:#fff; color:var(--muted); cursor:pointer;
+  transition:background 150ms,color 150ms,border-color 150ms;
+}
+.pod-filter:hover { border-color:var(--rule); color:var(--ink); }
+.pod-filter.is-active { background:#9A2C23; border-color:#9A2C23; color:#fff; }
+.pod-empty { font-size:15px; color:var(--muted); margin:8px 0 28px; }
+.pod-empty button {
+  font:inherit; color:#9A2C23; background:none; border:none; padding:0;
+  text-decoration:underline; cursor:pointer;
+}
+.episode-card.filtered-out { display:none !important; }
+/* While filtering, the revealed list collapses into the same 3-col grid */
+body.pod-filtering #more-grid { display:grid !important; grid-template-columns:repeat(3,1fr); gap:24px; }
+body.pod-filtering .archive-section { padding-bottom:0; }
+body.pod-filtering .more-section { padding-top:0; }
+@media (max-width:760px){ body.pod-filtering #more-grid { grid-template-columns:1fr; } }
+@media (max-width:600px){ .pod-filter-row { gap:6px; } .pod-filter-label { width:auto; } }
+
 
 /* Podcast page header is the red ".intro-hig" band below (hero merged in) */
 
@@ -479,9 +509,75 @@
         <h2 class="section-title">Every High-Impact Growth episode</h2>
         <p class="section-lede">The complete High Impact Growth archive, from the first episode to the latest.</p>
       </div>
+        <div class="pod-filters" role="group" aria-label="Filter episodes">
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Product</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="product" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="product" data-filter="commcare" aria-pressed="false">CommCare</button>
+              <button type="button" class="pod-filter" data-dim="product" data-filter="connect" aria-pressed="false">Connect</button>
+              <button type="button" class="pod-filter" data-dim="product" data-filter="sureadhere" aria-pressed="false">SureAdhere</button>
+              <button type="button" class="pod-filter" data-dim="product" data-filter="open-chat-studio" aria-pressed="false">Open Chat Studio</button>
+            </div>
+          </div>
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Sector</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="sector" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="community-health" aria-pressed="false">Community Health</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="mental-health" aria-pressed="false">Mental Health</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="infectious-disease" aria-pressed="false">Infectious Disease</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="maternal-newborn-child-health" aria-pressed="false">Maternal, Newborn & Child Health</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="nutrition" aria-pressed="false">Nutrition</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="child-health" aria-pressed="false">Child Health</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="livelihoods" aria-pressed="false">Livelihoods</button>
+              <button type="button" class="pod-filter" data-dim="sector" data-filter="humanitarian-response" aria-pressed="false">Humanitarian Response</button>
+            </div>
+          </div>
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Use Case</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="usecase" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="usecase" data-filter="monitoring-evaluation" aria-pressed="false">Monitoring & Evaluation</button>
+              <button type="button" class="pod-filter" data-dim="usecase" data-filter="service-delivery" aria-pressed="false">Service Delivery</button>
+              <button type="button" class="pod-filter" data-dim="usecase" data-filter="cash-voucher-assistance" aria-pressed="false">Cash & Voucher Assistance</button>
+              <button type="button" class="pod-filter" data-dim="usecase" data-filter="workforce-management" aria-pressed="false">Workforce Management</button>
+              <button type="button" class="pod-filter" data-dim="usecase" data-filter="sponsorship" aria-pressed="false">Sponsorship</button>
+            </div>
+          </div>
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Org Type</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="orgtype" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="orgtype" data-filter="governments" aria-pressed="false">Governments</button>
+              <button type="button" class="pod-filter" data-dim="orgtype" data-filter="international-ngos" aria-pressed="false">International NGOs</button>
+              <button type="button" class="pod-filter" data-dim="orgtype" data-filter="us-community-health" aria-pressed="false">US Community Health</button>
+              <button type="button" class="pod-filter" data-dim="orgtype" data-filter="research-academic" aria-pressed="false">Research & Academic</button>
+            </div>
+          </div>
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Theme</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="theme" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="theme" data-filter="ai" aria-pressed="false">AI</button>
+              <button type="button" class="pod-filter" data-dim="theme" data-filter="global-development" aria-pressed="false">Global Development</button>
+              <button type="button" class="pod-filter" data-dim="theme" data-filter="company-culture" aria-pressed="false">Company & Culture</button>
+              <button type="button" class="pod-filter" data-dim="theme" data-filter="leadership" aria-pressed="false">Leadership</button>
+            </div>
+          </div>
+          <div class="pod-filter-row">
+            <span class="pod-filter-label">Voices</span>
+            <div class="pod-filter-chips">
+              <button type="button" class="pod-filter is-active" data-dim="staff" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="pod-filter" data-dim="staff" data-filter="yes" aria-pressed="false">Dimagi Staff</button>
+            </div>
+          </div>
+        </div>
+        <p class="pod-empty" id="pod-empty" hidden>No episodes match those filters. <button type="button" id="pod-clear">Clear filters</button></p>
+
       <div class="episodes-grid">
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="ai" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-83-40000-health-workers-one-ai-powered-lifeline.jpg" alt="High-Impact Growth Episode 83 cover" loading="lazy">
           </div>
@@ -493,7 +589,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/podcast-community-mental-health-workers.jpg" alt="High-Impact Growth Episode 82 cover" loading="lazy">
           </div>
@@ -505,7 +601,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="sponsorship" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/podcast-nonprofit-individual-giving.jpg" alt="High-Impact Growth Episode 81 cover" loading="lazy">
           </div>
@@ -517,7 +613,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="research-academic" data-theme="ai" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/podcast-responsible-ai-global-health.jpg" alt="High-Impact Growth Episode 80 cover" loading="lazy">
           </div>
@@ -529,7 +625,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-78-what-makes-a-dollar-matter-lessons-from-coefficient-giving.jpg" alt="High-Impact Growth Episode 78 cover" loading="lazy">
           </div>
@@ -541,7 +637,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="ai" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-77-the-thinking-you-cant-skip-ai-for-good-at-a-crossroads.jpg" alt="High-Impact Growth Episode 77 cover" loading="lazy">
           </div>
@@ -553,7 +649,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/funders-power-to-change-the-system.jpg" alt="High-Impact Growth Episode 76 cover" loading="lazy">
           </div>
@@ -565,7 +661,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-75-a-radical-bet-on-simplicity-and-affordability.jpg" alt="High-Impact Growth Episode 75 cover" loading="lazy">
           </div>
@@ -577,7 +673,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="leadership" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/leadership-through-chaos-jayson-morris.jpg" alt="High-Impact Growth Episode 74 cover" loading="lazy">
           </div>
@@ -598,7 +694,7 @@
     <div class="container">
       <div class="episodes-grid" id="more-grid">
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/next-chapter-in-global-development.jpg" alt="High-Impact Growth Episode 73 cover" loading="lazy">
           </div>
@@ -611,7 +707,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="leadership" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/somatic-leadership-franzi.jpg" alt="High-Impact Growth Episode 72 cover" loading="lazy">
           </div>
@@ -624,7 +720,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/systems-burned-with-nithya-ramanathan.jpg" alt="High-Impact Growth Episode 71 cover" loading="lazy">
           </div>
@@ -637,7 +733,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="livelihoods" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-70-flipping-the-script-on-aid-five-talents-journey-to-participatory-impact.jpg" alt="High-Impact Growth Episode 70 cover" loading="lazy">
           </div>
@@ -650,7 +746,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="cash-voucher-assistance" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/episode-69-cash-choice-and-dignity-how-givedirectly-is-changing-aid.jpg" alt="High-Impact Growth Episode 69 cover" loading="lazy">
           </div>
@@ -663,7 +759,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/ep-68-the-people-and-planet-parts-of-running-a-sustainable-company.jpg" alt="High-Impact Growth Episode 68 cover" loading="lazy">
           </div>
@@ -676,7 +772,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/podcast/covers/episode-67-the-future-of-aid-adapting-to-a-changing-funding-landscape.jpg" alt="High-Impact Growth Episode 67 cover" loading="lazy">
           </div>
@@ -689,7 +785,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare sureadhere" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -707,7 +803,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="international-ngos" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -725,7 +821,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="monitoring-evaluation" data-orgtype="international-ngos" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -743,7 +839,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="connect" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -761,7 +857,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="connect" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -779,7 +875,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="open-chat-studio" data-sector="" data-usecase="" data-orgtype="" data-theme="ai" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -797,7 +893,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="child-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -815,7 +911,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -833,7 +929,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="governments us-community-health" data-theme="ai" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -851,7 +947,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="ai" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -869,7 +965,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="leadership" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -887,7 +983,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="sureadhere" data-sector="infectious-disease" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -905,7 +1001,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health" data-usecase="" data-orgtype="us-community-health" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -923,7 +1019,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -940,7 +1036,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -958,7 +1054,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health" data-usecase="" data-orgtype="governments" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -976,7 +1072,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -994,7 +1090,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1011,7 +1107,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1029,7 +1125,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="sureadhere" data-sector="infectious-disease" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1047,7 +1143,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="sureadhere" data-sector="infectious-disease" data-usecase="" data-orgtype="research-academic" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1065,7 +1161,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="mental-health" data-usecase="" data-orgtype="research-academic" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1083,7 +1179,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1101,7 +1197,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1119,7 +1215,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1137,7 +1233,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="open-chat-studio" data-sector="" data-usecase="" data-orgtype="" data-theme="ai" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1155,7 +1251,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1173,7 +1269,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1191,7 +1287,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="community-health maternal-newborn-child-health" data-usecase="" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1209,7 +1305,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="infectious-disease" data-usecase="" data-orgtype="international-ngos" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1227,7 +1323,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1244,7 +1340,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1261,7 +1357,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="leadership" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1279,7 +1375,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1296,7 +1392,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="mental-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1314,7 +1410,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="ai" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1332,7 +1428,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="maternal-newborn-child-health" data-usecase="service-delivery" data-orgtype="" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1350,7 +1446,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="humanitarian-response" data-usecase="monitoring-evaluation" data-orgtype="international-ngos" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1368,7 +1464,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1385,7 +1481,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="ai global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1403,7 +1499,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="governments" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1421,7 +1517,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1439,7 +1535,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="governments" data-theme="" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1457,7 +1553,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1475,7 +1571,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1493,7 +1589,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1511,7 +1607,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1529,7 +1625,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="infectious-disease" data-usecase="service-delivery" data-orgtype="us-community-health" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1547,7 +1643,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="nutrition" data-usecase="workforce-management" data-orgtype="governments" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1565,7 +1661,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="governments" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1583,7 +1679,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1601,7 +1697,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="no">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1619,7 +1715,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1637,7 +1733,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1655,7 +1751,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="community-health" data-usecase="" data-orgtype="" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1673,7 +1769,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="governments" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1691,7 +1787,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="service-delivery" data-orgtype="international-ngos" data-theme="" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1709,7 +1805,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="global-development" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1727,7 +1823,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1745,7 +1841,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="commcare" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1763,7 +1859,7 @@
           </div>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card" data-product="" data-sector="" data-usecase="" data-orgtype="" data-theme="company-culture" data-staff="yes">
           <div class="episode-card-thumb">
             <img src="../assets/images/high-impact-growth-podcast.jpeg" alt="Podcast cover" loading="lazy">
             <div class="episode-card-thumb-overlay">
@@ -1796,6 +1892,22 @@
       <div class="footer-brand">
         <img class="footer-logo" src="../assets/dimagi-logo.png" alt="Dimagi">
         <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
@@ -1825,18 +1937,21 @@
           <li><a href="../podcast/index.html">Podcast</a></li>
           <li><a href="../company/careers/index.html">Careers</a></li>
           <li><a href="../awards/index.html">Awards</a></li>
-          <li><a href="../contact/index.html">Contact Us</a></li>
           <li><a href="../press/index.html">Press &amp; Coverage</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="../legal/privacy-policy/index.html">Privacy Policy</a></li>
-          <li><a href="../legal/terms-of-service/index.html">Terms of Service</a></li>
-          <li><a href="../legal/business-agreement/index.html">Business Agreement</a></li>
-          <li><a href="../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+          <li><a href="../contact/index.html">Contact Us</a></li>
         </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1844,9 +1959,10 @@
       <div class="footer-legal">
         <a href="../legal/privacy-policy/index.html">Privacy</a>
         <a href="../legal/terms-of-service/index.html">Terms</a>
+        <a href="../legal/business-agreement/index.html">Business Agreement</a>
         <a href="../legal/acceptable-use/index.html">Acceptable Use</a>
-        <a href="../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
-        <a href="../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../legal/transparency-coverage/index.html">Transparency</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>
@@ -1854,65 +1970,100 @@
 </footer>
 <script src="../assets/js/nav.js?v=6"></script>
 <script>
-/* "Load More Episodes": the first click reveals a batch and removes the button,
-   then the remaining episodes stream in automatically as you scroll. */
+/* Episode archive: lazy-reveal by default; when any filter is active, show all matches
+   across both grids (AND across dimensions, membership within a multi-valued card). */
 (function(){
   var BATCH = 9;
-  var grid = document.getElementById('more-grid');
-  var btn = document.getElementById('more-episodes-btn');
-  if (!grid || !btn) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.episode-card'));
-  if (!cards.length) { btn.style.display = 'none'; return; }
+  var moreGrid = document.getElementById('more-grid');
+  var moreBtn  = document.getElementById('more-episodes-btn');
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('.episode-card'));
+  var moreCards= moreGrid ? Array.prototype.slice.call(moreGrid.querySelectorAll('.episode-card')) : [];
+  var fbtns    = Array.prototype.slice.call(document.querySelectorAll('.pod-filter'));
+  var emptyEl  = document.getElementById('pod-empty');
+  var clearEl  = document.getElementById('pod-clear');
+  var DIMS = ['product','sector','usecase','orgtype','theme','staff'];
+  var active = {product:'all',sector:'all',usecase:'all',orgtype:'all',theme:'all',staff:'all'};
 
-  var shown = 0;
-  cards.forEach(function(c){ c.classList.add('is-hidden'); });
-
-  // Sentinel just below the grid; as it nears the viewport we reveal the next batch.
-  var sentinel = document.createElement('div');
-  sentinel.setAttribute('aria-hidden', 'true');
-  sentinel.style.cssText = 'height:1px;width:100%;';
-  grid.parentNode.insertBefore(sentinel, grid.nextSibling);
-
-  function revealNext(){
-    cards.slice(shown, shown + BATCH).forEach(function(c){
-      c.classList.remove('is-hidden');
-      c.classList.add('is-revealing');
+  function filtering(){ for(var i=0;i<DIMS.length;i++){ if(active[DIMS[i]]!=='all') return true; } return false; }
+  function matches(card){
+    return DIMS.every(function(d){
+      if(active[d]==='all') return true;
+      return (card.dataset[d]||'').split(' ').indexOf(active[d]) !== -1;
     });
-    shown = Math.min(shown + BATCH, cards.length);
-    return shown >= cards.length; // true when everything is shown
   }
 
-  var auto = false, scheduled = false;
+  var shown=0, auto=false, scheduled=false, sentinel=null;
+  function resetReveal(){
+    shown=0;
+    moreCards.forEach(function(c){ c.classList.add('is-hidden'); c.classList.remove('is-revealing'); });
+    if(moreBtn) moreBtn.style.display = moreCards.length ? '' : 'none';
+  }
+  function revealNext(){
+    moreCards.slice(shown, shown+BATCH).forEach(function(c){ c.classList.remove('is-hidden'); c.classList.add('is-revealing'); });
+    shown=Math.min(shown+BATCH, moreCards.length);
+    return shown>=moreCards.length;
+  }
   function check(){
-    if (!auto) return;
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var guard = 0;
-    // reveal batches while the sentinel sits within ~600px of the viewport bottom
-    while (shown < cards.length && sentinel.getBoundingClientRect().top - vh < 600 && guard++ < 30) {
-      if (revealNext()) { stopAuto(); return; }
+    if(!auto||!sentinel) return;
+    var vh=window.innerHeight||document.documentElement.clientHeight, guard=0;
+    while(shown<moreCards.length && sentinel.getBoundingClientRect().top - vh < 600 && guard++<30){
+      if(revealNext()){ stopAuto(); return; }
     }
   }
-  function onScroll(){
-    if (scheduled) return;
-    scheduled = true;
-    setTimeout(function(){ scheduled = false; check(); }, 90);
+  function onScroll(){ if(scheduled) return; scheduled=true; setTimeout(function(){ scheduled=false; check(); },90); }
+  function startAuto(){ auto=true; window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); }
+  function stopAuto(){ auto=false; window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
+
+  function apply(){
+    if(filtering()){
+      stopAuto();
+      document.body.classList.add('pod-filtering');
+      if(moreBtn) moreBtn.style.display='none';
+      var any=false;
+      allCards.forEach(function(c){
+        var m=matches(c);
+        c.classList.toggle('filtered-out', !m);
+        c.classList.remove('is-hidden');
+        if(m) any=true;
+      });
+      if(emptyEl) emptyEl.hidden = any;
+    } else {
+      document.body.classList.remove('pod-filtering');
+      allCards.forEach(function(c){ c.classList.remove('filtered-out'); });
+      if(emptyEl) emptyEl.hidden = true;
+      resetReveal();
+    }
   }
-  function startAuto(){
-    auto = true;
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-  }
-  function stopAuto(){
-    auto = false;
-    window.removeEventListener('scroll', onScroll);
-    window.removeEventListener('resize', onScroll);
+  function setActive(dim,val){
+    active[dim]=val;
+    fbtns.forEach(function(b){
+      if(b.dataset.dim===dim){
+        var on=b.dataset.filter===val;
+        b.classList.toggle('is-active',on);
+        b.setAttribute('aria-pressed', on?'true':'false');
+      }
+    });
+    apply();
   }
 
-  btn.addEventListener('click', function(){
-    var done = revealNext();      // first batch on click
-    btn.style.display = 'none';   // button goes away after the first click
-    if (!done) startAuto();       // the rest stream in on scroll
-  });
+  if(moreGrid){
+    sentinel=document.createElement('div'); sentinel.setAttribute('aria-hidden','true');
+    sentinel.style.cssText='height:1px;width:100%;';
+    moreGrid.parentNode.insertBefore(sentinel, moreGrid.nextSibling);
+  }
+  resetReveal();
+
+  if(moreBtn){
+    moreBtn.addEventListener('click', function(){
+      if(filtering()) return;
+      var done=revealNext(); moreBtn.style.display='none'; if(!done) startAuto();
+    });
+  }
+  fbtns.forEach(function(b){ b.addEventListener('click', function(){ setActive(b.dataset.dim, b.dataset.filter); }); });
+  if(clearEl){ clearEl.addEventListener('click', function(){ DIMS.forEach(function(d){ setActive(d,'all'); }); }); }
+
+  var qs=new URLSearchParams(window.location.search);
+  DIMS.forEach(function(d){ var v=qs.get(d); if(v) setActive(d,v); });
 })();
 </script>
 </body>
