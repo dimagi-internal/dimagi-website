@@ -40,6 +40,7 @@ body { background: #fff; }
 .pbadge--commcare { background: var(--indigo-soft); color: var(--indigo-deep); }
 .pbadge--connect  { background: #E2F0FA; color: #0A6DA8; }
 .pbadge--sureadhere { background: #DBF3F2; color: #0A7A7A; }
+.pbadge--ocs { background: #EDE6FB; color: #6A2FB0; }
 
 /* Section rhythm */
 .contact-section { padding: 88px 0; }
@@ -73,7 +74,7 @@ h1.contact-title {
 /* ── Product cards ── */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 .product-card-c {
@@ -108,6 +109,63 @@ h1.contact-title {
 .card-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
 .card-ctas .btn { flex: 1; justify-content: center; padding: 11px 16px; font-size: 13px; }
 
+/* ── Already using these products? (full-width band under product cards) ── */
+.already-using {
+  margin-top: 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 34px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+}
+.already-using-head h3 {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.already-using-head p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+.already-using-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.au-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: border-color 180ms, transform 180ms, box-shadow 180ms;
+}
+.au-link:hover {
+  border-color: var(--rule);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -16px rgba(10,6,32,0.16);
+}
+.au-link .au-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--indigo);
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.au-link .au-label::after { content: '→'; color: var(--muted-soft); font-weight: 400; }
+.au-link:hover .au-label { color: var(--indigo-deep); }
+
 /* ── Team cards ── */
 .teams-grid {
   display: grid;
@@ -119,6 +177,8 @@ h1.contact-title {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 38px 36px;
+  display: flex;
+  flex-direction: column;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
 .team-card:hover {
@@ -140,38 +200,9 @@ h1.contact-title {
   color: var(--muted);
   line-height: 1.6;
   margin: 0 0 24px;
+  flex: 1;
 }
-
-/* ── Support cards (existing customers) ── */
-.support-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.support-card {
-  background: var(--paper-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 30px 28px 24px;
-}
-.support-card-head {
-  margin-bottom: 18px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-}
-.support-card ul { list-style: none; padding: 0; margin: 0; }
-.support-card li { padding: 9px 0; border-top: 1px solid var(--line); }
-.support-card li:first-child { border-top: none; padding-top: 2px; }
-.support-card li a {
-  display: inline-flex; align-items: baseline; gap: 8px;
-  font-size: 14.5px; font-weight: 500; color: var(--indigo);
-}
-.support-card li a::before { content: '→'; color: var(--muted-soft); font-weight: 400; }
-.support-card li a:hover { color: var(--indigo-deep); }
-.support-card li .sub {
-  display: block; font-size: 12.5px; color: var(--muted);
-  font-weight: 400; margin: 2px 0 0 18px;
-}
+.team-card .btn { align-self: flex-start; }
 
 /* ── Other inquiries ── */
 .other-grid {
@@ -226,7 +257,8 @@ h1.contact-title {
 .office .phone { font-size: 13.5px; color: var(--indigo); margin-top: 6px; }
 
 @media (max-width: 980px) {
-  .products-grid, .support-grid, .other-grid { grid-template-columns: 1fr; }
+  .products-grid, .other-grid { grid-template-columns: 1fr; }
+  .already-using-links { grid-template-columns: 1fr; }
   .teams-grid { grid-template-columns: 1fr; }
   .offices-grid { grid-template-columns: 1fr; }
 }
@@ -244,7 +276,7 @@ h1.contact-title {
       </a>
       <div class="nav-links">
         <a href="#">Products</a>
-        <a href="../professional-services/index.html">Professional Services</a>
+        <a href="#">Professional Services</a>
         <a href="../company/about/index.html">Company</a>
         <a href="../contact/index.html" class="nav-active">Contact Us</a>
       </div>
@@ -283,8 +315,7 @@ h1.contact-title {
           <h3>Pay for verified service delivery, not planned activity.</h3>
           <p class="tagline">High-impact interventions delivered through a marketplace of local, government-aligned organizations, with every service independently verified.</p>
           <div class="card-ctas">
-            <a href="mailto:connect-info@dimagi.com" class="btn btn-indigo">Request a Demo</a>
-            <a href="https://dimagi.com/connect/" target="_blank" rel="noopener" class="btn btn-ghost">Learn More</a>
+            <a href="mailto:connect-info@dimagi.com" class="btn btn-indigo">Contact Us</a>
           </div>
         </div>
 
@@ -294,8 +325,7 @@ h1.contact-title {
           <h3>The digital platform for impactful frontline work</h3>
           <p class="tagline">Build powerful apps for frontline teams without code. Free plan available, paid plans from $100/month.</p>
           <div class="card-ctas">
-            <a href="https://dimagi.com/commcare/#popup_188272304" target="_blank" rel="noopener" class="btn btn-indigo">Talk to Us</a>
-            <a href="https://dimagi.com/commcare/cloud-location/" target="_blank" rel="noopener" class="btn btn-ghost">Get Started Free</a>
+            <a href="https://dimagi.com/commcare/#popup_188272304" target="_blank" rel="noopener" class="btn btn-indigo">Contact Us</a>
           </div>
         </div>
 
@@ -305,11 +335,42 @@ h1.contact-title {
           <h3>Remote treatment support through person-centered virtual care</h3>
           <p class="tagline">The leading digital engagement platform for medication adherence and treatment support.</p>
           <div class="card-ctas">
-            <a href="https://dimagi.com/sureadhere/#popup_188274712" target="_blank" rel="noopener" class="btn btn-indigo">Schedule a Demo</a>
-            <a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener" class="btn btn-ghost">Learn More</a>
+            <a href="https://dimagi.com/sureadhere/#popup_188274712" target="_blank" rel="noopener" class="btn btn-indigo">Contact Us</a>
           </div>
         </div>
 
+        <!-- Open Chat Studio -->
+        <div class="product-card-c">
+          <span class="pbadge pbadge--ocs">Open Chat Studio</span>
+          <h3>The responsible layer between AI and the people it serves</h3>
+          <p class="tagline">An open-source platform to build, evaluate, and deploy AI chatbots responsibly across multiple channels and LLM providers.</p>
+          <div class="card-ctas">
+            <a href="https://www.openchatstudio.com/contact/" target="_blank" rel="noopener" class="btn btn-indigo">Contact Us</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Already using these products? -->
+      <div class="already-using">
+        <div class="already-using-head">
+          <h3>Already using these products?</h3>
+          <p>Get help and documentation for the product you already use.</p>
+        </div>
+        <div class="already-using-links">
+          <a class="au-link" href="https://dimagi.atlassian.net/wiki/spaces/connectpublic/overview" target="_blank" rel="noopener">
+            <span class="pbadge pbadge--connect">Connect</span>
+            <span class="au-label">Connect Help</span>
+          </a>
+          <a class="au-link" href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143950826" target="_blank" rel="noopener">
+            <span class="pbadge pbadge--commcare">CommCare</span>
+            <span class="au-label">CommCare Support</span>
+          </a>
+          <a class="au-link" href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">
+            <span class="pbadge pbadge--sureadhere">SureAdhere</span>
+            <span class="au-label">SureAdhere Help</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -326,87 +387,17 @@ h1.contact-title {
       <div class="teams-grid">
 
         <div class="team-card">
-          <span class="eyebrow">US Services</span>
-          <h3>Digital modernization for the US public sector</h3>
-          <p>Partner with our US Services team on digital transformation, public health programs, and frontline workforce technology for state and local organizations.</p>
-          <a href="https://dimagi.com/us-health/#popup_188274136" target="_blank" rel="noopener" class="btn btn-indigo btn-arrow">Contact US Services</a>
-        </div>
-
-        <div class="team-card">
           <span class="eyebrow">Global Services</span>
           <h3>National-scale deployments and global health programs</h3>
           <p>Work with our Global Services team on eCHIS, national community health worker programs, and large-scale international deployments.</p>
           <a href="https://dimagi.com/services/#popup_188272838" target="_blank" rel="noopener" class="btn btn-indigo btn-arrow">Contact Global Services</a>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Existing customers -->
-  <section class="contact-section">
-    <div class="container">
-      <div class="section-head centered">
-        <span class="eyebrow muted">Existing Customers</span>
-        <h2 class="section-title" style="font-size:clamp(28px,3.4vw,40px);margin-bottom:16px;">Already using a Dimagi product?</h2>
-        <p class="section-lede" style="margin:0 auto;">Find help, documentation, and community resources for the product you use.</p>
-      </div>
-
-      <div class="support-grid">
-
-        <!-- Connect support -->
-        <div class="support-card">
-          <div class="support-card-head">
-            <span class="pbadge pbadge--connect">Connect</span>
-          </div>
-          <ul>
-            <li>
-              <a href="https://dimagi.atlassian.net/wiki/spaces/connectpublic/overview" target="_blank" rel="noopener">Connect Help</a>
-              <span class="sub">Documentation &amp; resources</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- CommCare support -->
-        <div class="support-card">
-          <div class="support-card-head">
-            <span class="pbadge pbadge--commcare">CommCare</span>
-          </div>
-          <ul>
-            <li>
-              <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/overview" target="_blank" rel="noopener">CommCare Help</a>
-              <span class="sub">Documentation</span>
-            </li>
-            <li>
-              <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143950826" target="_blank" rel="noopener">CommCare Support</a>
-              <span class="sub">Service desk for paid plans</span>
-            </li>
-            <li>
-              <a href="https://academy.dimagi.com/" target="_blank" rel="noopener">Dimagi Academy</a>
-              <span class="sub">Self-paced training courses</span>
-            </li>
-            <li>
-              <a href="https://dimagi.com/open-source/" target="_blank" rel="noopener">Open Source community</a>
-              <span class="sub">Free, community-supported users</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- SureAdhere support -->
-        <div class="support-card">
-          <div class="support-card-head">
-            <span class="pbadge pbadge--sureadhere">SureAdhere</span>
-          </div>
-          <ul>
-            <li>
-              <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">SureAdhere Help</a>
-              <span class="sub">Documentation</span>
-            </li>
-            <li>
-              <a href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174470/SureAdhere+Help+Center+Resources" target="_blank" rel="noopener">SureAdhere Support</a>
-              <span class="sub">Help Center resources</span>
-            </li>
-          </ul>
+        <div class="team-card">
+          <span class="eyebrow">US Services</span>
+          <h3>Digital modernization for the US public sector</h3>
+          <p>Partner with our US Services team on digital transformation, public health programs, and frontline workforce technology for state and local organizations.</p>
+          <a href="https://dimagi.com/us-health/#popup_188274136" target="_blank" rel="noopener" class="btn btn-indigo btn-arrow">Contact US Services</a>
         </div>
 
       </div>
@@ -524,7 +515,6 @@ h1.contact-title {
       <div class="footer-col">
         <h5>Professional Services</h5>
         <ul>
-          <li><a href="../professional-services/index.html">Overview</a></li>
           <li><a href="../professional-services/global-services/index.html">Global Services</a></li>
           <li><a href="../professional-services/united-states/index.html">United States</a></li>
           <li><a href="../professional-services/india/index.html">India</a></li>
@@ -571,6 +561,6 @@ h1.contact-title {
     </div>
   </div>
 </footer>
-<script src="../assets/js/nav.js?v=6"></script>
+<script src="../assets/js/nav.js?v=8"></script>
 </body>
 </html>

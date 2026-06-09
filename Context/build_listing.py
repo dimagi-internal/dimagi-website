@@ -170,8 +170,10 @@ if 'class="pod-filters"' not in html_doc:                              # filter 
     html_doc = html_doc.replace('      <div class="episodes-grid">',
                                 filter_bar_html() + '\n\n      <div class="episodes-grid">', 1)
 if "Episode archive: lazy-reveal" not in html_doc:                     # combined reveal+filter JS
+    # lambda replacement (not a plain string) so re.subn inserts COMBINED_JS verbatim and
+    # never reinterprets a backslash escape (e.g. a CSS "\2713" → octal) in the replacement.
     html_doc, n_js = re.subn(r'(?s)<script>\s*\n/\* "Load More Episodes".*?</script>',
-                             COMBINED_JS, html_doc, count=1)
+                             lambda m: COMBINED_JS, html_doc, count=1)
     if n_js == 0:
         html_doc = html_doc.replace("</body>", COMBINED_JS + "\n</body>", 1)
 

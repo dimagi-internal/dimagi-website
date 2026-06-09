@@ -13,7 +13,8 @@ Adds topic tags to every High-Impact Growth episode and a filter bar to the
   - Org Type (Who We Serve): Governments, International NGOs, US Community Health,
     Research & Academic
 - **Theme** (chip, outline): AI · Global Development · Company & Culture · Leadership
-- **Dimagi Staff** — filter facet only (`data-staff`), not a visible hero chip.
+- **Dimagi Staff** — still tagged on cards (`data-staff`) but NO longer a filter facet
+  (the listing dropdowns dropped the old "Voices / Dimagi Staff" row).
 
 ## Source of truth
 `../podcast_tags.py` — the `TAGS` dict (keyed by episode number) plus the chip/filter/CSS/JS
@@ -54,7 +55,25 @@ build_listing dropped the "Featuring …" guest line and duplicated the "Meet th
 These only add the tag layer; they do not touch blurbs, guest lines, versions, or the hosts
 section, so they are non-destructive. Run them after anything that strips the tags.
 
-## Filter behavior
-6 rows (Product / Sector / Use Case / Org Type / Theme / Voices), single-select per row,
-AND across rows. Lazy reveal stays for the unfiltered view; any active filter shows all
-matches across both grids. Episode chips deep-link to `index.html?<facet>=<slug>`.
+## Filter behavior (blog-style, redesigned 2026-06-09)
+The listing filter mirrors the `/blog/` filter bar: a **search box** + three rounded
+**dropdowns**, single-select each, AND across them (and AND with search):
+
+- **Product** — CommCare / Connect / SureAdhere / Open Chat Studio  (`data-product`)
+- **Focus** — grouped *Sectors* (`data-sector`) + *Use cases* (`data-usecase`)
+- **Theme** — *Themes* (`data-theme`) + an *Organizations* group that folds in the old
+  Org Type facet (`data-orgtype`). Each option carries `data-dim` so one dropdown spans
+  several card attributes.
+
+Search matches episode title + number + blurb. Accent is podcast maroon `#9A2C23` (not the
+blog indigo). Lazy reveal stays for the unfiltered view; when any filter/search is active the
+controller relocates every "more" episode up into the single archive grid (and hides the now
+-empty `.more-section`) so all matches render in one continuous 3-col grid, instead of two
+separate grids meeting at a ragged half-empty row. On clear they return to `#more-grid` for
+the lazy-reveal list. State is URL-synced and episode hero chips still deep-link to
+`index.html?<dim>=<slug>` (`product`/`sector`/`usecase`/`theme`/`orgtype`), which the
+dropdowns resolve on load. The old "Voices / Dimagi Staff" row was removed.
+
+Markup/CSS/JS all come from `../podcast_tags.py` (`filter_bar_html` / `FILTER_CSS` /
+`COMBINED_JS`); `02_listing_filter_bar.py` now imports those and *upgrades* an older
+chip-row bar in place, so re-running it after a stale regen restores this design.

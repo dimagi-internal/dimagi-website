@@ -598,7 +598,7 @@
       </a>
       <div class="nav-links">
         <a href="#">Products</a>
-        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="#">Professional Services</a>
         <a href="../../company/about/index.html" class="nav-active">Company</a>
         <a href="../../contact/index.html">Contact Us</a>
       </div>
@@ -1102,7 +1102,6 @@
       <div class="footer-col">
         <h5>Professional Services</h5>
         <ul>
-          <li><a href="../../professional-services/index.html">Overview</a></li>
           <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
           <li><a href="../../professional-services/united-states/index.html">United States</a></li>
           <li><a href="../../professional-services/india/index.html">India</a></li>
@@ -1149,50 +1148,115 @@
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=6"></script>
+<script src="../../assets/js/nav.js?v=8"></script>
 <script>
-/* ── Day-in-the-life: horizontal scroller (smooth, eased click-through) ── */
+/* ── Day-in-the-life: gentle continuous auto-scroll (pauses when you engage) ── */
 (function () {
+  var carousel = document.querySelector('.day-carousel');
   var track = document.getElementById('storiesTrack');
   var prev = document.getElementById('storiesPrev');
   var next = document.getElementById('storiesNext');
-  if (!track || !prev || !next) return;
+  if (!track) return;
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var raf = null;
 
   function step() {
     var card = track.querySelector('.story-card');
     return card ? card.getBoundingClientRect().width + 22 : track.clientWidth * 0.8;
   }
-  function maxScroll() { return track.scrollWidth - track.clientWidth; }
-  function update() {
-    prev.disabled = track.scrollLeft <= 1;
-    next.disabled = track.scrollLeft >= maxScroll() - 1;
+
+  /* Reduced motion: no drift — keep a simple, clamped click-through scroller. */
+  if (reduce) {
+    if (!prev || !next) return;
+    function maxScroll() { return track.scrollWidth - track.clientWidth; }
+    function update() {
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= maxScroll() - 1;
+    }
+    prev.addEventListener('click', function () { track.scrollLeft = Math.max(0, track.scrollLeft - step()); update(); });
+    next.addEventListener('click', function () { track.scrollLeft = Math.min(maxScroll(), track.scrollLeft + step()); update(); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    return;
   }
+
+  /* Duplicate the set once so the drift can loop without a visible seam. */
+  var originals = Array.prototype.slice.call(track.querySelectorAll('.story-card'));
+  originals.forEach(function (card) {
+    var clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.setAttribute('tabindex', '-1');
+    track.appendChild(clone);
+  });
+
+  var setWidth = 0;
+  function measure() {
+    var clone = track.querySelector('.story-card[aria-hidden="true"]');
+    if (clone && originals[0]) setWidth = clone.offsetLeft - originals[0].offsetLeft;
+  }
+  measure();
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+
+  var SPEED = 36; /* px per second — a slow, readable drift */
+  var paused = false;       /* hover / focus / tab-hidden / touch */
+  var arrowAnimating = false;
+  var last = null;
+
+  function wrap() {
+    if (setWidth <= 0) return;
+    while (track.scrollLeft >= setWidth) track.scrollLeft -= setWidth;
+    while (track.scrollLeft < 0) track.scrollLeft += setWidth;
+  }
+
+  function tick(now) {
+    if (last === null) last = now;
+    var dt = (now - last) / 1000;
+    last = now;
+    if (!paused && !arrowAnimating && setWidth > 0) {
+      track.scrollLeft += SPEED * Math.min(dt, 0.05); /* clamp so a backgrounded tab can't leap */
+      wrap();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  function hold() { paused = true; }
+  function release() { paused = false; last = null; }
+  if (carousel) {
+    carousel.addEventListener('mouseenter', hold);
+    carousel.addEventListener('mouseleave', release);
+    carousel.addEventListener('focusin', hold);
+    carousel.addEventListener('focusout', release);
+  }
+  track.addEventListener('touchstart', hold, { passive: true });
+  track.addEventListener('touchend', release, { passive: true });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) paused = true; else release();
+  });
+
+  /* Manual arrows: an eased nudge that also loops seamlessly. */
   function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   function animateTo(target, duration) {
-    if (raf) cancelAnimationFrame(raf);
+    arrowAnimating = true;
     var start = track.scrollLeft, change = target - start, t0 = null;
     function frame(now) {
       if (t0 === null) t0 = now;
       var p = Math.min(1, (now - t0) / duration);
       track.scrollLeft = start + change * easeInOutCubic(p);
-      update();
-      raf = p < 1 ? requestAnimationFrame(frame) : null;
+      if (p < 1) { requestAnimationFrame(frame); }
+      else { arrowAnimating = false; last = null; wrap(); }
     }
-    raf = requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
-  function go(delta) {
-    var target = Math.max(0, Math.min(track.scrollLeft + delta, maxScroll()));
-    if (reduce) { track.scrollLeft = target; update(); }
-    else animateTo(target, 640);
+  if (prev && next) {
+    next.addEventListener('click', function () { animateTo(track.scrollLeft + step(), 520); });
+    prev.addEventListener('click', function () {
+      if (setWidth > 0 && track.scrollLeft - step() < 0) track.scrollLeft += setWidth;
+      animateTo(track.scrollLeft - step(), 520);
+    });
   }
-  prev.addEventListener('click', function () { go(-step()); });
-  next.addEventListener('click', function () { go(step()); });
-  track.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  update();
 })();
 </script>
 <script>

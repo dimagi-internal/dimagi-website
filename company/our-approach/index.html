@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our Approach | Dimagi</title>
-<meta name="description" content="Impact Delivery is Dimagi's approach to deploying digital solutions that maximize value for money: meeting the pressing demands of today while building a foundation for tomorrow. See the framework, the playbook, and proof from the field.">
+<meta name="description" content="Impact Delivery is Dimagi's approach to deploying digital solutions that maximize value for money: meeting the pressing demands of today while building a foundation for tomorrow. See the framework and proof from the field.">
 <link rel="canonical" href="https://dimagi.com/company/our-approach/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:site_name" content="Dimagi">
@@ -20,12 +20,117 @@
 <meta name="twitter:title" content="Our Approach">
 <meta name="twitter:description" content="Impact Delivery is Dimagi's approach to deploying digital solutions that maximize value for money: meeting the demands of today while building a foundation for tomorrow.">
 <meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Impact Delivery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Impact Delivery is the answer to pressures on global health and development to do more with less, by creating more value for your digital investment. It is an innovative approach that leverages technology to maximize the efficiency and effectiveness of social impact organizations. It focuses on enhancing service quality, increasing the quantity of impactful services within existing budgets, and planning for long-term success. By adopting this approach, you can move from simply digitizing programs to creating powerful, lasting change that grows in value over time, by leveraging existing funding and project-based constraints." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three key pillars of Impact Delivery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The three pillars of Impact Delivery are Better Impact, More Impact, and Sustained Impact. Better Impact focuses on enhancing the quality of services delivered, More Impact aims to increase the quantity of impactful services within existing investments, and Sustained Impact focuses on setting up for long-term success." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Impact Delivery differ from traditional digitization efforts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Unlike traditional models, Impact Delivery isn't confined to the constraints of project-based funding cycles. It goes beyond meeting present requirements and lays a foundation for future expansion. It's about creating more value from the same investment, preparing for future needs, and achieving sustainable growth." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Impact Delivery be applied to any sector?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, Impact Delivery is an approach for social impact organizations and governments, and can be applied across sectors including health, agriculture, social services, and more." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to do Impact Delivery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Impact Delivery is an approach, not a specific technology, and Dimagi's portfolio of products and services is designed to allow you to follow this approach. CommCare is our Impact Delivery platform for organizations with frontline staff. SureAdhere is our virtual care platform for person-centered remote treatment support. Our Solutions Delivery team is your partner for building and scaling custom technology to support today's use case and tomorrow's. The goal is to create more value from the same investment, so the focus should be on the long-term return on investment (ROI) rather than just the initial outlay." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Impact Delivery support frontline workers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Impact Delivery supports frontline workers by leveraging digital technology to improve their job aids and support systems, enabling them to deliver better services to their clients. It also recognizes the importance of their wellbeing, advocating for tools like WellMe, a resilience and wellbeing application for frontline workers." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Impact Delivery contribute to better service delivery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "While data collection and analysis are crucial, Impact Delivery shifts the focus from primarily collecting data for administrative purposes to delivering impactful services. The same investment made in digitizing data can be used to deliver more impactful services while still gathering necessary data." }
+    },
+    {
+      "@type": "Question",
+      "name": "How can Impact Delivery help with funding constraints?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Impact Delivery focuses on maximizing value from existing resources. Instead of just meeting current project needs, it uses project-based funding to build a foundation for future needs. This approach contributes to a stronger foundation that creates sustained value over time, even during funding dry spells." }
+    },
+    {
+      "@type": "Question",
+      "name": "What role does ecosystem thinking play in Impact Delivery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ecosystem thinking is vital in Impact Delivery. It goes beyond the scope of single projects, encouraging you to design digital programs as part of a larger ecosystem from the beginning rather than treating them as one-off projects. This approach facilitates cross-project design, allowing for the delivery of more integrated services. Dimagi's products are designed for interoperability and smooth data exchange to support connecting tools across workflows." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Impact Delivery prepare organizations for the future?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Impact Delivery encourages a forward-looking approach. It is about addressing today's needs in such a way that the organization is also prepared to tackle the emerging needs of tomorrow. You can create a compelling organizational vision and processes to support it. By leveraging robust, long-term technology platforms and investing in the human capital to bring it to life over time, organizations can build the capabilities and foundations they need to face future challenges." }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css?v=15">
 <style>
 /* ── Our Approach / Impact Delivery page ── */
+
+/* On-this-page jump nav */
+.jumpnav {
+  position: sticky;
+  top: 76px;
+  z-index: 40;
+  background: rgba(255,255,255,0.92);
+  -webkit-backdrop-filter: saturate(160%) blur(8px);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.jumpnav-inner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 56px;
+}
+.jumpnav-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  flex-shrink: 0;
+}
+.jumpnav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.jumpnav-links::-webkit-scrollbar { display: none; }
+.jumpnav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: color 150ms, background 150ms;
+}
+.jumpnav-links a:hover { color: var(--indigo); background: var(--sky-tint); }
+.jumpnav-links a.is-active { color: var(--indigo); background: var(--indigo-soft); font-weight: 600; }
+/* +40 stacks on the global html{scroll-padding-top:96px} for the 2 sticky bars (nav 76 + jumpnav 56) */
+#problem, #what, #different, #framework, #in-action, #faq { scroll-margin-top: 40px; }
 
 /* Problem cards */
 .problem-grid {
@@ -138,14 +243,87 @@
   color: rgba(255,255,255,0.78);
   line-height: 1.7;
 }
+.id-duo {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  margin-top: 48px;
+}
+.id-duo-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px 34px;
+}
+.id-duo-k {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 12px;
+}
+.id-duo-card:last-of-type .id-duo-k { color: var(--marigold); }
+.id-duo-v {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+}
+.id-duo-op {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 26px;
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+}
 
 /* Comparison */
 .cmp {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   margin-top: 36px;
 }
+.cmp-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 6px;
+  position: relative;
+}
+.cmp-head::after {
+  content: "\2192";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -70%);
+  font-family: var(--mono);
+  font-size: 17px;
+  color: var(--rule);
+  pointer-events: none;
+}
+.cmp-head-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 24px 12px;
+  border-bottom: 2px solid var(--line);
+}
+.cmp-head-cell::before {
+  content: "";
+  width: 9px; height: 9px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.cmp-head .cmp-tag { font-size: 12.5px; letter-spacing: 0.12em; }
+.cmp-head-cell.cmp-old { border-bottom-color: var(--salmon-100); }
+.cmp-head-cell.cmp-old::before { background: var(--salmon); }
+.cmp-head-cell.cmp-new { border-bottom-color: var(--indigo-soft); }
+.cmp-head-cell.cmp-new::before { background: var(--indigo); }
 .cmp-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -167,6 +345,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+.cmp-row .cmp-tag { display: none; }
 .cmp-side p { font-size: 15.5px; line-height: 1.6; margin: 0; }
 .cmp-old { color: var(--muted); }
 .cmp-old .cmp-tag { color: var(--salmon-700); }
@@ -246,6 +425,73 @@
   color: var(--indigo);
 }
 
+/* Three Pillars — connected tabs */
+.pillar-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 36px;
+  border: 1px solid var(--indigo-soft);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+.pillar-tab {
+  text-align: left;
+  background: var(--sky-tint);
+  border: 0;
+  border-left: 1px solid var(--indigo-soft);
+  border-radius: 0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  font: inherit;
+  box-shadow: inset 0 3px 0 0 transparent;
+  transition: background 200ms, box-shadow 200ms;
+}
+.pillar-tab:first-child { border-left: 0; }
+.pillar-tab:hover:not(.is-active) { background: #e7ebff; }
+.pillar-tab.is-active {
+  background: #fff;
+  box-shadow: inset 0 3px 0 0 var(--indigo);
+  cursor: default;
+}
+.pillar-tab-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--indigo);
+}
+.pillar-tab-title {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--deep-purple);
+  line-height: 1.2;
+}
+.pillar-tab-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.pillar-panels {
+  margin-top: 0;
+  border: 1px solid var(--indigo-soft);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: #fff;
+  padding: 40px;
+}
+.pillar-panel { display: none; }
+.pillar-panel.is-active { display: block; }
+.pillar-detail {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 /* PPT (People, Process, Technology) */
 .ppt-grid {
   display: grid;
@@ -284,21 +530,20 @@
 }
 
 /* Case studies: Impact Delivery in Action */
-.case-list { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+.case-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
 .case-row {
-  display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  gap: 0;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: box-shadow 200ms, border-color 200ms;
+  transition: box-shadow 200ms, border-color 200ms, transform 200ms;
 }
-.case-row:hover { box-shadow: 0 18px 40px -16px rgba(10,6,32,0.16); border-color: var(--indigo-soft); }
-.case-media { overflow: hidden; background: var(--indigo-soft); min-height: 260px; }
+.case-row:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -16px rgba(10,6,32,0.16); border-color: var(--indigo-soft); }
+.case-media { overflow: hidden; background: var(--indigo-soft); aspect-ratio: 16/9; }
 .case-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.case-body { padding: 40px 44px; display: flex; flex-direction: column; gap: 14px; }
+.case-body { padding: 28px 28px 30px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .case-eyebrow {
   font-family: var(--mono);
   font-size: 11px;
@@ -307,11 +552,11 @@
   text-transform: uppercase;
   color: var(--indigo);
 }
-.case-title { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; }
+.case-title { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; }
 .case-title a { color: var(--deep-purple); text-decoration: none; }
 .case-title a:hover { color: var(--indigo); }
-.case-desc { font-size: 15.5px; color: var(--muted); line-height: 1.65; }
-.case-metrics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.case-desc { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.case-metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .metric-chip {
   font-family: var(--mono);
   font-size: 12px;
@@ -323,7 +568,7 @@
   padding: 8px 14px;
 }
 .metric-chip strong { font-weight: 600; color: var(--deep-purple); }
-.case-foot { display: flex; align-items: center; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
+.case-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: auto; padding-top: 6px; }
 .case-date {
   font-family: var(--mono);
   font-size: 12px;
@@ -342,16 +587,14 @@
 }
 .case-link:hover { text-decoration: underline; }
 
-/* Podcast band */
+/* Podcast band (dark, narrow) */
+.podcast-section { background: var(--deep-purple); }
+.podcast-section .container { max-width: 860px; }
 .podcast-band {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 48px;
+  grid-template-columns: 190px 1fr;
+  gap: 44px;
   align-items: center;
-  background: #f8f8f8;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 48px 48px;
 }
 .podcast-band-eyebrow {
   font-family: var(--mono);
@@ -359,14 +602,14 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--indigo);
+  color: var(--indigo-soft);
   margin-bottom: 12px;
 }
 .podcast-band-title {
   font-size: 26px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: #fff;
   line-height: 1.25;
   margin: 0 0 16px;
 }
@@ -374,7 +617,7 @@
   font-size: 18px;
   font-weight: 300;
   font-style: italic;
-  color: var(--muted);
+  color: rgba(255,255,255,0.78);
   line-height: 1.6;
   margin: 0 0 28px;
 }
@@ -382,17 +625,31 @@
   border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 1/1;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255,255,255,0.18);
 }
 .podcast-band-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* FAQ accordion */
-.faq-list {
+.faq-cols {
   margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+  align-items: start;
+}
+.faq-col {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 880px;
+}
+.faq-col-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  padding-bottom: 4px;
 }
 .faq-item {
   border: 1px solid var(--line);
@@ -473,15 +730,27 @@
 @media (max-width: 900px) {
   .problem-grid { grid-template-columns: 1fr; }
   .problem-stat { padding: 40px 28px; }
+  .cmp-head { display: none; }
+  .cmp { gap: 14px; }
   .cmp-row { grid-template-columns: 1fr; gap: 8px; }
-  .pillar-row { grid-template-columns: 1fr; gap: 20px; }
+  .cmp-row .cmp-tag { display: inline-block; }
+  .pillar-detail { grid-template-columns: 1fr; gap: 20px; }
+  .pillar-tabs { grid-template-columns: 1fr; }
+  .pillar-tab { border-left: 0; border-top: 1px solid var(--indigo-soft); }
+  .pillar-tab:first-child { border-top: 0; }
+  .pillar-panels { padding: 28px 24px; }
+  .id-duo { grid-template-columns: 1fr; }
+  .id-duo-op { padding: 10px 0; }
+  .faq-cols { grid-template-columns: 1fr; gap: 12px; }
+  .faq-col + .faq-col { margin-top: 8px; }
+  .jumpnav-inner { gap: 14px; }
+  .jumpnav-label { display: none; }
   .ppt-grid { grid-template-columns: 1fr; }
-  .case-row { grid-template-columns: 1fr; }
-  .case-media { aspect-ratio: 16/9; min-height: 0; }
-  .case-body { padding: 32px 28px; }
-  .podcast-band { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; }
-  .podcast-band-art { max-width: 240px; }
-  .discover-grid { grid-template-columns: 1fr; }
+  .case-list { grid-template-columns: 1fr; }
+  .case-media { aspect-ratio: 16/9; }
+  .case-body { padding: 28px 26px; }
+  .podcast-band { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .podcast-band-art { max-width: 200px; margin: 0 auto; }
 }
 </style>
 </head>
@@ -497,7 +766,7 @@
       </a>
       <div class="nav-links">
         <a href="#">Products</a>
-        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="#">Professional Services</a>
         <a href="../../company/about/index.html" class="nav-active">Company</a>
         <a href="../../contact/index.html">Contact Us</a>
       </div>
@@ -518,15 +787,32 @@
         <h1 class="hero-title">Unlock the full potential of digital with <em>Impact Delivery</em></h1>
         <p class="hero-sub">Get up to 10x the value of your investment in digital solutions. Impact Delivery is a robust, sustainable approach that maximizes impact today and builds the foundation for tomorrow's success.</p>
         <div class="hero-ctas">
-          <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to our team</a>
-          <a class="btn btn-ghost-on-dark" href="#playbook">Get the playbook</a>
+          <a class="btn btn-on-dark btn-arrow" href="#framework">Explore the framework</a>
+          <a class="btn btn-ghost-on-dark" href="../../contact/index.html">Talk to our team</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- On this page -->
+  <nav class="jumpnav" aria-label="On this page">
+    <div class="container">
+      <div class="jumpnav-inner">
+        <span class="jumpnav-label">On this page</span>
+        <div class="jumpnav-links">
+          <a href="#problem">The problem</a>
+          <a href="#what">What it is</a>
+          <a href="#different">The difference</a>
+          <a href="#framework">The framework</a>
+          <a href="#in-action">In action</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- The Problem -->
-  <section class="section">
+  <section class="section" id="problem">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">The Problem</span>
@@ -563,7 +849,7 @@
   </section>
 
   <!-- What is Impact Delivery -->
-  <section class="section dark">
+  <section class="section dark" id="what">
     <div class="container">
       <div class="id-intro">
         <span class="eyebrow on-dark">Impact Delivery</span>
@@ -571,11 +857,23 @@
         <p class="id-intro-pull">"Maximize value for money by meeting the pressing demands of today while building a foundation for tomorrow."</p>
         <p class="id-intro-text">Impact Delivery is Dimagi's answer to the pressure on global health and development to do more with less, by creating more value for every dollar invested. Over the last 20 years, we have partnered with leading organizations and governments to shape their frontline programs for long-term and growing impact. This forward-thinking approach works within the constraints of project limitations and funding cycles, enabling organizations to address today's problems while strategically preparing for tomorrow's challenges. It is not about surviving the present, but thriving in the future, while delivering critical services to those who need them most.</p>
       </div>
+
+      <div class="id-duo">
+        <div class="id-duo-card">
+          <div class="id-duo-k">Today</div>
+          <p class="id-duo-v">Meet the pressing demands and deliver critical services to the people who need them now.</p>
+        </div>
+        <div class="id-duo-op" aria-hidden="true">while</div>
+        <div class="id-duo-card">
+          <div class="id-duo-k">Tomorrow</div>
+          <p class="id-duo-v">Build a foundation that keeps growing in value and is ready for challenges yet to come.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- How is this different -->
-  <section class="section">
+  <section class="section" id="different">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">The Shift</span>
@@ -583,6 +881,11 @@
         <p class="section-lede">It is a move from the status quo in digital for development, where value trails off after launch, to an approach where every investment compounds over time.</p>
       </div>
       <div class="cmp">
+
+        <div class="cmp-head">
+          <div class="cmp-head-cell cmp-old"><span class="cmp-tag">The old way</span></div>
+          <div class="cmp-head-cell cmp-new"><span class="cmp-tag">Impact Delivery</span></div>
+        </div>
 
         <div class="cmp-row">
           <div class="cmp-side cmp-old">
@@ -655,68 +958,93 @@
   </section>
 
   <!-- Three Pillars -->
-  <section class="section" style="background: #f8f8f8;">
+  <section class="section" id="framework" style="background: #f8f8f8;">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">The Framework</span>
         <h2 class="section-title">Three pillars of Impact Delivery</h2>
         <p class="section-lede">Impact Delivery means leveraging technology, people, and processes to create Better Impact, More Impact, and Sustained Impact. Here is what each pillar looks like, and the questions to ask your team to get there.</p>
       </div>
-      <div style="margin-top: 32px;">
 
-        <div class="pillar-row">
-          <div class="pillar-label-block">
-            <div class="pillar-tag">Pillar 01</div>
-            <div class="pillar-heading">Deliver Better Impact</div>
-            <div class="pillar-subheading">by creating better jobs for users, and therefore better outcomes</div>
-          </div>
-          <div>
-            <p class="pillar-body">Digital solutions should collect needed data and also improve and deepen the impact delivered by frontline providers. With CommCare, Dimagi's Impact Delivery platform, you can improve the jobs of your users with robust job aids complete with decision support. This enables seamless referrals for continuity of care, multimedia content for top-notch training, and automated bi-directional messaging for client communication. You can deliver better services and still capture the data required for administrative reporting.</p>
-            <div class="pillar-asks">
-              <div class="pillar-asks-label">Ask your team</div>
-              <ul>
-                <li>Will this technology make our workforce's jobs better, or add administrative burden?</li>
-                <li>Can we articulate the tangible improvement in service delivery, and measure it during implementation?</li>
-                <li>Are the voices of our frontline users heard in our approach, with a feedback loop that closes?</li>
-              </ul>
+      <div class="pillar-tabs" role="tablist" aria-label="The three pillars of Impact Delivery">
+        <button class="pillar-tab is-active" id="ptab-1" role="tab" aria-selected="true" aria-controls="ppanel-1">
+          <span class="pillar-tab-num">Pillar 01</span>
+          <span class="pillar-tab-title">Better Impact</span>
+          <span class="pillar-tab-sub">Better jobs for frontline users, and better outcomes.</span>
+        </button>
+        <button class="pillar-tab" id="ptab-2" role="tab" aria-selected="false" aria-controls="ppanel-2" tabindex="-1">
+          <span class="pillar-tab-num">Pillar 02</span>
+          <span class="pillar-tab-title">More Impact</span>
+          <span class="pillar-tab-sub">More programs, user types, and integrations at scale.</span>
+        </button>
+        <button class="pillar-tab" id="ptab-3" role="tab" aria-selected="false" aria-controls="ppanel-3" tabindex="-1">
+          <span class="pillar-tab-num">Pillar 03</span>
+          <span class="pillar-tab-title">Sustained Impact</span>
+          <span class="pillar-tab-sub">A long-term partner on a platform that lasts.</span>
+        </button>
+      </div>
+
+      <div class="pillar-panels">
+
+        <div class="pillar-panel is-active" id="ppanel-1" role="tabpanel" aria-labelledby="ptab-1">
+          <div class="pillar-detail">
+            <div class="pillar-label-block">
+              <div class="pillar-tag">Pillar 01</div>
+              <div class="pillar-heading">Deliver Better Impact</div>
+              <div class="pillar-subheading">by creating better jobs for users, and therefore better outcomes</div>
+            </div>
+            <div>
+              <p class="pillar-body">Digital solutions should collect needed data and also improve and deepen the impact delivered by frontline providers. With CommCare, Dimagi's Impact Delivery platform, you can improve the jobs of your users with robust job aids complete with decision support. This enables seamless referrals for continuity of care, multimedia content for top-notch training, and automated bi-directional messaging for client communication. You can deliver better services and still capture the data required for administrative reporting.</p>
+              <div class="pillar-asks">
+                <div class="pillar-asks-label">Ask your team</div>
+                <ul>
+                  <li>Will this technology make our workforce's jobs better, or add administrative burden?</li>
+                  <li>Can we articulate the tangible improvement in service delivery, and measure it during implementation?</li>
+                  <li>Are the voices of our frontline users heard in our approach, with a feedback loop that closes?</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="pillar-row">
-          <div class="pillar-label-block">
-            <div class="pillar-tag">Pillar 02</div>
-            <div class="pillar-heading">Deliver More Impact</div>
-            <div class="pillar-subheading">by setting up digital to support multiple programs, user types, and integrations at scale</div>
-          </div>
-          <div>
-            <p class="pillar-body">With CommCare, you can deliver on today's project requirements with a robust foundation. This lets you seamlessly roll out new services, add support for additional user types, connect to other systems your organization or partners use, and rapidly release improvements to meet evolving requirements. With an Impact Delivery approach, we intentionally plan to support more impact with no or limited additional cost.</p>
-            <div class="pillar-asks">
-              <div class="pillar-asks-label">Ask your team</div>
-              <ul>
-                <li>What are the next three use cases, programs, or user types we could create more impact with?</li>
-                <li>What integrations does our vision require, and are they a high enough priority that we will finish them?</li>
-                <li>Do we want to take advantage of AI, machine learning, and automation, and what foundation does that need?</li>
-              </ul>
+        <div class="pillar-panel" id="ppanel-2" role="tabpanel" aria-labelledby="ptab-2" hidden>
+          <div class="pillar-detail">
+            <div class="pillar-label-block">
+              <div class="pillar-tag">Pillar 02</div>
+              <div class="pillar-heading">Deliver More Impact</div>
+              <div class="pillar-subheading">by setting up digital to support multiple programs, user types, and integrations at scale</div>
+            </div>
+            <div>
+              <p class="pillar-body">With CommCare, you can deliver on today's project requirements with a robust foundation. This lets you seamlessly roll out new services, add support for additional user types, connect to other systems your organization or partners use, and rapidly release improvements to meet evolving requirements. With an Impact Delivery approach, we intentionally plan to support more impact with no or limited additional cost.</p>
+              <div class="pillar-asks">
+                <div class="pillar-asks-label">Ask your team</div>
+                <ul>
+                  <li>What are the next three use cases, programs, or user types we could create more impact with?</li>
+                  <li>What integrations does our vision require, and are they a high enough priority that we will finish them?</li>
+                  <li>Do we want to take advantage of AI, machine learning, and automation, and what foundation does that need?</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="pillar-row">
-          <div class="pillar-label-block">
-            <div class="pillar-tag">Pillar 03</div>
-            <div class="pillar-heading">Deliver Sustained Impact</div>
-            <div class="pillar-subheading">by working with a long-term technology partner on a robust platform</div>
-          </div>
-          <div>
-            <p class="pillar-body">Sustaining impact requires knowing that the future is unknown and being prepared to meet the emerging needs of tomorrow. Dimagi's long-term partnership approach, combined with the building blocks available within the CommCare platform, puts you in a position to meet today's requirements and be ready for tomorrow's challenge. Delivering impactful services in complex ecosystems requires long-term partners, not vendors.</p>
-            <div class="pillar-asks">
-              <div class="pillar-asks-label">Ask your team</div>
-              <ul>
-                <li>Is someone accountable for getting the most impact from our digital investment over time, beyond the initial funding?</li>
-                <li>Are we choosing partners proven to last through boom-and-bust funding cycles?</li>
-                <li>Do our tools include robust APIs for seamless data exchange across the systems we plan to use?</li>
-              </ul>
+        <div class="pillar-panel" id="ppanel-3" role="tabpanel" aria-labelledby="ptab-3" hidden>
+          <div class="pillar-detail">
+            <div class="pillar-label-block">
+              <div class="pillar-tag">Pillar 03</div>
+              <div class="pillar-heading">Deliver Sustained Impact</div>
+              <div class="pillar-subheading">by working with a long-term technology partner on a robust platform</div>
+            </div>
+            <div>
+              <p class="pillar-body">Sustaining impact requires knowing that the future is unknown and being prepared to meet the emerging needs of tomorrow. Dimagi's long-term partnership approach, combined with the building blocks available within the CommCare platform, puts you in a position to meet today's requirements and be ready for tomorrow's challenge. Delivering impactful services in complex ecosystems requires long-term partners, not vendors.</p>
+              <div class="pillar-asks">
+                <div class="pillar-asks-label">Ask your team</div>
+                <ul>
+                  <li>Is someone accountable for getting the most impact from our digital investment over time, beyond the initial funding?</li>
+                  <li>Are we choosing partners proven to last through boom-and-bust funding cycles?</li>
+                  <li>Do our tools include robust APIs for seamless data exchange across the systems we plan to use?</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -758,7 +1086,7 @@
   </section>
 
   <!-- Impact Delivery in Action -->
-  <section class="section">
+  <section class="section" id="in-action">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Impact Delivery in Action</span>
@@ -832,163 +1160,114 @@
   </section>
 
   <!-- Podcast -->
-  <section class="section" style="background: #f8f8f8;">
+  <section class="section podcast-section">
     <div class="container">
       <div class="podcast-band">
+        <div class="podcast-band-art">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+        </div>
         <div>
           <div class="podcast-band-eyebrow">On the Podcast</div>
           <h2 class="podcast-band-title">Hear about Impact Delivery on the podcast</h2>
           <p class="podcast-band-quote">"How can we deliver more services to more people with flat or decreasing levels of funding?"</p>
-          <a class="btn btn-indigo btn-arrow" href="../../podcast/ep49-introducing-impact-delivery-raising-the-bar-for-digital-in-global-health-development/index.html">Listen now</a>
-        </div>
-        <div class="podcast-band-art">
-          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast cover art" loading="lazy">
+          <a class="btn btn-on-dark btn-arrow" href="../../podcast/ep49-introducing-impact-delivery-raising-the-bar-for-digital-in-global-health-development/index.html">Listen now</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA band -->
-  <div class="cta-band" id="playbook">
-    <div class="container">
-      <h2>Get the Impact Delivery Playbook</h2>
-      <p>Go deeper with the full framework, the diagnostic questions to ask your team, and detailed case studies from Burkina Faso, the United States, and Guatemala. Learn how to apply Impact Delivery to your programs and maximize the value of your investment in digital solutions.</p>
-      <div class="cta-actions">
-        <a class="btn btn-on-dark btn-arrow" href="https://dimagi.com/impact-delivery/" target="_blank" rel="noopener">Get the playbook</a>
-        <a class="btn btn-ghost-on-dark" href="../../contact/index.html">Contact us</a>
-      </div>
-    </div>
-  </div>
-
   <!-- FAQ -->
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">FAQ</span>
         <h2 class="section-title">Impact Delivery, answered</h2>
       </div>
-      <div class="faq-list">
+      <div class="faq-cols">
 
-        <details class="faq-item">
-          <summary>How much does it cost to do Impact Delivery?</summary>
-          <div class="faq-answer">
-            <p>Impact Delivery is an approach, not a specific technology, and Dimagi's portfolio of products and services is designed to allow you to follow this approach. CommCare is our Impact Delivery platform for organizations with frontline staff, and you can find pricing information <a href="https://www.dimagi.com/commcare/pricing/" target="_blank" rel="noopener">here</a>. SureAdhere is our virtual care platform for person-centered remote treatment support, and you can learn more <a href="https://www.sureadhere.com/" target="_blank" rel="noopener">here</a>. Our Solutions Delivery team is your partner for building and scaling custom technology to support today's use case and tomorrow's. Learn more <a href="../../professional-services/index.html">here</a>.</p>
-            <p>Additionally, it's crucial to remember that the goal is to create more value from the same investment, so the focus should be on the long-term return on investment (ROI) rather than just the initial outlay. Talk to us to learn more.</p>
-          </div>
-        </details>
+        <div class="faq-col">
+          <div class="faq-col-label">Understanding Impact Delivery</div>
 
-        <details class="faq-item">
-          <summary>What is Impact Delivery?</summary>
-          <div class="faq-answer">
-            <p>Impact Delivery is the answer to pressures on global health and development to do more with less, by creating more value for your digital investment. It is an innovative approach that leverages technology to maximize the efficiency and effectiveness of social impact organizations. It focuses on enhancing service quality, increasing the quantity of impactful services within existing budgets, and planning for long-term success. By adopting this approach, you can move from simply digitizing programs to creating powerful, lasting change that grows in value over time, by leveraging existing funding and project-based constraints.</p>
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>What is Impact Delivery?</summary>
+            <div class="faq-answer">
+              <p>Impact Delivery is the answer to pressures on global health and development to do more with less, by creating more value for your digital investment. It is an innovative approach that leverages technology to maximize the efficiency and effectiveness of social impact organizations. It focuses on enhancing service quality, increasing the quantity of impactful services within existing budgets, and planning for long-term success. By adopting this approach, you can move from simply digitizing programs to creating powerful, lasting change that grows in value over time, by leveraging existing funding and project-based constraints.</p>
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>What are the three key pillars of Impact Delivery?</summary>
-          <div class="faq-answer">
-            <p>The three pillars of Impact Delivery are Better Impact, More Impact, and Sustained Impact. Better Impact focuses on enhancing the quality of services delivered, More Impact aims to increase the quantity of impactful services within existing investments, and Sustained Impact focuses on setting up for long-term success.</p>
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>What are the three key pillars of Impact Delivery?</summary>
+            <div class="faq-answer">
+              <p>The three pillars of Impact Delivery are Better Impact, More Impact, and Sustained Impact. Better Impact focuses on enhancing the quality of services delivered, More Impact aims to increase the quantity of impactful services within existing investments, and Sustained Impact focuses on setting up for long-term success.</p>
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>How does Impact Delivery differ from traditional digitization efforts?</summary>
-          <div class="faq-answer">
-            <p>Unlike traditional models, Impact Delivery isn't confined to the constraints of project-based funding cycles. It goes beyond meeting present requirements and lays a foundation for future expansion. It's about creating more value from the same investment, preparing for future needs, and achieving sustainable growth.</p>
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>How does Impact Delivery differ from traditional digitization efforts?</summary>
+            <div class="faq-answer">
+              <p>Unlike traditional models, Impact Delivery isn't confined to the constraints of project-based funding cycles. It goes beyond meeting present requirements and lays a foundation for future expansion. It's about creating more value from the same investment, preparing for future needs, and achieving sustainable growth.</p>
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>How can Impact Delivery help in dealing with the challenges posed by funding constraints?</summary>
-          <div class="faq-answer">
-            <p>Impact Delivery focuses on maximizing value from existing resources. Instead of just meeting current project needs, it uses project-based funding to build a foundation for future needs. This approach contributes to a stronger foundation that creates sustained value over time, even during funding dry spells.</p>
-          </div>
-        </details>
+          <details class="faq-item">
+            <summary>Can Impact Delivery be applied to any sector?</summary>
+            <div class="faq-answer">
+              <p>Yes, Impact Delivery is an approach for social impact organizations and governments, and can be applied across sectors including health, agriculture, social services, and more. See how CommCare can be used <a href="https://www.dimagi.com/sectors/" target="_blank" rel="noopener">across various sectors</a>.</p>
+            </div>
+          </details>
 
-        <details class="faq-item">
-          <summary>Can Impact Delivery be applied to any sector?</summary>
-          <div class="faq-answer">
-            <p>Yes, Impact Delivery is an approach for social impact organizations and governments, and can be applied across sectors including health, agriculture, social services, and more. See how CommCare can be used <a href="https://www.dimagi.com/sectors/" target="_blank" rel="noopener">across various sectors</a>.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How does Impact Delivery support frontline workers?</summary>
-          <div class="faq-answer">
-            <p>Impact Delivery supports frontline workers by leveraging digital technology to improve their job aids and support systems, enabling them to deliver better services to their clients. It also recognizes the importance of their wellbeing, advocating for tools like WellMe, a resilience and wellbeing application for frontline workers.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How does Impact Delivery contribute to better service delivery?</summary>
-          <div class="faq-answer">
-            <p>While data collection and analysis are crucial, Impact Delivery shifts the focus from primarily collecting data for administrative purposes to delivering impactful services. The same investment made in digitizing data can be used to deliver more impactful services while still gathering necessary data.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What role does ecosystem thinking play in Impact Delivery?</summary>
-          <div class="faq-answer">
-            <p>Ecosystem thinking is vital in Impact Delivery. It goes beyond the scope of single projects, encouraging you to design digital programs as part of a larger ecosystem from the beginning rather than treating them as one-off projects. This approach facilitates cross-project design, allowing for the delivery of more integrated services. Dimagi's products are designed for interoperability and smooth data exchange to support connecting tools across workflows. Learn more about CommCare's integrations <a href="https://www.dimagi.com/commcare/integrations/" target="_blank" rel="noopener">here</a>.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How does Impact Delivery prepare organizations for the future?</summary>
-          <div class="faq-answer">
-            <p>Impact Delivery encourages a forward-looking approach. It is about addressing today's needs in such a way that the organization is also prepared to tackle the emerging needs of tomorrow. You can create a compelling organizational vision and processes to support it. By leveraging robust, long-term technology platforms and investing in the human capital to bring it to life over time, organizations can build the capabilities and foundations they need to face future challenges.</p>
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Discover More -->
-  <section class="section" style="background: #f5f7ff;">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Discover More</span>
-        <h2 class="section-title">Keep exploring</h2>
-      </div>
-      <div class="discover-grid">
-
-        <div class="discover-card">
-          <div class="discover-card-img">
-            <img src="../../assets/images/about-photo.jpg" alt="The Dimagi team" loading="lazy">
-          </div>
-          <div class="discover-card-body">
-            <div class="discover-card-title">About Us</div>
-            <p class="discover-card-desc">Learn how Dimagi got its start, and the incredible team building digital solutions that help deliver critical services to underserved communities.</p>
-            <a class="discover-card-link" href="../../company/about/index.html">Read more &rarr;</a>
-          </div>
+          <details class="faq-item">
+            <summary>How much does it cost to do Impact Delivery?</summary>
+            <div class="faq-answer">
+              <p>Impact Delivery is an approach, not a specific technology, and Dimagi's portfolio of products and services is designed to allow you to follow this approach. CommCare is our Impact Delivery platform for organizations with frontline staff, and you can find pricing information <a href="https://www.dimagi.com/commcare/pricing/" target="_blank" rel="noopener">here</a>. SureAdhere is our virtual care platform for person-centered remote treatment support, and you can learn more <a href="https://www.sureadhere.com/" target="_blank" rel="noopener">here</a>. Our Solutions Delivery team is your partner for building and scaling custom technology to support today's use case and tomorrow's. Learn more <a href="../../professional-services/index.html">here</a>.</p>
+              <p>Additionally, it's crucial to remember that the goal is to create more value from the same investment, so the focus should be on the long-term return on investment (ROI) rather than just the initial outlay. Talk to us to learn more.</p>
+            </div>
+          </details>
         </div>
 
-        <div class="discover-card">
-          <div class="discover-card-img">
-            <img src="../../assets/images/product-commcare.png" alt="CommCare" loading="lazy">
-          </div>
-          <div class="discover-card-body">
-            <div class="discover-card-title">CommCare</div>
-            <p class="discover-card-desc">Build secure, customizable apps that enable your frontline teams to collect actionable data and amplify your organization's impact.</p>
-            <a class="discover-card-link" href="https://dimagi.com/commcare/" target="_blank" rel="noopener">Read more &rarr;</a>
-          </div>
-        </div>
+        <div class="faq-col">
+          <div class="faq-col-label">Impact Delivery in practice</div>
 
-        <div class="discover-card">
-          <div class="discover-card-img">
-            <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast" loading="lazy">
-          </div>
-          <div class="discover-card-body">
-            <div class="discover-card-title">Podcast</div>
-            <p class="discover-card-desc">Listen to meaningful conversations on how to build digital solutions for leading NGOs that are immensely impactful and also achieve high growth.</p>
-            <a class="discover-card-link" href="../../podcast/index.html">Read more &rarr;</a>
-          </div>
+          <details class="faq-item">
+            <summary>How does Impact Delivery support frontline workers?</summary>
+            <div class="faq-answer">
+              <p>Impact Delivery supports frontline workers by leveraging digital technology to improve their job aids and support systems, enabling them to deliver better services to their clients. It also recognizes the importance of their wellbeing, advocating for tools like WellMe, a resilience and wellbeing application for frontline workers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does Impact Delivery contribute to better service delivery?</summary>
+            <div class="faq-answer">
+              <p>While data collection and analysis are crucial, Impact Delivery shifts the focus from primarily collecting data for administrative purposes to delivering impactful services. The same investment made in digitizing data can be used to deliver more impactful services while still gathering necessary data.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How can Impact Delivery help with funding constraints?</summary>
+            <div class="faq-answer">
+              <p>Impact Delivery focuses on maximizing value from existing resources. Instead of just meeting current project needs, it uses project-based funding to build a foundation for future needs. This approach contributes to a stronger foundation that creates sustained value over time, even during funding dry spells.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What role does ecosystem thinking play in Impact Delivery?</summary>
+            <div class="faq-answer">
+              <p>Ecosystem thinking is vital in Impact Delivery. It goes beyond the scope of single projects, encouraging you to design digital programs as part of a larger ecosystem from the beginning rather than treating them as one-off projects. This approach facilitates cross-project design, allowing for the delivery of more integrated services. Dimagi's products are designed for interoperability and smooth data exchange to support connecting tools across workflows. Learn more about CommCare's integrations <a href="https://www.dimagi.com/commcare/integrations/" target="_blank" rel="noopener">here</a>.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does Impact Delivery prepare organizations for the future?</summary>
+            <div class="faq-answer">
+              <p>Impact Delivery encourages a forward-looking approach. It is about addressing today's needs in such a way that the organization is also prepared to tackle the emerging needs of tomorrow. You can create a compelling organizational vision and processes to support it. By leveraging robust, long-term technology platforms and investing in the human capital to bring it to life over time, organizations can build the capabilities and foundations they need to face future challenges.</p>
+            </div>
+          </details>
         </div>
 
       </div>
     </div>
   </section>
+
 
 </main>
 
@@ -1027,7 +1306,6 @@
       <div class="footer-col">
         <h5>Professional Services</h5>
         <ul>
-          <li><a href="../../professional-services/index.html">Overview</a></li>
           <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
           <li><a href="../../professional-services/united-states/index.html">United States</a></li>
           <li><a href="../../professional-services/india/index.html">India</a></li>
@@ -1074,6 +1352,77 @@
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=6"></script>
+<script src="../../assets/js/nav.js?v=8"></script>
+<script>
+/* Jump-nav scroll spy: highlight the section currently below the sticky bars */
+(function(){
+  var nav = document.querySelector('.jumpnav');
+  if(!nav) return;
+  var track = nav.querySelector('.jumpnav-links');
+  var items = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'))
+    .map(function(a){ return { a: a, el: document.getElementById(a.getAttribute('href').slice(1)) }; })
+    .filter(function(x){ return x.el; });
+  if(!items.length) return;
+  var ticking = false, activeEl = null;
+  function update(){
+    ticking = false;
+    var line = 150; /* just below the nav (76) + jumpnav (56) stack */
+    var current = items[0];
+    for(var i=0;i<items.length;i++){
+      if(items[i].el.getBoundingClientRect().top <= line) current = items[i];
+    }
+    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2){
+      current = items[items.length-1];
+    }
+    if(current.a === activeEl) return;
+    activeEl = current.a;
+    for(var j=0;j<items.length;j++){
+      var on = items[j] === current;
+      items[j].a.classList.toggle('is-active', on);
+      if(on){ items[j].a.setAttribute('aria-current','true'); } else { items[j].a.removeAttribute('aria-current'); }
+    }
+    /* keep the active chip in view when the row scrolls horizontally (mobile) */
+    if(track && track.scrollWidth > track.clientWidth){
+      var cr = track.getBoundingClientRect(), ar = current.a.getBoundingClientRect();
+      track.scrollLeft += (ar.left - cr.left) - 16;
+    }
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+
+/* Framework pillar tabs */
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.pillar-tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.pillar-panel'));
+  if(!tabs.length || tabs.length !== panels.length) return;
+  function activate(i){
+    tabs.forEach(function(t, j){
+      var on = j === i;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function(p, j){
+      var on = j === i;
+      p.classList.toggle('is-active', on);
+      if(on){ p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+    });
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ activate(i); });
+    tab.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+      else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+      else if(e.key === 'Home') n = 0;
+      else if(e.key === 'End') n = tabs.length - 1;
+      if(n !== null){ e.preventDefault(); activate(n); tabs[n].focus(); }
+    });
+  });
+})();
+</script>
 </body>
 </html>

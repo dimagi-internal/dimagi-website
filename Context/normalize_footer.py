@@ -81,7 +81,6 @@ FOOTER_TEMPLATE = '''<footer>
       <div class="footer-col">
         <h5>Professional Services</h5>
         <ul>
-          <li><a href="{P}professional-services/index.html">Overview</a></li>
           <li><a href="{P}professional-services/global-services/index.html">Global Services</a></li>
           <li><a href="{P}professional-services/united-states/index.html">United States</a></li>
           <li><a href="{P}professional-services/india/index.html">India</a></li>

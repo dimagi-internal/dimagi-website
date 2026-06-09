@@ -149,7 +149,7 @@ sec_pres   = present['sector']
 focus_dd   = dropdown('sector', 'Focus', 'All focus areas', [
     ('Sectors',       [v for v in SECTOR_ORDER if v in sec_pres]),
     ('Use cases',     [v for v in USECASE_ORDER if v in sec_pres]),
-    ('Organizations', [v for v in ORGTYPE_ORDER if v in sec_pres]),
+    ('Other',         [v for v in ORGTYPE_ORDER if v in sec_pres]),
     (None,            sorted(v for v in sec_pres
                              if v not in SECTOR_ORDER + USECASE_ORDER + ORGTYPE_ORDER)),
 ], trailing=['None'])

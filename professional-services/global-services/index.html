@@ -27,6 +27,24 @@
 <style>
 /* ── Global Services ── */
 
+/* Hero — field photo + dark overlay */
+.hero.gsx-hero {
+  background:
+    linear-gradient(150deg, rgba(10,6,32,0.95) 0%, rgba(22,0,109,0.88) 44%, rgba(56,67,208,0.68) 100%),
+    url('../../assets/images/about/hero-field.jpg') center 28% / cover no-repeat;
+}
+.gsx-hero-inner { max-width: 760px; position: relative; z-index: 2; }
+.gsx-cred {
+  margin: 42px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.66);
+  max-width: 560px;
+}
+
 /* Stats band — matches the Dimagi home page treatment */
 .stats-band { background: var(--indigo-soft); }
 .stats-band-grid {
@@ -59,99 +77,109 @@
   .stats-band-cell:nth-child(n+3) { border-top: 1px solid rgba(45,54,166,0.14); }
 }
 
-/* How we help */
-.gs-help-grid {
+/* What we deliver — capabilities */
+.gsx-caps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 22px;
   margin-top: 48px;
 }
-.gs-help-card {
+.gsx-cap {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 40px 34px;
+  padding: 34px 30px;
   background: #fff;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
-.gs-help-card:hover {
+.gsx-cap:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 36px -10px rgba(10,6,32,0.12);
   border-color: var(--indigo);
 }
-.gs-help-step {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--indigo);
-  margin-bottom: 18px;
-}
-.gs-help-name {
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--deep-purple);
-  margin: 0 0 12px;
-}
-.gs-help-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
-
-/* eCHIS */
-.gs-echis-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-}
-.gs-echis-panel {
-  background: linear-gradient(135deg, var(--deep-purple) 0%, var(--indigo) 100%);
-  border-radius: var(--radius-lg);
-  padding: 48px 44px;
-  color: #fff;
-}
-.gs-echis-panel .row {
-  border-bottom: 1px solid rgba(255,255,255,0.14);
-  padding-bottom: 22px;
+.gsx-cap-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(135deg, #eef0ff 0%, #f5f7ff 100%);
+  display: flex; align-items: center; justify-content: center;
   margin-bottom: 22px;
 }
-.gs-echis-panel .row:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
-.gs-echis-panel h4 { font-size: 16px; font-weight: 600; color: #fff; margin: 0 0 8px; }
-.gs-echis-panel p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; margin: 0; }
+.gsx-cap-icon svg { width: 24px; height: 24px; stroke: var(--indigo); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.gsx-cap-name { font-size: 18px; font-weight: 600; color: var(--deep-purple); letter-spacing: -0.015em; margin: 0 0 10px; }
+.gsx-cap-desc { font-size: 14px; color: var(--muted); line-height: 1.62; margin: 0; }
 
-/* Sectors */
-.gs-sectors-grid {
+/* How we work — process timeline */
+.gsx-process {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
+  gap: 30px;
+  margin-top: 56px;
 }
-.gs-sector-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+.gsx-phase {
+  position: relative;
+  border-top: 2px solid var(--indigo-soft);
+  padding-top: 30px;
 }
-.gs-sector-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px -10px rgba(10,6,32,0.12);
-  border-color: var(--indigo);
+.gsx-phase::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 0;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--indigo);
+  box-shadow: 0 0 0 4px rgba(56,67,208,0.14);
 }
-.gs-sector-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 11px;
-  background: linear-gradient(135deg, #eef0ff 0%, #f5f7ff 100%);
-  display: flex;
+.gsx-phase-k {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--indigo); margin: 0 0 14px;
+}
+.gsx-phase-name {
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: 600; letter-spacing: -0.02em;
+  color: var(--deep-purple); margin: 0 0 14px;
+}
+.gsx-phase-desc { font-size: 15px; color: var(--muted); line-height: 1.66; margin: 0; }
+
+/* Featured impact */
+.gsx-feature {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 64px;
   align-items: center;
-  justify-content: center;
 }
-.gs-sector-icon svg { width: 23px; height: 23px; stroke: var(--indigo); fill: none; stroke-width: 1.8; }
-.gs-sector-name { font-size: 18px; font-weight: 600; color: var(--deep-purple); letter-spacing: -0.015em; margin: 0; }
-.gs-sector-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; flex: 1; }
+.gsx-feature-figure {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -28px rgba(10,6,32,0.4);
+}
+.gsx-feature-figure img {
+  width: 100%; height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+.gsx-feature-tag {
+  position: absolute; top: 18px; left: 18px;
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; background: rgba(10,6,32,0.62);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  padding: 9px 15px; border-radius: 999px;
+}
+.gsx-feature-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  margin: 30px 0 30px;
+}
+.gsx-fstat-num {
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 200; letter-spacing: -0.03em;
+  color: var(--deep-purple); line-height: 1;
+  font-feature-settings: "tnum";
+}
+.gsx-fstat-num span { color: var(--indigo); font-weight: 300; }
+.gsx-fstat-lbl { font-size: 13px; color: var(--muted); line-height: 1.42; margin-top: 9px; max-width: 130px; }
 
 /* Tech vendor / ally */
 .gs-ally-layout {
@@ -213,7 +241,7 @@
 .gs-tcard .who { font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 3px; }
 .gs-tcard .role { font-size: 12px; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.4; }
 
-/* Explore cards */
+/* Explore + region cards */
 .gs-explore-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -258,13 +286,16 @@
 }
 
 @media (max-width: 900px) {
-  .gs-help-grid { grid-template-columns: 1fr; }
-  .gs-echis-layout { grid-template-columns: 1fr; gap: 40px; }
-  .gs-sectors-grid { grid-template-columns: 1fr; }
+  .gsx-caps-grid { grid-template-columns: 1fr 1fr; }
+  .gsx-process { grid-template-columns: 1fr; gap: 36px; }
+  .gsx-feature { grid-template-columns: 1fr; gap: 36px; }
   .gs-ally-layout { grid-template-columns: 1fr; gap: 40px; }
   .gs-tgrid { grid-template-columns: 1fr; }
   .gs-explore-grid { grid-template-columns: 1fr; }
   .gs-regions-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .gsx-caps-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -280,7 +311,7 @@
       </a>
       <div class="nav-links">
         <a href="#">Products</a>
-        <a href="../../professional-services/index.html" class="nav-active">Professional Services</a>
+        <a href="#" class="nav-active">Professional Services</a>
         <a href="../../company/about/index.html">Company</a>
         <a href="../../contact/index.html">Contact Us</a>
       </div>
@@ -292,16 +323,17 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero hero-dark on-dark">
+<section id="main" class="hero hero-dark on-dark gsx-hero">
   <div class="container">
-    <div style="max-width:880px;">
-      <span class="eyebrow on-dark">Solutions Delivery Services</span>
-      <h1 class="hero-title">Services for sustainable program impact</h1>
-      <p class="hero-sub">When it comes to ICT4D programs, our experience can't be beat. No matter how complicated it seems, you can trust Dimagi's Solutions Delivery Team to help you launch, grow, and scale your program.</p>
+    <div class="gsx-hero-inner">
+      <span class="eyebrow on-dark">Global Services &middot; Solutions Delivery</span>
+      <h1 class="hero-title">Programs that scale, and <em>keep running</em></h1>
+      <p class="hero-sub">For over 20 years, Dimagi's Solutions Delivery Team has worked side by side with governments, ministries of health, and implementing partners, turning ambitious frontline programs into systems that reach millions and sustain impact long after our engagement ends.</p>
       <div class="hero-ctas">
-        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to Our Team</a>
-        <a class="btn btn-ghost-on-dark btn-arrow" href="../africa/index.html">Our Work in Africa</a>
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to our team</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="#regions">Explore regional teams</a>
       </div>
+      <p class="gsx-cred">Trusted by ministries of health and leading implementing partners across 80+ countries.</p>
     </div>
   </div>
 </section>
@@ -330,65 +362,122 @@
   </div>
 </div>
 
-<!-- ───── HOW WE HELP ───── -->
+<!-- ───── WHAT WE DELIVER ───── -->
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow muted">HOW WE HELP</span>
-      <h2 class="section-title">Services you need to build successful programs at scale</h2>
-      <p class="section-lede">Our focus is on delivering services for sustainable program impact. We'll help you build both the internal capacity and the maintainable systems you need to ensure your impact continues long after our partnership ends.</p>
+      <span class="eyebrow muted">WHAT WE DELIVER</span>
+      <h2 class="section-title">Full-lifecycle services for frontline programs</h2>
+      <p class="section-lede">From first design to long-term sustainability, our specialists cover every capability a program needs, so you can launch quickly, grow with confidence, and ultimately run the system on your own.</p>
     </div>
-    <div class="gs-help-grid">
-      <div class="gs-help-card">
-        <div class="gs-help-step">Step 01</div>
-        <h3 class="gs-help-name">Launch</h3>
-        <p class="gs-help-desc">We design and configure your solution around real frontline workflows, then get it into the hands of workers quickly. App design, data architecture, and rollout planning are handled by specialists who have done it hundreds of times before.</p>
+    <div class="gsx-caps-grid">
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19l8-8 4 4-8 8H4z"/><path d="M14 7l3-3 3 3-3 3"/><path d="M3 21h6"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">Program &amp; solution design</h3>
+        <p class="gsx-cap-desc">We map real frontline workflows and shape them into a solution your teams will actually use, grounded in two decades of what works in the field.</p>
       </div>
-      <div class="gs-help-card">
-        <div class="gs-help-step">Step 02</div>
-        <h3 class="gs-help-name">Grow</h3>
-        <p class="gs-help-desc">We help you turn a working pilot into a maturing program, iterating on the application, strengthening data quality, and training your teams so adoption deepens and your evidence base grows.</p>
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 9l9 5 9-5"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">App &amp; data architecture</h3>
+        <p class="gsx-cap-desc">Secure, customizable applications and a data architecture built for scale, interoperability, and the realities of low-connectivity environments.</p>
       </div>
-      <div class="gs-help-card">
-        <div class="gs-help-step">Step 03</div>
-        <h3 class="gs-help-name">Scale</h3>
-        <p class="gs-help-desc">We build the internal capacity and maintainable systems your teams need to own, run, and sustain the program, so impact continues long after our partnership ends.</p>
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">Implementation &amp; rollout</h3>
+        <p class="gsx-cap-desc">From pilot to nationwide deployment, we handle rollout planning, supervision tools, and the logistics of getting technology into thousands of hands.</p>
+      </div>
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.2a3 3 0 0 1 0 5.6"/><path d="M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">Training &amp; capacity building</h3>
+        <p class="gsx-cap-desc">We transfer skills, not dependency, equipping your staff to manage, adapt, and own the system so it keeps delivering without us.</p>
+      </div>
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21V11"/><path d="M11 21V5"/><path d="M16 21v-7"/><path d="M21 21V9"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">Monitoring, evaluation &amp; research</h3>
+        <p class="gsx-cap-desc">Dashboards, data quality systems, and rigorous evaluation, often alongside our Research &amp; Data team, so you can prove impact and act on evidence.</p>
+      </div>
+      <div class="gsx-cap">
+        <div class="gsx-cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg>
+        </div>
+        <h3 class="gsx-cap-name">Long-term support &amp; sustainability</h3>
+        <p class="gsx-cap-desc">Maintainable systems and ongoing support designed for handover, keeping programs resilient and running long after our engagement ends.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ───── eCHIS ───── -->
+<!-- ───── HOW WE WORK ───── -->
 <section class="section cool">
   <div class="container">
-    <div class="gs-echis-layout">
-      <div>
-        <span class="eyebrow muted">NEW OFFERING</span>
-        <h2 class="section-title">The next generation electronic Community Health Information System</h2>
-        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 28px;">A more affordable, scalable model for governments' digital community health systems, built on a proven platform that already scales to millions, and designed for government teams to own, run, and sustain. Now the selected eCHIS for 9 African nations.</p>
-        <a class="btn btn-indigo btn-arrow" href="../africa/index.html">Explore eCHIS in Africa</a>
+    <div class="section-head">
+      <span class="eyebrow muted">HOW WE WORK</span>
+      <h2 class="section-title">A proven path from pilot to national scale</h2>
+      <p class="section-lede">Every engagement follows the same arc, tuned to where your program is today. We meet you at any stage and take you to the next one.</p>
+    </div>
+    <div class="gsx-process">
+      <div class="gsx-phase">
+        <p class="gsx-phase-k">Phase 01</p>
+        <h3 class="gsx-phase-name">Launch</h3>
+        <p class="gsx-phase-desc">We design and configure your solution around real frontline workflows, then get it into the hands of workers quickly. App design, data architecture, and rollout planning are handled by specialists who have done it hundreds of times before.</p>
       </div>
-      <div class="gs-echis-panel">
-        <p style="font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin:0 0 26px; font-family:var(--mono);">Why eCHIS</p>
-        <div class="row">
-          <h4>Affordable by design</h4>
-          <p>A lower total cost of ownership than custom-built systems, so ministries can invest more in frontline delivery.</p>
+      <div class="gsx-phase">
+        <p class="gsx-phase-k">Phase 02</p>
+        <h3 class="gsx-phase-name">Grow</h3>
+        <p class="gsx-phase-desc">We help you turn a working pilot into a maturing program, iterating on the application, strengthening data quality, and training your teams so adoption deepens and your evidence base grows.</p>
+      </div>
+      <div class="gsx-phase">
+        <p class="gsx-phase-k">Phase 03</p>
+        <h3 class="gsx-phase-name">Scale</h3>
+        <p class="gsx-phase-desc">We build the internal capacity and maintainable systems your teams need to own, run, and sustain the program, so impact continues long after our partnership ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FEATURED IMPACT ───── -->
+<section class="section">
+  <div class="container">
+    <div class="gsx-feature">
+      <div class="gsx-feature-figure">
+        <img src="../../assets/images/ndoh-national-scale-mhealth-south-africa/cover.jpg" alt="Community health workers using CommCare in the field in Africa" loading="lazy">
+        <span class="gsx-feature-tag">Africa</span>
+      </div>
+      <div>
+        <h2 class="section-title">Community health at national scale</h2>
+        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 0;">CommCare is the selected electronic Community Health Information System (eCHIS) for nine African nations, a more affordable, government-owned model built on a platform already proven at scale. Our teams support ministries of health to deploy, supervise, and sustain it across tens of thousands of frontline workers.</p>
+        <div class="gsx-feature-stats">
+          <div>
+            <div class="gsx-fstat-num">9</div>
+            <div class="gsx-fstat-lbl">African nations</div>
+          </div>
+          <div>
+            <div class="gsx-fstat-num">84,000<span>+</span></div>
+            <div class="gsx-fstat-lbl">Community health workers</div>
+          </div>
+          <div>
+            <div class="gsx-fstat-num">76M<span>+</span></div>
+            <div class="gsx-fstat-lbl">People reached</div>
+          </div>
         </div>
-        <div class="row">
-          <h4>Proven at national scale</h4>
-          <p>Built on CommCare, a platform that already supports community health programs reaching millions.</p>
-        </div>
-        <div class="row">
-          <h4>Government-owned</h4>
-          <p>Designed so government teams can run and sustain the system themselves over the long term.</p>
-        </div>
+        <a class="btn btn-indigo btn-arrow" href="../africa/index.html">Explore our work in Africa</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ───── REGIONAL TEAMS ───── -->
-<section class="section">
+<section id="regions" class="section cool">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow muted">REGIONAL TEAMS</span>
@@ -411,49 +500,26 @@
         <span class="gs-explore-link">Explore India &amp; Asia &rarr;</span>
       </a>
 
-    </div>
-  </div>
-</section>
+      <a class="gs-explore-card" href="../united-states/index.html">
+        <span class="gs-region-eyebrow">United States</span>
+        <h3 class="gs-explore-name">Digital solutions for public health and human services</h3>
+        <p class="gs-explore-desc">A US-based team helping state and local agencies improve care coordination, treatment access, and program outcomes, with the privacy, security, and contracting standards public agencies require.</p>
+        <span class="gs-explore-link">Explore United States &rarr;</span>
+      </a>
 
-<!-- ───── SECTORS ───── -->
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow muted">SECTORS WE SERVE</span>
-      <h2 class="section-title">Our range of services for frontline worker programs</h2>
-      <p class="section-lede">For over 20 years we have supported a diverse portfolio of social impact programs across 80+ countries, providing technical support and professional services to governments, ministries of health, and implementing partners.</p>
+      <a class="gs-explore-card" href="../research-data/index.html">
+        <span class="gs-region-eyebrow">Research &amp; Data</span>
+        <h3 class="gs-explore-name">Studying the impact of digital health</h3>
+        <p class="gs-explore-desc">The Research &amp; Data (RAD) team collaborates with universities and academic medical centers to study how digital technology affects health and socio-behavioral outcomes, sharing learnings with the global community.</p>
+        <span class="gs-explore-link">Explore Research &amp; Data &rarr;</span>
+      </a>
+
     </div>
-    <div class="gs-sectors-grid">
-      <div class="gs-sector-card">
-        <div class="gs-sector-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="gs-sector-name">Maternal &amp; Child Health</h3>
-        <p class="gs-sector-desc">Mobile tools help monitor and improve maternal, antenatal, natal, and postnatal care.</p>
-      </div>
-      <div class="gs-sector-card">
-        <div class="gs-sector-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h3 class="gs-sector-name">Agricultural Extension</h3>
-        <p class="gs-sector-desc">Support and improve farmer training programs with mobile data collection.</p>
-      </div>
-      <div class="gs-sector-card">
-        <div class="gs-sector-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <h3 class="gs-sector-name">Financial Inclusion</h3>
-        <p class="gs-sector-desc">Extend access to and delivery of basic banking services to everyone in the population, especially those below the poverty line.</p>
-      </div>
-    </div>
-    <p style="text-align:center; margin-top:36px;">
-      <a class="gs-explore-link" href="../../professional-services/index.html" style="font-size:13px;">See all sectors &rarr;</a>
-    </p>
   </div>
 </section>
 
 <!-- ───── MORE THAN A TECH VENDOR ───── -->
-<section class="section cool">
+<section class="section">
   <div class="container">
     <div class="gs-ally-layout">
       <div>
@@ -474,20 +540,6 @@
     </div>
   </div>
 </section>
-
-<!-- ───── PARTNERS BAND ───── -->
-<div style="background:#f5f7ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:40px 0;">
-  <div class="container">
-    <p style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:28px; font-family:var(--mono);">Trusted by partners around the world</p>
-    <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">TechnoServe</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">IDB</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">RTI</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">One Acre Fund</span>
-      <span style="font-size:16px; font-weight:600; color:var(--muted);">Rockefeller Foundation</span>
-    </div>
-  </div>
-</div>
 
 <!-- ───── TESTIMONIALS ───── -->
 <section class="section dark">
@@ -603,7 +655,6 @@
       <div class="footer-col">
         <h5>Professional Services</h5>
         <ul>
-          <li><a href="../../professional-services/index.html">Overview</a></li>
           <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
           <li><a href="../../professional-services/united-states/index.html">United States</a></li>
           <li><a href="../../professional-services/india/index.html">India</a></li>
@@ -650,6 +701,6 @@
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=6"></script>
+<script src="../../assets/js/nav.js?v=8"></script>
 </body>
 </html>

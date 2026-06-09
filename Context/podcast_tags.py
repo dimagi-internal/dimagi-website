@@ -128,6 +128,8 @@ ROWS = [
 # dimension -> chip css variant on the episode hero
 _CHIP_VARIANT = {'product': 'product', 'sector': 'solution', 'usecase': 'solution',
                  'orgtype': 'solution', 'theme': 'theme'}
+# card data-dim -> TAGS key (used to test which tag values are actually present)
+_TAGKEY = {'product': 'p', 'sector': 'sec', 'usecase': 'uc', 'orgtype': 'org', 'theme': 'th'}
 
 
 def _present(key):
@@ -211,84 +213,166 @@ def card_attrs(num):
 
 
 # ---------------------------------------------------------------- listing filter
+# Blog-style filter bar: a search box + three dropdowns. Each dropdown option carries
+# the card data-attribute it filters (data-dim), so Focus can mix Sector + Use Case and
+# Theme can mix Theme + Org Type. "Dimagi Staff" / Voices is intentionally dropped.
+# Each group: (heading or None, card data-dim, [slugs in display order]).
+DROPDOWNS = [
+ ('product', 'Platform', 'All platforms', [
+    (None, 'product', ['commcare', 'connect', 'sureadhere', 'open-chat-studio']),
+ ]),
+ ('focus', 'Focus', 'All focus areas', [
+    ('Sectors',   'sector',  ['community-health', 'mental-health', 'infectious-disease',
+                              'maternal-newborn-child-health', 'nutrition', 'child-health',
+                              'livelihoods', 'humanitarian-response']),
+    ('Use cases', 'usecase', ['monitoring-evaluation', 'service-delivery',
+                              'cash-voucher-assistance', 'workforce-management', 'sponsorship']),
+ ]),
+ ('theme', 'Theme', 'All themes', [
+    (None,            'theme',   ['ai', 'global-development', 'company-culture', 'leadership']),
+    ('Organizations', 'orgtype', ['governments', 'international-ngos', 'us-community-health',
+                                  'research-academic']),
+ ]),
+]
+
+_SEARCH_ICON = ('<svg class="pod-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+                ' stroke-width="2" stroke-linecap="round" aria-hidden="true">'
+                '<circle cx="11" cy="11" r="7"></circle>'
+                '<line x1="20" y1="20" x2="16.65" y2="16.65"></line></svg>')
+
+
 def filter_bar_html():
-    out = ['        <div class="pod-filters" role="group" aria-label="Filter episodes">']
-    for dim, key, label, order in ROWS:
-        vals = [v for v in order if v in _present(key)]
-        if not vals:
+    out = ['        <div class="pod-filters" role="group" aria-label="Filter and search episodes">']
+    # search box
+    out.append('          <div class="pod-search">')
+    out.append('            ' + _SEARCH_ICON)
+    out.append('            <input type="search" id="pod-search" class="pod-search-input" '
+               'placeholder="Search episodes" aria-label="Search episodes" autocomplete="off">')
+    out.append('          </div>')
+    # dropdowns
+    for key, label, all_label, groups in DROPDOWNS:
+        groups = [(h, dim, [v for v in vals if v in _present(_TAGKEY[dim])]) for h, dim, vals in groups]
+        groups = [(h, dim, vals) for h, dim, vals in groups if vals]
+        if not groups:
             continue
-        out.append('          <div class="pod-filter-row">')
-        out.append('            <span class="pod-filter-label">%s</span>' % label)
-        out.append('            <div class="pod-filter-chips">')
-        out.append('              <button type="button" class="pod-filter is-active" data-dim="%s" data-filter="all" aria-pressed="true">All</button>' % dim)
-        for v in vals:
-            out.append('              <button type="button" class="pod-filter" data-dim="%s" data-filter="%s" aria-pressed="false">%s</button>' % (dim, v, LABEL[v]))
+        out.append('          <div class="pod-dd" data-dd="%s">' % key)
+        out.append('            <button type="button" class="pod-dd-trigger" aria-haspopup="listbox" aria-expanded="false">'
+                   '<span class="pod-dd-label">%s</span><span class="pod-dd-value">All</span>'
+                   '<span class="pod-dd-chevron" aria-hidden="true"></span></button>' % label)
+        out.append('            <div class="pod-dd-menu" role="listbox" aria-label="%s" hidden>' % label)
+        out.append('              <button type="button" class="pod-dd-option is-active" role="option" '
+                   'data-dim="%s" data-value="all" aria-selected="true">%s</button>' % (groups[0][1], all_label))
+        for i, (heading, dim, vals) in enumerate(groups):
+            if i > 0:
+                out.append('              <div class="pod-dd-sep" role="separator"></div>')
+            if heading:
+                out.append('              <div class="pod-dd-group">%s</div>' % heading)
+            for v in vals:
+                out.append('              <button type="button" class="pod-dd-option" role="option" '
+                           'data-dim="%s" data-value="%s">%s</button>' % (dim, v, LABEL[v]))
         out.append('            </div>')
         out.append('          </div>')
-    out.append('          <div class="pod-filter-row">')
-    out.append('            <span class="pod-filter-label">Voices</span>')
-    out.append('            <div class="pod-filter-chips">')
-    out.append('              <button type="button" class="pod-filter is-active" data-dim="staff" data-filter="all" aria-pressed="true">All</button>')
-    out.append('              <button type="button" class="pod-filter" data-dim="staff" data-filter="yes" aria-pressed="false">Dimagi Staff</button>')
-    out.append('            </div>')
-    out.append('          </div>')
+    out.append('          <button type="button" class="pod-clear" id="pod-clear" hidden>Clear all</button>')
     out.append('        </div>')
-    out.append('        <p class="pod-empty" id="pod-empty" hidden>No episodes match those filters. <button type="button" id="pod-clear">Clear filters</button></p>')
+    out.append('        <p class="pod-empty" id="pod-empty" hidden>No episodes match your filters. '
+               '<button type="button" id="pod-clear-empty">Clear filters</button></p>')
     return '\n'.join(out)
 
 
 FILTER_CSS = """
 /* ── Episode filters ── */
-.pod-filters { display:flex; flex-direction:column; gap:12px; margin:8px 0 30px; }
-.pod-filter-row { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
-.pod-filter-label {
-  font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--muted-soft); width:74px; flex-shrink:0;
-}
-.pod-filter-chips { display:flex; flex-wrap:wrap; gap:8px; }
-.pod-filter {
-  font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:0.01em;
-  padding:7px 15px; border-radius:999px; border:1px solid var(--line);
-  background:#fff; color:var(--muted); cursor:pointer;
-  transition:background 150ms,color 150ms,border-color 150ms;
-}
-.pod-filter:hover { border-color:var(--rule); color:var(--ink); }
-.pod-filter.is-active { background:#9A2C23; border-color:#9A2C23; color:#fff; }
+/* Blog-style filter bar: search box + Product / Focus / Theme dropdowns. */
+.pod-filters { display:flex; flex-flow:row wrap; align-items:center; gap:12px; margin:8px 0 30px; }
+.pod-filters[hidden] { display:none; }
+.pod-search { position:relative; flex:1 1 230px; min-width:200px; max-width:320px; }
+.pod-search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--muted-soft); pointer-events:none; }
+.pod-search-input { width:100%; font-family:var(--sans); font-size:14px; color:var(--ink); padding:11px 16px 11px 42px; border:1px solid var(--line); border-radius:999px; background:#fff; transition:border-color 150ms, box-shadow 150ms; }
+.pod-search-input::placeholder { color:var(--muted-soft); }
+.pod-search-input:focus { outline:none; border-color:#9A2C23; box-shadow:0 0 0 3px rgba(154,44,35,0.14); }
+.pod-dd { position:relative; }
+.pod-dd-trigger { display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:13px; font-weight:500; padding:10px 15px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--ink); cursor:pointer; transition:border-color 150ms, background 150ms; }
+.pod-dd-trigger:hover { border-color:var(--rule); }
+.pod-dd-label { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-soft); }
+.pod-dd-value { color:var(--ink); }
+.pod-dd-chevron { width:7px; height:7px; border-right:1.5px solid var(--muted); border-bottom:1.5px solid var(--muted); transform:rotate(45deg) translateY(-2px); margin-left:1px; transition:transform 150ms; }
+.pod-dd.is-open .pod-dd-trigger { border-color:#9A2C23; }
+.pod-dd.is-open .pod-dd-chevron { transform:rotate(-135deg) translateY(1px); }
+.pod-dd.is-set .pod-dd-trigger { border-color:#9A2C23; background:rgba(154,44,35,0.06); }
+.pod-dd.is-set .pod-dd-label { color:#9A2C23; }
+.pod-dd-menu { position:absolute; top:calc(100% + 8px); left:0; z-index:40; min-width:236px; max-height:360px; overflow-y:auto; padding:6px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 14px 36px rgba(20,22,55,0.16); }
+.pod-dd-menu[hidden] { display:none; }
+.pod-dd-group { font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-soft); padding:10px 12px 4px; }
+.pod-dd-option { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; text-align:left; font-family:var(--sans); font-size:13.5px; color:var(--ink); padding:9px 12px; border:0; border-radius:9px; background:none; cursor:pointer; }
+.pod-dd-option:hover { background:rgba(154,44,35,0.06); }
+.pod-dd-option.is-active { color:#9A2C23; font-weight:600; }
+.pod-dd-option.is-active::after { content:"\\2713"; font-size:12px; }
+.pod-dd-sep { height:1px; background:var(--line); margin:6px 8px; }
+.pod-clear { font-family:var(--sans); font-size:13px; font-weight:600; color:#9A2C23; background:none; border:0; cursor:pointer; padding:8px 6px; margin-left:2px; }
+.pod-clear[hidden] { display:none; }
+.pod-clear:hover { text-decoration:underline; }
 .pod-empty { font-size:15px; color:var(--muted); margin:8px 0 28px; }
 .pod-empty button {
   font:inherit; color:#9A2C23; background:none; border:none; padding:0;
   text-decoration:underline; cursor:pointer;
 }
 .episode-card.filtered-out { display:none !important; }
-body.pod-filtering #more-grid { display:grid !important; grid-template-columns:repeat(3,1fr); gap:24px; }
-body.pod-filtering .archive-section { padding-bottom:0; }
-body.pod-filtering .more-section { padding-top:0; }
-@media (max-width:760px){ body.pod-filtering #more-grid { grid-template-columns:1fr; } }
-@media (max-width:600px){ .pod-filter-row { gap:6px; } .pod-filter-label { width:auto; } }
+/* While a filter/search is active, the controller relocates every "more" episode into the
+   single archive grid, so all matches render in one continuous 3-col grid (no ragged seam
+   where the top grid's half-empty last row met a fresh second grid). The compact "more"
+   list section then has nothing left to show, so it collapses away entirely. */
+body.pod-filtering .more-section { display:none; }
+@media (max-width:760px){ .pod-search { flex-basis:100%; max-width:none; order:-1; } .pod-dd-menu { min-width:200px; } }
 """
 
 
 COMBINED_JS = """<script>
-/* Episode archive: lazy-reveal by default; when any filter is active, show all matches
-   across both grids (AND across dimensions, membership within a multi-valued card). */
+/* Episode archive: lazy-reveal by default; when search or any dropdown filter is active,
+   show all matches across both grids (AND across dropdowns; membership within a
+   multi-valued card). Blog-style search + Product / Focus / Theme dropdowns. */
 (function(){
   var BATCH = 9;
   var moreGrid = document.getElementById('more-grid');
   var moreBtn  = document.getElementById('more-episodes-btn');
   var allCards = Array.prototype.slice.call(document.querySelectorAll('.episode-card'));
   var moreCards= moreGrid ? Array.prototype.slice.call(moreGrid.querySelectorAll('.episode-card')) : [];
-  var fbtns    = Array.prototype.slice.call(document.querySelectorAll('.pod-filter'));
+  var archiveGrid = document.querySelector('.archive-section .episodes-grid');
+
+  // While filtering, pull every "more" episode up into the single archive grid so all
+  // matches flow as one continuous 3-col grid; on clear, return them to #more-grid for
+  // the default lazy-reveal list. Re-appending in array order preserves chronology.
+  function mergeGrids(){ if(archiveGrid) moreCards.forEach(function(c){ archiveGrid.appendChild(c); }); }
+  function splitGrids(){ if(moreGrid) moreCards.forEach(function(c){ moreGrid.appendChild(c); }); }
+  var dds      = Array.prototype.slice.call(document.querySelectorAll('.pod-dd'));
   var emptyEl  = document.getElementById('pod-empty');
   var clearEl  = document.getElementById('pod-clear');
-  var DIMS = ['product','sector','usecase','orgtype','theme','staff'];
-  var active = {product:'all',sector:'all',usecase:'all',orgtype:'all',theme:'all',staff:'all'};
+  var emptyClearEl = document.getElementById('pod-clear-empty');
+  var searchEl = document.getElementById('pod-search');
 
-  function filtering(){ for(var i=0;i<DIMS.length;i++){ if(active[DIMS[i]]!=='all') return true; } return false; }
+  // Each dropdown holds one active {dim,value}; value 'all' means inactive. The option's
+  // data-dim says which card attribute it filters (Focus mixes sector+usecase, Theme mixes
+  // theme+orgtype), so one dropdown can span several card attributes.
+  var active = {};
+  dds.forEach(function(dd){ active[dd.getAttribute('data-dd')] = {dim:null, value:'all'}; });
+  var query = '';
+
+  function anyFilter(){
+    if(query) return true;
+    for(var k in active){ if(active[k].value!=='all') return true; }
+    return false;
+  }
+  function cardText(card){
+    var t=card.querySelector('.episode-title'), n=card.querySelector('.episode-num'),
+        d=card.querySelector('.episode-card-body p');
+    return ((t?t.textContent:'')+' '+(n?n.textContent:'')+' '+(d?d.textContent:'')).toLowerCase();
+  }
   function matches(card){
-    return DIMS.every(function(d){
-      if(active[d]==='all') return true;
-      return (card.dataset[d]||'').split(' ').indexOf(active[d]) !== -1;
-    });
+    if(query && cardText(card).indexOf(query)===-1) return false;
+    for(var k in active){
+      var a=active[k];
+      if(a.value==='all') continue;
+      if((card.dataset[a.dim]||'').split(' ').indexOf(a.value)===-1) return false;
+    }
+    return true;
   }
 
   var shown=0, auto=false, scheduled=false, sentinel=null;
@@ -314,9 +398,10 @@ COMBINED_JS = """<script>
   function stopAuto(){ auto=false; window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
 
   function apply(){
-    if(filtering()){
+    if(anyFilter()){
       stopAuto();
       document.body.classList.add('pod-filtering');
+      mergeGrids();
       if(moreBtn) moreBtn.style.display='none';
       var any=false;
       allCards.forEach(function(c){
@@ -330,19 +415,89 @@ COMBINED_JS = """<script>
       document.body.classList.remove('pod-filtering');
       allCards.forEach(function(c){ c.classList.remove('filtered-out'); });
       if(emptyEl) emptyEl.hidden = true;
+      splitGrids();
       resetReveal();
     }
+    if(clearEl) clearEl.hidden = !anyFilter();
+    syncUrl();
   }
-  function setActive(dim,val){
-    active[dim]=val;
-    fbtns.forEach(function(b){
-      if(b.dataset.dim===dim){
-        var on=b.dataset.filter===val;
-        b.classList.toggle('is-active',on);
-        b.setAttribute('aria-pressed', on?'true':'false');
-      }
+
+  // ---- dropdowns ----
+  function closeAll(except){
+    dds.forEach(function(dd){
+      if(dd===except) return;
+      dd.classList.remove('is-open');
+      var m=dd.querySelector('.pod-dd-menu'); if(m) m.hidden=true;
+      var tr=dd.querySelector('.pod-dd-trigger'); if(tr) tr.setAttribute('aria-expanded','false');
     });
+  }
+  dds.forEach(function(dd){
+    var key=dd.getAttribute('data-dd');
+    var trigger=dd.querySelector('.pod-dd-trigger');
+    var menu=dd.querySelector('.pod-dd-menu');
+    var valueEl=dd.querySelector('.pod-dd-value');
+    var options=Array.prototype.slice.call(dd.querySelectorAll('.pod-dd-option'));
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open=!dd.classList.contains('is-open');
+      closeAll(dd);
+      dd.classList.toggle('is-open', open);
+      menu.hidden=!open;
+      trigger.setAttribute('aria-expanded', open?'true':'false');
+    });
+    options.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        var val=opt.getAttribute('data-value'), dim=opt.getAttribute('data-dim');
+        active[key]={dim:dim, value:val};
+        options.forEach(function(o){
+          var on=o===opt;
+          o.classList.toggle('is-active', on);
+          o.setAttribute('aria-selected', on?'true':'false');
+        });
+        valueEl.textContent = val==='all' ? 'All' : opt.textContent;
+        dd.classList.toggle('is-set', val!=='all');
+        closeAll(null);
+        shown=0; apply();
+      });
+    });
+  });
+  document.addEventListener('click', function(){ closeAll(null); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAll(null); });
+
+  // ---- search ----
+  if(searchEl){
+    var deb;
+    searchEl.addEventListener('input', function(){
+      clearTimeout(deb);
+      deb=setTimeout(function(){ query=searchEl.value.trim().toLowerCase(); apply(); }, 120);
+    });
+  }
+
+  // ---- clear ----
+  function resetDd(dd){
+    var opts=Array.prototype.slice.call(dd.querySelectorAll('.pod-dd-option'));
+    opts.forEach(function(o,i){ var on=i===0; o.classList.toggle('is-active', on); o.setAttribute('aria-selected', on?'true':'false'); });
+    dd.classList.remove('is-set');
+    var v=dd.querySelector('.pod-dd-value'); if(v) v.textContent='All';
+    active[dd.getAttribute('data-dd')]={dim:null, value:'all'};
+  }
+  function clearAll(){
+    dds.forEach(resetDd);
+    query=''; if(searchEl) searchEl.value='';
     apply();
+  }
+  if(clearEl) clearEl.addEventListener('click', clearAll);
+  if(emptyClearEl) emptyClearEl.addEventListener('click', clearAll);
+
+  // ---- URL sync (deep-linkable; episode hero chips link with ?<dim>=<slug>) ----
+  function syncUrl(){
+    try {
+      var p=new URLSearchParams();
+      for(var k in active){ var a=active[k]; if(a.value!=='all' && a.dim) p.set(a.dim, a.value); }
+      if(query) p.set('q', searchEl ? searchEl.value.trim() : query);
+      var qs=p.toString();
+      history.replaceState(null,'', qs ? ('?'+qs) : window.location.pathname);
+    } catch(e){ /* file:// — replaceState may throw; ignore */ }
   }
 
   if(moreGrid){
@@ -351,17 +506,27 @@ COMBINED_JS = """<script>
     moreGrid.parentNode.insertBefore(sentinel, moreGrid.nextSibling);
   }
   resetReveal();
-
   if(moreBtn){
     moreBtn.addEventListener('click', function(){
-      if(filtering()) return;
+      if(anyFilter()) return;
       var done=revealNext(); moreBtn.style.display='none'; if(!done) startAuto();
     });
   }
-  fbtns.forEach(function(b){ b.addEventListener('click', function(){ setActive(b.dataset.dim, b.dataset.filter); }); });
-  if(clearEl){ clearEl.addEventListener('click', function(){ DIMS.forEach(function(d){ setActive(d,'all'); }); }); }
 
-  var qs=new URLSearchParams(window.location.search);
-  DIMS.forEach(function(d){ var v=qs.get(d); if(v) setActive(d,v); });
+  // restore state from the URL: ?product / ?sector / ?usecase / ?theme / ?orgtype / ?q
+  var params=new URLSearchParams(window.location.search);
+  var q=params.get('q');
+  if(q && searchEl){ searchEl.value=q; query=q.trim().toLowerCase(); }
+  dds.forEach(function(dd){
+    var options=Array.prototype.slice.call(dd.querySelectorAll('.pod-dd-option'));
+    for(var i=0;i<options.length;i++){
+      var dim=options[i].getAttribute('data-dim'), val=options[i].getAttribute('data-value');
+      if(val==='all') continue;
+      var raw=params.get(dim);
+      if(raw && raw.toLowerCase()===val.toLowerCase()){ options[i].click(); break; }
+    }
+  });
+
+  apply();
 })();
 </script>"""

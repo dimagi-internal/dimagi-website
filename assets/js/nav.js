@@ -19,6 +19,12 @@
     }
     if (!triggerLink) return;
 
+    /* Optional: make the top-level trigger itself a working link (navBase-relative).
+       Used by Professional Services, whose top line leads to the Global Services landing. */
+    if (col.triggerHref) {
+      triggerLink.setAttribute('href', navBase + col.triggerHref);
+    }
+
     var itemsHTML = col.items.map(function (item) {
       var extra = item.external ? ' target="_blank" rel="noopener"' : '';
       return '<a href="' + item.href + '"' + extra + '>' + item.label + '</a>';
@@ -69,11 +75,14 @@
     ]
   }, 'sm');
 
-  /* ── PROFESSIONAL SERVICES ── */
+  /* ── PROFESSIONAL SERVICES ──
+     Top line links to the Global Services landing; regions/capabilities live in the dropdown. */
   makeDropdown('Professional Services', {
+    triggerHref: 'professional-services/global-services/index.html',
     items: [
-      { label: 'Global Services',  href: navBase + 'professional-services/global-services/index.html' },
       { label: 'United States',    href: navBase + 'professional-services/united-states/index.html' },
+      { label: 'Africa',           href: navBase + 'professional-services/africa/index.html' },
+      { label: 'India',            href: navBase + 'professional-services/india/index.html' },
       { label: 'Research & Data',  href: navBase + 'professional-services/research-data/index.html' }
     ]
   }, 'sm');
@@ -161,8 +170,7 @@
       { t:'Connect', s:'Products', u:'https://connect.dimagi.com/', x:1, k:'verified service delivery marketplace workers payments' },
       { t:'SureAdhere', s:'Products', u:'https://dimagi.com/sureadhere/', x:1, k:'medication adherence tuberculosis tb video observed therapy' },
       { t:'Open Chat Studio', s:'Products', u:'https://www.openchatstudio.com/', x:1, k:'ai chatbot llm assistant' },
-      { t:'Professional Services', s:'Services', u: navBase + 'professional-services/index.html', k:'implementation deploy scale services experts' },
-      { t:'Global Services', s:'Services', u: navBase + 'professional-services/global-services/index.html', k:'africa asia echis community health national scale international ict4d' },
+      { t:'Professional Services', s:'Services', u: navBase + 'professional-services/global-services/index.html', k:'implementation deploy scale services experts global services africa asia echis community health national international ict4d' },
       { t:'Africa', s:'Services', u: navBase + 'professional-services/africa/index.html', k:'africa echis community health national scale benin ethiopia burkina faso madagascar mozambique south africa niger nigeria senegal ministry' },
       { t:'United States', s:'Services', u: navBase + 'professional-services/united-states/index.html', k:'us public health behavioral health government state' },
       { t:'India', s:'Services', u: navBase + 'professional-services/india/index.html', k:'india asia nutrition maternal health delhi' },
