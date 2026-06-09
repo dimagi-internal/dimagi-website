@@ -294,6 +294,11 @@
   .uc-grid { grid-template-columns: 1fr; }
   .uc-tile { padding: 36px 30px 38px; }
 }
+/* ───── Regional hero background photo ───── */
+.hero.hero-dark.has-bg-photo { position: relative; }
+.hero-bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+.hero-bg-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(160deg, rgba(10,6,32,0.93) 0%, rgba(22,0,109,0.84) 45%, rgba(56,67,208,0.60) 100%); }
+.hero.has-bg-photo > .container { position: relative; z-index: 2; }
 </style>
 </head>
 <body>
@@ -320,7 +325,9 @@
 </div>
 
 <!-- ───── SECTION 1 · WHO WE ARE ───── -->
-<section id="main" class="hero hero-dark on-dark">
+<section id="main" class="hero hero-dark on-dark has-bg-photo">
+  <img class="hero-bg-photo" src="../../assets/images/digital-tools-public-health-workers/cover.jpg" alt="" aria-hidden="true">
+  <div class="hero-bg-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-grid">
       <div>

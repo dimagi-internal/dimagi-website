@@ -10,7 +10,7 @@
 # Ecosystem) and a Type; Geography is optional. Run:  python3 Context/blog-import/apply_tag_pass.py
 import re, os, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from consolidation_maps import resolve_country, resolve_topic
+from consolidation_maps import resolve_region, resolve_topic
 
 ROOT = "/Users/gillianjavetski/Documents/Gillian Coding/Pre-Login Websites/Dimagi Pre-Login"
 IDX  = os.path.join(ROOT, "blog", "index.html")
@@ -95,6 +95,7 @@ TYPE_OVERRIDE = {
  'grassroot-soccer-adols':'Case Study',
  'tulasalud-commcare-community-health':'Case Study',
  'different-kind-of-tech-company':'Perspective',
+ 'join-the-fight-to-support-critical-open-source-infrastructure':'Perspective',  # opinion/call-to-action, not a Case Study
  'refreshing-dimagi-and-commcare-brands-for-high-impact-growth':'Announcement',
  'covid-19-response-jhu-digital-solutions-report':'Announcement',   # "Johns Hopkins Selects CommCare" reads as a press release
  # Day-in-the-Life + anniversary pieces are personal/company reflections, not Case Studies
@@ -181,10 +182,11 @@ def rewrite_card(m):
     ctype = TYPE_OVERRIDE.get(slug, ctype)
     if ctype == 'Product Update': ctype = 'Announcement'   # Product Update type retired -> Announcement
     if ctype == 'Perspective': ctype = 'Reflections'       # round 5: 'Perspective' type relabeled 'Reflections'
-    # Country is now the SPECIFIC country (same resolver as the article "Filed under" below),
-    # NOT a region — drives the listing's Country dropdown. Continent-only / multi-country -> 'None'.
+    # Geography is the post's REGION (same resolver as the article "Filed under" below):
+    # Africa / Asia / Latin America / United States, or the 'Multiple countries' bucket —
+    # drives the listing's geography filter. Continent-only / global / no-geo -> 'None'.
     se = SEO.get(slug, {})
-    country = resolve_country(slug, a.get('country', 'None'), se.get('seo1', ''), se.get('seo2', ''), title) or 'None'
+    country = resolve_region(slug, a.get('country', 'None'), se.get('seo1', ''), se.get('seo2', ''), title) or 'None'
     final[slug] = (focus, ctype, country, title)
     product = focus if focus in PRODUCTS else 'None'
     dtopic  = focus if focus in TOPICS else 'None'
@@ -246,7 +248,7 @@ for slug,(focus,ctype,country,title) in final.items():
     # "Filed under" is now exactly Focus, Type, Country (specific), Solutions tag — the old
     # continent + both SEO tags + any leftover topical tags are dropped.
     s = SEO.get(slug, {})
-    # country already resolved (specific) into final[] by rewrite_card above
+    # country already resolved (region) into final[] by rewrite_card above
     topic   = resolve_topic(slug, s.get('seo1',''), s.get('seo2',''))
     fm = re.search(r'(<div class="article-tags">)(.*?)(</div>)', h, re.S)
     if fm:

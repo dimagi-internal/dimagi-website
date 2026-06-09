@@ -97,10 +97,9 @@
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 32px 30px 28px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
   text-decoration: none;
   color: inherit;
@@ -110,6 +109,30 @@
   transform: translateY(-3px);
   box-shadow: 0 16px 40px -12px rgba(10,6,32,0.13);
   border-color: var(--indigo);
+}
+
+.press-card-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--indigo-soft);
+}
+
+.press-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 320ms ease;
+}
+
+.press-card:hover .press-card-media img { transform: scale(1.04); }
+
+.press-card-body {
+  padding: 24px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 
 .press-card-pub {
@@ -185,6 +208,37 @@
     padding: 24px;
   }
 }
+
+/* Photo hero — matches Professional Services (field photo + dark overlay) */
+.hero.photo-hero {
+  background:
+    linear-gradient(150deg, rgba(10,6,32,0.95) 0%, rgba(22,0,109,0.88) 44%, rgba(56,67,208,0.68) 100%),
+    url('../assets/images/about/hero-field.jpg') center 28% / cover no-repeat;
+}
+.hero.photo-hero .container { position: relative; z-index: 2; }
+
+/* Brand & media assets */
+.brand-lede { font-size: 16px; color: var(--muted); max-width: 640px; line-height: 1.6; margin: 0 0 36px; }
+.brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 44px; }
+.brand-tile {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 110px; padding: 24px 22px;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+}
+.brand-tile--dark { background: var(--deep-purple); border-color: var(--deep-purple); }
+.brand-tile img { max-width: none; width: auto; height: auto; max-height: 42px; display: block; }
+.brand-tile--dark img { max-height: 30px; opacity: 0.96; }
+
+.brand-palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.brand-swatch { display: flex; flex-direction: column; gap: 8px; }
+.brand-swatch-chip { height: 60px; border-radius: 10px; border: 1px solid rgba(10,6,32,0.08); }
+.brand-swatch-name { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.brand-swatch-hex { font-family: var(--mono); font-size: 11px; color: var(--muted-soft); letter-spacing: 0.04em; }
+
+@media (max-width: 760px) {
+  .brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .brand-palette { grid-template-columns: repeat(3, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -212,12 +266,16 @@
 <main id="main">
 
   <!-- Hero -->
-  <section class="hero hero-dark">
+  <section class="hero hero-dark photo-hero">
     <div class="container">
       <div style="max-width: 780px;">
         <span class="eyebrow on-dark">Newsroom</span>
         <h1 class="hero-title">Press &amp; <em>Media</em></h1>
-        <p class="hero-sub">Dimagi is a global social enterprise founded in 2002 by Jonathan Jackson and Dr. Vikram Sheel Kumar. The company powers impactful frontline work through scalable digital solutions and services with teams across the United States, India, South Africa, Senegal, and globally.</p>
+        <p class="hero-sub">Working on a story about Dimagi, or interested in the latest news on CommCare, SureAdhere, Connect, or Open Chat Studio? Find our latest coverage, company facts, and brand assets here, or reach our team directly.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-on-dark btn-arrow" href="mailto:info@dimagi.com">Contact us</a>
+          <a class="btn btn-ghost-on-dark btn-arrow" href="#news">Latest news</a>
+        </div>
       </div>
     </div>
   </section>
@@ -293,44 +351,53 @@
   </section>
 
   <!-- Recent News -->
-  <section class="section-press" style="padding-top: 72px; padding-bottom: 72px; background: var(--paper); border-top: 1px solid var(--line);">
+  <section id="news" class="section-press" style="padding-top: 72px; padding-bottom: 72px; background: var(--paper); border-top: 1px solid var(--line);">
     <div class="container">
-      <div class="eyebrow">Recent News</div>
+      <div class="eyebrow">In the News</div>
       <h2 class="section-title" style="font-size: clamp(28px, 3.2vw, 42px); margin: 0 0 8px;">Latest from Dimagi</h2>
 
       <div class="press-grid">
 
-        <div class="press-card" style="cursor: default;">
-          <div class="press-card-pub">Dimagi News</div>
-          <div class="press-card-title">CommCare EU Cloud launches with Ireland hosting option now available. Ireland joins India and US hosting.</div>
-          <div class="press-card-meta">
-            <span class="press-card-date">Recent</span>
-            <span class="press-card-link-label" style="cursor: pointer;"><a href="https://dimagi.com/press/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Read more</a></span>
+        <a class="press-card" href="../blog/closing-post-discharge-gap-kangaroo-mother-care/index.html">
+          <div class="press-card-media"><img src="../assets/images/closing-post-discharge-gap-kangaroo-mother-care/cover.jpg" alt="Closing the post-discharge gap with Connect Kangaroo Mother Care" loading="lazy"></div>
+          <div class="press-card-body">
+            <div class="press-card-pub">Dimagi</div>
+            <div class="press-card-title">Closing the Post-Discharge Gap with Connect Kangaroo Mother Care</div>
+            <div class="press-card-meta">
+              <span class="press-card-date">November 2025</span>
+              <span class="press-card-link-label">Read more</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="press-card" style="cursor: default;">
-          <div class="press-card-pub">Dimagi News</div>
-          <div class="press-card-title">Connect Kangaroo Mother Care program supports post-discharge newborn care through locally-led organizations.</div>
-          <div class="press-card-meta">
-            <span class="press-card-date">Recent</span>
-            <span class="press-card-link-label" style="cursor: pointer;"><a href="https://dimagi.com/press/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Read more</a></span>
+        <a class="press-card" href="../blog/commcare-eu-cloud-launch/index.html">
+          <div class="press-card-media"><img src="../assets/images/commcare-eu-cloud-launch/cover.png" alt="CommCare launches its EU Cloud hosting region" loading="lazy"></div>
+          <div class="press-card-body">
+            <div class="press-card-pub">Dimagi</div>
+            <div class="press-card-title">CommCare Launches EU Cloud: Its Third Hosting Region</div>
+            <div class="press-card-meta">
+              <span class="press-card-date">September 2025</span>
+              <span class="press-card-link-label">Read more</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="press-card" style="cursor: default;">
-          <div class="press-card-pub">Dimagi News</div>
-          <div class="press-card-title">Dimagi partners with City of Somerville to modernize public health infrastructure.</div>
-          <div class="press-card-meta">
-            <span class="press-card-date">Recent</span>
-            <span class="press-card-link-label" style="cursor: pointer;"><a href="https://dimagi.com/press/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Read more</a></span>
+        <a class="press-card" href="../blog/digital-tools-public-health-workers/index.html">
+          <div class="press-card-media"><img src="../assets/images/digital-tools-public-health-workers/cover.jpg" alt="Digital tools strengthen community care in Somerville" loading="lazy"></div>
+          <div class="press-card-body">
+            <div class="press-card-pub">Dimagi</div>
+            <div class="press-card-title">Digital Tools Strengthen Community Care in Somerville</div>
+            <div class="press-card-meta">
+              <span class="press-card-date">July 2025</span>
+              <span class="press-card-link-label">Read more</span>
+            </div>
           </div>
-        </div>
+        </a>
 
       </div>
 
       <div class="press-view-all">
-        <a class="btn btn-ghost btn-arrow" href="https://dimagi.com/press/" target="_blank" rel="noopener">View all press on dimagi.com</a>
+        <a class="btn btn-ghost btn-arrow" href="../blog/index.html">Read more on the Dimagi blog</a>
       </div>
     </div>
   </section>
@@ -350,13 +417,46 @@
     </div>
   </section>
 
+  <!-- Brand & media assets -->
+  <section class="section-press" style="padding-top: 72px; padding-bottom: 72px; border-top: 1px solid var(--line);">
+    <div class="container">
+      <div class="eyebrow">Brand Assets</div>
+      <h2 class="section-title" style="font-size: clamp(26px, 3vw, 38px); margin: 0 0 12px;">Logos &amp; brand</h2>
+      <p class="brand-lede">Use our logos for editorial coverage. For full brand guidelines, product screenshots, or high-resolution photography, get in touch and we'll share our media kit.</p>
+
+      <div class="brand-grid">
+        <div class="brand-tile brand-tile--dark">
+          <img src="../assets/dimagi-logo.png" alt="Dimagi wordmark">
+        </div>
+        <div class="brand-tile">
+          <img src="../assets/images/commcare-logo.svg" alt="CommCare logo">
+        </div>
+        <div class="brand-tile">
+          <img src="../assets/images/connect-logo.svg" alt="Connect logo">
+        </div>
+        <div class="brand-tile">
+          <img src="../assets/images/sureadhere-logo.svg" alt="SureAdhere logo">
+        </div>
+      </div>
+
+      <div class="brand-palette">
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#16006D"></span><span class="brand-swatch-name">Deep Purple</span><span class="brand-swatch-hex">#16006D</span></div>
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#3843D0"></span><span class="brand-swatch-name">Indigo</span><span class="brand-swatch-hex">#3843D0</span></div>
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#694AAA"></span><span class="brand-swatch-name">Purple</span><span class="brand-swatch-hex">#694AAA</span></div>
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#9A5183"></span><span class="brand-swatch-name">Pink</span><span class="brand-swatch-hex">#9A5183</span></div>
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#CB585D"></span><span class="brand-swatch-name">Salmon</span><span class="brand-swatch-hex">#CB585D</span></div>
+        <div class="brand-swatch"><span class="brand-swatch-chip" style="background:#FEAF31"></span><span class="brand-swatch-name">Marigold</span><span class="brand-swatch-hex">#FEAF31</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Press Kit CTA -->
   <div class="cta-band">
     <div class="container">
-      <h2>Press Kit &amp; Media Resources</h2>
-      <p>Download our press kit or get in touch for interviews, quotes, and research requests. Contact us at <a href="mailto:info@dimagi.com" style="color:rgba(255,255,255,0.8); text-decoration:underline;">info@dimagi.com</a>.</p>
+      <h2>Working on a story?</h2>
+      <p>Get in touch for interviews, quotes, research requests, or our full media kit. Reach us at <a href="mailto:info@dimagi.com" style="color:rgba(255,255,255,0.8); text-decoration:underline;">info@dimagi.com</a>.</p>
       <div class="cta-actions">
-        <a class="btn btn-on-dark btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Press Inquiries</a>
+        <a class="btn btn-on-dark btn-arrow" href="mailto:info@dimagi.com">Press Inquiries</a>
         <a class="btn btn-ghost-on-dark" href="../company/about/index.html">About Dimagi</a>
       </div>
     </div>

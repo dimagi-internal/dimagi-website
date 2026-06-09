@@ -1,12 +1,14 @@
 # Owns the blog listing's FILTER UI.
-# Emits a search box + four custom "pill" dropdowns (Focus / Type / Region / Sectors),
+# Emits a search box + three custom "pill" dropdowns (Platform / Type / Focus). The Focus
+# dropdown groups Sectors, Use cases and Regions (geography options carry data-ddim="country"),
 # the inline filter JS, and the dropdown CSS, and writes the per-card filter data
-# attributes (data-product/type/topic/country=region/sector).
+# attributes (data-product/type/topic/country/sector). data-country holds the REGION
+# (Africa / Asia / Latin America / United States) or the 'Multiple countries' bucket.
 #
 # Idempotent & non-lossy: reads the CURRENT card data attributes and preserves them
 # (Focus topic 'Dimagi' is kept; region keys round-trip), so it can be re-run on the
-# already-transformed state. Sectors come from consolidation_maps.resolve_topic so they
-# stay aligned with each article's "Filed under" Solutions tag.
+# already-transformed state. Sectors come from consolidation_maps.resolve_topic and the
+# region from resolve_region, so both stay aligned with each article's "Filed under" tags.
 #
 # Run order after a foreign blog regen (render_all.py):
 #     python3 Context/blog-import/transform_filters.py
@@ -14,7 +16,7 @@
 import re, os, sys, json
 from collections import Counter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from consolidation_maps import resolve_topic, resolve_country
+from consolidation_maps import resolve_topic, resolve_region
 
 ROOT = "/Users/gillianjavetski/Documents/Gillian Coding/Pre-Login Websites/Dimagi Pre-Login"
 IDX = os.path.join(ROOT, "blog", "index.html")
@@ -23,31 +25,12 @@ SEO = json.load(open(os.path.join(ROOT, "Context/blog-import/seo_tags.json")))
 # Focus topics worth keeping as a Focus value (everything else collapses to None).
 KEEP_TOPICS = {'Company', 'Ecosystem', 'Dimagi'}
 
-# Specific country -> Region bucket. Region keys map to themselves so re-runs are stable.
-COUNTRY2REGION = {
-    'United States': 'United States',
-    'India': 'Asia', 'Nepal': 'Asia', 'Tajikistan': 'Asia', 'Cambodia': 'Asia',
-    'Indonesia': 'Asia', 'Vietnam': 'Asia', 'Pakistan': 'Asia',
-    'Nigeria': 'Africa', 'Sierra Leone': 'Africa', 'Senegal': 'Africa',
-    'Guinea': 'Africa', 'Ghana': 'Africa', 'Burkina Faso': 'Africa',
-    'Niger': 'Africa', 'Benin': 'Africa', "Cote d'Ivoire": 'Africa',
-    'Kenya': 'Africa', 'Ethiopia': 'Africa', 'Somalia': 'Africa',
-    'Tanzania': 'Africa', 'Rwanda': 'Africa', 'Uganda': 'Africa',
-    'South Africa': 'Africa', 'Malawi': 'Africa', 'Mozambique': 'Africa',
-    'Zambia': 'Africa', 'Madagascar': 'Africa', 'Lesotho': 'Africa',
-    'Mexico': 'Latin America', 'Jamaica': 'Latin America', 'Honduras': 'Latin America',
-    'Guatemala': 'Latin America',
-    'Global': 'None',
-    'West Africa': 'Africa', 'East Africa': 'Africa', 'Southern Africa': 'Africa',
-    'Africa': 'Africa', 'Asia': 'Asia', 'Latin America': 'Latin America',
-}
-
 PRODUCTS = ['CommCare', 'Connect', 'SureAdhere', 'Open Chat Studio']
 
 # ---- ordered taxonomies for the dropdowns --------------------------------------------
 FOCUS_ORDER  = ['CommCare', 'Connect', 'SureAdhere', 'Open Chat Studio', 'Dimagi']
 TYPE_ORDER   = ['Case Study', 'Reflections', 'Announcement', 'Event']
-REGION_ORDER = ['Africa', 'Asia', 'Latin America', 'United States']
+REGION_ORDER = ['Africa', 'Asia', 'United States', 'Latin America']
 # Sectors dropdown groups (broader "Solutions" set), sectors first in dimagi.com order.
 SECTOR_ORDER  = ['Community Health', 'Primary Care', 'Immunizations',
                  'Maternal, Newborn & Child Health', 'Nutrition', 'Non-Communicable Diseases',
@@ -82,9 +65,10 @@ def retag_block(m):
     tm = re.search(r'<h2 class="blog-card-title">(.*?)</h2>', block, re.S)
     title = re.sub('<[^>]+>', '', tm.group(1)).strip() if tm else ''
     se = SEO.get(slug, {})
-    # Country = the SPECIFIC country (resolve_country), matching each article's "Filed under".
-    # Continent-only / multi-country / global posts -> 'None'.
-    country = resolve_country(slug, attrs.get('country', ''), se.get('seo1', ''), se.get('seo2', ''), title) or 'None'
+    # Geography = the post's REGION (resolve_region), matching each article's "Filed under":
+    # Africa / Asia / Latin America / United States, or the 'Multiple countries' bucket.
+    # Continent-only / global / no-geography posts -> 'None'.
+    country = resolve_region(slug, attrs.get('country', ''), se.get('seo1', ''), se.get('seo2', ''), title) or 'None'
     sector  = resolve_topic(slug, se.get('seo1', ''), se.get('seo2', '')) or 'None'
     # tally what's actually present for option building
     focus = product if product in PRODUCTS else (topic if topic in KEEP_TOPICS else 'None')
@@ -99,14 +83,18 @@ def retag_block(m):
 s, ncards = re.subn(r'<article class="blog-card".*?</article>', retag_block, s, flags=re.S)
 
 # ---- 2. build the filter bar markup --------------------------------------------------
-def option(value):
+def option(value, ddim=None, label=None):
+    disp = a(label if label is not None else value)
+    dd = f' data-ddim="{ddim}"' if ddim else ''
     return (f'            <button type="button" class="blog-dd-option" role="option" '
-            f'data-value="{a(value)}">{a(value)}</button>')
+            f'data-value="{a(value)}"{dd}>{disp}</button>')
 
 def dropdown(dim, label, all_label, groups, trailing=None):
-    """groups: list of (group_title_or_None, [values]); empty groups are skipped.
-    trailing: optional list of special option values (e.g. 'Multiple countries', 'None')
-    rendered after a divider at the bottom of the menu."""
+    """groups: list of (group_title_or_None, [values][, ddim]); empty groups are skipped.
+    A group's optional 3rd element tags every option in it with data-ddim (the card data
+    attribute it filters), so one dropdown can host more than one dimension.
+    trailing: optional list rendered after a divider at the bottom; each item is either a
+    value string or a (value, ddim, label) tuple."""
     out = [f'        <div class="blog-dd" data-dim="{dim}">',
            f'          <button type="button" class="blog-dd-trigger" aria-haspopup="listbox" aria-expanded="false">'
            f'<span class="blog-dd-label">{label}</span><span class="blog-dd-value">All</span>'
@@ -114,16 +102,22 @@ def dropdown(dim, label, all_label, groups, trailing=None):
            f'          <div class="blog-dd-menu" role="listbox" aria-label="{label}" hidden>',
            f'            <button type="button" class="blog-dd-option is-active" role="option" '
            f'data-value="all" aria-selected="true">{all_label}</button>']
-    for title, values in groups:
+    for grp in groups:
+        title, values = grp[0], grp[1]
+        gddim = grp[2] if len(grp) > 2 else None
         vals = [v for v in values if v]
         if not vals:
             continue
         if title:
             out.append(f'            <div class="blog-dd-group">{title}</div>')
-        out.extend(option(v) for v in vals)
+        out.extend(option(v, gddim) for v in vals)
     if trailing:
         out.append('            <div class="blog-dd-sep" role="separator"></div>')
-        out.extend(option(v) for v in trailing)
+        for item in trailing:
+            if isinstance(item, tuple):
+                out.append(option(item[0], item[1], item[2]))
+            else:
+                out.append(option(item))
     out.append('          </div>')
     out.append('        </div>')
     return "\n".join(out)
@@ -135,24 +129,31 @@ def present_in_order(dim, order):
     return ordered + sorted(extra)
 
 # Display labels (data-dim keys are kept as-is so the JS/matching is untouched):
-#   data-dim "focus"  -> "Platform",  "country" -> "Country",  "sector" -> "Focus".
+#   data-dim "focus" -> "Platform",  "sector" -> "Focus" (now also hosts Countries).
 product_dd = dropdown('focus', 'Platform', 'All platforms',
                       [(None, present_in_order('focus', FOCUS_ORDER))])
 type_dd    = dropdown('type', 'Type', 'All types',
                       [(None, present_in_order('type', TYPE_ORDER))])
-# Country: specific countries A-Z, then "Multiple countries" + "None" pinned at the bottom.
-specific_countries = sorted(c for c in present['country'] if c != 'Multiple countries')
-country_trailing = (['Multiple countries'] if 'Multiple countries' in present['country'] else []) + ['None']
-country_dd = dropdown('country', 'Country', 'All countries',
-                      [(None, specific_countries)], trailing=country_trailing)
+# The Focus dropdown hosts Sectors + Use cases (data-ddim="sector") AND, as their own
+# section, the Regions (data-ddim="country") — the standalone Country dropdown is retired.
+# The old "Other" group (Governments / Social Enterprises) is dropped: ORGTYPE_ORDER values
+# stay excluded from every group so they no longer appear as a filter option.
 sec_pres   = present['sector']
+# Geography options are Regions (in display order), with the multi-country bucket last; any
+# stray region value not in REGION_ORDER is surfaced too so nothing is silently dropped.
+region_opts = ([r for r in REGION_ORDER if r in present['country']]
+               + sorted(c for c in present['country']
+                        if c not in REGION_ORDER and c != 'Multiple countries'))
+if 'Multiple countries' in present['country']:
+    region_opts.append('Multiple countries')
 focus_dd   = dropdown('sector', 'Focus', 'All focus areas', [
-    ('Sectors',       [v for v in SECTOR_ORDER if v in sec_pres]),
-    ('Use cases',     [v for v in USECASE_ORDER if v in sec_pres]),
-    ('Other',         [v for v in ORGTYPE_ORDER if v in sec_pres]),
-    (None,            sorted(v for v in sec_pres
-                             if v not in SECTOR_ORDER + USECASE_ORDER + ORGTYPE_ORDER)),
-], trailing=['None'])
+    ('Sectors',   [v for v in SECTOR_ORDER if v in sec_pres], 'sector'),
+    ('Use cases', [v for v in USECASE_ORDER if v in sec_pres], 'sector'),
+    ('Regions',   region_opts, 'country'),
+    (None,        sorted(v for v in sec_pres
+                         if v not in SECTOR_ORDER + USECASE_ORDER + ORGTYPE_ORDER), 'sector'),
+], trailing=[('None', 'country', 'No region'),
+             ('None', 'sector', 'No focus area')])
 
 filters_html = (
     '      <div class="blog-filters" role="group" aria-label="Filter and search posts">\n'
@@ -160,7 +161,7 @@ filters_html = (
     '          <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.65" y2="16.65"></line></svg>\n'
     '          <input type="search" id="blogSearch" class="blog-search-input" placeholder="Search articles" aria-label="Search articles" autocomplete="off">\n'
     '        </div>\n'
-    + product_dd + '\n' + type_dd + '\n' + country_dd + '\n' + focus_dd + '\n'
+    + product_dd + '\n' + type_dd + '\n' + focus_dd + '\n'
     + '        <button type="button" class="blog-clear" id="blogClear" hidden>Clear all</button>\n'
     '      </div>\n\n'
     '      <p class="blog-empty" id="blogEmpty" hidden>No articles match your filters. '
@@ -191,7 +192,9 @@ CSS = r"""
 .blog-dd.is-open .blog-dd-chevron { transform: rotate(-135deg) translateY(1px); }
 .blog-dd.is-set .blog-dd-trigger { border-color: var(--indigo); background: var(--paper-cool); }
 .blog-dd.is-set .blog-dd-label { color: var(--indigo); }
-.blog-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; min-width: 230px; max-height: 360px; overflow-y: auto; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 36px rgba(20,22,55,0.16); }
+.blog-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; min-width: 230px; max-width: calc(100vw - 32px); max-height: 360px; overflow-y: auto; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 36px rgba(20,22,55,0.16); }
+/* Focus is the rightmost (and tallest) pill on wider screens — anchor its menu to the right so the long list opens leftward and never clips the viewport edge. Below the mobile breakpoint the pills wrap and Focus sits at the left, so keep the default left alignment there. */
+@media (min-width: 761px) { .blog-dd[data-dim="sector"] .blog-dd-menu { left: auto; right: 0; } }
 .blog-dd-menu[hidden] { display: none; }
 .blog-dd-group { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-soft); padding: 10px 12px 4px; }
 .blog-dd-group:first-child { padding-top: 4px; }
@@ -215,12 +218,15 @@ else:
 
 # ---- 4. inline filter JS (replace the <script> that holds `var INITIAL`) --------------
 JS = r"""
-/* Blog listing: search + Focus/Type/Region/Sectors dropdowns (AND), progressive reveal.
+/* Blog listing: search + Platform/Type/Focus dropdowns (AND), progressive reveal.
+   The Focus dropdown hosts both sector and country options (each tagged with data-ddim),
+   so a single selection there filters either data-sector or data-country.
    Generated by Context/blog-import/transform_filters.py */
 (function () {
   var INITIAL = 13, BATCH = 15;
   var DIMS = ['focus', 'type', 'country', 'sector'];
-  // URL param names follow the visible labels (data-dim "focus"=Product, "sector"=Focus).
+  // URL param names follow the visible labels (data-dim "focus"=Product, "sector"=Focus;
+  // "country" still uses ?country= even though its options now live in the Focus dropdown).
   var URLKEY = { focus: 'product', type: 'type', country: 'country', sector: 'focus' };
   var cards = [].slice.call(document.querySelectorAll('.blog-grid .blog-card'));
   var wrap = document.getElementById('blogMore');
@@ -317,6 +323,15 @@ JS = r"""
     var menu = dd.querySelector('.blog-dd-menu');
     var valueEl = dd.querySelector('.blog-dd-value');
     var options = [].slice.call(dd.querySelectorAll('.blog-dd-option'));
+    // Dimensions this dropdown controls: each option's data-ddim (so one dropdown can host
+    // several dimensions, e.g. Focus = sector + country), falling back to the dd's data-dim.
+    var owned = [];
+    options.forEach(function (o) {
+      if (o.getAttribute('data-value') === 'all') return;
+      var d = o.getAttribute('data-ddim') || dim;
+      if (owned.indexOf(d) === -1) owned.push(d);
+    });
+    if (!owned.length) owned = [dim];
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
       var open = !dd.classList.contains('is-open');
@@ -328,7 +343,9 @@ JS = r"""
     options.forEach(function (opt) {
       opt.addEventListener('click', function () {
         var val = opt.getAttribute('data-value');
-        active[dim] = val;
+        var odim = opt.getAttribute('data-ddim') || dim;
+        owned.forEach(function (d) { active[d] = 'all'; });  // single-select across this dropdown
+        if (val !== 'all') active[odim] = val;
         options.forEach(function (o) {
           var on = o === opt;
           o.classList.toggle('is-active', on);
@@ -379,16 +396,31 @@ JS = r"""
   if (emptyReset) emptyReset.addEventListener('click', clearAll);
 
   // ---- restore state from the URL (shareable filtered views) ----
+  function optionFor(dim, raw) {
+    // Find the option for a dimension+value across all dropdowns. An option's dimension is
+    // its data-ddim, falling back to its dropdown's data-dim — so country options that now
+    // live inside the Focus dropdown are still located by ?country=.
+    var all = [].slice.call(document.querySelectorAll('.blog-dd-option'));
+    for (var i = 0; i < all.length; i++) {
+      var o = all[i];
+      if (o.getAttribute('data-value').toLowerCase() !== raw.toLowerCase()) continue;
+      var od = o.getAttribute('data-ddim');
+      if (!od) {
+        var el = o.parentNode;
+        while (el && !(el.classList && el.classList.contains('blog-dd'))) el = el.parentNode;
+        od = el ? el.getAttribute('data-dim') : null;
+      }
+      if (od === dim) return o;
+    }
+    return null;
+  }
   (function applyFromUrl() {
     if (series) return;
     var q = params.get('q');
     if (q && searchInput) { searchInput.value = q; query = q.trim().toLowerCase(); }
     DIMS.forEach(function (dim) {
       var raw = params.get(URLKEY[dim]); if (!raw) return;
-      var dd = document.querySelector('.blog-dd[data-dim="' + dim + '"]'); if (!dd) return;
-      var opt = [].slice.call(dd.querySelectorAll('.blog-dd-option')).filter(function (o) {
-        return o.getAttribute('data-value').toLowerCase() === raw.toLowerCase();
-      })[0];
+      var opt = optionFor(dim, raw);
       if (opt) opt.click();   // reuse the option handler (sets active + label + state)
     });
   })();

@@ -37,6 +37,14 @@
 .hero-grid--solo { grid-template-columns: 1fr; }
 .hero-grid--solo .hero-copy { max-width: 860px; }
 .hero-grid--solo .hero-sub { max-width: 620px; }
+
+/* Photo hero — matches Professional Services (team photo + dark overlay) */
+.hero.photo-hero {
+  background:
+    linear-gradient(150deg, rgba(10,6,32,0.95) 0%, rgba(22,0,109,0.88) 44%, rgba(56,67,208,0.68) 100%),
+    url('../../assets/images/about-photo.jpg') center 30% / cover no-repeat;
+}
+.hero.photo-hero .container { position: relative; z-index: 2; }
 /* extra room at the bottom so the lifted stats card overlaps empty hero space */
 #main .hero.hero-dark { padding-bottom: 104px; }
 
@@ -841,7 +849,7 @@ details[open] .leader-bio-toggle .chev { transform: rotate(180deg); }
 <main id="main">
 
   <!-- Hero -->
-  <section class="hero hero-dark">
+  <section class="hero hero-dark photo-hero">
     <div class="container">
       <div class="hero-grid hero-grid--solo">
         <div class="hero-copy">
@@ -980,8 +988,8 @@ details[open] .leader-bio-toggle .chev { transform: rotate(180deg); }
           </a>
           <a class="value-item" href="../../podcast/ep21-embrace-complexity-for-impact-articulating-dimagis-culture-and-values/">
             <div class="value-item-illus"><img src="../../assets/images/about/value-complexity.png" alt="" loading="lazy"></div>
-            <h3 class="value-item-title">Embrace complexity for impact</h3>
-            <p class="value-item-desc">We lean into hard, messy problems, because that is where lasting impact lives.</p>
+            <h3 class="value-item-title">Solve the right problems for impact</h3>
+            <p class="value-item-desc">We choose the higher-impact road over the easier one, and consistently evaluate what work to stop doing.</p>
           </a>
         </div>
       </div>

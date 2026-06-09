@@ -27,7 +27,7 @@ LABEL = {
     'service-delivery': 'Service Delivery', 'workforce-management': 'Workforce Management',
     'sponsorship': 'Sponsorship',
     'governments': 'Governments', 'international-ngos': 'International NGOs',
-    'research-academic': 'Research & Academic', 'us-community-health': 'US Community Health',
+    'research-academic': 'Research & Academic', 'us-community-health': 'United States',
     'ai': 'AI', 'global-development': 'Global Development',
     'leadership': 'Leadership', 'company-culture': 'Company & Culture',
 }
@@ -213,10 +213,13 @@ def card_attrs(num):
 
 
 # ---------------------------------------------------------------- listing filter
-# Blog-style filter bar: a search box + three dropdowns. Each dropdown option carries
-# the card data-attribute it filters (data-dim), so Focus can mix Sector + Use Case and
-# Theme can mix Theme + Org Type. "Dimagi Staff" / Voices is intentionally dropped.
-# Each group: (heading or None, card data-dim, [slugs in display order]).
+# Blog-style filter bar: a search box + two dropdowns (Platform, Focus). Each option carries
+# the card data-attribute it filters (data-dim), so one dropdown can span several card
+# attributes. A value is either a slug (uses the group's default data-dim) or an explicit
+# (data-dim, slug) pair when it filters a different attribute than the rest of its group.
+# "Dimagi Staff" / Voices and the old standalone "Theme" dropdown are intentionally dropped:
+# themes now live as a sub-category under Focus, limited to six options.
+# Each group: (heading or None, default card data-dim, [values in display order]).
 DROPDOWNS = [
  ('product', 'Platform', 'All platforms', [
     (None, 'product', ['commcare', 'connect', 'sureadhere', 'open-chat-studio']),
@@ -227,11 +230,11 @@ DROPDOWNS = [
                               'livelihoods', 'humanitarian-response']),
     ('Use cases', 'usecase', ['monitoring-evaluation', 'service-delivery',
                               'cash-voucher-assistance', 'workforce-management', 'sponsorship']),
- ]),
- ('theme', 'Theme', 'All themes', [
-    (None,            'theme',   ['ai', 'global-development', 'company-culture', 'leadership']),
-    ('Organizations', 'orgtype', ['governments', 'international-ngos', 'us-community-health',
-                                  'research-academic']),
+    # Themes folded in from the old Theme dropdown, limited to six. AI / Global Development /
+    # Company & Culture / Leadership are data-theme; Governments and United States are
+    # data-orgtype, so they carry an explicit (dim, slug).
+    ('Themes',    'theme',   ['ai', 'global-development', 'company-culture', 'leadership',
+                              ('orgtype', 'governments'), ('orgtype', 'us-community-health')]),
  ]),
 ]
 
@@ -251,9 +254,17 @@ def filter_bar_html():
     out.append('          </div>')
     # dropdowns
     for key, label, all_label, groups in DROPDOWNS:
-        groups = [(h, dim, [v for v in vals if v in _present(_TAGKEY[dim])]) for h, dim, vals in groups]
-        groups = [(h, dim, vals) for h, dim, vals in groups if vals]
-        if not groups:
+        # normalize every value to (data-dim, slug); drop values not present on any card.
+        norm = []
+        for heading, gdim, vals in groups:
+            kept = []
+            for v in vals:
+                vdim, slug = v if isinstance(v, tuple) else (gdim, v)
+                if slug in _present(_TAGKEY[vdim]):
+                    kept.append((vdim, slug))
+            if kept:
+                norm.append((heading, kept))
+        if not norm:
             continue
         out.append('          <div class="pod-dd" data-dd="%s">' % key)
         out.append('            <button type="button" class="pod-dd-trigger" aria-haspopup="listbox" aria-expanded="false">'
@@ -261,15 +272,15 @@ def filter_bar_html():
                    '<span class="pod-dd-chevron" aria-hidden="true"></span></button>' % label)
         out.append('            <div class="pod-dd-menu" role="listbox" aria-label="%s" hidden>' % label)
         out.append('              <button type="button" class="pod-dd-option is-active" role="option" '
-                   'data-dim="%s" data-value="all" aria-selected="true">%s</button>' % (groups[0][1], all_label))
-        for i, (heading, dim, vals) in enumerate(groups):
+                   'data-dim="%s" data-value="all" aria-selected="true">%s</button>' % (norm[0][1][0][0], all_label))
+        for i, (heading, kept) in enumerate(norm):
             if i > 0:
                 out.append('              <div class="pod-dd-sep" role="separator"></div>')
             if heading:
                 out.append('              <div class="pod-dd-group">%s</div>' % heading)
-            for v in vals:
+            for vdim, slug in kept:
                 out.append('              <button type="button" class="pod-dd-option" role="option" '
-                           'data-dim="%s" data-value="%s">%s</button>' % (dim, v, LABEL[v]))
+                           'data-dim="%s" data-value="%s">%s</button>' % (vdim, slug, LABEL[slug]))
         out.append('            </div>')
         out.append('          </div>')
     out.append('          <button type="button" class="pod-clear" id="pod-clear" hidden>Clear all</button>')

@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>M&amp;E Playbook: Centralizing Digital Data Collection | Dimagi</title>
+<meta name="description" content="Drawing from real-world examples and best practices, this playbook lays out a four-step process for M&E professionals to centralize digital tools within their social impact organizations.">
+<meta name="author" content="Dimagi">
+<link rel="canonical" href="https://dimagi.com/blog/monitoring-evaluation-playbook/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:url" content="https://dimagi.com/blog/monitoring-evaluation-playbook/">
+<meta property="og:title" content="M&amp;E Playbook: Centralizing Digital Data Collection">
+<meta property="og:description" content="A four-step process for M&E professionals to centralize digital tools within their social impact organizations.">
+<meta property="og:image" content="https://dimagi.com/assets/images/monitoring-evaluation-playbook/cover.jpg">
+<meta property="og:image:alt" content="An M&E team reviewing CommCare data in the field.">
+<meta property="article:published_time" content="2023-09-01">
+<meta property="article:author" content="Dimagi">
+<meta property="article:section" content="CommCare">
+<meta property="article:tag" content="Toolkits">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M&amp;E Playbook: Centralizing Digital Data Collection">
+<meta name="twitter:description" content="A four-step process for M&E professionals to centralize digital tools within their social impact organizations.">
+<meta name="twitter:image" content="https://dimagi.com/assets/images/monitoring-evaluation-playbook/cover.jpg">
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "M&E Playbook: A four-step guide to centralizing digital data collection",
+  "description": "Drawing from real-world examples and best practices, this playbook lays out a four-step process for M&E professionals to centralize digital tools within their social impact organizations.",
+  "image": "https://dimagi.com/assets/images/monitoring-evaluation-playbook/cover.jpg",
+  "datePublished": "2023-09-01",
+  "dateModified": "2023-09-01",
+  "author": { "@type": "Organization", "name": "Dimagi" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dimagi",
+    "logo": { "@type": "ImageObject", "url": "https://dimagi.com/wp-content/uploads/2023/11/dimagi_logo_46.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dimagi.com/blog/monitoring-evaluation-playbook/" },
+  "articleSection": "CommCare",
+  "keywords": "CommCare, Toolkit, Monitoring and Evaluation, M&E, Playbook, digital data collection"
+}
+</script>
+
+<!-- Breadcrumb structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dimagi.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://dimagi.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "M&E Playbook: Centralizing Digital Data Collection" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
+
+<style>
+
+ /* ── Breadcrumb (matches blog article .article-breadcrumb) ── */
+ .article-breadcrumb {
+ display: flex; align-items: center; gap: 8px;
+ font-family: var(--sans); font-size: 11px; font-weight: 500;
+ letter-spacing: 0.08em; text-transform: uppercase;
+ color: var(--muted-soft);
+ margin: 0 0 30px;
+ }
+ .article-breadcrumb a { color: var(--muted-soft); transition: color 120ms; text-decoration: none; }
+ .article-breadcrumb a:hover { color: var(--indigo); }
+ .article-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.6; }
+ .article-breadcrumb span { color: var(--muted); }
+
+ /* ── Hero date ── */
+ .pb-meta-date {
+ font-family: var(--sans); font-size: 13px; font-weight: 500;
+ letter-spacing: 0.02em; color: var(--muted-soft);
+ margin: 18px 0 0;
+ }
+
+ /* ── Filed-under tags (matches blog article .article-foot) ── */
+ .article-foot { margin: 56px 0 0; padding-top: 36px; border-top: 1px solid var(--line); }
+ .article-foot-label {
+ font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+ letter-spacing: 0.16em; text-transform: uppercase;
+ color: var(--muted-soft); margin-bottom: 16px;
+ }
+ .article-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+ .article-tag {
+ font-family: var(--sans); font-size: 11px; font-weight: 600;
+ letter-spacing: 0.08em; text-transform: uppercase;
+ color: var(--indigo); background: var(--indigo-soft);
+ padding: 8px 15px; border-radius: 999px;
+ }
+
+ /* ── Reading progress bar (matches blog) ── */
+ .reading-progress {
+ position: fixed; top: 0; left: 0; right: 0; height: 3px;
+ background: transparent; z-index: 60; pointer-events: none;
+ }
+ .reading-progress-bar {
+ display: block; height: 100%; width: 0;
+ background: var(--purple);
+ transition: width 80ms linear;
+ }
+ @media (prefers-reduced-motion: reduce) { .reading-progress-bar { transition: none; } }
+
+ /* ── Share row (matches blog article .article-share) ── */
+ .article-share {
+ display: flex; align-items: center; gap: 10px;
+ margin-top: 22px; flex-wrap: wrap; justify-content: center;
+ }
+ .article-share-label {
+ font-family: var(--sans); font-size: 10.5px; font-weight: 600;
+ letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-soft);
+ margin-right: 2px;
+ }
+ .article-share-btn {
+ display: inline-flex; align-items: center; gap: 7px;
+ height: 36px; padding: 0 14px;
+ border: 1px solid var(--line); border-radius: 999px;
+ background: #fff; color: var(--muted);
+ font-size: 12.5px; font-weight: 600; font-family: var(--sans);
+ cursor: pointer; transition: border-color 150ms, color 150ms, background 150ms;
+ text-decoration: none;
+ }
+ .article-share-btn svg { width: 15px; height: 15px; }
+ .article-share-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+ .article-share-btn.is-copied { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-soft); }
+
+ /* ── Hero ── */
+ .pb-hero {
+ padding: 40px 0 0;
+ position: relative;
+ overflow: hidden;
+ }
+ .pb-hero::before {
+ content: ""; position: absolute;
+ top: -200px; right: -260px; width: 640px; height: 640px;
+ background: radial-gradient(circle, rgba(15,118,110,0.10) 0%, transparent 60%);
+ pointer-events: none;
+ }
+ .pb-hero-head {
+ text-align: center;
+ max-width: 880px;
+ margin: 0 auto;
+ }
+ .toolkit-tag {
+ font-family: var(--mono); font-size: 12px; font-weight: 700;
+ letter-spacing: 0.18em; text-transform: uppercase;
+ color: var(--indigo);
+ display: inline-block;
+ padding: 6px 14px;
+ background: var(--indigo-soft);
+ border-radius: 999px;
+ margin-bottom: 24px;
+ }
+ .pb-hero h1 {
+ font-size: clamp(40px, 5vw, 64px);
+ line-height: 1.06; letter-spacing: -0.03em;
+ font-weight: 300;
+ margin: 0;
+ }
+ .pb-hero h1 em {
+ font-style: normal; background: var(--grad-text);
+ -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+ background-clip: text; font-weight: 600;
+ }
+ .pb-tagline {
+ font-size: 22px; color: var(--muted);
+ line-height: 1.5; margin: 24px auto 0;
+ max-width: 720px;
+ }
+
+ /* ── Cover art band ── */
+ .pb-cover-band { margin-top: 56px; position: relative; }
+ .pb-cover-art {
+ aspect-ratio: 16 / 7;
+ border-radius: var(--radius-lg);
+ background: linear-gradient(135deg, #14103A 0%, #1c1758 50%, #0F766E 100%);
+ position: relative; overflow: hidden;
+ box-shadow: 0 40px 80px -30px rgba(20,16,58,0.45);
+ border: 1px solid var(--line);
+ display: flex; align-items: center; justify-content: center;
+ }
+ .pb-cover-art::after {
+ content: ""; position: absolute; inset: 0;
+ background:
+ radial-gradient(circle at 25% 30%, rgba(142,161,255,0.20), transparent 55%),
+ radial-gradient(circle at 80% 70%, rgba(91,233,217,0.22), transparent 55%);
+ pointer-events: none;
+ }
+ .pb-cover-art-inner {
+ color: var(--paper); text-align: center;
+ z-index: 1; padding: 48px;
+ max-width: 640px;
+ }
+ .pb-cover-art-inner .label {
+ font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+ text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 14px;
+ display: block;
+ }
+ .pb-cover-art-inner h2 {
+ font-size: clamp(22px, 2.8vw, 40px); line-height: 1.15; font-weight: 400;
+ color: #fff; letter-spacing: -0.02em; margin: 0 0 10px;
+ }
+ .pb-cover-art-inner h2 em {
+ font-style: normal;
+ color: #fff; font-weight: 600;
+ background: none; -webkit-text-fill-color: #fff;
+ }
+ .pb-cover-art-inner .pb-byline {
+ font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em;
+ text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 16px;
+ display: block;
+ }
+
+ /* ── At-a-glance strip ── */
+ .pb-glance {
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 0; margin-top: 40px;
+ background: var(--paper-2); border: 1px solid var(--line);
+ border-radius: var(--radius-lg); overflow: hidden;
+ }
+ .pb-glance-cell {
+ padding: 24px 22px;
+ border-right: 1px solid var(--line);
+ display: flex; flex-direction: column; gap: 6px;
+ }
+ .pb-glance-cell:last-child { border-right: 0; }
+ .pb-glance-lbl {
+ font-family: var(--mono); font-size: 10px; font-weight: 700;
+ letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo);
+ }
+ .pb-glance-val {
+ font-size: clamp(24px, 2.3vw, 30px); font-weight: 200;
+ letter-spacing: -0.025em; line-height: 1; color: var(--ink);
+ }
+ .pb-glance-val strong { color: var(--indigo); font-weight: 300; font-size: 0.65em; }
+ .pb-glance-sub { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+
+ /* ── Body layout ── */
+ .pb-body { padding: 64px 0 96px; }
+ .pb-grid {
+ display: grid;
+ grid-template-columns: 1fr 264px;
+ gap: 72px;
+ align-items: start;
+ }
+
+ /* ── Jump nav (right gutter, matches blog article .article-toc) ── */
+ .pb-sidebar {
+ position: sticky; top: 96px;
+ align-self: start;
+ order: 2;
+ }
+ .sb-head {
+ font-family: var(--sans); font-size: 11px; font-weight: 600;
+ letter-spacing: 0.12em; text-transform: uppercase;
+ color: var(--muted-soft); margin: 0 0 14px;
+ }
+ .sb-nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
+ .sb-nav li { margin: 0; padding: 0; }
+ .sb-nav a {
+ display: flex; gap: 9px; align-items: baseline;
+ font-family: var(--sans); font-size: 13px; font-weight: 350; line-height: 1.4;
+ color: var(--muted);
+ padding: 7px 0 7px 16px; margin-left: -1px;
+ border-left: 2px solid transparent;
+ transition: color 150ms, border-color 150ms;
+ text-decoration: none;
+ }
+ .sb-nav a:hover { color: var(--ink); }
+ .sb-nav a.active { color: var(--purple); border-left-color: var(--purple); font-weight: 500; }
+ .sb-nav a.active .sb-n { color: var(--purple); }
+ .sb-n {
+ font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+ letter-spacing: 0.06em; color: var(--muted-soft); min-width: 14px;
+ }
+ .sb-divider {
+ margin: 14px 0 4px; padding: 0 0 0 16px;
+ font-family: var(--sans); font-size: 9.5px; font-weight: 700;
+ letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-soft);
+ }
+
+ /* ── Content ── */
+ .pb-content { min-width: 0; order: 1; }
+ .ch { scroll-margin-top: 96px; padding-top: 8px; }
+ .ch + .ch { margin-top: 80px; padding-top: 64px; border-top: 1px solid var(--line); }
+ .ch-eyebrow {
+ display: inline-flex; align-items: center; gap: 12px;
+ font-family: var(--mono); font-size: 11px; font-weight: 600;
+ letter-spacing: 0.14em; text-transform: uppercase;
+ color: var(--indigo); margin-bottom: 14px;
+ }
+ .ch-eyebrow-step {
+ background: var(--indigo-soft);
+ color: var(--indigo-deep);
+ padding: 4px 10px;
+ border-radius: 999px;
+ font-size: 10px;
+ }
+ .ch-title {
+ font-size: clamp(26px, 2.8vw, 34px); font-weight: 400;
+ line-height: 1.18; letter-spacing: -0.02em;
+ color: var(--ink); margin: 0 0 22px;
+ }
+ .ch-title em {
+ font-style: normal; background: var(--grad-text);
+ -webkit-background-clip: text; background-clip: text;
+ -webkit-text-fill-color: transparent;
+ font-weight: 500;
+ }
+ .ch p { font-size: 16px; line-height: 1.7; color: var(--ink-2); margin: 0 0 18px; }
+ .ch p:last-child { margin-bottom: 0; }
+ .ch ul, .ch ol { margin: 0 0 18px; padding-left: 22px; }
+ .ch li { font-size: 16px; line-height: 1.65; color: var(--ink-2); margin-bottom: 6px; }
+ .ch li strong { color: var(--ink); }
+ .ch h3 {
+ font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+ color: var(--ink); margin: 28px 0 10px;
+ }
+ .ch p.lead {
+ font-size: 18px; font-weight: 400;
+ color: var(--ink); line-height: 1.6;
+ margin-bottom: 24px;
+ }
+
+ /* ── 4-step overview cards ── */
+ .steps-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: 16px; margin: 28px 0;
+ }
+ .step-card {
+ padding: 24px 22px;
+ border-radius: var(--radius);
+ border: 1px solid var(--line);
+ background: var(--paper-2);
+ display: flex; flex-direction: column; gap: 10px;
+ transition: box-shadow 200ms, border-color 200ms;
+ }
+ .step-card:hover { border-color: var(--indigo-soft); box-shadow: 0 4px 24px -8px rgba(15,118,110,0.15); }
+ .step-card-num {
+ width: 40px; height: 40px;
+ border-radius: 10px;
+ background: linear-gradient(135deg, #14103A, #0F766E);
+ color: #fff;
+ font-size: 18px; font-weight: 700;
+ display: flex; align-items: center; justify-content: center;
+ flex-shrink: 0;
+ }
+ .step-card-title { font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+ .step-card-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+ /* ── Benefits grid ── */
+ .benefits-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: 16px; margin: 24px 0;
+ }
+ .benefit-card {
+ padding: 24px 22px;
+ border-radius: var(--radius);
+ border: 1px solid var(--line);
+ background: var(--paper-2);
+ }
+ .benefit-card-icon {
+ width: 44px; height: 44px; border-radius: 12px;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 20px; margin-bottom: 14px;
+ }
+ .benefit-card-icon.cost { background: var(--indigo-soft); }
+ .benefit-card-icon.eff { background: #e0f2fe; }
+ .benefit-card-icon.quality { background: #d1fae5; }
+ .benefit-card-icon.security { background: #fef3c7; }
+ .benefit-card h5 {
+ font-size: 15px; font-weight: 700; color: var(--ink);
+ margin: 0 0 10px; letter-spacing: -0.01em;
+ }
+ .benefit-card p { font-size: 14px; line-height: 1.65; color: var(--ink-2); margin: 0; }
+
+ /* ── Factor infographic ── */
+ .factor-strip {
+ background: var(--paper-2);
+ border: 1px solid var(--line);
+ border-radius: var(--radius);
+ overflow: hidden;
+ margin: 24px 0;
+ }
+ .factor-strip-head {
+ padding: 14px 20px;
+ border-bottom: 1px solid var(--line);
+ font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+ letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+ }
+ .factor-cols {
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 0;
+ }
+ .factor-col {
+ padding: 20px 18px;
+ border-right: 1px solid var(--line);
+ }
+ .factor-col:last-child { border-right: 0; }
+ .factor-col-label {
+ font-size: 12px; font-weight: 700; color: var(--indigo);
+ margin-bottom: 14px; letter-spacing: -0.005em;
+ }
+ .factor-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+ .factor-tag {
+ font-size: 11.5px; font-weight: 600; padding: 5px 10px;
+ border-radius: 999px; line-height: 1;
+ }
+ .factor-tag.purple { background: var(--indigo-soft); color: var(--indigo-deep); }
+ .factor-tag.indigo { background: var(--indigo-soft); color: var(--indigo-deep); }
+ .factor-tag.navy { background: var(--paper-cool); color: #2832A0; }
+ .factor-items { list-style: none; margin: 0; padding: 0; }
+ .factor-items li {
+ font-size: 13px; color: var(--ink-2); line-height: 1.9;
+ display: flex; align-items: center; gap: 6px;
+ }
+ .factor-items li::before { content: ""; color: var(--muted-soft); font-size: 11px; }
+
+ /* ── Data pipeline ── */
+ .pipeline {
+ display: flex; gap: 4px;
+ margin: 24px 0; flex-wrap: wrap;
+ }
+ .pipeline-step {
+ flex: 1; min-width: 80px;
+ background: linear-gradient(135deg, #14103A, #1c1758);
+ color: #fff;
+ font-size: 12.5px; font-weight: 600;
+ text-align: center;
+ padding: 14px 10px;
+ border-radius: 10px;
+ line-height: 1.3;
+ }
+ .pipeline-step:nth-child(2) { background: linear-gradient(135deg, #1c1758, #243a8a); }
+ .pipeline-step:nth-child(3) { background: linear-gradient(135deg, #243a8a, #0e6b62); }
+ .pipeline-step:nth-child(4) { background: linear-gradient(135deg, #0e6b62, #0F766E); }
+ .pipeline-step:nth-child(5) { background: linear-gradient(135deg, #0F766E, #14b8a6); }
+
+ /* ── Dept callout (Step 1 guidance) ── */
+ .dept-list { margin: 14px 0; display: flex; flex-direction: column; gap: 10px; }
+ .dept-item {
+ display: grid; grid-template-columns: 110px 1fr;
+ gap: 12px; align-items: baseline;
+ font-size: 15px; line-height: 1.6;
+ }
+ .dept-name {
+ font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+ letter-spacing: 0.08em; text-transform: uppercase;
+ color: var(--sky); padding-top: 2px;
+ }
+ .dept-desc { color: rgba(255,255,255,0.85); }
+
+ /* ── Pull quote ── */
+ .pull-quote {
+ background: linear-gradient(140deg, #14103A 0%, #1c1758 55%, #0F766E 100%);
+ border-radius: var(--radius-lg);
+ padding: 40px 44px;
+ margin: 40px 0;
+ position: relative;
+ overflow: hidden;
+ }
+ .pull-quote::before {
+ content: "";
+ position: absolute; inset: 0;
+ background: radial-gradient(circle at 90% 10%, rgba(91,233,217,0.12), transparent 50%);
+ pointer-events: none;
+ }
+ .pull-quote-tag {
+ font-family: var(--mono); font-size: 10px; font-weight: 700;
+ letter-spacing: 0.16em; text-transform: uppercase;
+ color: rgba(255,255,255,0.55);
+ margin-bottom: 24px;
+ display: flex; align-items: center; gap: 8px;
+ position: relative; z-index: 1;
+ }
+ .pull-quote-tag::before {
+ content: "";
+ width: 20px; height: 1px;
+ background: rgba(255,255,255,0.3);
+ }
+ .pull-quote-body {
+ font-size: 17px; line-height: 1.7;
+ color: rgba(255,255,255,0.92);
+ position: relative; z-index: 1;
+ }
+ .pull-quote-body p { margin: 0 0 14px; color: rgba(255,255,255,0.92); }
+ .pull-quote-body p:last-child { margin: 0; }
+ .pull-quote-body strong { color: #fff; font-weight: 600; }
+ .pull-quote-mark {
+ font-size: 72px; font-weight: 900; line-height: 0.8;
+ color: rgba(255,255,255,0.10);
+ position: absolute; bottom: 20px; right: 32px;
+ z-index: 0;
+ }
+
+ /* ── Vendor table ── */
+ .vendor-table {
+ width: 100%; border-collapse: collapse;
+ margin: 20px 0; font-size: 15px;
+ border-radius: var(--radius); overflow: hidden;
+ border: 1px solid var(--line);
+ }
+ .vendor-table td {
+ padding: 18px 20px;
+ border-bottom: 1px solid var(--line);
+ vertical-align: top;
+ line-height: 1.65;
+ color: var(--ink-2);
+ }
+ .vendor-table tr:last-child td { border-bottom: 0; }
+ .vendor-table td:first-child {
+ background: linear-gradient(135deg, #14103A, #1c1758);
+ color: #fff;
+ font-family: var(--mono); font-size: 11px; font-weight: 700;
+ letter-spacing: 0.08em; text-transform: uppercase;
+ width: 130px;
+ text-align: center;
+ vertical-align: middle;
+ border-right: 0;
+ border-bottom: 1px solid rgba(255,255,255,0.10);
+ }
+ .vendor-table tr:last-child td:first-child { border-bottom: 0; }
+
+ /* ── Criteria grid ── */
+ .criteria-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: 16px; margin: 20px 0;
+ }
+ .criteria-card {
+ padding: 22px 20px;
+ border-radius: var(--radius);
+ border: 1px solid var(--line);
+ background: var(--paper-2);
+ }
+ .criteria-card-head {
+ font-size: 14px; font-weight: 700; color: var(--ink);
+ margin-bottom: 10px; line-height: 1.4;
+ }
+ .criteria-card p { font-size: 14px; line-height: 1.65; color: var(--ink-2); margin: 0; }
+ .criteria-card a { color: var(--indigo); }
+ .criteria-card a:hover { text-decoration: underline; }
+
+ /* ── Rollout table ── */
+ .rollout-table {
+ width: 100%; border-collapse: collapse;
+ font-size: 15px; margin: 20px 0;
+ border: 1px solid var(--line);
+ border-radius: var(--radius); overflow: hidden;
+ }
+ .rollout-table thead td {
+ background: var(--ink);
+ color: #fff;
+ font-family: var(--mono); font-size: 10px; font-weight: 700;
+ letter-spacing: 0.14em; text-transform: uppercase;
+ padding: 14px 20px;
+ }
+ .rollout-table td {
+ padding: 18px 20px;
+ border: 1px solid var(--line);
+ vertical-align: top;
+ line-height: 1.65;
+ color: var(--ink-2);
+ }
+ .rollout-table tbody td:first-child {
+ font-weight: 600; font-size: 14px;
+ width: 170px; color: var(--ink);
+ background: var(--paper-2);
+ vertical-align: top;
+ }
+
+ /* ── Acknowledgements ── */
+ .pb-ack {
+ margin-top: 48px; padding-top: 40px;
+ border-top: 1px solid var(--line);
+ }
+ .pb-ack-head {
+ font-family: var(--mono); font-size: 10px; font-weight: 700;
+ letter-spacing: 0.14em; text-transform: uppercase;
+ color: var(--muted); margin-bottom: 16px;
+ }
+ .pb-ack p { font-size: 14.5px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; }
+ .pb-ack a { color: var(--indigo); }
+
+ /* ── CTA closing ── */
+ .pb-cta {
+ background: linear-gradient(140deg, #14103A 0%, #1c1758 50%, #0F766E 100%);
+ padding: 80px 0;
+ position: relative; overflow: hidden;
+ }
+ .pb-cta::before {
+ content: "";
+ position: absolute; inset: 0;
+ background: radial-gradient(circle at 80% 30%, rgba(91,233,217,0.10), transparent 50%);
+ }
+ .pb-cta-inner {
+ max-width: 1200px; margin: 0 auto; padding: 0 32px;
+ display: flex; align-items: center; justify-content: space-between; gap: 48px;
+ position: relative; z-index: 1;
+ }
+ .pb-cta h2 {
+ font-size: clamp(28px, 3.5vw, 42px); font-weight: 200;
+ color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 10px;
+ }
+ .pb-cta p { font-size: 17px; color: rgba(255,255,255,0.75); margin: 0; }
+ .pb-cta-actions { display: flex; gap: 14px; flex-shrink: 0; flex-wrap: wrap; }
+ .btn-white {
+ padding: 13px 26px; border-radius: 10px;
+ background: #fff; color: #14103A;
+ font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+ display: inline-flex; align-items: center; gap: 8px;
+ transition: box-shadow 200ms;
+ text-decoration: none;
+ }
+ .btn-white:hover { box-shadow: 0 8px 32px -8px rgba(255,255,255,0.4); color: #14103A; }
+ .btn-ghost-white {
+ padding: 13px 26px; border-radius: 10px;
+ background: rgba(255,255,255,0.12);
+ border: 1px solid rgba(255,255,255,0.25);
+ color: #fff; font-weight: 600; font-size: 15px;
+ display: inline-flex; align-items: center;
+ transition: background 200ms;
+ text-decoration: none;
+ }
+ .btn-ghost-white:hover { background: rgba(255,255,255,0.2); color: #fff; }
+
+ /* ── Responsive ── */
+ @media (max-width: 1080px) {
+ .pb-grid { grid-template-columns: 1fr 220px; gap: 48px; }
+ }
+ @media (max-width: 900px) {
+ .pb-grid { grid-template-columns: 1fr; }
+ .pb-sidebar { display: none; }
+ }
+ @media (max-width: 760px) {
+ .pb-glance { grid-template-columns: repeat(2, 1fr); }
+ .pb-glance-cell:nth-child(2) { border-right: 0; }
+ .pb-glance-cell:nth-child(1), .pb-glance-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+ .steps-grid, .benefits-grid, .criteria-grid { grid-template-columns: 1fr; }
+ .factor-cols { grid-template-columns: 1fr 1fr; }
+ .factor-col:nth-child(2) { border-right: 0; }
+ .factor-col:nth-child(1), .factor-col:nth-child(2) { border-bottom: 1px solid var(--line); }
+ .pb-cta-inner { flex-direction: column; align-items: flex-start; }
+ .dept-item { grid-template-columns: 1fr; gap: 2px; }
+ .pull-quote { padding: 28px 28px 40px; }
+ .pb-cover-art { aspect-ratio: unset; min-height: 220px; }
+ }
+ @media (max-width: 560px) {
+ .pb-glance { grid-template-columns: 1fr; }
+ .pb-glance-cell { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+ .pb-glance-cell:last-child { border-bottom: 0 !important; }
+ .factor-cols { grid-template-columns: 1fr; }
+ .factor-col { border-right: 0; border-bottom: 1px solid var(--line); }
+ }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"><span class="reading-progress-bar"></span></div>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#">Professional Services</a>
+        <a href="../../company/about/index.html">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="pb-hero">
+ <div class="container">
+ <nav class="article-breadcrumb" aria-label="Breadcrumb">
+ <a href="../../index.html">Home</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+ <a href="../index.html">Blog</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+ <span>M&amp;E Playbook: Centralizing Digital Data Collection</span>
+ </nav>
+ <div class="pb-hero-head">
+ <span class="toolkit-tag">Playbook, Monitoring &amp; Evaluation</span>
+ <h1>M&amp;E <em>Playbook.</em></h1>
+ <p class="pb-tagline">The ultimate four-step guide to centralizing digital data collection across your social impact organization.</p>
+ <p class="pb-meta-date">Published September 2023</p>
+ <div class="article-share">
+ <span class="article-share-label">Share</span>
+ <button class="article-share-btn article-copy" type="button" aria-label="Copy link" data-copy-url="https://dimagi.com/blog/monitoring-evaluation-playbook/">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+ <span class="article-copy-label">Copy link</span>
+ </button>
+ <a class="article-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdimagi.com%2Fblog%2Fmonitoring-evaluation-playbook%2F" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+ <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v13H.25V8zM8 8h4.3v1.78h.06c.6-1.13 2.07-2.32 4.26-2.32 4.56 0 5.4 3 5.4 6.9V21h-4.5v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.18 1.48-2.18 3v5.8H8V8z"/></svg>
+ LinkedIn
+ </a>
+ <a class="article-share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdimagi.com%2Fblog%2Fmonitoring-evaluation-playbook%2F&amp;text=M%26E%20Playbook%3A%20Centralizing%20Digital%20Data%20Collection" target="_blank" rel="noopener" aria-label="Share on X">
+ <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.5h3.3l-7.2 8.2L23.7 22.5h-6.6l-5.2-6.8-6 6.8H2.6l7.7-8.8L2 1.5h6.8l4.7 6.2 5.4-6.2zm-1.2 19h1.8L7.1 3.4H5.2L17.7 20.5z"/></svg>
+ X
+ </a>
+ </div>
+ </div>
+
+ <div class="pb-cover-band">
+ <div class="pb-cover-art">
+ <div class="pb-cover-art-inner">
+ <span class="label">THE PLAYBOOK</span>
+ <h2>A four-step guide to <em>centralizing digital data collection.</em></h2>
+ <span class="pb-byline">Dimagi &middot; 4 steps &middot; M&amp;E professionals &amp; ICT4D teams</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="pb-glance">
+ <div class="pb-glance-cell">
+ <div class="pb-glance-lbl">Framework</div>
+ <div class="pb-glance-val"><strong>4</strong> Steps</div>
+ <div class="pb-glance-sub">From taskforce to rollout</div>
+ </div>
+ <div class="pb-glance-cell">
+ <div class="pb-glance-lbl">Audience</div>
+ <div class="pb-glance-val">M&amp;E</div>
+ <div class="pb-glance-sub">Professionals &amp; ICT4D teams</div>
+ </div>
+ <div class="pb-glance-cell">
+ <div class="pb-glance-lbl">Reading time</div>
+ <div class="pb-glance-val">~<strong>25</strong> min</div>
+ <div class="pb-glance-sub">With real-world examples</div>
+ </div>
+ <div class="pb-glance-cell">
+ <div class="pb-glance-lbl">Published by</div>
+ <div class="pb-glance-val">Dimagi</div>
+ <div class="pb-glance-sub">CommCare platform team</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- Body -->
+<div class="pb-body">
+ <div class="container">
+ <div class="pb-grid">
+
+ <!-- Sidebar -->
+ <aside class="pb-sidebar">
+ <div class="sb-head">Contents</div>
+ <ul class="sb-nav">
+ <li><a href="#overview"><span class="sb-n">01</span> Overview &amp; Goal</a></li>
+ <li><a href="#why-centralize"><span class="sb-n">02</span> Why Centralize?</a></li>
+ <li><a href="#four-steps"><span class="sb-n">03</span> The 4 Steps</a></li>
+ <div class="sb-divider">Steps</div>
+ <li><a href="#step-1"><span class="sb-n">1&nbsp;&nbsp;</span> Build a Task Force</a></li>
+ <li><a href="#step-2"><span class="sb-n">2&nbsp;&nbsp;</span> Needs Assessment</a></li>
+ <li><a href="#step-3"><span class="sb-n">3&nbsp;&nbsp;</span> Select Partner &amp; Tool</a></li>
+ <li><a href="#step-4"><span class="sb-n">4&nbsp;&nbsp;</span> Roll Out Your Tool</a></li>
+ <div class="sb-divider">Closing</div>
+ <li><a href="#final-thoughts"><span class="sb-n">&nbsp;</span> Final Thoughts</a></li>
+ </ul>
+ </aside>
+
+ <!-- Main content -->
+ <div class="pb-content">
+
+ <!-- ── OVERVIEW ── -->
+ <section id="overview" class="ch">
+ <div class="ch-eyebrow">01, Overview</div>
+ <h2 class="ch-title">Goal of <em>This Playbook</em></h2>
+ <p class="lead">Drawing from real-world examples and best practices, this playbook lays out a four-step process for M&amp;E professionals to centralize digital tools within their social impact organizations.</p>
+ <p>Most social impact organizations recognize the critical need for real-time, actionable data to thrive in today's fast-paced world. Digital tools used for data collection, service delivery, and analysis enable organizations to gather cleaner data more quickly and efficiently, and better drive their Monitoring &amp; Evaluation outcomes.</p>
+ <p>Organizations commonly grant each project team or country office the autonomy to select the tools best suited to their specific needs, prioritizing four key factors: budget, existing knowledge and skills, donor technical requirements, and project workflow requirements.</p>
+ <p>While consideration of these factors are crucial, challenges often arise when different projects or country offices procure their own tools based on their own interpretation and priorities around these requirements. A more centralized approach to streamline digital tool selection may align better with your strategic goals, and many social impact organizations have made this transition successfully.</p>
+ <p>Your organization will be investing in so much more than a technology, they will be investing in a change management process that aims to create a catalytic shift toward accurate and accessible data.</p>
+
+ <div class="factor-strip">
+ <div class="factor-strip-head">Key factors when selecting digital tools</div>
+ <div class="factor-cols">
+ <div class="factor-col">
+ <div class="factor-col-label">Teams &amp; Projects</div>
+ <div class="factor-tags">
+ <span class="factor-tag purple">M&amp;E</span>
+ <span class="factor-tag purple">Programs</span>
+ <span class="factor-tag indigo">IT</span>
+ <span class="factor-tag navy">ICT4D</span>
+ </div>
+ </div>
+ <div class="factor-col">
+ <div class="factor-col-label">Offices</div>
+ <div class="factor-tags">
+ <span class="factor-tag navy">HQ</span>
+ <span class="factor-tag purple">Country</span>
+ <span class="factor-tag indigo">Regional</span>
+ </div>
+ </div>
+ <div class="factor-col">
+ <div class="factor-col-label">Ecosystems</div>
+ <div class="factor-tags">
+ <span class="factor-tag purple">Data collection</span>
+ <span class="factor-tag indigo">BI tools</span>
+ <span class="factor-tag navy">Integrations</span>
+ </div>
+ </div>
+ <div class="factor-col">
+ <div class="factor-col-label">Considerations</div>
+ <ul class="factor-items">
+ <li>Budget</li>
+ <li>Existing knowledge &amp; skills</li>
+ <li>Donor requirements</li>
+ <li>Workflow needs</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── WHY CENTRALIZE ── -->
+ <section id="why-centralize" class="ch">
+ <div class="ch-eyebrow">02, Benefits</div>
+ <h2 class="ch-title">Why <em>Centralize?</em></h2>
+ <p class="lead">Organizations unlock several key benefits by centralizing their digital tools, while still allowing individual project teams to maintain freedom in customizing applications and surveys.</p>
+
+ <div class="benefits-grid">
+ <div class="benefit-card">
+ <div class="benefit-card-icon cost">💲</div>
+ <h5>Reduced Costs</h5>
+ <p>Procuring software project-by-project incurs higher costs than bulk acquisition. Bulk purchasing creates substantial economies of scale, allowing teams to select premium tools at lower cost.</p>
+ </div>
+ <div class="benefit-card">
+ <div class="benefit-card-icon eff">⚡</div>
+ <h5>Greater Efficiencies</h5>
+ <p>Project teams waste time duplicating processes like tool selection and contract negotiations. A central tool enables inter-team learning and better coordinated communities of practice.</p>
+ </div>
+ <div class="benefit-card">
+ <div class="benefit-card-icon quality">📋</div>
+ <h5>Increased Quality</h5>
+ <p>Using different tools across projects makes it impossible to ensure data reliability and cleanliness. A shared tool lets M&amp;E experts better control, coordinate, and manage data across all projects.</p>
+ </div>
+ <div class="benefit-card">
+ <div class="benefit-card-icon security">🔒</div>
+ <h5>Tighter Security</h5>
+ <p>Ensuring HIPAA, GDPR, and other compliance standards becomes increasingly difficult with multiple tools. A central tool ensures all offices adhere to the highest data protection standards set by HQ.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── 4 STEPS OVERVIEW ── -->
+ <section id="four-steps" class="ch">
+ <div class="ch-eyebrow">03, Framework</div>
+ <h2 class="ch-title">4 Steps to <em>Centralizing</em> Digital Tools for M&amp;E</h2>
+ <p>These four steps provide a foundational framework for an inclusive and thorough process of procuring a centralized digital tool. While the specifics may vary by organization, the general principles hold across contexts.</p>
+
+ <div class="steps-grid">
+ <div class="step-card">
+ <div class="step-card-num">1</div>
+ <div class="step-card-title">Build a Dedicated Task Force</div>
+ <div class="step-card-desc">Assemble a cross-functional team with management backing to drive the centralization process.</div>
+ </div>
+ <div class="step-card">
+ <div class="step-card-num">2</div>
+ <div class="step-card-title">Conduct an In-Depth Needs Assessment</div>
+ <div class="step-card-desc">Survey users at every level to map existing tools, pain points, and future requirements.</div>
+ </div>
+ <div class="step-card">
+ <div class="step-card-num">3</div>
+ <div class="step-card-title">Select the Right Partner &amp; Tool</div>
+ <div class="step-card-desc">Evaluate vendors against cost, efficiency, quality, and security criteria before committing.</div>
+ </div>
+ <div class="step-card">
+ <div class="step-card-num">4</div>
+ <div class="step-card-title">Successfully Roll Out Your Tool</div>
+ <div class="step-card-desc">Appoint owners, build training materials, and onboard country offices systematically.</div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── STEP 1 ── -->
+ <section id="step-1" class="ch">
+ <div class="ch-eyebrow"><span class="ch-eyebrow-step">Step 1 of 4</span> Build a Task Force</div>
+ <h2 class="ch-title">Build a <em>Dedicated Task Force</em></h2>
+ <p>For the implementation of an organization-wide digital tool, securing buy-in across the entire organization, from country offices to senior leadership, is critical. This is more than a procurement or digital tool change; it is a change management process that needs to be handled carefully.</p>
+ <p>To ensure success, assemble a multi-disciplinary task force with the expertise and management backing willing to roll up their sleeves and dive into the work. The task force may include members from M&amp;E, Programs, IT, Communications, and ICT4D/digital teams.</p>
+
+ <h3>The task force's initial steps should include</h3>
+ <ul>
+ <li><strong>Define clear terms of reference.</strong> Clearly articulate the task force's mission, deliverables, and criteria for success, aligned with how results will support the organization and each team.</li>
+ <li><strong>Demonstrate the value proposition.</strong> Effectively communicate the "what's in it for me" for each major stakeholder. The selection of this tool should matter to everyone in every department.</li>
+ <li><strong>Build a compelling case for leadership.</strong> Convince leadership why they should embrace centralization, addressing the time, effort, and energy the transition will require.</li>
+ </ul>
+
+ <div class="pull-quote">
+ <div class="pull-quote-tag">Guidance from real M&amp;E professionals</div>
+ <div class="pull-quote-body">
+ <p>"Ensure you use the language for each department that is relevant to them when you communicate the tool. For example:</p>
+ <div class="dept-list">
+ <div class="dept-item">
+ <span class="dept-name">M&amp;E / MEAL</span>
+ <span class="dept-desc">May use the tool as a support function for fulfilling donor requirements.</span>
+ </div>
+ <div class="dept-item">
+ <span class="dept-name">Biz Dev</span>
+ <span class="dept-desc">Manage proposal budgets, the source of funding for the tool.</span>
+ </div>
+ <div class="dept-item">
+ <span class="dept-name">Procurement</span>
+ <span class="dept-desc">Can create exceptions that allow integration into long-term agreements and prevent frequent re-tendering.</span>
+ </div>
+ <div class="dept-item">
+ <span class="dept-name">Sector Leads</span>
+ <span class="dept-desc">May want data to understand divisional success and standardized cross-country comparisons.</span>
+ </div>
+ <div class="dept-item">
+ <span class="dept-name">Comms</span>
+ <span class="dept-desc">Need accurate reach data for external communications, good collection tools prevent double-counting."</span>
+ </div>
+ </div>
+ </div>
+ <div class="pull-quote-mark">"</div>
+ </div>
+ </section>
+
+ <!-- ── STEP 2 ── -->
+ <section id="step-2" class="ch">
+ <div class="ch-eyebrow"><span class="ch-eyebrow-step">Step 2 of 4</span> Needs Assessment</div>
+ <h2 class="ch-title">Conduct an <em>In-Depth Needs Assessment</em></h2>
+ <p>When selecting any software, it's crucial to first understand your users' roles, frustrations, and priorities. Introducing a tool without considering the experiences of the teams that will utilize it is a recipe for failure.</p>
+
+ <h3>Three simple steps</h3>
+ <ol>
+ <li>Dedicate time to gain insights into the challenges teams face and their desired features.</li>
+ <li>Maintain ongoing communication and involvement with users throughout the process.</li>
+ <li>Consider the future needs of your organization, not only what would be beneficial today, but what will be necessary in 3, 5, or 10 years.</li>
+ </ol>
+
+ <p>In addition to this user-centered approach, assess the organization's readiness for a centralized tool. Investigate whether previous attempts have been made and, if so, what led to their failure. Engage with individuals who were involved to understand the reasons, this will help anticipate potential roadblocks.</p>
+
+ <h3>Decide who to engage</h3>
+ <p>It's critical to understand the needs of staff at every level. Recognize that the requirements of a country director differ from those of a project-level administrator, and these vary substantially from the needs of a field worker. Consider team affiliation (M&amp;E, IT, ICT4D, Program Delivery), functional role, and organizational level (end-user, project, country, regional, or HQ).</p>
+
+ <h3>Map out what you know, and don't know</h3>
+ <p>The task force should build a comprehensive understanding of the digital tools currently used across the organization. Online surveys are an easy way to collect feedback and gauge satisfaction. This survey should cover the entire data lifecycle:</p>
+
+ <div class="pipeline">
+ <div class="pipeline-step">Data<br>Collection</div>
+ <div class="pipeline-step">Analysis</div>
+ <div class="pipeline-step">Visualization</div>
+ <div class="pipeline-step">Mapping</div>
+ <div class="pipeline-step">Result<br>Communication</div>
+ </div>
+
+ <p>Most task forces also use the feedback to select a diverse group of users from various global offices to form focus groups or conduct interviews, developing deeper insights into their experiences, from highly proficient users to those with limited or unsatisfactory tool experiences.</p>
+
+ <h3>Key questions your research should answer</h3>
+ <ul>
+ <li>What tools are program teams already using for data collection, visualization, analysis, and communication?</li>
+ <li>What are the training requirements for programs, M&amp;E, IT, and ICT4D staff?</li>
+ <li>What pain points and issues are associated with current tools?</li>
+ <li>What aspects of the existing system are functioning well and should be retained?</li>
+ <li>What are the fundamental features necessary in a global tool that would support country offices of all sizes?</li>
+ <li>What would you need from a tool in the next 3 years?</li>
+ </ul>
+
+ <h3>Share your final recommendation</h3>
+ <p>With insights from the organization-wide survey and qualitative feedback from focus groups and interviews, create a final report to share with key decision-makers. This report should outline pain points, offer well-considered recommendations, and include a comprehensive list of requirements developed in collaboration with compliance, finance, IT, and procurement teams.</p>
+
+ <div class="pull-quote">
+ <div class="pull-quote-tag">Guidance from real M&amp;E professionals</div>
+ <div class="pull-quote-body">
+ <p>"Our organization undertook a similar project and estimated a total workload of approximately <strong>200 hours</strong>, with responsibilities such as program oversight, meeting coordination, white paper drafting and editing, and extensive discussions and interviews spanning 12 countries.</p>
+ <p>This sounds like a lot of work, and it is.</p>
+ <p>But it's essential to invest the time to do this right, because the opportunity cost was much higher."</p>
+ </div>
+ <div class="pull-quote-mark">"</div>
+ </div>
+ </section>
+
+ <!-- ── STEP 3 ── -->
+ <section id="step-3" class="ch">
+ <div class="ch-eyebrow"><span class="ch-eyebrow-step">Step 3 of 4</span> Select Partner &amp; Tool</div>
+ <h2 class="ch-title">Select the <em>Right Partner &amp; Tool</em></h2>
+ <p>With problems and requirements identified, the next step involves selecting the right technology providers to partner with and establishing a contract that caters to the needs of HQ, country, and project-level users.</p>
+
+ <h3>Hold discussions with different teams</h3>
+ <p>Collaboration with finance, compliance, programs, business development, and procurement teams is crucial to determining the procurement and billing process of a global tool. Some organizations fund the tool centrally with non-restricted funding; others allocate cost to program or country teams. Aligning the centralization effort with organizational policies ensures smoother operations and integration.</p>
+
+ <h3>Identify potential technology providers</h3>
+ <p>The vendor should be more than just a technology provider, they should be a true partner, willing to guide the organization throughout the process. Look for a vendor with extensive enterprise experience and a long-term commitment to your organization's institutional needs.</p>
+ <p>The organization could engage potential vendors in three key ways:</p>
+
+ <table class="vendor-table">
+ <tr>
+ <td>Issue a Tender / RFP</td>
+ <td>The RFP should meticulously outline the organization's requirements and request vendors to address each one comprehensively.</td>
+ </tr>
+ <tr>
+ <td>Hire a Consultant</td>
+ <td>This person will lead an evaluation of existing solutions and provide a final recommendation after extensive discussions with vendors.</td>
+ </tr>
+ <tr>
+ <td>Hold Interviews / Demos</td>
+ <td>The task force can request demos with vendors they are interested in. This is an opportunity to ask whether their software meets the requirements, including budget, and compare offerings.</td>
+ </tr>
+ </table>
+
+ <h3>Select your tool</h3>
+ <p>Making your final tool selection will feel like a big decision with many inputs to consider. Always keep the bigger picture in mind: what are the main problems you and your team want to solve? Use the four benefits of centralization as your framework:</p>
+
+ <div class="criteria-grid">
+ <div class="criteria-card">
+ <div class="criteria-card-head">The tool should be affordable and cost-efficient, particularly.</div>
+ <p>Understand the costs of both the core digital tool and supplementary expenses (data warehousing, BI tool integration, self-hosting, etc). See Dimagi's <a href="https://dimagi.com/resources/total-cost-ownership/">Total Cost of Ownership</a> model.</p>
+ </div>
+ <div class="criteria-card">
+ <div class="criteria-card-head">The tool should be publicly accessible and easy to start using.</div>
+ <p>You're selecting not only the technology but the entire support ecosystem. Review their documentation, is it easy to follow? Submit a support ticket to test their response quality.</p>
+ </div>
+ <div class="criteria-card">
+ <div class="criteria-card-head">The tool should cater to projects of all sizes and enable replicable use cases.</div>
+ <p>Any tool selected should scale as projects grow and adapt for different use cases. Can an app built for CHWs in Ethiopia be localized for India? <a href="https://dimagi.com/resources/third-party-evaluations/">Third-party evaluations</a> may help here.</p>
+ </div>
+ <div class="criteria-card">
+ <div class="criteria-card-head">Above all else, the tool must be secure.</div>
+ <p>Adherence to the most stringent data security and privacy standards is non-negotiable. The tool should be verified by third-party standards including HIPAA, SOC 2, or others.</p>
+ </div>
+ </div>
+
+ <div class="pull-quote">
+ <div class="pull-quote-tag">Guidance from real M&amp;E professionals</div>
+ <div class="pull-quote-body">
+ <p>"We selected a tool that worked for a global M&amp;E survey, across country offices.</p>
+ <p>It allowed us to build the surveys ourselves rather than rely on a consultant, which had been significantly limiting.</p>
+ <p><strong>Now the country offices are rolling out the platform on an as-needed basis, when they have demand, the tool is ready and the learning resources are there for them to build their own apps and surveys."</strong></p>
+ </div>
+ <div class="pull-quote-mark">"</div>
+ </div>
+ </section>
+
+ <!-- ── STEP 4 ── -->
+ <section id="step-4" class="ch">
+ <div class="ch-eyebrow"><span class="ch-eyebrow-step">Step 4 of 4</span> Roll Out Your Tool</div>
+ <h2 class="ch-title">Successfully <em>Roll Out</em> Your Tool</h2>
+ <p>To successfully scale up the chosen tool internally, recognize that this process takes time and sustained effort. Here are the key steps an organization can take to ensure a smooth and effective scale-up.</p>
+
+ <table class="rollout-table">
+ <thead>
+ <tr><td colspan="2">Rollout considerations</td></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Appoint a Dedicated Owner</td>
+ <td>Designate a responsible individual as the primary contact for the service provider. This owner fields inquiries, consolidates feedback, and relays it to the provider, preventing redundant queries and missed responses. There may also be a dedicated application owner per country office or project.</td>
+ </tr>
+ <tr>
+ <td>Establish a Help Desk</td>
+ <td>Create a structured feedback mechanism for users to connect with the application owner. This could be a dedicated Slack or Teams channel, an exclusive email account, or regular check-in calls. The application owner should have KPIs aligned with prompt response times.</td>
+ </tr>
+ <tr>
+ <td>Announce the New Tool</td>
+ <td>Ensure the entire organization is informed about the shift from project-based tools to the globally procured platform. Share the advantages and provide a reasonable timeline for projects and country offices to transition.</td>
+ </tr>
+ <tr>
+ <td>Designate Country Onboardings</td>
+ <td>Collaborate with country and regional offices to ensure they understand the necessary processes for securing accounts, billing for the tool, and any usage restrictions that may impact budget or usability.</td>
+ </tr>
+ <tr>
+ <td>Develop Guidance Materials</td>
+ <td>Written guides, videos, and interactive materials need to be organization-specific, accounting for Standard Operating Procedures and data protection policies. Develop these over time as the organization incorporates more complex features.</td>
+ </tr>
+ <tr>
+ <td>Conduct Ongoing Trainings</td>
+ <td>Training sessions hosted by the application owner may include the technology provider. Incorporate multiple mediums, videos, webinars, documents, and in-person sessions, to serve different learning styles. Cascade training through country office product owners.</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <div class="pull-quote">
+ <div class="pull-quote-tag">Guidance from real M&amp;E professionals</div>
+ <div class="pull-quote-body">
+ <p>"Previously, new programs would approach HQ's M&amp;E team when they wanted to use a centrally procured data collection tool.</p>
+ <p>The M&amp;E person at HQ would build the app or survey for each project and request, which became unsustainable. There was no capacity building at the country level, and poor data practices were entrenched, excel exports, workarounds, and so on.</p>
+ <p>We reversed this by hosting weekly (and now monthly) sessions and developed over 50 hours of training on how to use the platform. It took 2.5 years.</p>
+ <p><strong>It's not just a system, it's a process, that is now saving time and leading to cleaner data."</strong></p>
+ </div>
+ <div class="pull-quote-mark">"</div>
+ </div>
+ </section>
+
+ <!-- ── FINAL THOUGHTS ── -->
+ <section id="final-thoughts" class="ch">
+ <div class="ch-eyebrow">Closing</div>
+ <h2 class="ch-title">Final <em>Thoughts</em></h2>
+ <p class="lead">Centralization: Significant Investment, Incredible Returns</p>
+ <p>There is no question that centralization is a time-intensive effort. It will require up-front investment and time from across your organization to do it successfully. Yet while the initial period may take more time, it can have enormous, positive impacts on an organization, and save significant time down the road.</p>
+ <p>Although the steps outlined in this playbook may not be universally applicable to every organization, the general guidelines offer a foundational framework for an inclusive and thorough process of procuring a centralized digital tool.</p>
+ <p>Investing time in careful preparation and collaboration with your team from the outset will yield benefits in terms of efficiency, security, budgeting, and visibility. By involving global teams in the feedback, selection, and onboarding phases, you build their buy-in to the ultimately procured tool, transforming them into enthusiastic champions of its use.</p>
+
+ <div class="pb-ack">
+ <div class="pb-ack-head">Acknowledgements</div>
+ <p>This playbook builds on insights from a <a href="https://www.mercycorps.org/" target="_blank" rel="noopener">blog post</a> written by Meri Ghorkhmazyan of Mercy Corps, adapting and expanding the content to offer a practical resource designed to support organizations on a similar journey.</p>
+ <p>Additional contributors: Amy Smith, Senior Director of Partnerships; Erin Quinn, Senior Director of Customer Success at Dimagi; and Jamie Arkin, Consultant.</p>
+ <p>Thank you to the CommCare users who shared their insights and feedback, contributing to the use cases and overall development of this playbook.</p>
+ </div>
+ </section>
+
+ <div class="article-foot">
+ <div class="article-foot-label">Filed under</div>
+ <div class="article-tags">
+ <span class="article-tag">CommCare</span>
+ <span class="article-tag">Toolkits</span>
+ <span class="article-tag">Monitoring &amp; Evaluation</span>
+ </div>
+ </div>
+
+ </div>
+ </div><!-- /.pb-grid -->
+ </div><!-- /.container -->
+</div><!-- /.pb-body -->
+
+<!-- CTA -->
+<section class="pb-cta">
+ <div class="pb-cta-inner">
+ <div>
+ <h2>Ready to get started?</h2>
+ <p>Speak with our team about centralizing your M&amp;E data collection with CommCare.</p>
+ </div>
+ <div class="pb-cta-actions">
+ <a href="../../contact/index.html" class="btn-white">Schedule a demo</a>
+ <a href="../../contact/index.html" class="btn-ghost-white">Contact us</a>
+ </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../awards/index.html">Awards</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+        </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/business-agreement/index.html">Business Agreement</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/nav.js?v=8"></script>
+<script src="../../assets/js/article.js?v=8"></script>
+<script>
+ // Active sidebar link on scroll
+ const sections = document.querySelectorAll('.ch[id]');
+ const navLinks = document.querySelectorAll('.sb-nav a');
+ const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ navLinks.forEach(a => a.classList.remove('active'));
+ const active = document.querySelector('.sb-nav a[href="#' + entry.target.id + '"]');
+ if (active) active.classList.add('active');
+ }
+ });
+ }, { rootMargin: '-20% 0px -70% 0px' });
+ sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

@@ -51,6 +51,29 @@ COUNTRY_WORDS = {  # case-insensitive substring in title/slug -> Country
 SEO_COUNTRIES = {'Guinea','India','Nigeria','South Africa','Ghana','Ethiopia','Tanzania',
     'Madagascar','Tajikistan','Mozambique','Malawi','Senegal','Honduras','Cambodia','Lesotho'}
 
+# ---- RULES: specific country -> Region bucket (the blog geography filter is region-level) --
+# Every country resolve_country() can emit must appear here. Region names map to themselves
+# and 'Multiple countries' is its own bucket, so resolution is idempotent on re-runs.
+# 'Global' / 'None' / '' resolve to no region.
+COUNTRY2REGION = {
+    'United States': 'United States',
+    'India': 'Asia', 'Nepal': 'Asia', 'Tajikistan': 'Asia', 'Cambodia': 'Asia',
+    'Indonesia': 'Asia', 'Vietnam': 'Asia', 'Pakistan': 'Asia', 'Bangladesh': 'Asia',
+    'Nigeria': 'Africa', 'Sierra Leone': 'Africa', 'Senegal': 'Africa',
+    'Guinea': 'Africa', 'Ghana': 'Africa', 'Burkina Faso': 'Africa',
+    'Niger': 'Africa', 'Benin': 'Africa', "Cote d'Ivoire": 'Africa',
+    'Kenya': 'Africa', 'Ethiopia': 'Africa', 'Somalia': 'Africa',
+    'Tanzania': 'Africa', 'Rwanda': 'Africa', 'Uganda': 'Africa',
+    'South Africa': 'Africa', 'Malawi': 'Africa', 'Mozambique': 'Africa',
+    'Zambia': 'Africa', 'Madagascar': 'Africa', 'Lesotho': 'Africa', 'Cameroon': 'Africa',
+    'Mexico': 'Latin America', 'Jamaica': 'Latin America', 'Honduras': 'Latin America',
+    'Guatemala': 'Latin America',
+    # region self-maps + the multi-country bucket (idempotent round-trip)
+    'Africa': 'Africa', 'Asia': 'Asia', 'Latin America': 'Latin America',
+    'West Africa': 'Africa', 'East Africa': 'Africa', 'Southern Africa': 'Africa',
+    'Multiple countries': 'Multiple countries',
+}
+
 # ---- RULES: pattern-based "no country/topic" (staff/series families) ---------------
 SKIP_PREFIX = ('a-day-in-the-life', 'day-in-the-life', 'career-journey',
                'building-in-the-open', 'innovation-at-dimagi-part', 'researcher-spotlight',
@@ -90,6 +113,15 @@ def resolve_country(slug, geo, s1, s2, title):
     if geo == 'United States':
         return 'United States'
     return ''   # continent-only / multi-country -> blank
+
+def resolve_region(slug, geo, s1, s2, title):
+    # The blog geography filter is REGION-level: resolve the specific country, then map it to
+    # its Region bucket (Africa / Asia / Latin America / United States). The 'Multiple countries'
+    # bucket is kept as-is; continent-only / global / none -> '' (no region).
+    c = resolve_country(slug, geo, s1, s2, title)
+    if not c or c == 'None':
+        return ''
+    return COUNTRY2REGION.get(c, '')
 
 def resolve_topic(slug, s1, s2):
     # An explicit per-slug Solutions tag (tag_overrides.csv) wins even for "skip" posts —

@@ -286,7 +286,9 @@ h1.blog-hero-title em {
 .blog-dd.is-open .blog-dd-chevron { transform: rotate(-135deg) translateY(1px); }
 .blog-dd.is-set .blog-dd-trigger { border-color: var(--indigo); background: var(--paper-cool); }
 .blog-dd.is-set .blog-dd-label { color: var(--indigo); }
-.blog-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; min-width: 230px; max-height: 360px; overflow-y: auto; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 36px rgba(20,22,55,0.16); }
+.blog-dd-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; min-width: 230px; max-width: calc(100vw - 32px); max-height: 360px; overflow-y: auto; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 36px rgba(20,22,55,0.16); }
+/* Focus is the rightmost (and tallest) pill on wider screens — anchor its menu to the right so the long list opens leftward and never clips the viewport edge. Below the mobile breakpoint the pills wrap and Focus sits at the left, so keep the default left alignment there. */
+@media (min-width: 761px) { .blog-dd[data-dim="sector"] .blog-dd-menu { left: auto; right: 0; } }
 .blog-dd-menu[hidden] { display: none; }
 .blog-dd-group { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-soft); padding: 10px 12px 4px; }
 .blog-dd-group:first-child { padding-top: 4px; }
@@ -342,7 +344,7 @@ h1.blog-hero-title em {
  <div class="blog-grid-wrap">
  <div class="container">
 
-                                           <div class="blog-filters" role="group" aria-label="Filter and search posts">
+                                                                   <div class="blog-filters" role="group" aria-label="Filter and search posts">
         <div class="blog-search">
           <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.65" y2="16.65"></line></svg>
           <input type="search" id="blogSearch" class="blog-search-input" placeholder="Search articles" aria-label="Search articles" autocomplete="off">
@@ -366,40 +368,7 @@ h1.blog-hero-title em {
             <button type="button" class="blog-dd-option" role="option" data-value="Reflections">Reflections</button>
             <button type="button" class="blog-dd-option" role="option" data-value="Announcement">Announcement</button>
             <button type="button" class="blog-dd-option" role="option" data-value="Event">Event</button>
-          </div>
-        </div>
-        <div class="blog-dd" data-dim="country">
-          <button type="button" class="blog-dd-trigger" aria-haspopup="listbox" aria-expanded="false"><span class="blog-dd-label">Country</span><span class="blog-dd-value">All</span><span class="blog-dd-chevron" aria-hidden="true"></span></button>
-          <div class="blog-dd-menu" role="listbox" aria-label="Country" hidden>
-            <button type="button" class="blog-dd-option is-active" role="option" data-value="all" aria-selected="true">All countries</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Burkina Faso">Burkina Faso</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Cambodia">Cambodia</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Cameroon">Cameroon</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Ethiopia">Ethiopia</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Ghana">Ghana</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Guatemala">Guatemala</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Guinea">Guinea</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Haiti">Haiti</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Honduras">Honduras</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="India">India</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Jamaica">Jamaica</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Kenya">Kenya</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Lesotho">Lesotho</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Madagascar">Madagascar</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Malawi">Malawi</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Mozambique">Mozambique</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Nepal">Nepal</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Nigeria">Nigeria</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Rwanda">Rwanda</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Senegal">Senegal</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Sierra Leone">Sierra Leone</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Somalia">Somalia</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="South Africa">South Africa</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Tajikistan">Tajikistan</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="United States">United States</button>
-            <div class="blog-dd-sep" role="separator"></div>
-            <button type="button" class="blog-dd-option" role="option" data-value="Multiple countries">Multiple countries</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="None">None</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Toolkits">Toolkits</button>
           </div>
         </div>
         <div class="blog-dd" data-dim="sector">
@@ -407,27 +376,32 @@ h1.blog-hero-title em {
           <div class="blog-dd-menu" role="listbox" aria-label="Focus" hidden>
             <button type="button" class="blog-dd-option is-active" role="option" data-value="all" aria-selected="true">All focus areas</button>
             <div class="blog-dd-group">Sectors</div>
-            <button type="button" class="blog-dd-option" role="option" data-value="Community Health">Community Health</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Immunizations">Immunizations</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Maternal, Newborn &amp; Child Health">Maternal, Newborn &amp; Child Health</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Nutrition">Nutrition</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Infectious Disease Prevention &amp; Control">Infectious Disease Prevention &amp; Control</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Mental Health">Mental Health</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Agriculture">Agriculture</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Education">Education</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Humanitarian Response">Humanitarian Response</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Livelihoods">Livelihoods</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Early Childhood Development">Early Childhood Development</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="WASH">WASH</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Community Health" data-ddim="sector">Community Health</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Immunizations" data-ddim="sector">Immunizations</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Maternal, Newborn &amp; Child Health" data-ddim="sector">Maternal, Newborn &amp; Child Health</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Nutrition" data-ddim="sector">Nutrition</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Infectious Disease Prevention &amp; Control" data-ddim="sector">Infectious Disease Prevention &amp; Control</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Mental Health" data-ddim="sector">Mental Health</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Agriculture" data-ddim="sector">Agriculture</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Education" data-ddim="sector">Education</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Humanitarian Response" data-ddim="sector">Humanitarian Response</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Livelihoods" data-ddim="sector">Livelihoods</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Early Childhood Development" data-ddim="sector">Early Childhood Development</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="WASH" data-ddim="sector">WASH</button>
             <div class="blog-dd-group">Use cases</div>
-            <button type="button" class="blog-dd-option" role="option" data-value="Monitoring &amp; Evaluation">Monitoring &amp; Evaluation</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Service Delivery">Service Delivery</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Cash &amp; Voucher Assistance">Cash &amp; Voucher Assistance</button>
-            <button type="button" class="blog-dd-option" role="option" data-value="Remote Engagement">Remote Engagement</button>
-            <div class="blog-dd-group">Other</div>
-            <button type="button" class="blog-dd-option" role="option" data-value="Governments">Governments</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Monitoring &amp; Evaluation" data-ddim="sector">Monitoring &amp; Evaluation</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Service Delivery" data-ddim="sector">Service Delivery</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Cash &amp; Voucher Assistance" data-ddim="sector">Cash &amp; Voucher Assistance</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Remote Engagement" data-ddim="sector">Remote Engagement</button>
+            <div class="blog-dd-group">Regions</div>
+            <button type="button" class="blog-dd-option" role="option" data-value="Africa" data-ddim="country">Africa</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Asia" data-ddim="country">Asia</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="United States" data-ddim="country">United States</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Latin America" data-ddim="country">Latin America</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="Multiple countries" data-ddim="country">Multiple countries</button>
             <div class="blog-dd-sep" role="separator"></div>
-            <button type="button" class="blog-dd-option" role="option" data-value="None">None</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="None" data-ddim="country">No region</button>
+            <button type="button" class="blog-dd-option" role="option" data-value="None" data-ddim="sector">No focus area</button>
           </div>
         </div>
         <button type="button" class="blog-clear" id="blogClear" hidden>Clear all</button>
@@ -462,6 +436,19 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Infectious Disease Prevention &amp; Control">
+ <a class="blog-card-image" href="zvandiri-connect-digital-innovation/index.html">
+ <img src="../assets/images/zvandiri-connect-digital-innovation/cover.jpg" alt="Zvandiri Connect: Transforming Youth-Led Health Services Through Digital Innovation" loading="lazy" decoding="async">
+ </a>
+ <div class="blog-card-body">
+ <h2 class="blog-card-title">Zvandiri Connect: Transforming Youth-Led Health Services Through Digital Innovation</h2>
+ <p class="blog-card-desc">How Zvandiri built a youth-centred digital health platform on CommCare, equipping 950 peer counsellors across nine provinces to support more than 60,000 young people living with HIV in Zimbabwe.</p>
+ <div class="blog-card-footer">
+ <span class="blog-card-date">Dec 2025</span>
+ <a class="blog-card-link" href="zvandiri-connect-digital-innovation/index.html">Read more</a>
+ </div>
+ </div>
+ </article>
  <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="None" data-sector="Service Delivery">
  <a class="blog-card-image" href="service-delivery-case-management/index.html">
  <img src="../assets/images/service-delivery-case-management/cover.jpg" alt="Why Service Delivery Falls Short Without Case Management" loading="lazy" decoding="async">
@@ -488,7 +475,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Guinea" data-sector="Governments">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Governments">
  <a class="blog-card-image" href="case-study-guinea-digitized-national-malaria-campaign/index.html">
  <img src="../assets/images/case-study-guinea-digitized-national-malaria-campaign/cover.jpg" alt="Case Study: How Guinea Digitized a National Malaria Campaign to Reach 18 Million People" loading="lazy" decoding="async">
  </a>
@@ -527,7 +514,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="India" data-sector="Nutrition">
+ <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="Asia" data-sector="Nutrition">
  <a class="blog-card-image" href="predictive-analytics-public-health-malnutrition/index.html">
  <img src="../assets/images/predictive-analytics-public-health-malnutrition/cover.jpg" alt="Transforming Community Health: Precision, Prevention, and the Power of Predictive Analytics" loading="lazy" decoding="async">
  </a>
@@ -754,7 +741,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Supporting Our Partners Through Change</h2>
- <p class="blog-card-desc">As USAID restructuring reshapes global development, here&amp;rsquo;s how Dimagi is supporting partners, from a more affordable CommCare Standard Plan to letters of support and free training.</p>
+ <p class="blog-card-desc">As USAID restructuring reshapes global development, here&rsquo;s how Dimagi is supporting partners, from a more affordable CommCare Standard Plan to letters of support and free training.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Feb 2025</span>
  <a class="blog-card-link" href="supporting-our-partners/index.html">Read more</a>
@@ -767,7 +754,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">2024 Year-in-Review: Scaling Digital Solutions for Global Impact</h2>
- <p class="blog-card-desc">A look back at Dimagi&amp;rsquo;s 2024: 173,638 CommCare users, SureAdhere&amp;rsquo;s 800,000th video, government partnerships across Africa, and impact from global to local.</p>
+ <p class="blog-card-desc">A look back at Dimagi&rsquo;s 2024: 173,638 CommCare users, SureAdhere&rsquo;s 800,000th video, government partnerships across Africa, and impact from global to local.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jan 2025</span>
  <a class="blog-card-link" href="2024-year-in-review/index.html">Read more</a>
@@ -813,12 +800,12 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="Connect" data-type="Announcement" data-topic="None" data-country="Nigeria" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="Connect" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="usaid-div-and-dimagi-partner-to-enhance-child-health/index.html">
- <img src="../assets/images/usaid-div-and-dimagi-partner-to-enhance-child-health/cover.jpg" alt="USAID DIV and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria" loading="lazy" decoding="async">
+ <img src="../assets/images/usaid-div-and-dimagi-partner-to-enhance-child-health/cover.jpg" alt="Development Innovation Ventures and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
- <h2 class="blog-card-title">USAID DIV and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria</h2>
+ <h2 class="blog-card-title">Development Innovation Ventures and Dimagi Partner to Enhance Child Health Interventions in Northern Nigeria</h2>
  <p class="blog-card-desc">USAID DIV has awarded Dimagi a grant to scale and evaluate CommCare Connect, delivering Vitamin A and ORS to children under five in northern Nigeria.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Nov 2024</span>
@@ -832,14 +819,14 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">GTD Summit 2024 Recap</h2>
- <p class="blog-card-desc">In September 2024, more than sixty members of our Global Tech Division gathered in Platja d&amp;rsquo;Aro, Spain for a week of team building, breakout sessions, and reconnecting in person.</p>
+ <p class="blog-card-desc">In September 2024, more than sixty members of our Global Tech Division gathered in Platja d&rsquo;Aro, Spain for a week of team building, breakout sessions, and reconnecting in person.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Nov 2024</span>
  <a class="blog-card-link" href="gtd-summit-2024-recap/index.html">Read more</a>
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="Connect" data-type="Announcement" data-topic="None" data-country="Nigeria" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="Connect" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="givewell-awards-dimagi-funding-to-enhance-child-health-service-delivery-in-nigeria/index.html">
  <img src="../assets/images/givewell-awards-dimagi-funding-to-enhance-child-health-service-delivery-in-nigeria/cover.jpg" alt="GiveWell Awards Dimagi Funding to Enhance Child Health Service Delivery in Nigeria" loading="lazy" decoding="async">
  </a>
@@ -871,7 +858,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Strengthening Mental Health Services with Digital Solutions</h2>
- <p class="blog-card-desc">Dimagi&amp;rsquo;s perspective on digital solutions for mental health care: how we partner with organizations to scale accessible, cost-effective services across the WHO Optimal Mix of Services pyramid.</p>
+ <p class="blog-card-desc">Dimagi&rsquo;s perspective on digital solutions for mental health care: how we partner with organizations to scale accessible, cost-effective services across the WHO Optimal Mix of Services pyramid.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2024</span>
  <a class="blog-card-link" href="strengthening-mental-health-services-with-digital-solutions/index.html">Read more</a>
@@ -930,9 +917,9 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="South Africa" data-sector="Early Childhood Development">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Early Childhood Development">
  <a class="blog-card-image" href="ecd-digital-transformation/index.html">
- <img src="../assets/images/ecd-digital-transformation/cover.jpg" alt="Amplifying Early Childhood Development with CommCare: FCW&amp;rsquo;s Digital Transformation" loading="lazy" decoding="async">
+ <img src="../assets/images/ecd-digital-transformation/cover.jpg" alt="Amplifying Early Childhood Development with CommCare: FCW&rsquo;s Digital Transformation" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Amplifying Early Childhood Development with CommCare: FCW&rsquo;s Digital Transformation</h2>
@@ -956,7 +943,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Rwanda" data-sector="Nutrition">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Nutrition">
  <a class="blog-card-image" href="commcare-research-grant-checkin-move-up-global/index.html">
  <img src="../assets/images/commcare-research-grant-checkin-move-up-global/cover.jpg" alt="CommCare Research Grant Awardee One Year Check-in: Move Up Global" loading="lazy" decoding="async">
  </a>
@@ -971,7 +958,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="Agriculture">
  <a class="blog-card-image" href="world-poultry-foundation-guide/index.html">
- <img src="../assets/images/world-poultry-foundation-guide/cover.jpg" alt="World Poultry Foundation&amp;rsquo;s guide to implementing a self-service digital solution" loading="lazy" decoding="async">
+ <img src="../assets/images/world-poultry-foundation-guide/cover.jpg" alt="World Poultry Foundation&rsquo;s guide to implementing a self-service digital solution" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">World Poultry Foundation&rsquo;s guide to implementing a self-service digital solution</h2>
@@ -1010,11 +997,11 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="United States" data-sector="Community Health">
  <a class="blog-card-image" href="island-health-care/index.html">
- <img src="../assets/images/island-health-care/cover.jpg" alt="How Dimagi Enables CHWs to Care for Martha&amp;rsquo;s Vineyard&amp;rsquo;s Highest-Need Residents" loading="lazy" decoding="async">
+ <img src="../assets/images/island-health-care/cover.jpg" alt="How Dimagi Enables CHWs to Care for Martha&rsquo;s Vineyard&rsquo;s Highest-Need Residents" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">How Dimagi Enables CHWs to Care for Martha&rsquo;s Vineyard&rsquo;s Highest-Need Residents</h2>
- <p class="blog-card-desc">Dimagi empowers community health workers to provide top-quality care to the most vulnerable residents of Martha&amp;rsquo;s Vineyard.</p>
+ <p class="blog-card-desc">Dimagi empowers community health workers to provide top-quality care to the most vulnerable residents of Martha&rsquo;s Vineyard.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Dec 2023</span>
  <a class="blog-card-link" href="island-health-care/index.html">Read more</a>
@@ -1036,7 +1023,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Event" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="enterprise-summit-2023/index.html">
- <img src="../assets/images/enterprise-summit-2023/cover.jpeg" alt="Highlights from Dimagi&amp;rsquo;s Inaugural CommCare Enterprise Summit in Washington D.C." loading="lazy" decoding="async">
+ <img src="../assets/images/enterprise-summit-2023/cover.jpeg" alt="Highlights from Dimagi&rsquo;s Inaugural CommCare Enterprise Summit in Washington D.C." loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Highlights from Dimagi&rsquo;s Inaugural CommCare Enterprise Summit in Washington D.C.</h2>
@@ -1086,7 +1073,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="India" data-sector="Mental Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Asia" data-sector="Mental Health">
  <a class="blog-card-image" href="namaste/index.html">
  <img src="../assets/images/namaste/cover.png" alt="Neurodevelopment and Autism in South Asia: Treatment and Evidence (NAMASTE)" loading="lazy" decoding="async">
  </a>
@@ -1096,6 +1083,19 @@ h1.blog-hero-title em {
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2023</span>
  <a class="blog-card-link" href="namaste/index.html">Read more</a>
+ </div>
+ </div>
+ </article>
+ <article class="blog-card" data-product="CommCare" data-type="Toolkits" data-topic="None" data-country="None" data-sector="Monitoring &amp; Evaluation">
+ <a class="blog-card-image" href="monitoring-evaluation-playbook/index.html">
+ <img src="../assets/images/monitoring-evaluation-playbook/cover.jpg" alt="M&amp;E Playbook: Centralizing Digital Data Collection" loading="lazy" decoding="async">
+ </a>
+ <div class="blog-card-body">
+ <h2 class="blog-card-title">M&amp;E Playbook: Centralizing Digital Data Collection</h2>
+ <p class="blog-card-desc">A four-step playbook for M&amp;E professionals to centralize digital data collection tools across their social impact organization, from building a task force to rolling out at scale.</p>
+ <div class="blog-card-footer">
+ <span class="blog-card-date">Sep 2023</span>
+ <a class="blog-card-link" href="monitoring-evaluation-playbook/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -1209,7 +1209,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Dimagi to host its inaugural CommCare Enterprise Summit to drive Impact Delivery</h2>
- <p class="blog-card-desc">Learn more about Dimagi&amp;rsquo;s first-ever CommCare Enterprise Summit, taking place from September 19 to 21 in Washington DC and hosting 16 of our software as a service (SaaS) CommCare Enterprise partners.</p>
+ <p class="blog-card-desc">Learn more about Dimagi&rsquo;s first-ever CommCare Enterprise Summit, taking place from September 19 to 21 in Washington DC and hosting 16 of our software as a service (SaaS) CommCare Enterprise partners.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Aug 2023</span>
  <a class="blog-card-link" href="dimagi-to-host-its-inaugural-commcare-enterprise-summit-to-drive-impact-delivery/index.html">Read more</a>
@@ -1231,7 +1231,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="United States" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/index.html">
- <img src="../assets/images/addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/cover.jpg" alt="Addressing Vermont&amp;rsquo;s Housing Crisis Through a Targeted, Tech-Driven Approach" loading="lazy" decoding="async">
+ <img src="../assets/images/addressing-vermonts-housing-crisis-through-a-targeted-tech-driven-approach/cover.jpg" alt="Addressing Vermont&rsquo;s Housing Crisis Through a Targeted, Tech-Driven Approach" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Addressing Vermont&rsquo;s Housing Crisis Through a Targeted, Tech-Driven Approach</h2>
@@ -1309,7 +1309,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="Open Chat Studio" data-type="Reflections" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="harnessing-ais-potential-to-improve-equity/index.html">
- <img src="../assets/images/harnessing-ais-potential-to-improve-equity/cover.jpg" alt="Harnessing AI&amp;rsquo;s Potential to Improve Global Health and Development Outcomes" loading="lazy" decoding="async">
+ <img src="../assets/images/harnessing-ais-potential-to-improve-equity/cover.jpg" alt="Harnessing AI&rsquo;s Potential to Improve Global Health and Development Outcomes" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Harnessing AI&rsquo;s Potential to Improve Global Health and Development Outcomes</h2>
@@ -1348,7 +1348,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="None" data-sector="Community Health">
  <a class="blog-card-image" href="international-workers-day-2023/index.html">
- <img src="../assets/images/international-workers-day-2023/cover.jpg" alt="Recognizing the contributions of community health workers on International Workers&amp;rsquo; Day 2023" loading="lazy" decoding="async">
+ <img src="../assets/images/international-workers-day-2023/cover.jpg" alt="Recognizing the contributions of community health workers on International Workers&rsquo; Day 2023" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Recognizing the contributions of community health workers on International Workers&rsquo; Day 2023</h2>
@@ -1361,7 +1361,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="Mental Health">
  <a class="blog-card-image" href="johnson-johnson-foundation-leveraging-advanced-analytics-to-develop-engagement-profiles/index.html">
- <img src="../assets/images/johnson-johnson-foundation-leveraging-advanced-analytics-to-develop-engagement-profiles/cover.jpg" alt="Johnson &amp;amp; Johnson Foundation: Leveraging Advanced Analytics to Develop Engagement Profiles of a Digital Resilience Message Programme and Inform Scale Efforts" loading="lazy" decoding="async">
+ <img src="../assets/images/johnson-johnson-foundation-leveraging-advanced-analytics-to-develop-engagement-profiles/cover.jpg" alt="Johnson &amp; Johnson Foundation: Leveraging Advanced Analytics to Develop Engagement Profiles of a Digital Resilience Message Programme and Inform Scale Efforts" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Johnson &amp; Johnson Foundation: Leveraging Advanced Analytics to Develop Engagement Profiles of a Digital Resilience Message Programme and Inform Scale Efforts</h2>
@@ -1426,7 +1426,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="SureAdhere" data-type="Case Study" data-topic="None" data-country="United States" data-sector="Mental Health">
  <a class="blog-card-image" href="vermont-care-network/index.html">
- <img src="../assets/images/vermont-care-network/cover.png" alt="The Vermont Care Network &amp;lsquo;Wheels and Waves&amp;rsquo; Program: Treating Opioid Use Disorder with Video Directly Observed Therapy" loading="lazy" decoding="async">
+ <img src="../assets/images/vermont-care-network/cover.png" alt="The Vermont Care Network &lsquo;Wheels and Waves&rsquo; Program: Treating Opioid Use Disorder with Video Directly Observed Therapy" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">The Vermont Care Network &lsquo;Wheels and Waves&rsquo; Program: Treating Opioid Use Disorder with Video Directly Observed Therapy</h2>
@@ -1489,12 +1489,12 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Ethiopia" data-sector="Governments">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Governments">
  <a class="blog-card-image" href="jsi-government-of-ethiopia-and-usaid-digital-health-activity/index.html">
- <img src="../assets/images/jsi-government-of-ethiopia-and-usaid-digital-health-activity/cover.jpg" alt="USAID Digital Health Activity: Ethiopia" loading="lazy" decoding="async">
+ <img src="../assets/images/jsi-government-of-ethiopia-and-usaid-digital-health-activity/cover.jpg" alt="Digital Health Activity: Ethiopia" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
- <h2 class="blog-card-title">USAID Digital Health Activity: Ethiopia</h2>
+ <h2 class="blog-card-title">Digital Health Activity: Ethiopia</h2>
  <p class="blog-card-desc">JSI leads the USAID-funded Digital Health Activity in Ethiopia, with Dimagi as a key partner supporting the Federal Ministry of Health to build and maintain the electronic community health information system (eCHIS) on CommCare.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2022</span>
@@ -1508,7 +1508,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Join us at the Global Digital Health Forum 2022</h2>
- <p class="blog-card-desc">Dimagi is looking forward to a strong presence at GDHF 2022. Find out what we&amp;rsquo;ll be presenting on, and sign up for our happy hour on Monday night.</p>
+ <p class="blog-card-desc">Dimagi is looking forward to a strong presence at GDHF 2022. Find out what we&rsquo;ll be presenting on, and sign up for our happy hour on Monday night.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2022</span>
  <a class="blog-card-link" href="global-digital-health-forum-2022/index.html">Read more</a>
@@ -1530,7 +1530,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="None" data-sector="Education">
  <a class="blog-card-image" href="commcare-grant-2022-winners/index.html">
- <img src="../assets/images/commcare-grant-2022-winners/cover.png" alt="Announcing the First CommCare Research Grant &amp;amp; the 2022 Winners" loading="lazy" decoding="async">
+ <img src="../assets/images/commcare-grant-2022-winners/cover.png" alt="Announcing the First CommCare Research Grant &amp; the 2022 Winners" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Announcing the First CommCare Research Grant &amp; the 2022 Winners</h2>
@@ -1580,7 +1580,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Mozambique" data-sector="Nutrition">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Nutrition">
  <a class="blog-card-image" href="gorongosa-national-park-mozambique-nutrition-behavioral-change-sms/index.html">
  <img src="../assets/images/gorongosa-national-park-mozambique-nutrition-behavioral-change-sms/cover.jpeg" alt="Gorongosa National Park, Mozambique: nutrition behavioral change by SMS" loading="lazy" decoding="async">
  </a>
@@ -1606,7 +1606,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Malawi" data-sector="Service Delivery">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="None">
  <a class="blog-card-image" href="enabling-supportive-supervision-malawi/index.html">
  <img src="../assets/images/enabling-supportive-supervision-malawi/cover.jpg" alt="Enabling Supportive Supervision to Improve Health Outcomes in Malawi" loading="lazy" decoding="async">
  </a>
@@ -1638,7 +1638,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Building a Culture of Continuous Learning at Dimagi</h2>
- <p class="blog-card-desc">Exploring Dimagi&amp;rsquo;s approach to staff enrichment, including investing in continuous learning and expanding skills company-wide, in support of our goal of achieving high-impact growth.</p>
+ <p class="blog-card-desc">Exploring Dimagi&rsquo;s approach to staff enrichment, including investing in continuous learning and expanding skills company-wide, in support of our goal of achieving high-impact growth.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Aug 2022</span>
  <a class="blog-card-link" href="building-a-culture-of-continuous-learning-at-dimagi/index.html">Read more</a>
@@ -1647,11 +1647,11 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="None" data-sector="Monitoring &amp; Evaluation">
  <a class="blog-card-image" href="mercy-corps-guide-to-building-a-digital-ecosystem-for-me-at-scale/index.html">
- <img src="../assets/images/mercy-corps-guide-to-building-a-digital-ecosystem-for-me-at-scale/cover.webp" alt="Mercy Corps&amp;rsquo; Guide to Building a Digital Ecosystem for M&amp;amp;E at Scale" loading="lazy" decoding="async">
+ <img src="../assets/images/mercy-corps-guide-to-building-a-digital-ecosystem-for-me-at-scale/cover.webp" alt="Mercy Corps&rsquo; Guide to Building a Digital Ecosystem for M&amp;E at Scale" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Mercy Corps&rsquo; Guide to Building a Digital Ecosystem for M&amp;E at Scale</h2>
- <p class="blog-card-desc">A 4-step expert guide for M&amp;amp;E professionals on how to choose digital tools that can support and scale successful frontline programs.</p>
+ <p class="blog-card-desc">A 4-step expert guide for M&amp;E professionals on how to choose digital tools that can support and scale successful frontline programs.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jul 2022</span>
  <a class="blog-card-link" href="mercy-corps-guide-to-building-a-digital-ecosystem-for-me-at-scale/index.html">Read more</a>
@@ -1671,7 +1671,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Madagascar" data-sector="Nutrition">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Nutrition">
  <a class="blog-card-image" href="reducing-childhood-malnutrition-in-madagascar/index.html">
  <img src="../assets/images/reducing-childhood-malnutrition-in-madagascar/cover.jpg" alt="Reducing childhood malnutrition in Madagascar" loading="lazy" decoding="async">
  </a>
@@ -1697,7 +1697,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Madagascar" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="None">
  <a class="blog-card-image" href="access-madagascar-commcare-remote-health/index.html">
  <img src="../assets/images/access-madagascar-commcare-remote-health/cover.jpg" alt="ACCESS Madagascar: CommCare for Remote, Low-Connectivity Health" loading="lazy" decoding="async">
  </a>
@@ -1762,12 +1762,12 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Cambodia" data-sector="Early Childhood Development">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Asia" data-sector="None">
  <a class="blog-card-image" href="rti-cambodia-iecd-early-childhood-development/index.html">
- <img src="../assets/images/rti-cambodia-iecd-early-childhood-development/cover.jpg" alt="USAID Cambodia IECD: CommCare Job Aids for Young Children" loading="lazy" decoding="async">
+ <img src="../assets/images/rti-cambodia-iecd-early-childhood-development/cover.jpg" alt="Cambodia IECD: CommCare Job Aids for Young Children" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
- <h2 class="blog-card-title">USAID Cambodia IECD: CommCare Job Aids for Young Children</h2>
+ <h2 class="blog-card-title">Cambodia IECD: CommCare Job Aids for Young Children</h2>
  <p class="blog-card-desc">How RTI International used CommCare to digitize community health worker job aids for Cambodia&rsquo;s Integrated Early Childhood Development Activity, registering more than 5,000 households.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">May 2022</span>
@@ -1781,27 +1781,14 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Overcoming Burnout and Finding Work-life Balance in 2022</h2>
- <p class="blog-card-desc">A first-person reflection on burnout, recovery, and how Dimagi&amp;rsquo;s flexible workplace makes work-life balance a daily reality rather than an elusive goal.</p>
+ <p class="blog-card-desc">A first-person reflection on burnout, recovery, and how Dimagi&rsquo;s flexible workplace makes work-life balance a daily reality rather than an elusive goal.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Apr 2022</span>
  <a class="blog-card-link" href="work-life-balance-in-2022/index.html">Read more</a>
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Tajikistan" data-sector="Maternal, Newborn &amp; Child Health">
- <a class="blog-card-image" href="abt-associates-healthy-mother-healthy-baby-tajikistan/index.html">
- <img src="../assets/images/abt-associates-healthy-mother-healthy-baby-tajikistan/cover.jpg" alt="Abt Associates: Healthy Mother Healthy Baby, Tajikistan" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Abt Associates: Healthy Mother Healthy Baby, Tajikistan</h2>
- <p class="blog-card-desc">Dimagi is partnering with Abt Associates on the USAID-funded Healthy Mother Healthy Baby project, which advances digital transformation for maternal, newborn, and child health and nutrition services in Tajikistan.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Apr 2022</span>
- <a class="blog-card-link" href="abt-associates-healthy-mother-healthy-baby-tajikistan/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Mozambique" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="adpp-mozambique-tb-local-response/index.html">
  <img src="../assets/images/adpp-mozambique-tb-local-response/cover.jpg" alt="ADPP Mozambique: TB Local Response" loading="lazy" decoding="async">
  </a>
@@ -1814,7 +1801,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Tajikistan" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Asia" data-sector="None">
  <a class="blog-card-image" href="hmhb-tajikistan-commcare-maternal-child-health/index.html">
  <img src="../assets/images/hmhb-tajikistan-commcare-maternal-child-health/cover.jpg" alt="Healthy Mother, Healthy Baby: Digital Care in Tajikistan" loading="lazy" decoding="async">
  </a>
@@ -1833,7 +1820,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Innovation at Dimagi, Part 8: Learnings from 5 Years of New Business</h2>
- <p class="blog-card-desc">After five years of learning and reflection, here&amp;rsquo;s the advice I&amp;rsquo;d give to other organizations considering how to drive innovation from within.</p>
+ <p class="blog-card-desc">After five years of learning and reflection, here&rsquo;s the advice I&rsquo;d give to other organizations considering how to drive innovation from within.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Mar 2022</span>
  <a class="blog-card-link" href="learnings-from-5-years-of-new-business/index.html">Read more</a>
@@ -1842,7 +1829,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="different-kind-of-tech-company/index.html">
- <img src="../assets/images/different-kind-of-tech-company/cover.jpg" alt="A different kind of tech company: 6 reflections on Dimagi&amp;rsquo;s culture from a new hire" loading="lazy" decoding="async">
+ <img src="../assets/images/different-kind-of-tech-company/cover.jpg" alt="A different kind of tech company: 6 reflections on Dimagi&rsquo;s culture from a new hire" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">A different kind of tech company: 6 reflections on Dimagi&rsquo;s culture from a new hire</h2>
@@ -1885,23 +1872,10 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Another day, another Zero Day: What all Digital Development organizations should take away from recent IT security news</h2>
- <p class="blog-card-desc">Dimagi&amp;rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.</p>
+ <p class="blog-card-desc">Dimagi&rsquo;s CTO reflects on the log4j and Linux vulnerabilities and what recent IT security news means for Digital Development organizations.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jan 2022</span>
  <a class="blog-card-link" href="digital-development-organizations-take-away-it-security-news/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="India" data-sector="Maternal, Newborn &amp; Child Health">
- <a class="blog-card-image" href="pathfinder-youth-voices-for-agency-and-access-yuvaa-india/index.html">
- <img src="../assets/images/pathfinder-youth-voices-for-agency-and-access-yuvaa-india/cover.jpg" alt="Pathfinder: Youth Voices for Agency and Access (YUVAA), India" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Pathfinder: Youth Voices for Agency and Access (YUVAA), India</h2>
- <p class="blog-card-desc">Dimagi is partnering with Pathfinder on the Youth Voices for Agency and Access (YUVAA) program in India to build a digital agent that helps newly married couples and first-time parents make informed family planning decisions.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Jan 2022</span>
- <a class="blog-card-link" href="pathfinder-youth-voices-for-agency-and-access-yuvaa-india/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -1918,6 +1892,20 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="None">
+ <a class="blog-card-image" href="new-commcare-programs-2021/index.html">
+ <img src="../assets/images/new-commcare-programs-2021/cover.jpg" alt="Partner logos from new CommCare programs around the world" loading="lazy" decoding="async">
+ </a>
+ <div class="blog-card-body">
+ <h2 class="blog-card-title">Some of the New CommCare Programs We Launched Around the World</h2>
+ <p class="blog-card-desc">A look back at some of the new CommCare programs we launched with partners, from community health to agriculture, financial inclusion, and humanitarian response across four regions.</p>
+ <div class="blog-card-footer">
+ <span class="blog-card-date">Dec 2021</span>
+ <a class="blog-card-link" href="new-commcare-programs-2021/index.html">Read more</a>
+ </div>
+ </div>
+</article>
+
  <article class="blog-card" data-product="CommCare" data-type="Event" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="global-digital-health-forum-2021/index.html">
  <img src="../assets/images/global-digital-health-forum-2021/cover.jpg" alt="Join us at the Global Digital Health Forum 2021" loading="lazy" decoding="async">
@@ -1931,7 +1919,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Malawi" data-sector="Governments">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Governments">
  <a class="blog-card-image" href="malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">
  <img src="../assets/images/malawi-ministry-of-health-cstock-supply-chain-management-application/cover.jpg" alt="Malawi Ministry of Health: cStock Supply Chain Management Application" loading="lazy" decoding="async">
  </a>
@@ -1939,21 +1927,8 @@ h1.blog-hero-title em {
  <h2 class="blog-card-title">Malawi Ministry of Health: cStock Supply Chain Management Application</h2>
  <p class="blog-card-desc">Dimagi is partnering with the Malawi Ministry of Health to revive and transition to local ownership the proven cStock supply chain system for the community level.</p>
  <div class="blog-card-footer">
- <span class="blog-card-date">Nov 2021</span>
+ <span class="blog-card-date">Dec 2015</span>
  <a class="blog-card-link" href="malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="Mental Health">
- <a class="blog-card-image" href="johnson-and-johnson-foundation-commcare-companion-application/index.html">
- <img src="../assets/images/johnson-and-johnson-foundation-commcare-companion-application/cover.jpg" alt="Johnson &amp;amp; Johnson Foundation: CommCare Companion Application" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Johnson &amp; Johnson Foundation: CommCare Companion Application</h2>
- <p class="blog-card-desc">Dimagi is continuing work with The Resilience Collaborative at the Johnson &amp;amp; Johnson Center for Health Worker Innovation to co-create and adapt a set of messages intended to build the resilience skills of CHWs in low- and middle-income countries.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Oct 2021</span>
- <a class="blog-card-link" href="johnson-and-johnson-foundation-commcare-companion-application/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -1967,19 +1942,6 @@ h1.blog-hero-title em {
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2021</span>
  <a class="blog-card-link" href="find-covid-19-rdt-solution/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="United States" data-sector="Governments">
- <a class="blog-card-image" href="national-institutes-of-health-survivorcare-phase-ii/index.html">
- <img src="../assets/images/national-institutes-of-health-survivorcare-phase-ii/cover.jpg" alt="National Institutes of Health &amp;ndash; SurvivorCare Phase II" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">National Institutes of Health &ndash; SurvivorCare Phase II</h2>
- <p class="blog-card-desc">Dimagi and the NIH are working together to design a patient navigation application for long-term cancer survivors shifting from oncology-based to primary and community-based care.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Oct 2021</span>
- <a class="blog-card-link" href="national-institutes-of-health-survivorcare-phase-ii/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -2015,7 +1977,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">How Chatbots Can Support the Right to Health</h2>
- <p class="blog-card-desc">In the pursuit of universal health coverage, there are many forms of direct-to-client solutions in development, such as mobile apps and chatbots. Dimagi&amp;rsquo;s Director of Consumer Innovations explains our approach to developing such tools.</p>
+ <p class="blog-card-desc">In the pursuit of universal health coverage, there are many forms of direct-to-client solutions in development, such as mobile apps and chatbots. Dimagi&rsquo;s Director of Consumer Innovations explains our approach to developing such tools.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2021</span>
  <a class="blog-card-link" href="chatbots-support-the-right-to-health/index.html">Read more</a>
@@ -2028,23 +1990,10 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Innovation at Dimagi, Part 7: Rapidly Assess Pricing With the Van Westendorp Pricing Model</h2>
- <p class="blog-card-desc">Step 4 in Dimagi&amp;rsquo;s Innovation Lifecycle is determining price sensitivity. Here is how the team used the Van Westendorp Price Sensitivity Meter to find an early signal on willingness to pay.</p>
+ <p class="blog-card-desc">Step 4 in Dimagi&rsquo;s Innovation Lifecycle is determining price sensitivity. Here is how the team used the Van Westendorp Price Sensitivity Meter to find an early signal on willingness to pay.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Sep 2021</span>
  <a class="blog-card-link" href="innovation-at-dimagi-part-7-van-westendorp-price-sensitivity-model/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="Service Delivery">
- <a class="blog-card-image" href="catholic-relief-services-technical-advisory-services-2021/index.html">
- <img src="../assets/images/catholic-relief-services-technical-advisory-services-2021/cover.jpeg" alt="Catholic Relief Services: Technical Advisory Services" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Catholic Relief Services: Technical Advisory Services</h2>
- <p class="blog-card-desc">Catholic Relief Services is working with Dimagi to prepare and host six full-day training sessions to help improve their ICT teams&#x27; case management and advanced app-building skills.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Sep 2021</span>
- <a class="blog-card-link" href="catholic-relief-services-technical-advisory-services-2021/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -2074,33 +2023,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Senegal" data-sector="Livelihoods">
- <a class="blog-card-image" href="baobab-senegal-uncdf-commbanane-advisory-service/index.html">
- <img src="../assets/images/baobab-senegal-uncdf-commbanane-advisory-service/cover.jpg" alt="Baobab Senegal &amp;amp; UNCDF &amp;ndash; CommBanane Advisory Service" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Baobab Senegal &amp; UNCDF &ndash; CommBanane Advisory Service</h2>
- <p class="blog-card-desc">UNCDF partnered with Baobab Senegal, Corprobat, and Dimagi to pilot a digital solution for the agricultural sector, now scaling up to reach an additional 2,250 smallholder farmers.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Sep 2021</span>
- <a class="blog-card-link" href="baobab-senegal-uncdf-commbanane-advisory-service/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Cameroon" data-sector="Livelihoods">
- <a class="blog-card-image" href="undp-financial-education-application/index.html">
- <img src="../assets/images/undp-financial-education-application/cover.jpg" alt="UNDP &amp;ndash; Financial Education Application" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">UNDP &ndash; Financial Education Application</h2>
- <p class="blog-card-desc">The Cameroonian government and the UNDP worked with Dimagi to launch the economic resilience support project (PAREC), building a mobile application that delivers financial training and supports savings groups for vulnerable populations.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Sep 2021</span>
- <a class="blog-card-link" href="undp-financial-education-application/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="India" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Asia" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="tdh-covid-19-case-screening/index.html">
  <img src="../assets/images/tdh-covid-19-case-screening/cover.png" alt="Terre des hommes logo" loading="lazy" decoding="async">
  </a>
@@ -2110,19 +2033,6 @@ h1.blog-hero-title em {
  <div class="blog-card-footer">
  <span class="blog-card-date">Sep 2021</span>
  <a class="blog-card-link" href="tdh-covid-19-case-screening/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="India" data-sector="Infectious Disease Prevention &amp; Control">
- <a class="blog-card-image" href="terre-des-hommes-covid-19-jharkhand/index.html">
- <img src="../assets/images/terre-des-hommes-covid-19-jharkhand/cover.png" alt="Terre des hommes logo" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Terre des hommes: COVID-19 Support in Jharkhand</h2>
- <p class="blog-card-desc">Terre des hommes, Dimagi, and partners deployed COVID-19 triage, screening, and health-worker training tools across primary health centers in Jharkhand, India.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Sep 2021</span>
- <a class="blog-card-link" href="terre-des-hommes-covid-19-jharkhand/index.html">Read more</a>
  </div>
  </div>
  </article>
@@ -2165,7 +2075,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="abt-associates-vectorlink-malaria-control/index.html">
  <img src="../assets/images/abt-associates-vectorlink-malaria-control/cover.jpg" alt="Abt Associates VectorLink: CommCare for Reducing Malaria" loading="lazy" decoding="async">
  </a>
@@ -2178,7 +2088,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Jamaica" data-sector="Immunizations">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Latin America" data-sector="Immunizations">
  <a class="blog-card-image" href="jamaica-commcare-covid19-vaccination-platform/index.html">
  <img src="../assets/images/jamaica-commcare-covid19-vaccination-platform/cover.jpg" alt="Government of Jamaica Launches CommCare as COVID-19 Vaccination Management Platform" loading="lazy" decoding="async">
  </a>
@@ -2232,7 +2142,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="building-in-the-open-june-2021/index.html">
- <img src="../assets/images/building-in-the-open-june-2021/cover.jpg" alt="Building in the Open &amp;ndash; June 2021" loading="lazy" decoding="async">
+ <img src="../assets/images/building-in-the-open-june-2021/cover.jpg" alt="Building in the Open &ndash; June 2021" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Building in the Open &ndash; June 2021</h2>
@@ -2256,13 +2166,13 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Malawi" data-sector="Governments">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Governments">
  <a class="blog-card-image" href="journey-to-self-reliance-usaid-onse-malawi/index.html">
  <img src="../assets/images/journey-to-self-reliance-usaid-onse-malawi/cover.jpg" alt="Embarking on the Journey to Self-Reliance in Malawi" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Embarking on the Journey to Self-Reliance in Malawi</h2>
- <p class="blog-card-desc">USAID&amp;rsquo;s Journey to Self-Reliance aims to eventually eliminate the need for foreign assistance. See how Dimagi is helping Malawi&amp;rsquo;s Ministry of Health build a locally-owned, locally-sustainable digital health system through the USAID-funded ONSE Project.</p>
+ <p class="blog-card-desc">USAID&rsquo;s Journey to Self-Reliance aims to eventually eliminate the need for foreign assistance. See how Dimagi is helping Malawi&rsquo;s Ministry of Health build a locally-owned, locally-sustainable digital health system through the USAID-funded ONSE Project.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jun 2021</span>
  <a class="blog-card-link" href="journey-to-self-reliance-usaid-onse-malawi/index.html">Read more</a>
@@ -2275,7 +2185,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Designing Digital Tools to Combat Vaccine Hesitancy in High-Risk US Populations</h2>
- <p class="blog-card-desc">As the United States moves to the next stage of its pandemic response, Dimagi is working with Abt Associates and local community-based organizations to fight vaccine hesitancy in some of the country&amp;rsquo;s most vulnerable populations.</p>
+ <p class="blog-card-desc">As the United States moves to the next stage of its pandemic response, Dimagi is working with Abt Associates and local community-based organizations to fight vaccine hesitancy in some of the country&rsquo;s most vulnerable populations.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jun 2021</span>
  <a class="blog-card-link" href="abt-associates-vaccine-hesitancy-cbos/index.html">Read more</a>
@@ -2334,19 +2244,6 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Nigeria" data-sector="Nutrition">
- <a class="blog-card-image" href="tufts-iita-inddex24-nigeria/index.html">
- <img src="../assets/images/tufts-iita-inddex24-nigeria/cover.png" alt="Tufts University and the International Institute of Tropical Agriculture (IITA): INDDEX24" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Tufts University and the International Institute of Tropical Agriculture (IITA): INDDEX24</h2>
- <p class="blog-card-desc">Dimagi worked with Tufts University and IITA to design and build a nutrition survey tool in support of IITA's national food consumption survey in Nigeria.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Apr 2021</span>
- <a class="blog-card-link" href="tufts-iita-inddex24-nigeria/index.html">Read more</a>
- </div>
- </div>
- </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="innovation-at-dimagi-part-4-innovation-funding/index.html">
  <img src="../assets/images/innovation-at-dimagi-part-4-innovation-funding/cover.jpg" alt="Innovation at Dimagi, Part 4: The Role of Innovation Funding" loading="lazy" decoding="async">
@@ -2362,31 +2259,18 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="building-in-the-open-march-2021/index.html">
- <img src="../assets/images/building-in-the-open-march-2021/cover.jpg" alt="Building in the Open &amp;ndash; March 2021" loading="lazy" decoding="async">
+ <img src="../assets/images/building-in-the-open-march-2021/cover.jpg" alt="Building in the Open &ndash; March 2021" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Building in the Open &ndash; March 2021</h2>
- <p class="blog-card-desc">A candid March 2021 update in Dimagi&amp;rsquo;s Building in the Open series, reflecting on the Focus mobile device management product&amp;rsquo;s sales pipeline, strategic partnerships, and the decision to keep the tool simple.</p>
+ <p class="blog-card-desc">A candid March 2021 update in Dimagi&rsquo;s Building in the Open series, reflecting on the Focus mobile device management product&rsquo;s sales pipeline, strategic partnerships, and the decision to keep the tool simple.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Mar 2021</span>
  <a class="blog-card-link" href="building-in-the-open-march-2021/index.html">Read more</a>
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Malawi" data-sector="Infectious Disease Prevention &amp; Control">
- <a class="blog-card-image" href="egpaf-malawi-pepfar-gh002301/index.html">
- <img src="../assets/images/egpaf-malawi-pepfar-gh002301/cover.jpg" alt="EGPAF-Malawi: Support for the PEPFAR program in Malawi" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">EGPAF-Malawi: Support for the PEPFAR program in Malawi</h2>
- <p class="blog-card-desc">Working with EGPAF-Malawi, Dimagi is designing, developing, and testing a pilot mobile solution to support testing of children and partners who might be at risk of HIV in Malawi.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Mar 2021</span>
- <a class="blog-card-link" href="egpaf-malawi-pepfar-gh002301/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Cambodia" data-sector="WASH">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Asia" data-sector="WASH">
  <a class="blog-card-image" href="teuk-saat-1001-local-ownership/index.html">
  <img src="../assets/images/teuk-saat-1001-local-ownership/cover.jpg" alt="Supporting Local Ownership of CommCare Solutions in Cambodia" loading="lazy" decoding="async">
  </a>
@@ -2399,7 +2283,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Somalia" data-sector="Immunizations">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Immunizations">
  <a class="blog-card-image" href="somalia-who-covid-19-vaccination-management-platform/index.html">
  <img src="../assets/images/somalia-who-covid-19-vaccination-management-platform/cover.png" alt="Coat of arms of the Federal Republic of Somalia" loading="lazy" decoding="async">
  </a>
@@ -2412,7 +2296,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Nepal" data-sector="Nutrition">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="suaahara-ii-commcare-community-maternal-child-health/index.html">
  <img src="../assets/images/suaahara-ii-commcare-community-maternal-child-health/cover.jpg" alt="Suaahara II: CommCare for Maternal & Child Health in Nepal" loading="lazy" decoding="async">
  </a>
@@ -2425,39 +2309,13 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Burkina Faso" data-sector="Maternal, Newborn &amp; Child Health">
- <a class="blog-card-image" href="cdc-foundation-pods-project/index.html">
- <img src="../assets/images/cdc-foundation-pods-project/cover.jpg" alt="CDC Foundation &amp;ndash; Pregnancy Outcome and Death Surveillance in Humanitarian and Fragile Settings" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">CDC Foundation &ndash; Pregnancy Outcome and Death Surveillance in Humanitarian and Fragile Settings</h2>
- <p class="blog-card-desc">The CDC Foundation has engaged Dimagi in a pilot of the Pregnancy Outcomes and Death Surveillance in Humanitarian and Fragile Settings (PODS) project, building a mobile health solution to capture maternal and newborn health data in Burkina Faso, Chad, and Cameroon.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Feb 2021</span>
- <a class="blog-card-link" href="cdc-foundation-pods-project/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Cambodia" data-sector="Early Childhood Development">
- <a class="blog-card-image" href="rti-international-usaid-iecd-activity/index.html">
- <img src="../assets/images/rti-international-usaid-iecd-activity/cover.png" alt="RTI International &amp;ndash; USAID Integrated Early Childhood Development (IECD) Activity" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">RTI International &ndash; USAID Integrated Early Childhood Development (IECD) Activity</h2>
- <p class="blog-card-desc">RTI International is partnering with Dimagi to build a baseline survey and a CommCare service-delivery app for the USAID Integrated Early Childhood Development Activity in Cambodia.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Feb 2021</span>
- <a class="blog-card-link" href="rti-international-usaid-iecd-activity/index.html">Read more</a>
- </div>
- </div>
- </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="innovation-at-dimagi-part-3-evaluating-the-mission/index.html">
  <img src="../assets/images/innovation-at-dimagi-part-3-evaluating-the-mission/cover.jpg" alt="Innovation at Dimagi, Part 3: Evaluating the Mission" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Innovation at Dimagi, Part 3: Evaluating the Mission</h2>
- <p class="blog-card-desc">In the latest post on Innovation at Dimagi, Shabnam explains how we account for Dimagi&amp;rsquo;s core mission of &amp;ldquo;Impact, Team, and Profit, in that order&amp;rdquo; in our New Business work.</p>
+ <p class="blog-card-desc">In the latest post on Innovation at Dimagi, Shabnam explains how we account for Dimagi&rsquo;s core mission of &ldquo;Impact, Team, and Profit, in that order&rdquo; in our New Business work.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Feb 2021</span>
  <a class="blog-card-link" href="innovation-at-dimagi-part-3-evaluating-the-mission/index.html">Read more</a>
@@ -2503,19 +2361,6 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="Infectious Disease Prevention &amp; Control">
- <a class="blog-card-image" href="grassroot-soccer-adols/index.html">
- <img src="../assets/images/grassroot-soccer-adols/cover.jpg" alt="Grassroot Soccer &amp;ndash; ADOLS (Adolescent Data &amp;amp; Operations Learning System)" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Grassroot Soccer &ndash; ADOLS (Adolescent Data &amp; Operations Learning System)</h2>
- <p class="blog-card-desc">Dimagi is partnering with Grassroot Soccer to design, build, and test a CommCare-based application and two-way SMS solution that supports programmatic data collection for the organization&amp;rsquo;s Coaches.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Jan 2021</span>
- <a class="blog-card-link" href="grassroot-soccer-adols/index.html">Read more</a>
- </div>
- </div>
- </article>
  <article class="blog-card" data-product="None" data-type="Case Study" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="reflecting-on-2020/index.html">
  <img src="../assets/images/reflecting-on-2020/cover.jpg" alt="Reflecting on 2020" loading="lazy" decoding="async">
@@ -2542,19 +2387,6 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Honduras" data-sector="Livelihoods">
- <a class="blog-card-image" href="banyan-global-empleando-futuros/index.html">
- <img src="../assets/images/banyan-global-empleando-futuros/cover.jpg" alt="Banyan Global &amp;ndash; Empleando Futuros Project" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Banyan Global &ndash; Empleando Futuros Project</h2>
- <p class="blog-card-desc">Banyan Global has partnered with Dimagi to build an SMS-based system designed to keep youth in Honduras engaged in a program that promotes employment and education resources.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Dec 2020</span>
- <a class="blog-card-link" href="banyan-global-empleando-futuros/index.html">Read more</a>
- </div>
- </div>
- </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="None">
  <a class="blog-card-image" href="innovation-at-dimagi-part-1-dedicated-entrepreneur/index.html">
  <img src="../assets/images/innovation-at-dimagi-part-1-dedicated-entrepreneur/cover.jpg" alt="Innovation at Dimagi, Part 1: The Life of a Dedicated Entrepreneur on the Inside" loading="lazy" decoding="async">
@@ -2574,7 +2406,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Join Us at the Global Digital Health Forum 2020</h2>
- <p class="blog-card-desc">Dimagi will be well represented at this year&amp;rsquo;s Global Digital Health Forum, with eight members of our team speaking alongside many of our partners in nine sessions.</p>
+ <p class="blog-card-desc">Dimagi will be well represented at this year&rsquo;s Global Digital Health Forum, with eight members of our team speaking alongside many of our partners in nine sessions.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Nov 2020</span>
  <a class="blog-card-link" href="global-digital-health-forum-2020/index.html">Read more</a>
@@ -2594,7 +2426,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Lesotho" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="None">
  <a class="blog-card-image" href="egpaf-baylor-commcare-hiv-patient-tracking/index.html">
  <img src="../assets/images/egpaf-baylor-commcare-hiv-patient-tracking/cover.jpg" alt="EGPAF & Baylor in Lesotho: CommCare for HIV Patient Tracking" loading="lazy" decoding="async">
  </a>
@@ -2620,7 +2452,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="South Africa" data-sector="Community Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Community Health">
  <a class="blog-card-image" href="ndoh-national-scale-mhealth-south-africa/index.html">
  <img src="../assets/images/ndoh-national-scale-mhealth-south-africa/cover.jpg" alt="A National-Scale mHealth Program for South Africa" loading="lazy" decoding="async">
  </a>
@@ -2635,10 +2467,10 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="Nutrition">
  <a class="blog-card-image" href="usaid-advancing-nutrition-2020/index.html">
- <img src="../assets/images/usaid-advancing-nutrition-2020/cover.jpg" alt="USAID Highlights CommCare Nutrition Projects From Around the World" loading="lazy" decoding="async">
+ <img src="../assets/images/usaid-advancing-nutrition-2020/cover.jpg" alt="CommCare Nutrition Projects From Around the World" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
- <h2 class="blog-card-title">USAID Highlights CommCare Nutrition Projects From Around the World</h2>
+ <h2 class="blog-card-title">CommCare Nutrition Projects From Around the World</h2>
  <p class="blog-card-desc">A new USAID Advancing Nutrition report features CommCare-supported projects in Africa, South America, and Asia, naming CommCare the platform most commonly used for nutrition-related digital interventions.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Oct 2020</span>
@@ -2646,7 +2478,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Mozambique" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="infomovel-commcare-hiv-tb-patient-tracking/index.html">
  <img src="../assets/images/infomovel-commcare-hiv-tb-patient-tracking/cover.jpg" alt="Infomovel: Tracking HIV and TB Patients Across Mozambique" loading="lazy" decoding="async">
  </a>
@@ -2700,11 +2532,11 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="None" data-type="Reflections" data-topic="Dimagi" data-country="None" data-sector="Service Delivery">
  <a class="blog-card-image" href="usaid-global-health-innovation-index-commcare-2020/index.html">
- <img src="../assets/images/usaid-global-health-innovation-index-commcare-2020/cover.jpg" alt="USAID&amp;rsquo;s Global Health Innovation Index Highlights Dimagi" loading="lazy" decoding="async">
+ <img src="../assets/images/usaid-global-health-innovation-index-commcare-2020/cover.jpg" alt="Global Health Innovation Index Highlights Dimagi" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
- <h2 class="blog-card-title">USAID&rsquo;s Global Health Innovation Index Highlights Dimagi</h2>
- <p class="blog-card-desc">USAID&amp;rsquo;s Global Health Innovation Index, an annual evaluation from the Center for Innovation and Impact, highlighted CommCare as a &amp;ldquo;potential game changer.&amp;rdquo;</p>
+ <h2 class="blog-card-title">Global Health Innovation Index Highlights Dimagi</h2>
+ <p class="blog-card-desc">USAID&rsquo;s Global Health Innovation Index, an annual evaluation from the Center for Innovation and Impact, highlighted CommCare as a &ldquo;potential game changer.&rdquo;</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Sep 2020</span>
  <a class="blog-card-link" href="usaid-global-health-innovation-index-commcare-2020/index.html">Read more</a>
@@ -2724,7 +2556,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Mozambique" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="malaria-consortium-upscale-iccm-child-health/index.html">
  <img src="../assets/images/malaria-consortium-upscale-iccm-child-health/cover.jpg" alt="Malaria Consortium upSCALE: iCCM for Improving Child Health" loading="lazy" decoding="async">
  </a>
@@ -2739,7 +2571,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Multiple countries" data-sector="Agriculture">
  <a class="blog-card-image" href="technoserve-monitoring-evaluation-tools-suite/index.html">
- <img src="../assets/images/technoserve-monitoring-evaluation-tools-suite/cover.jpg" alt="TechnoServe: Building a Monitoring &amp;amp; Evaluation Tools Suite" loading="lazy" decoding="async">
+ <img src="../assets/images/technoserve-monitoring-evaluation-tools-suite/cover.jpg" alt="TechnoServe: Building a Monitoring &amp; Evaluation Tools Suite" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">TechnoServe: Building a Monitoring &amp; Evaluation Tools Suite</h2>
@@ -2769,14 +2601,14 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Powering scalable, fast, and secure contact tracing solutions with AWS</h2>
- <p class="blog-card-desc">Originally shared on the AWS Public Sector Blog, this post highlights how Dimagi&amp;rsquo;s CommCare and Amazon Connect helped the New York State Department of Health scale up COVID-19 contact tracing.</p>
+ <p class="blog-card-desc">Originally shared on the AWS Public Sector Blog, this post highlights how Dimagi&rsquo;s CommCare and Amazon Connect helped the New York State Department of Health scale up COVID-19 contact tracing.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Aug 2020</span>
  <a class="blog-card-link" href="covid-19-aws-contact-tracing/index.html">Read more</a>
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Guinea" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="contact-tracing-2014-ebola-anne-liu/index.html">
  <img src="../assets/images/contact-tracing-2014-ebola-anne-liu/cover.jpg" alt="A Human-Centered Approach to Digital Contact Tracing Programs" loading="lazy" decoding="async">
  </a>
@@ -2821,7 +2653,7 @@ h1.blog-hero-title em {
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">Healthcare Provider Training: A Mobile Tool for COVID-19 Workers</h2>
- <p class="blog-card-desc">The Healthcare Provider Training &amp;amp; Monitoring template application gives frontline workers responding to COVID-19 easy access to resources for education, training, risk assessment, and symptom screening.</p>
+ <p class="blog-card-desc">The Healthcare Provider Training &amp; Monitoring template application gives frontline workers responding to COVID-19 easy access to resources for education, training, risk assessment, and symptom screening.</p>
  <div class="blog-card-footer">
  <span class="blog-card-date">Jun 2020</span>
  <a class="blog-card-link" href="covid-19-template-application-healthcare-provider-training-monitoring/index.html">Read more</a>
@@ -2906,7 +2738,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Sierra Leone" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="sierra-leone-directorate-of-science-technology-and-innovation-covid-19-response/index.html">
  <img src="../assets/images/sierra-leone-directorate-of-science-technology-and-innovation-covid-19-response/cover.jpg" alt="Directorate of Science, Technology and Innovation (DSTI) Sierra Leone logo" loading="lazy" decoding="async">
  </a>
@@ -2921,7 +2753,7 @@ h1.blog-hero-title em {
  </article>
  <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="None" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/index.html">
- <img src="../assets/images/theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/cover.jpg" alt="&amp;ldquo;There&amp;rsquo;s no choice but to act now&amp;rdquo;: WHO Contact Tracing template app available today" loading="lazy" decoding="async">
+ <img src="../assets/images/theres-no-choice-but-to-act-now-who-contact-tracing-template-app-available-today/cover.jpg" alt="&ldquo;There&rsquo;s no choice but to act now&rdquo;: WHO Contact Tracing template app available today" loading="lazy" decoding="async">
  </a>
  <div class="blog-card-body">
  <h2 class="blog-card-title">&ldquo;There&rsquo;s no choice but to act now&rdquo;: WHO Contact Tracing template app available today</h2>
@@ -2945,7 +2777,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="Infectious Disease Prevention &amp; Control">
+ <article class="blog-card" data-product="CommCare" data-type="Reflections" data-topic="None" data-country="None" data-sector="Infectious Disease Prevention &amp; Control">
  <a class="blog-card-image" href="join-the-fight-to-support-critical-open-source-infrastructure/index.html">
  <img src="../assets/images/join-the-fight-to-support-critical-open-source-infrastructure/cover.png" alt="Join the fight to support critical open source infrastructure" loading="lazy" decoding="async">
  </a>
@@ -3023,20 +2855,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Lesotho" data-sector="Governments">
- <a class="blog-card-image" href="baylor-college-of-medicine-ethics-lesotho/index.html">
- <img src="../assets/images/baylor-college-of-medicine-ethics-lesotho/cover.jpg" alt="Baylor College of Medicine &amp;ndash; ETHICS Lesotho" loading="lazy" decoding="async">
- </a>
- <div class="blog-card-body">
- <h2 class="blog-card-title">Baylor College of Medicine &ndash; ETHICS Lesotho</h2>
- <p class="blog-card-desc">The Baylor College of Medicine&amp;rsquo;s Children&amp;rsquo;s Foundation Lesotho is working with Dimagi to expand a CommCare-based client tracking tool to two more districts, the final step before national deployment.</p>
- <div class="blog-card-footer">
- <span class="blog-card-date">Jan 2020</span>
- <a class="blog-card-link" href="baylor-college-of-medicine-ethics-lesotho/index.html">Read more</a>
- </div>
- </div>
- </article>
- <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Senegal" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Announcement" data-topic="None" data-country="Africa" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="mhealth-interventions-bmc-macdonald/index.html">
  <img src="../assets/images/mhealth-interventions-bmc-macdonald/cover.jpg" alt="New Study on Mobile Health Interventions Featured in BioMed Central" loading="lazy" decoding="async">
  </a>
@@ -3049,7 +2868,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Senegal" data-sector="Agriculture">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Agriculture">
  <a class="blog-card-image" href="naatal-mbay-commcare-agricultural-support/index.html">
  <img src="../assets/images/naatal-mbay-commcare-agricultural-support/cover.jpg" alt="Naatal Mbay: CommCare for Agricultural Support" loading="lazy" decoding="async">
  </a>
@@ -3062,7 +2881,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Kenya" data-sector="Immunizations">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Immunizations">
  <a class="blog-card-image" href="lwala-commcare-improving-vaccination-rates/index.html">
  <img src="../assets/images/lwala-commcare-improving-vaccination-rates/cover.jpg" alt="Lwala Community Alliance: CommCare for Improving Vaccination Rates" loading="lazy" decoding="async">
  </a>
@@ -3088,7 +2907,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Ghana" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="None">
  <a class="blog-card-image" href="sickle-cell-foundation-ghana-newborn-screening/index.html">
  <img src="../assets/images/sickle-cell-foundation-ghana-newborn-screening/cover.jpg" alt="Sickle Cell Foundation of Ghana: CommCare for Newborn Screening" loading="lazy" decoding="async">
  </a>
@@ -3101,7 +2920,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Haiti" data-sector="Agriculture">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="None" data-sector="None">
  <a class="blog-card-image" href="smash-mobil-commcare-local-supply-chains/index.html">
  <img src="../assets/images/smash-mobil-commcare-local-supply-chains/cover.jpg" alt="SMASH Mobil: CommCare for Local Supply Chains in Haiti" loading="lazy" decoding="async">
  </a>
@@ -3114,7 +2933,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Burkina Faso" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Africa" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="terre-des-hommes-ediagnostic-child-health/index.html">
  <img src="../assets/images/terre-des-hommes-ediagnostic-child-health/cover.jpg" alt="Terre des hommes: The Integrated eDiagnostic Approach for Child Health" loading="lazy" decoding="async">
  </a>
@@ -3127,7 +2946,7 @@ h1.blog-hero-title em {
  </div>
  </div>
  </article>
- <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Guatemala" data-sector="Maternal, Newborn &amp; Child Health">
+ <article class="blog-card" data-product="CommCare" data-type="Case Study" data-topic="None" data-country="Latin America" data-sector="Maternal, Newborn &amp; Child Health">
  <a class="blog-card-image" href="tulasalud-commcare-community-health/index.html">
  <img src="../assets/images/tulasalud-commcare-community-health/cover.jpg" alt="TulaSalud: CommCare for Improving and Monitoring Community Health" loading="lazy" decoding="async">
  </a>
@@ -3234,12 +3053,15 @@ h1.blog-hero-title em {
 </footer>
 <script src="../assets/js/nav.js?v=8"></script>
 <script>
-/* Blog listing: search + Focus/Type/Region/Sectors dropdowns (AND), progressive reveal.
+/* Blog listing: search + Platform/Type/Focus dropdowns (AND), progressive reveal.
+   The Focus dropdown hosts both sector and country options (each tagged with data-ddim),
+   so a single selection there filters either data-sector or data-country.
    Generated by Context/blog-import/transform_filters.py */
 (function () {
   var INITIAL = 13, BATCH = 15;
   var DIMS = ['focus', 'type', 'country', 'sector'];
-  // URL param names follow the visible labels (data-dim "focus"=Product, "sector"=Focus).
+  // URL param names follow the visible labels (data-dim "focus"=Product, "sector"=Focus;
+  // "country" still uses ?country= even though its options now live in the Focus dropdown).
   var URLKEY = { focus: 'product', type: 'type', country: 'country', sector: 'focus' };
   var cards = [].slice.call(document.querySelectorAll('.blog-grid .blog-card'));
   var wrap = document.getElementById('blogMore');
@@ -3336,6 +3158,15 @@ h1.blog-hero-title em {
     var menu = dd.querySelector('.blog-dd-menu');
     var valueEl = dd.querySelector('.blog-dd-value');
     var options = [].slice.call(dd.querySelectorAll('.blog-dd-option'));
+    // Dimensions this dropdown controls: each option's data-ddim (so one dropdown can host
+    // several dimensions, e.g. Focus = sector + country), falling back to the dd's data-dim.
+    var owned = [];
+    options.forEach(function (o) {
+      if (o.getAttribute('data-value') === 'all') return;
+      var d = o.getAttribute('data-ddim') || dim;
+      if (owned.indexOf(d) === -1) owned.push(d);
+    });
+    if (!owned.length) owned = [dim];
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
       var open = !dd.classList.contains('is-open');
@@ -3347,7 +3178,9 @@ h1.blog-hero-title em {
     options.forEach(function (opt) {
       opt.addEventListener('click', function () {
         var val = opt.getAttribute('data-value');
-        active[dim] = val;
+        var odim = opt.getAttribute('data-ddim') || dim;
+        owned.forEach(function (d) { active[d] = 'all'; });  // single-select across this dropdown
+        if (val !== 'all') active[odim] = val;
         options.forEach(function (o) {
           var on = o === opt;
           o.classList.toggle('is-active', on);
@@ -3398,16 +3231,31 @@ h1.blog-hero-title em {
   if (emptyReset) emptyReset.addEventListener('click', clearAll);
 
   // ---- restore state from the URL (shareable filtered views) ----
+  function optionFor(dim, raw) {
+    // Find the option for a dimension+value across all dropdowns. An option's dimension is
+    // its data-ddim, falling back to its dropdown's data-dim — so country options that now
+    // live inside the Focus dropdown are still located by ?country=.
+    var all = [].slice.call(document.querySelectorAll('.blog-dd-option'));
+    for (var i = 0; i < all.length; i++) {
+      var o = all[i];
+      if (o.getAttribute('data-value').toLowerCase() !== raw.toLowerCase()) continue;
+      var od = o.getAttribute('data-ddim');
+      if (!od) {
+        var el = o.parentNode;
+        while (el && !(el.classList && el.classList.contains('blog-dd'))) el = el.parentNode;
+        od = el ? el.getAttribute('data-dim') : null;
+      }
+      if (od === dim) return o;
+    }
+    return null;
+  }
   (function applyFromUrl() {
     if (series) return;
     var q = params.get('q');
     if (q && searchInput) { searchInput.value = q; query = q.trim().toLowerCase(); }
     DIMS.forEach(function (dim) {
       var raw = params.get(URLKEY[dim]); if (!raw) return;
-      var dd = document.querySelector('.blog-dd[data-dim="' + dim + '"]'); if (!dd) return;
-      var opt = [].slice.call(dd.querySelectorAll('.blog-dd-option')).filter(function (o) {
-        return o.getAttribute('data-value').toLowerCase() === raw.toLowerCase();
-      })[0];
+      var opt = optionFor(dim, raw);
       if (opt) opt.click();   // reuse the option handler (sets active + label + state)
     });
   })();

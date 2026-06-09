@@ -56,14 +56,17 @@ These only add the tag layer; they do not touch blurbs, guest lines, versions, o
 section, so they are non-destructive. Run them after anything that strips the tags.
 
 ## Filter behavior (blog-style, redesigned 2026-06-09)
-The listing filter mirrors the `/blog/` filter bar: a **search box** + three rounded
+The listing filter mirrors the `/blog/` filter bar: a **search box** + two rounded
 **dropdowns**, single-select each, AND across them (and AND with search):
 
 - **Product** — CommCare / Connect / SureAdhere / Open Chat Studio  (`data-product`)
-- **Focus** — grouped *Sectors* (`data-sector`) + *Use cases* (`data-usecase`)
-- **Theme** — *Themes* (`data-theme`) + an *Organizations* group that folds in the old
-  Org Type facet (`data-orgtype`). Each option carries `data-dim` so one dropdown spans
-  several card attributes.
+- **Focus** — grouped *Sectors* (`data-sector`) + *Use cases* (`data-usecase`) + a *Themes*
+  group folded in from the old standalone Theme dropdown, limited to six: AI / Global
+  Development / Company & Culture / Leadership (`data-theme`) + Governments / United States
+  (`data-orgtype`, where `us-community-health` is now labeled "United States"). Each option
+  carries `data-dim` so the one dropdown spans several card attributes. The old **Theme**
+  dropdown was removed (2026-06-09); International NGOs / Research & Academic are still on
+  cards but no longer offered as filter options.
 
 Search matches episode title + number + blurb. Accent is podcast maroon `#9A2C23` (not the
 blog indigo). Lazy reveal stays for the unfiltered view; when any filter/search is active the

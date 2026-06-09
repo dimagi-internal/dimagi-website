@@ -235,6 +235,11 @@
   .india-more-list { grid-template-columns: 1fr; }
   .india-awards-grid { grid-template-columns: 1fr; }
 }
+/* ───── Regional hero background photo ───── */
+.hero.hero-dark.has-bg-photo { position: relative; }
+.hero-bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+.hero-bg-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(160deg, rgba(10,6,32,0.93) 0%, rgba(22,0,109,0.84) 45%, rgba(56,67,208,0.60) 100%); }
+.hero.has-bg-photo > .container { position: relative; z-index: 2; }
 </style>
 </head>
 <body>
@@ -261,7 +266,9 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero hero-dark on-dark">
+<section id="main" class="hero hero-dark on-dark has-bg-photo">
+  <img class="hero-bg-photo" src="../../assets/images/india/precision-tasking.jpg" alt="" aria-hidden="true">
+  <div class="hero-bg-overlay" aria-hidden="true"></div>
   <div class="container">
     <div style="max-width:880px;">
       <span class="eyebrow on-dark"><a href="../global-services/index.html" style="color:inherit;">Global Services</a> &nbsp;/&nbsp; India &amp; Asia</span>
@@ -488,7 +495,7 @@
         <p class="india-more-title">NAMASTE: Autism care in South Asia</p>
         <p class="india-more-desc">With Sangath and NIHR funding, an app for home-based counseling of parents of autistic children, addressing limited access to early detection and intervention.</p>
       </a>
-      <a class="india-more-item" href="https://dimagi.com/rti-international-usaid-iecd-activity/" target="_blank" rel="noopener">
+      <a class="india-more-item" href="https://dimagi.com/rti-cambodia-iecd-early-childhood-development/" target="_blank" rel="noopener">
         <span class="india-more-date">February 2021 &middot; Partnership</span>
         <p class="india-more-title">RTI International USAID IECD Activity</p>
         <p class="india-more-desc">A five-year project supporting the Royal Government of Cambodia's efforts to improve early childhood development for children under five.</p>
@@ -501,31 +508,6 @@
     </div>
   </div>
 </section>
-
-<!-- ───── AWARDS ───── -->
-<div class="india-awards-band">
-  <div class="container">
-    <div class="section-head" style="text-align:left; max-width:680px;">
-      <span style="font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.6);">AWARDS &amp; ACCOLADES</span>
-      <h2 style="font-size:clamp(28px,3.5vw,40px); font-weight:400; letter-spacing:-0.025em; color:#fff; margin:16px 0 12px; line-height:1.25;">Recognized for innovation</h2>
-      <p style="font-size:17px; color:rgba(255,255,255,0.78); line-height:1.6; margin:0;">Learn how the India Division empowers partners through custom digital solutions.</p>
-    </div>
-    <div class="india-awards-grid">
-      <a class="india-award-card" href="https://media.path.org/documents/PHC_Tech_challenge_winners.pdf" target="_blank" rel="noopener">
-        <span class="india-award-tag">PATH India</span>
-        <h3 class="india-award-title">Winner of the first PHC Tech Challenge</h3>
-        <p class="india-award-desc">Dimagi's vaccine solution was selected as a groundbreaking innovation out of a competitive field of 115 applicants.</p>
-        <span class="india-award-link">Read more &rarr;</span>
-      </a>
-      <a class="india-award-card" href="https://www.itu.int/en/ITU-D/Innovation/Pages/Events/2021/Global-South-COVID-19-Digital-Innovation-Challenge.aspx" target="_blank" rel="noopener">
-        <span class="india-award-tag">ITU Global South</span>
-        <h3 class="india-award-title">COVID-19 Digital Innovation Challenge winner</h3>
-        <p class="india-award-desc">Named among twelve winners for a nutrition application proposed to strengthen India's COVID-19 response.</p>
-        <span class="india-award-link">Read more &rarr;</span>
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- ───── CTA BAND ───── -->
 <section class="cta-band">
