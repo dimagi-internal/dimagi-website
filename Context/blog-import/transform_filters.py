@@ -55,7 +55,7 @@ def row(label, dim, values):
             '          </div>\n        </div>')
 
 PRODUCTS = ['CommCare', 'Connect', 'SureAdhere', 'Open Chat Studio']
-TYPES = ['Case Study', 'Announcement', 'Product Update', 'Event', 'Research', 'Perspective']
+TYPES = ['Case Study', 'Reflections', 'Announcement', 'Event']  # round 5: Research retired, Perspective->Reflections (after Case Study)
 TOPICS = ['Company', 'Ecosystem']
 GEO = ['United States', 'Asia', 'India', 'Africa', 'Latin America']
 

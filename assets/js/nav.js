@@ -62,8 +62,8 @@
   makeDropdown('Products', {
     heading: 'Our Products',
     items: [
-      { label: 'CommCare',         href: 'https://dimagi.com/commcare/',      external: true },
       { label: 'Connect',          href: 'https://connect.dimagi.com/',        external: true },
+      { label: 'CommCare',         href: 'https://dimagi.com/commcare/',      external: true },
       { label: 'SureAdhere',       href: 'https://dimagi.com/sureadhere/',     external: true },
       { label: 'Open Chat Studio', href: 'https://www.openchatstudio.com/',    external: true }
     ]
@@ -74,7 +74,6 @@
     items: [
       { label: 'Global Services',  href: navBase + 'professional-services/global-services/index.html' },
       { label: 'United States',    href: navBase + 'professional-services/united-states/index.html' },
-      { label: 'India',            href: navBase + 'professional-services/india/index.html' },
       { label: 'Research & Data',  href: navBase + 'professional-services/research-data/index.html' }
     ]
   }, 'sm');
@@ -163,11 +162,11 @@
       { t:'SureAdhere', s:'Products', u:'https://dimagi.com/sureadhere/', x:1, k:'medication adherence tuberculosis tb video observed therapy' },
       { t:'Open Chat Studio', s:'Products', u:'https://www.openchatstudio.com/', x:1, k:'ai chatbot llm assistant' },
       { t:'Professional Services', s:'Services', u: navBase + 'professional-services/index.html', k:'implementation deploy scale services experts' },
-      { t:'Global Services', s:'Services', u: navBase + 'professional-services/global-services/index.html', k:'africa asia echis community health national scale' },
+      { t:'Global Services', s:'Services', u: navBase + 'professional-services/global-services/index.html', k:'africa asia echis community health national scale international ict4d' },
+      { t:'Africa', s:'Services', u: navBase + 'professional-services/africa/index.html', k:'africa echis community health national scale benin ethiopia burkina faso madagascar mozambique south africa niger nigeria senegal ministry' },
       { t:'United States', s:'Services', u: navBase + 'professional-services/united-states/index.html', k:'us public health behavioral health government state' },
-      { t:'India', s:'Services', u: navBase + 'professional-services/india/index.html', k:'india' },
+      { t:'India', s:'Services', u: navBase + 'professional-services/india/index.html', k:'india asia nutrition maternal health delhi' },
       { t:'Research & Data', s:'Services', u: navBase + 'professional-services/research-data/index.html', k:'research evidence publications studies data' },
-      { t:'Case Studies', s:'Services', u: navBase + 'professional-services/case-studies/index.html', k:'case studies customers stories' },
       { t:'About Us', s:'Company', u: navBase + 'company/about/index.html', k:'about mission benefit corporation social enterprise team' },
       { t:'Our Approach', s:'Company', u: navBase + 'company/our-approach/index.html', k:'approach values how we work' },
       { t:'Careers', s:'Company', u: navBase + 'company/careers/index.html', k:'jobs hiring careers work openings' },

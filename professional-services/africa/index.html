@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Africa | Dimagi</title>
+<meta name="description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected electronic Community Health Information System (eCHIS) for 9 African nations, reaching 84,000+ community health workers.">
+<link rel="canonical" href="https://dimagi.com/professional-services/africa/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/professional-services/africa/">
+<meta property="og:title" content="Africa">
+<meta property="og:description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected eCHIS for 9 African nations, reaching 84,000+ community health workers.">
+<meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
+<meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Africa">
+<meta name="twitter:description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected eCHIS for 9 African nations, reaching 84,000+ community health workers.">
+<meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<style>
+/* ── Africa ── */
+
+/* Stats band — matches the Dimagi home page treatment */
+.stats-band { background: var(--indigo-soft); }
+.stats-band-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(45,54,166,0.16);
+}
+.stats-band-cell {
+  padding: 48px 28px;
+  border-right: 1px solid rgba(45,54,166,0.14);
+  text-align: center;
+}
+.stats-band-cell:last-child { border-right: 0; }
+.stats-band-num {
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 200; line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-2);
+  margin-bottom: 12px;
+  font-feature-settings: "tnum";
+}
+.stats-band-num span { color: var(--indigo); font-weight: 300; }
+.stats-band-lbl {
+  font-size: 14px; font-weight: 400;
+  color: rgba(20,16,58,0.62); line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .stats-band-grid { grid-template-columns: 1fr 1fr; }
+  .stats-band-cell:nth-child(2) { border-right: 0; }
+  .stats-band-cell:nth-child(n+3) { border-top: 1px solid rgba(45,54,166,0.14); }
+}
+
+/* eCHIS layout */
+.af-echis-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+}
+.af-echis-card {
+  background: linear-gradient(135deg, var(--deep-purple) 0%, var(--indigo) 100%);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  color: #fff;
+}
+.af-echis-card p.k {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin: 0 0 24px; font-family: var(--mono);
+}
+.af-echis-card .row { border-bottom: 1px solid rgba(255,255,255,0.14); padding-bottom: 20px; margin-bottom: 20px; }
+.af-echis-card .row:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+.af-echis-card h4 { font-size: 16px; font-weight: 600; color: #fff; margin: 0 0 8px; }
+.af-echis-card p.d { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; margin: 0; }
+
+/* Cost compare */
+.af-cost {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 28px 0 0;
+}
+.af-cost-tile {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 26px 24px;
+  background: #fff;
+}
+.af-cost-tile.alt { background: var(--indigo-soft); border-color: rgba(45,54,166,0.18); }
+.af-cost-tag { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.af-cost-num { font-size: clamp(30px, 3.4vw, 40px); font-weight: 200; letter-spacing: -0.03em; color: var(--deep-purple); line-height: 1; margin: 0 0 8px; font-feature-settings: "tnum"; }
+.af-cost-tile.alt .af-cost-num { color: var(--indigo); }
+.af-cost-cap { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0; }
+
+/* Country tiers */
+.af-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.af-tier {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.af-tier-head { display: flex; align-items: center; gap: 12px; }
+.af-tier-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+.af-tier-dot.scale { background: var(--indigo); }
+.af-tier-dot.scaling { background: var(--marigold); }
+.af-tier-dot.pilot { background: rgba(20,16,58,0.32); }
+.af-tier-name { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--deep-purple); margin: 0; font-family: var(--mono); }
+.af-tier-desc { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0; }
+.af-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 2px; }
+.af-chip {
+  font-size: 13.5px; font-weight: 500; color: var(--ink);
+  background: var(--indigo-soft);
+  border: 1px solid rgba(45,54,166,0.14);
+  border-radius: 999px;
+  padding: 7px 15px;
+}
+
+/* Model / how we help check-list */
+.af-model-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.af-model-check { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 18px; }
+.af-model-check li { display: flex; gap: 14px; align-items: flex-start; }
+.af-model-check .tick { color: var(--indigo); font-weight: 700; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.af-model-check span.t { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.af-model-check span.t strong { color: var(--ink); }
+.af-model-stat {
+  background: var(--deep-purple);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  color: #fff;
+}
+.af-model-stat .big { font-size: clamp(52px, 6vw, 76px); font-weight: 200; letter-spacing: -0.04em; line-height: 1; color: #fff; font-feature-settings: "tnum"; margin: 0 0 10px; }
+.af-model-stat .big span { color: var(--marigold); font-weight: 300; }
+.af-model-stat .cap { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.55; margin: 0 0 28px; }
+.af-model-stat .mini { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin: 0; }
+
+/* In the field — featured + list (mirrors India) */
+.af-init-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.af-init-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius-lg); overflow: hidden;
+  text-decoration: none;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.af-init-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -12px rgba(10,6,32,0.13); border-color: var(--indigo); }
+.af-init-img { aspect-ratio: 16/9; overflow: hidden; background: var(--indigo-soft); }
+.af-init-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.af-init-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.af-init-date { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--indigo); }
+.af-init-title { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; color: var(--deep-purple); line-height: 1.3; margin: 0; }
+.af-init-desc { font-size: 14px; color: var(--muted); line-height: 1.6; flex: 1; margin: 0; }
+.af-init-link { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo); }
+
+.af-more-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 24px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.af-more-item { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 28px; text-decoration: none; display: block; transition: background 160ms; }
+.af-more-item:hover { background: #f5f7ff; }
+.af-more-date { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--indigo); }
+.af-more-title { font-size: 15px; font-weight: 600; color: var(--deep-purple); line-height: 1.35; margin: 8px 0 6px; }
+.af-more-desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin: 0; }
+
+/* Testimonials grid */
+.af-tgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+.af-tcard { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 32px 30px; display: flex; flex-direction: column; gap: 20px; }
+.af-tcard .mark { font-family: var(--mono); font-size: 40px; line-height: 0.6; color: var(--marigold); font-weight: 700; }
+.af-tcard .q { font-size: 14.5px; font-weight: 300; color: rgba(255,255,255,0.88); line-height: 1.7; font-style: italic; flex: 1; margin: 0; }
+.af-tcard .attr { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; }
+.af-tcard .who { font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 3px; }
+.af-tcard .role { font-size: 12px; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.4; }
+
+@media (max-width: 900px) {
+  .af-echis-layout { grid-template-columns: 1fr; gap: 40px; }
+  .af-tiers { grid-template-columns: 1fr; }
+  .af-model-layout { grid-template-columns: 1fr; gap: 40px; }
+  .af-init-grid { grid-template-columns: 1fr; }
+  .af-more-list { grid-template-columns: 1fr; }
+  .af-tgrid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html" class="nav-active">Professional Services</a>
+        <a href="../../company/about/index.html">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section id="main" class="hero hero-dark on-dark">
+  <div class="container">
+    <div style="max-width:880px;">
+      <span class="eyebrow on-dark"><a href="../global-services/index.html" style="color:inherit;">Global Services</a> &nbsp;/&nbsp; Africa</span>
+      <h1 class="hero-title">National-scale community health, owned by governments</h1>
+      <p class="hero-sub">A more affordable, scalable model for governments' digital community health systems, built on a proven platform that already reaches millions and designed for government teams to own, run, and sustain.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to Our Team</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="../global-services/index.html">Back to Global Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── STATS BAND ───── -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band-grid">
+      <div class="stats-band-cell">
+        <div class="stats-band-num">9</div>
+        <div class="stats-band-lbl">African nations using CommCare as their eCHIS</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">84,000<span>+</span></div>
+        <div class="stats-band-lbl">Community health workers using CommCare</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">76<span>M+</span></div>
+        <div class="stats-band-lbl">People registered in the system</div>
+      </div>
+      <div class="stats-band-cell">
+        <div class="stats-band-num">&#8531;</div>
+        <div class="stats-band-lbl">Of Africa's population live in these countries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── eCHIS OFFERING ───── -->
+<section class="section">
+  <div class="container">
+    <div class="af-echis-layout">
+      <div>
+        <span class="eyebrow muted">THE NEXT-GENERATION eCHIS</span>
+        <h2 class="section-title">National-scale performance at a fraction of the cost</h2>
+        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 0;">Across Africa, governments are digitizing community health at the national level. Dimagi offers a new, affordable, and better model for the electronic Community Health Information System (eCHIS), built on CommCare, the platform already trusted to run community health programs reaching millions.</p>
+        <div class="af-cost">
+          <div class="af-cost-tile">
+            <p class="af-cost-tag">Traditional custom system</p>
+            <p class="af-cost-num">$1M+</p>
+            <p class="af-cost-cap">per year to build and maintain</p>
+          </div>
+          <div class="af-cost-tile alt">
+            <p class="af-cost-tag">Dimagi eCHIS</p>
+            <p class="af-cost-num">$60K</p>
+            <p class="af-cost-cap">per year, so ministries can invest more in frontline delivery</p>
+          </div>
+        </div>
+      </div>
+      <div class="af-echis-card">
+        <p class="k">Why this model</p>
+        <div class="row">
+          <h4>Affordable by design</h4>
+          <p class="d">A lower total cost of ownership than custom-built systems frees budget for the frontline, not the software.</p>
+        </div>
+        <div class="row">
+          <h4>Proven at national scale</h4>
+          <p class="d">Built on CommCare, a platform that already supports community health programs reaching tens of millions of people.</p>
+        </div>
+        <div class="row">
+          <h4>Government-owned</h4>
+          <p class="d">Designed so government teams can configure, run, and sustain the system themselves over the long term.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── COUNTRY TIERS ───── -->
+<section class="section cool">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">WHERE WE WORK</span>
+      <h2 class="section-title">CommCare powers community health across the continent</h2>
+      <p class="section-lede">Nine African nations have selected CommCare as their electronic Community Health Information System, spanning programs at national scale, those actively scaling up, and early-stage pilots.</p>
+    </div>
+    <div class="af-tiers">
+      <div class="af-tier">
+        <div class="af-tier-head">
+          <span class="af-tier-dot scale"></span>
+          <p class="af-tier-name">At Scale</p>
+        </div>
+        <p class="af-tier-desc">National deployments running at full scale across the community health workforce.</p>
+        <div class="af-chips">
+          <span class="af-chip">Benin</span>
+          <span class="af-chip">Ethiopia</span>
+          <span class="af-chip">Burkina Faso</span>
+        </div>
+      </div>
+      <div class="af-tier">
+        <div class="af-tier-head">
+          <span class="af-tier-dot scaling"></span>
+          <p class="af-tier-name">Scaling</p>
+        </div>
+        <p class="af-tier-desc">Programs expanding from proven deployments toward full national coverage.</p>
+        <div class="af-chips">
+          <span class="af-chip">Madagascar</span>
+          <span class="af-chip">Mozambique</span>
+          <span class="af-chip">South Africa</span>
+        </div>
+      </div>
+      <div class="af-tier">
+        <div class="af-tier-head">
+          <span class="af-tier-dot pilot"></span>
+          <p class="af-tier-name">Pilot</p>
+        </div>
+        <p class="af-tier-desc">Early-stage deployments establishing the foundation for national rollout.</p>
+        <div class="af-chips">
+          <span class="af-chip">Niger</span>
+          <span class="af-chip">Nigeria</span>
+          <span class="af-chip">Senegal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── HOW WE HELP / MODEL ───── -->
+<section class="section">
+  <div class="container">
+    <div class="af-model-layout">
+      <div>
+        <span class="eyebrow muted">A SUSTAINABLE MODEL</span>
+        <h2 class="section-title">Built for governments to own and run</h2>
+        <p style="font-size:17px; color:var(--muted); line-height:1.7; margin:20px 0 0;">Our focus is on sustainable program impact. We help ministries build the internal capacity and maintainable systems they need so the program continues long after our engagement ends.</p>
+        <ul class="af-model-check">
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Cloud-based SaaS.</strong> Deployed as a managed service, with no heavy professional-services contract required to get started.</span></li>
+          <li><span class="tick">&#10003;</span><span class="t"><strong>No-code configuration.</strong> Government teams build and adapt their own workflows without writing software.</span></li>
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Data ownership.</strong> Ministries own their data, with local export and storage options.</span></li>
+          <li><span class="tick">&#10003;</span><span class="t"><strong>Scalable infrastructure.</strong> Built on a proven, open-source platform that already scales to national programs.</span></li>
+        </ul>
+      </div>
+      <div class="af-model-stat">
+        <p class="big">9</p>
+        <p class="cap">African governments have chosen CommCare to run their national community health information systems.</p>
+        <p class="mini">We collaborate with current government partners and welcome new governments ready to digitize community health, with direct government procurement preferred.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── IN THE FIELD ───── -->
+<section class="section cool">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">IN THE FIELD</span>
+      <h2 class="section-title">Programs strengthening health systems across Africa</h2>
+      <p class="section-lede">A look at the national programs, ministries, and partners our teams support across the region.</p>
+    </div>
+
+    <div class="af-init-grid">
+
+      <a class="af-init-card" href="../../blog/jsi-government-of-ethiopia-and-usaid-digital-health-activity/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/jsi-government-of-ethiopia-and-usaid-digital-health-activity/cover.jpg" alt="Health workers in Ethiopia using digital tools" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">October 2022 &middot; Ethiopia</span>
+          <h3 class="af-init-title">Government of Ethiopia &amp; USAID Digital Health Activity</h3>
+          <p class="af-init-desc">Supporting Ethiopia's national digitization journey with JSI and USAID, advancing the country's path to a paperless community health system.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+
+      <a class="af-init-card" href="../../blog/ndoh-national-scale-mhealth-south-africa/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/ndoh-national-scale-mhealth-south-africa/cover.jpg" alt="Community health workers in South Africa" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">October 2020 &middot; South Africa</span>
+          <h3 class="af-init-title">A national-scale mHealth program for South Africa</h3>
+          <p class="af-init-desc">Partnering with the National Department of Health to run one of the largest digitally enabled community health programs on the continent.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+
+      <a class="af-init-card" href="../../blog/reducing-childhood-malnutrition-in-madagascar/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/reducing-childhood-malnutrition-in-madagascar/cover.jpg" alt="Frontline worker screening a child in Madagascar" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">June 2022 &middot; Madagascar</span>
+          <h3 class="af-init-title">Reducing childhood malnutrition in Madagascar</h3>
+          <p class="af-init-desc">Equipping community health workers with mobile screening and tracking to detect and treat malnutrition earlier.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="af-more-list">
+      <a class="af-more-item" href="../../blog/malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">
+        <span class="af-more-date">November 2021 &middot; Malawi</span>
+        <p class="af-more-title">Malawi Ministry of Health &amp; cStock</p>
+        <p class="af-more-desc">A supply-chain management application helping the Ministry of Health keep essential community health commodities in stock.</p>
+      </a>
+      <a class="af-more-item" href="../../blog/infomovel-commcare-hiv-tb-patient-tracking/index.html">
+        <span class="af-more-date">October 2020 &middot; Mozambique</span>
+        <p class="af-more-title">InfoMovel: tracking HIV &amp; TB patients</p>
+        <p class="af-more-desc">A patient-tracking solution helping frontline teams follow HIV and TB patients across Mozambique.</p>
+      </a>
+      <a class="af-more-item" href="../../blog/case-study-guinea-digitized-national-malaria-campaign/index.html">
+        <span class="af-more-date">February 2026 &middot; Guinea</span>
+        <p class="af-more-title">Guinea's digitized national malaria campaign</p>
+        <p class="af-more-desc">Digitizing a national malaria campaign to improve coverage, data quality, and accountability at scale.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── TESTIMONIALS ───── -->
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow on-dark">What our partners say</span>
+      <h2 class="section-title">Trusted by governments and partners across Africa</h2>
+    </div>
+    <div class="af-tgrid">
+      <div class="af-tcard">
+        <span class="mark">&ldquo;</span>
+        <p class="q">From the onset, Dimagi has been a critical partner, providing the support we needed. Their willingness to share knowledge and build capacity in our digital transformation process has been exemplary.</p>
+        <div class="attr">
+          <p class="who">Michala Mackay</p>
+          <p class="role">Director &amp; COO, Directorate of Science, Technology &amp; Innovation, Sierra Leone</p>
+        </div>
+      </div>
+      <div class="af-tcard">
+        <span class="mark">&ldquo;</span>
+        <p class="q">Dimagi continues to be our main partner in the coordination, development, and maintenance of mHealth activities within the PMI VectorLink Project. This partnership has ensured that evidence-based decision-making and strategic planning are translated into effective implementation on the ground.</p>
+        <div class="attr">
+          <p class="who">Albert Acquaye</p>
+          <p class="role">Sr. Associate, Abt Associates</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA BAND ───── -->
+<section class="cta-band">
+  <div class="container">
+    <div class="section-head centered on-dark">
+      <h2 class="section-title">Ready to digitize community health at national scale?</h2>
+      <p class="section-lede">Whether you are a ministry of health, an implementing partner, or a funder, we are ready to help you launch, scale, and sustain an eCHIS your teams can own.</p>
+      <div style="margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Contact Us</a>
+        <a class="btn btn-ghost-on-dark btn-arrow" href="../global-services/index.html">Explore Global Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../awards/index.html">Awards</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=6"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Careers | Dimagi</title>
-<meta name="description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles and benefits.">
+<meta name="description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles, benefits, our values, and life at Dimagi.">
 <link rel="canonical" href="https://dimagi.com/company/careers/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:site_name" content="Dimagi">
@@ -13,99 +13,178 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/company/careers/">
 <meta property="og:title" content="Careers">
-<meta property="og:description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles and benefits.">
+<meta property="og:description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles, benefits, our values, and life at Dimagi.">
 <meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
 <meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Careers">
-<meta name="twitter:description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles and benefits.">
+<meta name="twitter:description" content="Join Dimagi's team of creative problem solvers dedicated to using technology for global impact. Explore open roles, benefits, our values, and life at Dimagi.">
 <meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://boards-api.greenhouse.io" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=13">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
 <style>
 /* ── Careers page ── */
 
-/* Values cards */
-.values-grid {
+/* Hero with photo at top right */
+.careers-hero { padding-bottom: 84px; }
+.careers-hero-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.careers-hero-copy { max-width: 600px; }
+.careers-hero-copy .hero-title { margin-bottom: 24px; }
+.careers-hero-figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(10,6,32,0.6);
+  align-self: stretch;
+}
+.careers-hero-figure img {
+  width: 100%;
+  height: clamp(300px, 32vw, 440px);
+  object-fit: cover;
+  display: block;
+}
+
+/* Sticky sub-nav */
+.careers-subnav {
+  position: sticky;
+  top: 76px;
+  z-index: 40;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.careers-subnav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.careers-subnav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.careers-subnav-links a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: color 160ms, background 160ms;
+  white-space: nowrap;
+}
+.careers-subnav-links a:hover { color: var(--indigo); background: var(--paper-cool); }
+.careers-subnav .btn { flex-shrink: 0; }
+
+[id] { scroll-margin-top: 130px; }
+
+/* Intro + videos */
+.intro-videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+.video-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 28px 56px -32px rgba(10,6,32,0.4);
+}
+
+/* Values teaser */
+.values-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
   margin-top: 16px;
 }
-.value-card {
+.value-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 28px 18px 26px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 32px 28px 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  text-decoration: none;
+  color: inherit;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
-  position: relative;
-  overflow: hidden;
 }
-.value-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -12px rgba(10,6,32,0.12);
+.value-chip:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px -16px rgba(10,6,32,0.16);
   border-color: var(--indigo-soft);
 }
-.value-card::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--indigo) 0%, var(--marigold) 100%);
+.value-chip-art {
+  width: 84px; height: 84px;
+  display: flex; align-items: center; justify-content: center;
 }
-.value-card-num {
+.value-chip-art img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.value-chip-num {
   font-family: var(--mono);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted-soft);
+  color: var(--indigo);
 }
-.value-card-text {
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+.value-chip-text {
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  line-height: 1.35;
-}
-/* 4th + 5th cards span appropriately */
-.values-grid .value-card:nth-child(4) { grid-column: span 1; }
-.values-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 20px;
+  line-height: 1.3;
 }
 
-/* Benefits grid 2x3 */
+/* Benefits grid (refined) */
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 22px;
   margin-top: 16px;
 }
 .benefit-card {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 32px 28px 36px;
+  padding: 30px 28px 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.benefit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -18px rgba(10,6,32,0.14);
+  border-color: var(--indigo-soft);
 }
 .benefit-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  background: var(--indigo-soft);
+  width: 50px; height: 50px;
+  border-radius: 13px;
+  background: linear-gradient(155deg, var(--indigo-soft) 0%, #fff 130%);
+  border: 1px solid var(--indigo-soft);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.benefit-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--indigo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.benefit-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--indigo); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .benefit-title {
   font-size: 17px;
   font-weight: 600;
@@ -115,74 +194,45 @@
 .benefit-desc {
   font-size: 14.5px;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* Offices (dark) */
-.offices-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-.office-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
+/* Life at Dimagi — scrolling quotes carousel */
+.quotes-carousel { position: relative; margin-top: 16px; }
+.quotes-track {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  gap: 22px;
+  overflow-x: auto;
+  padding: 4px 4px 18px;
+  margin: 0 -4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.office-card-city {
+.quotes-track::-webkit-scrollbar { display: none; }
+.quotes-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--indigo);
   font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--paper);
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -14px rgba(10,6,32,0.22);
+  transition: transform 160ms, box-shadow 160ms, border-color 160ms, opacity 160ms;
+  z-index: 3;
 }
-.office-card-country {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--marigold);
-}
-.office-card-note {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.5;
-}
-
-/* Hiring section */
-.hiring-section {
-  padding: 120px 0;
-  text-align: center;
-  background: #f5f7ff;
-}
-.hiring-section .eyebrow { justify-content: center; }
-.hiring-section .eyebrow::before { display: none; }
-.hiring-section h2 {
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 200;
-  letter-spacing: -0.03em;
-  margin: 16px 0 24px;
-}
-.hiring-section p {
-  font-size: 19px;
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto 44px;
-}
-
-/* Life at Dimagi testimonials */
-.life-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 16px;
-}
+.quotes-nav:hover { border-color: var(--indigo-soft); box-shadow: 0 18px 38px -16px rgba(10,6,32,0.28); }
+.quotes-nav.prev { left: -8px; }
+.quotes-nav.next { right: -8px; }
+.quotes-nav:disabled { opacity: 0; pointer-events: none; }
 .life-card {
+  flex: 0 0 clamp(300px, 42%, 460px);
   background: var(--paper-warm);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -217,18 +267,280 @@
 .life-card-name { font-size: 15px; font-weight: 600; color: var(--ink); margin: 0; letter-spacing: -0.01em; }
 .life-card-role { font-size: 13px; color: var(--muted); margin: 2px 0 0; }
 
-/* EEO / accommodations */
-.eeo-block {
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: left;
+/* Day-in-the-life stories sub-block */
+.stories-block { margin-top: 64px; }
+.stories-head {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 8px;
 }
-.eeo-block p {
-  font-size: 14px;
+.stories-sub {
+  text-align: center;
+  font-size: 15.5px;
+  color: var(--muted);
+  margin: 0 auto 28px;
+  max-width: 560px;
+  line-height: 1.6;
+}
+.stories-cta { display: flex; justify-content: center; margin-top: 36px; }
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 0;
+}
+.story-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms, box-shadow 200ms;
+}
+.story-card:hover { transform: translateY(-4px); box-shadow: 0 20px 44px -18px rgba(10,6,32,0.18); }
+.story-card-img { aspect-ratio: 16/10; overflow: hidden; background: var(--indigo-soft); }
+.story-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms cubic-bezier(.2,.7,.2,1); }
+.story-card:hover .story-card-img img { transform: scale(1.05); }
+.story-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.story-card-date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  margin-bottom: 10px;
+}
+.story-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+.story-card-desc { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0 0 16px; }
+.story-card-link {
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: gap 200ms;
+}
+.story-card:hover .story-card-link { gap: 11px; }
+
+/* One Dimagi photo mosaic (merged into Life at Dimagi) */
+.one-dimagi-block { margin-top: 72px; }
+.one-dimagi-lede {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  text-align: center;
+  font-size: 17px;
   color: var(--muted);
   line-height: 1.7;
-  margin: 0 0 16px;
 }
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.mosaic figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--indigo-soft);
+  aspect-ratio: 4 / 3;
+}
+.mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(.2,.7,.2,1); }
+.mosaic figure:hover img { transform: scale(1.04); }
+
+/* Awards */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.award-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 34px 32px 30px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.award-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px -20px rgba(10,6,32,0.18); border-color: var(--indigo-soft); }
+.award-logo {
+  height: 88px;
+  display: flex; align-items: center; justify-content: flex-start;
+  margin-bottom: 22px;
+}
+.award-logo img { max-height: 88px; max-width: 150px; width: auto; object-fit: contain; }
+.award-logo.dark {
+  background: var(--deep-purple);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  align-self: flex-start;
+}
+.award-logo.icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(155deg, var(--marigold) 0%, var(--mango) 100%);
+  align-items: center; justify-content: center;
+  margin-bottom: 22px;
+}
+.award-logo.icon svg { width: 30px; height: 30px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.award-title { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 8px; }
+.award-desc { font-size: 14.5px; color: var(--muted); line-height: 1.6; margin: 0 0 18px; }
+.award-link {
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: gap 200ms;
+}
+.award-card:hover .award-link { gap: 11px; }
+/* Static award card holding multiple links (e.g. B Corp) */
+.award-card-static { cursor: default; }
+.award-card-static:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.award-links { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+.award-links .award-link { margin-top: 0; transition: gap 200ms, color 160ms; }
+.award-links .award-link:hover { gap: 11px; }
+.award-link-soft { color: var(--muted); }
+.award-link-soft:hover { color: var(--indigo); }
+
+/* Openings / Greenhouse board */
+.jobs-toolbar {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+.jobs-field { position: relative; display: flex; flex-direction: column; }
+.jobs-field label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  margin-bottom: 7px;
+}
+.jobs-field input, .jobs-field select {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 160ms, box-shadow 160ms;
+}
+.jobs-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%233843D0' stroke-width='1.6' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.jobs-field input:focus, .jobs-field select:focus {
+  outline: none;
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px var(--indigo-soft);
+}
+.jobs-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  margin: 18px 0 12px;
+}
+.jobs-list { display: flex; flex-direction: column; gap: 12px; }
+.job-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 160ms, box-shadow 160ms, border-color 160ms;
+}
+.job-row:hover {
+  transform: translateX(4px);
+  border-color: var(--indigo-soft);
+  box-shadow: 0 14px 30px -16px rgba(10,6,32,0.16);
+}
+.job-row-title { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 9px; }
+.job-row-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.job-row-meta span {
+  font-size: 12.5px;
+  color: var(--muted);
+  background: var(--paper-cool);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.job-row-arrow {
+  font-size: 20px;
+  color: var(--indigo);
+  flex-shrink: 0;
+  transition: transform 160ms;
+}
+.job-row:hover .job-row-arrow { transform: translateX(4px); }
+.jobs-status, .jobs-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.jobs-status a, .jobs-empty a { color: var(--indigo); font-weight: 600; }
+.jobs-spinner {
+  width: 30px; height: 30px;
+  margin: 0 auto 16px;
+  border: 3px solid var(--indigo-soft);
+  border-top-color: var(--indigo);
+  border-radius: 50%;
+  animation: jobspin 0.8s linear infinite;
+}
+@keyframes jobspin { to { transform: rotate(360deg); } }
+.talent-note {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+}
+.talent-note a { color: var(--indigo); font-weight: 600; }
+
+/* EEO */
+.eeo-block { max-width: 820px; margin: 0 auto; }
+.eeo-block p { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin: 0 0 16px; }
 .eeo-block a { color: var(--indigo); }
 .eeo-block h4 {
   font-family: var(--mono);
@@ -237,19 +549,30 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
+@media (max-width: 1000px) {
+  .values-teaser-grid { grid-template-columns: repeat(3, 1fr); }
+  .story-grid { grid-template-columns: 1fr 1fr; }
+  .jobs-toolbar { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 900px) {
-  .values-grid { grid-template-columns: 1fr 1fr; }
+  .careers-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .careers-hero-copy { max-width: none; }
+  .careers-hero-figure img { height: clamp(240px, 52vw, 360px); }
   .benefits-grid { grid-template-columns: 1fr 1fr; }
-  .offices-grid { grid-template-columns: 1fr; }
-  .values-row-2 { grid-template-columns: 1fr; }
-  .life-grid { grid-template-columns: 1fr; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .intro-videos { grid-template-columns: 1fr; }
+  .careers-subnav-links { display: none; }
+  .mosaic { grid-template-columns: repeat(2, 1fr); }
+  .quotes-nav { display: none; }
 }
 @media (max-width: 600px) {
-  .values-grid { grid-template-columns: 1fr; }
+  .values-teaser-grid { grid-template-columns: 1fr; }
   .benefits-grid { grid-template-columns: 1fr; }
+  .story-grid { grid-template-columns: 1fr; }
+  .jobs-toolbar { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -279,61 +602,118 @@
 <main id="main">
 
   <!-- Hero -->
-  <section class="hero hero-dark">
+  <section class="hero hero-dark careers-hero">
     <div class="container">
-      <div style="max-width: 780px;">
-        <span class="eyebrow on-dark">Careers at Dimagi</span>
-        <h1 class="hero-title">Build Your Career, <em>Better the World</em></h1>
-        <p class="hero-sub">Dimagi is more than a tech company. We are a team of creative problem solvers dedicated to using our skills and experience to enable our partners and frontline programs to deliver more impact globally.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-on-dark btn-arrow" href="https://dimagi.com/careers/" target="_blank" rel="noopener">View open roles</a>
-          <a class="btn btn-ghost-on-dark" href="../../company/about/index.html">About Dimagi</a>
+      <div class="careers-hero-grid">
+        <div class="careers-hero-copy">
+          <span class="eyebrow on-dark">Social Impact Jobs</span>
+          <h1 class="hero-title">Build your career, <em>better the world</em></h1>
+          <p class="hero-sub">Dimagi is more than a tech company. We are a team of creative problem solvers dedicated to using our skills and experience to enable our partners and frontline programs to deliver more impact globally. We prioritize impact and value failure as a chance to learn. At Dimagi, you can be uniquely you.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-on-dark btn-arrow" href="#openpositions">View open positions</a>
+            <a class="btn btn-ghost-on-dark" href="../../company/values/index.html">Our values</a>
+          </div>
+        </div>
+        <figure class="careers-hero-figure">
+          <img src="../../assets/images/careers/hero.jpg" alt="The Dimagi team gathered together" loading="eager">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky sub-nav -->
+  <div class="careers-subnav">
+    <div class="container">
+      <div class="careers-subnav-row">
+        <div class="careers-subnav-links">
+          <a href="#impact">Impact</a>
+          <a href="#values">Values</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#life">Life at Dimagi</a>
+        </div>
+        <a class="btn btn-indigo" href="#openpositions">View open positions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Powered by a passion for impact + videos -->
+  <section class="section" id="impact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Powered by a passion for impact</span>
+        <h2 class="section-title">We prioritize impact, and value failure as a chance to learn</h2>
+        <p class="section-lede">Hear directly from the people who make up Dimagi about the work we do and why we do it.</p>
+      </div>
+      <div class="intro-videos">
+        <div class="video-frame">
+          <script src="https://fast.wistia.com/embed/medias/q9ri7cqi0j.jsonp" async></script>
+          <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <span class="wistia_embed wistia_async_q9ri7cqi0j videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-frame">
+          <script src="https://fast.wistia.com/embed/medias/3qqxlk2knm.jsonp" async></script>
+          <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <span class="wistia_embed wistia_async_3qqxlk2knm videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="section">
+  <!-- Values teaser -->
+  <section class="section cool" id="values">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Our Values</span>
-        <h2 class="section-title">What we believe in</h2>
-        <p class="section-lede">Our values aren't aspirational. They're how we work every day. We hire for them, promote for them, and hold ourselves to them.</p>
+        <h2 class="section-title">Our operating manual</h2>
+        <p class="section-lede">Our values define how we get great work done together. We hire for them, promote for them, and hold ourselves to them every day.</p>
       </div>
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-card-num">01</div>
-          <div class="value-card-text">Impact, team, profit. In that order.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-card-num">02</div>
-          <div class="value-card-text">Be bold but humble.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-card-num">03</div>
-          <div class="value-card-text">Lead with empathy and respect.</div>
-        </div>
+      <div class="values-teaser-grid">
+        <a class="value-chip" href="../../company/values/index.html">
+          <span class="value-chip-art"><img src="../../assets/images/about/value-impact.png" alt="" loading="lazy"></span>
+          <span class="value-chip-num">01</span>
+          <span class="value-chip-text">Impact, team, profit. In that order.</span>
+        </a>
+        <a class="value-chip" href="../../company/values/index.html">
+          <span class="value-chip-art"><img src="../../assets/images/about/value-bold.png" alt="" loading="lazy"></span>
+          <span class="value-chip-num">02</span>
+          <span class="value-chip-text">Be bold but humble</span>
+        </a>
+        <a class="value-chip" href="../../company/values/index.html">
+          <span class="value-chip-art"><img src="../../assets/images/about/value-empathy.png" alt="" loading="lazy"></span>
+          <span class="value-chip-num">03</span>
+          <span class="value-chip-text">Lead with empathy and respect</span>
+        </a>
+        <a class="value-chip" href="../../company/values/index.html">
+          <span class="value-chip-art"><img src="../../assets/images/about/value-evolve.png" alt="" loading="lazy"></span>
+          <span class="value-chip-num">04</span>
+          <span class="value-chip-text">Evolve by openly learning and sharing</span>
+        </a>
+        <a class="value-chip" href="../../company/values/index.html">
+          <span class="value-chip-art"><img src="../../assets/images/about/value-complexity.png" alt="" loading="lazy"></span>
+          <span class="value-chip-num">05</span>
+          <span class="value-chip-text">Embrace complexity for impact</span>
+        </a>
       </div>
-      <div class="values-row-2">
-        <div class="value-card">
-          <div class="value-card-num">04</div>
-          <div class="value-card-text">Evolve by openly learning and sharing.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-card-num">05</div>
-          <div class="value-card-text">Embrace complexity for impact.</div>
-        </div>
+      <div style="display:flex; justify-content:center; margin-top:40px;">
+        <a class="btn btn-indigo btn-arrow" href="../../company/values/index.html">Explore our values</a>
       </div>
     </div>
   </section>
 
   <!-- Benefits -->
-  <section class="section cool">
+  <section class="section" id="benefits">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Benefits</span>
-        <h2 class="section-title">We take care of our team</h2>
+        <h2 class="section-title">We care about our team's happiness</h2>
         <p class="section-lede">We offer competitive, globally-minded benefits designed for a distributed team that makes a real difference in the world.</p>
       </div>
       <div class="benefits-grid">
@@ -343,15 +723,15 @@
             <svg viewBox="0 0 24 24"><path d="M12 21.7C5.5 17.5 3 13.3 3 9a9 9 0 0 1 18 0c0 4.3-2.5 8.5-9 12.7Z"/><circle cx="12" cy="9" r="3"/></svg>
           </div>
           <div class="benefit-title">Excellent Health Insurance</div>
-          <p class="benefit-desc">Fully covered for employee and family.</p>
+          <p class="benefit-desc">Outstanding medical plan, fully covered for you and your family.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </div>
           <div class="benefit-title">Flexible Work Policy</div>
-          <p class="benefit-desc">Flexible hours and locations.</p>
+          <p class="benefit-desc">Dimagi offers employees flexible work hours and locations.</p>
         </div>
 
         <div class="benefit-card">
@@ -359,7 +739,7 @@
             <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
           </div>
           <div class="benefit-title">Generous Time Off</div>
-          <p class="benefit-desc">30 PTO days, unlimited sick days.</p>
+          <p class="benefit-desc">Recharge with 30 PTO days and unlimited sick days.</p>
         </div>
 
         <div class="benefit-card">
@@ -367,171 +747,256 @@
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div class="benefit-title">Home Office Benefit</div>
-          <p class="benefit-desc">Stipend resets every three years.</p>
+          <p class="benefit-desc">A generous stipend to set up your home office that resets every three years.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
-          <div class="benefit-title">Great Parental Leave</div>
-          <p class="benefit-desc">12 weeks primary caregivers, 6 weeks non-primary.</p>
+          <div class="benefit-title">Great Parental Leave Policy</div>
+          <p class="benefit-desc">12 weeks of leave for primary caregivers, six weeks for non-primary caregivers.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
             <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
-          <div class="benefit-title">Retirement Plans</div>
-          <p class="benefit-desc">401k in US, EPF in India, Retirement Fund in South Africa with company matching.</p>
+          <div class="benefit-title">Prepare for Retirement</div>
+          <p class="benefit-desc">A 401k in the US, EPF in India, and Retirement Fund in South Africa, all with company matching.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           </div>
-          <div class="benefit-title">Professional Development Access</div>
-          <p class="benefit-desc">Resources and support to keep growing in your field.</p>
+          <div class="benefit-title">Professional Development</div>
+          <p class="benefit-desc">Access to a professional development benefit to advance your career at Dimagi.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 3h18M3 9h18M3 15h14"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 3h18M3 9h18M3 15h13"/></svg>
           </div>
           <div class="benefit-title">Transparent Salary Structure</div>
-          <p class="benefit-desc">Open, global, non-negotiable.</p>
+          <p class="benefit-desc">A standard, open, global pay-scale that is non-negotiable.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
           </div>
           <div class="benefit-title">Employee Stock Options</div>
-          <p class="benefit-desc">Ownership stake in the company you help build.</p>
+          <p class="benefit-desc">You will have a stake in the future success of Dimagi.</p>
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- Awards -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Awards &amp; Recognition</span>
-        <h2 class="section-title">Recognized for our work</h2>
-        <p class="section-lede">Our commitment to impact, people, and sustainability has been recognized by leading organizations.</p>
-      </div>
-      <div class="benefits-grid">
-
-        <div class="benefit-card">
-          <div class="benefit-title">B Corporation Certified</div>
-          <p class="benefit-desc">Best for the World 2022</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-title">Built In Boston</div>
-          <p class="benefit-desc">Best Midsize Companies 2022</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-title">Inc 5000</div>
-          <p class="benefit-desc">Fastest Growing Private Companies (tenth time listing)</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-title">2023 Climate Neutral Certified</div>
-          <p class="benefit-desc">Certified climate neutral operations across our global footprint.</p>
-        </div>
-
+      <div style="display:flex; justify-content:center; margin-top:40px;">
+        <a class="btn btn-indigo btn-arrow" href="#openpositions">View open positions</a>
       </div>
     </div>
   </section>
 
   <!-- Life at Dimagi -->
-  <section class="section cool">
+  <section class="section cool" id="life">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Life at Dimagi</span>
-        <h2 class="section-title">In their own words</h2>
+        <h2 class="section-title">Come for the mission. Stay for the team.</h2>
         <p class="section-lede">Our team spans the globe, but a shared commitment to impact and to each other shows up everywhere we work.</p>
       </div>
-      <div class="life-grid">
+      <!-- Scrolling quotes -->
+      <div class="quotes-carousel">
+        <button type="button" class="quotes-nav prev" id="quotesPrev" aria-label="Previous quotes">&lsaquo;</button>
+        <div class="quotes-track" id="quotesTrack" tabindex="0" role="group" aria-label="Quotes from the Dimagi team (scrollable)">
 
-        <div class="life-card">
-          <p class="life-card-quote">"Dimagi strikes a perfect balance between hard work and fun, displaying unwavering adherence to their core values: Impact &gt; Team &gt; Profit. Working at Dimagi is an absolute delight and has immensely helped me grow both professionally and personally."</p>
-          <div class="life-card-person">
-            <img class="life-card-photo" src="../../assets/images/team/anamika-verma.jpg" alt="Anamika Verma" loading="lazy">
-            <div>
-              <p class="life-card-name">Anamika Verma</p>
-              <p class="life-card-role">Operations and Partnerships</p>
+          <div class="life-card">
+            <p class="life-card-quote">"Dimagi strikes a perfect balance between hard work and fun, displaying unwavering adherence to their core values: Impact &gt; Team &gt; Profit. Working at Dimagi is an absolute delight and has immensely helped me grow both professionally and personally."</p>
+            <div class="life-card-person">
+              <img class="life-card-photo" src="../../assets/images/team/anamika-verma.jpg" alt="Anamika Verma" loading="lazy">
+              <div>
+                <p class="life-card-name">Anamika Verma</p>
+                <p class="life-card-role">Operations and Partnerships</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="life-card">
-          <p class="life-card-quote">"To work at Dimagi gives me the opportunity to collaborate with people who share a vision to empower. I am so lucky to wake up motivated, inspired, and proud about our work and our culture, everyday."</p>
-          <div class="life-card-person">
-            <img class="life-card-photo" src="../../assets/images/team/anita-kruger.jpg" alt="Anita Kruger" loading="lazy">
-            <div>
-              <p class="life-card-name">Anita Kruger</p>
-              <p class="life-card-role">Partnerships Manager</p>
+          <div class="life-card">
+            <p class="life-card-quote">"To work at Dimagi gives me the opportunity to collaborate with people who share a vision to empower. I am so lucky to wake up motivated, inspired, and proud about our work and our culture, everyday."</p>
+            <div class="life-card-person">
+              <img class="life-card-photo" src="../../assets/images/team/anita-kruger.jpg" alt="Anita Kruger" loading="lazy">
+              <div>
+                <p class="life-card-name">Anita Kruger</p>
+                <p class="life-card-role">Partnerships Manager</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="life-card">
-          <p class="life-card-quote">"I love the people at Dimagi! You can be the most talented individual and even manage to accomplish great things on your own, but without a good team supporting and pushing things forward with you, the impact won't be the same. Team work makes the dream work."</p>
-          <div class="life-card-person">
-            <img class="life-card-photo" src="../../assets/images/team/yomila-simoes.jpg" alt="Yomila Simoes" loading="lazy">
-            <div>
-              <p class="life-card-name">Yomila Simoes</p>
-              <p class="life-card-role">Senior Project Analyst</p>
+          <div class="life-card">
+            <p class="life-card-quote">"I love the people at Dimagi! You can be the most talented individual and even manage to accomplish great things on your own, but without a good team supporting and pushing things forward with you, the impact won't be the same. Team work makes the dream work."</p>
+            <div class="life-card-person">
+              <img class="life-card-photo" src="../../assets/images/team/yomila-simoes.jpg" alt="Yomila Simoes" loading="lazy">
+              <div>
+                <p class="life-card-name">Yomila Simoes</p>
+                <p class="life-card-role">Senior Project Analyst</p>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
+        <button type="button" class="quotes-nav next" id="quotesNext" aria-label="More quotes">&rsaquo;</button>
+      </div>
+
+      <!-- One Dimagi photo mosaic (merged in) -->
+      <div class="one-dimagi-block">
+        <p class="one-dimagi-lede">"Lead with empathy and respect" is a core value at Dimagi. It shapes how we collaborate across every time zone, and how we show up for one another as one team.</p>
+        <div class="mosaic">
+          <figure><img src="../../assets/images/careers/one-dimagi-2.jpg" alt="Dimagi team members together" loading="lazy"></figure>
+          <figure><img src="../../assets/images/careers/one-dimagi-3.jpg" alt="Dimagi team gathering" loading="lazy"></figure>
+          <figure><img src="../../assets/images/careers/one-dimagi-4.jpg" alt="Dimagi staff celebrating together" loading="lazy"></figure>
+          <figure><img src="../../assets/images/careers/one-dimagi-5.jpg" alt="Dimagi team event" loading="lazy"></figure>
+          <figure><img src="../../assets/images/careers/one-dimagi-6.jpg" alt="Dimagi team members at an offsite" loading="lazy"></figure>
+          <figure><img src="../../assets/images/careers/one-dimagi-1.jpg" alt="Dimagi colleagues collaborating" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <!-- Day in the life / career journeys -->
+      <div class="stories-block">
+        <h3 class="stories-head">A day in the life at Dimagi</h3>
+        <p class="stories-sub">Real stories from across our teams on what it is like to build a career here.</p>
+        <div class="story-grid">
+          <a class="story-card" href="../../blog/career-journey-of-simon-kelly/index.html">
+            <div class="story-card-img"><img src="../../assets/images/career-journey-of-simon-kelly/cover.jpg" alt="Career Journey of Simon Kelly" loading="lazy"></div>
+            <div class="story-card-body">
+              <div class="story-card-date">December 2023</div>
+              <h3 class="story-card-title">Career Journey of Simon Kelly</h3>
+              <p class="story-card-desc">From first role to global impact, Simon Kelly on the path his career has taken at Dimagi.</p>
+              <span class="story-card-link">Read more &rarr;</span>
+            </div>
+          </a>
+          <a class="story-card" href="../../blog/career-journey-of-julia-fuller/index.html">
+            <div class="story-card-img"><img src="../../assets/images/career-journey-of-julia-fuller/cover.jpg" alt="Career Journey of Julia Fuller" loading="lazy"></div>
+            <div class="story-card-body">
+              <div class="story-card-date">November 2023</div>
+              <h3 class="story-card-title">Career Journey of Julia Fuller</h3>
+              <p class="story-card-desc">A community health professional on her journey, the challenges she faced, and advice for growing.</p>
+              <span class="story-card-link">Read more &rarr;</span>
+            </div>
+          </a>
+          <a class="story-card" href="../../blog/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/index.html">
+            <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-themba-nyirenda-senior-technical-project-analyst-solutions-division/cover.jpg" alt="A Day in the Life of Themba Nyirenda" loading="lazy"></div>
+            <div class="story-card-body">
+              <div class="story-card-date">July 2023</div>
+              <h3 class="story-card-title">A Day in the Life of Themba Nyirenda</h3>
+              <p class="story-card-desc">Inside Dimagi's Solutions Division through the eyes of a Senior Technical Project Analyst.</p>
+              <span class="story-card-link">Read more &rarr;</span>
+            </div>
+          </a>
+          <a class="story-card" href="../../blog/a-day-in-the-life-of-dhivya-sivaramakrishnan/index.html">
+            <div class="story-card-img"><img src="../../assets/images/a-day-in-the-life-of-dhivya-sivaramakrishnan/cover.jpg" alt="A Day in the Life of Dhivya Sivaramakrishnan" loading="lazy"></div>
+            <div class="story-card-body">
+              <div class="story-card-date">June 2023</div>
+              <h3 class="story-card-title">A Day in the Life of Dhivya Sivaramakrishnan</h3>
+              <p class="story-card-desc">A Project Manager in our India Division on what a typical day really looks like.</p>
+              <span class="story-card-link">Read more &rarr;</span>
+            </div>
+          </a>
+        </div>
+        <div class="stories-cta">
+          <a class="btn btn-indigo btn-arrow" href="../../blog/?series=careers">Explore more day-in-the-life stories</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Offices (dark) -->
-  <section class="section dark">
+  <!-- Awards -->
+  <section class="section cool">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow on-dark">Where We Work</span>
-        <h2 class="section-title">Global offices, remote-friendly everywhere</h2>
-        <p class="section-lede">We have offices on three continents and team members distributed across the globe. Location is never a barrier to joining the Dimagi mission.</p>
+        <span class="eyebrow">Awards &amp; Recognition</span>
+        <h2 class="section-title">Recognized for our work</h2>
+        <p class="section-lede">Our commitment to impact, our people, and the planet has been independently recognized.</p>
       </div>
-      <div class="offices-grid">
-        <div class="office-card">
-          <div class="office-card-country">United States</div>
-          <div class="office-card-city">Cambridge, MA</div>
-          <p class="office-card-note">Our founding office and global headquarters, in the heart of Cambridge's innovation ecosystem.</p>
+      <div class="awards-grid">
+
+        <div class="award-card award-card-static">
+          <div class="award-logo"><img src="../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy"></div>
+          <h3 class="award-title">Certified B Corporation</h3>
+          <p class="award-desc">Dimagi is a Certified B Corporation and a Benefit Corporation, balancing purpose and profit and holding ourselves accountable to the communities we serve.</p>
+          <div class="award-links">
+            <a class="award-link" href="https://www.bcorporation.net/en-us/find-a-b-corp/company/dimagi-inc/" target="_blank" rel="noopener">View our B Corp profile &rarr;</a>
+            <a class="award-link award-link-soft" href="../../blog/behind-our-b/index.html">Read: Behind our B &rarr;</a>
+          </div>
         </div>
-        <div class="office-card">
-          <div class="office-card-country">South Africa</div>
-          <div class="office-card-city">Cape Town</div>
-          <p class="office-card-note">Our Africa hub, supporting programs across the continent and serving as a center for engineering and services talent.</p>
-        </div>
-        <div class="office-card">
-          <div class="office-card-country">India</div>
-          <div class="office-card-city">Delhi</div>
-          <p class="office-card-note">A thriving office supporting programs across South and Southeast Asia, with deep product engineering expertise.</p>
-        </div>
+
+        <a class="award-card" href="https://www.changeclimate.org/brand/dimagi" target="_blank" rel="noopener">
+          <div class="award-logo dark"><img src="../../assets/images/careers/climate-label.png" alt="Climate Neutral Certified" loading="lazy"></div>
+          <h3 class="award-title">Climate Neutral Certified</h3>
+          <p class="award-desc">We measure, reduce, and offset our emissions to a globally recognized standard for carbon accountability.</p>
+          <span class="award-link">See our climate label &rarr;</span>
+        </a>
+
+        <a class="award-card" href="https://dimagi.com/awards/" target="_blank" rel="noopener">
+          <div class="award-logo icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 4h3v2a3 3 0 0 1-3 3M7 4H4v2a3 3 0 0 0 3 3"/></svg>
+          </div>
+          <h3 class="award-title">More recognition</h3>
+          <p class="award-desc">From Best for the World to Inc. 5000 and Built In's best places to work, see the full list of awards Dimagi has earned.</p>
+          <span class="award-link">See all our awards &rarr;</span>
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- Hiring CTA -->
-  <div class="hiring-section">
+  <!-- Current Openings (Greenhouse) -->
+  <section class="section" id="openpositions">
     <div class="container">
-      <span class="eyebrow">Open Roles</span>
-      <h2>We're Hiring</h2>
-      <p>Browse open roles on our jobs board. We'd love to hear from you.</p>
-      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/careers/" target="_blank" rel="noopener">View all open roles</a>
-      <p style="margin-top: 28px; font-size: 15px; color: var(--muted);">Questions about a role? Email us at <a href="mailto:careers@dimagi.com" style="color: var(--indigo);">careers@dimagi.com</a></p>
-      <div class="eeo-block" style="margin-top: 48px;">
+      <div class="section-head">
+        <span class="eyebrow">Current Openings</span>
+        <h2 class="section-title">Find your role</h2>
+        <p class="section-lede">Browse our open positions below. Roles are pulled live from our jobs board, so you are always seeing the latest opportunities.</p>
+      </div>
+
+      <div class="jobs-toolbar">
+        <div class="jobs-field">
+          <label for="f-search">Search</label>
+          <input id="f-search" type="text" placeholder="Search roles…" autocomplete="off">
+        </div>
+        <div class="jobs-field">
+          <label for="f-dept">Team</label>
+          <select id="f-dept"><option value="">All teams</option></select>
+        </div>
+        <div class="jobs-field">
+          <label for="f-loc">Location</label>
+          <select id="f-loc"><option value="">All locations</option></select>
+        </div>
+        <div class="jobs-field">
+          <label for="f-type">Employment type</label>
+          <select id="f-type"><option value="">All types</option></select>
+        </div>
+      </div>
+
+      <div class="jobs-count" id="jobs-count" aria-live="polite"></div>
+
+      <div class="jobs-status" id="jobs-status">
+        <div class="jobs-spinner" aria-hidden="true"></div>
+        Loading open roles…
+      </div>
+
+      <div class="jobs-list" id="jobs-list"></div>
+
+      <p class="talent-note">
+        Don't see the right role? <a href="mailto:careers@dimagi.com?subject=Dimagi%20Talent%20Community">Join our talent community</a> and we will reach out when something opens up.
+        Questions? Read our <a href="https://dimagi.com/careers/faqs/" target="_blank" rel="noopener">careers FAQ</a> or email <a href="mailto:careers@dimagi.com">careers@dimagi.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- EEO / accommodations -->
+  <section class="section cool">
+    <div class="container">
+      <div class="eeo-block">
         <h4>Equal Opportunity</h4>
         <p>Dimagi is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, age, pregnancy, genetic information, disability, status as a protected veteran, or any other protected category under applicable federal, state, and local laws.</p>
         <p>If you are interested in applying for employment and need special assistance or reasonable accommodation during the application or interview process for a posted position, please contact us at 617-604-2123 or send an email to <a href="mailto:accommodations@dimagi.com">accommodations@dimagi.com</a> detailing your request.</p>
@@ -539,7 +1004,7 @@
         <p>Dimagi maintains an Affirmative Action Plan for the purpose of proactively seeking employment of qualified protected veterans and individuals with disabilities. Upon request, Dimagi will make accessible to you its Affirmative Action Plan for protected veterans and individuals with a disability. If you are interested, please contact us at 617-649-2214 or send an email to <a href="mailto:aaprequests@dimagi.com">aaprequests@dimagi.com</a>. We will then schedule a time for you to review the Affirmative Action Plan during normal business hours, which are Monday through Friday 9:00 am to 3:00 pm Eastern time zone. Dimagi's corporate office is located at 585 Massachusetts Ave, Cambridge, MA 02139.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- CTA band -->
   <div class="cta-band">
@@ -560,13 +1025,13 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
-        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
         <ul>
-          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
           <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
         </ul>
@@ -600,8 +1065,6 @@
           <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
           <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
           <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
-          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
-          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
         </ul>
       </div>
     </div>
@@ -611,11 +1074,142 @@
         <a href="../../legal/privacy-policy/index.html">Privacy</a>
         <a href="../../legal/terms-of-service/index.html">Terms</a>
         <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=4"></script>
+<script src="../../assets/js/nav.js?v=6"></script>
+<script>
+/* ── Life at Dimagi: scrolling quotes ── */
+(function () {
+  var track = document.getElementById('quotesTrack');
+  var prev = document.getElementById('quotesPrev');
+  var next = document.getElementById('quotesNext');
+  if (!track || !prev || !next) return;
+
+  function step() {
+    var card = track.querySelector('.life-card');
+    return card ? card.getBoundingClientRect().width + 22 : track.clientWidth * 0.8;
+  }
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+  function update() {
+    prev.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft >= maxScroll() - 1;
+  }
+  function go(delta) {
+    track.scrollLeft = Math.max(0, Math.min(track.scrollLeft + delta, maxScroll()));
+    update();
+  }
+  prev.addEventListener('click', function () { go(-step()); });
+  next.addEventListener('click', function () { go(step()); });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<script>
+/* ── Live Greenhouse job board ── */
+(function () {
+  var BOARD = 'dimagi';
+  var API = 'https://boards-api.greenhouse.io/v1/boards/' + BOARD + '/jobs?content=true';
+  var listEl = document.getElementById('jobs-list');
+  var statusEl = document.getElementById('jobs-status');
+  var countEl = document.getElementById('jobs-count');
+  var fDept = document.getElementById('f-dept');
+  var fLoc = document.getElementById('f-loc');
+  var fType = document.getElementById('f-type');
+  var fSearch = document.getElementById('f-search');
+  var jobs = [];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function metaVal(j, name) {
+    var arr = j.metadata || [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].name === name && arr[i].value) return String(arr[i].value);
+    }
+    return '';
+  }
+  function deptName(j) {
+    var d = j.departments && j.departments[0] && j.departments[0].name;
+    return d ? d.replace(/\s*\(new\)\s*$/i, '').trim() : '';
+  }
+  function locName(j) { return (j.location && j.location.name) || ''; }
+  function uniqSorted(arr) {
+    var seen = {}, out = [];
+    arr.forEach(function (v) { if (v && !seen[v]) { seen[v] = 1; out.push(v); } });
+    return out.sort();
+  }
+  function fillSelect(sel, values) {
+    values.forEach(function (v) {
+      var o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+
+  function render() {
+    var q = (fSearch.value || '').trim().toLowerCase();
+    var d = fDept.value, l = fLoc.value, t = fType.value;
+    var rows = jobs.filter(function (j) {
+      if (d && deptName(j) !== d) return false;
+      if (l && locName(j) !== l) return false;
+      if (t && metaVal(j, 'Employment Type') !== t) return false;
+      if (q) {
+        var hay = (j.title + ' ' + deptName(j) + ' ' + locName(j)).toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+    listEl.innerHTML = '';
+    countEl.textContent = rows.length + (rows.length === 1 ? ' open role' : ' open roles');
+    if (!rows.length) {
+      listEl.innerHTML = '<div class="jobs-empty">No roles match these filters right now. Try clearing a filter, or <a href="mailto:careers@dimagi.com">join our talent community</a>.</div>';
+      return;
+    }
+    rows.forEach(function (j) {
+      var dep = deptName(j), loc = locName(j), et = metaVal(j, 'Employment Type');
+      var a = document.createElement('a');
+      a.className = 'job-row';
+      a.href = j.absolute_url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML =
+        '<div class="job-row-main">' +
+          '<div class="job-row-title">' + esc(j.title) + '</div>' +
+          '<div class="job-row-meta">' +
+            (dep ? '<span>' + esc(dep) + '</span>' : '') +
+            (loc ? '<span>' + esc(loc) + '</span>' : '') +
+            (et ? '<span>' + esc(et) + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<span class="job-row-arrow" aria-hidden="true">&rarr;</span>';
+      listEl.appendChild(a);
+    });
+  }
+
+  fetch(API)
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      jobs = (data.jobs || []).sort(function (a, b) { return a.title.localeCompare(b.title); });
+      statusEl.style.display = 'none';
+      fillSelect(fDept, uniqSorted(jobs.map(deptName)));
+      fillSelect(fLoc, uniqSorted(jobs.map(locName)));
+      fillSelect(fType, uniqSorted(jobs.map(function (j) { return metaVal(j, 'Employment Type'); })));
+      fSearch.addEventListener('input', render);
+      [fDept, fLoc, fType].forEach(function (el) { el.addEventListener('change', render); });
+      render();
+    })
+    .catch(function () {
+      statusEl.innerHTML = 'We could not load live roles right now. <a href="https://job-boards.greenhouse.io/' + BOARD + '" target="_blank" rel="noopener">View all open positions on Greenhouse &rarr;</a>';
+    });
+})();
+</script>
 </body>
 </html>

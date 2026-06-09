@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Our Values | Dimagi</title>
+<meta name="description" content="Our values are our operating manual. They define how we get great work done together, from how we make decisions to how we hire, promote, and treat one another.">
+<link rel="canonical" href="https://dimagi.com/company/values/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/company/values/">
+<meta property="og:title" content="Our Values">
+<meta property="og:description" content="Our values are our operating manual. They define how we get great work done together, from how we make decisions to how we hire, promote, and treat one another.">
+<meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
+<meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our Values">
+<meta name="twitter:description" content="Our values are our operating manual. They define how we get great work done together, from how we make decisions to how we hire, promote, and treat one another.">
+<meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<style>
+/* ── Values page ── */
+#main .section { padding: 84px 0; }
+
+/* Operating-manual intro */
+.values-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.values-intro-lede {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.values-intro-lede strong { font-weight: 600; }
+.values-intro-body { font-size: 16.5px; color: var(--muted); line-height: 1.7; margin: 0; }
+.values-intro-body + .values-intro-body { margin-top: 16px; }
+.values-podcast-note {
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: var(--paper-cool);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.values-podcast-note strong { color: var(--ink); font-weight: 600; }
+
+/* Value rows */
+.value-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.value-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+}
+.value-row:first-child { border-top: none; padding-top: 8px; }
+.value-row.reverse .value-row-art { order: 2; }
+.value-row-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.value-row-art img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+.value-row-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--indigo);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.value-row-num::after {
+  content: "";
+  height: 1px;
+  width: 48px;
+  background: var(--indigo-soft);
+}
+.value-row-title {
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.value-row-desc {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 46ch;
+}
+.value-listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  text-decoration: none;
+  transition: gap 200ms, color 160ms;
+}
+.value-listen::before {
+  content: "";
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent var(--indigo);
+}
+.value-listen:hover { gap: 14px; color: var(--indigo-deep); }
+
+/* Feature (value 01) gets a soft tinted card behind the art */
+.value-row.feature .value-row-art {
+  background: linear-gradient(160deg, var(--paper-cool) 0%, var(--indigo-soft) 100%);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+}
+
+@media (max-width: 900px) {
+  .values-intro { grid-template-columns: 1fr; gap: 28px; }
+  .value-row { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
+  .value-row.reverse .value-row-art { order: 0; }
+  .value-row-art img { max-width: 320px; }
+  .value-row.feature .value-row-art { padding: 28px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../">
+      <a class="logo" href="../../index.html">
+        <img class="logo-img invert" src="../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="../../professional-services/index.html">Professional Services</a>
+        <a href="../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero hero-dark">
+    <div class="container">
+      <div style="max-width: 780px;">
+        <span class="eyebrow on-dark">Our Values</span>
+        <h1 class="hero-title">The values that <em>guide us</em></h1>
+        <p class="hero-sub">At Dimagi, we care deeply not only about what we do and the impact we have, but also about how we do it. These five values are our operating manual, and they shape every decision we make.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-on-dark btn-arrow" href="../../company/careers/index.html">See open roles</a>
+          <a class="btn btn-ghost-on-dark" href="../../company/about/index.html">About Dimagi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operating manual intro -->
+  <section class="section">
+    <div class="container">
+      <div class="values-intro">
+        <div>
+          <p class="values-intro-lede">Our values serve as our <strong>operating manual</strong>, defining how we get great work done together.</p>
+        </div>
+        <div>
+          <p class="values-intro-body">They are not posters on a wall. We hire for them, promote for them, and hold ourselves and each other accountable to them every day, across every office and time zone.</p>
+          <div class="values-podcast-note">
+            <strong>Hear them in our own words.</strong> In a series on our High-Impact Growth podcast, Dimagi CEO Jonathan Jackson is joined by team members to unpack each value and what it means to us in practice.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value rows -->
+  <section class="section cool" style="padding-top: 24px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="value-rows">
+
+        <!-- 01 — feature -->
+        <div class="value-row feature">
+          <div class="value-row-art">
+            <img src="../../assets/images/about/value-impact.png" alt="Flywheel illustration showing impact, team, and profit reinforcing one another" loading="lazy">
+          </div>
+          <div class="value-row-body">
+            <div class="value-row-num">Value 01</div>
+            <h2 class="value-row-title">Impact, team, profit.<br>In that order.</h2>
+            <p class="value-row-desc">This guides everything we do as a company. Impact, team, and profit create a virtuous flywheel, and keeping them in that order is how we make decisions, hire people, and hold ourselves accountable.</p>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="value-row reverse">
+          <div class="value-row-art">
+            <img src="../../assets/images/about/value-bold.png" alt="" loading="lazy">
+          </div>
+          <div class="value-row-body">
+            <div class="value-row-num">Value 02</div>
+            <h2 class="value-row-title">Be bold but humble</h2>
+            <p class="value-row-desc">We take ambitious swings at hard problems while staying grounded, open to feedback, and willing to be wrong. Confidence and humility are not opposites; we need both to do our best work.</p>
+            <a class="value-listen" href="../../podcast/ep16-be-bold-but-humble-articulating-dimagis-culture-and-values/">Listen to the podcast</a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="value-row">
+          <div class="value-row-art">
+            <img src="../../assets/images/about/value-empathy.png" alt="" loading="lazy">
+          </div>
+          <div class="value-row-body">
+            <div class="value-row-num">Value 03</div>
+            <h2 class="value-row-title">Lead with empathy and respect</h2>
+            <p class="value-row-desc">We center the people we serve and treat every colleague and partner with care. This principle shapes how we work with partners and how we collaborate internally, and it is how we keep a supportive, respectful environment for everyone.</p>
+            <a class="value-listen" href="../../podcast/ep18-lead-with-empathy-and-respect-articulating-dimagis-culture-and-values/">Listen to the podcast</a>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="value-row reverse">
+          <div class="value-row-art">
+            <img src="../../assets/images/about/value-evolve.png" alt="" loading="lazy">
+          </div>
+          <div class="value-row-body">
+            <div class="value-row-num">Value 04</div>
+            <h2 class="value-row-title">Evolve by openly learning and sharing</h2>
+            <p class="value-row-desc">We learn in the open, share what works and what does not, and keep improving together. Transparency is how a global, distributed team gets smarter faster.</p>
+            <a class="value-listen" href="../../podcast/ep19-evolve-by-learning-and-sharing-openly-articulating-dimagis-culture-and-values/">Listen to the podcast</a>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="value-row">
+          <div class="value-row-art">
+            <img src="../../assets/images/about/value-complexity.png" alt="" loading="lazy">
+          </div>
+          <div class="value-row-body">
+            <div class="value-row-num">Value 05</div>
+            <h2 class="value-row-title">Embrace complexity for impact</h2>
+            <p class="value-row-desc">We lean into hard, messy problems, because that is where lasting impact lives. Real-world frontline work is rarely simple, and we are at our best when we meet that complexity head on.</p>
+            <a class="value-listen" href="../../podcast/ep21-embrace-complexity-for-impact-articulating-dimagis-culture-and-values/">Listen to the podcast</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Live these values with us</h2>
+      <p>We are seeking impact-driven problem solvers to help build a more equitable world. If our values resonate, we would love to hear from you.</p>
+      <div class="cta-actions">
+        <a class="btn btn-on-dark btn-arrow" href="../../company/careers/index.html">View open roles</a>
+        <a class="btn btn-ghost-on-dark" href="../../company/about/index.html">About Dimagi</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../professional-services/index.html">Overview</a></li>
+          <li><a href="../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../company/about/index.html">About Us</a></li>
+          <li><a href="../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../awards/index.html">Awards</a></li>
+          <li><a href="../../contact/index.html">Contact Us</a></li>
+          <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../legal/privacy-policy/index.html">Privacy Policy</a></li>
+          <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
+          <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
+          <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/nav.js?v=6"></script>
+</body>
+</html>

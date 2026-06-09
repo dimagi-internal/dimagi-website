@@ -23,19 +23,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=13">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 /* ── About page ── */
 
 /* Tighter vertical rhythm (less whitespace between sections) */
-#main .section { padding: 80px 0; }
-#main .cta-band { padding: 84px 0; }
+#main .section { padding: 64px 0; }
+#main .cta-band { padding: 76px 0; }
+#main .section-head { margin-bottom: 32px; }
 
 /* Hero without image - single column */
 .hero-grid--solo { grid-template-columns: 1fr; }
 .hero-grid--solo .hero-copy { max-width: 860px; }
 .hero-grid--solo .hero-sub { max-width: 620px; }
+/* extra room at the bottom so the lifted stats card overlaps empty hero space */
+#main .hero.hero-dark { padding-bottom: 104px; }
 
 /* Section anchor sub-nav */
 .about-anchors {
@@ -63,30 +66,26 @@
 }
 .about-anchors-row a:hover { color: var(--indigo); background: var(--paper-cool); }
 
-/* Stats band - Our Impact (matches home page stats band) */
+/* Stats band - elevated card that lifts up over the hero */
 .stats-band {
-  background: var(--indigo-soft);
+  background: transparent;
   border-bottom: none;
-  padding: 60px 0;
-}
-.stats-band .stats-eyebrow {
-  display: block;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--indigo);
-  margin-bottom: 28px;
+  padding: 0 0 56px;
+  margin-top: -48px;
+  position: relative;
+  z-index: 3;
 }
 .stats-band-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(45,54,166,0.16);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 34px 64px -40px rgba(10,6,32,0.5);
+  overflow: hidden;
 }
 .stats-band-cell {
-  padding: 44px 32px;
+  padding: 40px 32px;
   text-align: center;
   border-right: 1px solid rgba(45,54,166,0.14);
 }
@@ -172,51 +171,64 @@
 /* Pillars - light icon row */
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-top: 8px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  margin-top: 4px;
 }
 .pillar-card {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  transition: border-color 200ms, box-shadow 200ms;
 }
+.pillar-card:hover {
+  border-color: rgba(56,67,208,0.28);
+  box-shadow: 0 18px 38px -28px rgba(10,6,32,0.4);
+}
+.pillar-text { flex: 1; min-width: 0; }
 .pillar-icon {
-  width: 84px; height: 84px;
-  margin: 0 auto 24px;
+  width: 72px; height: 72px;
+  flex-shrink: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .pillar-icon img { width: 100%; height: 100%; object-fit: contain; }
 .pillar-title {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 .pillar-desc {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 24ch;
-  margin: 0 auto;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* Centered section CTA */
 .section-cta {
   display: flex;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: 36px;
 }
 
 /* Values - feature left + 2x2 right */
-#values.section { padding: 60px 0; }
-#values .section-head { margin-bottom: 36px; }
+#values.section { padding: 56px 0; }
+#values .section-head { margin-bottom: 28px; }
 .value-cards {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  gap: 56px;
-  margin-top: 8px;
+  gap: 48px;
+  margin-top: 4px;
   align-items: center;
 }
 .value-index {
@@ -227,8 +239,8 @@
 }
 /* Feature (Impact, team, profit) */
 .value-feature-illus {
-  max-width: 440px;
-  margin-bottom: 32px;
+  max-width: 360px;
+  margin-bottom: 22px;
 }
 .value-feature-illus img { width: 100%; height: auto; display: block; }
 .value-feature .value-index { font-size: 13px; display: block; margin-bottom: 14px; }
@@ -250,7 +262,7 @@
 .value-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px 36px;
+  gap: 22px 32px;
 }
 .value-item {
   display: flex;
@@ -285,8 +297,8 @@ a.value-item:hover { border-top-color: var(--indigo); }
 }
 a.value-item:hover .value-listen { gap: 12px; }
 .value-item-illus {
-  height: 116px;
-  margin-bottom: 18px;
+  height: 84px;
+  margin-bottom: 14px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -314,90 +326,64 @@ a.value-item:hover .value-listen { gap: 12px; }
   line-height: 1.55;
 }
 
-/* Our Story - photo + timeline */
-.story-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 40px;
-  align-items: stretch;
-  margin-top: 48px;
-}
-.story-photo {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--indigo-soft);
-}
-.story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* Timeline - single-rail vertical, in a soft card */
-.timeline {
-  margin: 0;
-  background: var(--paper-cool);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 48px 52px;
-}
+/* Our Story - horizontal timeline */
+.story-layout { margin-top: 44px; }
+.timeline { margin: 0; }
 .timeline-items {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
 .timeline-item {
-  display: grid;
-  grid-template-columns: 64px 28px 1fr;
-  column-gap: 24px;
-  padding-bottom: 40px;
-}
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-year {
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--indigo);
-  letter-spacing: 0.04em;
-  text-align: right;
-  padding-top: 1px;
-}
-.timeline-rail {
   position: relative;
+  padding: 36px 14px 0;
+  text-align: center;
 }
-.timeline-rail::before {        /* connecting line */
+/* connecting rail */
+.timeline-item::before {
   content: "";
   position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--indigo-soft), rgba(56,67,208,0.45));
+}
+.timeline-item:first-child::before { left: 50%; }
+.timeline-item:last-child::before { right: 50%; }
+/* node dot */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 1px;
   left: 50%;
   transform: translateX(-50%);
-  top: 6px;
-  height: 100%;
-  width: 2px;
-  background: var(--line);
-}
-.timeline-item:last-child .timeline-rail::before { display: none; }
-.timeline-dot-inner {
-  position: absolute;
-  left: 50%;
-  top: 6px;
-  transform: translate(-50%, 0);
-  width: 14px; height: 14px;
+  width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--indigo);
-  border: 3px solid var(--paper-cool);
+  border: 3px solid #fff;
   box-shadow: 0 0 0 1px var(--indigo);
 }
-.timeline-content {
-  font-size: 16px;
-  color: var(--ink);
-  line-height: 1.55;
-  padding-top: 0;
-}
-.timeline-content strong {
+.timeline-year {
+  font-family: var(--mono);
+  font-size: 17px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--indigo);
+  letter-spacing: 0.01em;
+  margin-bottom: 9px;
 }
+.timeline-content {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 22ch;
+  margin: 0 auto;
+}
+.timeline-content strong { font-weight: 600; color: var(--ink); }
 .timeline-content a {
   color: var(--indigo);
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+  transition: color 160ms;
 }
 .timeline-content a:hover { color: var(--indigo-deep); }
 
@@ -468,35 +454,40 @@ a.value-item:hover .value-listen { gap: 12px; }
 }
 .team-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Interactive office map - Dimagi style (deep indigo) */
+/* Extra culture photos from the careers page */
+.team-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.team-strip figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--indigo-soft);
+}
+.team-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Interactive office map - light Dimagi style */
 .team-map-cell {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--grad-deep, #0A0620);
-  box-shadow: 0 30px 60px -28px rgba(45,54,166,0.6);
+  background: #e8ecf7;
+  box-shadow: 0 30px 60px -34px rgba(10,6,32,0.55);
 }
 #office-map {
   width: 100%;
   height: 100%;
   min-height: 380px;
-  background: #0A0620;
+  background: #e8ecf7;
   z-index: 0;
 }
-/* tint the dark basemap toward Dimagi indigo */
+/* gentle brand-leaning tint on the light basemap */
 .team-map-cell .leaflet-tile {
-  filter: saturate(0.85) hue-rotate(8deg) brightness(0.92) contrast(1.05);
-}
-/* indigo→pink brand glow over the map */
-.team-map-cell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(120% 90% at 18% 12%, rgba(56,67,208,0.30), transparent 55%),
-              radial-gradient(90% 80% at 90% 95%, rgba(154,81,131,0.28), transparent 60%);
-  mix-blend-mode: screen;
-  z-index: 400;
+  filter: saturate(1.04) hue-rotate(-4deg) brightness(1.01);
 }
 .team-map-badge {
   position: absolute;
@@ -507,39 +498,40 @@ a.value-item:hover .value-listen { gap: 12px; }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #fff;
-  background: rgba(13,8,37,0.55);
+  color: var(--indigo);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid var(--line);
   padding: 8px 14px;
   border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(10,6,32,0.12);
 }
-.leaflet-container { font-family: 'Work Sans', sans-serif; background: #0A0620; }
+.leaflet-container { font-family: 'Work Sans', sans-serif; background: #e8ecf7; }
 .leaflet-control-attribution {
-  background: rgba(13,8,37,0.6) !important;
-  color: rgba(255,255,255,0.5) !important;
+  background: rgba(255,255,255,0.75) !important;
+  color: rgba(20,16,58,0.55) !important;
 }
-.leaflet-control-attribution a { color: rgba(255,255,255,0.7) !important; }
+.leaflet-control-attribution a { color: var(--indigo) !important; }
 /* glowing pin */
 .office-pin {
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--marigold, #F2B705);
   border: 3px solid #fff;
-  box-shadow: 0 0 0 4px rgba(242,183,5,0.35), 0 0 18px 4px rgba(242,183,5,0.55);
+  box-shadow: 0 0 0 4px rgba(242,183,5,0.30), 0 6px 14px rgba(10,6,32,0.25);
 }
 /* permanent office name labels on the map */
 .office-label.leaflet-tooltip {
-  background: rgba(13,8,37,0.78);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #fff;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--line);
+  color: var(--ink);
   font-family: 'Work Sans', sans-serif;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
   padding: 5px 11px;
   border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 16px rgba(10,6,32,0.18);
   backdrop-filter: blur(4px);
 }
 .office-label.leaflet-tooltip::before { display: none; }
@@ -547,7 +539,7 @@ a.value-item:hover .value-listen { gap: 12px; }
 /* Leadership - featured + bio cards */
 .leader-featured {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 200px 1fr 250px;
   gap: 36px;
   align-items: center;
   background: #fff;
@@ -555,7 +547,7 @@ a.value-item:hover .value-listen { gap: 12px; }
   border-radius: var(--radius-lg);
   padding: 32px;
   margin-top: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   box-shadow: 0 28px 56px -32px rgba(10,6,32,0.28);
 }
 .leader-featured .leader-photo {
@@ -570,24 +562,68 @@ a.value-item:hover .value-listen { gap: 12px; }
   object-fit: cover; object-position: center top;
 }
 .leader-featured .leader-name { font-size: 24px; }
-.leader-featured .leader-bio { font-size: 15px; max-width: 60ch; }
+.leader-featured .leader-bio { font-size: 15px; max-width: 100%; }
+
+/* Podcast promo to the right of the CEO */
+.leader-podcast {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  background: var(--paper-cool);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  transition: transform 220ms, box-shadow 220ms, border-color 220ms;
+}
+.leader-podcast:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 46px -28px rgba(10,6,32,0.45);
+  border-color: rgba(56,67,208,0.3);
+}
+.leader-podcast img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.leader-podcast .lp-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--indigo);
+  line-height: 1.4;
+}
+.leader-podcast:hover .lp-label { color: var(--indigo-deep); }
 
 .leaders-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px 36px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
 .leader-card {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 20px;
-  align-items: start;
+  flex: 0 1 calc((100% - 72px) / 4);
+  max-width: calc((100% - 72px) / 4);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 22px;
+  text-align: center;
+  box-shadow: 0 14px 30px -26px rgba(10,6,32,0.4);
+  transition: box-shadow 220ms, border-color 220ms;
+}
+.leader-card:hover {
+  box-shadow: 0 22px 44px -28px rgba(10,6,32,0.5);
+  border-color: rgba(56,67,208,0.28);
 }
 .leader-photo {
-  width: 92px; height: 92px;
-  border-radius: 16px;
+  width: 104px; height: 104px;
+  border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
+  margin: 0 auto 16px;
   background: linear-gradient(160deg, var(--paper-cool), var(--indigo-soft));
   box-shadow: 0 12px 24px -16px rgba(10,6,32,0.4);
 }
@@ -600,7 +636,7 @@ a.value-item:hover .value-listen { gap: 12px; }
   font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.01em;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 .leader-name a {
   color: inherit;
@@ -615,27 +651,60 @@ a.value-item:hover .value-listen { gap: 12px; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--indigo);
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
+
+/* Collapsible bio */
+.leader-bio-wrap { margin-top: auto; }
+summary.leader-bio-toggle {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  transition: color 160ms;
+}
+summary.leader-bio-toggle::-webkit-details-marker { display: none; }
+summary.leader-bio-toggle:hover { color: var(--indigo-deep); }
+.leader-bio-toggle .chev {
+  display: inline-block;
+  font-size: 9px;
+  line-height: 1;
+  transition: transform 220ms ease;
+}
+details[open] .leader-bio-toggle .chev { transform: rotate(180deg); }
 .leader-bio {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  text-align: left;
   font-size: 13.5px;
   color: var(--muted);
   line-height: 1.6;
 }
 
 /* Explore More - vibrant gradient cards */
+#explore .section-title { font-size: clamp(30px, 3.6vw, 44px); }
+#explore .section-lede { font-size: 18px; }
 .explore-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 16px;
+  gap: 28px;
+  margin-top: 24px;
 }
 .explore-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 264px;
-  padding: 32px 30px;
+  min-height: 340px;
+  padding: 40px 38px;
   border-radius: var(--radius-lg);
   color: #fff;
   overflow: hidden;
@@ -647,7 +716,7 @@ a.value-item:hover .value-listen { gap: 12px; }
   content: "";
   position: absolute;
   right: -40px; bottom: -50px;
-  width: 200px; height: 200px;
+  width: 230px; height: 230px;
   border-radius: 50%;
   background: rgba(255,255,255,0.10);
   z-index: -1;
@@ -660,31 +729,33 @@ a.value-item:hover .value-listen { gap: 12px; }
 .explore-card.podcast { background: linear-gradient(155deg, var(--mango) 0%, var(--salmon) 100%); }
 .explore-card.careers { background: linear-gradient(155deg, var(--purple) 0%, var(--pink) 100%); }
 .explore-icon {
-  width: 52px; height: 52px;
-  border-radius: 14px;
+  width: 60px; height: 60px;
+  border-radius: 16px;
   background: rgba(255,255,255,0.18);
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  overflow: hidden;
 }
-.explore-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; }
+.explore-icon svg { width: 30px; height: 30px; stroke: #fff; fill: none; }
+.explore-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .explore-title {
-  font-size: 23px;
+  font-size: 27px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: #fff;
 }
 .explore-desc {
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.55;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.9);
   margin: 0;
   flex-grow: 1;
 }
 .explore-link {
-  margin-top: 22px;
+  margin-top: 26px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -701,12 +772,14 @@ a.value-item:hover .value-listen { gap: 12px; }
   .why-layout { grid-template-columns: 1fr; gap: 28px; }
   .value-cards { grid-template-columns: 1fr; gap: 44px; }
   .value-feature-illus { max-width: 360px; }
-  .story-layout { grid-template-columns: 1fr; }
-  .story-photo { aspect-ratio: 21 / 9; }
-  .pillars-grid { grid-template-columns: 1fr 1fr; gap: 48px 32px; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .leader-card { flex-basis: calc((100% - 48px) / 3); max-width: calc((100% - 48px) / 3); }
+  .leader-featured { grid-template-columns: 1fr; }
+  .leader-podcast { flex-direction: row; align-items: center; gap: 18px; }
+  .leader-podcast img { width: 100px; flex-shrink: 0; aspect-ratio: 1 / 1; }
+  .leader-podcast .lp-label { flex: 1; }
 }
 @media (max-width: 900px) {
-  .leaders-grid { grid-template-columns: 1fr; }
   .team-visuals { grid-template-columns: 1fr; }
   .team-map-cell { min-height: 360px; }
 }
@@ -715,19 +788,30 @@ a.value-item:hover .value-listen { gap: 12px; }
   .stats-band-grid { grid-template-columns: 1fr; }
   .stats-band-cell { border-right: none; border-bottom: 1px solid rgba(45,54,166,0.14); }
   .stats-band-cell:last-child { border-bottom: none; }
-  .pillars-grid { grid-template-columns: 1fr; }
-  .timeline { padding: 32px 24px; }
-  .timeline-item { grid-template-columns: 44px 22px 1fr; column-gap: 14px; padding-bottom: 30px; }
-  .timeline-year { font-size: 13px; }
-  .pillars-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 16px; }
+  /* timeline becomes a vertical rail */
+  .timeline { padding: 0; }
+  .timeline-items { grid-template-columns: 1fr; }
+  .timeline-item { text-align: left; padding: 0 0 26px 30px; }
+  .timeline-item::before { top: 6px; bottom: -4px; left: 7px; right: auto; width: 2px; height: auto; background: rgba(56,67,208,0.3); }
+  .timeline-item:first-child::before { left: 7px; }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-item::after { top: 2px; left: 0; transform: none; }
+  .timeline-content { max-width: none; margin: 0; }
+  .timeline-year { font-size: 15px; margin-bottom: 4px; }
+  .leader-card { flex-basis: calc((100% - 24px) / 2); max-width: calc((100% - 24px) / 2); }
   .team-cols { grid-template-columns: 1fr; gap: 40px; }
   .leader-featured { grid-template-columns: 1fr; gap: 24px; text-align: left; }
   .leader-featured .leader-photo { width: 150px; height: 150px; }
+  .team-strip { grid-template-columns: 1fr 1fr; }
   .value-grid { grid-template-columns: 1fr; gap: 24px; }
   .value-item { border-top-width: 1px; padding-top: 16px; }
   #office-map { min-height: 320px; }
   .team-visuals { grid-template-columns: 1fr; }
   .team-map-cell { min-height: 320px; }
+}
+@media (max-width: 520px) {
+  .leader-card { flex-basis: 100%; max-width: 100%; }
 }
 </style>
 </head>
@@ -776,7 +860,6 @@ a.value-item:hover .value-listen { gap: 12px; }
   <!-- Stats band -->
   <div class="stats-band">
     <div class="container">
-      <span class="stats-eyebrow">Our Impact</span>
       <div class="stats-band-grid">
         <div class="stats-band-cell">
           <div class="stats-band-num">130<span>+</span></div>
@@ -831,24 +914,32 @@ a.value-item:hover .value-listen { gap: 12px; }
       </div>
       <div class="pillars-grid">
         <div class="pillar-card">
+          <div class="pillar-text">
+            <div class="pillar-title">Improves Wellbeing</div>
+            <p class="pillar-desc">We seek ideas with the potential to ambitiously and provably improve wellbeing.</p>
+          </div>
           <div class="pillar-icon"><img src="../../assets/images/about/hig-wellbeing.png" alt=""></div>
-          <div class="pillar-title">Improves Wellbeing</div>
-          <p class="pillar-desc">We seek ideas with the potential to ambitiously and provably improve wellbeing.</p>
         </div>
         <div class="pillar-card">
+          <div class="pillar-text">
+            <div class="pillar-title">Inclusive</div>
+            <p class="pillar-desc">We design to reach the most underserved populations, even in challenging contexts.</p>
+          </div>
           <div class="pillar-icon"><img src="../../assets/images/about/hig-inclusive.png" alt=""></div>
-          <div class="pillar-title">Inclusive</div>
-          <p class="pillar-desc">We design to reach the most underserved populations, even in challenging contexts.</p>
         </div>
         <div class="pillar-card">
+          <div class="pillar-text">
+            <div class="pillar-title">Robust</div>
+            <p class="pillar-desc">We build robust technology that meets the highest standards on a lasting foundation.</p>
+          </div>
           <div class="pillar-icon"><img src="../../assets/images/about/hig-robust.png" alt=""></div>
-          <div class="pillar-title">Robust</div>
-          <p class="pillar-desc">We build robust technology that meets the highest standards on a lasting foundation.</p>
         </div>
         <div class="pillar-card">
+          <div class="pillar-text">
+            <div class="pillar-title">Market Driven</div>
+            <p class="pillar-desc">We balance merit and market, ensuring all work has a path to scale via the market.</p>
+          </div>
           <div class="pillar-icon"><img src="../../assets/images/about/hig-market.png" alt=""></div>
-          <div class="pillar-title">Market Driven</div>
-          <p class="pillar-desc">We balance merit and market, ensuring all work has a path to scale via the market.</p>
         </div>
       </div>
       <div class="section-cta">
@@ -863,7 +954,7 @@ a.value-item:hover .value-listen { gap: 12px; }
       <div class="section-head">
         <span class="eyebrow">Our Values</span>
         <h2 class="section-title">The values that guide us</h2>
-        <p class="section-lede">At Dimagi, we care deeply not only about what we do and the impact we have, but also about how we do it. Check out the following podcasts about each value, where Dimagi CEO Jonathan Jackson is joined by various Dimagi team members to discuss Dimagi's company values and what they mean to us.</p>
+        <p class="section-lede">We care deeply not only about what we do, but how we do it. Tap any value to hear our CEO and team unpack what it means to us on the podcast.</p>
       </div>
       <div class="value-cards">
         <div class="value-feature">
@@ -876,27 +967,26 @@ a.value-item:hover .value-listen { gap: 12px; }
             <div class="value-item-illus"><img src="../../assets/images/about/value-bold.png" alt="" loading="lazy"></div>
             <h3 class="value-item-title">Be bold but humble</h3>
             <p class="value-item-desc">We take ambitious swings while staying grounded, open, and willing to be wrong.</p>
-            <span class="value-listen">Listen to the Podcast</span>
           </a>
           <a class="value-item" href="../../podcast/ep18-lead-with-empathy-and-respect-articulating-dimagis-culture-and-values/">
             <div class="value-item-illus"><img src="../../assets/images/about/value-empathy.png" alt="" loading="lazy"></div>
             <h3 class="value-item-title">Lead with empathy and respect</h3>
             <p class="value-item-desc">We center the people we serve and treat every colleague and partner with care.</p>
-            <span class="value-listen">Listen to the Podcast</span>
           </a>
           <a class="value-item" href="../../podcast/ep19-evolve-by-learning-and-sharing-openly-articulating-dimagis-culture-and-values/">
             <div class="value-item-illus"><img src="../../assets/images/about/value-evolve.png" alt="" loading="lazy"></div>
             <h3 class="value-item-title">Evolve by openly learning and sharing</h3>
             <p class="value-item-desc">We learn in the open, share what works, and keep improving together.</p>
-            <span class="value-listen">Listen to the Podcast</span>
           </a>
           <a class="value-item" href="../../podcast/ep21-embrace-complexity-for-impact-articulating-dimagis-culture-and-values/">
             <div class="value-item-illus"><img src="../../assets/images/about/value-complexity.png" alt="" loading="lazy"></div>
             <h3 class="value-item-title">Embrace complexity for impact</h3>
             <p class="value-item-desc">We lean into hard, messy problems, because that is where lasting impact lives.</p>
-            <span class="value-listen">Listen to the Podcast</span>
           </a>
         </div>
+      </div>
+      <div class="section-cta">
+        <a class="btn btn-indigo btn-arrow" href="../../company/values/index.html">Explore all our values</a>
       </div>
     </div>
   </section>
@@ -910,46 +1000,37 @@ a.value-item:hover .value-listen { gap: 12px; }
         <p class="section-lede">Dimagi's story on becoming a leading social impact tech company is one of resilience and well-timed pivots, combined with an unshakable commitment to positive impact on our end users and their communities.</p>
       </div>
       <div class="story-layout">
-       <div class="story-photo">
-         <img src="../../assets/images/about/timeline-cake.jpg" alt="Dimagi 20th-anniversary celebration cake" loading="lazy">
-       </div>
        <div class="timeline">
         <div class="timeline-items">
 
           <div class="timeline-item">
             <div class="timeline-year">2002</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content"><strong>Dimagi founded</strong> based on a desire to use technology to serve underserved populations.</div>
+            <div class="timeline-content"><strong>Dimagi founded</strong> to serve underserved populations with technology.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2008</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content"><strong><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></strong> flagship software platform created.</div>
+            <div class="timeline-content"><strong><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></strong> flagship platform created.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2010</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content"><strong>Professional services team</strong> created for digital health applications.</div>
+            <div class="timeline-content"><strong>Professional services team</strong> launched.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2013</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content"><strong>CommCare offered as Software-as-a-Service</strong>, making the platform accessible to organizations of every size around the world.</div>
+            <div class="timeline-content">CommCare offered as <strong>Software-as-a-Service</strong>.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2022</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content">Dimagi <a href="https://dimagi.com/dimagi-acquires-sureadhere-digital-solutions/" target="_blank" rel="noopener">acquires</a> <a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a>, expanding impact through digital adherence.</div>
+            <div class="timeline-content">Acquired <a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a>, expanding digital adherence.</div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2023</div>
-            <div class="timeline-rail"><div class="timeline-dot-inner"></div></div>
-            <div class="timeline-content">Dimagi launches <a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a>, expanding verified impact on the frontline.</div>
+            <div class="timeline-content">Launched <a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a> for verified frontline impact.</div>
           </div>
 
         </div>
@@ -982,11 +1063,22 @@ a.value-item:hover .value-listen { gap: 12px; }
           <figure><img src="../../assets/images/about/field-2.jpg" alt="Dimagi team members working alongside frontline staff in the field" loading="lazy"></figure>
         </div>
       </div>
+
+      <div class="team-strip">
+        <figure><img src="../../assets/images/careers/one-dimagi-1.jpg" alt="Dimagi team members together" loading="lazy"></figure>
+        <figure><img src="../../assets/images/careers/one-dimagi-3.jpg" alt="Dimagi colleagues at a team event" loading="lazy"></figure>
+        <figure><img src="../../assets/images/careers/one-dimagi-4.jpg" alt="Dimagi staff collaborating" loading="lazy"></figure>
+        <figure><img src="../../assets/images/careers/one-dimagi-5.jpg" alt="Dimagi team gathering" loading="lazy"></figure>
+      </div>
+
+      <div class="section-cta">
+        <a class="btn btn-on-dark btn-arrow" href="../../company/careers/index.html">Explore careers at Dimagi</a>
+      </div>
     </div>
   </section>
 
   <!-- Leadership Team -->
-  <section class="section" style="background: #f5f7ff;">
+  <section class="section" id="leadership" style="background: #f5f7ff;">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Our People</span>
@@ -1001,95 +1093,109 @@ a.value-item:hover .value-listen { gap: 12px; }
           <div class="leader-title">Co-Founder &amp; CEO</div>
           <p class="leader-bio">Jonathan co-founded Dimagi and leads it as CEO, overseeing a global team that supports digital solutions in the vast majority of the world's countries. An award-winning social entrepreneur and software engineer, he made an early, uncompromising commitment to open technology that creates maximum good. A Schwab Foundation Social Entrepreneur recognized by Business Week as one of its most promising social entrepreneurs, Jonathan sits on the boards of SimPrints and Spark MicroGrants. He earned his bachelor's and master's in Electrical Engineering and Computer Science from MIT.</p>
         </div>
+        <a class="leader-podcast" href="../../podcast/index.html">
+          <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast">
+          <span class="lp-label">Listen to Jonathan on Dimagi's podcast <span aria-hidden="true">&rarr;</span></span>
+        </a>
       </div>
 
       <div class="leaders-grid">
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/vikram-kumar.jpg" alt="Dr. Vikram Sheel Kumar" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/dr-vikram-sheel-kumar/" target="_blank" rel="noopener">Dr. Vikram Sheel Kumar</a></div>
-            <div class="leader-title">Founder &amp; Chief Medical Officer</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/dr-vikram-sheel-kumar/" target="_blank" rel="noopener">Dr. Vikram Sheel Kumar</a></div>
+          <div class="leader-title">Founder &amp; Chief Medical Officer</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">An engineer and physician, Vikram co-founded Dimagi to bring the energy of the open-source movement to important problems in health. He completed graduate work at MIT's Media Lab and medical training at Harvard-MIT's Division of Health Sciences and Technology, graduating magna cum laude. His honors include MIT Technology Review recognition and a Paul and Daisy Soros Fellowship, and he has gone on to co-found Cogito Corp and Clear Creek Bio.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/lucina-tse.jpg" alt="Lucina Tse" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/lucina-tse/" target="_blank" rel="noopener">Lucina Tse</a></div>
-            <div class="leader-title">Chief Operating Officer / Co-President</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/lucina-tse/" target="_blank" rel="noopener">Lucina Tse</a></div>
+          <div class="leader-title">Chief Operating Officer / Co-President</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">As COO, Lucina leads all facets of Dimagi's business and people operations, including finance, legal, and domestic and international operations. As Co-President, she manages corporate governance and drives strategic initiatives spanning mergers, acquisitions, and organizational growth. She holds an MBA from the University of Oxford and a BASc in Electrical Engineering from the University of Waterloo.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/neal-lesh.jpg" alt="Dr. Neal Lesh" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/dr-neal-lesh/" target="_blank" rel="noopener">Dr. Neal Lesh</a></div>
-            <div class="leader-title">Chief Strategy Officer / Co-President</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/dr-neal-lesh/" target="_blank" rel="noopener">Dr. Neal Lesh</a></div>
+          <div class="leader-title">Chief Strategy Officer / Co-President</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">As Chief Strategy Officer, Neal supports a range of innovations at Dimagi, from data science and AI to research on scaling access to mental health care in low- and middle-income countries. He has spent years helping health programs across East and Southern Africa adopt data systems, building on an earlier academic career in data visualization and automated planning. He holds a PhD in Computer Science from the University of Washington and a master's in Global Health from the Harvard School of Public Health.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/clayton-sims.jpg" alt="Clayton Sims" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/clayton-sims/" target="_blank" rel="noopener">Clayton Sims</a></div>
-            <div class="leader-title">Chief Technology Officer</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/clayton-sims/" target="_blank" rel="noopener">Clayton Sims</a></div>
+          <div class="leader-title">Chief Technology Officer</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Clayton directs the technical development of CommCare, one of the world's largest digital health platforms. Since 2006 he has led engineering efforts to design ICT systems that improve service delivery at the last mile, with a focus on human-centered design for low-resource settings. A former Visiting Lecturer in MIT's Computer Science department, he holds a BS and a Master of Engineering in Computer Science from MIT.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/ismaila-diene.jpg" alt="Ismaila Diene" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/ismaila-diene/" target="_blank" rel="noopener">Ismaila Diene</a></div>
-            <div class="leader-title">Managing Director, Global Solutions</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/ismaila-diene/" target="_blank" rel="noopener">Ismaila Diene</a></div>
+          <div class="leader-title">Managing Director, Global Solutions</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Based in Senegal, Ismaila directs the Delivery team within the Solutions Division and serves as Regional Lead for West Africa. His background spans multi-disciplinary analysis in Paris and London and IT audit across West Africa, and he is passionate about leveraging technology to advance African development. A devoted fan of Hercule Poirot, he aspires to a mustache worthy of Agatha Christie's detective.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/gillian-javetski.jpg" alt="Gillian Javetski" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/gillian-javetski/" target="_blank" rel="noopener">Gillian Javetski</a></div>
-            <div class="leader-title">Managing Director, CommCare</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/gillian-javetski/" target="_blank" rel="noopener">Gillian Javetski</a></div>
+          <div class="leader-title">Managing Director, CommCare</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Gillian has built her career in project, marketing, and operations roles across social impact technology organizations, including Vecna Cares, Telerivet, Partners In Health, and One Laptop Per Child. She previously co-founded and served as COO of an ICT services consulting firm working across Latin America and the Caribbean, and has managed more than 30 digital health projects in low-resource settings. She holds an MPH from Tufts University School of Medicine and a BA in International Relations and Community Health from Tufts.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/matt-theis.jpg" alt="Matt Theis" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/matt-theis/" target="_blank" rel="noopener">Matt Theis</a></div>
-            <div class="leader-title">Managing Director, Connect</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/matt-theis/" target="_blank" rel="noopener">Matt Theis</a></div>
+          <div class="leader-title">Managing Director, Connect</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Matt leads Connect, Dimagi's platform for delivering and verifying frontline work at scale. He brings a background in software development, engineering, and program management, with prior roles spanning aerospace and large-scale technology. He holds a BS in Aerospace and Astronautical Engineering from MIT.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/lily-rush-olson.jpg" alt="Lily Rush Olson" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/lilian-rush-olson/" target="_blank" rel="noopener">Lily Rush Olson</a></div>
-            <div class="leader-title">Co-Managing Director, US Solutions</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/lilian-rush-olson/" target="_blank" rel="noopener">Lily Rush Olson</a></div>
+          <div class="leader-title">Co-Managing Director, US Solutions</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Lily co-leads Dimagi's US Solutions division, shaping strategy and partnerships for public health programs across the country. She was part of the team that brought Dimagi's global health expertise to the US market in response to COVID-19, and began her career building community health technology, including data systems work with Calcutta Kids in India.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/sarah-sagan.jpg" alt="Sarah Sagan" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/sarah-sagan/" target="_blank" rel="noopener">Sarah Sagan</a></div>
-            <div class="leader-title">Co-Managing Director, US Solutions</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/sarah-sagan/" target="_blank" rel="noopener">Sarah Sagan</a></div>
+          <div class="leader-title">Co-Managing Director, US Solutions</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">Sarah co-leads US Solutions, overseeing delivery, technology, and technical strategy for Dimagi's US Health Division and keeping it aligned with global strategy. With Dimagi since 2014, she was a key figure in the company's COVID-19 response and its entry into the US public health market.</p>
-          </div>
+          </details>
         </div>
         <div class="leader-card">
           <div class="leader-photo"><img src="../../assets/images/about/kelly-collins.jpg" alt="Kelly Collins" loading="lazy"></div>
-          <div class="leader-body">
-            <div class="leader-name"><a href="https://dimagi.com/person/kelly-collins/" target="_blank" rel="noopener">Kelly Collins</a></div>
-            <div class="leader-title">Managing Director, SureAdhere</div>
+          <div class="leader-name"><a href="https://dimagi.com/person/kelly-collins/" target="_blank" rel="noopener">Kelly Collins</a></div>
+          <div class="leader-title">Managing Director, SureAdhere</div>
+          <details class="leader-bio-wrap">
+            <summary class="leader-bio-toggle">Read bio<span class="chev" aria-hidden="true">▾</span></summary>
             <p class="leader-bio">An infectious disease epidemiologist and social entrepreneur, Kelly co-founded and led SureAdhere before its acquisition by Dimagi, and now leads the digital adherence team. Her 12+ years evaluating digital adherence across 25 countries have produced research published in The Lancet and JAMA that informed WHO tuberculosis treatment guidelines. She holds a PhD in Global Health from UC San Diego and an MPH in Epidemiology.</p>
-          </div>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Explore More -->
-  <section class="section">
+  <section class="section" id="explore">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Explore More</span>
@@ -1106,8 +1212,8 @@ a.value-item:hover .value-listen { gap: 12px; }
           <span class="explore-link">Read the blog &rarr;</span>
         </a>
         <a class="explore-card podcast" href="../../podcast/index.html">
-          <span class="explore-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+          <span class="explore-icon">
+            <img src="../../assets/images/high-impact-growth-podcast.jpeg" alt="High-Impact Growth podcast">
           </span>
           <h3 class="explore-title">Podcast</h3>
           <p class="explore-desc">High-Impact Growth: candid conversations on building for scale, sustainability, and impact.</p>
@@ -1144,13 +1250,13 @@ a.value-item:hover .value-listen { gap: 12px; }
     <div class="footer-grid">
       <div class="footer-brand">
         <img class="footer-logo" src="../../assets/dimagi-logo.png" alt="Dimagi">
-        <p>Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.</p>
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
         <ul>
-          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
           <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
         </ul>
@@ -1173,6 +1279,7 @@ a.value-item:hover .value-listen { gap: 12px; }
           <li><a href="../../blog/index.html">Blog</a></li>
           <li><a href="../../podcast/index.html">Podcast</a></li>
           <li><a href="../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../awards/index.html">Awards</a></li>
           <li><a href="../../contact/index.html">Contact Us</a></li>
           <li><a href="../../press/index.html">Press &amp; Coverage</a></li>
         </ul>
@@ -1184,8 +1291,6 @@ a.value-item:hover .value-listen { gap: 12px; }
           <li><a href="../../legal/terms-of-service/index.html">Terms of Service</a></li>
           <li><a href="../../legal/business-agreement/index.html">Business Agreement</a></li>
           <li><a href="../../legal/acceptable-use/index.html">Acceptable Use Policy</a></li>
-          <li><a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a></li>
-          <li><a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a></li>
         </ul>
       </div>
     </div>
@@ -1195,12 +1300,14 @@ a.value-item:hover .value-listen { gap: 12px; }
         <a href="../../legal/privacy-policy/index.html">Privacy</a>
         <a href="../../legal/terms-of-service/index.html">Terms</a>
         <a href="../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../legal/financial-conflict/index.html">Financial Conflict of Interest</a>
+        <a href="../../legal/transparency-coverage/index.html">Transparency in Coverage</a>
         <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
       </div>
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=4"></script>
+<script src="../../assets/js/nav.js?v=6"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
@@ -1218,7 +1325,7 @@ a.value-item:hover .value-listen { gap: 12px; }
     minZoom: 1,
     worldCopyJump: true
   }).setView([18, 18], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: 'abcd',
     maxZoom: 19
