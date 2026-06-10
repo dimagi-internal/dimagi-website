@@ -98,7 +98,7 @@ TAGS = {
  67: {'staff': 1, 'th': ['global-development']},
  68: {'staff': 1, 'th': ['company-culture']},
  69: {'p': ['commcare'], 'uc': ['cash-voucher-assistance'], 'th': ['global-development']},
- 70: {'p': ['commcare'], 'sec': ['livelihoods'], 'th': ['global-development']},
+ 70: {'p': ['commcare'], 'sec': ['livelihoods'], 'uc': ['monitoring-evaluation'], 'th': ['global-development']},
  71: {'th': ['global-development']},
  72: {'th': ['leadership']},
  73: {'th': ['global-development']},

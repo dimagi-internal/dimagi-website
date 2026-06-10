@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Africa | Dimagi</title>
-<meta name="description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected electronic Community Health Information System (eCHIS) for 9 African nations, reaching 84,000+ community health workers.">
+<meta name="description" content="Dimagi partners with African governments and organizations to digitize frontline health work at national scale, from government-owned community health systems (eCHIS) to nationwide campaigns and a diverse range of disease and development programs.">
 <link rel="canonical" href="https://dimagi.com/professional-services/africa/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:site_name" content="Dimagi">
@@ -13,17 +13,17 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/professional-services/africa/">
 <meta property="og:title" content="Africa">
-<meta property="og:description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected eCHIS for 9 African nations, reaching 84,000+ community health workers.">
+<meta property="og:description" content="From government-owned community health systems to nationwide campaigns and a diverse range of disease and development programs, Dimagi helps African governments and partners build digital systems they can own, run, and sustain.">
 <meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
 <meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Africa">
-<meta name="twitter:description" content="A more affordable, scalable model for governments' digital community health systems. CommCare is the selected eCHIS for 9 African nations, reaching 84,000+ community health workers.">
+<meta name="twitter:description" content="From government-owned community health systems to nationwide campaigns and diverse disease and development programs, Dimagi helps African governments and partners build digital systems they can own, run, and sustain.">
 <meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=15">
+<link rel="stylesheet" href="../../assets/styles.css?v=16">
 <style>
 /* ── Africa ── */
 
@@ -59,12 +59,31 @@
   .stats-band-cell:nth-child(n+3) { border-top: 1px solid rgba(45,54,166,0.14); }
 }
 
+/* General capabilities grid */
+.af-cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; }
+.af-cap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  background: #fff;
+  transition: border-color 180ms, box-shadow 180ms, transform 180ms;
+}
+.af-cap:hover { border-color: var(--indigo); box-shadow: 0 14px 32px -16px rgba(10,6,32,0.16); transform: translateY(-2px); }
+.af-cap-ix { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo); }
+.af-cap h3 { font-size: 18px; font-weight: 600; color: var(--deep-purple); letter-spacing: -0.015em; margin: 14px 0 9px; }
+.af-cap p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* Mid-section label (sub-head inside a highlight) */
+.af-mid { text-align: center; margin: 64px 0 8px; }
+.af-mid h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 300; letter-spacing: -0.02em; color: var(--deep-purple); margin: 10px 0 0; }
+
 /* eCHIS layout */
 .af-echis-layout {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 72px;
   align-items: center;
+  margin-top: 52px;
 }
 .af-echis-card {
   background: linear-gradient(135deg, var(--deep-purple) 0%, var(--indigo) 100%);
@@ -101,7 +120,7 @@
 .af-cost-cap { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0; }
 
 /* Country tiers */
-.af-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.af-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
 .af-tier {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -126,27 +145,11 @@
   border-radius: 999px;
   padding: 7px 15px;
 }
+.af-chips.center { justify-content: center; margin-top: 28px; }
 
-/* Model / how we help check-list */
-.af-model-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.af-model-check { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 18px; }
-.af-model-check li { display: flex; gap: 14px; align-items: flex-start; }
-.af-model-check .tick { color: var(--indigo); font-weight: 700; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.af-model-check span.t { font-size: 15px; color: var(--muted); line-height: 1.6; }
-.af-model-check span.t strong { color: var(--ink); }
-.af-model-stat {
-  background: var(--deep-purple);
-  border-radius: var(--radius-lg);
-  padding: 44px 40px;
-  color: #fff;
-}
-.af-model-stat .big { font-size: clamp(52px, 6vw, 76px); font-weight: 200; letter-spacing: -0.04em; line-height: 1; color: #fff; font-feature-settings: "tnum"; margin: 0 0 10px; }
-.af-model-stat .big span { color: var(--marigold); font-weight: 300; }
-.af-model-stat .cap { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.55; margin: 0 0 28px; }
-.af-model-stat .mini { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin: 0; }
-
-/* In the field — featured + list (mirrors India) */
-.af-init-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+/* Case-study cards — featured + list (mirrors India) */
+.af-init-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.af-init-grid.two { grid-template-columns: repeat(2, 1fr); max-width: 880px; margin-left: auto; margin-right: auto; }
 .af-init-card {
   display: flex; flex-direction: column;
   background: #fff; border: 1px solid var(--line);
@@ -171,10 +174,10 @@
 .af-more-desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin: 0; }
 
 @media (max-width: 900px) {
+  .af-cap-grid { grid-template-columns: 1fr; }
   .af-echis-layout { grid-template-columns: 1fr; gap: 40px; }
   .af-tiers { grid-template-columns: 1fr; }
-  .af-model-layout { grid-template-columns: 1fr; gap: 40px; }
-  .af-init-grid { grid-template-columns: 1fr; }
+  .af-init-grid, .af-init-grid.two { grid-template-columns: 1fr; }
   .af-more-list { grid-template-columns: 1fr; }
 }
 
@@ -215,8 +218,8 @@
   <div class="container">
     <div style="max-width:880px;">
       <span class="eyebrow on-dark"><a href="../global-services/index.html" style="color:inherit;">Global Services</a> &nbsp;/&nbsp; Africa</span>
-      <h1 class="hero-title">National-scale community health, owned by governments</h1>
-      <p class="hero-sub">A more affordable, scalable model for governments' digital community health systems, built on a proven platform that already reaches millions and designed for government teams to own, run, and sustain.</p>
+      <h1 class="hero-title">Digital health systems at national scale, across Africa</h1>
+      <p class="hero-sub">Dimagi partners with African governments and organizations to digitize frontline work, from government-owned community health systems to nationwide campaigns and a wide range of disease and development programs, all built to be owned, run, and sustained locally.</p>
       <div class="hero-ctas">
         <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Talk to Our Team</a>
         <a class="btn btn-ghost-on-dark btn-arrow" href="../global-services/index.html">Back to Global Services</a>
@@ -231,32 +234,79 @@
     <div class="stats-band-grid">
       <div class="stats-band-cell">
         <div class="stats-band-num">9</div>
-        <div class="stats-band-lbl">African nations using CommCare as their eCHIS</div>
+        <div class="stats-band-lbl">African nations run their national eCHIS on CommCare</div>
       </div>
       <div class="stats-band-cell">
         <div class="stats-band-num">84,000<span>+</span></div>
-        <div class="stats-band-lbl">Community health workers using CommCare</div>
+        <div class="stats-band-lbl">Community health workers equipped across the region</div>
       </div>
       <div class="stats-band-cell">
-        <div class="stats-band-num">76<span>M+</span></div>
-        <div class="stats-band-lbl">People registered in the system</div>
+        <div class="stats-band-num">18<span>M</span></div>
+        <div class="stats-band-lbl">People reached in Guinea's national malaria campaign</div>
       </div>
       <div class="stats-band-cell">
-        <div class="stats-band-num">&#8531;</div>
-        <div class="stats-band-lbl">Of Africa's population live in these countries</div>
+        <div class="stats-band-num">17</div>
+        <div class="stats-band-lbl">Countries covered by our malaria spray-campaign apps</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ───── eCHIS OFFERING ───── -->
+<!-- ───── OVERVIEW / GENERAL CAPABILITIES ───── -->
 <section class="section">
   <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">What we do across Africa</span>
+      <h2 class="section-title">Far more than a single program</h2>
+      <p class="section-lede">For nearly two decades, Dimagi has worked with African governments, ministries, NGOs, and funders to digitize frontline health and development work. Our teams build and support systems across many domains, with a consistent goal: that local partners can own, run, and sustain them.</p>
+    </div>
+    <div class="af-cap-grid">
+      <div class="af-cap">
+        <span class="af-cap-ix">01</span>
+        <h3>National eCHIS</h3>
+        <p>Government-owned electronic Community Health Information Systems running at national scale.</p>
+      </div>
+      <div class="af-cap">
+        <span class="af-cap-ix">02</span>
+        <h3>National health campaigns</h3>
+        <p>Mass drug administration, immunization, and vector-control campaigns digitized end to end.</p>
+      </div>
+      <div class="af-cap">
+        <span class="af-cap-ix">03</span>
+        <h3>Disease &amp; condition programs</h3>
+        <p>HIV, TB, malaria, malnutrition, non-communicable diseases, and newborn screening.</p>
+      </div>
+      <div class="af-cap">
+        <span class="af-cap-ix">04</span>
+        <h3>Supply chains &amp; commodities</h3>
+        <p>Community-level stock visibility and last-mile logistics that keep essential supplies flowing.</p>
+      </div>
+      <div class="af-cap">
+        <span class="af-cap-ix">05</span>
+        <h3>Research &amp; evaluation</h3>
+        <p>Peer-reviewed studies and data systems that measure outcomes and prove what works.</p>
+      </div>
+      <div class="af-cap">
+        <span class="af-cap-ix">06</span>
+        <h3>Government capacity &amp; ownership</h3>
+        <p>No-code configuration, local data ownership, and the skills to sustain systems for the long term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ HIGHLIGHT 01 — eCHIS AT NATIONAL SCALE ═════ -->
+<section class="section cool">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">Highlight 01 &nbsp;&middot;&nbsp; Community health at national scale</span>
+      <h2 class="section-title">Government-owned eCHIS, built on CommCare</h2>
+      <p class="section-lede">Across Africa, governments are digitizing community health at the national level. Dimagi offers a new, affordable, and better model for the electronic Community Health Information System (eCHIS), built on CommCare, the platform already trusted to run community health programs reaching millions.</p>
+    </div>
+
     <div class="af-echis-layout">
       <div>
-        <span class="eyebrow muted">THE NEXT-GENERATION eCHIS</span>
-        <h2 class="section-title">National-scale performance at a fraction of the cost</h2>
-        <p style="font-size:17px; color:var(--muted); line-height:1.75; margin:20px 0 0;">Across Africa, governments are digitizing community health at the national level. Dimagi offers a new, affordable, and better model for the electronic Community Health Information System (eCHIS), built on CommCare, the platform already trusted to run community health programs reaching millions.</p>
+        <p style="font-size:16px; color:var(--muted); line-height:1.75; margin:0;">A lower total cost of ownership than custom-built systems frees ministry budget for the frontline, not the software, while keeping the program in government hands.</p>
         <div class="af-cost">
           <div class="af-cost-tile">
             <p class="af-cost-tag">Traditional custom system</p>
@@ -286,16 +336,10 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ───── COUNTRY TIERS ───── -->
-<section class="section cool">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow muted">WHERE WE WORK</span>
-      <h2 class="section-title">CommCare powers community health across the continent</h2>
-      <p class="section-lede">Nine African nations have selected CommCare as their electronic Community Health Information System, spanning programs at national scale, those actively scaling up, and early-stage pilots.</p>
+    <div class="af-mid">
+      <span class="eyebrow muted">Where we work</span>
+      <h3>Nine nations, three stages of rollout</h3>
     </div>
     <div class="af-tiers">
       <div class="af-tier">
@@ -335,44 +379,12 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ───── HOW WE HELP / MODEL ───── -->
-<section class="section">
-  <div class="container">
-    <div class="af-model-layout">
-      <div>
-        <span class="eyebrow muted">A SUSTAINABLE MODEL</span>
-        <h2 class="section-title">Built for governments to own and run</h2>
-        <p style="font-size:17px; color:var(--muted); line-height:1.7; margin:20px 0 0;">Our focus is on sustainable program impact. We help ministries build the internal capacity and maintainable systems they need so the program continues long after our engagement ends.</p>
-        <ul class="af-model-check">
-          <li><span class="tick">&#10003;</span><span class="t"><strong>Cloud-based SaaS.</strong> Deployed as a managed service, with no heavy professional-services contract required to get started.</span></li>
-          <li><span class="tick">&#10003;</span><span class="t"><strong>No-code configuration.</strong> Government teams build and adapt their own workflows without writing software.</span></li>
-          <li><span class="tick">&#10003;</span><span class="t"><strong>Data ownership.</strong> Ministries own their data, with local export and storage options.</span></li>
-          <li><span class="tick">&#10003;</span><span class="t"><strong>Scalable infrastructure.</strong> Built on a proven, open-source platform that already scales to national programs.</span></li>
-        </ul>
-      </div>
-      <div class="af-model-stat">
-        <p class="big">9</p>
-        <p class="cap">African governments have chosen CommCare to run their national community health information systems.</p>
-        <p class="mini">We collaborate with current government partners and welcome new governments ready to digitize community health, with direct government procurement preferred.</p>
-      </div>
+    <div class="af-mid">
+      <span class="eyebrow muted">Case studies</span>
+      <h3>National eCHIS in action</h3>
     </div>
-  </div>
-</section>
-
-<!-- ───── IN THE FIELD ───── -->
-<section class="section cool">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow muted">IN THE FIELD</span>
-      <h2 class="section-title">Programs strengthening health systems across Africa</h2>
-      <p class="section-lede">A look at the national programs, ministries, and partners our teams support across the region.</p>
-    </div>
-
-    <div class="af-init-grid">
-
+    <div class="af-init-grid two">
       <a class="af-init-card" href="../../blog/jsi-government-of-ethiopia-and-usaid-digital-health-activity/index.html">
         <div class="af-init-img">
           <img src="../../assets/images/jsi-government-of-ethiopia-and-usaid-digital-health-activity/cover.jpg" alt="Health workers in Ethiopia using digital tools" loading="lazy">
@@ -380,11 +392,10 @@
         <div class="af-init-body">
           <span class="af-init-date">October 2022 &middot; Ethiopia</span>
           <h3 class="af-init-title">Government of Ethiopia &amp; USAID Digital Health Activity</h3>
-          <p class="af-init-desc">Supporting Ethiopia's national digitization journey with JSI and USAID, advancing the country's path to a paperless community health system.</p>
+          <p class="af-init-desc">Supporting the Federal Ministry of Health to build and maintain Ethiopia's national eCHIS on CommCare, alongside JSI and USAID.</p>
           <span class="af-init-link">Read more &rarr;</span>
         </div>
       </a>
-
       <a class="af-init-card" href="../../blog/ndoh-national-scale-mhealth-south-africa/index.html">
         <div class="af-init-img">
           <img src="../../assets/images/ndoh-national-scale-mhealth-south-africa/cover.jpg" alt="Community health workers in South Africa" loading="lazy">
@@ -396,7 +407,93 @@
           <span class="af-init-link">Read more &rarr;</span>
         </div>
       </a>
+    </div>
+  </div>
+</section>
 
+<!-- ═════ HIGHLIGHT 02 — CAMPAIGNS AT NATIONAL SCALE ═════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">Highlight 02 &nbsp;&middot;&nbsp; Campaigns at national scale</span>
+      <h2 class="section-title">Nationwide campaigns, digitized end to end</h2>
+      <p class="section-lede">When governments and partners run mass campaigns, from malaria and polio to routine immunization, CommCare replaces paper with real-time coverage data, microplanning, and last-mile worker payments, so campaigns hit their targets and reach every community.</p>
+    </div>
+
+    <div class="af-init-grid">
+      <a class="af-init-card" href="../../blog/case-study-guinea-digitized-national-malaria-campaign/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/case-study-guinea-digitized-national-malaria-campaign/cover.jpg" alt="Guinea national malaria campaign" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">February 2026 &middot; Guinea</span>
+          <h3 class="af-init-title">Guinea's digitized national malaria campaign</h3>
+          <p class="af-init-desc">Digitizing Guinea's national MILDA campaign with CommCare to reach 18 million people, replacing paper workflows with real-time, data-driven insights.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="af-init-card" href="../../blog/commcare-public-health-campaign-payments/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/commcare-public-health-campaign-payments/cover.jpg" alt="Frontline workers receiving campaign payments" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">April 2025 &middot; 16 countries</span>
+          <h3 class="af-init-title">Powering campaign payments for polio &amp; immunization</h3>
+          <p class="af-init-desc">With WHO and the Gates Foundation, CommCare digitized last-mile worker payments across 16 countries, cutting timelines from months to days and reaching some 2 million frontline workers.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="af-init-card" href="../../blog/abt-associates-vectorlink-malaria-control/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/abt-associates-vectorlink-malaria-control/cover.jpg" alt="Indoor residual spraying for malaria control" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">August 2021 &middot; 17 countries</span>
+          <h3 class="af-init-title">Abt VectorLink: keeping spray campaigns on target</h3>
+          <p class="af-init-desc">Supporting the PMI VectorLink indoor residual spraying program since 2014, running CommCare apps across 17 countries and eight languages.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="af-more-list">
+      <a class="af-more-item" href="../../blog/somalia-who-covid-19-vaccination-management-platform/index.html">
+        <span class="af-more-date">March 2021 &middot; Somalia</span>
+        <p class="af-more-title">Somalia &amp; WHO COVID-19 vaccination platform</p>
+        <p class="af-more-desc">A CommCare-based system to manage COVID-19 vaccine delivery and track individuals through the vaccination process.</p>
+      </a>
+      <a class="af-more-item" href="../../blog/vaccine-solution-covid-19-routine-immunization/index.html">
+        <span class="af-more-date">October 2021 &middot; Global</span>
+        <p class="af-more-title">Protecting routine immunization</p>
+        <p class="af-more-desc">Expanding the platform used to deliver more than 1 million COVID-19 vaccines to safeguard routine childhood immunization.</p>
+      </a>
+      <a class="af-more-item" href="../../blog/unicef-health-campaign-digitalization-guidebook/index.html">
+        <span class="af-more-date">August 2025 &middot; Recognition</span>
+        <p class="af-more-title">CommCare in UNICEF's campaign guidebook</p>
+        <p class="af-more-desc">UNICEF's Digital Tool Selection Guidebook for Health Campaigns recognizes CommCare as a leading tool.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ HIGHLIGHT 03 — DIVERSE EXPERTISE ═════ -->
+<section class="section cool">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow muted">Highlight 03 &nbsp;&middot;&nbsp; Diverse expertise</span>
+      <h2 class="section-title">A breadth of health and development programs</h2>
+      <p class="section-lede">Beyond community health systems and campaigns, our teams support a wide range of programs across the continent, from nutrition and disease tracking to supply chains, newborn screening, and peer-reviewed research.</p>
+      <div class="af-chips center">
+        <span class="af-chip">Nutrition</span>
+        <span class="af-chip">HIV &amp; TB</span>
+        <span class="af-chip">Supply chain</span>
+        <span class="af-chip">Newborn screening</span>
+        <span class="af-chip">Chronic disease</span>
+        <span class="af-chip">Research &amp; evaluation</span>
+      </div>
+    </div>
+
+    <div class="af-init-grid">
       <a class="af-init-card" href="../../blog/reducing-childhood-malnutrition-in-madagascar/index.html">
         <div class="af-init-img">
           <img src="../../assets/images/reducing-childhood-malnutrition-in-madagascar/cover.jpg" alt="Frontline worker screening a child in Madagascar" loading="lazy">
@@ -404,28 +501,49 @@
         <div class="af-init-body">
           <span class="af-init-date">June 2022 &middot; Madagascar</span>
           <h3 class="af-init-title">Reducing childhood malnutrition in Madagascar</h3>
-          <p class="af-init-desc">Equipping community health workers with mobile screening and tracking to detect and treat malnutrition earlier.</p>
+          <p class="af-init-desc">Optimizing the CommCare-based PARN app with the Office of National Nutrition, the Ministry of Health, and World Bank funding to reduce childhood stunting.</p>
           <span class="af-init-link">Read more &rarr;</span>
         </div>
       </a>
-
+      <a class="af-init-card" href="../../blog/infomovel-commcare-hiv-tb-patient-tracking/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/infomovel-commcare-hiv-tb-patient-tracking/cover.jpg" alt="Community health worker tracking patients in Mozambique" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">October 2020 &middot; Mozambique</span>
+          <h3 class="af-init-title">InfoMovel: tracking HIV &amp; TB patients</h3>
+          <p class="af-init-desc">Connecting more than 1,750 community health workers across seven provinces to reduce loss to follow-up and align partners around the UNAIDS 90-90-90 targets.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="af-init-card" href="../../blog/malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">
+        <div class="af-init-img">
+          <img src="../../assets/images/malawi-ministry-of-health-cstock-supply-chain-management-application/cover.jpg" alt="Health commodities in Malawi" loading="lazy">
+        </div>
+        <div class="af-init-body">
+          <span class="af-init-date">December 2015 &middot; Malawi</span>
+          <h3 class="af-init-title">Malawi Ministry of Health &amp; cStock</h3>
+          <p class="af-init-desc">Reviving and transitioning the proven cStock supply-chain system to local ownership, keeping essential community health commodities in stock.</p>
+          <span class="af-init-link">Read more &rarr;</span>
+        </div>
+      </a>
     </div>
 
     <div class="af-more-list">
-      <a class="af-more-item" href="../../blog/malawi-ministry-of-health-cstock-supply-chain-management-application/index.html">
-        <span class="af-more-date">November 2021 &middot; Malawi</span>
-        <p class="af-more-title">Malawi Ministry of Health &amp; cStock</p>
-        <p class="af-more-desc">A supply-chain management application helping the Ministry of Health keep essential community health commodities in stock.</p>
+      <a class="af-more-item" href="../../blog/sickle-cell-foundation-ghana-newborn-screening/index.html">
+        <span class="af-more-date">June 2019 &middot; Ghana</span>
+        <p class="af-more-title">Sickle Cell Foundation of Ghana</p>
+        <p class="af-more-desc">Digitizing the National Newborn Screening Program on CommCare, registering more than 12,500 newborns and tightening follow-up.</p>
       </a>
-      <a class="af-more-item" href="../../blog/infomovel-commcare-hiv-tb-patient-tracking/index.html">
-        <span class="af-more-date">October 2020 &middot; Mozambique</span>
-        <p class="af-more-title">InfoMovel: tracking HIV &amp; TB patients</p>
-        <p class="af-more-desc">A patient-tracking solution helping frontline teams follow HIV and TB patients across Mozambique.</p>
+      <a class="af-more-item" href="../../blog/chronic-disease-emr-kenya-refugee-camps/index.html">
+        <span class="af-more-date">October 2023 &middot; Kenya</span>
+        <p class="af-more-title">NCD electronic medical records in Kenya</p>
+        <p class="af-more-desc">A peer-reviewed evaluation of a CommCare-integrated NCD EMR in Hagadera refugee camp: 100% blood-pressure recording, 99.6% follow-up scheduling.</p>
       </a>
-      <a class="af-more-item" href="../../blog/case-study-guinea-digitized-national-malaria-campaign/index.html">
-        <span class="af-more-date">February 2026 &middot; Guinea</span>
-        <p class="af-more-title">Guinea's digitized national malaria campaign</p>
-        <p class="af-more-desc">Digitizing a national malaria campaign to improve coverage, data quality, and accountability at scale.</p>
+      <a class="af-more-item" href="../../blog/adpp-mozambique-tb-local-response/index.html">
+        <span class="af-more-date">April 2022 &middot; Mozambique</span>
+        <p class="af-more-title">ADPP Mozambique: TB Local Response</p>
+        <p class="af-more-desc">Leading digitization and building DHIS2 tools that strengthen the TB Local Response across 50 districts.</p>
       </a>
     </div>
   </div>
@@ -435,8 +553,8 @@
 <section class="cta-band">
   <div class="container">
     <div class="section-head centered on-dark">
-      <h2 class="section-title">Ready to digitize community health at national scale?</h2>
-      <p class="section-lede">Whether you are a ministry of health, an implementing partner, or a funder, we are ready to help you launch, scale, and sustain an eCHIS your teams can own.</p>
+      <h2 class="section-title">Ready to build digital systems your teams can own?</h2>
+      <p class="section-lede">Whether you are a ministry of health, an implementing partner, or a funder, our teams can help you launch, scale, and sustain digital programs across community health, national campaigns, and beyond.</p>
       <div style="margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
         <a class="btn btn-on-dark btn-arrow" href="../../contact/index.html">Contact Us</a>
         <a class="btn btn-ghost-on-dark btn-arrow" href="../global-services/index.html">Explore Global Services</a>
@@ -475,6 +593,7 @@
           <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
           <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li class="footer-sublabel">Dimagi Labs</li>
           <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
         </ul>
       </div>
@@ -527,6 +646,6 @@
     </div>
   </div>
 </footer>
-<script src="../../assets/js/nav.js?v=8"></script>
+<script src="../../assets/js/nav.js?v=7"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=15">
+<link rel="stylesheet" href="../assets/styles.css?v=16">
 <style>
 /* ── Contact page ── */
 
@@ -43,13 +43,13 @@ body { background: #fff; }
 .pbadge--ocs { background: #EDE6FB; color: #6A2FB0; }
 
 /* Section rhythm */
-.contact-section { padding: 88px 0; }
+.contact-section { padding: 76px 0; }
 .contact-section.cool { background: var(--paper-cool); }
-.contact-section .section-head { margin-bottom: 48px; }
+.contact-section .section-head { margin-bottom: 44px; }
 
 /* Hero */
 .contact-hero {
-  padding: 96px 0 64px;
+  padding: 84px 0 60px;
   text-align: center;
   background: linear-gradient(180deg, #F0F3FF 0%, #FFFFFF 100%);
 }
@@ -71,25 +71,27 @@ h1.contact-title {
   line-height: 1.6;
 }
 
-/* ── Product cards: logo + tagline + contact, with a greyed support footer ── */
+/* ── Product cards: one clean panel — logo, tagline, contact, hairline support link ── */
 .product-contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 .pc-card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   background: var(--paper-2);
   border: 1px solid var(--line);
   border-top: 3px solid var(--brand, var(--indigo));
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 30px 30px 24px;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
 }
 .pc-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 44px -16px rgba(10,6,32,0.16);
+  box-shadow: 0 22px 46px -18px rgba(10,6,32,0.16);
   border-color: var(--rule);
 }
 .pc-card--connect    { --brand: #0A6DA8; }
@@ -97,55 +99,58 @@ h1.contact-title {
 .pc-card--sureadhere { --brand: #0A7A7A; }
 .pc-card--ocs        { --brand: #6A2FB0; }
 
-.pc-card-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 32px 32px 28px;
+/* "Dimagi Labs" tag floats in the corner so every card keeps identical layout + height. */
+.pc-labs-tag {
+  position: absolute; top: 16px; right: 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 9%, #fff);
+  border: 1px solid color-mix(in srgb, var(--brand) 20%, #fff);
+  padding: 4px 9px; border-radius: 999px;
 }
-.pc-logo { height: 30px; width: auto; max-width: 220px; display: block; }
+
+.pc-logo { height: 28px; width: auto; max-width: 200px; display: block; }
 .pc-tagline {
-  font-size: 16px;
+  font-size: 15.5px;
   color: var(--ink);
   line-height: 1.5;
   letter-spacing: -0.01em;
-  margin: 0;
+  margin: 16px 0 0;
   flex: 1;
 }
-.pc-card-body .pc-btn { margin-top: 4px; padding: 11px 20px; font-size: 14px; }
+.pc-card .pc-btn { align-self: flex-start; margin-top: 20px; padding: 10px 20px; font-size: 14px; }
 
-/* Greyed-out existing-customer support footer */
+/* Existing-customer support link — hairline divider, no nested box */
 .pc-foot {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  padding: 15px 32px;
-  background: var(--paper-cool);
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
   text-decoration: none;
-  transition: background 160ms;
 }
-.pc-foot:hover { background: #eaedf6; }
 .pc-foot-label {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--muted-soft);
 }
 .pc-foot-link {
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--muted);
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   white-space: nowrap;
   transition: color 160ms, gap 160ms;
 }
 .pc-foot-link::after { content: '→'; font-weight: 400; }
-.pc-foot:hover .pc-foot-link { color: var(--brand, var(--indigo)); gap: 10px; }
+.pc-foot:hover .pc-foot-link,
+.pc-card:hover .pc-foot-link { color: var(--brand, var(--indigo)); gap: 9px; }
 
 @media (max-width: 720px) { .product-contact-grid { grid-template-columns: 1fr; } }
 
@@ -153,13 +158,13 @@ h1.contact-title {
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 .team-card {
   background: var(--paper-2);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 38px 36px;
+  padding: 34px 34px;
   display: flex;
   flex-direction: column;
   transition: transform 200ms, box-shadow 200ms, border-color 200ms;
@@ -191,13 +196,13 @@ h1.contact-title {
 .other-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 .other-card {
   background: var(--paper-2);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 30px 28px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -228,7 +233,7 @@ h1.contact-title {
 .offices-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
   max-width: 920px;
   margin: 32px auto 0;
 }
@@ -293,11 +298,9 @@ h1.contact-title {
 
         <!-- Connect -->
         <div class="pc-card pc-card--connect">
-          <div class="pc-card-body">
-            <img class="pc-logo" src="../assets/images/connect-logo.svg" alt="Connect by Dimagi">
-            <p class="pc-tagline">Pay for verified service delivery, not planned activity.</p>
-            <a href="../connect/index.html" class="btn btn-indigo pc-btn">Contact Us</a>
-          </div>
+          <img class="pc-logo" src="../assets/images/connect-logo.svg" alt="Connect by Dimagi">
+          <p class="pc-tagline">Pay for verified service delivery, not planned activity.</p>
+          <a href="https://connect.dimagi.com/" target="_blank" rel="noopener" class="btn btn-indigo pc-btn">Contact Us</a>
           <a class="pc-foot" href="https://dimagi.atlassian.net/wiki/spaces/connectpublic/overview" target="_blank" rel="noopener">
             <span class="pc-foot-label">Existing customer?</span>
             <span class="pc-foot-link">Connect Help</span>
@@ -306,12 +309,10 @@ h1.contact-title {
 
         <!-- CommCare -->
         <div class="pc-card pc-card--commcare">
-          <div class="pc-card-body">
-            <img class="pc-logo" src="../assets/images/commcare-logo.svg" alt="CommCare by Dimagi">
-            <p class="pc-tagline">The digital platform for impactful frontline work.</p>
-            <a href="../commcare/index.html" class="btn btn-indigo pc-btn">Contact Us</a>
-          </div>
-          <a class="pc-foot" href="../support/index.html">
+          <img class="pc-logo" src="../assets/images/commcare-logo.svg" alt="CommCare by Dimagi">
+          <p class="pc-tagline">The digital platform for impactful frontline work.</p>
+          <a href="https://dimagi.com/commcare/" target="_blank" rel="noopener" class="btn btn-indigo pc-btn">Contact Us</a>
+          <a class="pc-foot" href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/overview" target="_blank" rel="noopener">
             <span class="pc-foot-label">Existing customer?</span>
             <span class="pc-foot-link">CommCare Support</span>
           </a>
@@ -319,24 +320,21 @@ h1.contact-title {
 
         <!-- SureAdhere -->
         <div class="pc-card pc-card--sureadhere">
-          <div class="pc-card-body">
-            <img class="pc-logo" src="../assets/images/sureadhere-logo.svg" alt="SureAdhere by Dimagi">
-            <p class="pc-tagline">Person-centered virtual care for treatment adherence.</p>
-            <a href="../sureadhere/index.html" class="btn btn-indigo pc-btn">Contact Us</a>
-          </div>
+          <img class="pc-logo" src="../assets/images/sureadhere-logo.svg" alt="SureAdhere by Dimagi">
+          <p class="pc-tagline">Person-centered virtual care for treatment adherence.</p>
+          <a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener" class="btn btn-indigo pc-btn">Contact Us</a>
           <a class="pc-foot" href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">
             <span class="pc-foot-label">Existing customer?</span>
             <span class="pc-foot-link">SureAdhere Help</span>
           </a>
         </div>
 
-        <!-- Open Chat Studio -->
+        <!-- Open Chat Studio (a Dimagi Labs project, not a core product) -->
         <div class="pc-card pc-card--ocs">
-          <div class="pc-card-body">
-            <img class="pc-logo" src="../assets/images/ocs-logo.png" alt="Open Chat Studio">
-            <p class="pc-tagline">The responsible layer between AI and the people it serves.</p>
-            <a href="https://www.openchatstudio.com/contact/" target="_blank" rel="noopener" class="btn btn-indigo pc-btn">Contact Us</a>
-          </div>
+          <span class="pc-labs-tag">Dimagi Labs</span>
+          <img class="pc-logo" src="../assets/images/ocs-logo.png" alt="Open Chat Studio">
+          <p class="pc-tagline">The responsible layer between AI and the people it serves.</p>
+          <a href="https://www.openchatstudio.com/contact/" target="_blank" rel="noopener" class="btn btn-indigo pc-btn">Contact Us</a>
           <a class="pc-foot" href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">
             <span class="pc-foot-label">Existing customer?</span>
             <span class="pc-foot-link">Open Chat Studio Help</span>
@@ -377,7 +375,7 @@ h1.contact-title {
   </section>
 
   <!-- Section 4: Other inquiries -->
-  <section class="contact-section cool">
+  <section class="contact-section">
     <div class="container">
       <div class="section-head centered">
         <span class="eyebrow muted">Other Inquiries</span>
@@ -481,6 +479,7 @@ h1.contact-title {
           <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
           <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li class="footer-sublabel">Dimagi Labs</li>
           <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
         </ul>
       </div>
@@ -533,6 +532,6 @@ h1.contact-title {
     </div>
   </div>
 </footer>
-<script src="../assets/js/nav.js?v=8"></script>
+<script src="../assets/js/nav.js?v=7"></script>
 </body>
 </html>

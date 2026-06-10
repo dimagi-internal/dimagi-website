@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from consolidation_maps import resolve_country, resolve_topic, is_skip
 
 ROOT = "/Users/gillianjavetski/Documents/Gillian Coding/Pre-Login Websites/Dimagi Pre-Login"
-OUT  = "/Users/gillianjavetski/Documents/Gillian Coding/Dimagi Blog Tags.xlsx"
+OUT  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Dimagi Blog Tags.xlsx")
 IDX  = os.path.join(ROOT, "blog", "index.html")
 seo  = json.load(open(os.path.join(ROOT, "Context/blog-import/seo_tags.json")))
 

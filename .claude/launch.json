@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "dimagi-prelogin",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-p", "4040", "."],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4040"],
       "port": 4040
     }
   ]

@@ -25,14 +25,23 @@
       triggerLink.setAttribute('href', navBase + col.triggerHref);
     }
 
-    var itemsHTML = col.items.map(function (item) {
-      var extra = item.external ? ' target="_blank" rel="noopener"' : '';
-      return '<a href="' + item.href + '"' + extra + '>' + item.label + '</a>';
-    }).join('');
+    function renderItems(items) {
+      return items.map(function (item) {
+        var extra = item.external ? ' target="_blank" rel="noopener"' : '';
+        return '<a href="' + item.href + '"' + extra + '>' + item.label + '</a>';
+      }).join('');
+    }
 
-    var headingHTML = col.heading
-      ? '<div class="nav-dropdown-heading">' + col.heading + '</div>'
-      : '';
+    /* A dropdown is one or more labeled groups. Pass `col.groups` for a
+       multi-group menu (e.g. Products: "Our Products" + "Dimagi Labs"); the
+       legacy single `col.heading`/`col.items` shape normalizes to one group.
+       Groups after the first get a divider via .nav-dropdown-heading--sub. */
+    var groups = col.groups || [{ heading: col.heading, items: col.items }];
+    var colHTML = groups.map(function (g, gi) {
+      var hClass = 'nav-dropdown-heading' + (gi > 0 ? ' nav-dropdown-heading--sub' : '');
+      var hHTML = g.heading ? '<div class="' + hClass + '">' + g.heading + '</div>' : '';
+      return hHTML + renderItems(g.items);
+    }).join('');
 
     var dropClass = width === 'sm' ? 'nav-dropdown nav-dropdown--sm' : 'nav-dropdown';
 
@@ -50,7 +59,7 @@
       '<div class="' + dropClass + '">'
       + '<div class="nav-dropdown-inner" style="grid-template-columns:1fr;">'
       + '<div class="nav-dropdown-col">'
-      + headingHTML + itemsHTML
+      + colHTML
       + '</div></div></div>');
 
     var closeTimer = null;
@@ -64,14 +73,25 @@
     document.addEventListener('click',   function (e) { if (!wrap.contains(e.target)) close(); });
   }
 
-  /* ── PRODUCTS ── */
+  /* ── PRODUCTS ──
+     Two groups: Dimagi's core products, then Open Chat Studio under a
+     "Dimagi Labs" label so it doesn't read as a peer product. */
   makeDropdown('Products', {
-    heading: 'Our Products',
-    items: [
-      { label: 'Connect',          href: 'https://connect.dimagi.com/',        external: true },
-      { label: 'CommCare',         href: 'https://dimagi.com/commcare/',      external: true },
-      { label: 'SureAdhere',       href: 'https://dimagi.com/sureadhere/',     external: true },
-      { label: 'Open Chat Studio', href: 'https://www.openchatstudio.com/',    external: true }
+    groups: [
+      {
+        heading: 'Our Products',
+        items: [
+          { label: 'Connect',    href: 'https://connect.dimagi.com/',    external: true },
+          { label: 'CommCare',   href: 'https://dimagi.com/commcare/',   external: true },
+          { label: 'SureAdhere', href: 'https://dimagi.com/sureadhere/', external: true }
+        ]
+      },
+      {
+        heading: 'Dimagi Labs',
+        items: [
+          { label: 'Open Chat Studio', href: 'https://www.openchatstudio.com/', external: true }
+        ]
+      }
     ]
   }, 'sm');
 
@@ -112,15 +132,20 @@
     trigger.setAttribute('aria-haspopup', 'true');
     trigger.setAttribute('aria-expanded', 'false');
 
-    var items = [
-      { label: 'Connect',          href: 'https://connect.dimagi.com/accounts/login/' },
-      { label: 'CommCare',         href: 'https://www.commcarehq.org/accounts/login/' },
-      { label: 'SureAdhere',       href: 'https://secure.sureadhere.com/' },
+    function signinLinks(items) {
+      return items.map(function (it) {
+        return '<a href="' + it.href + '" target="_blank" rel="noopener">' + it.label + '</a>';
+      }).join('');
+    }
+    /* Core products under "Sign in to", Open Chat Studio under "Dimagi Labs". */
+    var coreHTML = signinLinks([
+      { label: 'Connect',    href: 'https://connect.dimagi.com/accounts/login/' },
+      { label: 'CommCare',   href: 'https://www.commcarehq.org/accounts/login/' },
+      { label: 'SureAdhere', href: 'https://secure.sureadhere.com/' }
+    ]);
+    var labsHTML = signinLinks([
       { label: 'Open Chat Studio', href: 'https://chatbots.dimagi.com/accounts/login/' }
-    ];
-    var itemsHTML = items.map(function (it) {
-      return '<a href="' + it.href + '" target="_blank" rel="noopener">' + it.label + '</a>';
-    }).join('');
+    ]);
 
     var wrap = document.createElement('span');
     wrap.className = 'nav-dropdown-wrap nav-signin-wrap';
@@ -137,7 +162,9 @@
       + '<div class="nav-dropdown-inner" style="grid-template-columns:1fr;">'
       + '<div class="nav-dropdown-col">'
       + '<div class="nav-dropdown-heading">Sign in to</div>'
-      + itemsHTML
+      + coreHTML
+      + '<div class="nav-dropdown-heading nav-dropdown-heading--sub">Dimagi Labs</div>'
+      + labsHTML
       + '</div></div></div>');
 
     var closeTimer = null;

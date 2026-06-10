@@ -10,7 +10,7 @@
 # Ecosystem) and a Type; Geography is optional. Run:  python3 Context/blog-import/apply_tag_pass.py
 import re, os, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from consolidation_maps import resolve_region, resolve_topic
+from consolidation_maps import resolve_region, resolve_topic, resolve_topics
 
 ROOT = "/Users/gillianjavetski/Documents/Gillian Coding/Pre-Login Websites/Dimagi Pre-Login"
 IDX  = os.path.join(ROOT, "blog", "index.html")
@@ -20,7 +20,7 @@ TOPICS   = {'Company','Dimagi','Ecosystem'}   # 'Company' kept to read old cards
 
 FOCUS_OVERRIDE = {
  'predictive-analytics-public-health-malnutrition':'Ecosystem',
- 'frontline-worker-advisory-panel-launch':'Company',
+ 'frontline-worker-advisory-panel-launch':'CommCare',
  'harnessing-ais-potential-to-improve-equity':'Open Chat Studio',   # AI/LLM piece, same as chatbots post (FLAG)
  'johnson-johnson-foundation-leveraging-advanced-analytics-to-develop-engagement-profiles':'Ecosystem',
  'researcher-spotlight-nick-tarantino':'Company',
@@ -139,6 +139,9 @@ TYPE_OVERRIDE = {
  'fast-company-world-changing-ideas-2021':'Announcement',             # Fast Company honor (was Case Study)
  'covid-19-pro-bono-project-highlights-2021':'Reflections',           # A Year of COVID-19 Response (was Case Study)
  'vaccine-solution-covid-19-routine-immunization':'Case Study',       # Mitigating... Global Vaccination (was Perspective)
+ # ---- clinical-trials use-case blog posts (2026-06-10): published-research case studies ----
+ 'kemri-pharmacokinetic-trial-nairobi':'Case Study',
+ 'azithromycin-mda-mali':'Case Study',
 }
 
 # Geography overrides. 'None' removes it. India keep-list -> 'Asia' (India is merged into Asia;
@@ -192,7 +195,8 @@ def rewrite_card(m):
     dtopic  = focus if focus in TOPICS else 'None'
     # Solutions/sector tag for the listing's Focus dropdown — same resolver the article
     # "Filed under" uses below, so card filter data and the per-article tag stay in sync.
-    sector = (resolve_topic(slug, se.get('seo1', ''), se.get('seo2', '')) or 'None').replace('&', '&amp;')
+    sectors = resolve_topics(slug, se.get('seo1', ''), se.get('seo2', ''))
+    sector = ('|'.join(sectors) if sectors else 'None').replace('&', '&amp;')
     block = re.sub(r'<article class="blog-card"[^>]*>',
         f'<article class="blog-card" data-product="{product}" data-type="{ctype}" data-topic="{dtopic}" data-country="{country}" data-sector="{sector}">', block, count=1)
     # card badges removed: Focus/Type now live only in the filter bar, not on each card
@@ -249,11 +253,11 @@ for slug,(focus,ctype,country,title) in final.items():
     # continent + both SEO tags + any leftover topical tags are dropped.
     s = SEO.get(slug, {})
     # country already resolved (region) into final[] by rewrite_card above
-    topic   = resolve_topic(slug, s.get('seo1',''), s.get('seo2',''))
+    topics  = resolve_topics(slug, s.get('seo1',''), s.get('seo2',''))
     fm = re.search(r'(<div class="article-tags">)(.*?)(</div>)', h, re.S)
     if fm:
         c = country if country and country != 'None' else ''
-        out = [focus, ctype] + ([c] if c else []) + ([topic] if topic else [])
+        out = [focus, ctype] + ([c] if c else []) + topics
         inner = '\n' + '\n'.join(f'            <span class="article-tag">{t}</span>' for t in out) + '\n          '
         h = h[:fm.start(2)] + inner + h[fm.end(2):]
     # round 5: remove the trailing legacy WordPress category from the byline

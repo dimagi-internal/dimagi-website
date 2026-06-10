@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Posts by Michael Kelleher | Dimagi</title>
+<meta name="description" content="Articles written by Michael Kelleher on the Dimagi blog.">
+<link rel="canonical" href="https://dimagi.com/blog/author/michael-kelleher/">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/styles.css?v=16">
+<style>
+.author-hero { position: relative; padding: 86px 0 48px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7ff 100%);
+  border-bottom: 1px solid var(--line); overflow: hidden; }
+.author-hero::before { content:""; position:absolute; top:-200px; right:-140px;
+  width:560px; height:560px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,67,208,0.11), transparent 62%); }
+.author-hero > .container { position: relative; z-index: 1; }
+.author-back { font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: .02em; color: var(--indigo); display: inline-flex; gap: 6px;
+  margin-bottom: 26px; }
+.author-back::before { content: "\2190"; }
+.author-back:hover { color: var(--indigo-deep); }
+.author-id { display: flex; align-items: center; gap: 20px; }
+.author-avatar { width: 72px; height: 72px; border-radius: 50%;
+  background: var(--grad-deep); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; color: #fff; font-weight: 600;
+  font-size: 26px; letter-spacing: -.01em; }
+.author-meta h1 { font-size: clamp(30px, 4vw, 46px); font-weight: 200;
+  letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 8px; color: var(--ink); }
+.author-meta .author-eyebrow { font-family: var(--sans); font-size: 11px;
+  font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted-soft); display: block; margin-bottom: 10px; }
+.author-count { font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: .04em; color: var(--muted); }
+.blog-grid-wrap { padding: 56px 0 100px; background: #f5f7ff; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.blog-card { position: relative; background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius-lg); overflow: hidden; display: flex;
+  flex-direction: column; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+.blog-card:hover { transform: translateY(-5px);
+  box-shadow: 0 26px 50px -18px rgba(10,6,32,0.18); border-color: var(--rule); }
+.blog-card-image { display: block; position: relative; aspect-ratio: 16 / 10;
+  overflow: hidden; background: var(--grad-deep); flex-shrink: 0; }
+.blog-card-image img { width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 500ms ease; }
+.blog-card:hover .blog-card-image img { transform: scale(1.05); }
+.blog-card-image::after { content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(10,6,32,0.22), transparent 36%); pointer-events:none; }
+.blog-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.blog-card-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--ink); line-height: 1.34; display:-webkit-box; -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; overflow:hidden; }
+.blog-card-desc { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;
+  overflow:hidden; font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
+.blog-card-footer { display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; padding-top: 16px; }
+.blog-card-date { font-family: var(--sans); font-size: 11px; font-weight: 600;
+  color: var(--muted-soft); letter-spacing: 0.06em; text-transform: uppercase; }
+.blog-card-link { font-size: 13px; font-weight: 600; color: var(--indigo);
+  display: inline-flex; align-items: center; gap: 4px; transition: gap 150ms, color 150ms; }
+.blog-card-link::after { content: "\2192"; }
+.blog-card-link:hover { color: var(--indigo-deep); gap: 8px; }
+@media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; }
+  .author-id { gap: 14px; } .author-avatar { width: 58px; height: 58px; font-size: 21px; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+ <div class="container">
+ <nav class="primary" data-nav-base="../../../">
+ <a class="logo" href="../../../index.html">
+ <img class="logo-img invert" src="../../../assets/dimagi-logo.png" alt="Dimagi">
+ </a>
+ <div class="nav-links">
+ <a href="#">Products</a>
+ <a href="#">Professional Services</a>
+ <a href="../../../company/about/index.html" class="nav-active">Company</a>
+ <a href="../../../contact/index.html">Contact Us</a>
+ </div>
+ <div class="nav-cta">
+ <a class="btn btn-primary" href="../../../sign-in/index.html">Sign In</a>
+ </div>
+ </nav>
+ </div>
+</div>
+
+<main id="main">
+
+  <div class="author-hero">
+    <div class="container">
+      <a class="author-back" href="../../index.html">Back to all posts</a>
+      <div class="author-id">
+        <div class="author-avatar" aria-hidden="true">MK</div>
+        <div class="author-meta">
+          <span class="author-eyebrow">Author</span>
+          <h1>Michael Kelleher</h1>
+          <span class="author-count">1 post</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-grid-wrap">
+    <div class="container">
+      <div class="blog-grid">
+    <article class="blog-card">
+      <a class="blog-card-image" href="../../sureadheres-story/index.html">
+        <img src="../../../assets/images/sureadheres-story/cover.jpg" alt="SureAdhere’s Story" loading="lazy" decoding="async">
+      </a>
+      <div class="blog-card-body">
+        <h2 class="blog-card-title">SureAdhere’s Story</h2>
+        <p class="blog-card-desc">From a 2009 research project at UC San Diego to a globally recognized tool for tuberculosis treatment adherence, this is the story of SureAdhere, now part of Dimagi.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">Dec 2024</span>
+          <a class="blog-card-link" href="../../sureadheres-story/index.html">Read more</a>
+        </div>
+      </div>
+    </article>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li class="footer-sublabel">Dimagi Labs</li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../../company/about/index.html">About Us</a></li>
+          <li><a href="../../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="../../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../../awards/index.html">Awards</a></li>
+          <li><a href="../../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="../../../contact/index.html">Contact Us</a></li>
+        </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../../legal/business-agreement/index.html">Business Agreement</a>
+        <a href="../../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../../legal/transparency-coverage/index.html">Transparency</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../assets/js/nav.js?v=7"></script>
+</body>
+</html>

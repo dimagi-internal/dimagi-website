@@ -65,7 +65,9 @@ COUNTRY2REGION = {
     'Kenya': 'Africa', 'Ethiopia': 'Africa', 'Somalia': 'Africa',
     'Tanzania': 'Africa', 'Rwanda': 'Africa', 'Uganda': 'Africa',
     'South Africa': 'Africa', 'Malawi': 'Africa', 'Mozambique': 'Africa',
-    'Zambia': 'Africa', 'Madagascar': 'Africa', 'Lesotho': 'Africa', 'Cameroon': 'Africa',
+    'Zambia': 'Africa', 'Madagascar': 'Africa', 'Lesotho': 'Africa', 'Cameroon': 'Africa', 'Zimbabwe': 'Africa',
+    'Mali': 'Africa',
+    'Jordan': 'Asia',
     'Mexico': 'Latin America', 'Jamaica': 'Latin America', 'Honduras': 'Latin America',
     'Guatemala': 'Latin America',
     # region self-maps + the multi-country bucket (idempotent round-trip)
@@ -123,15 +125,21 @@ def resolve_region(slug, geo, s1, s2, title):
         return ''
     return COUNTRY2REGION.get(c, '')
 
-def resolve_topic(slug, s1, s2):
-    # An explicit per-slug Solutions tag (tag_overrides.csv) wins even for "skip" posts —
-    # e.g. company/recognition posts the user deliberately filed under a sector.
+def resolve_topics(slug, s1, s2):
+    # The LIST of Solutions/Focus tags for a post — a post may carry more than one. An explicit
+    # per-slug Solutions tag (tag_overrides.csv) wins even for "skip" posts and may list several
+    # tags separated by '|' (e.g. "Maternal, Newborn & Child Health|Remote Engagement").
     if slug in TOPIC_OVERRIDE:
-        return TOPIC_OVERRIDE[slug]
+        return [t.strip() for t in TOPIC_OVERRIDE[slug].split('|') if t.strip()]
     if is_skip(slug):
-        return ''
+        return []
     for tier in (SECTOR, USECASE, ORGTYPE):
         for v in (s1, s2):
             if v in tier:
-                return tier[v]
-    return ''
+                return [tier[v]]
+    return []
+
+def resolve_topic(slug, s1, s2):
+    # Back-compat single-value accessor: the post's primary (first) Solutions tag, or ''.
+    t = resolve_topics(slug, s1, s2)
+    return t[0] if t else ''

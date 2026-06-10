@@ -37,8 +37,8 @@ import glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ── CONVENTIONS (change here, re-run) ──
-STYLES_V = "15"
-NAV_V = "6"
+STYLES_V = "16"
+NAV_V = "7"
 OLD_MISSIONS = [
     "Technology that empowers frontline workers, strengthens programs, and drives lasting change in communities worldwide.",
 ]
@@ -75,6 +75,7 @@ FOOTER_TEMPLATE = '''<footer>
           <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
           <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
           <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li class="footer-sublabel">Dimagi Labs</li>
           <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
         </ul>
       </div>
