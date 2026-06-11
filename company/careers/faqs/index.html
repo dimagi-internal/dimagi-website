@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../../../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Careers FAQs | Dimagi</title>
+<meta name="description" content="Frequently asked questions about Dimagi's recruitment process: applications, interviews, timelines, compensation, and benefits.">
+<link rel="canonical" href="https://dimagi.com/company/careers/faqs/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Dimagi">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/company/careers/faqs/">
+<meta property="og:title" content="Careers FAQs">
+<meta property="og:description" content="Frequently asked questions about Dimagi's recruitment process: applications, interviews, timelines, compensation, and benefits.">
+<meta property="og:image" content="https://dimagi.com/assets/images/og-default.png">
+<meta property="og:image:alt" content="Dimagi — Digital Solutions for Frontline Work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Careers FAQs">
+<meta name="twitter:description" content="Frequently asked questions about Dimagi's recruitment process: applications, interviews, timelines, compensation, and benefits.">
+<meta name="twitter:image" content="https://dimagi.com/assets/images/og-default.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/styles.css?v=16">
+<style>
+/* ── Careers FAQs page ── */
+.faq-hero {
+  background: #16006D;
+  color: #fff;
+  padding: 92px 0 76px;
+}
+.faq-hero .eyebrow { color: #b9c0ff; }
+.faq-hero h1 {
+  color: #fff;
+  font-weight: 300;
+  font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.2rem);
+  margin: 10px 0 14px;
+  letter-spacing: -0.01em;
+}
+.faq-hero p { color: rgba(255,255,255,.82); max-width: 56ch; }
+
+.faq-intro {
+  background: #f9f7ff;
+  border-radius: 14px;
+  padding: 26px 30px;
+  margin: 0 auto 46px;
+  max-width: 820px;
+  color: var(--ink, #1b2333);
+  line-height: 1.7;
+}
+.faq-intro a { color: #3843D0; font-weight: 500; }
+
+.faq-wrap { max-width: 820px; margin: 0 auto; }
+.faq-group { margin-bottom: 48px; }
+.faq-group > h2 {
+  font-weight: 500;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e6e3f5;
+  color: #16006D;
+}
+details.faq-item {
+  border: 1px solid #e6e3f5;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+details.faq-item[open] {
+  border-color: #c9cdf2;
+  box-shadow: 0 6px 22px rgba(56,67,208,.07);
+}
+details.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  font-weight: 500;
+  font-size: 1.04rem;
+  color: #1b2333;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+details.faq-item > summary::-webkit-details-marker { display: none; }
+details.faq-item > summary .faq-plus {
+  flex: 0 0 auto;
+  width: 22px; height: 22px;
+  position: relative;
+  margin-top: 3px;
+}
+details.faq-item > summary .faq-plus::before,
+details.faq-item > summary .faq-plus::after {
+  content: "";
+  position: absolute;
+  background: #3843D0;
+  border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+details.faq-item > summary .faq-plus::before { top: 10px; left: 2px; width: 18px; height: 2px; }
+details.faq-item > summary .faq-plus::after  { left: 10px; top: 2px; width: 2px; height: 18px; }
+details.faq-item[open] > summary .faq-plus::after { transform: rotate(90deg); opacity: 0; }
+details.faq-item > summary:focus-visible {
+  outline: 2px solid #3843D0;
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+.faq-answer { padding: 0 22px 20px; color: #4a5568; line-height: 1.72; }
+.faq-answer a { color: #3843D0; font-weight: 500; }
+
+.faq-cta {
+  text-align: center;
+  background: #16006D;
+  color: #fff;
+  border-radius: 16px;
+  padding: 48px 32px;
+  max-width: 820px;
+  margin: 8px auto 0;
+}
+.faq-cta h2 { color: #fff; font-weight: 300; font-size: 1.7rem; margin: 0 0 10px; }
+.faq-cta p { color: rgba(255,255,255,.82); margin: 0 0 24px; }
+.faq-cta .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  details.faq-item, details.faq-item > summary .faq-plus::before, details.faq-item > summary .faq-plus::after { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary" data-nav-base="../../../">
+      <a class="logo" href="../../../index.html">
+        <img class="logo-img invert" src="../../../assets/dimagi-logo.png" alt="Dimagi">
+      </a>
+      <div class="nav-links">
+        <a href="#">Products</a>
+        <a href="#">Professional Services</a>
+        <a href="../../../company/about/index.html" class="nav-active">Company</a>
+        <a href="../../../contact/index.html">Contact Us</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="../../../sign-in/index.html">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="faq-hero">
+    <div class="container">
+      <span class="eyebrow">Social Impact Jobs</span>
+      <h1>Careers FAQs</h1>
+      <p>Frequently asked questions about our recruitment process.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="faq-intro">
+        In addition to these Careers FAQs, you can learn more about our culture by exploring the
+        <a href="../../../company/values/index.html">values we live by</a> and watching the "Why Dimagi" video on our
+        <a href="../index.html">Careers page</a>. You can also read some of our
+        <a href="../../../blog/index.html">Day in the Life blog posts</a> to get a feel for life at Dimagi.
+      </div>
+
+      <div class="faq-wrap">
+
+        <div class="faq-group">
+          <h2>Application Process</h2>
+
+          <details class="faq-item">
+            <summary>What should I include in my application?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>All applicants should submit a resume. A resume in PDF format is best suited for our applicant tracking system. A cover letter is optional in most cases. Any other job-specific submissions will be noted on the job description. Please do not submit any third-party proprietary information or material you do not have the right to distribute.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>If a job description lists one office or country, can I apply and work remotely?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Please check the job description for the position you are interested in. If remote work is an option, it will be mentioned there.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I check the status of my application?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Dimagi replies to all applicants about the status of their application, regardless of the decision. If you have not heard from us, please know that we are still reviewing your application. We reach out directly once determinations have been made, but we cannot provide individual status updates in the interim, given the number of requests we receive. Thank you for your understanding.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>A job I applied to is no longer posted on your website. What does this mean?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>If a job you applied to is no longer displayed on our website, it means we are no longer accepting new applications for that position. We will contact you once we have reviewed your application.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if I need assistance or an accommodation during the application or interview process?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>If you need special assistance or a reasonable accommodation during the application or interview process for a posted position, please contact us at <a href="tel:+16176042123">617-604-2123</a> or email <a href="mailto:accommodations@dimagi.com">accommodations@dimagi.com</a> detailing your request.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if I don't see an open role that fits my skill set?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Join our Talent Community by emailing your resume and field of interest to <a href="mailto:careers@dimagi.com">careers@dimagi.com</a>. We will keep your information on file and contact you if an opening matches your qualifications.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h2>Interview Process</h2>
+
+          <details class="faq-item">
+            <summary>How does the recruitment process work?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Once your application is reviewed, the first step in the interview process is an initial screening round. This is a chance for us to get to know you and to share more about the position and Dimagi. Depending on the role, there will be two or three additional rounds after the initial screening. These can include a combination of short exercises, interviews with team members, or pair-coding interviews, as applicable.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How long does the recruitment process usually take?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>At Dimagi, we believe in doing recruitment right the first time. We want to make sure you are a good fit for the company and team, and that we are a good fit for you. The length of the process varies by position, but expect it to take about three to five weeks after the initial screening call.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I prepare for an interview?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Research Dimagi to understand our mission and what it means to be a social enterprise and a B Corp. Review the job requirements and think about professional experiences that relate to the job description. Check out some of our <a href="../../../blog/index.html">blogs</a> to get an idea of the kind of work Dimagi is involved in.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What should I wear for an interview?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>We have a casual dress atmosphere. Please feel free to wear whatever makes you comfortable.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if I haven't heard back within two weeks after an interview?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Our hiring teams try their best to keep candidates informed about their status, but sometimes it gets busy. We circle back to all candidates with a final decision at every stage of the process, regardless of whether they are selected. We will be back in touch as soon as we can.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h2>Compensation &amp; Benefits</h2>
+
+          <details class="faq-item">
+            <summary>How do you decide compensation?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>At Dimagi, we are transparent about salaries at all levels of the organization and have a standard, global pay scale for all positions. The compensation or salary range is listed in the job description. Your final salary depends on your base location and is non-negotiable. We also share the exact salary early in the recruitment process.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What benefits does Dimagi offer, and when am I eligible?<span class="faq-plus" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>All employees at Dimagi qualify for benefits. You can find our common benefits on the <a href="../index.html">Careers page</a>. Each office additionally offers some country-specific perks, which are listed in the relevant job description.</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <div class="faq-cta">
+        <h2>Ready to apply?</h2>
+        <p>Did you find our Careers FAQs helpful? Explore open positions that match your skill set, or join our Talent Community.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="../index.html">View open roles</a>
+          <a class="btn btn-ghost" href="mailto:careers@dimagi.com">Join our Talent Community</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../../assets/dimagi-logo.png" alt="Dimagi">
+        <p>Building and scaling sustainable, high-impact digital solutions that amplify frontline work.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/dimagi" target="_blank" rel="noopener" class="footer-social-link linkedin" aria-label="Follow Dimagi on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zm5.06 0h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94V21H8.46V8.4z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCt8JcRhWywkVJRR_YWv4OhA" target="_blank" rel="noopener" class="footer-social-link youtube" aria-label="Follow Dimagi on YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+        <div class="footer-certs">
+          <a class="footer-cert bcorp" href="https://bcorporation.net/directory/dimagi-inc" target="_blank" rel="noopener" aria-label="Certified B Corporation">
+            <img src="../../../assets/images/about/b-corp-logo.png" alt="Certified B Corporation" loading="lazy">
+          </a>
+          <a class="footer-cert climate" href="https://www.climateneutral.org/brand/dimagi" target="_blank" rel="noopener" aria-label="Climate Neutral Certified">
+            <img src="../../../assets/images/about/climate-neutral-badge.png" alt="Climate Neutral Certified" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://connect.dimagi.com/" target="_blank" rel="noopener">Connect</a></li>
+          <li><a href="https://dimagi.com/commcare/" target="_blank" rel="noopener">CommCare</a></li>
+          <li><a href="https://dimagi.com/sureadhere/" target="_blank" rel="noopener">SureAdhere</a></li>
+          <li class="footer-sublabel">Dimagi Labs</li>
+          <li><a href="https://www.openchatstudio.com/" target="_blank" rel="noopener">Open Chat Studio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Professional Services</h5>
+        <ul>
+          <li><a href="../../../professional-services/global-services/index.html">Global Services</a></li>
+          <li><a href="../../../professional-services/united-states/index.html">United States</a></li>
+          <li><a href="../../../professional-services/india/index.html">India</a></li>
+          <li><a href="../../../professional-services/research-data/index.html">Research &amp; Data</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../../company/about/index.html">About Us</a></li>
+          <li><a href="../../../company/our-approach/index.html">Our Approach</a></li>
+          <li><a href="../../../blog/index.html">Blog</a></li>
+          <li><a href="../../../podcast/index.html">Podcast</a></li>
+          <li><a href="../../../company/careers/index.html">Careers</a></li>
+          <li><a href="../../../awards/index.html">Awards</a></li>
+          <li><a href="../../../press/index.html">Press &amp; Coverage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="../../../contact/index.html">Contact Us</a></li>
+        </ul>
+        <div class="footer-news">
+          <p class="footer-news-label">Subscribe to our newsletter</p>
+          <form class="footer-news-form" onsubmit="return false;">
+            <input class="footer-news-input" type="email" name="email" placeholder="Your email" aria-label="Your email address" required>
+            <button class="btn btn-primary footer-news-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <div class="footer-legal">
+        <a href="../../../legal/privacy-policy/index.html">Privacy</a>
+        <a href="../../../legal/terms-of-service/index.html">Terms</a>
+        <a href="../../../legal/business-agreement/index.html">Business Agreement</a>
+        <a href="../../../legal/acceptable-use/index.html">Acceptable Use</a>
+        <a href="../../../legal/financial-conflict/index.html">Financial Conflict</a>
+        <a href="../../../legal/transparency-coverage/index.html">Transparency</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../assets/js/nav.js?v=7"></script>
+</body>
+</html>

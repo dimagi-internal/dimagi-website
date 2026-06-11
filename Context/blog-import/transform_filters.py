@@ -33,10 +33,11 @@ TYPE_ORDER   = ['Case Study', 'Reflections', 'Announcement', 'Event']
 REGION_ORDER = ['Africa', 'Asia', 'United States', 'Latin America']
 # Sectors dropdown groups (broader "Solutions" set), sectors first in dimagi.com order.
 SECTOR_ORDER  = ['Community Health', 'Primary Care', 'Immunizations',
-                 'Maternal, Newborn & Child Health', 'Nutrition', 'Non-Communicable Diseases',
+                 'Maternal & Newborn Health', 'Child Health', 'Early Childhood Development',
+                 'Nutrition', 'Non-Communicable Diseases',
                  'Infectious Disease Prevention & Control', 'Mental Health', 'Agriculture',
-                 'Education', 'Humanitarian Response', 'Livelihoods',
-                 'Early Childhood Development', 'WASH']
+                 'Humanitarian Response', 'Education', 'Livelihoods',
+                 'Water, Sanitation, & Hygiene']
 USECASE_ORDER = ['Monitoring & Evaluation', 'Service Delivery', 'Research',
                  'Cash & Voucher Assistance', 'Campaigns', 'Remote Engagement',
                  'Workforce Management', 'Clinical Trials', 'Sponsorship']

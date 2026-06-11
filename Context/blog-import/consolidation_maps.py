@@ -10,7 +10,7 @@ import os, csv
 
 # ---- RULES: topical SEO value -> canonical dimagi.com Solutions label --------------
 SECTOR = {
-    'Maternal & Child Health': 'Maternal, Newborn & Child Health',
+    'Maternal & Child Health': 'Maternal & Newborn Health',
     'Mental Health': 'Mental Health',
     'Immunization': 'Immunizations',
     'Nutrition': 'Nutrition',
@@ -23,7 +23,7 @@ SECTOR = {
     'HIV & AIDS': 'Infectious Disease Prevention & Control',
     'Malaria': 'Infectious Disease Prevention & Control',
     'Contact Tracing': 'Infectious Disease Prevention & Control',
-    'Family Planning': 'Maternal, Newborn & Child Health',   # folded into the canonical MNCH sector
+    'Family Planning': 'Maternal & Newborn Health',   # folded into the maternal sector
     'Financial Inclusion': 'Livelihoods',
 }
 USECASE = {
@@ -133,7 +133,7 @@ def resolve_topics(slug, s1, s2):
         return [t.strip() for t in TOPIC_OVERRIDE[slug].split('|') if t.strip()]
     if is_skip(slug):
         return []
-    for tier in (SECTOR, USECASE, ORGTYPE):
+    for tier in (SECTOR, USECASE):
         for v in (s1, s2):
             if v in tier:
                 return [tier[v]]

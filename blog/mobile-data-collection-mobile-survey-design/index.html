@@ -97,6 +97,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css?v=16">
 <link rel="stylesheet" href="../../assets/article.css?v=12">
+<style>
+  /* scoped table styling for the restored requirements table */
+  .article-table-wrap { margin: 0 0 30px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14.5px; line-height: 1.55; color: #2B2740; }
+  .article-table th, .article-table td { text-align: left; vertical-align: top; padding: 12px 14px; border: 1px solid var(--line); }
+  .article-table thead th { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); background: var(--indigo-soft); }
+  .article-table ul { margin: 8px 0 0; }
+  .article-table ul li { font-size: 14px; margin: 0 0 6px; padding-left: 20px; }
+  .article-table ul li::before { top: 9px; width: 5px; height: 5px; }
+  .article-table a { color: var(--indigo); font-weight: 500; }
+</style>
 </head>
 <body>
 
@@ -183,93 +194,108 @@
     <div class="container">
       <div class="article-prose-width prose">
 
-        <p class="lead"><span style="font-weight: 400;">You can’t just dive into the build phase.</span></p>
-        <p><span style="font-weight: 400;">Careful planning goes into the framework your app is built around and workflows that make it up.</span></p>
-        <p><span style="font-weight: 400;">The process of designing a mobile data collection app involves both (1) defining who will use your app and (2) determining how to best structure the app with the right modules and features.</span></p>
-        <p>&nbsp;</p>
-        <p><figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img1.jpg" alt="Mobile data collection tools allow for more interaction with beneficiaries" loading="lazy" decoding="async"></figure></p>
-        <p><span style="font-weight: 400;">Design your tool so that your workers can spend more time interacting with beneficiaries</span></p>
-        <p>&nbsp;</p>
-        <p><span style="font-weight: 400;">Let’s take a deeper look at how to approach this task:</span></p>
+        <p class="lead">You can’t just dive into the build phase.</p>
+        <p>Careful planning goes into the framework your app is built around and workflows that make it up.</p>
+        <p>The process of designing a mobile data collection app involves both (1) defining who will use your app and (2) determining how to best structure the app with the right modules and features.</p>
+        <figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img1.jpg" alt="Mobile data collection tools allow for more interaction with beneficiaries" loading="lazy" decoding="async"></figure>
+        <p>Design your tool so that your workers can spend more time interacting with beneficiaries</p>
+        <p>Let’s take a deeper look at how to approach this task:</p>
         <h2 id="identify-user-stories">Identify user stories</h2>
-        <p><span style="font-weight: 400;">Your first step is to identify the users and user stories to build your app around. These should be centered around the biggest pain points and opportunities for impact you identified in scoping-not just the loudest voice in the room.</span></p>
-        <p><span style="font-weight: 400;">Here are a few key questions to consider while developing this list of user stories that should help open your eyes to the potential impact of your tool:</span></p>
-        <ul> <li><span style="font-weight: 400;">How will my app change existing processes and roles?</span></li> <li><span style="font-weight: 400;">How will those changes affect each player in the system?</span></li> <li><span style="font-weight: 400;">Are those changes addressing pain points and improving workflows, or just complicating things?</span></li> </ul>
-        <p><span style="font-weight: 400;">Validate your user stories and the answers to these questions with your team before you start designing the technical structure of your solution to avoid building an app that is misaligned with your project and end users’ needs. They should be able to answer your questions in a way that indicates whether your new mobile data collection tool will be well received and regularly used.</span></p>
-        <p>&nbsp;</p>
-        <p><figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img2.jpg" alt="There are many different uses for mobile data collection tools" loading="lazy" decoding="async"></figure></p>
-        <p><span style="font-weight: 400;">Map out every reason your frontline workers might use your mobile data collection app</span></p>
-        <p>&nbsp;</p>
+        <p>Your first step is to identify the users and user stories to build your app around. These should be centered around the biggest pain points and opportunities for impact you identified in scoping-not just the loudest voice in the room.</p>
+        <p>Here are a few key questions to consider while developing this list of user stories that should help open your eyes to the potential impact of your tool:</p>
+        <ul> <li>How will my app change existing processes and roles?</li> <li>How will those changes affect each player in the system?</li> <li>Are those changes addressing pain points and improving workflows, or just complicating things?</li> </ul>
+        <p>Validate your user stories and the answers to these questions with your team before you start designing the technical structure of your solution to avoid building an app that is misaligned with your project and end users’ needs. They should be able to answer your questions in a way that indicates whether your new mobile data collection tool will be well received and regularly used.</p>
+        <figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img2.jpg" alt="There are many different uses for mobile data collection tools" loading="lazy" decoding="async"></figure>
+        <p>Map out every reason your frontline workers might use your mobile data collection app</p>
         <h2 id="design-the-structure-of-your-system">Design the structure of your system</h2>
-        <p><span style="font-weight: 400;">Once you validate your user stories, it is time to </span><a href="https://dimagi.com/blog/mobile-data-collection-app-design-tips-stc"><b>translate these into your app’s module and form structure</b></a><span style="font-weight: 400;">. Do this before you start building to ensure your vision is possible with the set of features at your disposal. Essentially, it’s about confirming whether your chosen platform can do precisely what you need it to.</span></p>
-        <p><span style="font-weight: 400;">Approach this task systematically by starting with a simple table like the one below. Translate your user stories you have defined and validated into individual requirements, you answer the question of what you need your app to do. Those requirements then become a summary of modules (groups of forms), individual forms, and features, which define how your app performs tasks:</span></p>
-        <ul> <li><span style="font-weight: 400;">Module Type: Case List</span></li> <li><span style="font-weight: 400;">Case Type: Participants</span></li> </ul>
-        <ul> <li><span style="font-weight: 400;">Module Type: Registration Form</span></li> <li><span style="font-weight: 400;">Case Type: Participants</span></li> </ul>
-        <p><a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=30605985"><span style="font-weight: 400;">Minimize Duplicates (Registration From Case List)</span></a><span style="font-weight: 400;">*</span></td> </tr> </tbody> </table> <p><span style="font-weight: 400;">*Usability feature highlight: </span><a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=30605985"><span style="font-weight: 400;">Minimize Duplicates (or Registration From Case List</span></a><span style="font-weight: 400;">) allows you to place your registration form at the bottom of your participant case list, so the user can go from searching the existing cases to registering a new one seamlessly.</span></p>
-        <p>&nbsp;</p>
-        <p><figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img3.jpg" alt="Sample mobile survey form in Burmese" loading="lazy" decoding="async"></figure></p>
-        <p><span style="font-weight: 400;">Find out the best way to phrase your questions to avoid bias. Even in Burmese.</span></p>
-        <p>&nbsp;</p>
+        <p>Once you validate your user stories, it is time to <a href="https://dimagi.com/blog/mobile-data-collection-app-design-tips-stc"><b>translate these into your app’s module and form structure</b></a>. Do this before you start building to ensure your vision is possible with the set of features at your disposal. Essentially, it’s about confirming whether your chosen platform can do precisely what you need it to.</p>
+        <p>Approach this task systematically by starting with a simple table like the one below. Translate your user stories you have defined and validated into individual requirements, you answer the question of what you need your app to do. Those requirements then become a summary of modules (groups of forms), individual forms, and features, which define how your app performs tasks:</p>
+        <div class="article-table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr>
+                <th>User story</th>
+                <th>Requirements</th>
+                <th>Modules (Group of Forms)</th>
+                <th>Forms</th>
+                <th>Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">The field worker registers all new program participants in the app.</td>
+                <td>The field worker can first search the list of existing participants to ensure they do not already exist.</td>
+                <td><strong>‘Participant List’</strong> Module
+                  <ul>
+                    <li>Module Type: Case List</li>
+                    <li>Case Type: Participants</li>
+                  </ul>
+                </td>
+                <td>N/A</td>
+                <td><a href="https://confluence.dimagi.com/display/commcarepublic/Case+List+and+Case+Detail+Configuration#CaseListandCaseDetailConfiguration-DisplayProperties">“Search Only” properties</a> in the case list</td>
+              </tr>
+              <tr>
+                <td>If their participant does not already exist, the field worker can register that patient easily from the participant list.</td>
+                <td><strong>Hidden Module</strong>
+                  <ul>
+                    <li>Module Type: Registration Form</li>
+                    <li>Case Type: Participants</li>
+                  </ul>
+                </td>
+                <td>Participant Registration Form</td>
+                <td><a href="https://confluence.dimagi.com/display/commcarepublic/Menu+Filtering">Module filtering</a><br>
+                  <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=30605985">Minimize Duplicates (Registration From Case List)</a>*</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>*Usability feature highlight: <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=30605985">Minimize Duplicates (or Registration From Case List)</a> allows you to place your registration form at the bottom of your participant case list, so the user can go from searching the existing cases to registering a new one seamlessly.</p>
+        <figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img3.jpg" alt="Sample mobile survey form in Burmese" loading="lazy" decoding="async"></figure>
+        <p>Find out the best way to phrase your questions to avoid bias. Even in Burmese.</p>
         <h2 id="content-design">Content Design</h2>
-        <p><span style="font-weight: 400;">Once you have organized your workflows, content design will help you develop the survey itself by formulating questions whose responses will best inform the goals of your project. It’s not just about putting all the questions you can think of in the survey. </span></p>
-        <p><span style="font-weight: 400;">Content design involves setting up clear questions that avoid bias, maintain consistency in phrasing, and are culturally appropriate. It’s about asking, “what effect has this program had?” and not “how has this program helped you?”</span></p>
-        <p><span style="font-weight: 400;">The primary components of content design are avoiding bias and cultural adaptation, and there are even some widely-used, validated surveys available that could be exactly what you need.</span></p>
-        <p>&nbsp;</p>
+        <p>Once you have organized your workflows, content design will help you develop the survey itself by formulating questions whose responses will best inform the goals of your project. It’s not just about putting all the questions you can think of in the survey. </p>
+        <p>Content design involves setting up clear questions that avoid bias, maintain consistency in phrasing, and are culturally appropriate. It’s about asking, “what effect has this program had?” and not “how has this program helped you?”</p>
+        <p>The primary components of content design are avoiding bias and cultural adaptation, and there are even some widely-used, validated surveys available that could be exactly what you need.</p>
         <h2 id="avoid-bias">Avoid bias</h2>
-        <p><a href="https://dimagi.com/blog/mobile-data-collection-11-ways-to-avoid-bias/"><b>Avoiding bias</b></a><span style="font-weight: 400;"> is one of the hardest jobs of a survey developer, as the </span><i><span style="font-weight: 400;">way</span></i><span style="font-weight: 400;"> you ask a question will impact the answer you receive.</span></p>
-        <p><span style="font-weight: 400;">To capture the full range of possible answers, the phrasing of your questions should remain neutral, which can be easier said than done. Depending on the topic, it can require extensive knowledge of the subject, including public perception, power dynamics, and even controversies within the field.</span></p>
-        <p><span style="font-weight: 400;">A poorly designed question would ask, “How often do you exercise?” offering “regularly” or “occasionally” as answers. A better option would provide more precise and quantifiable answers:</span></p>
-        <p>&nbsp;</p>
-        <p><span style="font-weight: 400;">“How often do you exercise?”</span></p>
-        <p><span style="font-weight: 400;">[ ] Twice a week or more often</span></p>
-        <p><span style="font-weight: 400;">[ ] Once a week</span></p>
-        <p><span style="font-weight: 400;">[ ] Less than once a week</span></p>
-        <p>&nbsp;</p>
-        <p><span style="font-weight: 400;">Another area to pay close attention to is the phrasing of questions that are intended to elicit more subjective responses (i.e. opinions, feelings, or beliefs). The way you pose the question can influence beneficiaries’ responses in ways that may be unintended.</span></p>
-        <p>&nbsp;</p>
+        <p><a href="https://dimagi.com/blog/mobile-data-collection-11-ways-to-avoid-bias/"><b>Avoiding bias</b></a> is one of the hardest jobs of a survey developer, as the <i>way</i> you ask a question will impact the answer you receive.</p>
+        <p>To capture the full range of possible answers, the phrasing of your questions should remain neutral, which can be easier said than done. Depending on the topic, it can require extensive knowledge of the subject, including public perception, power dynamics, and even controversies within the field.</p>
+        <p>A poorly designed question would ask, “How often do you exercise?” offering “regularly” or “occasionally” as answers. A better option would provide more precise and quantifiable answers:</p>
+        <p>“How often do you exercise?”</p>
+        <p>[ ] Twice a week or more often</p>
+        <p>[ ] Once a week</p>
+        <p>[ ] Less than once a week</p>
+        <p>Another area to pay close attention to is the phrasing of questions that are intended to elicit more subjective responses (i.e. opinions, feelings, or beliefs). The way you pose the question can influence beneficiaries’ responses in ways that may be unintended.</p>
         <h2 id="cultural-differences">Cultural differences</h2>
-        <p><span style="font-weight: 400;">Context matters.</span></p>
-        <p><span style="font-weight: 400;">Cultural references and word selection in survey questions may lead to variability in interpretations of the questions when applied to different populations.</span></p>
-        <p><span style="font-weight: 400;">One example of this that had an effect on project outcomes comes from Ethiopia, where the Red Cross logo was used as a hospital icon, but locals interpreted it as the symbol for a butcher.</span></p>
-        <p><span style="font-weight: 400;">Considerations like this should be balanced with the overall goal of the program, as a culturally-specific reference may help get a reliable answer for one beneficiary, but if the sample is ever expanded, then you may run into issues.</span></p>
-        <p><span style="font-weight: 400;">There are </span><a href="http://ccsg.isr.umich.edu/index.php/chapters/questionnaire-design-chapter"><span style="font-weight: 400;">three different approaches</span></a><span style="font-weight: 400;"> to overcoming these kinds of cultural references:</span></p>
-        <ol> <li><span style="font-weight: 400;">Translating questions: Asking the same question, but in the target audience’s language. This standardizes responses and is the best way to compare data later on.</span></li> <li><span style="font-weight: 400;">Asking different questions: This approach is about finding appropriate examples that each population will find relevant. Your data will be more accurate, but you will have to standardize the answers.</span></li> <li><span style="font-weight: 400;">Mixed approach: You can also ask standard questions (translated as appropriate), but vary the responses based on cultural context .</span></li> </ol>
-        <p>&nbsp;</p>
+        <p>Context matters.</p>
+        <p>Cultural references and word selection in survey questions may lead to variability in interpretations of the questions when applied to different populations.</p>
+        <p>One example of this that had an effect on project outcomes comes from Ethiopia, where the Red Cross logo was used as a hospital icon, but locals interpreted it as the symbol for a butcher.</p>
+        <p>Considerations like this should be balanced with the overall goal of the program, as a culturally-specific reference may help get a reliable answer for one beneficiary, but if the sample is ever expanded, then you may run into issues.</p>
+        <p>There are <a href="http://ccsg.isr.umich.edu/index.php/chapters/questionnaire-design-chapter">three different approaches</a> to overcoming these kinds of cultural references:</p>
+        <ol> <li>Translating questions: Asking the same question, but in the target audience’s language. This standardizes responses and is the best way to compare data later on.</li> <li>Asking different questions: This approach is about finding appropriate examples that each population will find relevant. Your data will be more accurate, but you will have to standardize the answers.</li> <li>Mixed approach: You can also ask standard questions (translated as appropriate), but vary the responses based on cultural context .</li> </ol>
         <h2 id="validated-surveys">Validated surveys</h2>
-        <p><span style="font-weight: 400;">Why recreate a survey instrument when there may be one that already exists that is well-aligned with your project objectives? There are databases of existing, </span><a href="https://www.rand.org/health/surveys_tools.html"><span style="font-weight: 400;">validated surveys</span></a><span style="font-weight: 400;"> that would allow you to reliably assess and compare your results with those of other projects in the broader community.</span></p>
-        <p>&nbsp;</p>
-        <p><figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img4.jpg" alt="Consider different methods of survey delivery in your mobile data collection app" loading="lazy" decoding="async"></figure></p>
-        <p><span style="font-weight: 400;">The </span><i><span style="font-weight: 400;">way</span></i><span style="font-weight: 400;"> you ask your questions can affect the responses you get. Find the best method for your users.</span></p>
-        <p>&nbsp;</p>
+        <p>Why recreate a survey instrument when there may be one that already exists that is well-aligned with your project objectives? There are databases of existing, <a href="https://www.rand.org/health/surveys_tools.html">validated surveys</a> that would allow you to reliably assess and compare your results with those of other projects in the broader community.</p>
+        <figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img4.jpg" alt="Consider different methods of survey delivery in your mobile data collection app" loading="lazy" decoding="async"></figure>
+        <p>The <i>way</i> you ask your questions can affect the responses you get. Find the best method for your users.</p>
         <h2 id="delivery-design">Delivery Design</h2>
-        <p><span style="font-weight: 400;">How you deliver a question is just as important as how you phrase it. Determining the optimal delivery method is all about how to best structure and disseminate your survey. The survey structure and mode of communication are the primary considerations in this category. This means that once you have organized your user stories and workflows, you need figure out a proper sequence for them.</span></p>
-        <p>&nbsp;</p>
+        <p>How you deliver a question is just as important as how you phrase it. Determining the optimal delivery method is all about how to best structure and disseminate your survey. The survey structure and mode of communication are the primary considerations in this category. This means that once you have organized your user stories and workflows, you need figure out a proper sequence for them.</p>
         <h2 id="survey-structure">Survey structure</h2>
-        <p><span style="font-weight: 400;">The structure of a survey, including the sequencing of questions and their available responses, will affect the data it provides you. Here are a few considerations for how you might recognize and solve these situations:</span></p>
-        <p>&nbsp;</p>
+        <p>The structure of a survey, including the sequencing of questions and their available responses, will affect the data it provides you. Here are a few considerations for how you might recognize and solve these situations:</p>
         <h2 id="do-certain-questions-depend-on-others">Do certain questions depend on others?</h2>
-        <p><span style="font-weight: 400;">If you have questions that will only make sense within the context of a previous answer, you can use skip logic (also known as display conditions) to control when they appear. Deciding which questions should appear (or disappear) depending on the answer to a prior question (or questions) is important for collecting clear, consistent data. </span></p>
-        <p>&nbsp;</p>
+        <p>If you have questions that will only make sense within the context of a previous answer, you can use skip logic (also known as display conditions) to control when they appear. Deciding which questions should appear (or disappear) depending on the answer to a prior question (or questions) is important for collecting clear, consistent data. </p>
         <h2 id="which-questions-are-required">Which questions are required?</h2>
-        <p><span style="font-weight: 400;">Often, with paper forms, you will find that important fields are left completely blank. This can render the whole submission useless. The ability to deliver surveys electronically has made it possible to reduce the potential of incomplete datasets by requiring certain questions be answered before submission. </span></p>
-        <p>&nbsp;</p>
+        <p>Often, with paper forms, you will find that important fields are left completely blank. This can render the whole submission useless. The ability to deliver surveys electronically has made it possible to reduce the potential of incomplete datasets by requiring certain questions be answered before submission. </p>
         <h2 id="what-type-of-answers-are-you-expecting">What type of answers are you expecting?</h2>
-        <p><span style="font-weight: 400;">When developing a structured-entry survey, you may want to consider whether a given question accepts only one response or multiple responses. While paper forms cannot enforce the number of responses that a respondent can provide, an electronic survey can. Furthermore, you may want to use </span><a href="https://confluence.dimagi.com/display/commcarepublic/Basic+Validation+Conditions"><span style="font-weight: 400;">validation conditions</span></a><span style="font-weight: 400;"> to restrict the type of responses that can be accepted and ensure your enumerators correct mistakes on site that they might not otherwise notice until it is too late.</span></p>
-        <p>&nbsp;</p>
+        <p>When developing a structured-entry survey, you may want to consider whether a given question accepts only one response or multiple responses. While paper forms cannot enforce the number of responses that a respondent can provide, an electronic survey can. Furthermore, you may want to use <a href="https://confluence.dimagi.com/display/commcarepublic/Basic+Validation+Conditions">validation conditions</a> to restrict the type of responses that can be accepted and ensure your enumerators correct mistakes on site that they might not otherwise notice until it is too late.</p>
         <h2 id="mode-of-communication">Mode of communication</h2>
-        <p><span style="font-weight: 400;">This consideration is focused mostly on the user experience and how it can affect the reliability of the responses you receive.</span></p>
-        <p><span style="font-weight: 400;">For instance, if you have a short survey, and your respondents have access to smartphones, you may want to consider an SMS-based data collection program. However, if you are unsure of your audience’s access to mobile phones, you may unknowingly restrict and bias your sample, based on the type of person who has access to a mobile phone in that population (e.g. male heads of households).</span></p>
-        <p><span style="font-weight: 400;">On the other hand, if you have many open-ended questions that require longer text responses, you may want to consider collecting responses verbally and/or entering responses via tablet or computer. </span></p>
-        <p>&nbsp;</p>
-        <p><figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img5.jpg" alt="An ASHA delivers a survey with her mobile data collection app" loading="lazy" decoding="async"></figure></p>
-        <p><span style="font-weight: 400;">Spend time designing your mobile survey for a more enjoyable user experience.</span></p>
-        <p>&nbsp;</p>
+        <p>This consideration is focused mostly on the user experience and how it can affect the reliability of the responses you receive.</p>
+        <p>For instance, if you have a short survey, and your respondents have access to smartphones, you may want to consider an SMS-based data collection program. However, if you are unsure of your audience’s access to mobile phones, you may unknowingly restrict and bias your sample, based on the type of person who has access to a mobile phone in that population (e.g. male heads of households).</p>
+        <p>On the other hand, if you have many open-ended questions that require longer text responses, you may want to consider collecting responses verbally and/or entering responses via tablet or computer. </p>
+        <figure class="article-figure"><img src="../../assets/images/mobile-data-collection-mobile-survey-design/img5.jpg" alt="An ASHA delivers a survey with her mobile data collection app" loading="lazy" decoding="async"></figure>
+        <p>Spend time designing your mobile survey for a more enjoyable user experience.</p>
         <h2 id="design-in-a-nutshell">Design in a nutshell</h2>
-        <p><span style="font-weight: 400;">Designing your mobile data collection app is about understanding:</span></p>
-        <ol> <li><span style="font-weight: 400;">What your app will be used for,</span></li> <li><span style="font-weight: 400;">How the tool you chose can facilitate that use,</span></li> <li><span style="font-weight: 400;">How to write the questions you ask to avoid bias, and</span></li> <li><span style="font-weight: 400;">How the sequencing and delivery of questions are just as important as the questions themselves.</span></li> </ol>
-        <p>&nbsp;</p>
-        <p><span style="font-weight: 400;">This is the heavy lifting you need to do before you can start building, but a thoughtful approach will provide you with a solid foundation for your app. And the more work you do in this phase, the easier the next.</span></p>
-        <p>&nbsp;</p>
+        <p>Designing your mobile data collection app is about understanding:</p>
+        <ol> <li>What your app will be used for,</li> <li>How the tool you chose can facilitate that use,</li> <li>How to write the questions you ask to avoid bias, and</li> <li>How the sequencing and delivery of questions are just as important as the questions themselves.</li> </ol>
+        <p>This is the heavy lifting you need to do before you can start building, but a thoughtful approach will provide you with a solid foundation for your app. And the more work you do in this phase, the easier the next.</p>
 
         <!-- Foot nav -->
         <div class="article-foot">
