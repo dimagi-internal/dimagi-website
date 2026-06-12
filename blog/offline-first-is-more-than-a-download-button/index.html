@@ -185,7 +185,7 @@
 
         <p class="lead"><strong><em>This is the first in a series of posts from Dimagi’s CTO exploring the engineering principles behind the team’s mobile apps.</em></strong></p>
         <p>Dimagi builds software products to make an impact in last-mile low-income settings around the world, and our dev team loves Open Source. While a lot of that loves stems from the same advantages that OSS offers to any software project, the truth is that there just aren’t a lot of folks who are working on the same technical problems that our team is. We have to stick together to get things done.</p>
-        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img1.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img1.png" alt="A rural health clinic building with a motorbike and bicycle parked outside" loading="lazy" decoding="async"></figure>
         <p>Stack Overflow isn&#8217;t exactly overflowing with advice on #lastmileclinicalworkflows</p>
         <p>Although we’ve had some success with Open Source contributions to the community,<span id='easy-footnote-1-' class='easy-footnote-margin-adjust'></span><span class='easy-footnote'><a href='#easy-footnote-bottom-1-' title='The very successful OpenDataKit project (https://opendatakit.org/), for example, started as an adaptation of our JavaRosa engine from J2ME to Android. They are a great team, and we love collaborating with them.'><sup>1</sup></a></span> it can be hard for sharing code alone to bootstrap success in the ICT4D space due to how unfamiliar its constraints are to most programmers. Well-structured code can convey the individual design decisions behind how a component was made, but it’s much more difficult to document the pervasive choices and patterns needed to make an app that functions in the context where our users work.</p>
         <p>To help bridge that gap, I’m writing this series to share a primer on that ‘other half’ of the knowledge we’ve built up along with our code: the engineering principles our team adheres to when building mobile software. These provide our team with something like meta design patterns which give us the ability to resolve ambiguity early in our process and determine areas of technical focus.</p>
@@ -194,25 +194,25 @@
         <p>Our most important guiding principle for our team is that we build software “offline first.”</p>
         <p>To meet Dimagi’s mission, we need to produce <a href="http://sites.dimagi.com/case-study/mhealth-tdh-burkinafaso">high impact software</a> for <a href="http://sites.dimagi.com/case-study/mhealth-supply-chain-ghana">mission critical systems </a>in environments where <a href="http://sites.dimagi.com/case-study/mhealth-guatemala-childhealth">connectivity can’t be assumed</a>. Our success depends on being able to accomplish amazing things on the ground with a device that is offline indefinitely.</p>
         <p>While this requirement is more critical to our software team than it is for most teams, the importance of this principle should be viscerally easy to understand for anyone who’s ever had the audacity to take a subway and assume that their phone shouldn’t be reduced to a calculator the instant they reach the bottom of the stairs.</p>
-        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img2.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img2.png" alt="An Android 'My apps' screen showing a 'Check your connection and try again' error" loading="lazy" decoding="async"></figure>
         <p>Sorry, doesn&#8217;t &#8220;installed&#8221; mean on the phone?</p>
         <p>It’s easy to misinterpret this principle as being solely about writing code which doesn’t use the internet, but offline first doesn’t mean offline only. One of the most important expectations from this principle is how software integrates its online functionality. Apps needs to be explicit about the network being a feature, rather than an assumption, and be clear and verbose about its functioning. Frontline workers using CommCare often need to travel significant distances to gain access to a network and periodically sync their data, so they deserve a process that respects their time.</p>
         <p>For us, offline first software needs to provide users with <strong>confidence</strong> that the software will continue to function offline, <strong>control</strong> over connectivity related features, and <strong>predictability</strong> for how the app behaves with and without a connection. I end up using mobile apps offline frequently and have experienced the distinct frustration that arises when software’s offline functionality lacks these properties. Unfortunately they are becoming a rarity even as offline features become more common.</p>
         <h2 id="offline-done-mostly-right">Offline done (mostly) right</h2>
         <p>As a rare counterpoint, I have noticed very positive changes in how Google has been adapting the offline components of their maps app. Those changes provide a good contrast to the online-only direction in which many apps in the market are moving, and highlight the importance of these properties.</p>
         <p>The current version of Google Maps has made a number of vital changes which elevate elements of the maps from being “available” offline to being <strong>useful</strong> offline. These aspects of the app can seem like very small things, but they are incredibly pro-user features which are a compromise from Google’s desire for a seamless and rapidly changing product.</p>
-        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img3.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img3.png" alt="Google Maps offline-maps download and settings screens on Android" loading="lazy" decoding="async"></figure>
         <p>In addition to letting you choose areas to download for offline use, the app now provides clear visibility into what data is available without a connection, even letting you view the boundaries of where the map was set. Providing first class access to these models is vital to users’ ability to predict how the app will function offline, and to control what is available.</p>
         <p>Most importantly, the app now reveals its own limitations about the availability of those models, rather than providing cues to the user only when the app has failed to load the information it needs. The maps are available offline for 30 days, after which they need to be updated to be used. Although those updates are automatic by default, the app allows users to disable automatic updates and opt to update specific maps manually when needed. This kind of control is vital for users who have small amounts of data available (or limited connectivity windows) and need to be able to prioritize how to use available data services when they get them.</p>
         <p>I’m quite impressed with Google’s direction overall. Product management techniques create an ever-present temptation to reduce control and predictability in favor of streamlining the strongest ‘common’ experience, so pushing the maps offering in the other direction shows a significant respect for their users and their needs.</p>
         <h2 id="so-close-yet-so-far">So close, yet so far….</h2>
         <p>Despite these positive changes, there’s one final and critical element that illustrates the difference between useful offline features and building software offline first. While writing this post, I was taking screenshots from a phone I hadn’t used recently, and realized after a bit that I should accept a Play Store update to the latest version of the app for accuracy in its portrayal.</p>
         <p>Notice anything different after the update?<span id='easy-footnote-2-' class='easy-footnote-margin-adjust'></span><span class='easy-footnote'><a href='#easy-footnote-bottom-2-' title='You might be tempted to assume that the offline maps were cleared due all of the visible maps being expired (although that’s not much of a defense). I’ll proactively note that I did have some offscreen up-to-date maps downloaded as well, which said they were valid for 30 days in the UI, before I applied the APK update.'><sup>2</sup></a></span></p>
-        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img4.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img4.png" alt="A Google Maps offline-maps list showing expired downloaded map areas" loading="lazy" decoding="async"></figure>
         <p>Offline Maps before and after an app update was applied</p>
         <p>I wish I could say that this is my first experience where applying a Google Maps update completely wiped out my “offline” data, but unfortunately it isn’t. At least this time I was in our internet-connected office, and not offline on my way to the field in a remote and unfamiliar country, which was the case the first time my map data was removed after an automatic update.<span id='easy-footnote-3-' class='easy-footnote-margin-adjust'></span><span class='easy-footnote'><a href='#easy-footnote-bottom-3-' title='The chicken-and-egg problems associated with automated updates are familiar to all Android developers. Years after experiencing this for the first time I’m still not sure whether to feel vindicated that Google’s own engineers find it hard enough to solve that they still don’t, or annoyed that our small team is willing and able to keep our migrations working when Google’s teams don’t even bother.'><sup>3</sup></a></span></p>
         <p>Beyond the technical decision to allow data to disappear, the divide in “offline v. offline first” product design is illustrated by what you see after starting Google Maps for the first time after one of these “update and wipe” events has occurred: nothing.</p>
-        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img5.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/offline-first-is-more-than-a-download-button/img5.png" alt="A Google Maps screen showing a 'Looks like you're offline' message" loading="lazy" decoding="async"></figure>
         <p>In addition to not retaining the maps after the update, there’s no notice that offline maps were removed or any indication that they should be re-downloaded or recovered manually<span id='easy-footnote-4-' class='easy-footnote-margin-adjust'></span><span class='easy-footnote'><a href='#easy-footnote-bottom-4-' title='This is reflective of one of the worst anti-user patterns that mobile app product techniques have levied on software. In contrast with other software, it is deemed uniquely acceptable for mobile consumer products to “reset” user experiences, where the software team makes a conscious decision to accept a broken continuity of use (like deleting data entered in the old UX) without providing users with cues to recover. Imagine if I had been online between applying this update and travelling. A simple note that my maps were wiped would have let me know I needed to proactively download them again, or at least to not anticipate them being available. Cues like this are a rarity, despite how cheap they are to provide and how little they detract from the user’s experience, in part because they invite blame on the product for not doing more. It would seem that humility is an important character trait for teams that build software which puts user needs before brand.'><sup>4</sup></a></span>. All you get is a message suggesting that there’s no reason for you to be touching Google Maps without an internet connection.</p>
         <p>I want to be fair to the team that built this functionality: Google Maps is an enormous, ever-moving target. I can’t even imagine the engineering challenge of building in offline capability as an isolated ‘feature,’ and it’s a tremendous achievement for the teams responsible to have produced something as useful as Offline Maps.</p>
         <p>Coming from a perspective where phones and apps are used as essential daily tools offline, though, it’s hard to not see a disconnect between all of the work that has been done and what I would consider the most important priority when you are offline - retaining access to the service. It feels like a car that is built to turn a corner safely at 60mph in deep snow, but won’t start if the temperature is below freezing.</p>
@@ -260,47 +260,34 @@
       </div>
       <div class="related-grid">
 
-        <a class="related-card" href="../announcing-the-first-annual-commcare-research-grant-the-2022-winners/index.html">
+        <a class="related-card" href="../scaling-our-product-activity-10x-in-one-year/index.html">
           <div class="related-card-thumb">
-            <img src="../../assets/images/announcing-the-first-annual-commcare-research-grant-the-2022-winners/cover.jpg" width="1024" height="576" alt="Announcing the First Annual CommCare Research Grant &amp; the 2022 Winners" loading="lazy" decoding="async">
+            <img src="../../assets/images/scaling-our-product-activity-10x-in-one-year/cover.jpg" width="5750" height="3806" alt="Scaling Our Product Activity 10X in One Year" loading="lazy" decoding="async">
           </div>
           <div class="related-card-body">
             <div class="related-card-cat">CommCare</div>
-            <h3 class="related-card-title">Announcing the First Annual CommCare Research Grant & the 2022 Winners</h3>
+            <h3 class="related-card-title">Scaling Our Product Activity 10X in One Year</h3>
             <div class="related-card-footer">
-              <span class="related-card-date">Sep 2022</span>
+              <span class="related-card-date">Jan 2018</span>
               <span class="related-card-link">Read</span>
             </div>
           </div>
         </a>
 
-        <a class="related-card" href="../commcare-tableau-power-bi/index.html">
+        <a class="related-card" href="../build-mobile-data-collection-app/index.html">
           <div class="related-card-thumb">
-            <img src="../../assets/images/commcare-tableau-power-bi/cover.png" width="1620" height="1080" alt="CommCare Adds New Integrations with Tableau and Power BI" loading="lazy" decoding="async">
+            <img src="../../assets/images/build-mobile-data-collection-app/cover.jpg" width="2048" height="1153" alt="How to Build a Mobile Data Collection App: From Design to Deployment" loading="lazy" decoding="async">
           </div>
           <div class="related-card-body">
             <div class="related-card-cat">CommCare</div>
-            <h3 class="related-card-title">CommCare Adds New Integrations with Tableau and Power BI</h3>
+            <h3 class="related-card-title">How to Build a Mobile Data Collection App: From Design to Deployment</h3>
             <div class="related-card-footer">
-              <span class="related-card-date">Oct 2019</span>
+              <span class="related-card-date">Oct 2025</span>
               <span class="related-card-link">Read</span>
             </div>
           </div>
         </a>
 
-        <a class="related-card" href="../mobile-data-collection-nutrition/index.html">
-          <div class="related-card-thumb">
-            <img src="../../assets/images/mobile-data-collection-nutrition/cover.jpg" width="1300" height="867" alt="How to Use Mobile Tools to Improve Nutrition Around the World" loading="lazy" decoding="async">
-          </div>
-          <div class="related-card-body">
-            <div class="related-card-cat">CommCare</div>
-            <h3 class="related-card-title">How to Use Mobile Tools to Improve Nutrition Around the World</h3>
-            <div class="related-card-footer">
-              <span class="related-card-date">Oct 2019</span>
-              <span class="related-card-link">Read</span>
-            </div>
-          </div>
-        </a>
 
       </div>
 

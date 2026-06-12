@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>But Does it Come with a Sweet "Beta" Tag in the Logo? | Dimagi</title>
+<title>Does it Come with a Sweet "Beta" Tag in the Logo? | Dimagi</title>
 <meta name="description" content="It&#8217;s a challenge to announce the &#8220;features&#8221; of a CommCare mobile release. On the mobile team we&#8217;re extremely excited about our recent">
 <meta name="author" content="Clayton Sims">
 <link rel="canonical" href="https://dimagi.com/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/">
@@ -187,48 +187,48 @@
         <p>Fortunately, there&#8217;s a great set of these new application features already in HQ along with the 2.0 release. To show you some of them I&#8217;m going to walk through making an application to track some of the Dev Team&#8217;s favorite eateries around our office. I&#8217;m going to use a combination of new and lesser known features in the app builder to do some stuff you may not have known CommCare could do. Keep an eye out for other new app design options in the next couple of months, though! We&#8217;re barely scratching the surface.</p>
         <p>Lunch around Dimagi&#8217;s Cambridge office is a mess of possibilities. We&#8217;re in a quandary when we need to have a team lunch since it&#8217;s tough to keep track of options. Fortunately, we have CommCare. I&#8217;m going to make an app to keep track of some restaurants, and share those listings amongst a bunch of people (like Hungry Hungry Coders).</p>
         <p>First, I fired up HQ and created a new 2.0 app. On the app configuration screen here, you might notice a few new things (hopefully you will, anyway, because I&#8217;ve highlighted them)</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img1.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img1.png" alt="CommCare HQ application settings for the sample 'Hungry Hungry Coders' app" loading="lazy" decoding="async"></figure>
         <p>This app&#8217;s got two big things going for it.</p>
         <ul> <li>Case Sharing is a new feature which allows different users to share their case lists with each other by syncing with the CommCare HQ server. We&#8217;ll use this to share our list of restaurants between everyone who works in the office.</li> <li>CloudCare is the web-powered front end client for CommCare. Since we&#8217;re on our computers a lot of the time, it makes sense for us to register a lot of these places without a mobile device.</li> </ul>
         <p>Now that we&#8217;ve enabled the core features of our app, I’m going to make our forms. First we need to be able to add a restaurant to our list</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img2.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img2.png" alt="Editing a single-select question and its properties in the CommCare HQ form builder" loading="lazy" decoding="async"></figure>
         <p>We&#8217;re going to keep track of a few things about each place. The name, how expensive it is, a quick review, and perhaps most importantly, a <strong>Geopoint Question</strong>, which is HQ speak for the GPS location of the joint. I added a question for whether or not you wanted to register the place using its GPS location or by writing out an address. Both will work for our app.</p>
         <p>Now we also want to be able to manage each of these listings, so we&#8217;ll make a form to update one for a restaurant. For now we&#8217;ll focus on the most important aspects: which are being able to remove the listing if a place closes down, and being able to update the latest review. I want to be able to attach a date and some text for the review, so I put them inside of a <strong>Group</strong> and set the <strong>Display Condition</strong> for my question &#8220;Do you want to write a review&#8221; on that group so I don&#8217;t have to set it on each question individually.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img3.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img3.png" alt="Using the CommCare HQ expression editor to set display logic for a question" loading="lazy" decoding="async"></figure>
         <p>Alright, so the forms are done, time to set up our case list so we can look at &#8217;em. We&#8217;ve got data saved in a few different types of formats here:</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img4.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img4.png" alt="Editing case properties, labels and formats in CommCare HQ's case management settings" loading="lazy" decoding="async"></figure>
         <p>For instance, our &#8220;expense&#8221; field is actually a mapping between the data values we record (the numbers 1,2,3, and 4) and the text we use to represent them (&#8220;$&#8221;&#8216;s). To set this up we can set the format to <strong>ID Mapping </strong>and set up what the display text should be for each. If our app was available in a couple different languages, we could set this mapping up for each language.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img5.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img5.png" alt="Configuring an ID mapping of values for the expense case property in CommCare HQ" loading="lazy" decoding="async"></figure>
         <p>I noticed that after I added the review field, I seemed to have accidentally named the updated review and the original review field different things, since there&#8217;s both a &#8220;review&#8221; and a &#8220;myreview&#8221; property.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img6.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img6.png" alt="Adding the 'review' case property in CommCare HQ's case details" loading="lazy" decoding="async"></figure>
         <p>I&#8217;ll go ahead and change the registration field to be &#8220;review&#8221; so they are consistent. The list at the bottom of the case details screen shows all of the case properties that the module knows about, so it&#8217;s good to check there to see if you have any extras.</p>
         <p>The final thing we want to configure here is also new. We want to tell CommCare that the two fields we&#8217;re using to capture the location of the restaurant represent an Address. How each CommCare client handles this might be slightly different, but when possible the app will do some cool stuff with that info since it knows it&#8217;s a location.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img7.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img7.png" alt="Completed case details showing properties, labels and formats in CommCare HQ" loading="lazy" decoding="async"></figure>
         <p>So! Our app is now done, but we need to add some users so we can log in and start sharing our favorite places. We&#8217;ll create a couple users, &#8220;alice&#8221;, and &#8220;bob&#8221;. Since we&#8217;re using the new <strong>Case Sharing</strong> feature, we also need to complete one additional step. In order to know who to share cases with, we need to add them together into <strong>Groups</strong>.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img8.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img8.png" alt="Editing the 'Best Buds!' mobile worker group in CommCare HQ" loading="lazy" decoding="async"></figure>
         <p>Here I&#8217;ve gone to the groups page and started a new group that I&#8217;ll add both users into. By default a group in HQ is a <strong>Reporting Group</strong>, which means that you can view reports for all of those users together. In this case, though, we want to change that to be a <strong>Case Sharing Group</strong> by clicking the <strong>Edit Settings</strong> button.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img9.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img9.png" alt="Turning on case sharing and reporting for a mobile worker group in CommCare HQ" loading="lazy" decoding="async"></figure>
         <p>Great! So now everything should be set. Alice is ready to share her restaurant opinions with her best buds.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img10.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img10.png" alt="The CommCare HQ web sign-in screen" loading="lazy" decoding="async"></figure>
         <p>Pro-Tip, I&#8217;ve navigated back to CommCare HQ in one of Chrome&#8217;s Incognito Tabs, here. This will let me stay logged in as my user in my normal browser, but be logged in as Alice for testing out this app.</p>
         <p>After logging in, Alice is in CloudCare. Our app loads up, and we navigate to the Restaurant Registration form. First up, Alice is going to register Picante, a local Mexican place. Since we added the Geopoint question, Alice can pinpoint the restaurant&#8217;s location with her crosshairs.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img11.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img11.png" alt="Filling out the 'Register a Restaurant' form in CloudCare, with a map location picker" loading="lazy" decoding="async"></figure>
         <p>Everything looks good. Our very first submission!</p>
         <p>But no one uses an app to just type in data. It&#8217;s time to consider Bob. Bob&#8217;s not as big on working from his computer as Alice is. He&#8217;s planning on working in the park near the office for the day, but first he&#8217;s going to download this app to keep tabs on recommended places to eat.</p>
         <p>First, he downloads the newest version of <strong>CommCare ODK 2.0</strong> to his Android device, clicks on the <strong>Scan Application Barcode</strong> button, and downloads the latest build of the Hungry Hungry Coders application from <strong>Download to CommCare ODK</strong> link on the build from the HQ Release Manager.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img12.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img12.png" alt="The CommCare Android app welcome screen prompting installation from a CommCare profile" loading="lazy" decoding="async"></figure>
         <p>Then he enters his username and password and the app fetches bob&#8217;s info (including the shared cases) from CommCare HQ.</p>
         <p>Time to figure out where to go. Bob navigates to the View/Edit Restaurants menu option, and sees that Alice has been busy!</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img13.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img13.png" alt="A list of reviewed restaurants with review dates in the CommCare Android app" loading="lazy" decoding="async"></figure>
         <p>That&#8217;s a lot of choices. Fortunately, it&#8217;s easy enough to figure out what&#8217;s nearby. From the settings screen</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img14.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img14.png" alt="Sort and 'View on Map' options for the restaurant list in the CommCare Android app" loading="lazy" decoding="async"></figure>
         <p>Bob clicks the <strong>View on Map</strong> option to get a listing</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img15.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img15.png" alt="Reviewed restaurants shown as pins on a map in the CommCare Android app" loading="lazy" decoding="async"></figure>
         <p>(Heads up! On some androids it&#8217;s been reported that the first time this screen gets pulled up Android or CommCareODK has a problem. We&#8217;re looking into it! In the mean time, it should work fine if you just log in and try again).</p>
         <p>Bob recognizes most of these places, but isn&#8217;t sure if he&#8217;s seen the one on Western ave before, so he selects it to look at the details</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img16.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img16.png" alt="A restaurant's details opened from a map pin in the CommCare Android app" loading="lazy" decoding="async"></figure>
         <p>and then checks the place out. Afterwards to do his part, he fills out his own review, sends it up to the server, and it&#8217;s shared back with the whole group.</p>
-        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img17.png" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="article-figure"><img src="../../assets/images/but-does-it-come-with-a-sweet-beta-tag-in-the-logo/img17.png" alt="Form entry, sync notifications and case data views across CommCare on a tablet" loading="lazy" decoding="async"></figure>
         <p>Whew! Not too bad for a quick exercise. And there&#8217;s a lot of places to go from here! What if we wanted to call to see if a place is open? Did you know that similar to the addresses, you can specify that a field on the <strong>Case Details</strong> list is a Phone Number? If you do so, on both the Android and J2ME (Nokia, etc) platforms, when you are looking at the details screen you can then call those numbers.</p>
         <p>Speaking of J2ME phones. Not a lot of them have a GPS in them. If Alice and Bob&#8217;s friend Charlie has a J2ME phone he won&#8217;t be able to look at the map for the restaurants (Sorry, Charlie!)<em>. </em>That doesn&#8217;t mean he can&#8217;t let them know about his favorites, though! Earlier we specified two fields as addresses, one which stored a GPS location, and the other let you type an address out. Up to this point we&#8217;ve only used the GPS, but CommCare ODK&#8217;s case map will also do a geolookup on a written out address, so as long as he knows the streets, he can share as well.</p>
         <p>What about variety? We could also record the date every time you go to a restaurant, and then sort the case list by that date so restaurants you haven&#8217;t been to in a while show up first. If you use the <strong>Search Only</strong> format for that field, it won&#8217;t even be visible in the case list (But can still be used to sort). If you place it as the first item in the <strong>Case Details</strong> list order, it&#8217;ll be used to sort by default. You and your friends could be getting a list sorted to encourage you to go to places you haven&#8217;t been to for a while and not even realize it!</p>
@@ -258,43 +258,43 @@
       </div>
       <div class="related-grid">
 
-        <a class="related-card" href="../global-digital-health-forum-2019-highlights/index.html">
+        <a class="related-card" href="../can-we-scale-empathy/index.html">
           <div class="related-card-thumb">
-            <img src="../../assets/images/global-digital-health-forum-2019-highlights/cover.png" width="1200" height="630" alt="Takeaways from the 2019 Global Digital Health Forum" loading="lazy" decoding="async">
+            <img src="../../assets/images/can-we-scale-empathy/cover.jpg" width="1024" height="683" alt="Can we scale Empathy?" loading="lazy" decoding="async">
           </div>
           <div class="related-card-body">
             <div class="related-card-cat">Dimagi</div>
-            <h3 class="related-card-title">Takeaways from the 2019 Global Digital Health Forum</h3>
+            <h3 class="related-card-title">Can we scale Empathy?</h3>
             <div class="related-card-footer">
-              <span class="related-card-date">Dec 2019</span>
+              <span class="related-card-date">Sep 2012</span>
               <span class="related-card-link">Read</span>
             </div>
           </div>
         </a>
 
-        <a class="related-card" href="../jen-harlow-awards-2019/index.html">
+        <a class="related-card" href="../2012-all-hands-meeting-re-cap/index.html">
           <div class="related-card-thumb">
-            <img src="../../assets/images/jen-harlow-awards-2019/cover.jpg" width="1548" height="1080" alt="Dimagi&#x27;s 2019 Jen Harlow Award Winners Announced" loading="lazy" decoding="async">
+            <img src="../../assets/images/2012-all-hands-meeting-re-cap/cover.jpg" width="620" height="348" alt="2012 All-Hands Meeting Re-cap" loading="lazy" decoding="async">
           </div>
           <div class="related-card-body">
             <div class="related-card-cat">Dimagi</div>
-            <h3 class="related-card-title">Dimagi's 2019 Jen Harlow Award Winners Announced</h3>
+            <h3 class="related-card-title">2012 All-Hands Meeting Re-cap</h3>
             <div class="related-card-footer">
-              <span class="related-card-date">Sep 2019</span>
+              <span class="related-card-date">Feb 2013</span>
               <span class="related-card-link">Read</span>
             </div>
           </div>
         </a>
 
-        <a class="related-card" href="../dimagi-best-for-the-world-2019-b-corporation/index.html">
+        <a class="related-card" href="../culture-pays-dividends/index.html">
           <div class="related-card-thumb">
-            <img src="../../assets/images/dimagi-best-for-the-world-2019-b-corporation/cover.jpg" width="1600" height="600" alt="Dimagi Makes 2019 Best for the World List" loading="lazy" decoding="async">
+            <img src="../../assets/images/culture-pays-dividends/cover.jpg" width="1024" height="683" alt="Culture Pays Dividends" loading="lazy" decoding="async">
           </div>
           <div class="related-card-body">
             <div class="related-card-cat">Dimagi</div>
-            <h3 class="related-card-title">Dimagi Makes 2019 Best for the World List</h3>
+            <h3 class="related-card-title">Culture Pays Dividends</h3>
             <div class="related-card-footer">
-              <span class="related-card-date">Sep 2019</span>
+              <span class="related-card-date">Mar 2013</span>
               <span class="related-card-link">Read</span>
             </div>
           </div>
